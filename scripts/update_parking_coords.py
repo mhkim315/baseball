@@ -11,7 +11,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-KAKAO_API_KEY = "4a9e8454d66ef173dd9003a06e35ad48"
+KAKAO_API_KEY = ""  # 직접 발급받은 REST API 키를 입력하세요
 KAKAO_SEARCH_URL = "https://dapi.kakao.com/v2/local/search/keyword.json"
 
 ROOT = Path(__file__).resolve().parents[1]
