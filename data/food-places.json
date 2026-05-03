@@ -1,50 +1,50 @@
-{
+﻿{
   "version": 1,
   "generatedAt": "2026-04-28T13:45:52.316Z",
   "stadiumIndex": [
     {
       "id": "1",
-      "mapFile": "jamsil.png",
+      "mapFile": "jamsil.jpg",
       "label": "잠실"
     },
     {
       "id": "2",
-      "mapFile": "gochuck.png",
+      "mapFile": "gochuck.jpg",
       "label": "고척"
     },
     {
       "id": "3",
-      "mapFile": "incheon.png",
+      "mapFile": "incheon.jpg",
       "label": "문학"
     },
     {
       "id": "4",
-      "mapFile": "suwon.png",
+      "mapFile": "suwon.jpg",
       "label": "수원"
     },
     {
       "id": "5",
-      "mapFile": "daejeon.png",
+      "mapFile": "daejeon.jpg",
       "label": "대전"
     },
     {
       "id": "6",
-      "mapFile": "daegu.png",
+      "mapFile": "daegu.jpg",
       "label": "대구"
     },
     {
       "id": "7",
-      "mapFile": "gwangju.png",
+      "mapFile": "gwangju.jpg",
       "label": "광주"
     },
     {
       "id": "8",
-      "mapFile": "busan.png",
+      "mapFile": "busan.jpg",
       "label": "사직"
     },
     {
       "id": "9",
-      "mapFile": "changwon.png",
+      "mapFile": "changwon.jpg",
       "label": "창원"
     }
   ],

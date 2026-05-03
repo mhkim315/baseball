@@ -33,6 +33,9 @@ jobs:
           python scripts/fetch_kbo_standings.py || echo "Standings update completed"
           python scripts/update_hub_data.py || echo "Hub data update completed"
           python scripts/generate_team_config.py
+          sed -i 's/\.png/.jpg/g' js/team-config.js
+          sed -i 's/\.png/.jpg/g' data/teams/index.json
+          sed -i 's/\.png/.jpg/g' data/food-places.json
 
       - name: Commit and push changes
         run: |
