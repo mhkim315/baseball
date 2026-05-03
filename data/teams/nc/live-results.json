@@ -1,0 +1,2437 @@
+{
+  "team": "NC",
+  "source": "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
+  "fetchedAt": "2026-05-03T02:08:30+09:00",
+  "byDate": {
+    "2026-04-28": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 5,
+          "scoreLine": "4-5",
+          "ourScore": 5,
+          "oppScore": 4,
+          "ourScoreLine": "5-4",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260428HTNC0"
+        }
+      ]
+    },
+    "2026-04-29": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 9,
+          "homeScore": 4,
+          "scoreLine": "9-4",
+          "ourScore": 4,
+          "oppScore": 9,
+          "ourScoreLine": "4-9",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260429HTNC0"
+        }
+      ]
+    },
+    "2026-04-16": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 3,
+          "scoreLine": "4-3",
+          "ourScore": 3,
+          "oppScore": 4,
+          "ourScoreLine": "3-4",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260416KTNC0"
+        }
+      ]
+    },
+    "2026-04-17": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": true,
+          "gameId": "20260417SKNC0"
+        }
+      ]
+    },
+    "2026-04-18": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 11,
+          "homeScore": 3,
+          "scoreLine": "11-3",
+          "ourScore": 3,
+          "oppScore": 11,
+          "ourScoreLine": "3-11",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260418SKNC0"
+        }
+      ]
+    },
+    "2026-04-19": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 2,
+          "homeScore": 9,
+          "scoreLine": "2-9",
+          "ourScore": 9,
+          "oppScore": 2,
+          "ourScoreLine": "9-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260419SKNC0"
+        }
+      ]
+    },
+    "2026-04-21": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 1,
+          "homeScore": 2,
+          "scoreLine": "1-2",
+          "ourScore": 1,
+          "oppScore": 2,
+          "ourScoreLine": "1-2",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260421NCWO0"
+        }
+      ]
+    },
+    "2026-04-22": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 3,
+          "scoreLine": "0-3",
+          "ourScore": 0,
+          "oppScore": 3,
+          "ourScoreLine": "0-3",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260422NCWO0"
+        }
+      ]
+    },
+    "2026-04-23": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 12,
+          "homeScore": 2,
+          "scoreLine": "12-2",
+          "ourScore": 12,
+          "oppScore": 2,
+          "ourScoreLine": "12-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260423NCWO0"
+        }
+      ]
+    },
+    "2026-04-24": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 7,
+          "homeScore": 3,
+          "scoreLine": "7-3",
+          "ourScore": 7,
+          "oppScore": 3,
+          "ourScoreLine": "7-3",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260424NCHH0"
+        }
+      ]
+    },
+    "2026-04-25": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 1,
+          "homeScore": 8,
+          "scoreLine": "1-8",
+          "ourScore": 1,
+          "oppScore": 8,
+          "ourScoreLine": "1-8",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260425NCHH0"
+        }
+      ]
+    },
+    "2026-04-26": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 5,
+          "homeScore": 3,
+          "scoreLine": "5-3",
+          "ourScore": 5,
+          "oppScore": 3,
+          "ourScoreLine": "5-3",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260426NCHH0"
+        }
+      ]
+    },
+    "2026-03-28": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 6,
+          "scoreLine": "0-6",
+          "ourScore": 6,
+          "oppScore": 0,
+          "ourScoreLine": "6-0",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260328OBNC0"
+        }
+      ]
+    },
+    "2026-03-29": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 9,
+          "homeScore": 6,
+          "scoreLine": "9-6",
+          "ourScore": 6,
+          "oppScore": 9,
+          "ourScoreLine": "6-9",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260329OBNC0"
+        }
+      ]
+    },
+    "2026-03-31": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 2,
+          "homeScore": 9,
+          "scoreLine": "2-9",
+          "ourScore": 9,
+          "oppScore": 2,
+          "ourScoreLine": "9-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260331LTNC0"
+        }
+      ]
+    },
+    "2026-04-01": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 5,
+          "scoreLine": "4-5",
+          "ourScore": 5,
+          "oppScore": 4,
+          "ourScoreLine": "5-4",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260401LTNC0"
+        }
+      ]
+    },
+    "2026-04-02": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 8,
+          "scoreLine": "4-8",
+          "ourScore": 8,
+          "oppScore": 4,
+          "ourScoreLine": "8-4",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260402LTNC0"
+        }
+      ]
+    },
+    "2026-04-03": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 5,
+          "homeScore": 2,
+          "scoreLine": "5-2",
+          "ourScore": 5,
+          "oppScore": 2,
+          "ourScoreLine": "5-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260403NCHT0"
+        }
+      ]
+    },
+    "2026-04-04": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 6,
+          "homeScore": 0,
+          "scoreLine": "6-0",
+          "ourScore": 6,
+          "oppScore": 0,
+          "ourScoreLine": "6-0",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260404NCHT0"
+        }
+      ]
+    },
+    "2026-04-05": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 0,
+          "homeScore": 3,
+          "scoreLine": "0-3",
+          "ourScore": 0,
+          "oppScore": 3,
+          "ourScoreLine": "0-3",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260405NCHT0"
+        }
+      ]
+    },
+    "2026-04-07": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 2,
+          "homeScore": 0,
+          "scoreLine": "2-0",
+          "ourScore": 0,
+          "oppScore": 2,
+          "ourScoreLine": "0-2",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260407LGNC0"
+        }
+      ]
+    },
+    "2026-04-08": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 5,
+          "homeScore": 4,
+          "scoreLine": "5-4",
+          "ourScore": 4,
+          "oppScore": 5,
+          "ourScoreLine": "4-5",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260408LGNC0"
+        }
+      ]
+    },
+    "2026-04-09": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": true,
+          "gameId": "20260409LGNC0"
+        }
+      ]
+    },
+    "2026-04-10": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 5,
+          "homeScore": 8,
+          "scoreLine": "5-8",
+          "ourScore": 5,
+          "oppScore": 8,
+          "ourScoreLine": "5-8",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260410NCSS0"
+        }
+      ]
+    },
+    "2026-04-11": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 4,
+          "homeScore": 5,
+          "scoreLine": "4-5",
+          "ourScore": 4,
+          "oppScore": 5,
+          "ourScoreLine": "4-5",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260411NCSS0"
+        }
+      ]
+    },
+    "2026-04-12": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 3,
+          "homeScore": 9,
+          "scoreLine": "3-9",
+          "ourScore": 3,
+          "oppScore": 9,
+          "ourScoreLine": "3-9",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260412NCSS0"
+        }
+      ]
+    },
+    "2026-04-14": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 7,
+          "scoreLine": "4-7",
+          "ourScore": 7,
+          "oppScore": 4,
+          "ourScoreLine": "7-4",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260414KTNC0"
+        }
+      ]
+    },
+    "2026-04-15": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 10,
+          "homeScore": 2,
+          "scoreLine": "10-2",
+          "ourScore": 2,
+          "oppScore": 10,
+          "ourScoreLine": "2-10",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260415KTNC0"
+        }
+      ]
+    },
+    "2026-04-30": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 2,
+          "homeScore": 7,
+          "scoreLine": "2-7",
+          "ourScore": 7,
+          "oppScore": 2,
+          "ourScoreLine": "7-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260430HTNC0"
+        }
+      ]
+    },
+    "2026-05-01": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 1,
+          "homeScore": 5,
+          "scoreLine": "1-5",
+          "ourScore": 1,
+          "oppScore": 5,
+          "ourScoreLine": "1-5",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260501NCLG0"
+        }
+      ]
+    },
+    "2026-05-02": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 5,
+          "homeScore": 13,
+          "scoreLine": "5-13",
+          "ourScore": 5,
+          "oppScore": 13,
+          "ourScoreLine": "5-13",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20260502NCLG0"
+        }
+      ]
+    },
+    "2026-05-03": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260503NCLG0"
+        }
+      ]
+    },
+    "2026-05-05": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260505NCSK0"
+        }
+      ]
+    },
+    "2026-05-06": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260506NCSK0"
+        }
+      ]
+    },
+    "2026-05-07": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260507NCSK0"
+        }
+      ]
+    },
+    "2026-05-08": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260508SSNC0"
+        }
+      ]
+    },
+    "2026-05-09": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260509SSNC0"
+        }
+      ]
+    },
+    "2026-05-10": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260510SSNC0"
+        }
+      ]
+    },
+    "2026-05-12": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260512NCLT0"
+        }
+      ]
+    },
+    "2026-05-13": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260513NCLT0"
+        }
+      ]
+    },
+    "2026-05-14": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260514NCLT0"
+        }
+      ]
+    },
+    "2026-05-15": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260515WONC0"
+        }
+      ]
+    },
+    "2026-05-16": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260516WONC0"
+        }
+      ]
+    },
+    "2026-05-17": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260517WONC0"
+        }
+      ]
+    },
+    "2026-05-19": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260519NCOB0"
+        }
+      ]
+    },
+    "2026-05-20": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260520NCOB0"
+        }
+      ]
+    },
+    "2026-05-21": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260521NCOB0"
+        }
+      ]
+    },
+    "2026-05-22": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260522NCKT0"
+        }
+      ]
+    },
+    "2026-05-23": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260523NCKT0"
+        }
+      ]
+    },
+    "2026-05-24": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260524NCKT0"
+        }
+      ]
+    },
+    "2026-05-26": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260526HHNC0"
+        }
+      ]
+    },
+    "2026-05-27": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260527HHNC0"
+        }
+      ]
+    },
+    "2026-05-28": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260528HHNC0"
+        }
+      ]
+    },
+    "2026-05-29": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260529LTNC0"
+        }
+      ]
+    },
+    "2026-05-30": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260530LTNC0"
+        }
+      ]
+    },
+    "2026-05-31": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260531LTNC0"
+        }
+      ]
+    },
+    "2026-06-02": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260602NCSS0"
+        }
+      ]
+    },
+    "2026-06-03": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260603NCSS0"
+        }
+      ]
+    },
+    "2026-06-04": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260604NCSS0"
+        }
+      ]
+    },
+    "2026-06-05": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260605LGNC0"
+        }
+      ]
+    },
+    "2026-06-06": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260606LGNC0"
+        }
+      ]
+    },
+    "2026-06-07": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260607LGNC0"
+        }
+      ]
+    },
+    "2026-06-09": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260609NCWO0"
+        }
+      ]
+    },
+    "2026-06-10": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260610NCWO0"
+        }
+      ]
+    },
+    "2026-06-11": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260611NCWO0"
+        }
+      ]
+    },
+    "2026-06-12": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260612NCKT0"
+        }
+      ]
+    },
+    "2026-06-13": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260613NCKT0"
+        }
+      ]
+    },
+    "2026-06-14": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KT",
+          "venue": "수원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260614NCKT0"
+        }
+      ]
+    },
+    "2026-06-16": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260616HHNC0"
+        }
+      ]
+    },
+    "2026-06-17": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260617HHNC0"
+        }
+      ]
+    },
+    "2026-06-18": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260618HHNC0"
+        }
+      ]
+    },
+    "2026-06-19": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260619SKNC0"
+        }
+      ]
+    },
+    "2026-06-20": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260620SKNC0"
+        }
+      ]
+    },
+    "2026-06-21": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260621SKNC0"
+        }
+      ]
+    },
+    "2026-06-23": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260623NCLT0"
+        }
+      ]
+    },
+    "2026-06-24": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260624NCLT0"
+        }
+      ]
+    },
+    "2026-06-25": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260625NCLT0"
+        }
+      ]
+    },
+    "2026-06-26": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260626WONC0"
+        }
+      ]
+    },
+    "2026-06-27": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260627WONC0"
+        }
+      ]
+    },
+    "2026-06-28": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260628WONC0"
+        }
+      ]
+    },
+    "2026-06-30": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260630SSNC0"
+        }
+      ]
+    },
+    "2026-07-01": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260701SSNC0"
+        }
+      ]
+    },
+    "2026-07-02": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260702SSNC0"
+        }
+      ]
+    },
+    "2026-07-03": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260703NCHT0"
+        }
+      ]
+    },
+    "2026-07-04": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260704NCHT0"
+        }
+      ]
+    },
+    "2026-07-05": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260705NCHT0"
+        }
+      ]
+    },
+    "2026-07-07": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260707NCHH0"
+        }
+      ]
+    },
+    "2026-07-08": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260708NCHH0"
+        }
+      ]
+    },
+    "2026-07-09": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260709NCHH0"
+        }
+      ]
+    },
+    "2026-07-16": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260716OBNC0"
+        }
+      ]
+    },
+    "2026-07-17": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260717OBNC0"
+        }
+      ]
+    },
+    "2026-07-18": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260718OBNC0"
+        }
+      ]
+    },
+    "2026-07-19": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260719OBNC0"
+        }
+      ]
+    },
+    "2026-07-21": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260721NCLG0"
+        }
+      ]
+    },
+    "2026-07-22": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260722NCLG0"
+        }
+      ]
+    },
+    "2026-07-23": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260723NCLG0"
+        }
+      ]
+    },
+    "2026-07-24": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260724NCSK0"
+        }
+      ]
+    },
+    "2026-07-25": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260725NCSK0"
+        }
+      ]
+    },
+    "2026-07-26": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260726NCSK0"
+        }
+      ]
+    },
+    "2026-07-28": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260728KTNC0"
+        }
+      ]
+    },
+    "2026-07-29": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260729KTNC0"
+        }
+      ]
+    },
+    "2026-07-30": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260730KTNC0"
+        }
+      ]
+    },
+    "2026-07-31": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260731HTNC0"
+        }
+      ]
+    },
+    "2026-08-01": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260801HTNC0"
+        }
+      ]
+    },
+    "2026-08-02": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260802HTNC0"
+        }
+      ]
+    },
+    "2026-08-04": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260804NCOB0"
+        }
+      ]
+    },
+    "2026-08-05": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260805NCOB0"
+        }
+      ]
+    },
+    "2026-08-06": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260806NCOB0"
+        }
+      ]
+    },
+    "2026-08-07": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260807SKNC0"
+        }
+      ]
+    },
+    "2026-08-08": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260808SKNC0"
+        }
+      ]
+    },
+    "2026-08-09": {
+      "games": [
+        {
+          "away": "SSG",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260809SKNC0"
+        }
+      ]
+    },
+    "2026-08-11": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260811KTNC0"
+        }
+      ]
+    },
+    "2026-08-12": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260812KTNC0"
+        }
+      ]
+    },
+    "2026-08-13": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260813KTNC0"
+        }
+      ]
+    },
+    "2026-08-14": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260814NCLT0"
+        }
+      ]
+    },
+    "2026-08-15": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260815NCLT0"
+        }
+      ]
+    },
+    "2026-08-16": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260816NCLT0"
+        }
+      ]
+    },
+    "2026-08-18": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260818OBNC0"
+        }
+      ]
+    },
+    "2026-08-19": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260819OBNC0"
+        }
+      ]
+    },
+    "2026-08-20": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260820OBNC0"
+        }
+      ]
+    },
+    "2026-08-21": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260821SSNC0"
+        }
+      ]
+    },
+    "2026-08-22": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260822SSNC0"
+        }
+      ]
+    },
+    "2026-08-23": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260823SSNC0"
+        }
+      ]
+    },
+    "2026-08-25": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260825NCLG0"
+        }
+      ]
+    },
+    "2026-08-26": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260826NCLG0"
+        }
+      ]
+    },
+    "2026-08-27": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260827NCLG0"
+        }
+      ]
+    },
+    "2026-08-28": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260828NCHH0"
+        }
+      ]
+    },
+    "2026-08-29": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260829NCHH0"
+        }
+      ]
+    },
+    "2026-08-30": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260830NCHH0"
+        }
+      ]
+    },
+    "2026-09-01": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260901HTNC0"
+        }
+      ]
+    },
+    "2026-09-02": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260902HTNC0"
+        }
+      ]
+    },
+    "2026-09-03": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260903HTNC0"
+        }
+      ]
+    },
+    "2026-09-04": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260904NCWO0"
+        }
+      ]
+    },
+    "2026-09-05": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260905NCWO0"
+        }
+      ]
+    },
+    "2026-09-06": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "키움",
+          "venue": "고척",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260906NCWO0"
+        }
+      ]
+    }
+  }
+}

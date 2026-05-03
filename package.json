@@ -1,0 +1,16 @@
+{
+  "name": "baseball-deploy3",
+  "private": true,
+  "description": "10개 구단 선택형 야구장 가이드 리팩토링 버전",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "scripts": {
+    "start": "serve . -l 5175",
+    "start:py": "python -m http.server 5175 --bind 127.0.0.1",
+    "update-data": "python scripts/update_hub_data.py && python scripts/generate_team_config.py",
+    "generate-config": "python scripts/generate_team_config.py",
+    "calc-odds": "python scripts/calc_postseason_odds.py",
+    "verify": "node scripts/verify-static.mjs"
+  }
+}

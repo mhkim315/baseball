@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "teamId": "hanwha",
+    "lineupDate": "2026-05-03",
+    "lastUpdated": "2026-05-03T02:08:37+09:00",
+    "gameId": "20260503HHSS02026",
+    "kboGameId": "20260503HHSS0",
+    "opponent": "삼성",
+    "venue": "대구",
+    "gameTime": "14:00",
+    "lineupVerification": {
+      "ours": {
+        "source": "kbo-expected"
+      },
+      "opponent": {
+        "source": "kbo-expected"
+      },
+      "startingPitcher": {
+        "source": "naver-preview"
+      }
+    }
+  },
+  "opponentMeta": {
+    "teamShort": "삼성",
+    "teamName": "삼성"
+  },
+  "batters": [
+    {
+      "order": 1,
+      "name": "이진영",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "페라자",
+      "position": "우익수"
+    },
+    {
+      "order": 3,
+      "name": "문현빈",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "강백호",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "노시환",
+      "position": "3루수"
+    },
+    {
+      "order": 6,
+      "name": "김태연",
+      "position": "1루수"
+    },
+    {
+      "order": 7,
+      "name": "이도윤",
+      "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "허인서",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "황영묵",
+      "position": "2루수"
+    }
+  ],
+  "opponentBatters": [
+    {
+      "order": 1,
+      "name": "박승규",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "김성윤",
+      "position": "우익수"
+    },
+    {
+      "order": 3,
+      "name": "최형우",
+      "position": "지명타자"
+    },
+    {
+      "order": 4,
+      "name": "디아즈",
+      "position": "1루수"
+    },
+    {
+      "order": 5,
+      "name": "류지혁",
+      "position": "3루수"
+    },
+    {
+      "order": 6,
+      "name": "김헌곤",
+      "position": "좌익수"
+    },
+    {
+      "order": 7,
+      "name": "김재상",
+      "position": "2루수"
+    },
+    {
+      "order": 8,
+      "name": "김도환",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "양우현",
+      "position": "유격수"
+    }
+  ],
+  "startingPitcher": {
+    "name": "왕옌청"
+  },
+  "opponentStartingPitcher": {
+    "name": "후라도"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "teamId": "doosan",
+    "lineupDate": "2026-05-03",
+    "lastUpdated": "2026-05-03T02:08:35+09:00",
+    "gameId": "20260503OBWO02026",
+    "kboGameId": "20260503OBWO0",
+    "opponent": "키움",
+    "venue": "고척",
+    "gameTime": "14:00",
+    "lineupVerification": {
+      "ours": {
+        "source": "kbo-expected"
+      },
+      "opponent": {
+        "source": "kbo-expected"
+      },
+      "startingPitcher": {
+        "source": "naver-preview"
+      }
+    }
+  },
+  "opponentMeta": {
+    "teamShort": "키움",
+    "teamName": "키움"
+  },
+  "batters": [
+    {
+      "order": 1,
+      "name": "박찬호",
+      "position": "유격수"
+    },
+    {
+      "order": 2,
+      "name": "카메론",
+      "position": "우익수"
+    },
+    {
+      "order": 3,
+      "name": "박준순",
+      "position": "2루수"
+    },
+    {
+      "order": 4,
+      "name": "양의지",
+      "position": "포수"
+    },
+    {
+      "order": 5,
+      "name": "김민석",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "안재석",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
+      "name": "양석환",
+      "position": "지명타자"
+    },
+    {
+      "order": 8,
+      "name": "오명진",
+      "position": "1루수"
+    },
+    {
+      "order": 9,
+      "name": "정수빈",
+      "position": "중견수"
+    }
+  ],
+  "opponentBatters": [
+    {
+      "order": 1,
+      "name": "이형종",
+      "position": "좌익수"
+    },
+    {
+      "order": 2,
+      "name": "김건희",
+      "position": "포수"
+    },
+    {
+      "order": 3,
+      "name": "안치홍",
+      "position": "2루수"
+    },
+    {
+      "order": 4,
+      "name": "최주환",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "임병욱",
+      "position": "우익수"
+    },
+    {
+      "order": 6,
+      "name": "박수종",
+      "position": "중견수"
+    },
+    {
+      "order": 7,
+      "name": "브룩스",
+      "position": "1루수"
+    },
+    {
+      "order": 8,
+      "name": "양현종",
+      "position": "3루수"
+    },
+    {
+      "order": 9,
+      "name": "권혁빈",
+      "position": "유격수"
+    }
+  ],
+  "startingPitcher": {
+    "name": "곽빈"
+  },
+  "opponentStartingPitcher": {
+    "name": "박준현"
+  }
+}

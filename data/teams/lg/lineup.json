@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "teamId": "lg",
+    "lineupDate": "2026-05-03",
+    "lastUpdated": "2026-05-03T02:08:36+09:00",
+    "gameId": "20260503NCLG02026",
+    "kboGameId": "20260503NCLG0",
+    "opponent": "NC",
+    "venue": "잠실",
+    "gameTime": "14:00",
+    "lineupVerification": {
+      "ours": {
+        "source": "kbo-expected"
+      },
+      "opponent": {
+        "source": "kbo-expected"
+      },
+      "startingPitcher": {
+        "source": "naver-preview"
+      }
+    }
+  },
+  "opponentMeta": {
+    "teamShort": "NC",
+    "teamName": "NC"
+  },
+  "batters": [
+    {
+      "order": 1,
+      "name": "홍창기",
+      "position": "우익수"
+    },
+    {
+      "order": 2,
+      "name": "천성호",
+      "position": "3루수"
+    },
+    {
+      "order": 3,
+      "name": "오스틴",
+      "position": "1루수"
+    },
+    {
+      "order": 4,
+      "name": "문보경",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "송찬의",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "박해민",
+      "position": "중견수"
+    },
+    {
+      "order": 7,
+      "name": "구본혁",
+      "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "이주헌",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "신민재",
+      "position": "2루수"
+    }
+  ],
+  "opponentBatters": [
+    {
+      "order": 1,
+      "name": "한석현",
+      "position": "좌익수"
+    },
+    {
+      "order": 2,
+      "name": "박민우",
+      "position": "2루수"
+    },
+    {
+      "order": 3,
+      "name": "박건우",
+      "position": "우익수"
+    },
+    {
+      "order": 4,
+      "name": "데이비슨",
+      "position": "1루수"
+    },
+    {
+      "order": 5,
+      "name": "이우성",
+      "position": "지명타자"
+    },
+    {
+      "order": 6,
+      "name": "신재인",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
+      "name": "천재환",
+      "position": "중견수"
+    },
+    {
+      "order": 8,
+      "name": "안중열",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "김한별",
+      "position": "유격수"
+    }
+  ],
+  "startingPitcher": {
+    "name": "이상영"
+  },
+  "opponentStartingPitcher": {
+    "name": "신민혁"
+  }
+}

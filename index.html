@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>직관가이드</title>
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <h1 id="site-title" class="brand-title">직관가이드</h1>
+        <p id="site-subtitle" class="lead">구단을 선택해 주세요.</p>
+        <nav id="team-selector" class="team-selector" aria-label="구단 선택"></nav>
+        <nav id="section-nav" class="nav" aria-label="가이드 섹션"></nav>
+      </header>
+      <p id="load-error" class="error-banner" role="alert"></p>
+      <main>
+        <section id="game-preview" class="panel" aria-label="경기 프리뷰"></section>
+        <section aria-label="라인업">
+          <div class="table-wrap panel">
+            <table id="lineup-table">
+              <thead>
+                <tr><th>타순</th><th>이름</th><th>포지션</th><th id="lineup-opponent-head">상대 라인업</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer muted">baseball_refac · 기능형 UI 보강 버전</footer>
+    </div>
+    <script type="module" src="js/lineup-page.js"></script>
+  </body>
+</html>
