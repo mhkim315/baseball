@@ -28,6 +28,8 @@ def main() -> None:
     common = []
     if args.team:
         common += ["--team", args.team]
+    # 순위는 항상 먼저 갱신
+    run("fetch_kbo_standings.py", [])
     if not args.skip_results:
         run("fetch_kbo_game_results.py", [*common, "--recent", str(args.recent)])
     dated = list(common)

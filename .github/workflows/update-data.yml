@@ -30,6 +30,7 @@ jobs:
 
       - name: Run data update
         run: |
+          python scripts/fetch_kbo_standings.py || echo "Standings update completed"
           python scripts/update_hub_data.py || echo "Hub data update completed"
           python scripts/generate_team_config.py
 
