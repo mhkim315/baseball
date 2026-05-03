@@ -23,6 +23,7 @@
             <button type="button" id="seat-tab" data-stadium-tab="seats" aria-controls="seat-panel">좌석</button>
             <button type="button" id="food-tab" data-stadium-tab="food" aria-controls="food-panel">먹거리</button>
             <button type="button" id="map-tab" data-stadium-tab="map" aria-controls="map-panel">주차</button>
+            <button type="button" id="eats-tab" data-stadium-tab="eats" aria-controls="eats-panel">주변맛집</button>
           </nav>
           <section id="seat-panel" class="subsection-panel" aria-label="좌석">
             <figure class="figure-block panel">
@@ -30,9 +31,6 @@
             </figure>
           </section>
           <section id="map-panel" class="subsection-panel" aria-label="주변맵" hidden>
-            <p class="muted stadium-map-intro">
-              <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a> · <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener noreferrer">OpenMapTiles</a>
-            </p>
             <div id="stadium-map-root" class="stadium-map-root panel" role="region" aria-label="구장 주변 지도"></div>
             <ul class="stadium-map-legend muted" aria-label="마커 범례">
               <li class="stadium-map-legend-item">
@@ -73,6 +71,16 @@
               <h4 id="food-count" class="visually-hidden">등록 매장</h4>
               <ul id="food-list" class="food-list"></ul>
             </section>
+          </section>
+          <section id="eats-panel" class="subsection-panel" aria-label="주변맛집" hidden>
+            <div class="filter-block panel" style="margin-bottom:8px">
+              <div>
+                <strong>카테고리</strong>
+                <div id="eats-cat-tabs" class="filter-tabs" role="tablist" aria-label="음식 카테고리 선택"></div>
+              </div>
+            </div>
+            <div id="eats-map-root" class="stadium-map-root panel" role="region" aria-label="주변맛집 지도"></div>
+            <section id="eats-detail" class="food-detail-card panel" aria-live="polite"></section>
           </section>
         </section>
       </main>

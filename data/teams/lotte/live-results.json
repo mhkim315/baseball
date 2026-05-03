@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
-  "fetchedAt": "2026-05-03T18:56:43+09:00",
+  "fetchedAt": "2026-05-03T22:58:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [

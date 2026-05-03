@@ -32,3 +32,4 @@ export const loadStandings = () => loadJson("data/kbo_standings.json");
 export const loadFoodPlaces = () => loadJson("data/food-places.json");
 export const loadFoodLayouts = () => loadJson("data/food-layouts.json");
 export const loadStadiumSurroundings = () => loadJson("data/stadium-surroundings.json");
+export const loadStadiumEats = () => loadJson("data/stadium-eats.json");

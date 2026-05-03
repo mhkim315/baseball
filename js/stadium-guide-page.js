@@ -1,4 +1,4 @@
-import { loadFoodLayouts, loadFoodPlaces, loadStadiumSurroundings } from "./data-loader.js";
+import { loadFoodLayouts, loadFoodPlaces, loadStadiumSurroundings, loadStadiumEats } from "./data-loader.js";
 import {
   disposeStadiumMap,
   isMapLibreAvailable,
@@ -260,7 +260,7 @@ function refreshStadiumMap() {
 }
 
 function setActiveTab(tab, { updateUrl = true } = {}) {
-  const next = tab === "food" ? "food" : tab === "map" ? "map" : "seats";
+  const next = ["seats", "food", "map", "eats"].includes(tab) ? tab : "seats";
   if (state.activeTab === "map" && next !== "map") {
     disposeStadiumMap();
   }
@@ -273,6 +273,8 @@ function setActiveTab(tab, { updateUrl = true } = {}) {
   document.getElementById("food-panel").hidden = state.activeTab !== "food";
   const mapPanel = document.getElementById("map-panel");
   if (mapPanel) mapPanel.hidden = state.activeTab !== "map";
+  const eatsPanel = document.getElementById("eats-panel");
+  if (eatsPanel) eatsPanel.hidden = state.activeTab !== "eats";
   if (updateUrl) {
     const url = new URL(window.location.href);
     url.searchParams.set("tab", state.activeTab);
@@ -281,6 +283,142 @@ function setActiveTab(tab, { updateUrl = true } = {}) {
   if (state.activeTab === "map") {
     requestAnimationFrame(() => refreshStadiumMap());
   }
+  if (state.activeTab === "eats" && eatsMap) {
+    requestAnimationFrame(() => eatsMap.resize());
+  }
+}
+
+// ── 주변맛집 ────────────────────────────────────────────────
+
+const EATS_CATEGORY_STYLE = {
+  "치킨·호프": { fill: "#e11d48", icon: "🍗", label: "치킨" },
+  "고깃집": { fill: "#dc2626", icon: "🥩", label: "고기" },
+  "밥집·국밥": { fill: "#d97706", icon: "🍚", label: "밥집" },
+  "카페·디저트": { fill: "#7c3aed", icon: "☕", label: "카페" },
+  "술집·이자카야": { fill: "#0891b2", icon: "🍺", label: "술집" },
+  "면·분식": { fill: "#059669", icon: "🍜", label: "면·분식" },
+};
+
+function eatsPinSvg(fill) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 42" width="26" height="34" aria-hidden="true">
+    <path fill="${fill}" stroke="#fff" stroke-width="1.25" stroke-linejoin="round" d="M16 2C9.2 2 4 7.4 4 14.2c0 8.8 12 25.8 12 25.8s12-17 12-25.8C28 7.4 22.8 2 16 2z"/>
+    <circle cx="16" cy="14.5" r="4.2" fill="#fff"/>
+    <text x="16" y="19" text-anchor="middle" font-size="12">${fill === "#e11d48" ? "🍗" : fill === "#dc2626" ? "🥩" : fill === "#d97706" ? "🍚" : fill === "#7c3aed" ? "☕" : fill === "#0891b2" ? "🍺" : "🍜"}</text>
+  </svg>`;
+}
+
+let eatsMap = null;
+let eatsMarkers = [];
+
+function clearEatsMarkers() {
+  for (const m of eatsMarkers) m.remove();
+  eatsMarkers = [];
+}
+
+function renderEats(eatsData) {
+  const root = document.getElementById("eats-map-root");
+  const detail = document.getElementById("eats-detail");
+  if (!root) return;
+
+  const spots = eatsData?.spots || [];
+  if (!spots.length) {
+    root.innerHTML = '<p class="muted stadium-map-fallback">이 구장의 주변맛집 데이터가 아직 준비되지 않았습니다.</p>';
+    return;
+  }
+
+  if (!isMapLibreAvailable()) {
+    root.innerHTML = '<p class="muted stadium-map-fallback">MapLibre 스크립트를 불러오지 못했습니다.</p>';
+    return;
+  }
+
+  if (!eatsMap) {
+    eatsMap = new window.maplibregl.Map({
+      container: "eats-map-root",
+      style: "https://tiles.openfreemap.org/styles/bright",
+      center: eatsData.center || [127.0097, 37.2998],
+      zoom: 14.5,
+    });
+    eatsMap.addControl(new window.maplibregl.NavigationControl());
+  }
+
+  clearEatsMarkers();
+  if (detail) detail.innerHTML = '<p class="food-detail-hint">지도 마커를 선택하면 상세 정보가 표시됩니다.</p>';
+
+  // 카테고리별 범례
+  const legendEl = document.getElementById("eats-legend");
+  if (legendEl) {
+    legendEl.innerHTML = Object.entries(EATS_CATEGORY_STYLE).map(([cat, s]) =>
+      `<span style="display:inline-flex;align-items:center;gap:4px;margin-right:10px;font-size:0.8rem">
+        <svg viewBox="0 0 10 10" width="10" height="10"><circle cx="5" cy="5" r="4" fill="${s.fill}"/></svg>
+        ${s.label}
+      </span>`
+    ).join("");
+  }
+
+  // 카테고리 목록 추출
+  const cats = [...new Set(spots.map(s => s.cat).filter(Boolean))];
+  let activeCat = cats[0] || "";
+
+  // 카테고리 필터 탭
+  function renderFilterTabs() {
+    renderTab(document.getElementById("eats-cat-tabs"),
+      cats.map(c => ({ id: c, label: (EATS_CATEGORY_STYLE[c]?.icon || "") + " " + c })),
+      activeCat, (id) => { activeCat = id; renderFilteredSpots(); renderFilterTabs(); });
+  }
+  renderFilterTabs();
+
+  function renderFilteredSpots() {
+    clearEatsMarkers();
+    if (detail) detail.innerHTML = '<p class="food-detail-hint">지도 마커를 선택하면 상세 정보가 표시됩니다.</p>';
+    const filtered = spots.filter(s => s.cat === activeCat);
+    if (!filtered.length) return;
+
+    filtered.forEach((spot, i) => {
+    const catStyle = EATS_CATEGORY_STYLE[spot.cat] || { fill: "#6b7280" };
+
+    // 핀 마커 + 라벨
+    const el = document.createElement("div");
+    el.className = "eats-marker-wrap";
+    el.style.cursor = "pointer";
+    el.title = `${spot.cat} · ${spot.name}`;
+    el.innerHTML = `
+      <div class="eats-marker-pin">${eatsPinSvg(catStyle.fill)}</div>
+      <div class="eats-marker-label">${spot.name}</div>
+    `;
+
+    const popup = new window.maplibregl.Popup({ offset: 25, closeButton: false }).setHTML(
+      `<strong>${spot.name}</strong><br><span class="muted">${spot.cat} · ${spot.phone || ""}</span>`
+    );
+
+    const marker = new window.maplibregl.Marker({ element: el, anchor: "bottom" })
+      .setLngLat([spot.lng, spot.lat])
+      .setPopup(popup)
+      .addTo(eatsMap);
+
+    el.addEventListener("click", () => {
+      if (detail) {
+        detail.innerHTML = `<div class="food-detail-heading">
+          <div><h4>${spot.name}</h4><p>${spot.phone || ""}</p></div>
+          <span class="food-detail-chip food-detail-chip--${spot.cat?.includes("치킨") ? "chicken" : spot.cat?.includes("카페") ? "cafe" : spot.cat?.includes("술") ? "western" : "korean"}">${spot.cat || ""}</span>
+        </div>
+        <dl class="food-detail-rows">
+          <div><dt>주소</dt><dd>${spot.address || "—"}</dd></div>
+          <div><dt>전화</dt><dd>${spot.phone || "—"}</dd></div>
+        </dl>`;
+        detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+
+      eatsMarkers.push(marker);
+    });
+  }
+
+  // 초기 렌더링
+  renderFilteredSpots();
+
+  // 범례 업데이트 안 함 (카테고리 탭이 대신)
+  const legendEl2 = document.getElementById("eats-legend");
+  if (legendEl2) legendEl2.style.display = "none";
 }
 
 function bindSubTabs() {
@@ -306,16 +444,25 @@ async function main() {
       loadFoodLayouts(),
       loadStadiumSurroundings().catch(() => ({ stadiums: {} })),
     ]);
+
+    const eats = await loadStadiumEats().catch(() => null);
     state.surroundings = surroundings;
     state.stores = places?.stadiums?.[state.stadium.id] || [];
     state.layouts = layouts || { stadiums: {} };
     state.floor = uniqueFloors(state.stores)[0] || "";
     state.category = "all";
     renderFood();
+    if (eats) {
+      const hubId = state.stadium?.id;
+      const eatsStadium = eats?.stadiums?.[hubId];
+      if (eatsStadium) {
+        renderEats({ center: eatsStadium.center, spots: eatsStadium.spots || [] });
+      }
+    }
 
     bindSubTabs();
     const initialTab = new URLSearchParams(window.location.search).get("tab");
-    const tab = initialTab === "food" ? "food" : initialTab === "map" ? "map" : "seats";
+    const tab = initialTab === "food" ? "food" : initialTab === "map" ? "map" : initialTab === "eats" ? "eats" : "seats";
     setActiveTab(tab, { updateUrl: false });
   } catch (error) {
     console.error(error);

@@ -2,7 +2,6 @@ name: Update KBO Data
 
 on:
   schedule:
-    # 25분 간격 (KST 12:00~23:59 사이만 실행, 자정~정오 스킵)
     - cron: '*/25 * * * *'
   workflow_dispatch:
 
@@ -13,33 +12,36 @@ jobs:
       contents: write
 
     steps:
-      - name: Skip if KST midnight-noon
-        run: |
-          KST_HOUR=$(TZ=Asia/Seoul date +%H)
-          if [ "$KST_HOUR" -lt 12 ]; then
-            echo "KST $KST_HOUR:00 - skipping"
-            exit 0
-          fi
-          echo "KST $KST_HOUR:00 - running"
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Run data update
+      - name: Run data update (skip midnight-noon KST)
         run: |
-          python scripts/fetch_kbo_standings.py || echo "Standings update completed"
-          python scripts/update_hub_data.py || echo "Hub data update completed"
+          KST_HOUR=$(TZ=Asia/Seoul date +%H)
+          if [ "$KST_HOUR" -lt 12 ]; then
+            echo "KST $KST_HOUR:00 - skipping update (자정~정오)"
+            exit 0
+          fi
+          echo "KST $KST_HOUR:00 - running update"
+          python scripts/fetch_kbo_standings.py
+          python scripts/update_hub_data.py
           python scripts/generate_team_config.py
+          # Fix .png -> .jpg references (deploy images are jpg)
           sed -i 's/\.png/.jpg/g' js/team-config.js
           sed -i 's/\.png/.jpg/g' data/teams/index.json
           sed -i 's/\.png/.jpg/g' data/food-places.json
 
-      - name: Commit and push changes
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ js/team-config.js
-          git diff --staged --quiet || (git commit -m "Auto-update [skip ci]" && git push)
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update [skip ci]"
+            git push
+          fi
