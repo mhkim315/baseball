@@ -5,64 +5,64 @@ export const STADIUMS = {
     "id": "1",
     "label": "잠실",
     "ballparkId": "jamsil",
-    "seatImage": "picture/stadium-seats/jamsil.jpg",
-    "foodMapImage": "picture/food-admin-maps/jamsil.jpg"
+    "seatImage": "picture/stadium-seats/jamsil.png",
+    "foodMapImage": "picture/food-admin-maps/jamsil.png"
   },
   "2": {
     "id": "2",
     "label": "고척",
     "ballparkId": "gochuck",
-    "seatImage": "picture/stadium-seats/gochuck.jpg",
-    "foodMapImage": "picture/food-admin-maps/gochuck.jpg"
+    "seatImage": "picture/stadium-seats/gochuck.png",
+    "foodMapImage": "picture/food-admin-maps/gochuck.png"
   },
   "3": {
     "id": "3",
     "label": "문학",
     "ballparkId": "incheon",
-    "seatImage": "picture/stadium-seats/incheon.jpg",
-    "foodMapImage": "picture/food-admin-maps/incheon.jpg"
+    "seatImage": "picture/stadium-seats/incheon.png",
+    "foodMapImage": "picture/food-admin-maps/incheon.png"
   },
   "4": {
     "id": "4",
     "label": "수원",
     "ballparkId": "suwon",
-    "seatImage": "picture/stadium-seats/suwon.jpg",
-    "foodMapImage": "picture/food-admin-maps/suwon.jpg"
+    "seatImage": "picture/stadium-seats/suwon.png",
+    "foodMapImage": "picture/food-admin-maps/suwon.png"
   },
   "5": {
     "id": "5",
     "label": "대전",
     "ballparkId": "daejeon",
-    "seatImage": "picture/stadium-seats/daejeon.jpg",
-    "foodMapImage": "picture/food-admin-maps/daejeon.jpg"
+    "seatImage": "picture/stadium-seats/daejeon.png",
+    "foodMapImage": "picture/food-admin-maps/daejeon.png"
   },
   "6": {
     "id": "6",
     "label": "대구",
     "ballparkId": "daegu",
-    "seatImage": "picture/stadium-seats/daegu.jpg",
-    "foodMapImage": "picture/food-admin-maps/daegu.jpg"
+    "seatImage": "picture/stadium-seats/daegu.png",
+    "foodMapImage": "picture/food-admin-maps/daegu.png"
   },
   "7": {
     "id": "7",
     "label": "광주",
     "ballparkId": "gwangju",
-    "seatImage": "picture/stadium-seats/gwangju.jpg",
-    "foodMapImage": "picture/food-admin-maps/gwangju.jpg"
+    "seatImage": "picture/stadium-seats/gwangju.png",
+    "foodMapImage": "picture/food-admin-maps/gwangju.png"
   },
   "8": {
     "id": "8",
     "label": "사직",
     "ballparkId": "sajik",
-    "seatImage": "picture/stadium-seats/sajik.jpg",
-    "foodMapImage": "picture/food-admin-maps/busan.jpg"
+    "seatImage": "picture/stadium-seats/sajik.png",
+    "foodMapImage": "picture/food-admin-maps/busan.png"
   },
   "9": {
     "id": "9",
     "label": "창원",
     "ballparkId": "changwon",
-    "seatImage": "picture/stadium-seats/changwon.jpg",
-    "foodMapImage": "picture/food-admin-maps/changwon.jpg"
+    "seatImage": "picture/stadium-seats/changwon.png",
+    "foodMapImage": "picture/food-admin-maps/changwon.png"
   }
 };
 

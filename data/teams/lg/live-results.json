@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
-  "fetchedAt": "2026-05-03T02:08:30+09:00",
+  "fetchedAt": "2026-05-03T18:53:21+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -567,13 +567,13 @@
           "away": "NC",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 10,
+          "homeScore": 3,
+          "scoreLine": "10-3",
+          "ourScore": 3,
+          "oppScore": 10,
+          "ourScoreLine": "3-10",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260503NCLG0"
         }

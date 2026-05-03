@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-05-03",
-    "lastUpdated": "2026-05-03T02:08:37+09:00",
+    "lastUpdated": "2026-05-03T18:53:28+09:00",
     "gameId": "20260503HHSS02026",
     "kboGameId": "20260503HHSS0",
     "opponent": "삼성",
@@ -79,8 +79,8 @@
     },
     {
       "order": 2,
-      "name": "김성윤",
-      "position": "우익수"
+      "name": "김헌곤",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -95,17 +95,17 @@
     {
       "order": 5,
       "name": "류지혁",
-      "position": "3루수"
+      "position": "2루수"
     },
     {
       "order": 6,
-      "name": "김헌곤",
-      "position": "좌익수"
+      "name": "전병우",
+      "position": "3루수"
     },
     {
       "order": 7,
-      "name": "김재상",
-      "position": "2루수"
+      "name": "김성윤",
+      "position": "우익수"
     },
     {
       "order": 8,

@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260503HHSS02026",
-    "fetchedAt": "2026-05-03T02:08:33+09:00"
+    "fetchedAt": "2026-05-03T18:53:23+09:00"
   },
   "gameInfo": {
     "aFullName": "한화 이글스",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 1,
