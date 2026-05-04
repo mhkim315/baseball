@@ -1,11 +1,11 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-05-03",
-    "lastUpdated": "2026-05-03T22:58:39+09:00",
-    "gameId": "20260503HHSS02026",
-    "kboGameId": "20260503HHSS0",
-    "opponent": "한화",
+    "lineupDate": "2026-05-05",
+    "lastUpdated": "2026-05-04T22:36:02+09:00",
+    "gameId": "20260505WOSS02026",
+    "kboGameId": "20260505WOSS0",
+    "opponent": "키움",
     "venue": "대구",
     "gameTime": "14:00",
     "lineupVerification": {
@@ -21,8 +21,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "한화",
-    "teamName": "한화"
+    "teamShort": "키움",
+    "teamName": "키움"
   },
   "batters": [
     {
@@ -74,54 +74,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "이진영",
+      "name": "박주홍",
       "position": "중견수"
     },
     {
       "order": 2,
-      "name": "페라자",
-      "position": "우익수"
-    },
-    {
-      "order": 3,
-      "name": "문현빈",
-      "position": "좌익수"
-    },
-    {
-      "order": 4,
-      "name": "강백호",
-      "position": "지명타자"
-    },
-    {
-      "order": 5,
-      "name": "노시환",
-      "position": "3루수"
-    },
-    {
-      "order": 6,
-      "name": "김태연",
+      "name": "최주환",
       "position": "1루수"
     },
     {
+      "order": 3,
+      "name": "안치홍",
+      "position": "지명타자"
+    },
+    {
+      "order": 4,
+      "name": "임병욱",
+      "position": "우익수"
+    },
+    {
+      "order": 5,
+      "name": "브룩스",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "양현종",
+      "position": "3루수"
+    },
+    {
       "order": 7,
-      "name": "이도윤",
+      "name": "권혁빈",
       "position": "유격수"
     },
     {
       "order": 8,
-      "name": "허인서",
-      "position": "포수"
+      "name": "송지후",
+      "position": "2루수"
     },
     {
       "order": 9,
-      "name": "황영묵",
-      "position": "2루수"
+      "name": "김재현",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "후라도"
+    "name": "오러클린"
   },
   "opponentStartingPitcher": {
-    "name": "왕옌청"
+    "name": "오석주"
   }
 }
