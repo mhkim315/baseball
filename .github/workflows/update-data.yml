@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v4
@@ -18,30 +19,29 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run data update (skip midnight-noon KST)
+      - name: Update data (KST 12:00~23:59 only)
         run: |
-          KST_HOUR=$(TZ=Asia/Seoul date +%H)
-          if [ "$KST_HOUR" -lt 12 ]; then
-            echo "KST $KST_HOUR:00 - skipping update (자정~정오)"
+          HOUR=$(TZ=Asia/Seoul date +%H)
+          if [ "$HOUR" -lt 12 ]; then
+            echo "[SKIP] KST $HOUR:00 = 자정~정오, skipping"
             exit 0
           fi
-          echo "KST $KST_HOUR:00 - running update"
+          echo "[RUN] KST $HOUR:00 - updating data"
           python scripts/fetch_kbo_standings.py
           python scripts/update_hub_data.py
           python scripts/generate_team_config.py
-          # Fix .png -> .jpg references (deploy images are jpg)
           sed -i 's/\.png/.jpg/g' js/team-config.js
           sed -i 's/\.png/.jpg/g' data/teams/index.json
           sed -i 's/\.png/.jpg/g' data/food-places.json
 
-      - name: Commit and push if changed
-        run: |
+          # 변경 있으면 커밋+푸시
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ js/team-config.js
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "[DONE] No changes"
           else
-            git commit -m "Auto-update [skip ci]"
+            git commit -m "Auto-update"
             git push
+            echo "[DONE] Pushed changes"
           fi
