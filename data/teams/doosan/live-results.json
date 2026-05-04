@@ -1,8 +1,8 @@
 {
   "team": "두산",
-  "source": "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
+  "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-05-03T22:58:33+09:00",
+  "fetchedAt": "2026-05-05T00:20:50+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -575,9 +575,9 @@
           "ourScore": 14,
           "oppScore": 3,
           "ourScoreLine": "14-3",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260503OBWO0"
+          "gameId": "20260503OBWO02026"
         }
       ]
     },
@@ -595,7 +595,7 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260505OBLG0"
+          "gameId": "20260505OBLG02026"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "team": "KIA",
-  "source": "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
-  "fetchedAt": "2026-05-03T22:58:33+09:00",
+  "source": "Naver API (api-gw.sports.naver.com)",
+  "fetchedAt": "2026-05-05T00:20:50+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -573,9 +573,9 @@
           "ourScore": 4,
           "oppScore": 6,
           "ourScoreLine": "4-6",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260503KTHT0"
+          "gameId": "20260503KTHT02026"
         }
       ]
     },
@@ -593,7 +593,7 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260505HHHT0"
+          "gameId": "20260505HHHT02026"
         }
       ]
     },

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>좌표 확인 도구</title>
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: system-ui, sans-serif; }
+      #map { width: 100vw; height: 100vh; }
+      .coord-panel {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2937;
+        color: #f9fafb;
+        padding: 14px 24px;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        z-index: 10;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .coord-panel code {
+        background: #374151;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        user-select: none;
+      }
+      .coord-panel code:active {
+        background: #4b5563;
+      }
+      .coord-hint {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.7);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .copied-toast {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #059669;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        z-index: 20;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .copied-toast.show { opacity: 1; }
+    </style>
+  </head>
+  <body>
+    <div class="coord-hint">원하는 위치를 클릭하면 좌표가 하단에 표시됩니다</div>
+    <div id="map"></div>
+    <div class="coord-panel" id="panel" style="display:none">
+      <span>복사하려면 클릭 👇</span>
+      <code id="lng-code" title="경도 복사">lng: —</code>
+      <code id="lat-code" title="위도 복사">lat: —</code>
+      <code id="json-code" title="JSON 복사">{ lng: —, lat: — }</code>
+      <button id="search-btn" style="background:#4f46e5;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.9rem;">구장 검색</button>
+    </div>
+    <div class="copied-toast" id="toast">복사됨!</div>
+
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script>
+      const STADIUMS = {
+        "잠실": [127.072, 37.5122, 15],
+        "고척": [126.867, 37.4982, 15],
+        "문학(SSG)": [126.692, 37.4364, 15],
+        "수원(KT)": [127.009, 37.2997, 15],
+        "대전(한화)": [127.397, 36.3183, 15],
+        "대구(삼성)": [128.684, 35.8412, 15],
+        "광주(KIA)": [126.883, 35.1685, 15],
+        "사직(롯데)": [129.061, 35.1943, 15],
+        "창원(NC)": [128.583, 35.2225, 15],
+      };
+
+      const map = new maplibregl.Map({
+        container: "map",
+        style: "https://tiles.openfreemap.org/styles/liberty",
+        center: [127.072, 37.5122],
+        zoom: 14,
+      });
+      map.addControl(new maplibregl.NavigationControl());
+
+      const panel = document.getElementById("panel");
+      const lngCode = document.getElementById("lng-code");
+      const latCode = document.getElementById("lat-code");
+      const jsonCode = document.getElementById("json-code");
+      const toast = document.getElementById("toast");
+
+      let lastLng = 0, lastLat = 0;
+
+      function showToast() {
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1200);
+      }
+
+      function updatePanel(lng, lat) {
+        lastLng = lng;
+        lastLat = lat;
+        lngCode.textContent = `lng: ${lng}`;
+        latCode.textContent = `lat: ${lat}`;
+        jsonCode.textContent = `{ lng: ${lng}, lat: ${lat} }`;
+        panel.style.display = "flex";
+      }
+
+      map.on("click", (e) => {
+        updatePanel(e.lngLat.lng.toFixed(7), e.lngLat.lat.toFixed(7));
+      });
+
+      [lngCode, latCode, jsonCode].forEach((el) => {
+        el.addEventListener("click", () => {
+          navigator.clipboard.writeText(el.textContent).then(showToast);
+        });
+      });
+
+      document.getElementById("search-btn").addEventListener("click", () => {
+        const name = prompt("구장 이름을 입력하세요:\n잠실 / 고척 / 문학 / 수원 / 대전 / 대구 / 광주 / 사직 / 창원");
+        if (!name) return;
+        for (const [key, val] of Object.entries(STADIUMS)) {
+          if (key.includes(name) || name.includes(key)) {
+            map.flyTo({ center: [val[0], val[1]], zoom: val[2] });
+            return;
+          }
+        }
+        alert("찾을 수 없습니다. 잠실, 고척, 문학, 수원, 대전, 대구, 광주, 사직, 창원 중에 입력하세요.");
+      });
+    </script>
+  </body>
+</html>

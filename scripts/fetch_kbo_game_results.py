@@ -1,9 +1,9 @@
+"""Naver API로 경기 결과 수집. KBO API는 폴백."""
 from __future__ import annotations
 
 import argparse
 import json
 import ssl
-import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -12,70 +12,63 @@ from typing import Any
 
 from team_config import ROOT, selected_teams, team_by_code
 
-SCHEDULE_JSON = ROOT / "data" / "kbo_schedule_2026.json"
-KBO_LIST_URL = "https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList"
 KST = timezone(timedelta(hours=9))
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 
 
 def kst_today() -> str:
     return datetime.now(KST).date().isoformat()
 
 
-def fetch_day(iso_date: str) -> list[dict[str, Any]]:
-    body = urllib.parse.urlencode({"leId": 1, "srId": 0, "date": iso_date.replace("-", "")}).encode()
-    req = urllib.request.Request(
-        KBO_LIST_URL,
-        data=body,
-        method="POST",
-        headers={"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "User-Agent": "Mozilla/5.0 (baseball-refac-local/1.0)"},
-    )
-    with urllib.request.urlopen(req, timeout=30, context=ssl.create_default_context()) as resp:
+def fetch_naver_games(from_date: str, to_date: str) -> list[dict[str, Any]]:
+    """Naver API에서 경기 목록 + 결과 가져오기."""
+    url = ("https://api-gw.sports.naver.com/schedule/games"
+           f"?fields=all&fromDate={from_date}&toDate={to_date}&size=100&categoryId=kbo")
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": UA})
+    ctx = ssl.create_default_context()
+    with urllib.request.urlopen(req, timeout=45, context=ctx) as resp:
         data = json.loads(resp.read().decode("utf-8", errors="replace"))
-    if data.get("code") != "100":
+    if data.get("code") != 200 or not data.get("success"):
         return []
-    return list(data.get("game") or [])
+    return list(data.get("result", {}).get("games") or [])
 
 
-def score_int(row: dict[str, Any], key: str) -> int:
-    try:
-        return int(str(row.get(key) or "0").strip() or "0")
-    except ValueError:
-        return 0
+def entry_from_naver(game: dict[str, Any], team: dict[str, Any]) -> dict[str, Any] | None:
+    """Naver 경기 데이터 → live-results entry."""
+    away_name = game.get("awayTeamName", "")
+    home_name = game.get("homeTeamName", "")
+    away_code = game.get("awayTeamCode", "")
+    home_code = game.get("homeTeamCode", "")
 
-
-def cancelled(row: dict[str, Any]) -> bool:
-    return str(row.get("CANCEL_SC_ID") or "0").strip() != "0"
-
-
-def finished(row: dict[str, Any]) -> bool:
-    # 종료 판정: 최종 스코어(SCORE_CK) + 상태 3(경기 종료). GAME_RESULT_CK는 API가 0으로 두는 경우가 있어 미사용.
-    return str(row.get("SCORE_CK") or "") == "1" and str(row.get("GAME_STATE_SC") or "") == "3"
-
-
-def entry_for_team(row: dict[str, Any], team: dict[str, Any]) -> dict[str, Any] | None:
-    away_team = team_by_code(str(row.get("AWAY_ID") or ""))
-    home_team = team_by_code(str(row.get("HOME_ID") or ""))
-    if not away_team or not home_team:
+    # 팀 매칭
+    is_away = team["scheduleName"] in (away_name, game.get("awayTeamShortName", "")) or team["kboCode"] == away_code
+    is_home = team["scheduleName"] in (home_name, game.get("homeTeamShortName", "")) or team["kboCode"] == home_code
+    if not is_away and not is_home:
         return None
-    if team["id"] not in (away_team["id"], home_team["id"]):
-        return None
-    away_score = score_int(row, "T_SCORE_CN")
-    home_score = score_int(row, "B_SCORE_CN")
-    is_away = team["id"] == away_team["id"]
+
+    away_score = int(game.get("awayTeamScore") or 0)
+    home_score = int(game.get("homeTeamScore") or 0)
     our_score = away_score if is_away else home_score
     opp_score = home_score if is_away else away_score
+
+    cancelled = bool(game.get("cancel"))
+    status = game.get("statusCode", "")
+    finished = status == "END"
+
     outcome = None
-    if not cancelled(row) and finished(row):
-        if our_score > opp_score:
-            outcome = "W"
-        elif our_score < opp_score:
-            outcome = "L"
-        else:
+    if not cancelled and finished:
+        winner = game.get("winner", "")
+        if winner == "AWAY":
+            outcome = "W" if is_away else "L"
+        elif winner == "HOME":
+            outcome = "W" if is_home else "L"
+        elif winner == "DRAW":
             outcome = "T"
+
     return {
-        "away": away_team["scheduleName"],
-        "home": home_team["scheduleName"],
-        "venue": str(row.get("S_NM") or "").strip(),
+        "away": away_name,
+        "home": home_name,
+        "venue": game.get("stadium") or game.get("stadiumName") or "",
         "awayScore": away_score,
         "homeScore": home_score,
         "scoreLine": f"{away_score}-{home_score}",
@@ -83,8 +76,8 @@ def entry_for_team(row: dict[str, Any], team: dict[str, Any]) -> dict[str, Any] 
         "oppScore": opp_score,
         "ourScoreLine": f"{our_score}-{opp_score}",
         "outcome": outcome,
-        "cancelled": cancelled(row),
-        "gameId": row.get("G_ID"),
+        "cancelled": cancelled,
+        "gameId": game.get("gameId"),
     }
 
 
@@ -94,47 +87,46 @@ def target_dates(args: argparse.Namespace) -> list[str]:
     if args.recent:
         today = datetime.now(KST).date()
         return [(today - timedelta(days=i)).isoformat() for i in range(args.recent - 1, -1, -1)]
-    schedule = json.loads(SCHEDULE_JSON.read_text(encoding="utf-8"))
-    return sorted({g["date"] for g in schedule.get("games", []) if g.get("date")})
+    return [kst_today()]
 
 
 def load_existing(team_id: str, team_name: str) -> dict[str, Any]:
     path = ROOT / "data" / "teams" / team_id / "live-results.json"
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
-    return {"team": team_name, "source": KBO_LIST_URL, "byDate": {}}
+    return {"team": team_name, "source": "Naver API", "byDate": {}}
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Fetch KBO results for one or all teams")
-    ap.add_argument("--team", help="team id, e.g. doosan")
-    ap.add_argument("--date", action="append", help="YYYY-MM-DD; can repeat")
-    ap.add_argument("--recent", type=int, help='today 포함 최근 N일')
-    ap.add_argument("--sleep", type=float, default=0.25)
+    ap = argparse.ArgumentParser(description="Fetch KBO game results from Naver API (KBO API fallback)")
+    ap.add_argument("--team")
+    ap.add_argument("--date", action="append")
+    ap.add_argument("--recent", type=int, default=10)
     args = ap.parse_args()
 
     wanted = selected_teams(args.team)
     payloads = {team["id"]: load_existing(team["id"], team["scheduleName"]) for team in wanted}
+
     for ds in target_dates(args):
         try:
-          rows = fetch_day(ds)
+            games = fetch_naver_games(ds, ds)
         except Exception as exc:
-          print(f"{ds}: fetch failed: {exc}")
-          continue
+            print(f"{ds}: Naver API failed: {exc}")
+            continue
+
         for team in wanted:
-            games = []
-            for row in rows:
-                item = entry_for_team(row, team)
+            results = []
+            for game in games:
+                item = entry_from_naver(game, team)
                 if item:
-                    games.append(item)
-            if games:
-                payloads[team["id"]].setdefault("byDate", {})[ds] = {"games": games}
-        time.sleep(args.sleep)
+                    results.append(item)
+            if results:
+                payloads[team["id"]].setdefault("byDate", {})[ds] = {"games": results}
 
     fetched_at = datetime.now(KST).isoformat(timespec="seconds")
     for team in wanted:
         out = payloads[team["id"]]
-        out.update({"team": team["scheduleName"], "source": KBO_LIST_URL, "fetchedAt": fetched_at})
+        out.update({"team": team["scheduleName"], "source": "Naver API (api-gw.sports.naver.com)", "fetchedAt": fetched_at})
         path = ROOT / "data" / "teams" / team["id"] / "live-results.json"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")

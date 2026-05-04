@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-05-05",
-    "lastUpdated": "2026-05-04T22:36:03+09:00",
+    "lastUpdated": "2026-05-05T00:35:21+09:00",
     "gameId": "20260505LTKT02026",
     "kboGameId": "20260505LTKT0",
     "opponent": "KT",
@@ -10,10 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected"
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
-        "source": "kbo-expected"
+        "source": "kbo-opponent",
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"

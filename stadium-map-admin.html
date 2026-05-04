@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>구장 주변맵 좌표 편집기</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap admin-wrap">
+      <header class="site-header">
+        <h1 id="site-title" class="brand-title">구장 주변맵 좌표 편집기</h1>
+        <p id="site-subtitle" class="lead">
+          지도에는 <strong>핀 마커</strong>(구장·주차 유형)로 표시됩니다. 좌표를 찍거나 드래그하고 유형·설명을 적은 뒤 JSON을 받아
+          <code>data/stadium-surroundings.json</code>을 덮어쓰세요.
+        </p>
+        <nav id="team-selector" class="team-selector" aria-label="구단 선택"></nav>
+        <nav id="section-nav" class="nav" aria-label="가이드 섹션"></nav>
+      </header>
+      <p id="load-error" class="error-banner" role="alert"></p>
+      <p id="stadium-admin-hint" class="stadium-admin-hint muted" hidden role="status"></p>
+      <main class="stadium-admin-layout">
+        <section class="panel stadium-admin-map-panel" aria-labelledby="stadium-admin-map-title">
+          <h2 id="stadium-admin-map-title">지도</h2>
+          <div class="filter-block stadium-admin-hub-row">
+            <strong>구장</strong>
+            <div id="stadium-admin-hub-tabs" class="filter-tabs" role="tablist" aria-label="구장 허브 선택"></div>
+          </div>
+          <div id="stadium-admin-map" class="stadium-map-root stadium-admin-map" role="application" aria-label="좌표 편집 지도"></div>
+        </section>
+        <aside class="panel stadium-admin-side" aria-label="좌표 편집">
+          <section class="stadium-admin-block">
+            <h3>지도 줌 · 첫 지점</h3>
+            <p class="muted stadium-admin-micro">첫 번째 지점이 주변맵의 초기 중심(<code>center</code>)과 동기화됩니다.</p>
+            <div class="stadium-admin-btn-row">
+              <button type="button" id="stadium-admin-center-first">현재 지도 중심을 첫 지점에 반영</button>
+              <button type="button" id="stadium-admin-zoom-from-view">현재 줌 저장</button>
+            </div>
+            <label class="stadium-admin-zoom-label">줌 <input id="stadium-admin-zoom" type="number" step="0.1" min="1" max="22" class="stadium-admin-num stadium-admin-zoom-input" /></label>
+          </section>
+          <section class="stadium-admin-block">
+            <h3>구장 지점</h3>
+            <p class="muted stadium-admin-micro">「지도에서 찍기」 후 지도를 한 번 클릭합니다. (Esc 취소)</p>
+            <div id="stadium-admin-spot-list" class="stadium-admin-spot-list"></div>
+            <button type="button" id="stadium-admin-spot-add">지점 추가</button>
+          </section>
+          <section class="stadium-admin-block">
+            <h3>파일</h3>
+            <label class="stadium-admin-file-label">
+              JSON 불러오기
+              <input id="stadium-admin-file-in" type="file" accept="application/json,.json" />
+            </label>
+            <div class="stadium-admin-btn-row">
+              <button type="button" id="stadium-admin-download">stadium-surroundings.json 다운로드</button>
+            </div>
+            <p class="muted stadium-admin-micro">다운로드 시 <code>zones</code> 항목은 제거됩니다. OSM 지도만 참고하세요.</p>
+          </section>
+        </aside>
+      </main>
+      <footer class="site-footer muted">© OpenStreetMap · OpenMapTiles</footer>
+    </div>
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script type="module" src="js/stadium-map-admin-page.js"></script>
+  </body>
+</html>

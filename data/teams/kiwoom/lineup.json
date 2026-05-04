@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-05-05",
-    "lastUpdated": "2026-05-04T22:36:00+09:00",
+    "lastUpdated": "2026-05-05T00:35:19+09:00",
     "gameId": "20260505WOSS02026",
     "kboGameId": "20260505WOSS0",
     "opponent": "삼성",
@@ -10,10 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected"
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
-        "source": "kbo-expected"
+        "source": "kbo-opponent",
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"

@@ -7,7 +7,7 @@ import urllib.request
 from typing import Any
 
 NAVER_BASE = "https://api-gw.sports.naver.com"
-UA = "Mozilla/5.0 (baseball-refac-local/1.0)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 
 
 def get_json(path: str, query: dict[str, str] | None = None) -> dict[str, Any]:

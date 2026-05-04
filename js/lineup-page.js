@@ -108,7 +108,9 @@ function renderLineup(lineup) {
   const opponentHead = document.getElementById("lineup-opponent-head");
   const meta = lineup?.meta || {};
   const opponentName = lineup?.opponentMeta?.teamShort || lineup?.opponentMeta?.teamName || meta.opponent || "상대";
-  if (opponentHead) opponentHead.textContent = `${opponentName} 라인업`;
+  const confirmed = lineup?.meta?.lineupVerification?.ours?.confirmed;
+  const statusTag = confirmed ? " [확정]" : " [예상]";
+  if (opponentHead) opponentHead.textContent = `${opponentName} 라인업${statusTag}`;
   if (!tbody) return;
   tbody.innerHTML = "";
   const rows = Array.isArray(lineup?.batters) ? lineup.batters : [];
