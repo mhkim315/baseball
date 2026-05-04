@@ -27,9 +27,9 @@ jobs:
             exit 0
           fi
           echo "[RUN] KST $HOUR:00 - updating data"
-          python scripts/fetch_kbo_standings.py
-          python scripts/update_hub_data.py
-          python scripts/generate_team_config.py
+          python scripts/fetch_kbo_standings.py || echo "[WARN] standings fetch failed"
+          python scripts/update_hub_data.py || echo "[WARN] hub data update failed"
+          python scripts/generate_team_config.py || echo "[WARN] config generation failed"
           sed -i 's/\.png/.jpg/g' js/team-config.js
           sed -i 's/\.png/.jpg/g' data/teams/index.json
           sed -i 's/\.png/.jpg/g' data/food-places.json

@@ -419,6 +419,15 @@
     "hanwha": {
       "sections": [
         {
+          "title": "경기시작",
+          "songs": [
+            {
+              "name": "라인업송",
+              "youtubeUrl": ""
+            }
+          ]
+        },
+        {
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
@@ -690,6 +699,15 @@
     "lotte": {
       "sections": [
         {
+          "title": "경기시작",
+          "songs": [
+            {
+              "name": "라인업송",
+              "youtubeUrl": ""
+            }
+          ]
+        },
+        {
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
@@ -772,6 +790,15 @@
     },
     "nc": {
       "sections": [
+        {
+          "title": "경기시작",
+          "songs": [
+            {
+              "name": "라인업송",
+              "youtubeUrl": ""
+            }
+          ]
+        },
         {
           "title": "초반 분위기 올릴 때",
           "songs": [
