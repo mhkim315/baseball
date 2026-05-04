@@ -3,20 +3,11 @@
     "doosan": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
             {
-              "name": "PLAY BALL",
-              "youtubeUrl": "https://www.youtube.com/shorts/jxpBDshbSS8"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
-            {
-              "name": "라인업 송",
-              "youtubeUrl": "https://www.youtube.com/shorts/yVwa8kQsv9o"
+              "name": "라인업송",
+              "youtubeUrl": "https://youtu.be/WVeqUV4Cp2Q?si=bOSDKFkFEThQ8wgE"
             }
           ]
         },
@@ -25,75 +16,19 @@
           "songs": [
             {
               "name": "가자 두산베어스",
-              "youtubeUrl": "https://www.youtube.com/shorts/xC14uOY8gjQ"
+              "youtubeUrl": "https://youtu.be/A78K-zYjpjs?si=WetQbU5dsD1BoaxC"
             },
             {
               "name": "야야야 두산",
-              "youtubeUrl": "https://www.youtube.com/shorts/3ypBzNgBvfs"
+              "youtubeUrl": "https://youtu.be/Kjve3oW9gjY?si=3xMSCMdfaX715O9h"
             },
             {
               "name": "우리 두산 멋진 두산",
-              "youtubeUrl": "https://www.youtube.com/shorts/0bjwFUnu2ic"
+              "youtubeUrl": "https://youtu.be/ZMwKOJFVEGA?si=dqHIfJL3-i65gZbH"
             },
             {
               "name": "우리의 베어스",
-              "youtubeUrl": "https://www.youtube.com/shorts/ykUpQAvo3Og"
-            },
-            {
-              "name": "최강두산 구호",
-              "youtubeUrl": "https://www.youtube.com/shorts/5kowwTZm3PQ"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/cSKMNqRHzUo"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "가자 두산베어스",
-              "youtubeUrl": "https://www.youtube.com/shorts/xC14uOY8gjQ"
-            },
-            {
-              "name": "야야야 두산",
-              "youtubeUrl": "https://www.youtube.com/shorts/3ypBzNgBvfs"
-            },
-            {
-              "name": "우리 두산 멋진 두산",
-              "youtubeUrl": "https://www.youtube.com/shorts/0bjwFUnu2ic"
-            },
-            {
-              "name": "우리의 베어스",
-              "youtubeUrl": "https://www.youtube.com/shorts/ykUpQAvo3Og"
-            },
-            {
-              "name": "최강두산 구호",
-              "youtubeUrl": "https://www.youtube.com/shorts/5kowwTZm3PQ"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/28TsbftBONE"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/ba5hnWgcXcI"
+              "youtubeUrl": "https://youtu.be/ykUpQAvo3Og?si=tp1edNZzpO1k2glT"
             }
           ]
         },
@@ -102,23 +37,56 @@
           "songs": [
             {
               "name": "ROCK TO THE DOOSAN",
-              "youtubeUrl": "https://www.youtube.com/shorts/tEdYuyjIzK0"
+              "youtubeUrl": "https://youtube.com/shorts/lEUwxbrVbwk?si=afeUuhtwhMp5uQK7"
             },
             {
               "name": "다 함께 허슬두",
-              "youtubeUrl": "https://www.youtube.com/shorts/Kjve3oW9gjY"
+              "youtubeUrl": "https://youtube.com/shorts/xfSoaTe0bnI?si=2WRi0Jc21rjCDYnD"
             },
             {
               "name": "두산 승리하리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/6pvMuFiygrQ"
+              "youtubeUrl": "https://youtube.com/shorts/If7DZ8pPhqs?si=GXPy0lrDFuhFwUlr"
             },
             {
               "name": "서울두산 승리하리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/OsBs8rhRa2c"
+              "youtubeUrl": "https://youtube.com/shorts/Ah31o3IQ7A4?si=Xiag7LscHy4HNQ9w"
             },
             {
               "name": "승리를 위하여",
-              "youtubeUrl": "https://www.youtube.com/shorts/fflno0aR1-4"
+              "youtubeUrl": "https://youtube.com/shorts/Uiby7yyUZ1g?si=TfGs8ohbCwU__2Zj"
+            }
+          ]
+        },
+        {
+          "title": "상황별 응원",
+          "songs": [
+            {
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/BJeAaLHdJBw?si=mincxw4MguY270Rn"
+            },
+            {
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/ifr42sTdhk0?si=Cy2oKko97SSKJx7w"
+            },
+            {
+              "name": "안타송3",
+              "youtubeUrl": "https://youtube.com/shorts/RrC6UZP1cHo?si=qre__c8wcx6cWcfR"
+            },
+            {
+              "name": "안타송4(new)",
+              "youtubeUrl": "https://youtube.com/shorts/Xdf-bZ0d26E?si=lL-lbqTY7rsi6Hp1"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/qUtm9Gk72YE?si=WP6L7DrpTjnyKwOr"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/yKtXauaAi3U?si=nUFQqpoWzbA-UCEH"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/bzHwTysINnM?si=pTB3V8SiqivVdWHt"
             }
           ]
         }
@@ -127,20 +95,11 @@
     "lg": {
       "sections": [
         {
-          "title": "경기 시작 직전",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/boiU9GMDnms"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
+          "title": "경기시작",
           "songs": [
             {
               "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/i7UQ5sQjcwc"
+              "youtubeUrl": "https://youtu.be/7ScyCvH9aMs?si=N2eEjHhi2wjkmjcg"
             }
           ]
         },
@@ -149,75 +108,23 @@
           "songs": [
             {
               "name": "사랑한다 LG",
-              "youtubeUrl": "https://www.youtube.com/shorts/c81kdX21FBE"
+              "youtubeUrl": "https://youtube.com/shorts/uX0j6qt_IC4?si=rU7-gvY48ZvnPkAy"
             },
             {
               "name": "나의 사랑 서울 LG",
-              "youtubeUrl": "https://www.youtube.com/shorts/gqr1qGXMmwA"
+              "youtubeUrl": "https://youtube.com/shorts/NnR-ZGHdzFU?si=mZlzaH0lcpynZaL1"
             },
             {
               "name": "뉴셀리오",
-              "youtubeUrl": "https://www.youtube.com/shorts/3biudnUgC1s"
+              "youtubeUrl": "https://youtube.com/shorts/Kp9UT6QZip4?si=9qwKlVU45Ex8Oaas"
             },
             {
               "name": "LG 없이는 못 살아",
-              "youtubeUrl": "https://www.youtube.com/shorts/bqCQvqWqUO8"
+              "youtubeUrl": "https://youtube.com/shorts/_5EvF1V3l9E?si=DJoOUTM28TG4Ip6Z"
             },
             {
               "name": "서울 메들리",
-              "youtubeUrl": "https://www.youtube.com/shorts/r31P1yMQGb8"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "공통 안타송",
-              "youtubeUrl": "https://www.youtube.com/shorts/Ia3JCQNtOOs"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "사랑한다 LG",
-              "youtubeUrl": "https://www.youtube.com/shorts/c81kdX21FBE"
-            },
-            {
-              "name": "나의 사랑 서울 LG",
-              "youtubeUrl": "https://www.youtube.com/shorts/gqr1qGXMmwA"
-            },
-            {
-              "name": "뉴셀리오",
-              "youtubeUrl": "https://www.youtube.com/shorts/3biudnUgC1s"
-            },
-            {
-              "name": "LG 없이는 못 살아",
-              "youtubeUrl": "https://www.youtube.com/shorts/bqCQvqWqUO8"
-            },
-            {
-              "name": "서울 메들리",
-              "youtubeUrl": "https://www.youtube.com/shorts/r31P1yMQGb8"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "볼넷 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/t7c9wTO__kM"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "풀카운트송",
-              "youtubeUrl": "https://www.youtube.com/shorts/z6MJ-4Nsln4"
+              "youtubeUrl": "https://youtube.com/shorts/AM0L3YJPFUY?si=uSNZocS244s2xTvF"
             }
           ]
         },
@@ -226,36 +133,40 @@
           "songs": [
             {
               "name": "LG의 승리를 위하여",
-              "youtubeUrl": "https://www.youtube.com/shorts/v4Ev6HBa0A4"
+              "youtubeUrl": "https://youtube.com/shorts/HehtCP-SOoI?si=AOT4be4Xtewl09wb"
             },
             {
               "name": "최후의 결투",
-              "youtubeUrl": "https://www.youtube.com/shorts/m8pDegxIcOQ"
+              "youtubeUrl": "https://youtu.be/ctCEN81Bit8?si=dg5l_FNMbH5uC6zO"
             },
             {
               "name": "서울의 아리아",
-              "youtubeUrl": "https://www.youtube.com/shorts/XtQP0zNXcAg"
+              "youtubeUrl": "https://youtu.be/VcYP02oXyhY?si=9j9mSap91EHyl-2M"
             },
             {
               "name": "승리의 노래",
-              "youtubeUrl": "https://www.youtube.com/shorts/NGvRixve-7M"
+              "youtubeUrl": "https://youtu.be/CTzmOIRO9Fo?si=5lLVxyD_2MvhkZV5"
             }
           ]
         },
         {
-          "title": "수비 전환/특정 플레이 반응",
+          "title": "상황별 응원",
           "songs": [
             {
-              "name": "견제 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/9JKLc3paxdo"
+              "name": "박수 안타송",
+              "youtubeUrl": "https://youtube.com/shorts/4gsWic9pu8A?si=qXNPUeEXzx_yWrlZ"
             },
             {
-              "name": "삼진&호수비",
-              "youtubeUrl": "https://www.youtube.com/shorts/4f_jXSpSry4"
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/g5ZK7VFj0po?si=oBZT4nNc1ESKhrfx"
             },
             {
-              "name": "투수 교체",
-              "youtubeUrl": "https://www.youtube.com/shorts/759hIOAxaHA"
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/CezQ44VJ1UM?si=OtSTlhsy5Dxu2_wx"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/OlipRnlJNXw?si=ZWIgQ9bct_S2_fk-"
             }
           ]
         }
@@ -264,20 +175,11 @@
     "kiwoom": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/wVteibhmG7o"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
-            {
-              "name": "선발 라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/hKMFxZh_Lu4"
+              "name": "라인업송",
+              "youtubeUrl": "https://youtu.be/JJ2bqOL7zcM?si=GzfNJO-HVFfsflLg"
             }
           ]
         },
@@ -286,75 +188,23 @@
           "songs": [
             {
               "name": "히어로즈의 노래",
-              "youtubeUrl": "https://www.youtube.com/shorts/antR6UYqZKk"
+              "youtubeUrl": "https://youtu.be/RQIyUmU5Mlc?si=UsOra_JrWhR-KTHY"
             },
             {
               "name": "영웅출정가",
-              "youtubeUrl": "https://www.youtube.com/shorts/_M1e0ou3bJM"
+              "youtubeUrl": "https://youtu.be/antR6UYqZKk?si=0o0Mi8ZPazTTPkcM"
             },
             {
               "name": "꿈이여 하나가 되자",
-              "youtubeUrl": "https://www.youtube.com/shorts/tCHKcOmSrgc"
+              "youtubeUrl": "https://youtu.be/jFkiL_xb5aU?si=uU5Q19dZl8pt403T"
             },
             {
               "name": "나의 사랑 히어로",
-              "youtubeUrl": "https://www.youtube.com/shorts/zf6zOjFDlYE"
+              "youtubeUrl": "https://youtube.com/shorts/rFP_WriqXEs?si=ddQSdeF61hGqmeHY"
             },
             {
               "name": "외쳐라 히어로즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/yrRDEayzVkU"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/DTOSeS946vo"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "히어로즈의 노래",
-              "youtubeUrl": "https://www.youtube.com/shorts/antR6UYqZKk"
-            },
-            {
-              "name": "영웅출정가",
-              "youtubeUrl": "https://www.youtube.com/shorts/_M1e0ou3bJM"
-            },
-            {
-              "name": "꿈이여 하나가 되자",
-              "youtubeUrl": "https://www.youtube.com/shorts/tCHKcOmSrgc"
-            },
-            {
-              "name": "나의 사랑 히어로",
-              "youtubeUrl": "https://www.youtube.com/shorts/zf6zOjFDlYE"
-            },
-            {
-              "name": "외쳐라 히어로즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/yrRDEayzVkU"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/INx--Mz-rrU"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/b02J0lqO_4c"
+              "youtubeUrl": "https://youtube.com/shorts/tzLxWlefqUo?si=xtyEsvNroOQIw8C9"
             }
           ]
         },
@@ -363,23 +213,48 @@
           "songs": [
             {
               "name": "승리를 위한 함성",
-              "youtubeUrl": "https://www.youtube.com/shorts/dY5BKAUJalw"
+              "youtubeUrl": "https://youtu.be/7p2U-yr-clQ?si=p5r2ia5amsP2hkdp"
             },
             {
               "name": "승리를 위하여",
-              "youtubeUrl": "https://www.youtube.com/shorts/rzzvk8Z_kGY"
+              "youtubeUrl": "https://youtube.com/shorts/3WRJhvt_4Dw?si=ktDrfXbljQUmFVHV"
             },
             {
-              "name": "승리의 노래",
-              "youtubeUrl": "https://www.youtube.com/shorts/antR6UYqZKk"
-            },
-            {
-              "name": "우리가 승리한다",
-              "youtubeUrl": "https://www.youtube.com/shorts/_M1e0ou3bJM"
+              "name": "히어로즈의 노래",
+              "youtubeUrl": "https://youtu.be/p6hN2g45Vrg?si=D3X7HBZvnurQJv13"
             },
             {
               "name": "승리가",
-              "youtubeUrl": "https://www.youtube.com/shorts/OcbCLXmYOQA"
+              "youtubeUrl": "https://youtube.com/shorts/CYQOsD4ieF0?si=9oElzsLaRUbkrTa-"
+            },
+            {
+              "name": "영웅필승",
+              "youtubeUrl": "https://youtube.com/shorts/VyI2BCsAcgw?si=OOgdcZCxZMA6Xtlq"
+            }
+          ]
+        },
+        {
+          "title": "상황별 응원",
+          "songs": [
+            {
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/792Xz2Zjg4U?si=Cbzci5Liq42IZcCg"
+            },
+            {
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/GrleUSf6kh4?si=7no9sU0Gs0CTdfW7"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/e0whVbCjnTw?si=ZFTpnazeRNo_65vi"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/Q-2Fdb6lfPk?si=CfY83H19GnxLhg-W"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtu.be/rFdtL_hSZ4U?si=-uwA1Pq40sbxlFTu"
             }
           ]
         }
@@ -388,24 +263,11 @@
     "ssg": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
-            {
-              "name": "경기 개시 음악",
-              "youtubeUrl": "https://www.youtube.com/shorts/pH1pivdOQo0"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
-            {
-              "name": "라인업 소개 음악",
-              "youtubeUrl": "https://www.youtube.com/shorts/lwPD_MNuGfY"
-            },
             {
               "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/Jz2DuTlTh0Y"
+              "youtubeUrl": "https://youtu.be/axNBIsmuhOw?si=jTlI4royzobxISC3"
             }
           ]
         },
@@ -414,75 +276,23 @@
           "songs": [
             {
               "name": "Let's GO",
-              "youtubeUrl": "https://www.youtube.com/shorts/l9ovY-dvLb0"
+              "youtubeUrl": "https://youtube.com/shorts/mzDMNtxrcLk?si=ZeYZFV63Nq_Sj393"
             },
             {
               "name": "We are the LANDERS",
-              "youtubeUrl": "https://www.youtube.com/shorts/zC9Pp1rpkvg"
+              "youtubeUrl": "https://youtube.com/shorts/DaM59e1fJDM?si=lQ14cEGEwGzLKC-m"
             },
             {
               "name": "되고송",
-              "youtubeUrl": "https://www.youtube.com/shorts/1xviQ09bMZc"
+              "youtubeUrl": "https://youtube.com/shorts/4R90jp4JGP8?si=pl4U6aARqaOMfmNu"
             },
             {
               "name": "불꽃투혼 랜더스",
-              "youtubeUrl": "https://www.youtube.com/shorts/06QhFxev-IU"
+              "youtubeUrl": "https://youtube.com/shorts/1EjkcjFJWP8?si=TuTHCif5ujVNdZtZ"
             },
             {
               "name": "외쳐라 랜더스",
-              "youtubeUrl": "https://www.youtube.com/shorts/OPxlvieA2hQ"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "공통 안타 송",
-              "youtubeUrl": "https://www.youtube.com/shorts/SJHm0pVrbBc"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "Let's GO",
-              "youtubeUrl": "https://www.youtube.com/shorts/l9ovY-dvLb0"
-            },
-            {
-              "name": "We are the LANDERS",
-              "youtubeUrl": "https://www.youtube.com/shorts/zC9Pp1rpkvg"
-            },
-            {
-              "name": "되고송",
-              "youtubeUrl": "https://www.youtube.com/shorts/1xviQ09bMZc"
-            },
-            {
-              "name": "불꽃투혼 랜더스",
-              "youtubeUrl": "https://www.youtube.com/shorts/06QhFxev-IU"
-            },
-            {
-              "name": "외쳐라 랜더스",
-              "youtubeUrl": "https://www.youtube.com/shorts/OPxlvieA2hQ"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "볼넷 송",
-              "youtubeUrl": "https://www.youtube.com/shorts/umEt2FLsRD0"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "풀카운트 송",
-              "youtubeUrl": "https://www.youtube.com/shorts/zUCZxf6Otmc"
+              "youtubeUrl": "https://youtube.com/shorts/-QM1yKB3N3c?si=vNkCoocJsJw2FnFA"
             }
           ]
         },
@@ -491,15 +301,40 @@
           "songs": [
             {
               "name": "승리를 외쳐라",
-              "youtubeUrl": "https://www.youtube.com/shorts/VWDEAkjRSck"
+              "youtubeUrl": "https://youtube.com/shorts/CLWqun-Aydg?si=n-WkgmRGhjSqr9p8"
             },
             {
               "name": "랜더스의 승리 위해",
-              "youtubeUrl": "https://www.youtube.com/shorts/I1ywKWe6eWQ"
+              "youtubeUrl": "https://youtube.com/shorts/qo-DbmAbKtQ?si=jMCuVIop5c_rucJx"
             },
             {
               "name": "승리의 깃발",
-              "youtubeUrl": "https://www.youtube.com/shorts/dhZLNIUzSEo"
+              "youtubeUrl": "https://youtube.com/shorts/s-0SfPbxtk4?si=IvvVAd-SU-FjP9VA"
+            }
+          ]
+        },
+        {
+          "title": "상황별 응원",
+          "songs": [
+            {
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/jvgM_s53PNc?si=fXxo9Ml2VZlqzjUg"
+            },
+            {
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/_4b9u5RllpI?si=ABwh9UDoUoqcm1sI"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/Y4IySsA3xig?si=jd6IlYGOdOvR8wxS"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/J1-4iodsgl0?si=QV55AHtkBUgKaAMZ"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/dDGDBxnMUVk?si=l9sIUN2nN3EQe49Q"
             }
           ]
         }
@@ -508,20 +343,11 @@
     "kt": {
       "sections": [
         {
-          "title": "경기 시작 직전",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/dD8aRMBqOGU"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
+          "title": "경기시작",
           "songs": [
             {
               "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/og9d6a9-GuU"
+              "youtubeUrl": "https://youtube.com/shorts/xNNA-qoq9ak?si=jVuY4uhrV0izCcXy"
             }
           ]
         },
@@ -529,76 +355,24 @@
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
-              "name": "kt wiz clap",
-              "youtubeUrl": "https://www.youtube.com/shorts/W8NLedHQw7s"
-            },
-            {
               "name": "우리는 kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/apa47HJuwvY"
+              "youtubeUrl": "https://youtube.com/shorts/YYPVYurOI0o?si=PnLiCmUnN7HsgLkR"
             },
             {
               "name": "kt wiz 영원하리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/9Rz3KXjl8_U"
+              "youtubeUrl": "https://youtu.be/-Ht1KU1Kl6E?si=0XmIdg24DxTCqa_U"
             },
             {
               "name": "oh kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/0SPNPQBrZ_M"
+              "youtubeUrl": "https://youtube.com/shorts/dTZ_YCc4OJo?si=NpS4CthX7uXf0EGg"
             },
             {
               "name": "we are the kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/ZH12_uCTgQ8"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "안타송",
-              "youtubeUrl": "https://www.youtube.com/shorts/2pZqRXfrrCY"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "kt wiz clap",
-              "youtubeUrl": "https://www.youtube.com/shorts/W8NLedHQw7s"
+              "youtubeUrl": "https://youtu.be/6KOt2GUbV5E?si=8amBaPCc5eGS0H"
             },
             {
-              "name": "우리는 kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/apa47HJuwvY"
-            },
-            {
-              "name": "kt wiz 영원하리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/9Rz3KXjl8_U"
-            },
-            {
-              "name": "oh kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/0SPNPQBrZ_M"
-            },
-            {
-              "name": "we are the kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/ZH12_uCTgQ8"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/t35Y6N1GQf8"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/YhybPAAjFGE"
+              "name": "승리하라 kt wiz",
+              "youtubeUrl": "https://youtube.com/shorts/RDJA0qHmzUI?si=Dnf1nLahkdoHwq1r"
             }
           ]
         },
@@ -607,28 +381,36 @@
           "songs": [
             {
               "name": "승리를 위하여",
-              "youtubeUrl": "https://www.youtube.com/shorts/17wR491qv1A"
+              "youtubeUrl": "https://youtube.com/shorts/wzHWdZQ9qZQ?si=akx7EdMNoL05Tc3x"
             },
             {
               "name": "승리를 향해 비상하라",
-              "youtubeUrl": "https://www.youtube.com/shorts/_qc1IS4jxBw"
+              "youtubeUrl": "https://youtu.be/ZQe89wNm_C0?si=6sr2ZIm5EdM8c7QI"
             },
             {
               "name": "승리의 함성",
-              "youtubeUrl": "https://www.youtube.com/shorts/_XMQ7QyrNCI"
-            },
-            {
-              "name": "외쳐라 승리의 kt wiz",
-              "youtubeUrl": "https://www.youtube.com/shorts/ZlnU_T49MG4"
+              "youtubeUrl": "https://youtu.be/Qhv8gTonjp0?si=rehc-XaqFPBnaQRG"
             }
           ]
         },
         {
-          "title": "수비 전환/특정 플레이 반응",
+          "title": "상황별 응원",
           "songs": [
             {
-              "name": "아웃송",
-              "youtubeUrl": "https://www.youtube.com/shorts/xheAhFKxQLQ"
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/7Bgn6WgVtVE?si=u2n62PDsgP6SuDpI"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/y-Zs-h-yJcw?si=jpJ-ITUA3AKLItPx"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/nCVrljQlboA?si=FhU4ggqrQXl75NlO"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/fa-N43DmKSQ?si=C6uIRuKqpD_05RXZ"
             }
           ]
         }
@@ -637,17 +419,12 @@
     "hanwha": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
             {
               "name": "2024한화이글스 인트로",
               "youtubeUrl": "https://www.youtube.com/shorts/m7Mrwn5PCmc"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
+            },
             {
               "name": "라인업송",
               "youtubeUrl": "https://www.youtube.com/shorts/Cv1c1zcoyDA"
@@ -680,54 +457,44 @@
           ]
         },
         {
-          "title": "홈런 타석/거포 타석",
+          "title": "후반 리드 상황, 승부처",
           "songs": [
             {
-              "name": "불타는태양",
-              "youtubeUrl": "https://www.youtube.com/shorts/ApbSzAuwBVw"
+              "name": "열광",
+              "youtubeUrl": ""
             },
             {
-              "name": "사랑한다 최강한화",
-              "youtubeUrl": "https://www.youtube.com/shorts/YZ2lK8-RWvY"
+              "name": "승리위해 외쳐라",
+              "youtubeUrl": ""
             },
             {
-              "name": "행복송",
-              "youtubeUrl": "https://www.youtube.com/shorts/AkBeIvmlbrw"
+              "name": "내 사랑 한화, 내 사랑 이글스",
+              "youtubeUrl": ""
             },
             {
-              "name": "그대에게",
-              "youtubeUrl": "https://www.youtube.com/shorts/ukw7Gfj_f_8"
+              "name": "우리들의 열정",
+              "youtubeUrl": ""
             },
             {
-              "name": "사랑한다 이글스",
-              "youtubeUrl": "https://www.youtube.com/shorts/ukw7Gfj_f_8"
+              "name": "영원히 최강한화",
+              "youtubeUrl": ""
+            },
+            {
+              "name": "영원한 챔프",
+              "youtubeUrl": ""
             }
           ]
         },
         {
-          "title": "볼넷으로 출루했을 때",
+          "title": "상황별 응원",
           "songs": [
             {
               "name": "별도 고정 곡 명시 없음",
               "youtubeUrl": "https://www.youtube.com/shorts/INx--Mz-rrU"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
+            },
             {
               "name": "별도 고정 곡 명시 없음",
               "youtubeUrl": "https://www.youtube.com/shorts/diqR1OWgZw4"
-            }
-          ]
-        },
-        {
-          "title": "후반 리드 상황, 승부처",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/C8mM7qcDtYk"
             }
           ]
         }
@@ -736,20 +503,11 @@
     "samsung": {
       "sections": [
         {
-          "title": "경기 시작 직전",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/L-5aa-5xqOI"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
+          "title": "경기시작",
           "songs": [
             {
               "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/2xlMTagkrDY"
+              "youtubeUrl": "https://youtu.be/0XjcQ_Xh_gc?si=RrWU93b8QO2iwrhL"
             }
           ]
         },
@@ -758,75 +516,27 @@
           "songs": [
             {
               "name": "환희",
-              "youtubeUrl": "https://www.youtube.com/shorts/gJ7h7DPhz_E"
+              "youtubeUrl": "https://youtube.com/shorts/P4k1wJwF9eg?si=Gv3pbMvJFJiWN9VK"
             },
             {
               "name": "투게더",
-              "youtubeUrl": "https://www.youtube.com/shorts/aBd6Oaqr8qs"
+              "youtubeUrl": "https://youtube.com/shorts/ZmN92AMr0KI?si=-yiqZGV8TJsRkVU4"
             },
             {
               "name": "혼연일체",
-              "youtubeUrl": "https://www.youtube.com/shorts/A-kQ7aQ9GaA"
+              "youtubeUrl": "https://youtube.com/shorts/-7WJ0OvI6dE?si=TD0JpuaFdbxpeFz9"
             },
             {
               "name": "Jump up Lions",
-              "youtubeUrl": "https://www.youtube.com/shorts/4xlV48kF3q8"
+              "youtubeUrl": "https://youtube.com/shorts/-f56QTl-ALM?si=NaM0Z2bB33DjNtUd"
             },
             {
               "name": "빅토리 라이온즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/whQm_5Vm1Uk"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/ckPxYybqfGU"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "환희",
-              "youtubeUrl": "https://www.youtube.com/shorts/gJ7h7DPhz_E"
+              "youtubeUrl": "https://youtube.com/shorts/70gYQNo-PYA?si=3ONHETkxp3aon-B5"
             },
             {
-              "name": "투게더",
-              "youtubeUrl": "https://www.youtube.com/shorts/aBd6Oaqr8qs"
-            },
-            {
-              "name": "혼연일체",
-              "youtubeUrl": "https://www.youtube.com/shorts/A-kQ7aQ9GaA"
-            },
-            {
-              "name": "Jump up Lions",
-              "youtubeUrl": "https://www.youtube.com/shorts/4xlV48kF3q8"
-            },
-            {
-              "name": "빅토리 라이온즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/whQm_5Vm1Uk"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/g4tl-r76JEs"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/0qs_WdiKFJw"
+              "name": "우리가 누구? 최~강 삼성",
+              "youtubeUrl": "https://youtube.com/shorts/x3IwNYUKNdU?si=Xeq9mc_dW0nxPaDc"
             }
           ]
         },
@@ -835,23 +545,44 @@
           "songs": [
             {
               "name": "승리를 위해",
-              "youtubeUrl": "https://www.youtube.com/shorts/McPHqxjySUY"
+              "youtubeUrl": "https://youtube.com/shorts/BSYUPEI0-Lk?si=fYjn8pLbM580tD_J"
             },
             {
-              "name": "2020 승리하라 최강삼성",
-              "youtubeUrl": "https://www.youtube.com/shorts/pbnnq_RV5l4"
-            },
-            {
-              "name": "승리하라 삼성라이온즈여",
-              "youtubeUrl": "https://www.youtube.com/shorts/DuaI3MvoRAg"
+              "name": "승리하라 최강삼성",
+              "youtubeUrl": "https://youtube.com/shorts/wPCmipPG6W4?si=XMFjj-CT2ACz4J6c"
             },
             {
               "name": "승리의 그 이름",
-              "youtubeUrl": "https://www.youtube.com/shorts/woiwRF2hOEQ"
+              "youtubeUrl": "https://youtube.com/shorts/svzt6bmCuJU?si=imaAw-y0dlKb2eFL"
             },
             {
               "name": "승리의 라이온즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/ILgj1924pLA"
+              "youtubeUrl": "https://youtube.com/shorts/pffp5hjcx4c?si=KwIP9KxZgNtjVvF8"
+            }
+          ]
+        },
+        {
+          "title": "상황별 응원",
+          "songs": [
+            {
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/rtnSvRKtwrw?si=EHaICKkZbl-tcEhj"
+            },
+            {
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/RgtZzK6Ak6A?si=H4Ipv-_1LkxGwvNu"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/tTeJGg2uDA0?si=xGvoHmv7wMPEsbLD"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/ojOctBbbhPM?si=C4hFqqVY5-DKn5id"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/x1PV1H72G9k?si=kYv6ccaHi0ksqB0O"
             }
           ]
         }
@@ -860,20 +591,11 @@
     "kia": {
       "sections": [
         {
-          "title": "경기 시작 직전",
-          "songs": [
-            {
-              "name": "KIA 없이는 못 살아",
-              "youtubeUrl": "https://www.youtube.com/shorts/iCZPNx4_SEU"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
+          "title": "경기시작",
           "songs": [
             {
               "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/9KnHLfjUlpM"
+              "youtubeUrl": "https://youtu.be/jQ8gF05Mr3I?si=pnU7T_fQciVVj6"
             }
           ]
         },
@@ -882,75 +604,27 @@
           "songs": [
             {
               "name": "사랑한다 KIA",
-              "youtubeUrl": "https://www.youtube.com/shorts/zFLZh4TWqW8"
+              "youtubeUrl": "https://youtube.com/shorts/UCXkT3vFzFY?si=5LIETPNr34t3DCqt"
             },
             {
               "name": "영원하리라 KIA 타이거즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/W5UA_uIU16E"
+              "youtubeUrl": "https://youtube.com/shorts/y8gScmgVqmc?si=WdrCRBVhYjYBiH-F"
             },
             {
               "name": "버터플라이",
-              "youtubeUrl": "https://www.youtube.com/shorts/YGi_FRYv2_o"
+              "youtubeUrl": "https://youtube.com/shorts/6g4aIJWyQIk?si=TGN0Su6whJ73weBD"
             },
             {
               "name": "최강 KIA를 위해",
-              "youtubeUrl": "https://www.youtube.com/shorts/_ohbfA9NEnU"
+              "youtubeUrl": "https://youtube.com/shorts/pDBU4-DHuJM?si=9eaTF6b1uVMmWTVN"
             },
             {
               "name": "광주의 함성",
-              "youtubeUrl": "https://www.youtube.com/shorts/OZrU0V8Yztg"
-            }
-          ]
-        },
-        {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "버터플라이",
-              "youtubeUrl": "https://www.youtube.com/shorts/YGi_FRYv2_o"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "사랑한다 KIA",
-              "youtubeUrl": "https://www.youtube.com/shorts/zFLZh4TWqW8"
+              "youtubeUrl": "https://youtube.com/shorts/E22AmOLpb6E?si=eXGuzA0ltewXMwjO"
             },
             {
-              "name": "영원하리라 KIA 타이거즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/W5UA_uIU16E"
-            },
-            {
-              "name": "버터플라이",
-              "youtubeUrl": "https://www.youtube.com/shorts/YGi_FRYv2_o"
-            },
-            {
-              "name": "최강 KIA를 위해",
-              "youtubeUrl": "https://www.youtube.com/shorts/_ohbfA9NEnU"
-            },
-            {
-              "name": "광주의 함성",
-              "youtubeUrl": "https://www.youtube.com/shorts/OZrU0V8Yztg"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "볼넷송",
-              "youtubeUrl": "https://www.youtube.com/shorts/JMjg8Sr8mLQ"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "풀카운트송",
-              "youtubeUrl": "https://www.youtube.com/shorts/-GFK1tFWoug"
+              "name": "미치도록 사랑한다",
+              "youtubeUrl": "https://youtube.com/shorts/F4AV0cWw3sA?si=QEjLwHrmvcE7p32b"
             }
           ]
         },
@@ -959,36 +633,48 @@
           "songs": [
             {
               "name": "남행열차",
-              "youtubeUrl": "https://www.youtube.com/shorts/-y5LYQHm1OQ"
+              "youtubeUrl": "https://youtube.com/shorts/hyB-TBHym1A?si=UueHLLV8K66mhpdz"
             },
             {
               "name": "외쳐라 최강 KIA",
-              "youtubeUrl": "https://www.youtube.com/shorts/-yDl24fIocw"
+              "youtubeUrl": "https://youtube.com/shorts/-_W1JRSMbVw?si=RXFBmc2o-k07EjUZ"
             },
             {
               "name": "KIA를 응원하라",
-              "youtubeUrl": "https://www.youtube.com/shorts/FJqGFDHVzd0"
+              "youtubeUrl": "https://youtube.com/shorts/KWdXBFY8aQ4?si=8KlZThWpYrGdO9Bi"
             },
             {
               "name": "우리는 하나",
-              "youtubeUrl": "https://www.youtube.com/shorts/jVcVANgZTUk"
+              "youtubeUrl": "https://youtube.com/shorts/lpWEbweQ5xY?si=JE20AEHhQWr_jvbu"
             },
             {
               "name": "열광하라 타이거즈",
-              "youtubeUrl": "https://www.youtube.com/shorts/bYVXxEkFXfk"
+              "youtubeUrl": "https://youtube.com/shorts/X5wRnblpPTA?si=wfwiI5uf4nN-DKZA"
             }
           ]
         },
         {
-          "title": "수비 전환/특정 플레이 반응",
+          "title": "상황별 응원",
           "songs": [
             {
-              "name": "빠바밤송",
-              "youtubeUrl": "https://www.youtube.com/shorts/z_dJU5X8ITA"
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/iAPIpFGWJP0?si=MmfzV2km4H-XhYHJ"
             },
             {
-              "name": "언제나 승리하리",
-              "youtubeUrl": "https://www.youtube.com/shorts/4xAFTRQt3VI"
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/-ouN-1IJQzg?si=YbUngjlskLu7HM4V"
+            },
+            {
+              "name": "안타송3",
+              "youtubeUrl": "https://youtube.com/shorts/ZpofNn1zCvI?si=t9_RrFbNeNepwbXB"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/Z_ClqUKkRQw?si=BFCEY3axZRbJJtdZ"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/aj5f_cYJwO8?si=Jow3NidoMnn0eID4"
             }
           ]
         }
@@ -997,17 +683,12 @@
     "lotte": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
             {
               "name": "별도 고정 곡 명시 없음",
               "youtubeUrl": "https://www.youtube.com/shorts/r3YArUxYSGU"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
+            },
             {
               "name": "별도 고정 곡 명시 없음",
               "youtubeUrl": "https://www.youtube.com/shorts/0_VYldDtYY4"
@@ -1040,58 +721,6 @@
           ]
         },
         {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/sU6yZlLmCGw"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "Dream of Ground",
-              "youtubeUrl": "https://www.youtube.com/shorts/UiCFV3V1Sck"
-            },
-            {
-              "name": "바닷새",
-              "youtubeUrl": "https://www.youtube.com/shorts/cBBpkDtzHfM"
-            },
-            {
-              "name": "승전가",
-              "youtubeUrl": "https://www.youtube.com/shorts/gJ9IhI1yubo"
-            },
-            {
-              "name": "소리높여 외쳐보자",
-              "youtubeUrl": "https://www.youtube.com/shorts/-0zbXO1_PC4"
-            },
-            {
-              "name": "힘차게 외쳐보자",
-              "youtubeUrl": "https://www.youtube.com/shorts/hNUYoPUHw-E"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/6khJykNgUBg"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/yRTcWvdx5aE"
-            }
-          ]
-        },
-        {
           "title": "후반 리드 상황, 승부처",
           "songs": [
             {
@@ -1115,23 +744,35 @@
               "youtubeUrl": "https://www.youtube.com/shorts/-eYdOUcigLo"
             }
           ]
+        },
+        {
+          "title": "상황별 응원",
+          "songs": [
+            {
+              "name": "별도 고정 곡 명시 없음",
+              "youtubeUrl": "https://www.youtube.com/shorts/sU6yZlLmCGw"
+            },
+            {
+              "name": "별도 고정 곡 명시 없음",
+              "youtubeUrl": "https://www.youtube.com/shorts/6khJykNgUBg"
+            },
+            {
+              "name": "별도 고정 곡 명시 없음",
+              "youtubeUrl": "https://www.youtube.com/shorts/yRTcWvdx5aE"
+            }
+          ]
         }
       ]
     },
     "nc": {
       "sections": [
         {
-          "title": "경기 시작 직전",
+          "title": "경기시작",
           "songs": [
             {
               "name": "응원가 시작",
               "youtubeUrl": "https://www.youtube.com/shorts/WlCKiEp8arA"
-            }
-          ]
-        },
-        {
-          "title": "선발 소개/응원단 첫 집결",
-          "songs": [
+            },
             {
               "name": "리듬 응원 (체로키)",
               "youtubeUrl": "https://www.youtube.com/shorts/KEEx9qICC1w"
@@ -1164,58 +805,6 @@
           ]
         },
         {
-          "title": "안타가 나왔을 때 (공통)",
-          "songs": [
-            {
-              "name": "안타를 쌔리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/Vr7QkLqIZDs"
-            }
-          ]
-        },
-        {
-          "title": "홈런 타석/거포 타석",
-          "songs": [
-            {
-              "name": "응원가 시작 (설명란에 👏🏻 표기)",
-              "youtubeUrl": "https://www.youtube.com/shorts/WlCKiEp8arA"
-            },
-            {
-              "name": "다이노스 찬가",
-              "youtubeUrl": "https://www.youtube.com/shorts/P8xf_SVxn8I"
-            },
-            {
-              "name": "다이노스여 일어나라!",
-              "youtubeUrl": "https://www.youtube.com/shorts/5oL5BVvYPZM"
-            },
-            {
-              "name": "다이노스 다이겨쓰",
-              "youtubeUrl": "https://www.youtube.com/shorts/MvG62F6362o"
-            },
-            {
-              "name": "창원의 NC",
-              "youtubeUrl": "https://www.youtube.com/shorts/TGx4UZCYFdo"
-            }
-          ]
-        },
-        {
-          "title": "볼넷으로 출루했을 때",
-          "songs": [
-            {
-              "name": "파이팅 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/iZahQmfjIDY"
-            }
-          ]
-        },
-        {
-          "title": "풀카운트 상황",
-          "songs": [
-            {
-              "name": "풀카운트 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/-tGUhWubxiY"
-            }
-          ]
-        },
-        {
           "title": "후반 리드 상황, 승부처",
           "songs": [
             {
@@ -1237,15 +826,19 @@
           ]
         },
         {
-          "title": "수비 전환/특정 플레이 반응",
+          "title": "상황별 응원",
           "songs": [
             {
-              "name": "투수 교체 시 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/m999ZeHTqmk"
+              "name": "안타를 쌔리라",
+              "youtubeUrl": "https://www.youtube.com/shorts/Vr7QkLqIZDs"
             },
             {
-              "name": "외쳐라 다이노스",
-              "youtubeUrl": "https://www.youtube.com/shorts/aAxbm7YkKD0"
+              "name": "파이팅 응원",
+              "youtubeUrl": "https://www.youtube.com/shorts/iZahQmfjIDY"
+            },
+            {
+              "name": "풀카운트 응원",
+              "youtubeUrl": "https://www.youtube.com/shorts/-tGUhWubxiY"
             }
           ]
         }
