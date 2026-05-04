@@ -419,40 +419,27 @@
     "hanwha": {
       "sections": [
         {
-          "title": "경기시작",
-          "songs": [
-            {
-              "name": "2024한화이글스 인트로",
-              "youtubeUrl": "https://www.youtube.com/shorts/m7Mrwn5PCmc"
-            },
-            {
-              "name": "라인업송",
-              "youtubeUrl": "https://www.youtube.com/shorts/Cv1c1zcoyDA"
-            }
-          ]
-        },
-        {
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
-              "name": "불타는태양",
-              "youtubeUrl": "https://www.youtube.com/shorts/ApbSzAuwBVw"
-            },
-            {
               "name": "사랑한다 최강한화",
-              "youtubeUrl": "https://www.youtube.com/shorts/YZ2lK8-RWvY"
+              "youtubeUrl": "https://youtube.com/shorts/Q-BUM86krTg?si=co18XzXwXRWduSGn"
             },
             {
               "name": "행복송",
-              "youtubeUrl": "https://www.youtube.com/shorts/AkBeIvmlbrw"
+              "youtubeUrl": "https://youtube.com/shorts/Fp3CvpnQw4E?si=-_RsapwRU6O47r3C"
             },
             {
               "name": "그대에게",
-              "youtubeUrl": "https://www.youtube.com/shorts/ukw7Gfj_f_8"
+              "youtubeUrl": "https://youtube.com/shorts/zRrrnRW0sg8?si=aABN5LuyytZ23VRu"
             },
             {
               "name": "사랑한다 이글스",
-              "youtubeUrl": "https://www.youtube.com/shorts/ukw7Gfj_f_8"
+              "youtubeUrl": "https://youtube.com/shorts/dVezo16FWwY?si=CYlaDWilwdT0VELP"
+            },
+            {
+              "name": "불타는태양",
+              "youtubeUrl": "https://youtube.com/shorts/rr97iT_fNLE?si=jBJB3iTUbNN1VDzg"
             }
           ]
         },
@@ -461,27 +448,27 @@
           "songs": [
             {
               "name": "열광",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtu.be/gd6ZJzvxMCA?si=6WgXCL4om96sWfp6"
             },
             {
               "name": "승리위해 외쳐라",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtu.be/kr9CUIt3Auk?si=WSKuvSFN0nG569Fs"
             },
             {
               "name": "내 사랑 한화, 내 사랑 이글스",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtube.com/shorts/Sqltx-SMEX8?si=Kc-QOA_5ZbM8Tk_U"
             },
             {
               "name": "우리들의 열정",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtube.com/shorts/pzac7MsML-g?si=I6yOJUS_hrqCnZMM"
             },
             {
               "name": "영원히 최강한화",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtube.com/shorts/oblGwwYFk9w?si=pivBq-eGOJaBK5qQ"
             },
             {
               "name": "영원한 챔프",
-              "youtubeUrl": ""
+              "youtubeUrl": "https://youtube.com/shorts/2WSMfDdQ9pw?si=iqh-drBke2h8LH7e"
             }
           ]
         },
@@ -489,12 +476,28 @@
           "title": "상황별 응원",
           "songs": [
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/INx--Mz-rrU"
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/Z01O1g3XVso?si=r8FZSCRfzNkzOPXF"
             },
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/diqR1OWgZw4"
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/P-oITayNKGc?si=t4ntzsBUwBZMYLV8"
+            },
+            {
+              "name": "안타송3",
+              "youtubeUrl": "https://youtube.com/shorts/sggOCodHwb0?si=wLmVA6rEakLPDrKo"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/Imsjs9k_Tto?si=yOslYgpF6cTv3_0d"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/JnkUui4tg9U?si=wLdFv0sdbRv1kyBj"
+            },
+            {
+              "name": "견제송",
+              "youtubeUrl": "https://youtube.com/shorts/gofVayg84tg?si=FdrkZjPvuf8CyA7K"
             }
           ]
         }
@@ -675,6 +678,10 @@
             {
               "name": "풀카운트송",
               "youtubeUrl": "https://youtube.com/shorts/aj5f_cYJwO8?si=Jow3NidoMnn0eID4"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://www.youtube.com/shorts/okCSYJSVvyA"
             }
           ]
         }
@@ -683,40 +690,31 @@
     "lotte": {
       "sections": [
         {
-          "title": "경기시작",
-          "songs": [
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/r3YArUxYSGU"
-            },
-            {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/0_VYldDtYY4"
-            }
-          ]
-        },
-        {
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
               "name": "Dream of Ground",
-              "youtubeUrl": "https://www.youtube.com/shorts/UiCFV3V1Sck"
+              "youtubeUrl": "https://youtube.com/shorts/x1wGEsGU-mc?si=CQ_KzVRmEK6HHQKV"
             },
             {
               "name": "바닷새",
-              "youtubeUrl": "https://www.youtube.com/shorts/cBBpkDtzHfM"
+              "youtubeUrl": "https://youtube.com/shorts/ce-9DNAvRUE?si=3wNDeBY2tjBCpllg"
+            },
+            {
+              "name": "뱃노래",
+              "youtubeUrl": "https://youtube.com/shorts/qrs9thqF2to?si=TvCZl2dCVXIuTXDk"
             },
             {
               "name": "승전가",
-              "youtubeUrl": "https://www.youtube.com/shorts/gJ9IhI1yubo"
+              "youtubeUrl": "https://youtube.com/shorts/eWClBd2EJ7Q?si=1CKgNiy7hAyRo-E-"
             },
             {
               "name": "소리높여 외쳐보자",
-              "youtubeUrl": "https://www.youtube.com/shorts/-0zbXO1_PC4"
+              "youtubeUrl": "https://youtube.com/shorts/0XowtYmvwY4?si=dQvwh5suIV8NUuiF"
             },
             {
               "name": "힘차게 외쳐보자",
-              "youtubeUrl": "https://www.youtube.com/shorts/hNUYoPUHw-E"
+              "youtubeUrl": "https://youtube.com/shorts/ufxiTwcGSuw?si=S8Wl0ih13uOgeI8D"
             }
           ]
         },
@@ -725,23 +723,19 @@
           "songs": [
             {
               "name": "챔피언 롯데",
-              "youtubeUrl": "https://www.youtube.com/shorts/rr-jGF0MmIo"
+              "youtubeUrl": "https://youtube.com/shorts/qBnhpB_zgNI?si=EtzNVUQQE-TPDVaI"
             },
             {
               "name": "승리를 외치자",
-              "youtubeUrl": "https://www.youtube.com/shorts/Q5UuuT2Rnz4"
-            },
-            {
-              "name": "롯데의 승리를 외치자",
-              "youtubeUrl": "https://www.youtube.com/shorts/aLN9wBXgjVM"
+              "youtubeUrl": "https://youtube.com/shorts/gbfQRhP2R8c?si=LIFMkDb-V6DS19Xs"
             },
             {
               "name": "오늘도 승리한다",
-              "youtubeUrl": "https://www.youtube.com/shorts/kK3JYI8ZyXg"
+              "youtubeUrl": "https://youtube.com/shorts/By8HO7gH5AQ?si=OVAm9GtHv_MEXcM1"
             },
             {
               "name": "승리는 누구",
-              "youtubeUrl": "https://www.youtube.com/shorts/-eYdOUcigLo"
+              "youtubeUrl": "https://youtube.com/shorts/pXYZnqCgCnI?si=eqrK0qlMaj84O9IT"
             }
           ]
         },
@@ -749,16 +743,28 @@
           "title": "상황별 응원",
           "songs": [
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/sU6yZlLmCGw"
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/CBAygnAVHqw?si=Aup9gnz54EoPHRjj"
             },
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/6khJykNgUBg"
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/u-mxEGETByE?si=QYt_ikK5pNGyMH23"
             },
             {
-              "name": "별도 고정 곡 명시 없음",
-              "youtubeUrl": "https://www.youtube.com/shorts/yRTcWvdx5aE"
+              "name": "안타송3",
+              "youtubeUrl": "https://youtube.com/shorts/UUrLz63U8LA?si=oDIdH4gZc5WaHTe7"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/Wltt0imZ5zk?si=4WKL5t43VEfwKS23"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/ddkjew4Qs8Q?si=FmhX4Zwz6ULQLev8"
+            },
+            {
+              "name": "견제구호",
+              "youtubeUrl": "https://youtube.com/shorts/4bvVzaNr-ps?si=VpFi3x1pUQcVBVra"
             }
           ]
         }
@@ -767,40 +773,23 @@
     "nc": {
       "sections": [
         {
-          "title": "경기시작",
-          "songs": [
-            {
-              "name": "응원가 시작",
-              "youtubeUrl": "https://www.youtube.com/shorts/WlCKiEp8arA"
-            },
-            {
-              "name": "리듬 응원 (체로키)",
-              "youtubeUrl": "https://www.youtube.com/shorts/KEEx9qICC1w"
-            }
-          ]
-        },
-        {
           "title": "초반 분위기 올릴 때",
           "songs": [
             {
-              "name": "응원가 시작 (설명란에 👏🏻 표기)",
-              "youtubeUrl": "https://www.youtube.com/shorts/WlCKiEp8arA"
-            },
-            {
               "name": "다이노스 찬가",
-              "youtubeUrl": "https://www.youtube.com/shorts/P8xf_SVxn8I"
+              "youtubeUrl": "https://youtube.com/shorts/8HJeLRCpPKg?si=eRDHzO92O9DfjrGb"
             },
             {
               "name": "다이노스여 일어나라!",
-              "youtubeUrl": "https://www.youtube.com/shorts/5oL5BVvYPZM"
+              "youtubeUrl": "https://youtube.com/shorts/vNzsaM6rZAk?si=3DM6i0OIxlXfO3YA"
             },
             {
               "name": "다이노스 다이겨쓰",
-              "youtubeUrl": "https://www.youtube.com/shorts/MvG62F6362o"
+              "youtubeUrl": "https://youtube.com/shorts/z2G1h8_J_wA?si=upGcVmukohFklC6i"
             },
             {
               "name": "창원의 NC",
-              "youtubeUrl": "https://www.youtube.com/shorts/TGx4UZCYFdo"
+              "youtubeUrl": "https://youtube.com/shorts/6oa_JfcFFag?si=u5JHwc2K_2kwEoVq"
             }
           ]
         },
@@ -809,19 +798,19 @@
           "songs": [
             {
               "name": "승리를 위하여",
-              "youtubeUrl": "https://www.youtube.com/shorts/-k1QchhdvAc"
+              "youtubeUrl": "https://youtube.com/shorts/bqZ5iXVLEHA?si=Etrdh_H-nK_fz4qT"
             },
             {
               "name": "승리의 깃발",
-              "youtubeUrl": "https://www.youtube.com/shorts/WU3Uen4iVo8"
+              "youtubeUrl": "https://youtube.com/shorts/NQOlCg5GaNM?si=JKNMrbBzyHiJr37b"
             },
             {
               "name": "승리의 함성",
-              "youtubeUrl": "https://www.youtube.com/shorts/Yzvbj8H6vT8"
+              "youtubeUrl": "https://youtube.com/shorts/49lvb6-Hmqo?si=OzxnbDQpGWUojhke"
             },
             {
               "name": "승리의 NC 질주의 다이노스",
-              "youtubeUrl": "https://www.youtube.com/shorts/56TT7uu8KnE"
+              "youtubeUrl": "https://youtube.com/shorts/yBQswlazbn4?si=z748vPCpkdQQbBDW"
             }
           ]
         },
@@ -829,16 +818,28 @@
           "title": "상황별 응원",
           "songs": [
             {
-              "name": "안타를 쌔리라",
-              "youtubeUrl": "https://www.youtube.com/shorts/Vr7QkLqIZDs"
+              "name": "안타송1",
+              "youtubeUrl": "https://youtube.com/shorts/VMHLOJ5Dx8A?si=i37hJHqJCLDYeLSw"
             },
             {
-              "name": "파이팅 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/iZahQmfjIDY"
+              "name": "안타송2",
+              "youtubeUrl": "https://youtube.com/shorts/gncVrqQL2QY?si=Dx_2Zs2c_f5bQ3b_"
             },
             {
-              "name": "풀카운트 응원",
-              "youtubeUrl": "https://www.youtube.com/shorts/-tGUhWubxiY"
+              "name": "안타송3",
+              "youtubeUrl": "https://youtube.com/shorts/VJgfiIDKuz0?si=Z9e7u-2MUEzEV9MF"
+            },
+            {
+              "name": "볼넷송",
+              "youtubeUrl": "https://youtube.com/shorts/-tb9UYlyYFc?si=p5x6sPq8-2QY-blw"
+            },
+            {
+              "name": "풀카운트송",
+              "youtubeUrl": "https://youtube.com/shorts/uWlHx0TCfO8?si=ET2JEYKNA2c3Vgna"
+            },
+            {
+              "name": "견제",
+              "youtubeUrl": "https://youtube.com/shorts/eSEaA36HpgU?si=F2XB7ibcAvAxvqVb"
             }
           ]
         }
