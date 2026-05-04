@@ -2,7 +2,7 @@ name: Update KBO Data
 
 on:
   schedule:
-    - cron: '*/25 * * * *'
+    - cron: '*/12 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -22,6 +22,10 @@ jobs:
       - name: Update data (KST 12:00~23:59 only)
         run: |
           HOUR=$(TZ=Asia/Seoul date +%H)
+          if [ "$HOUR" -lt 12 ]; then
+            echo "[SKIP] KST $HOUR:00 = 자정~정오, skipping"
+            exit 0
+          fi
           echo "[RUN] KST $HOUR:00 - updating data"
           python scripts/fetch_kbo_standings.py || echo "[WARN] standings fetch failed"
           python scripts/update_hub_data.py || echo "[WARN] hub data update failed"
