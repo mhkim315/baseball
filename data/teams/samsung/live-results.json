@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T00:20:50+09:00",
+  "fetchedAt": "2026-05-05T00:55:53+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -15,9 +15,9 @@
           "ourScore": 5,
           "oppScore": 4,
           "ourScoreLine": "5-4",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260428SSOB0"
+          "gameId": "20260428SSOB02026"
         }
       ]
     },
@@ -33,9 +33,9 @@
           "ourScore": 0,
           "oppScore": 4,
           "ourScoreLine": "0-4",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260429SSOB0"
+          "gameId": "20260429SSOB02026"
         }
       ]
     },
@@ -213,9 +213,9 @@
           "ourScore": 0,
           "oppScore": 2,
           "ourScoreLine": "0-2",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260426SSWO0"
+          "gameId": "20260426SSWO02026"
         }
       ]
     },
@@ -519,9 +519,9 @@
           "ourScore": 5,
           "oppScore": 8,
           "ourScoreLine": "5-8",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260430SSOB0"
+          "gameId": "20260430SSOB02026"
         }
       ]
     },
@@ -537,9 +537,9 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260501HHSS0"
+          "gameId": "20260501HHSS02026"
         }
       ]
     },
@@ -555,9 +555,9 @@
           "ourScore": 3,
           "oppScore": 13,
           "ourScoreLine": "3-13",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260502HHSS0"
+          "gameId": "20260502HHSS02026"
         }
       ]
     },

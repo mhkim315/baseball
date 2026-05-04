@@ -1,4 +1,4 @@
-﻿export const SITE_TITLE = "직관가이드";
+export const SITE_TITLE = "직관가이드";
 
 export const STADIUMS = {
   "1": {

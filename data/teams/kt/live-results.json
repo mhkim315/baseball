@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T00:20:50+09:00",
+  "fetchedAt": "2026-05-05T00:55:53+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -15,9 +15,9 @@
           "ourScore": 6,
           "oppScore": 5,
           "ourScoreLine": "6-5",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260428LGKT0"
+          "gameId": "20260428LGKT02026"
         }
       ]
     },
@@ -33,9 +33,9 @@
           "ourScore": 5,
           "oppScore": 4,
           "ourScoreLine": "5-4",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260429LGKT0"
+          "gameId": "20260429LGKT02026"
         }
       ]
     },
@@ -213,9 +213,9 @@
           "ourScore": 12,
           "oppScore": 2,
           "ourScoreLine": "12-2",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260426KTSK0"
+          "gameId": "20260426KTSK02026"
         }
       ]
     },
@@ -519,9 +519,9 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260430LGKT0"
+          "gameId": "20260430LGKT02026"
         }
       ]
     },
@@ -537,9 +537,9 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260501KTHT0"
+          "gameId": "20260501KTHT02026"
         }
       ]
     },
@@ -555,9 +555,9 @@
           "ourScore": 0,
           "oppScore": 6,
           "ourScoreLine": "0-6",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260502KTHT0"
+          "gameId": "20260502KTHT02026"
         }
       ]
     },

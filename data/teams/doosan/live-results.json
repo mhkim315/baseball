@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-05-05T00:20:50+09:00",
+  "fetchedAt": "2026-05-05T00:55:53+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -467,9 +467,9 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260426LGOB0"
+          "gameId": "20260426LGOB02026"
         }
       ]
     },
@@ -485,9 +485,9 @@
           "ourScore": 4,
           "oppScore": 5,
           "ourScoreLine": "4-5",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260428SSOB0"
+          "gameId": "20260428SSOB02026"
         }
       ]
     },
@@ -503,9 +503,9 @@
           "ourScore": 4,
           "oppScore": 0,
           "ourScoreLine": "4-0",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260429SSOB0"
+          "gameId": "20260429SSOB02026"
         }
       ]
     },
@@ -521,9 +521,9 @@
           "ourScore": 8,
           "oppScore": 5,
           "ourScoreLine": "8-5",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260430SSOB0"
+          "gameId": "20260430SSOB02026"
         }
       ]
     },
@@ -539,9 +539,9 @@
           "ourScore": 16,
           "oppScore": 6,
           "ourScoreLine": "16-6",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260501OBWO0"
+          "gameId": "20260501OBWO02026"
         }
       ]
     },
@@ -557,9 +557,9 @@
           "ourScore": 2,
           "oppScore": 4,
           "ourScoreLine": "2-4",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260502OBWO0"
+          "gameId": "20260502OBWO02026"
         }
       ]
     },

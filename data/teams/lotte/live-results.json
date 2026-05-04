@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T00:20:50+09:00",
+  "fetchedAt": "2026-05-05T00:55:53+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -15,9 +15,9 @@
           "ourScore": 5,
           "oppScore": 4,
           "ourScoreLine": "5-4",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260428WOLT0"
+          "gameId": "20260428WOLT02026"
         }
       ]
     },
@@ -33,9 +33,9 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260429WOLT0"
+          "gameId": "20260429WOLT02026"
         }
       ]
     },
@@ -213,9 +213,9 @@
           "ourScore": 5,
           "oppScore": 5,
           "ourScoreLine": "5-5",
-          "outcome": "T",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260426LTHT0"
+          "gameId": "20260426LTHT02026"
         }
       ]
     },
@@ -519,9 +519,9 @@
           "ourScore": 3,
           "oppScore": 1,
           "ourScoreLine": "3-1",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260430WOLT0"
+          "gameId": "20260430WOLT02026"
         }
       ]
     },
@@ -537,9 +537,9 @@
           "ourScore": 10,
           "oppScore": 7,
           "ourScoreLine": "10-7",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260501LTSK0"
+          "gameId": "20260501LTSK02026"
         }
       ]
     },
@@ -555,9 +555,9 @@
           "ourScore": 7,
           "oppScore": 5,
           "ourScoreLine": "7-5",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260502LTSK0"
+          "gameId": "20260502LTSK02026"
         }
       ]
     },
