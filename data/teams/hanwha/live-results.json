@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T19:26:11+09:00",
+  "fetchedAt": "2026-05-05T19:36:31+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -15,7 +15,7 @@
           "ourScore": 7,
           "oppScore": 6,
           "ourScoreLine": "7-6",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260428SKHH02026"
         }
@@ -33,7 +33,7 @@
           "ourScore": 1,
           "oppScore": 6,
           "ourScoreLine": "1-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260429SKHH02026"
         }
@@ -51,7 +51,7 @@
           "ourScore": 1,
           "oppScore": 6,
           "ourScoreLine": "1-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260416SSHH02026"
         }
@@ -87,7 +87,7 @@
           "ourScore": 5,
           "oppScore": 0,
           "ourScoreLine": "5-0",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260418HHLT02026"
         }
@@ -105,7 +105,7 @@
           "ourScore": 9,
           "oppScore": 1,
           "ourScoreLine": "9-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260419HHLT02026"
         }
@@ -123,7 +123,7 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260421HHLG02026"
         }
@@ -141,7 +141,7 @@
           "ourScore": 0,
           "oppScore": 3,
           "ourScoreLine": "0-3",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260422HHLG02026"
         }
@@ -159,7 +159,7 @@
           "ourScore": 8,
           "oppScore": 4,
           "ourScoreLine": "8-4",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260423HHLG02026"
         }
@@ -177,7 +177,7 @@
           "ourScore": 3,
           "oppScore": 7,
           "ourScoreLine": "3-7",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260424NCHH02026"
         }
@@ -195,7 +195,7 @@
           "ourScore": 8,
           "oppScore": 1,
           "ourScoreLine": "8-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260425NCHH02026"
         }
@@ -213,7 +213,7 @@
           "ourScore": 3,
           "oppScore": 5,
           "ourScoreLine": "3-5",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260426NCHH02026"
         }
@@ -375,7 +375,7 @@
           "ourScore": 6,
           "oppScore": 2,
           "ourScoreLine": "6-2",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260407HHSK02026"
         }
@@ -393,7 +393,7 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260408HHSK02026"
         }
@@ -429,7 +429,7 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260410HTHH02026"
         }
@@ -447,7 +447,7 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260411HTHH02026"
         }
@@ -465,7 +465,7 @@
           "ourScore": 3,
           "oppScore": 9,
           "ourScoreLine": "3-9",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260412HTHH02026"
         }
@@ -483,7 +483,7 @@
           "ourScore": 5,
           "oppScore": 6,
           "ourScoreLine": "5-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260414SSHH02026"
         }
@@ -501,7 +501,7 @@
           "ourScore": 5,
           "oppScore": 13,
           "ourScoreLine": "5-13",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260415SSHH02026"
         }
@@ -519,7 +519,7 @@
           "ourScore": 3,
           "oppScore": 14,
           "ourScoreLine": "3-14",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260430SKHH02026"
         }
@@ -537,7 +537,7 @@
           "ourScore": 3,
           "oppScore": 4,
           "ourScoreLine": "3-4",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260501HHSS02026"
         }
@@ -555,7 +555,7 @@
           "ourScore": 13,
           "oppScore": 3,
           "ourScoreLine": "13-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260502HHSS02026"
         }
@@ -573,7 +573,7 @@
           "ourScore": 6,
           "oppScore": 7,
           "ourScoreLine": "6-7",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260503HHSS02026"
         }
@@ -591,7 +591,7 @@
           "ourScore": 7,
           "oppScore": 12,
           "ourScoreLine": "7-12",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260505HHHT02026"
         }
