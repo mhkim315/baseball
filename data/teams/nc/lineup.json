@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-05-05",
-    "lastUpdated": "2026-05-05T12:36:00+09:00",
+    "lastUpdated": "2026-05-05T13:12:28+09:00",
     "gameId": "20260505NCSK02026",
     "kboGameId": "20260505NCSK0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,12 +29,12 @@
   "batters": [
     {
       "order": 1,
-      "name": "한석현",
-      "position": "우익수"
+      "name": "김주원",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "이우성",
+      "name": "한석현",
       "position": "좌익수"
     },
     {
@@ -50,12 +50,12 @@
     {
       "order": 5,
       "name": "박건우",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "도태훈",
-      "position": "3루수"
+      "name": "이우성",
+      "position": "지명타자"
     },
     {
       "order": 7,
@@ -65,7 +65,7 @@
     {
       "order": 8,
       "name": "김한별",
-      "position": "유격수"
+      "position": "3루수"
     },
     {
       "order": 9,
@@ -76,7 +76,7 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "안상현",
+      "name": "박성한",
       "position": "유격수"
     },
     {
@@ -96,8 +96,8 @@
     },
     {
       "order": 5,
-      "name": "오태곤",
-      "position": "1루수"
+      "name": "한유섬",
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "류효승",
-      "position": "지명타자"
+      "name": "오태곤",
+      "position": "1루수"
     },
     {
       "order": 8,
-      "name": "조형우",
-      "position": "포수"
+      "name": "최준우",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "최준우",
-      "position": "우익수"
+      "name": "조형우",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
