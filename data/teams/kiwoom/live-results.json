@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T16:04:59+09:00",
+  "fetchedAt": "2026-05-05T17:14:55+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -586,11 +586,11 @@
           "home": "삼성",
           "venue": "대구",
           "awayScore": 1,
-          "homeScore": 9,
-          "scoreLine": "1-9",
+          "homeScore": 11,
+          "scoreLine": "1-11",
           "ourScore": 1,
-          "oppScore": 9,
-          "ourScoreLine": "1-9",
+          "oppScore": 11,
+          "ourScoreLine": "1-11",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260505WOSS02026"
