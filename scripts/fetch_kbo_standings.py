@@ -34,7 +34,7 @@ def main():
             "teamName": t["teamName"],
             "winRate": round(t["wra"], 3),
             "wlt": f"{w}승{d}무{l}패",
-            "gamesBehind": float(t.get("gameBehind", 0)),
+            "gamesBehind": round(float(t.get("gameBehind", 0)), 1),
             "streak": t.get("continuousGameResult", ""),
         })
 
