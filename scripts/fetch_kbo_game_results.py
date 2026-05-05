@@ -58,7 +58,7 @@ def entry_from_naver(game: dict[str, Any], team: dict[str, Any]) -> dict[str, An
     if status == "BEFORE" and not cancelled:
         return None
 
-    finished = status == "END"
+    finished = status in ("END", "RESULT")
     outcome = None
     if not cancelled and finished:
         winner = game.get("winner", "")
@@ -118,16 +118,48 @@ def main() -> None:
     wanted = selected_teams(args.team)
     payloads = {team["id"]: load_existing(team["id"], team["scheduleName"]) for team in wanted}
 
-    for ds in target_dates(args):
+    all_dates = target_dates(args)
+    if len(all_dates) > 1:
+        from_d = all_dates[0]
+        to_d = all_dates[-1]
+        print(f"Fetching {from_d} ~ {to_d} ({len(all_dates)} days) in one request")
         try:
-            games = fetch_naver_games(ds, ds)
+            games = fetch_naver_games(from_d, to_d)
+        except Exception as exc:
+            print(f"Naver API failed: {exc}")
+            games = []
+        # 날짜별로 그룹화
+        by_date = {}
+        for g in games:
+            d = g.get("gameDate") or str(g.get("gameDateTime", ""))[:10]
+            by_date.setdefault(d, []).append(g)
+        for ds in all_dates:
+            day_games = by_date.get(ds, [])
+            if not day_games:
+                # 개별 요청 폴백
+                try:
+                    day_games = fetch_naver_games(ds, ds)
+                except Exception:
+                    continue
+            for team in wanted:
+                results = []
+                for game in day_games:
+                    item = entry_from_naver(game, team)
+                    if item:
+                        results.append(item)
+                if results:
+                    payloads[team["id"]].setdefault("byDate", {})[ds] = {"games": results}
+    else:
+        # 단일 날짜는 기존 방식
+        ds = all_dates[0]
+        try:
+            day_games = fetch_naver_games(ds, ds)
         except Exception as exc:
             print(f"{ds}: Naver API failed: {exc}")
-            continue
-
+            day_games = []
         for team in wanted:
             results = []
-            for game in games:
+            for game in day_games:
                 item = entry_from_naver(game, team)
                 if item:
                     results.append(item)
