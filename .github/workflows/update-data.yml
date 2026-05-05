@@ -2,7 +2,7 @@ name: Update KBO Data
 
 on:
   schedule:
-    - cron: '*/12 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:

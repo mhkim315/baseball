@@ -53,8 +53,12 @@ def entry_from_naver(game: dict[str, Any], team: dict[str, Any]) -> dict[str, An
 
     cancelled = bool(game.get("cancel"))
     status = game.get("statusCode", "")
-    finished = status == "END"
 
+    # 미래 경기(BEFORE)는 결과에 포함하지 않음
+    if status == "BEFORE" and not cancelled:
+        return None
+
+    finished = status == "END"
     outcome = None
     if not cancelled and finished:
         winner = game.get("winner", "")
@@ -63,6 +67,13 @@ def entry_from_naver(game: dict[str, Any], team: dict[str, Any]) -> dict[str, An
         elif winner == "HOME":
             outcome = "W" if is_home else "L"
         elif winner == "DRAW":
+            outcome = "T"
+        # fallback: winner가 없어도 점수 차이로 승패 판정
+        elif our_score > opp_score:
+            outcome = "W"
+        elif our_score < opp_score:
+            outcome = "L"
+        elif our_score == opp_score and our_score > 0:
             outcome = "T"
 
     return {
@@ -101,7 +112,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Fetch KBO game results from Naver API (KBO API fallback)")
     ap.add_argument("--team")
     ap.add_argument("--date", action="append")
-    ap.add_argument("--recent", type=int, default=10)
+    ap.add_argument("--recent", type=int, default=30)
     args = ap.parse_args()
 
     wanted = selected_teams(args.team)

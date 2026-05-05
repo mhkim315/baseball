@@ -19,7 +19,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Update baseball_refac team data")
     ap.add_argument("--team", help="team id, omitted means all teams")
     ap.add_argument("--date", help="YYYY-MM-DD for preview/lineup")
-    ap.add_argument("--recent", default="10", help="recent days for KBO results")
+    ap.add_argument("--recent", default="30", help="recent days for KBO results")
     ap.add_argument("--skip-results", action="store_true")
     ap.add_argument("--skip-preview", action="store_true")
     ap.add_argument("--skip-lineup", action="store_true")
