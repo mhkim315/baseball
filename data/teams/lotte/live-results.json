@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-05T18:20:07+09:00",
+  "fetchedAt": "2026-05-05T19:26:11+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -51,9 +51,9 @@
           "ourScore": 4,
           "oppScore": 7,
           "ourScoreLine": "4-7",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260416LTLG0"
+          "gameId": "20260416LTLG02026"
         }
       ]
     },
@@ -71,7 +71,7 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": true,
-          "gameId": "20260417HHLT0"
+          "gameId": "20260417HHLT02026"
         }
       ]
     },
@@ -87,9 +87,9 @@
           "ourScore": 0,
           "oppScore": 5,
           "ourScoreLine": "0-5",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260418HHLT0"
+          "gameId": "20260418HHLT02026"
         }
       ]
     },
@@ -105,9 +105,9 @@
           "ourScore": 1,
           "oppScore": 9,
           "ourScoreLine": "1-9",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260419HHLT0"
+          "gameId": "20260419HHLT02026"
         }
       ]
     },
@@ -123,9 +123,9 @@
           "ourScore": 2,
           "oppScore": 6,
           "ourScoreLine": "2-6",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260421OBLT0"
+          "gameId": "20260421OBLT02026"
         }
       ]
     },
@@ -141,9 +141,9 @@
           "ourScore": 1,
           "oppScore": 9,
           "ourScoreLine": "1-9",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260422OBLT0"
+          "gameId": "20260422OBLT02026"
         }
       ]
     },
@@ -159,9 +159,9 @@
           "ourScore": 6,
           "oppScore": 1,
           "ourScoreLine": "6-1",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260423OBLT0"
+          "gameId": "20260423OBLT02026"
         }
       ]
     },
@@ -177,9 +177,9 @@
           "ourScore": 0,
           "oppScore": 4,
           "ourScoreLine": "0-4",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260424LTHT0"
+          "gameId": "20260424LTHT02026"
         }
       ]
     },
@@ -195,9 +195,9 @@
           "ourScore": 3,
           "oppScore": 4,
           "ourScoreLine": "3-4",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260425LTHT0"
+          "gameId": "20260425LTHT02026"
         }
       ]
     },
@@ -375,9 +375,9 @@
           "ourScore": 3,
           "oppScore": 7,
           "ourScoreLine": "3-7",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260407KTLT0"
+          "gameId": "20260407KTLT02026"
         }
       ]
     },
@@ -393,9 +393,9 @@
           "ourScore": 6,
           "oppScore": 1,
           "ourScoreLine": "6-1",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260408KTLT0"
+          "gameId": "20260408KTLT02026"
         }
       ]
     },
@@ -413,7 +413,7 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": true,
-          "gameId": "20260409KTLT0"
+          "gameId": "20260409KTLT02026"
         }
       ]
     },
@@ -429,9 +429,9 @@
           "ourScore": 3,
           "oppScore": 1,
           "ourScoreLine": "3-1",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260410LTWO0"
+          "gameId": "20260410LTWO02026"
         }
       ]
     },
@@ -447,9 +447,9 @@
           "ourScore": 3,
           "oppScore": 1,
           "ourScoreLine": "3-1",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260411LTWO0"
+          "gameId": "20260411LTWO02026"
         }
       ]
     },
@@ -465,9 +465,9 @@
           "ourScore": 0,
           "oppScore": 2,
           "ourScoreLine": "0-2",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260412LTWO0"
+          "gameId": "20260412LTWO02026"
         }
       ]
     },
@@ -483,9 +483,9 @@
           "ourScore": 1,
           "oppScore": 2,
           "ourScoreLine": "1-2",
-          "outcome": "L",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260414LTLG0"
+          "gameId": "20260414LTLG02026"
         }
       ]
     },
@@ -501,9 +501,9 @@
           "ourScore": 2,
           "oppScore": 0,
           "ourScoreLine": "2-0",
-          "outcome": "W",
+          "outcome": null,
           "cancelled": false,
-          "gameId": "20260415LTLG0"
+          "gameId": "20260415LTLG02026"
         }
       ]
     },

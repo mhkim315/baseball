@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-05-05T18:19:59+09:00",
+  "fetchedAt": "2026-05-05T19:25:52+09:00",
   "rows": [
     {
       "rank": 1,
@@ -22,7 +22,7 @@
       "rank": 3,
       "teamName": "SSG",
       "winRate": 0.567,
-      "wlt": "17승0무13패",
+      "wlt": "17승1무13패",
       "gamesBehind": 4.0,
       "streak": "3패"
     },
@@ -46,7 +46,7 @@
       "rank": 6,
       "teamName": "NC",
       "winRate": 0.467,
-      "wlt": "14승0무16패",
+      "wlt": "14승1무16패",
       "gamesBehind": 7.0,
       "streak": "1승"
     },
