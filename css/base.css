@@ -1035,6 +1035,10 @@ img {
   border-bottom: 0;
 }
 
+#standings-table {
+  font-size: 0.9rem;
+}
+
 #standings-table .standings-wlt {
   color: var(--color-muted);
   font-variant-numeric: tabular-nums;
