@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-05-05",
-    "lastUpdated": "2026-05-05T21:57:25+09:00",
-    "gameId": "20260505WOSS02026",
-    "kboGameId": "20260505WOSS0",
+    "lineupDate": "2026-05-06",
+    "lastUpdated": "2026-05-06T12:18:32+09:00",
+    "gameId": "20260506WOSS02026",
+    "kboGameId": "20260506WOSS0",
     "opponent": "삼성",
     "venue": "대구",
-    "gameTime": "14:00",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "오석주"
+    "name": "배동현"
   },
   "opponentStartingPitcher": {
-    "name": "오러클린"
+    "name": "최원태"
   }
 }

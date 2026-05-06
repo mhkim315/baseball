@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-05-05",
-    "lastUpdated": "2026-05-05T21:57:33+09:00",
-    "gameId": "20260505HHHT02026",
-    "kboGameId": "20260505HHHT0",
+    "lineupDate": "2026-05-06",
+    "lastUpdated": "2026-05-06T12:18:43+09:00",
+    "gameId": "20260506HHHT02026",
+    "kboGameId": "20260506HHHT0",
     "opponent": "KIA",
     "venue": "광주",
-    "gameTime": "14:00",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "강건우"
+    "name": "류현진"
   },
   "opponentStartingPitcher": {
-    "name": "이의리"
+    "name": "올러"
   }
 }
