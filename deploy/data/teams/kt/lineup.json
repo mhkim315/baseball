@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-05-06",
-    "lastUpdated": "2026-05-06T23:45:48+09:00",
-    "gameId": "20260506LTKT02026",
-    "kboGameId": "20260506LTKT0",
+    "lineupDate": "2026-05-07",
+    "lastUpdated": "2026-05-07T01:04:19+09:00",
+    "gameId": "20260507LTKT02026",
+    "kboGameId": "20260507LTKT0",
     "opponent": "롯데",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "보쉴리"
+    "name": "고영표"
   },
   "opponentStartingPitcher": {
-    "name": "비슬리"
+    "name": "박세웅"
   }
 }

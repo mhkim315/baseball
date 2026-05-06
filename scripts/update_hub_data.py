@@ -40,7 +40,7 @@ def main() -> None:
     if not args.date:
         today = datetime.now(KST).strftime("%Y-%m-%d")
         tomorrow = (datetime.now(KST) + timedelta(days=1)).strftime("%Y-%m-%d")
-        dates_to_fetch = [today, tomorrow]
+        dates_to_fetch = [tomorrow, today]
     if not args.skip_preview:
         for d in dates_to_fetch:
             run("build_game_preview_from_naver.py", dated + ["--date", d])

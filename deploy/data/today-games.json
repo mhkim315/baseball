@@ -1,6 +1,6 @@
 {
   "date": "2026-05-07",
-  "generatedAt": "2026-05-07T00:26:06.191572+09:00",
+  "generatedAt": "2026-05-07T01:04:22.024144+09:00",
   "games": [
     {
       "id": "20260507-HHHT-0",
@@ -12,19 +12,19 @@
         "id": "hanwha",
         "name": "한화",
         "starter": {
-          "name": "미정"
+          "name": "정우주"
         },
         "rank": 9,
-        "record": "12승0무19패"
+        "record": "13승0무19패"
       },
       "home": {
         "id": "kia",
         "name": "KIA",
         "starter": {
-          "name": "미정"
+          "name": "양현종"
         },
         "rank": 5,
-        "record": "15승1무16패"
+        "record": "15승1무17패"
       },
       "score": {
         "away": 0,
@@ -41,19 +41,19 @@
         "id": "kiwoom",
         "name": "키움",
         "starter": {
-          "name": "미정"
+          "name": "박정훈"
         },
-        "rank": 10,
-        "record": "12승0무20패"
+        "rank": 9,
+        "record": "10승0무16패"
       },
       "home": {
         "id": "samsung",
         "name": "삼성",
         "starter": {
-          "name": "미정"
+          "name": "원태인"
         },
         "rank": 4,
-        "record": "16승1무14패"
+        "record": "13승1무11패"
       },
       "score": {
         "away": 0,
@@ -70,19 +70,19 @@
         "id": "nc",
         "name": "NC",
         "starter": {
-          "name": "미정"
+          "name": "테일러"
         },
         "rank": 6,
-        "record": "14승1무16패"
+        "record": "14승1무17패"
       },
       "home": {
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "미정"
+          "name": "타케다"
         },
         "rank": 3,
-        "record": "17승1무13패"
+        "record": "18승1무13패"
       },
       "score": {
         "away": 0,
@@ -99,19 +99,19 @@
         "id": "lotte",
         "name": "롯데",
         "starter": {
-          "name": "미정"
+          "name": "박세웅"
         },
-        "rank": 8,
-        "record": "12승1무18패"
+        "rank": 10,
+        "record": "8승1무16패"
       },
       "home": {
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "미정"
+          "name": "고영표"
         },
         "rank": 1,
-        "record": "22승0무10패"
+        "record": "22승0무11패"
       },
       "score": {
         "away": 0,
@@ -128,19 +128,19 @@
         "id": "doosan",
         "name": "두산",
         "starter": {
-          "name": "미정"
+          "name": "최민석"
         },
-        "rank": 7,
-        "record": "14승1무17패"
+        "rank": 8,
+        "record": "10승1무15패"
       },
       "home": {
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "미정"
+          "name": "톨허스트"
         },
         "rank": 2,
-        "record": "20승0무11패"
+        "record": "21승0무11패"
       },
       "score": {
         "away": 0,
@@ -163,7 +163,7 @@
           "name": "미정"
         },
         "rank": 4,
-        "record": "16승1무14패"
+        "record": "13승1무11패"
       },
       "home": {
         "id": "kiwoom",
@@ -171,8 +171,8 @@
         "starter": {
           "name": "미정"
         },
-        "rank": 10,
-        "record": "12승0무20패"
+        "rank": 9,
+        "record": "10승0무16패"
       },
       "score": {
         "away": 0,
@@ -192,7 +192,7 @@
           "name": "미정"
         },
         "rank": 5,
-        "record": "15승1무16패"
+        "record": "15승1무17패"
       },
       "home": {
         "id": "hanwha",
@@ -201,7 +201,7 @@
           "name": "미정"
         },
         "rank": 9,
-        "record": "12승0무19패"
+        "record": "13승0무19패"
       },
       "score": {
         "away": 0,
@@ -221,7 +221,7 @@
           "name": "미정"
         },
         "rank": 1,
-        "record": "22승0무10패"
+        "record": "22승0무11패"
       },
       "home": {
         "id": "lotte",
@@ -229,8 +229,8 @@
         "starter": {
           "name": "미정"
         },
-        "rank": 8,
-        "record": "12승1무18패"
+        "rank": 10,
+        "record": "8승1무16패"
       },
       "score": {
         "away": 0,
@@ -249,8 +249,8 @@
         "starter": {
           "name": "미정"
         },
-        "rank": 3,
-        "record": "18승1무13패"
+        "rank": 2,
+        "record": "21승0무11패"
       },
       "home": {
         "id": "doosan",
@@ -258,8 +258,8 @@
         "starter": {
           "name": "미정"
         },
-        "rank": 7,
-        "record": "14승1무18패"
+        "rank": 8,
+        "record": "10승1무15패"
       },
       "score": {
         "away": 0,
@@ -279,7 +279,7 @@
           "name": "미정"
         },
         "rank": 3,
-        "record": "17승1무13패"
+        "record": "18승1무13패"
       },
       "home": {
         "id": "nc",
@@ -288,7 +288,7 @@
           "name": "미정"
         },
         "rank": 6,
-        "record": "14승1무16패"
+        "record": "14승1무17패"
       },
       "score": {
         "away": 0,
