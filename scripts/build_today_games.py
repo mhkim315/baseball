@@ -117,8 +117,7 @@ def build_games_for_date(target_date, schedule, team_map):
                 pr_away = gi.get("aName", "")
                 # 같은 매치업이고 날짜가 target_date와 같거나 하루 전이면 사용
                 if pr_home == home_name and pr_away == away_name:
-                    if preview_date in (target_date.replace("-", ""),
-                                        (datetime.fromisoformat(target_date) - timedelta(days=1)).strftime("%Y%m%d")):
+                    if preview_date == target_date.replace("-", ""):
                         starter_preview = pr
                         starter_preview_team_id = tid
 
