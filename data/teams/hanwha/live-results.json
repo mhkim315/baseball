@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-06T22:01:43+09:00",
+  "fetchedAt": "2026-05-06T22:41:02+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -17,7 +17,11 @@
           "ourScoreLine": "7-6",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260428SKHH02026"
+          "gameId": "20260428SKHH02026",
+          "awayStarter": "최민준",
+          "homeStarter": "왕옌청",
+          "winPitcher": "쿠싱",
+          "losePitcher": "박시후"
         }
       ]
     },
@@ -35,7 +39,11 @@
           "ourScoreLine": "1-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260429SKHH02026"
+          "gameId": "20260429SKHH02026",
+          "awayStarter": "화이트",
+          "homeStarter": "황준서",
+          "winPitcher": "문승원",
+          "losePitcher": "황준서"
         }
       ]
     },
@@ -53,7 +61,11 @@
           "ourScoreLine": "1-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260416SSHH02026"
+          "gameId": "20260416SSHH02026",
+          "awayStarter": "후라도",
+          "homeStarter": "왕옌청",
+          "winPitcher": "후라도",
+          "losePitcher": "왕옌청"
         }
       ]
     },
@@ -71,7 +83,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": true,
-          "gameId": "20260417HHLT02026"
+          "gameId": "20260417HHLT02026",
+          "awayStarter": "박준영",
+          "homeStarter": "비슬리",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
@@ -89,7 +105,11 @@
           "ourScoreLine": "5-0",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260418HHLT02026"
+          "gameId": "20260418HHLT02026",
+          "awayStarter": "류현진",
+          "homeStarter": "비슬리",
+          "winPitcher": "류현진",
+          "losePitcher": "비슬리"
         }
       ]
     },
@@ -107,7 +127,11 @@
           "ourScoreLine": "9-1",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260419HHLT02026"
+          "gameId": "20260419HHLT02026",
+          "awayStarter": "에르난데스",
+          "homeStarter": "박세웅",
+          "winPitcher": "에르난데스",
+          "losePitcher": "박세웅"
         }
       ]
     },
@@ -125,7 +149,11 @@
           "ourScoreLine": "5-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260421HHLG02026"
+          "gameId": "20260421HHLG02026",
+          "awayStarter": "문동주",
+          "homeStarter": "송승기",
+          "winPitcher": "장현식",
+          "losePitcher": "조동욱"
         }
       ]
     },
@@ -143,7 +171,11 @@
           "ourScoreLine": "0-3",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260422HHLG02026"
+          "gameId": "20260422HHLG02026",
+          "awayStarter": "왕옌청",
+          "homeStarter": "웰스",
+          "winPitcher": "웰스",
+          "losePitcher": "왕옌청"
         }
       ]
     },
@@ -161,7 +193,11 @@
           "ourScoreLine": "8-4",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260423HHLG02026"
+          "gameId": "20260423HHLG02026",
+          "awayStarter": "황준서",
+          "homeStarter": "이정용",
+          "winPitcher": "김서현",
+          "losePitcher": "함덕주"
         }
       ]
     },
@@ -179,7 +215,11 @@
           "ourScoreLine": "3-7",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260424NCHH02026"
+          "gameId": "20260424NCHH02026",
+          "awayStarter": "테일러",
+          "homeStarter": "류현진",
+          "winPitcher": "전사민",
+          "losePitcher": "류현진"
         }
       ]
     },
@@ -197,7 +237,11 @@
           "ourScoreLine": "8-1",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260425NCHH02026"
+          "gameId": "20260425NCHH02026",
+          "awayStarter": "토다",
+          "homeStarter": "에르난데스",
+          "winPitcher": "에르난데스",
+          "losePitcher": "토다"
         }
       ]
     },
@@ -215,7 +259,11 @@
           "ourScoreLine": "3-5",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260426NCHH02026"
+          "gameId": "20260426NCHH02026",
+          "awayStarter": "버하겐",
+          "homeStarter": "문동주",
+          "winPitcher": "배재환",
+          "losePitcher": "김서현"
         }
       ]
     },
@@ -377,7 +425,11 @@
           "ourScoreLine": "6-2",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260407HHSK02026"
+          "gameId": "20260407HHSK02026",
+          "awayStarter": "류현진",
+          "homeStarter": "타케다",
+          "winPitcher": "류현진",
+          "losePitcher": "타케다"
         }
       ]
     },
@@ -395,7 +447,11 @@
           "ourScoreLine": "4-3",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260408HHSK02026"
+          "gameId": "20260408HHSK02026",
+          "awayStarter": "문동주",
+          "homeStarter": "최민준",
+          "winPitcher": "문동주",
+          "losePitcher": "최민준"
         }
       ]
     },
@@ -413,7 +469,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": true,
-          "gameId": "20260409HHSK02026"
+          "gameId": "20260409HHSK02026",
+          "awayStarter": "에르난데스",
+          "homeStarter": "화이트",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
@@ -431,7 +491,11 @@
           "ourScoreLine": "5-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260410HTHH02026"
+          "gameId": "20260410HTHH02026",
+          "awayStarter": "네일",
+          "homeStarter": "에르난데스",
+          "winPitcher": "네일",
+          "losePitcher": "에르난데스"
         }
       ]
     },
@@ -449,7 +513,11 @@
           "ourScoreLine": "5-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260411HTHH02026"
+          "gameId": "20260411HTHH02026",
+          "awayStarter": "이의리",
+          "homeStarter": "왕옌청",
+          "winPitcher": "황동하",
+          "losePitcher": "박상원"
         }
       ]
     },
@@ -467,7 +535,11 @@
           "ourScoreLine": "3-9",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260412HTHH02026"
+          "gameId": "20260412HTHH02026",
+          "awayStarter": "올러",
+          "homeStarter": "쿠싱",
+          "winPitcher": "올러",
+          "losePitcher": "쿠싱"
         }
       ]
     },
@@ -485,7 +557,11 @@
           "ourScoreLine": "5-6",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260414SSHH02026"
+          "gameId": "20260414SSHH02026",
+          "awayStarter": "최원태",
+          "homeStarter": "문동주",
+          "winPitcher": "이승현",
+          "losePitcher": "김서현"
         }
       ]
     },
@@ -503,7 +579,11 @@
           "ourScoreLine": "5-13",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260415SSHH02026"
+          "gameId": "20260415SSHH02026",
+          "awayStarter": "양창섭",
+          "homeStarter": "에르난데스",
+          "winPitcher": "장찬희",
+          "losePitcher": "에르난데스"
         }
       ]
     },
@@ -521,7 +601,11 @@
           "ourScoreLine": "3-14",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260430SKHH02026"
+          "gameId": "20260430SKHH02026",
+          "awayStarter": "김건우",
+          "homeStarter": "류현진",
+          "winPitcher": "김건우",
+          "losePitcher": "류현진"
         }
       ]
     },
@@ -539,7 +623,11 @@
           "ourScoreLine": "3-4",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260501HHSS02026"
+          "gameId": "20260501HHSS02026",
+          "awayStarter": "에르난데스",
+          "homeStarter": "원태인",
+          "winPitcher": "백정현",
+          "losePitcher": "김종수"
         }
       ]
     },
@@ -557,7 +645,11 @@
           "ourScoreLine": "13-3",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260502HHSS02026"
+          "gameId": "20260502HHSS02026",
+          "awayStarter": "문동주",
+          "homeStarter": "장찬희",
+          "winPitcher": "권민규",
+          "losePitcher": "장찬희"
         }
       ]
     },
@@ -575,7 +667,11 @@
           "ourScoreLine": "6-7",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260503HHSS02026"
+          "gameId": "20260503HHSS02026",
+          "awayStarter": "왕옌청",
+          "homeStarter": "후라도",
+          "winPitcher": "김재윤",
+          "losePitcher": "쿠싱"
         }
       ]
     },
@@ -593,7 +689,11 @@
           "ourScoreLine": "7-12",
           "outcome": "L",
           "cancelled": false,
-          "gameId": "20260505HHHT02026"
+          "gameId": "20260505HHHT02026",
+          "awayStarter": "강건우",
+          "homeStarter": "이의리",
+          "winPitcher": "한재승",
+          "losePitcher": "박상원"
         }
       ]
     },
@@ -611,7 +711,11 @@
           "ourScoreLine": "7-2",
           "outcome": "W",
           "cancelled": false,
-          "gameId": "20260506HHHT02026"
+          "gameId": "20260506HHHT02026",
+          "awayStarter": "류현진",
+          "homeStarter": "올러",
+          "winPitcher": "류현진",
+          "losePitcher": "올러"
         }
       ]
     },
