@@ -21,6 +21,8 @@ PUBLIC_FILES = [
     "stadium-guide.html",
     "rules.html",
     "package.json",
+    "sitemap.xml",
+    "robots.txt",
 ]
 
 PUBLIC_DIRS = [
