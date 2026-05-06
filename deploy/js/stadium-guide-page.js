@@ -493,6 +493,7 @@ function renderTeamSelector() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = t.buttonLabel;
+    btn.dataset.teamId = t.id;
     btn.setAttribute("aria-pressed", t.id === currentTeam.id ? "true" : "false");
     btn.addEventListener("click", () => {
       const url = new URL(window.location.href);
