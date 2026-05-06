@@ -2785,3 +2785,12 @@ img {
   overflow-x: auto;
 }
 
+.ticket-notes {
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
