@@ -188,6 +188,7 @@ function renderTeamFilter(currentTeamId) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = team.buttonLabel;
+    btn.dataset.teamId = team.id;
     btn.setAttribute("aria-pressed", team.id === currentTeamId ? "true" : "false");
     btn.addEventListener("click", () => {
       const url = new URL(window.location.href);

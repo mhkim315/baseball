@@ -28,7 +28,7 @@ main,
 
 .lead,
 .muted {
-  color: color-mix(in srgb, CanvasText 70%, Canvas 30%);
+  color: var(--color-muted);
 }
 
 .nav {
@@ -74,7 +74,7 @@ section {
 }
 
 .panel {
-  border: 1px solid color-mix(in srgb, CanvasText 20%, Canvas 80%);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
   margin-block: 12px;
@@ -91,7 +91,7 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid color-mix(in srgb, CanvasText 18%, Canvas 82%);
+  border-bottom: 1px solid var(--color-border);
   padding: 8px;
   text-align: left;
   vertical-align: top;
@@ -110,12 +110,12 @@ img {
 .caption {
   margin-top: 8px;
   font-size: 0.92rem;
-  color: color-mix(in srgb, CanvasText 70%, Canvas 30%);
+  color: var(--color-muted);
 }
 
 .error-banner:not(:empty),
 .status-line {
-  border: 1px solid color-mix(in srgb, CanvasText 20%, Canvas 80%);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 10px;
 }
@@ -197,9 +197,9 @@ img {
   min-width: 14px;
   min-height: 14px;
   border-radius: 999px;
-  border: 2px solid Canvas;
-  background: CanvasText;
-  color: Canvas;
+  border: 2px solid var(--color-canvas);
+  background: var(--color-text);
+  color: var(--color-surface);
   line-height: 1;
   display: grid;
   place-items: center;
@@ -221,13 +221,13 @@ img {
 .food-marker-label {
   position: absolute;
   transform: translate(0, -50%);
-  border: 1px solid color-mix(in srgb, CanvasText 16%, Canvas 84%);
+  border: 1px solid rgba(28,28,28,0.12);
   border-radius: 2px;
-  background: color-mix(in srgb, Canvas 92%, CanvasText 8%);
-  color: CanvasText;
+  background: rgba(28,28,28,0.06);
+  color: var(--color-text);
   display: inline-block;
   font-size: clamp(0.625rem, 1.7vw, 0.72rem);
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
   max-width: 8.5rem;
@@ -244,26 +244,26 @@ img {
 
 .food-marker-label--chicken,
 .admin-label--chicken {
-  border-color: color-mix(in srgb, #dc2626 45%, Canvas 55%);
-  background: color-mix(in srgb, #dc2626 16%, Canvas 84%);
+  border-color: color-mix(in srgb, #dc2626 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #dc2626 16%, var(--color-canvas) 84%);
 }
 
 .food-marker-label--korean,
 .admin-label--korean {
-  border-color: color-mix(in srgb, #ca8a04 45%, Canvas 55%);
-  background: color-mix(in srgb, #ca8a04 17%, Canvas 83%);
+  border-color: color-mix(in srgb, #ca8a04 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #ca8a04 17%, var(--color-canvas) 83%);
 }
 
 .food-marker-label--western,
 .admin-label--western {
-  border-color: color-mix(in srgb, #2563eb 45%, Canvas 55%);
-  background: color-mix(in srgb, #2563eb 15%, Canvas 85%);
+  border-color: color-mix(in srgb, #2563eb 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #2563eb 15%, var(--color-canvas) 85%);
 }
 
 .food-marker-label--cafe,
 .admin-label--cafe {
-  border-color: color-mix(in srgb, #7c3aed 45%, Canvas 55%);
-  background: color-mix(in srgb, #7c3aed 15%, Canvas 85%);
+  border-color: color-mix(in srgb, #7c3aed 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #7c3aed 15%, var(--color-canvas) 85%);
 }
 
 .food-marker-label:focus-visible {
@@ -298,7 +298,7 @@ img {
 .calendar-current-month {
   min-width: 8em;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .calendar-weekdays,
@@ -309,28 +309,28 @@ img {
 
 .calendar-weekdays > div {
   padding: 6px;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
-  border-bottom: 1px solid color-mix(in srgb, CanvasText 20%, Canvas 80%);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .calendar-cell {
   min-height: 104px;
   padding: 6px;
-  border-right: 1px solid color-mix(in srgb, CanvasText 14%, Canvas 86%);
-  border-bottom: 1px solid color-mix(in srgb, CanvasText 14%, Canvas 86%);
+  border-right: 1px solid rgba(28,28,28,0.10);
+  border-bottom: 1px solid rgba(28,28,28,0.10);
 }
 
 .calendar-cell--pad {
-  background: color-mix(in srgb, CanvasText 4%, Canvas 96%);
+  background: rgba(28,28,28,0.04);
 }
 
 .calendar-cell--game {
-  background: color-mix(in srgb, CanvasText 6%, Canvas 94%);
+  background: rgba(28,28,28,0.06);
 }
 
 .calendar-date {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 4px;
 }
 
@@ -439,7 +439,7 @@ img {
 .admin-map-wrap {
   overflow: auto;
   max-height: 75vh;
-  border: 1px solid color-mix(in srgb, CanvasText 20%, Canvas 80%);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
 }
 
@@ -476,7 +476,7 @@ img {
   min-height: 16px;
   padding: 0;
   border-radius: 999px;
-  border: 2px solid Canvas;
+  border: 2px solid var(--color-canvas);
   color: white;
   display: grid;
   place-items: center;
@@ -486,10 +486,10 @@ img {
 
 .admin-label {
   transform: translate(0, -50%);
-  border: 1px solid color-mix(in srgb, CanvasText 16%, Canvas 84%);
+  border: 1px solid rgba(28,28,28,0.12);
   border-radius: 2px;
-  background: color-mix(in srgb, Canvas 92%, CanvasText 8%);
-  color: CanvasText;
+  background: rgba(28,28,28,0.06);
+  color: var(--color-text);
   display: inline-block;
   max-width: 8.5rem;
   min-height: 0;
@@ -497,7 +497,7 @@ img {
   overflow: hidden;
   padding: 1px 3px;
   font-size: clamp(0.625rem, 1.7vw, 0.72rem);
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
   text-overflow: ellipsis;
@@ -561,7 +561,7 @@ img {
 .store-form label {
   display: grid;
   gap: 4px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .store-form input,
@@ -570,10 +570,10 @@ img {
 .json-output {
   width: 100%;
   font: inherit;
-  border: 1px solid color-mix(in srgb, CanvasText 25%, Canvas 75%);
+  border: 1px solid color-mix(in srgb, var(--color-text) 25%, var(--color-canvas) 75%);
   border-radius: 6px;
-  background: Canvas;
-  color: CanvasText;
+  background: var(--color-surface);
+  color: var(--color-text);
   padding: 8px;
 }
 
@@ -628,31 +628,24 @@ img {
 
 /* Visual tokens — indigo / amber / violet palette + layered gradients */
 :root {
-  color-scheme: light;
-  --color-text: #111827;
-  --color-muted: #4b5563;
-  --color-placeholder: #9ca3af;
-  --color-border: #d1d5db;
-  --color-ring: #e5e7eb;
-  --color-surface: #ffffff;
-  --color-canvas: #eceff7;
-  --color-pale-blue: #dbeafe;
-  --color-indigo-glow: #a5b4fc;
-  --color-amber-glow: #fcd34d;
-  --color-violet-glow: #ddd6fe;
-  --color-blue: #4f46e5;
-  --color-blue-pressed: #4338ca;
+  --color-text: #1c1c1c;
+  --color-muted: #5f5f5d;
+  --color-placeholder: #5f5f5d;
+  --color-border: #eceae4;
+  --color-surface: #f7f4ed;
+  --color-canvas: #f7f4ed;
+  --color-accent: #1c1c1c;
+  --color-accent-pressed: rgba(28,28,28,0.85);
   --color-success: #059669;
   --color-coral: #fca5a5;
   --color-rose: #f472b6;
   --color-teal: #7dd3fc;
   --color-orange: #fdba74;
-  --color-pink: #f9a8d4;
   --color-error: #b91c1c;
   --color-loss: #e11d48;
-  --color-calendar-home: #fff7ed;
-  --color-calendar-away: #e8edf5;
-  --font-display: "Roobert PRO Medium", "Roobert PRO", "Noto Sans KR", "Noto Sans", system-ui, sans-serif;
+  --color-blue: #3b82f6;
+  --color-blue-pressed: #2563eb;
+  --font-display: "Noto Sans KR", "Noto Sans", system-ui, sans-serif;
   --font-body: "Noto Sans KR", "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-family: var(--font-body);
@@ -662,20 +655,9 @@ img {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 125% 90% at -12% -18%, color-mix(in srgb, var(--color-indigo-glow) 52%, transparent), transparent 55%),
-    radial-gradient(ellipse 100% 80% at 108% -8%, color-mix(in srgb, var(--color-amber-glow) 48%, transparent), transparent 52%),
-    radial-gradient(ellipse 95% 65% at 52% 112%, color-mix(in srgb, var(--color-violet-glow) 42%, transparent), transparent 60%),
-    linear-gradient(
-      168deg,
-      #ffffff 0%,
-      var(--color-canvas) 32%,
-      color-mix(in srgb, var(--color-pale-blue) 38%, var(--color-canvas)) 72%,
-      color-mix(in srgb, var(--color-violet-glow) 18%, var(--color-canvas)) 100%
-    );
+  background-color: var(--color-canvas);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-feature-settings: "liga" 0, "ss01", "ss04", "ss05";
 }
 
 .wrap {
@@ -687,48 +669,23 @@ body {
   position: relative;
   margin-block: 6px 8px;
   padding: clamp(14px, 2.4vw, 28px);
-  border-radius: 24px;
-  background:
-    radial-gradient(ellipse 72% 88% at -4% -8%, color-mix(in srgb, var(--color-indigo-glow) 38%, transparent), transparent 58%),
-    radial-gradient(ellipse 68% 82% at 104% 6%, color-mix(in srgb, var(--color-amber-glow) 34%, transparent), transparent 55%),
-    radial-gradient(ellipse 90% 72% at 52% 118%, color-mix(in srgb, var(--color-violet-glow) 32%, transparent), transparent 62%),
-    linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--color-pale-blue) 55%, var(--color-surface)) 0%,
-      color-mix(in srgb, var(--color-surface) 94%, var(--color-pale-blue)) 42%,
-      color-mix(in srgb, var(--color-surface) 90%, var(--color-violet-glow)) 100%
-    );
-  box-shadow: var(--color-ring) 0 0 0 1px;
-  overflow: hidden;
-}
-
-.site-header::after {
-  content: "";
-  position: absolute;
-  right: clamp(18px, 5vw, 72px);
-  top: clamp(18px, 4vw, 48px);
-  width: clamp(74px, 14vw, 150px);
-  aspect-ratio: 1;
-  border-radius: 32% 68% 55% 45%;
-  background: linear-gradient(142deg, var(--color-amber-glow) 0%, var(--color-indigo-glow) 55%, var(--color-violet-glow) 100%);
-  opacity: 0.55;
-  pointer-events: none;
+  border-radius: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .brand-title {
-  position: relative;
-  z-index: 1;
   max-width: 760px;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-feature-settings: "blwf", "cv03", "cv04", "cv09", "cv11";
   font-size: clamp(2.4rem, 7vw, 3.5rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.045em;
   padding-bottom: 0.4em;
   margin-bottom: 0.35em;
-  border-bottom: 1px solid var(--color-ring);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .lead,
@@ -761,10 +718,10 @@ body {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 5px 7px;
-  margin-block: 0;
-  margin-top: 4px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-ring);
+  margin-block: 6px 0;
+  padding: 8px;
+  background: rgba(28,28,28,0.03);
+  border-radius: 10px;
 }
 
 .nav {
@@ -785,9 +742,14 @@ body {
   font-size: clamp(0.78rem, 2.2vw, 0.88rem);
 }
 
-.subsection-tabs,
+.subsection-tabs {
+  padding: 8px;
+  background: rgba(28,28,28,0.03);
+  border-radius: 10px;
+}
+
 .filter-block {
-  border-bottom: 1px solid var(--color-ring);
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 8px;
 }
 
@@ -795,22 +757,18 @@ body {
 .team-selector button,
 button,
 .button-link {
-  min-height: 36px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: linear-gradient(
-    152deg,
-    color-mix(in srgb, var(--color-surface) 94%, var(--color-pale-blue)),
-    color-mix(in srgb, var(--color-surface) 88%, var(--color-violet-glow))
-  );
+  border: none;
+  background: transparent;
   color: var(--color-text);
-  font-family: var(--font-display);
-  font-size: 0.98rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  padding: 7px 12px;
-  box-shadow: transparent 0 0 0 0;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 16px;
+  text-decoration: none;
+  font: inherit;
+  border-radius: 6px;
+  transition: background 160ms ease, border-color 160ms ease, opacity 160ms ease;
 }
 
 .team-selector button {
@@ -819,54 +777,33 @@ button,
   min-height: 34px;
   padding: 5px 8px;
   font-size: clamp(0.74rem, 2.4vw, 0.94rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
 }
 
 .nav a:hover,
 .team-selector button:hover,
 button:hover,
 .button-link:hover {
-  border-color: var(--color-blue);
-  color: var(--color-blue-pressed);
-  transform: translateY(-1px);
+  border-color: var(--color-text);
+  color: var(--color-text);
+  opacity: 0.85;
 }
 
 .nav a[aria-current="page"],
 .team-selector button[aria-pressed="true"],
 button[aria-selected="true"],
 .direction-grid button[aria-pressed="true"] {
-  border-color: var(--color-blue);
-  background: linear-gradient(155deg, var(--color-blue) 0%, var(--color-blue-pressed) 100%);
-  color: #ffffff;
+  background: var(--color-text);
+  color: #fcfbf8;
+  border-color: var(--color-text);
   outline: none;
 }
 
 main {
   display: grid;
   gap: 16px;
-  position: relative;
-  isolation: isolate;
-}
-
-/* 본문 컬럼 공통: 기본규칙 탭과 같이 패널 사이·뒤로 그라데이션이 보이도록 */
-main::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -6px;
-  bottom: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 88% 58% at 12% 4%, color-mix(in srgb, var(--color-indigo-glow) 30%, transparent), transparent 58%),
-    radial-gradient(ellipse 78% 52% at 94% 12%, color-mix(in srgb, var(--color-amber-glow) 28%, transparent), transparent 54%),
-    radial-gradient(ellipse 72% 48% at 50% 100%, color-mix(in srgb, var(--color-violet-glow) 26%, transparent), transparent 58%),
-    linear-gradient(
-      168deg,
-      transparent 0%,
-      color-mix(in srgb, var(--color-pale-blue) 14%, transparent) 45%,
-      color-mix(in srgb, var(--color-violet-glow) 10%, transparent) 100%
-    );
-  pointer-events: none;
 }
 
 /* Remove phantom top gap below header / before first content (all tabs). */
@@ -901,7 +838,6 @@ h3,
 h4 {
   color: var(--color-text);
   font-family: var(--font-display);
-  font-feature-settings: "blwf", "cv03", "cv04", "cv09", "cv11";
   line-height: 1.15;
   letter-spacing: -0.03em;
 }
@@ -921,10 +857,9 @@ h3 {
 .admin-map-wrap,
 .error-banner:not(:empty),
 .status-line {
-  border: 0;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--color-ring) 0 0 0 1px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
 }
 
 .panel {
@@ -959,16 +894,17 @@ table {
 }
 
 th {
-  background: color-mix(in srgb, var(--color-orange) 42%, #ffffff 58%);
+  background: transparent;
   color: var(--color-text);
   font-family: var(--font-display);
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
 }
 
 th,
 td {
-  border-bottom: 1px solid var(--color-ring);
+  border-bottom: 1px solid var(--color-border);
   padding: 12px 14px;
 }
 
@@ -981,7 +917,7 @@ img {
 }
 
 .figure-block.panel {
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .caption {
@@ -992,7 +928,7 @@ img {
 
 .section-divider {
   border: 0;
-  border-top: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
   margin: 16px 0 0;
 }
 
@@ -1005,12 +941,12 @@ img {
 .food-map-wrap,
 .admin-map-wrap {
   padding: 10px;
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .food-marker,
 .admin-marker {
-  border-color: #ffffff;
+  border-color: var(--color-surface);
   box-shadow: rgba(28, 28, 30, 0.18) 0 2px 8px;
 }
 
@@ -1057,7 +993,7 @@ img {
 #standings-table .standings-wlt {
   color: var(--color-muted);
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 #standings-table tr[aria-current="true"] td {
@@ -1078,25 +1014,25 @@ img {
 }
 
 .lineup-our-cell {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .lineup-pitcher-row td {
-  border-top: 2px solid var(--color-ring);
+  border-top: 2px solid var(--color-border);
   background: color-mix(in srgb, var(--color-orange) 18%, #ffffff 82%);
-  font-weight: 750;
+  font-weight: 600;
 }
 
 .food-store-button {
   justify-content: center;
   width: auto;
   min-height: 30px;
-  border-color: var(--color-ring);
-  border-radius: 999px;
-  background: #ffffff;
+  border-color: var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
   color: var(--color-text);
   font-size: 0.82rem;
-  font-weight: 750;
+  font-weight: 400;
   padding: 5px 10px;
 }
 
@@ -1106,7 +1042,6 @@ img {
   background: color-mix(in srgb, var(--color-blue) 10%, #ffffff 90%);
   color: var(--color-blue-pressed);
 }
-
 .food-store-button--chicken {
   background: color-mix(in srgb, #dc2626 8%, #ffffff 92%);
 }
@@ -1142,7 +1077,7 @@ img {
   gap: 12px;
   padding: 16px;
   background: color-mix(in srgb, var(--color-teal) 18%, #ffffff 82%);
-  border-bottom: 1px solid var(--color-ring);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .food-detail-heading h4 {
@@ -1162,7 +1097,7 @@ img {
   border-radius: 999px;
   padding: 4px 9px;
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .food-detail-chip--chicken {
@@ -1195,7 +1130,7 @@ img {
   grid-template-columns: 4.5rem minmax(0, 1fr);
   gap: 10px;
   padding: 5px 0;
-  border-top: 1px solid color-mix(in srgb, var(--color-ring) 70%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
 }
 
 .food-detail-rows div:first-child {
@@ -1204,7 +1139,7 @@ img {
 
 .food-detail-rows dt {
   color: var(--color-muted);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .food-detail-rows dd {
@@ -1238,8 +1173,8 @@ img {
   gap: 8px;
   padding: 6px 12px;
   background: color-mix(in srgb, var(--color-rose) 28%, #ffffff 72%);
-  border-top: 1px solid var(--color-ring);
-  border-bottom: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .preview-vs-side {
@@ -1253,22 +1188,22 @@ img {
 .preview-rank {
   color: var(--color-muted);
   font-size: 0.86rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .preview-team-name {
   color: var(--color-text);
   font-size: 1.08rem;
-  font-weight: 850;
+  font-weight: 600;
 }
 
 .preview-vs-center {
   border-radius: 999px;
   padding: 5px 9px;
   background: var(--color-text);
-  color: #ffffff;
+  color: #fcfbf8;
   font-size: 0.78rem;
-  font-weight: 850;
+  font-weight: 600;
 }
 
 .preview-season-bar,
@@ -1285,7 +1220,7 @@ img {
   background: color-mix(in srgb, var(--color-teal) 20%, #ffffff 80%);
   color: var(--color-text);
   font-size: 0.86rem;
-  font-weight: 750;
+  font-weight: 600;
 }
 
 .preview-season-bar span:nth-child(2),
@@ -1293,7 +1228,7 @@ img {
 .preview-form-title {
   color: var(--color-muted);
   font-size: 0.76rem;
-  font-weight: 700;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -1307,9 +1242,9 @@ img {
 }
 
 .preview-stat-row {
-  border-top: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
   font-size: 0.88rem;
-  font-weight: 750;
+  font-weight: 600;
 }
 
 .preview-stat-row:first-child {
@@ -1317,7 +1252,7 @@ img {
 }
 
 .preview-form-row {
-  border-top: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
   background: color-mix(in srgb, var(--color-orange) 24%, #ffffff 76%);
 }
 
@@ -1340,7 +1275,7 @@ img {
   border-radius: 6px;
   padding: 2px 5px;
   font-size: 0.72rem;
-  font-weight: 850;
+  font-weight: 600;
 }
 
 .preview-pill--win {
@@ -1357,8 +1292,8 @@ img {
 
 .preview-pill--draw,
 .preview-pill--empty {
-  border: 1px solid var(--color-ring);
-  background: #ffffff;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   color: var(--color-muted);
 }
 
@@ -1379,7 +1314,7 @@ img {
 
 .record-score-number {
   font-size: 2.4rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -1411,22 +1346,22 @@ img {
 .record-rhe-table th,
 .record-rhe-table td {
   padding: 3px 6px;
-  border: 1px solid var(--color-ring);
+  border: 1px solid var(--color-border);
 }
 
 .record-rhe-table th {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-muted);
   font-size: 0.8rem;
 }
 
 .record-rhe-table td:first-child {
-  font-weight: 700;
+  font-weight: 600;
   text-align: left;
 }
 
 .record-pitchers {
-  border-top: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
   padding: 10px 12px;
   font-size: 0.85rem;
   line-height: 1.6;
@@ -1434,7 +1369,7 @@ img {
 }
 
 .record-highlights {
-  border-top: 1px solid var(--color-ring);
+  border-top: 1px solid var(--color-border);
   padding: 8px 12px;
 }
 
@@ -1453,19 +1388,15 @@ img {
 .record-highlights li strong {
   display: inline-block;
   min-width: 4em;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-muted);
 }
 
 .calendar-header {
-  border-radius: 24px;
+  border-radius: 12px;
   padding: 16px;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-pale-blue) 50%, #ffffff),
-    color-mix(in srgb, var(--color-violet-glow) 38%, #ffffff)
-  );
-  box-shadow: var(--color-ring) 0 0 0 1px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 .calendar-current-month {
@@ -1476,46 +1407,47 @@ img {
 .calendar-weekdays {
   margin-top: 12px;
   overflow: hidden;
-  border-radius: 18px 18px 0 0;
+  border-radius: 12px 12px 0 0;
   background: var(--color-text);
-  color: #ffffff;
+  color: #fcfbf8;
 }
 
 .calendar-grid {
   overflow: hidden;
-  border-radius: 0 0 18px 18px;
-  background: #ffffff;
-  box-shadow: var(--color-ring) 0 0 0 1px;
+  border-radius: 0 0 12px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 0;
 }
 
 .calendar-weekdays > div,
 .calendar-cell {
-  border-color: var(--color-ring);
+  border-color: var(--color-border);
 }
 
 .calendar-cell--game {
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 .calendar-cell--home-day {
-  background: var(--color-calendar-home);
+  background: rgba(251, 191, 36, 0.12);
 }
 
 .calendar-cell--away-day {
-  background: var(--color-calendar-away);
+  background: rgba(100, 116, 139, 0.12);
 }
 
 .calendar-cell--home-day.calendar-cell--away-day,
 .calendar-cell--split-day {
   background: linear-gradient(
     135deg,
-    var(--color-calendar-home) 0 50%,
-    var(--color-calendar-away) 50% 100%
+    rgba(251, 191, 36, 0.12) 0 50%,
+    rgba(100, 116, 139, 0.12) 50% 100%
   );
 }
 
 .calendar-cell--cancel-day {
-  background: color-mix(in srgb, var(--color-placeholder) 24%, #ffffff 76%);
+  background: rgba(28,28,28,0.04);
 }
 
 .calendar-date {
@@ -1534,9 +1466,9 @@ img {
   border-radius: 999px;
   padding: 2px 6px;
   background: var(--color-text);
-  color: #ffffff;
+  color: #fcfbf8;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.04em;
 }
 
@@ -1544,10 +1476,10 @@ img {
   position: relative;
   display: grid;
   gap: 1px;
-  border-radius: 10px;
   padding: 5px 7px;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: rgba(28, 28, 30, 0.08) 0 1px 4px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -1620,9 +1552,9 @@ img {
   min-width: 1.75em;
   border-radius: 999px;
   padding: 2px 6px;
-  color: #ffffff;
+  color: #fcfbf8;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .calendar-result-badge--win {
@@ -1666,7 +1598,7 @@ img {
 }
 
 .calendar-legend-dot--home {
-  background: color-mix(in srgb, var(--color-amber-glow) 55%, #b45309 45%);
+  background: #b45309;
 }
 
 .calendar-legend-dot--away {
@@ -1768,7 +1700,7 @@ img {
   border-radius: 50%;
   margin-right: 6px;
   vertical-align: middle;
-  border: 1px solid color-mix(in srgb, CanvasText 25%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
 }
 
 .stadium-map-legend-swatch {
@@ -1778,7 +1710,7 @@ img {
   margin-right: 6px;
   vertical-align: middle;
   border-radius: 2px;
-  border: 1px solid color-mix(in srgb, CanvasText 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
   opacity: 0.92;
 }
 
@@ -1861,7 +1793,7 @@ img {
 }
 
 .stadium-map-pin:focus-visible {
-  outline: 2px solid color-mix(in srgb, CanvasText 55%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--color-text) 55%, transparent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1898,12 +1830,12 @@ img {
 .stadium-map-spot-name {
   margin: 0 0 1px;
   padding: 1px 3px;
-  border: 1px solid color-mix(in srgb, CanvasText 16%, Canvas 84%);
+  border: 1px solid rgba(28,28,28,0.12);
   border-radius: 2px;
-  background: color-mix(in srgb, Canvas 92%, CanvasText 8%);
-  color: CanvasText;
+  background: rgba(28,28,28,0.06);
+  color: var(--color-text);
   font-size: clamp(0.625rem, 1.7vw, 0.72rem);
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
   max-width: 8.5rem;
@@ -1917,13 +1849,13 @@ img {
 }
 
 .stadium-map-spot-name--stadium {
-  border-color: color-mix(in srgb, #c2410c 45%, Canvas 55%);
-  background: color-mix(in srgb, #c2410c 16%, Canvas 84%);
+  border-color: color-mix(in srgb, #c2410c 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #c2410c 16%, var(--color-canvas) 84%);
 }
 
 .stadium-map-spot-name--parking {
-  border-color: color-mix(in srgb, #1d4ed8 45%, Canvas 55%);
-  background: color-mix(in srgb, #1d4ed8 15%, Canvas 85%);
+  border-color: color-mix(in srgb, #1d4ed8 45%, var(--color-canvas) 55%);
+  background: color-mix(in srgb, #1d4ed8 15%, var(--color-canvas) 85%);
 }
 
 .stadium-map-spot-name:hover {
@@ -1931,7 +1863,7 @@ img {
 }
 
 .stadium-map-spot-name:focus-visible {
-  outline: 2px solid color-mix(in srgb, CanvasText 50%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--color-text) 50%, transparent);
   outline-offset: 2px;
 }
 
@@ -1943,7 +1875,7 @@ img {
   margin: 0 0 8px;
   padding: 0;
   font-size: 0.94rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
@@ -1980,14 +1912,14 @@ img {
   margin: 0 0 8px;
   padding: 8px 10px;
   border-radius: 6px;
-  border: 1px solid color-mix(in srgb, CanvasText 18%, Canvas);
-  background: color-mix(in srgb, CanvasText 6%, Canvas);
+  border: 1px solid color-mix(in srgb, var(--color-text) 18%, var(--color-canvas));
+  background: color-mix(in srgb, var(--color-text) 6%, var(--color-canvas));
 }
 
 .stadium-admin-side .stadium-admin-block {
   margin-bottom: 18px;
   padding-bottom: 14px;
-  border-bottom: 1px solid color-mix(in srgb, CanvasText 12%, Canvas);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 12%, var(--color-canvas));
 }
 
 .stadium-admin-side .stadium-admin-block:last-child {
@@ -2089,7 +2021,7 @@ img {
 }
 
 .stadium-admin-spot-row {
-  border: 1px solid color-mix(in srgb, CanvasText 14%, Canvas);
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, var(--color-canvas));
   border-radius: 8px;
   padding: 10px;
 }
@@ -2120,7 +2052,7 @@ img {
 }
 
 .stadium-admin-poi-row {
-  border: 1px solid color-mix(in srgb, CanvasText 14%, Canvas);
+  border: 1px solid color-mix(in srgb, var(--color-text) 14%, var(--color-canvas));
   border-radius: 8px;
   padding: 10px;
   display: flex;
@@ -2278,9 +2210,9 @@ img {
 .store-form textarea,
 .store-form select,
 .json-output {
-  border: 1px solid #e9eaef;
+  border: 1px solid var(--color-border);
   border-radius: 12px;
-  background: #ffffff;
+  background: var(--color-surface);
   color: var(--color-text);
   padding: 12px 14px;
 }
@@ -2308,14 +2240,10 @@ img {
     padding: 12px 12px 10px;
   }
 
-  .site-header::after {
-    opacity: 0.35;
-  }
-
   .team-selector {
     gap: 4px 6px;
     margin-top: 2px;
-    padding-bottom: 6px;
+    padding: 6px;
   }
 
   .nav a,
@@ -2355,7 +2283,7 @@ img {
     padding: 10px 10px 8px;
     border-inline: 0;
     border-top: 0;
-    box-shadow: var(--color-ring) 0 1px 0;
+    box-shadow: var(--color-border) 0 1px 0;
   }
 
   .site-header .lead {
@@ -2373,18 +2301,10 @@ img {
     padding-top: 4px;
   }
 
-  .site-header::after {
-    display: none;
-  }
 
   main {
     gap: 12px;
     padding-inline: 8px;
-  }
-
-  main::before {
-    left: -8px;
-    right: -8px;
   }
 
   section {
@@ -2475,7 +2395,7 @@ img {
   justify-content: space-between;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .cheering-song-item:last-child {
@@ -2540,8 +2460,9 @@ img {
   right: 0;
   z-index: 100;
   display: flex;
-  background: #1f2937;
-  border-top: 1px solid #374151;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
   padding: 0;
   margin: 0;
   list-style: none;
@@ -2551,13 +2472,14 @@ img {
 }
 
 .bottom-tab-item {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 0.72rem;
   padding: 4px 2px;
   gap: 2px;
@@ -2568,7 +2490,20 @@ img {
 }
 
 .bottom-tab-item--active {
-  color: #f9fafb;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.bottom-tab-item--active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--color-text);
 }
 
 .bottom-tab-label {
@@ -2587,7 +2522,7 @@ img {
 }
 
 .game-card:hover {
-  background: #f3f4f6;
+  background: rgba(28,28,28,0.04);
 }
 
 .game-card-matchup {
@@ -2610,20 +2545,20 @@ img {
 .game-card-role {
   display: block;
   font-size: 0.6rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .game-card-team-name {
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .game-card-vs {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--color-muted);
   padding: 0 8px;
 }
 
@@ -2648,7 +2583,7 @@ img {
 
 .game-card-pitcher-label {
   font-size: 0.72rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   text-align: center;
   flex: 0;
   white-space: nowrap;
@@ -2657,13 +2592,13 @@ img {
 
 .game-card-meta {
   font-size: 0.78rem;
-  color: #6b7280;
+  color: var(--color-muted);
   text-align: center;
 }
 
 .game-card-score {
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   text-align: center;
   margin-top: 3px;
 }
@@ -2682,11 +2617,11 @@ img {
   flex: 0 0 36px;
   width: 36px;
   height: 36px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-surface);
   font-size: 0.95rem;
-  color: #374151;
+  color: var(--color-text);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2696,7 +2631,7 @@ img {
 }
 
 .date-slider-arrow:active {
-  background: #f3f4f6;
+  background: rgba(28,28,28,0.04);
 }
 
 .date-slider-header {
@@ -2706,7 +2641,7 @@ img {
 .week-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--color-text);
 }
 
 .date-slider {
@@ -2731,7 +2666,7 @@ img {
 }
 
 .date-slider-item:hover {
-  background: #f3f4f6;
+  background: rgba(28,28,28,0.04);
 }
 
 .date-slider-item--empty {
@@ -2745,23 +2680,23 @@ img {
 
 .date-slider-day {
   font-size: 0.65rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   text-transform: none;
 }
 
 .date-slider-item--active .date-slider-day,
 .date-slider-item--today .date-slider-day {
-  color: #6b7280;
+  color: var(--color-muted);
 }
 
 .date-slider-item--active .date-slider-day {
-  color: #fff;
+  color: #fcfbf8;
 }
 
 .date-slider-date {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #1f2937;
+  color: var(--color-text);
   width: 28px;
   height: 28px;
   display: flex;
@@ -2771,29 +2706,29 @@ img {
 }
 
 .date-slider-item--active .date-slider-date {
-  background: #111827;
-  color: #fff;
-  font-weight: 700;
+  background: var(--color-text);
+  color: #fcfbf8;
+  font-weight: 600;
 }
 
 .date-slider-item--today .date-slider-date {
-  font-weight: 700;
-  color: #111827;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .date-slider-item--active.date-slider-item--today .date-slider-date {
-  background: #111827;
-  color: #fff;
+  background: var(--color-text);
+  color: #fcfbf8;
 }
 
 .date-slider-item--empty .date-slider-date {
-  color: #d1d5db;
+  color: rgba(28,28,28,0.20);
 }
 
 .home-hint {
   text-align: center;
   font-size: 0.78rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   margin: 0 0 8px;
 }
 
@@ -2808,6 +2743,6 @@ img {
 .lineup-side-title {
   margin: 0 0 8px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 

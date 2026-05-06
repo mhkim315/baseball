@@ -9,7 +9,7 @@ import {
   resolveStadiumSpots,
 } from "./stadium-map.js";
 import { showError } from "./router.js";
-import { TEAMS, STADIUMS } from "./team-config.js";
+import { TEAMS, STADIUMS, getStadiumByTeam } from "./team-config.js";
 import { renderBottomTab } from "./bottom-tab.js";
 import { escapeHtml } from "./escape.js";
 import {
@@ -174,36 +174,31 @@ function renderTicketInfo() {
   const body = document.getElementById("ticket-info-body");
   if (!root || !body) return;
 
-  const homeTeams = TEAMS.filter((t) => t.stadiumHubId === state.stadium.id);
-  const teamsWithPolicy = homeTeams.filter((t) => TICKET_POLICY[t.teamShort]);
-  if (!teamsWithPolicy.length) {
+  const tp = TICKET_POLICY[state.team.teamShort];
+  if (!tp) {
     root.hidden = true;
     return;
   }
 
-  let html = "";
-  for (const team of teamsWithPolicy) {
-    const tp = TICKET_POLICY[team.teamShort];
-    html += `<div class="ticket-team-block">`;
-    html += `<h4 class="ticket-team-name" style="color:${tp.color}">${escapeHtml(tp.name)}</h4>`;
-    html += `<p class="ticket-platform">예매: ${escapeHtml(tp.platform)}</p>`;
-    html += `<div class="ticket-table-wrap"><table class="ticket-tier-table">`;
-    html += `<thead><tr><th>등급</th><th>예매</th><th>시간</th><th>최대</th><th>좌석</th></tr></thead><tbody>`;
-    for (const tier of tp.tiers) {
-      const when = dDayLabel(tier.dDay);
-      const time = tier.time || "—";
-      const max = tier.maxTickets != null ? `${tier.maxTickets}매` : "—";
-      html += `<tr><td>${escapeHtml(tier.name)}</td><td>${when}</td><td>${time}</td><td>${max}</td><td>${escapeHtml(tier.seats || "")}</td></tr>`;
-    }
-    html += `</tbody></table></div>`;
-    const notes = tp.tiers.filter((t) => t.note).map((t) => t.note).filter(Boolean);
-    if (notes.length) {
-      html += `<ul class="ticket-notes">`;
-      for (const n of notes) html += `<li>${escapeHtml(n)}</li>`;
-      html += `</ul>`;
-    }
-    html += `</div>`;
+  let html = `<div class="ticket-team-block">`;
+  html += `<h4 class="ticket-team-name" style="color:${tp.color}">${escapeHtml(tp.name)}</h4>`;
+  html += `<p class="ticket-platform">예매: ${escapeHtml(tp.platform)}</p>`;
+  html += `<div class="ticket-table-wrap"><table class="ticket-tier-table">`;
+  html += `<thead><tr><th>등급</th><th>예매</th><th>시간</th><th>최대</th><th>좌석</th></tr></thead><tbody>`;
+  for (const tier of tp.tiers) {
+    const when = dDayLabel(tier.dDay);
+    const time = tier.time || "—";
+    const max = tier.maxTickets != null ? `${tier.maxTickets}매` : "—";
+    html += `<tr><td>${escapeHtml(tier.name)}</td><td>${when}</td><td>${time}</td><td>${max}</td><td>${escapeHtml(tier.seats || "")}</td></tr>`;
   }
+  html += `</tbody></table></div>`;
+  const notes = tp.tiers.filter((t) => t.note).map((t) => t.note).filter(Boolean);
+  if (notes.length) {
+    html += `<ul class="ticket-notes">`;
+    for (const n of notes) html += `<li>${escapeHtml(n)}</li>`;
+    html += `</ul>`;
+  }
+  html += `</div>`;
 
   body.innerHTML = html;
   root.hidden = false;
@@ -477,28 +472,33 @@ function bindSubTabs() {
   }
 }
 
-function selectedStadiumId() {
+function selectedTeam() {
   const params = new URLSearchParams(window.location.search);
-  const raw = (params.get("stadium") || "").trim();
-  if (raw && STADIUMS[raw]) return raw;
-  return "1";
+  const raw = (params.get("team") || "").trim();
+  if (raw) {
+    const team = TEAMS.find((t) => t.id === raw);
+    if (team) return team;
+  }
+  return TEAMS[0];
 }
 
-function renderStadiumSelector() {
+function renderTeamSelector() {
   const header = document.querySelector(".site-header");
   if (!header) return;
   const nav = document.createElement("nav");
-  nav.className = "subsection-tabs";
-  nav.setAttribute("aria-label", "구장 선택");
-  const currentId = selectedStadiumId();
-  for (const [id, stadium] of Object.entries(STADIUMS)) {
+  nav.className = "team-selector";
+  nav.setAttribute("aria-label", "구단 선택");
+  const currentTeam = selectedTeam();
+  for (const t of TEAMS) {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.textContent = stadium.label;
-    btn.setAttribute("aria-selected", id === currentId ? "true" : "false");
+    btn.textContent = t.buttonLabel;
+    btn.dataset.teamId = t.id;
+    btn.setAttribute("aria-pressed", t.id === currentTeam.id ? "true" : "false");
     btn.addEventListener("click", () => {
       const url = new URL(window.location.href);
-      url.searchParams.set("stadium", id);
+      url.searchParams.set("team", t.id);
+      url.searchParams.delete("stadium");
       history.replaceState(null, "", `${url.pathname.split("/").pop()}${url.search}`);
       window.location.reload();
     });
@@ -507,38 +507,31 @@ function renderStadiumSelector() {
   header.after(nav);
 }
 
-function homeTeamsForStadium(stadiumId) {
-  return TEAMS.filter((t) => t.stadiumHubId === stadiumId);
-}
-
 async function main() {
-  const stadiumId = selectedStadiumId();
-  const stadium = STADIUMS[stadiumId] || STADIUMS["1"];
-  state.stadium = stadium;
+  const team = selectedTeam();
+  state.team = team;
+  state.stadium = getStadiumByTeam(team);
 
   renderBottomTab("stadium");
 
   try {
     const subtitle = document.getElementById("stadium-guide-subtitle");
     if (subtitle) {
-      const homeTeams = homeTeamsForStadium(stadiumId);
-      const teamNames = homeTeams.map((t) => t.teamShort).join("·");
-      const ballparkName = homeTeams[0]?.ballparkName || stadium.label;
-      subtitle.textContent = `${teamNames} · ${ballparkName}`;
+      subtitle.textContent = `${team.teamName} · ${team.ballparkName}`;
     }
 
-    renderStadiumSelector();
+    renderTeamSelector();
 
     const seatImg = document.getElementById("seat-image");
     if (seatImg) {
-      seatImg.src = stadium.seatImage;
-      seatImg.alt = `${stadium.label} 좌석 배치도`;
+      seatImg.src = state.stadium.seatImage;
+      seatImg.alt = `${state.stadium.label} 좌석 배치도`;
     }
 
     const foodMap = document.getElementById("food-map-image");
     if (foodMap) {
-      foodMap.src = stadium.foodMapImage;
-      foodMap.alt = `${stadium.label} 먹거리 지도`;
+      foodMap.src = state.stadium.foodMapImage;
+      foodMap.alt = `${state.stadium.label} 먹거리 지도`;
     }
 
     const [places, layouts, surroundings] = await Promise.all([

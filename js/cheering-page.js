@@ -19,6 +19,7 @@ function renderTeamSelector() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = team.buttonLabel;
+    btn.dataset.teamId = team.id;
     btn.setAttribute("aria-pressed", team.id === currentTeamId ? "true" : "false");
     btn.addEventListener("click", () => switchTeam(team.id));
     nav.appendChild(btn);
@@ -85,6 +86,9 @@ function renderTeamSongs(teamId, teamData) {
   lead.textContent = "상황별 팀 응원곡 참고용이에요. 경기마다 순서·편성은 달라질 수 있어요.";
   root.appendChild(lead);
 
+  const panel = document.createElement("div");
+  panel.className = "panel";
+
   for (const section of teamData.sections) {
     const article = document.createElement("article");
     article.className = "cheering-flow";
@@ -124,8 +128,10 @@ function renderTeamSongs(teamId, teamData) {
       article.appendChild(ul);
     }
 
-    root.appendChild(article);
+    panel.appendChild(article);
   }
+
+  root.appendChild(panel);
 }
 
 // ── 선수응원가 ──────────────────────────────────────────────
@@ -179,6 +185,9 @@ function renderLineupPlayers(teamShort, lineupData) {
   lead.textContent = "오늘 선발 라인업 기준으로, 이름을 누르면 YouTube에서 응원가를 검색해요.";
   root.appendChild(lead);
 
+  const panel = document.createElement("div");
+  panel.className = "panel";
+
   // 타자
   const battersArticle = document.createElement("article");
   battersArticle.className = "cheering-flow";
@@ -195,7 +204,7 @@ function renderLineupPlayers(teamShort, lineupData) {
     battersUl.appendChild(renderPlayerItem(teamShort, batter, `${batter.order}번`));
   }
   battersArticle.appendChild(battersUl);
-  root.appendChild(battersArticle);
+  panel.appendChild(battersArticle);
 
   // 선발투수
   if (pitcher && pitcher.name) {
@@ -211,8 +220,10 @@ function renderLineupPlayers(teamShort, lineupData) {
     pitcherUl.className = "cheering-song-list";
     pitcherUl.appendChild(renderPlayerItem(teamShort, pitcher));
     pitcherArticle.appendChild(pitcherUl);
-    root.appendChild(pitcherArticle);
+    panel.appendChild(pitcherArticle);
   }
+
+  root.appendChild(panel);
 }
 
 // ── 기본규칙 ────────────────────────────────────────────────

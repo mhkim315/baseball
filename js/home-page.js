@@ -1,6 +1,6 @@
 import { loadSchedule, loadTodayGames, loadDailyScores } from "./data-loader.js";
 import { initPage, showError, pageUrl } from "./router.js";
-import { TEAMS } from "./team-config.js";
+import { TEAMS, getTeamByScheduleName } from "./team-config.js";
 import { escapeHtml } from "./escape.js";
 import { renderBottomTab } from "./bottom-tab.js";
 
@@ -78,6 +78,8 @@ function renderDateSlider() {
     if (!hasGames) btn.classList.add("date-slider-item--empty");
     if (date === state.selectedDate) btn.classList.add("date-slider-item--active");
     if (isToday(date)) btn.classList.add("date-slider-item--today");
+    if (d.getDay() === 6) btn.classList.add("date-slider-item--sat");
+    if (d.getDay() === 0) btn.classList.add("date-slider-item--sun");
 
     const dayLabel = document.createElement("span");
     dayLabel.className = "date-slider-day";
@@ -129,7 +131,19 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
   const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
 
   const homeTeam = TEAMS.find((t) => t.scheduleName === homeName || t.teamShort === homeName);
+  const awayTeam = TEAMS.find((t) => t.scheduleName === awayName || t.teamShort === awayName);
   const homeId = homeTeam?.id || (typeof game.home === "object" && game.home?.id);
+
+  // 팀 색상 그라데이션 배경 + 왼쪽 악센트
+  const homeColor = homeTeam?.primaryColor;
+  const awayColor = awayTeam?.primaryColor;
+  if (homeColor && awayColor && homeColor !== awayColor) {
+    card.style.background = `linear-gradient(135deg, ${awayColor}08 0%, transparent 40%, transparent 60%, ${homeColor}08 100%)`;
+    card.style.borderLeft = `3px solid ${homeColor}`;
+  } else if (homeColor) {
+    card.style.background = `linear-gradient(135deg, transparent 0%, ${homeColor}06 50%, transparent 100%)`;
+    card.style.borderLeft = `3px solid ${homeColor}`;
+  }
   if (homeId) {
     card.addEventListener("click", () => {
       const opts = {};
@@ -144,12 +158,12 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
   matchup.innerHTML = `
     <div class="game-card-team">
       <span class="game-card-role">원정</span>
-      <span class="game-card-team-name">${escapeHtml(awayName)}</span>
+      <span class="game-card-team-name" style="color:${awayColor || 'inherit'}">${escapeHtml(awayName)}</span>
     </div>
     <div class="game-card-vs">VS</div>
     <div class="game-card-team game-card-team--home">
       <span class="game-card-role">홈</span>
-      <span class="game-card-team-name">${escapeHtml(homeName)}</span>
+      <span class="game-card-team-name" style="color:${homeColor || 'inherit'}">${escapeHtml(homeName)}</span>
     </div>
   `;
   card.appendChild(matchup);
@@ -159,6 +173,9 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
     const scoreEl = document.createElement("div");
     scoreEl.className = "game-card-score";
     scoreEl.textContent = `${scoreData.awayScore} : ${scoreData.homeScore}`;
+    // 승리팀 색상 강조
+    if (scoreData.outcome === "W" && homeColor) scoreEl.style.color = homeColor;
+    else if (scoreData.outcome === "L" && awayColor) scoreEl.style.color = awayColor;
     card.appendChild(scoreEl);
 
     if (scoreData.winPitcher || scoreData.losePitcher) {
