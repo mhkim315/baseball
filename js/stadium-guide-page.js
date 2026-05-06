@@ -192,12 +192,6 @@ function renderTicketInfo() {
     html += `<tr><td>${escapeHtml(tier.name)}</td><td>${when}</td><td>${time}</td><td>${max}</td><td>${escapeHtml(tier.seats || "")}</td></tr>`;
   }
   html += `</tbody></table></div>`;
-  const notes = tp.tiers.filter((t) => t.note).map((t) => t.note).filter(Boolean);
-  if (notes.length) {
-    html += `<ul class="ticket-notes">`;
-    for (const n of notes) html += `<li>${escapeHtml(n)}</li>`;
-    html += `</ul>`;
-  }
   html += `</div>`;
 
   body.innerHTML = html;
