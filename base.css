@@ -1224,6 +1224,91 @@ img {
   font-size: 1.1rem;
 }
 
+#game-preview .record-scoreboard {
+  padding: 4px 0;
+}
+#game-preview .record-scoreboard-table {
+  border-collapse: collapse;
+  font-size: 0.6rem;
+  text-align: center;
+}
+#game-preview .record-scoreboard-table th,
+#game-preview .record-scoreboard-table td {
+  padding: 3px 2px;
+  border: 1px solid color-mix(in srgb, var(--color-ring) 50%, transparent);
+  overflow: hidden;
+}
+#game-preview .record-scoreboard-table thead th {
+  background: var(--color-surface);
+  font-weight: 700;
+  font-size: 0.55rem;
+}
+#game-preview .record-scoreboard-table tbody tr td:first-child {
+  font-weight: 700;
+  font-size: 0.55rem;
+  text-align: left;
+}
+#game-preview .record-scoreboard-table tbody tr:first-child td {
+  background: color-mix(in srgb, var(--color-rose) 6%, transparent);
+}
+
+/* ── 예매 정보 (구장안내) ── */
+#ticket-info {
+  margin-top: 0;
+}
+#ticket-info .panel-heading {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+.ticket-team-block + .ticket-team-block {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-ring);
+}
+.ticket-team-name {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+.ticket-platform {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.ticket-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ticket-tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: center;
+}
+.ticket-tier-table th,
+.ticket-tier-table td {
+  padding: 5px 6px;
+  border: 1px solid var(--color-ring);
+  white-space: nowrap;
+}
+.ticket-tier-table thead th {
+  background: var(--color-surface);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+.ticket-tier-table tbody tr td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+.ticket-notes {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.ticket-notes li + li {
+  margin-top: 2px;
+}
+
 .preview-meta {
   margin: 0;
   padding: 0 16px 12px;

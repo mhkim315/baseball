@@ -23,6 +23,7 @@ def main() -> None:
     ap.add_argument("--skip-results", action="store_true")
     ap.add_argument("--skip-preview", action="store_true")
     ap.add_argument("--skip-lineup", action="store_true")
+    ap.add_argument("--skip-records", action="store_true")
     args = ap.parse_args()
 
     common = []
@@ -39,8 +40,12 @@ def main() -> None:
         run("build_game_preview_from_naver.py", dated)
     if not args.skip_lineup:
         run("build_lineup_from_naver.py", dated)
+    if not args.skip_records:
+        run("build_game_records.py", common)
     # 오늘 경기 통합 JSON 생성
     run("build_today_games.py", [])
+    # 날짜별 경기 점수 집계 (live-results.json 기반)
+    run("build_daily_scores.py", [])
 
 
 if __name__ == "__main__":
