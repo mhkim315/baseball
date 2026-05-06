@@ -244,17 +244,20 @@ function renderDailyGames() {
     const scoreData = findScoreData({ away: awayName, home: homeName, date: state.selectedDate });
     const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
 
-    // 경기 미완료시에만 선발투수 정보 표시
+    // 선발투수 정보: 오늘은 todayGames, 다음날은 nextGames에서 조회
     let starters = null;
-    if (!hasResult && isTodayView && todayGames.length) {
-      const todayGame = todayGames.find(
+    if (!hasResult) {
+      const gamesWithStarters = isTodayView
+        ? (state.todayData?.games || [])
+        : (state.todayData?.nextGames?.filter(g => g.date === state.selectedDate) || []);
+      const match = gamesWithStarters.find(
         (tg) => (tg.away?.name === awayName || tg.away === awayName) &&
                 (tg.home?.name === homeName || tg.home === homeName)
       );
-      if (todayGame && todayGame.away?.starter) {
+      if (match && match.away?.starter) {
         starters = {
-          away: todayGame.away.starter.name,
-          home: todayGame.home.starter.name,
+          away: match.away.starter.name,
+          home: match.home.starter.name,
         };
       }
     }

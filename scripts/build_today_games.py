@@ -61,17 +61,14 @@ def starter_summary(starter):
     return result
 
 
-def build_games():
-    today = today_str()
-    schedule = load_json("data/kbo_schedule_2026.json")
-    team_map = build_team_map()
-
-    today_games = [g for g in schedule.get("games", []) if g["date"] == today]
-    if not today_games:
-        return {"date": today, "generatedAt": datetime.now(KST).isoformat(), "games": [], "noGames": True}
+def build_games_for_date(target_date, schedule, team_map):
+    """지정된 날짜의 경기 정보를 빌드합니다."""
+    day_games = [g for g in schedule.get("games", []) if g["date"] == target_date]
+    if not day_games:
+        return []
 
     games_out = []
-    for g in today_games:
+    for g in day_games:
         away_name = g["away"]
         home_name = g["home"]
         away_team = team_map.get(away_name)
@@ -97,15 +94,17 @@ def build_games():
         home_starter = {"name": "미정"}
 
         if lineup:
-            # lineup.json은 선택된 팀 기준 ours/theirs
-            # home_team의 lineup.json에서 ours=home, opponent=away
-            if lineup.get("meta", {}).get("teamId") == home_team["id"]:
-                home_starter = starter_summary(lineup.get("startingPitcher"))
-                away_starter = starter_summary(lineup.get("opponentStartingPitcher"))
-            else:
-                # 혹시 모를 반대 케이스
-                home_starter = starter_summary(lineup.get("opponentStartingPitcher"))
-                away_starter = starter_summary(lineup.get("startingPitcher"))
+            # lineup.json의 lineupDate가 target_date와 같은지 확인
+            lineup_date = lineup.get("meta", {}).get("lineupDate", "")
+            if lineup_date == target_date:
+                # lineup.json은 선택된 팀 기준 ours/theirs
+                # home_team의 lineup.json에서 ours=home, opponent=away
+                if lineup.get("meta", {}).get("teamId") == home_team["id"]:
+                    home_starter = starter_summary(lineup.get("startingPitcher"))
+                    away_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+                else:
+                    home_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+                    away_starter = starter_summary(lineup.get("startingPitcher"))
 
         # preview에서 팀 순위/기록 가져오기
         away_rank = None
@@ -137,7 +136,7 @@ def build_games():
                 l_val = away_standings.get("l", 0)
                 away_record = f"{w}승{d}무{l_val}패"
 
-            # 선발투수를 preview에서도 보완
+            # 선발투수를 preview에서도 보완 (lineup에 없을 경우)
             if home_starter["name"] == "미정" and preview_data.get("homeStarter"):
                 home_starter = starter_summary(preview_data["homeStarter"])
             if away_starter["name"] == "미정" and preview_data.get("awayStarter"):
@@ -151,7 +150,8 @@ def build_games():
             game_time = str(gi.get("gtime") or "").strip()
 
         game_entry = {
-            "id": f"{today.replace('-', '')}-{away_team['kboCode']}{home_team['kboCode']}-0",
+            "id": f"{target_date.replace('-', '')}-{away_team['kboCode']}{home_team['kboCode']}-0",
+            "date": target_date,
             "venue": g.get("venue", ""),
             "time": game_time,
             "status": "scheduled",
@@ -175,7 +175,7 @@ def build_games():
         # 완료된 경기면 daily-scores.json에서 점수 반영
         try:
             daily = load_json("data/daily-scores.json")
-            date_scores = daily.get("dates", {}).get(today, [])
+            date_scores = daily.get("dates", {}).get(target_date, [])
             for s in date_scores:
                 if s.get("away") == away_name and s.get("home") == home_name:
                     if s.get("awayScore") is not None and s.get("homeScore") is not None:
@@ -190,11 +190,24 @@ def build_games():
             pass
         games_out.append(game_entry)
 
+    return games_out
+
+
+def build_games():
+    today = today_str()
+    schedule = load_json("data/kbo_schedule_2026.json")
+    team_map = build_team_map()
+
+    today_games = build_games_for_date(today, schedule, team_map)
+    tomorrow = (datetime.now(KST) + timedelta(days=1)).strftime("%Y-%m-%d")
+    tomorrow_games = build_games_for_date(tomorrow, schedule, team_map)
+
     return {
         "date": today,
         "generatedAt": datetime.now(KST).isoformat(),
-        "games": games_out,
-        "noGames": len(games_out) == 0,
+        "games": today_games,
+        "noGames": len(today_games) == 0,
+        "nextGames": tomorrow_games,
     }
 
 
