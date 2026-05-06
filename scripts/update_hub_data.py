@@ -3,10 +3,12 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+KST = timezone(timedelta(hours=9))
 
 
 def run(script: str, args: list[str]) -> None:
@@ -34,15 +36,20 @@ def main() -> None:
     if not args.skip_results:
         run("fetch_kbo_game_results.py", [*common, "--recent", str(args.recent)])
     dated = list(common)
-    if args.date:
-        dated += ["--date", args.date]
+    dates_to_fetch = [args.date] if args.date else []
+    if not args.date:
+        today = datetime.now(KST).strftime("%Y-%m-%d")
+        tomorrow = (datetime.now(KST) + timedelta(days=1)).strftime("%Y-%m-%d")
+        dates_to_fetch = [today, tomorrow]
     if not args.skip_preview:
-        run("build_game_preview_from_naver.py", dated)
+        for d in dates_to_fetch:
+            run("build_game_preview_from_naver.py", dated + ["--date", d])
     if not args.skip_lineup:
-        run("build_lineup_from_naver.py", dated)
+        for d in dates_to_fetch:
+            run("build_lineup_from_naver.py", dated + ["--date", d])
     if not args.skip_records:
         run("build_game_records.py", common)
-    # 오늘 경기 통합 JSON 생성
+    # 오늘 경기 통합 JSON 생성 (내일 데이터도 함께 생성)
     run("build_today_games.py", [])
     # 날짜별 경기 점수 집계 (live-results.json 기반)
     run("build_daily_scores.py", [])

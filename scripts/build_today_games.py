@@ -42,6 +42,14 @@ def find_game_for_team(team, today):
     return None
 
 
+def _load_team_data(team_id, filename):
+    """팀 데이터 파일 로드, 실패 시 None 반환."""
+    try:
+        return load_json(f"data/teams/{team_id}/{filename}")
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
 def starter_summary(starter):
     """선발투수 요약 정보 추출"""
     if not starter or not isinstance(starter, dict):
@@ -77,34 +85,42 @@ def build_games_for_date(target_date, schedule, team_map):
         if not away_team or not home_team:
             continue
 
-        # 홈팀 기준으로 lineup / preview 로드 (양팀 데이터를 모두 포함)
+        # 양팀의 lineup / preview 로드 (선발투수가 target_date에 맞는 쪽을 사용)
+        home_lineup = _load_team_data(home_team["id"], "lineup.json")
+        away_lineup = _load_team_data(away_team["id"], "lineup.json")
+        home_preview = _load_team_data(home_team["id"], "game-preview.json")
+        away_preview = _load_team_data(away_team["id"], "game-preview.json")
+
+        # target_date에 맞는 lineup 선택
         lineup = None
+        lineup_team_id = None
+        for lu, tid in [(home_lineup, home_team["id"]), (away_lineup, away_team["id"])]:
+            if lu and lu.get("meta", {}).get("lineupDate", "") == target_date:
+                lineup = lu
+                lineup_team_id = tid
+                break
+
+        # target_date에 맞는 preview 선택
         preview = None
-        try:
-            lineup = load_json(f"data/teams/{home_team['id']}/lineup.json")
-        except (FileNotFoundError, json.JSONDecodeError):
-            pass
-        try:
-            preview = load_json(f"data/teams/{home_team['id']}/game-preview.json")
-        except (FileNotFoundError, json.JSONDecodeError):
-            pass
+        preview_team_id = None
+        for pr, tid in [(home_preview, home_team["id"]), (away_preview, away_team["id"])]:
+            if pr:
+                preview = pr
+                preview_team_id = tid
+                break
 
         # 선발투수는 lineup.json에서, 없으면 preview에서
         away_starter = {"name": "미정"}
         home_starter = {"name": "미정"}
 
         if lineup:
-            # lineup.json의 lineupDate가 target_date와 같은지 확인
-            lineup_date = lineup.get("meta", {}).get("lineupDate", "")
-            if lineup_date == target_date:
-                # lineup.json은 선택된 팀 기준 ours/theirs
-                # home_team의 lineup.json에서 ours=home, opponent=away
-                if lineup.get("meta", {}).get("teamId") == home_team["id"]:
-                    home_starter = starter_summary(lineup.get("startingPitcher"))
-                    away_starter = starter_summary(lineup.get("opponentStartingPitcher"))
-                else:
-                    home_starter = starter_summary(lineup.get("opponentStartingPitcher"))
-                    away_starter = starter_summary(lineup.get("startingPitcher"))
+            # lineup의 teamId 기준으로 ours/theirs 매핑
+            if lineup_team_id == home_team["id"]:
+                home_starter = starter_summary(lineup.get("startingPitcher"))
+                away_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+            else:
+                home_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+                away_starter = starter_summary(lineup.get("startingPitcher"))
 
         # preview에서 팀 순위/기록 가져오기
         away_rank = None
