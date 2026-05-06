@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-05-06",
-    "lastUpdated": "2026-05-06T15:39:57+09:00",
+    "lastUpdated": "2026-05-06T18:07:20+09:00",
     "gameId": "20260506HHHT02026",
     "kboGameId": "20260506HHHT0",
     "opponent": "한화",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -76,8 +76,8 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "이진영",
-      "position": "중견수"
+      "name": "황영묵",
+      "position": "2루수"
     },
     {
       "order": 2,
@@ -101,18 +101,18 @@
     },
     {
       "order": 6,
-      "name": "채은성",
+      "name": "김태연",
       "position": "1루수"
     },
     {
       "order": 7,
-      "name": "허인서",
-      "position": "포수"
+      "name": "이원석",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "하주석",
-      "position": "2루수"
+      "name": "최재훈",
+      "position": "포수"
     },
     {
       "order": 9,
