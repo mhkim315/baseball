@@ -38,6 +38,7 @@
             <button type="button" id="seat-tab" data-stadium-tab="seats" aria-controls="seat-panel">좌석</button>
             <button type="button" id="food-tab" data-stadium-tab="food" aria-controls="food-panel">먹거리</button>
             <button type="button" id="map-tab" data-stadium-tab="map" aria-controls="map-panel">주차</button>
+            <button type="button" id="transit-tab" data-stadium-tab="transit" aria-controls="transit-panel">대중교통</button>
             <button type="button" id="eats-tab" data-stadium-tab="eats" aria-controls="eats-panel">주변맛집</button>
           </nav>
           <section id="seat-panel" class="subsection-panel" aria-label="좌석">
@@ -68,7 +69,29 @@
                 </svg>
                 주차·대안 (<code>parking</code>)
               </li>
+              <li class="stadium-map-legend-item">
+                <svg class="stadium-map-legend-pin-svg" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="#16a34a" stroke="#ffffff" stroke-width="1.25" stroke-linejoin="round" d="M16 2C9.2 2 4 7.4 4 14.2c0 8.8 12 25.8 12 25.8s12-17 12-25.8C28 7.4 22.8 2 16 2z" />
+                  <circle cx="16" cy="14.5" r="4.2" fill="#ffffff" />
+                  <circle cx="16" cy="14.5" r="2" fill="#16a34a" />
+                </svg>
+                지하철·기차
+              </li>
+              <li class="stadium-map-legend-item">
+                <svg class="stadium-map-legend-pin-svg" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="#7c3aed" stroke="#ffffff" stroke-width="1.25" stroke-linejoin="round" d="M16 2C9.2 2 4 7.4 4 14.2c0 8.8 12 25.8 12 25.8s12-17 12-25.8C28 7.4 22.8 2 16 2z" />
+                  <circle cx="16" cy="14.5" r="4.2" fill="#ffffff" />
+                  <circle cx="16" cy="14.5" r="2" fill="#7c3aed" />
+                </svg>
+                버스정류장
+              </li>
             </ul>
+          </section>
+          <section id="transit-panel" class="subsection-panel" aria-label="대중교통" hidden>
+            <div id="transit-map-root" class="stadium-map-root panel" role="region" aria-label="대중교통 지도"></div>
+            <section id="transit-detail" class="food-detail-card panel" aria-live="polite">
+              <p class="food-detail-hint">핀을 클릭하면 대중교통 상세 정보가 표시됩니다.</p>
+            </section>
           </section>
           <section id="food-panel" class="subsection-panel" aria-label="먹거리" hidden>
             <div class="filter-block panel">

@@ -112,21 +112,25 @@ function renderCalendar(state) {
       const isHome = game.home === teamName;
       const item = document.createElement("div");
 
-      // 승패 결과 조회
+      // 승패 결과 조회 — 실제 점수로 판정 (daily-scores의 outcome은 팀 순서에 따라 달라짐)
       const scoreData = dailyScores?.dates?.[date]?.find(
         (s) => s.away === game.away && s.home === game.home
       );
       let resultClass = "";
-      if (scoreData?.outcome) {
-        if (scoreData.outcome === "T") {
-          resultClass = "calendar-game--result-tie";
-        } else if (isHome) {
-          resultClass = scoreData.outcome === "W" ? "calendar-game--result-win" : "calendar-game--result-loss";
-        } else {
-          resultClass = scoreData.outcome === "L" ? "calendar-game--result-win" : "calendar-game--result-loss";
+      if (scoreData) {
+        if (scoreData.cancelled) {
+          resultClass = "calendar-game--result-cancel";
+        } else if (scoreData.awayScore != null && scoreData.homeScore != null) {
+          const homeWon = scoreData.homeScore > scoreData.awayScore;
+          const tied = scoreData.homeScore === scoreData.awayScore;
+          if (tied) {
+            resultClass = "calendar-game--result-tie";
+          } else if (isHome) {
+            resultClass = homeWon ? "calendar-game--result-win" : "calendar-game--result-loss";
+          } else {
+            resultClass = homeWon ? "calendar-game--result-loss" : "calendar-game--result-win";
+          }
         }
-      } else if (scoreData?.cancelled) {
-        resultClass = "calendar-game--result-cancel";
       }
 
       item.className = ["calendar-game", isHome ? "calendar-game--home" : "calendar-game--away", isDh ? "calendar-game--dh" : "", resultClass].filter(Boolean).join(" ");

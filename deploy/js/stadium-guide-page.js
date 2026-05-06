@@ -1,17 +1,23 @@
 import { loadFoodLayouts, loadFoodPlaces, loadStadiumSurroundings, loadStadiumEats } from "./data-loader.js";
 import { TICKET_POLICY } from "./ticket-config.js";
 import {
+  SPOT_KIND_BUS,
+  SPOT_KIND_PARKING,
+  SPOT_KIND_STADIUM,
+  SPOT_KIND_TRANSIT,
   disposeStadiumMap,
+  flyToSpot,
   isMapLibreAvailable,
   mapCenterFromSpec,
   mountStadiumMap,
+  openMarkerPopup,
   resizeStadiumMap,
   resolveStadiumSpots,
 } from "./stadium-map.js";
 import { showError } from "./router.js";
 import { TEAMS, STADIUMS, getStadiumByTeam } from "./team-config.js";
 import { renderBottomTab } from "./bottom-tab.js";
-import { escapeHtml } from "./escape.js";
+import { escapeAttr, escapeHtml } from "./escape.js";
 import {
   CATEGORY_COLORS,
   CATEGORY_ORDER,
@@ -272,13 +278,16 @@ function refreshStadiumMap() {
   if (!root || state.activeTab !== "map") return;
   const block = stadiumMapBlock();
   disposeStadiumMap();
-  const spotsOk = resolveStadiumSpots(block).length > 0;
+  const allSpots = resolveStadiumSpots(block);
+  const parkingSpots = allSpots.filter(
+    (s) => s.kind === SPOT_KIND_STADIUM || s.kind === SPOT_KIND_PARKING
+  );
   const centerOk =
     Array.isArray(block?.center) &&
     block.center.length >= 2 &&
     Number.isFinite(Number(block.center[0])) &&
     Number.isFinite(Number(block.center[1]));
-  if (!spotsOk && !centerOk) {
+  if (!parkingSpots.length && !centerOk) {
     root.innerHTML =
       '<p class="muted stadium-map-fallback">이 구장용 지도 설정이 없습니다. <code>data/stadium-surroundings.json</code>의 <code>stadiums.' +
       (state.stadium?.id || "?") +
@@ -293,14 +302,92 @@ function refreshStadiumMap() {
   mountStadiumMap(root, {
     center: mapCenterFromSpec(block),
     zoom: block.zoom,
-    spots: block.spots,
+    spots: parkingSpots,
   });
   requestAnimationFrame(() => resizeStadiumMap());
 }
 
+function refreshTransitMap() {
+  const root = document.getElementById("transit-map-root");
+  const detail = document.getElementById("transit-detail");
+  if (!root || state.activeTab !== "transit") return;
+  const block = stadiumMapBlock();
+  disposeStadiumMap();
+  const allSpots = resolveStadiumSpots(block);
+  const transitSpots = allSpots.filter(
+    (s) => s.kind === SPOT_KIND_STADIUM || s.kind === SPOT_KIND_TRANSIT || s.kind === SPOT_KIND_BUS
+  );
+  const centerOk =
+    Array.isArray(block?.center) &&
+    block.center.length >= 2 &&
+    Number.isFinite(Number(block.center[0])) &&
+    Number.isFinite(Number(block.center[1]));
+  if (!transitSpots.length && !centerOk) {
+    root.innerHTML =
+      '<p class="muted stadium-map-fallback">이 구장의 대중교통 정보가 아직 준비되지 않았습니다.</p>';
+    return;
+  }
+  if (!isMapLibreAvailable()) {
+    root.innerHTML =
+      '<p class="muted stadium-map-fallback">MapLibre 스크립트를 불러오지 못했습니다. 페이지를 새로고침하거나 네트워크를 확인해 주세요.</p>';
+    return;
+  }
+
+  // 항상 표시되는 대중교통 지점 목록 (핀 클릭 없이도 전체 정보 표시)
+  if (detail) {
+    let html = '<div class="transit-spot-list" role="list" aria-label="대중교통 지점 목록">';
+    for (const spot of transitSpots) {
+      const kindLabel = spot.kind === SPOT_KIND_TRANSIT ? "지하철·기차" : spot.kind === SPOT_KIND_BUS ? "버스정류장" : "구장";
+      html +=
+        `<div class="transit-spot-item" role="listitem" data-spot-id="${escapeAttr(spot.id)}" tabindex="0">` +
+        `<div class="transit-spot-item-body">` +
+        `<strong class="transit-spot-item-name">${escapeHtml(spot.name || "")}</strong>` +
+        `<span class="transit-spot-item-kind transit-spot-item-kind--${spot.kind}">${kindLabel}</span>` +
+        (spot.description
+          ? `<p class="transit-spot-item-desc">${escapeHtml(spot.description)}</p>`
+          : '') +
+        `</div></div>`;
+    }
+    html += '</div>';
+    detail.innerHTML = html;
+
+    // 목록 아이템 클릭 → 핀 팝업 + 지도 이동
+    for (const item of detail.querySelectorAll(".transit-spot-item")) {
+      item.addEventListener("click", () => {
+        const spotId = item.dataset.spotId;
+        openMarkerPopup(spotId);
+        flyToSpot(spotId);
+        detail.querySelectorAll(".transit-spot-item").forEach(el => el.removeAttribute("data-highlight"));
+        item.setAttribute("data-highlight", "true");
+      });
+    }
+  }
+
+  // 핀 클릭 → 목록 하이라이트 + 스크롤
+  function onTransitClick(spot) {
+    if (!detail) return;
+    detail.querySelectorAll(".transit-spot-item").forEach(el => el.removeAttribute("data-highlight"));
+    const match = detail.querySelector(`[data-spot-id="${CSS.escape(spot.id || "")}"]`);
+    if (match) {
+      match.setAttribute("data-highlight", "true");
+      match.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
+  mountStadiumMap(root, {
+    center: mapCenterFromSpec(block),
+    zoom: block.zoom,
+    spots: transitSpots,
+  }, onTransitClick);
+  requestAnimationFrame(() => resizeStadiumMap());
+}
+
 function setActiveTab(tab, { updateUrl = true } = {}) {
-  const next = ["seats", "food", "map", "eats"].includes(tab) ? tab : "seats";
+  const next = ["seats", "food", "map", "transit", "eats"].includes(tab) ? tab : "seats";
   if (state.activeTab === "map" && next !== "map") {
+    disposeStadiumMap();
+  }
+  if (state.activeTab === "transit" && next !== "transit") {
     disposeStadiumMap();
   }
   state.activeTab = next;
@@ -312,6 +399,8 @@ function setActiveTab(tab, { updateUrl = true } = {}) {
   document.getElementById("food-panel").hidden = state.activeTab !== "food";
   const mapPanel = document.getElementById("map-panel");
   if (mapPanel) mapPanel.hidden = state.activeTab !== "map";
+  const transitPanel = document.getElementById("transit-panel");
+  if (transitPanel) transitPanel.hidden = state.activeTab !== "transit";
   const eatsPanel = document.getElementById("eats-panel");
   if (eatsPanel) eatsPanel.hidden = state.activeTab !== "eats";
   if (updateUrl) {
@@ -321,6 +410,9 @@ function setActiveTab(tab, { updateUrl = true } = {}) {
   }
   if (state.activeTab === "map") {
     requestAnimationFrame(() => refreshStadiumMap());
+  }
+  if (state.activeTab === "transit") {
+    requestAnimationFrame(() => refreshTransitMap());
   }
   if (state.activeTab === "eats" && eatsMap) {
     requestAnimationFrame(() => eatsMap.resize());
@@ -552,7 +644,7 @@ async function main() {
 
     bindSubTabs();
     const initialTab = new URLSearchParams(window.location.search).get("tab");
-    const tab = initialTab === "food" ? "food" : initialTab === "map" ? "map" : initialTab === "eats" ? "eats" : "seats";
+    const tab = initialTab === "food" ? "food" : initialTab === "map" ? "map" : initialTab === "transit" ? "transit" : initialTab === "eats" ? "eats" : "seats";
     setActiveTab(tab, { updateUrl: false });
   } catch (error) {
     console.error(error);

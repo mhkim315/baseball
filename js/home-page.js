@@ -145,7 +145,7 @@ function renderGameCard(root, game, scoreData, starters) {
     card.style.borderLeft = `3px solid ${homeColor}`;
   }
 
-  const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
+  const hasResult = scoreData && scoreData.outcome != null && !scoreData.cancelled;
 
   if (homeId) {
     card.addEventListener("click", () => {
@@ -176,9 +176,10 @@ function renderGameCard(root, game, scoreData, starters) {
     const scoreEl = document.createElement("div");
     scoreEl.className = "game-card-score";
     scoreEl.textContent = `${scoreData.awayScore} : ${scoreData.homeScore}`;
-    // 승리팀 색상 강조
-    if (scoreData.outcome === "W" && homeColor) scoreEl.style.color = homeColor;
-    else if (scoreData.outcome === "L" && awayColor) scoreEl.style.color = awayColor;
+    // 승리팀 색상 강조 (실제 점수 기준)
+    const homeWon = scoreData.homeScore > scoreData.awayScore;
+    if (homeWon && homeColor) scoreEl.style.color = homeColor;
+    else if (!homeWon && awayColor) scoreEl.style.color = awayColor;
     card.appendChild(scoreEl);
 
     if (scoreData.winPitcher || scoreData.losePitcher) {
@@ -242,7 +243,7 @@ function renderDailyGames() {
     const awayName = typeof game.away === "string" ? game.away : game.away?.name || "";
     const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
     const scoreData = findScoreData({ away: awayName, home: homeName, date: state.selectedDate });
-    const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
+    const hasResult = scoreData && scoreData.outcome != null && !scoreData.cancelled;
 
     // 선발투수 정보: 오늘은 todayGames, 다음날은 nextGames에서 조회
     let starters = null;

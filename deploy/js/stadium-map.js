@@ -8,9 +8,12 @@ const OPENFREEMAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
 
 export const SPOT_KIND_STADIUM = "stadium";
 export const SPOT_KIND_PARKING = "parking";
+export const SPOT_KIND_TRANSIT = "transit";
+export const SPOT_KIND_BUS = "bus";
 
 let mapInstance = null;
 let markers = [];
+let spotMarkerMap = null; // Map<spotId, maplibregl.Marker> — 핀↔리스트 연동용
 
 function clearMarkers() {
   for (const m of markers) {
@@ -21,6 +24,7 @@ function clearMarkers() {
     }
   }
   markers = [];
+  spotMarkerMap = null;
 }
 
 /**
@@ -31,20 +35,24 @@ export function normalizeSpotKind(raw, index) {
   const k = String(raw ?? "").trim().toLowerCase();
   if (k === "stadium" || k === "ballpark") return SPOT_KIND_STADIUM;
   if (k === "parking" || k === "lot" || k === "p") return SPOT_KIND_PARKING;
+  if (k === "transit" || k === "subway" || k === "train" || k === "rail") return SPOT_KIND_TRANSIT;
+  if (k === "bus" || k === "busstop") return SPOT_KIND_BUS;
   return index === 0 ? SPOT_KIND_STADIUM : SPOT_KIND_PARKING;
 }
 
 /**
- * @param {"stadium"|"parking"} kind
+ * @param {"stadium"|"parking"|"transit"|"bus"} kind
  * @param {{ draggable?: boolean }} options
  * @returns {HTMLElement}
  */
 export function createPinMarkerElement(kind, options = {}) {
   const { draggable = false } = options;
   const isStadium = kind === SPOT_KIND_STADIUM;
-  const fill = isStadium ? "#c2410c" : "#1d4ed8";
+  const isTransit = kind === SPOT_KIND_TRANSIT;
+  const isBus = kind === SPOT_KIND_BUS;
+  const fill = isStadium ? "#c2410c" : isTransit ? "#16a34a" : isBus ? "#7c3aed" : "#1d4ed8";
   const stroke = "#ffffff";
-  const label = isStadium ? "구장" : "주차·주변 지점";
+  const label = isStadium ? "구장" : isTransit ? "지하철·기차" : isBus ? "버스정류장" : "주차·주변 지점";
 
   const el = draggable ? document.createElement("div") : document.createElement("button");
   if (!draggable) {
@@ -80,7 +88,7 @@ export function displaySpotName(spot) {
   const n = String(spot.name ?? "").trim();
   if (n) return truncateLabel(n, 26);
   const d = String(spot.description ?? "").trim();
-  if (!d) return spot.kind === SPOT_KIND_STADIUM ? "구장" : "주차";
+  if (!d) return spot.kind === SPOT_KIND_STADIUM ? "구장" : spot.kind === SPOT_KIND_TRANSIT ? "지하철" : spot.kind === SPOT_KIND_BUS ? "버스" : "주차";
   const head = d.split(/\s*[（(—–]\s*/)[0]?.trim() || d;
   const cleaned = head.replace(/\s+/g, " ");
   return truncateLabel(cleaned, 26);
@@ -136,9 +144,10 @@ export function disposeStadiumMap() {
 
 /**
  * @param {HTMLElement} container
- * @param {{ center?: [number, number], zoom?: number, spots?: Array<{ id?: string, lng: number, lat: number, description?: string, kind?: string }> }} spec
+ * @param {{ center?: [number, number], zoom?: number, spots?: Array<{ id?: string, lng: number, lat: number, name?: string, description?: string, kind?: string }> }} spec
+ * @param {(spot: { name?: string, description?: string, kind?: string }) => void} [onSpotClick]
  */
-export function mountStadiumMap(container, spec) {
+export function mountStadiumMap(container, spec, onSpotClick) {
   if (!isMapLibreAvailable()) {
     container.innerHTML =
       '<p class="stadium-map-fallback muted">지도 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인해 주세요.</p>';
@@ -147,6 +156,7 @@ export function mountStadiumMap(container, spec) {
 
   disposeStadiumMap();
   container.innerHTML = "";
+  spotMarkerMap = new Map();
 
   const center = mapCenterFromSpec(spec);
   const zoom = Number.isFinite(spec.zoom) ? spec.zoom : 15;
@@ -207,6 +217,9 @@ export function mountStadiumMap(container, spec) {
 
       const toggle = () => {
         marker.togglePopup();
+        if (onSpotClick) {
+          onSpotClick({ name: shortName, description: desc, kind: spot.kind });
+        }
       };
       pinEl.addEventListener("click", (e) => {
         e.preventDefault();
@@ -220,8 +233,16 @@ export function mountStadiumMap(container, spec) {
       });
 
       markers.push(marker);
+      if (spot.id) spotMarkerMap.set(spot.id, marker);
     }
     mapInstance.resize();
+
+    // 레이블 겹침 방지: 지도가 안정화된 후 각 마커의 실제 화면 위치 기준으로 방향 재배치
+    if (spots.length > 1) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => resolveLabelOverlaps());
+      });
+    }
   });
 
   return mapInstance;
@@ -229,5 +250,80 @@ export function mountStadiumMap(container, spec) {
 
 export function resizeStadiumMap() {
   mapInstance?.resize();
+}
+
+/** 핀↔리스트 연동: 리스트 아이템 클릭 시 해당 핀의 팝업 열기 */
+export function openMarkerPopup(spotId) {
+  const marker = spotMarkerMap?.get(spotId);
+  if (marker) marker.togglePopup();
+}
+
+/** 지도를 특정 핀 위치로 부드럽게 이동 */
+export function flyToSpot(spotId) {
+  const marker = spotMarkerMap?.get(spotId);
+  if (marker && mapInstance) {
+    const lngLat = marker.getLngLat();
+    mapInstance.flyTo({ center: [lngLat.lng, lngLat.lat], zoom: Math.max(mapInstance.getZoom(), 16) });
+  }
+}
+
+function rectsOverlap(a, b) {
+  const gap = 4;
+  return !(
+    a.right - gap <= b.left + gap ||
+    b.right - gap <= a.left + gap ||
+    a.bottom - gap <= b.top + gap ||
+    b.bottom - gap <= a.top + gap
+  );
+}
+
+function resolveLabelOverlaps() {
+  if (!mapInstance) return;
+  const container = mapInstance.getContainer();
+  const roots = Array.from(container.querySelectorAll(".stadium-map-spot-marker-root"));
+  if (roots.length < 2) return;
+
+  const entries = roots
+    .map((root) => {
+      const el = root.querySelector(".stadium-map-spot-name");
+      if (!el) return null;
+      return { el, rect: el.getBoundingClientRect() };
+    })
+    .filter(Boolean);
+
+  // Reset all directions first
+  for (const e of entries) e.el.dataset.labelDir = "";
+
+  // Group overlapping labels transitively
+  const groups = [];
+  const assigned = new Set();
+
+  for (let i = 0; i < entries.length; i++) {
+    if (assigned.has(i)) continue;
+    const group = [i];
+    assigned.add(i);
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (let j = 0; j < entries.length; j++) {
+        if (assigned.has(j)) continue;
+        if (group.some((gIdx) => rectsOverlap(entries[gIdx].rect, entries[j].rect))) {
+          group.push(j);
+          assigned.add(j);
+          changed = true;
+        }
+      }
+    }
+    groups.push(group.map((idx) => entries[idx]));
+  }
+
+  // Assign label directions per group
+  const dirs = ["right", "left", "above", "below"];
+  for (const group of groups) {
+    if (group.length === 1) continue; // keep default (right)
+    for (let k = 0; k < group.length; k++) {
+      group[k].el.dataset.labelDir = dirs[k % dirs.length];
+    }
+  }
 }
 
