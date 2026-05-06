@@ -61,7 +61,10 @@ def starter_summary(starter):
         or starter.get("playerName")
         or "미정"
     )
-    result = {"name": str(name).strip()}
+    name = str(name).strip()
+    if name in ("??", "?"):
+        name = "미정"
+    result = {"name": name}
     for key in ("era", "wins", "losses", "whip"):
         val = starter.get(key) or (info.get(key) if info else None)
         if val is not None:
@@ -100,16 +103,26 @@ def build_games_for_date(target_date, schedule, team_map):
                 lineup_team_id = tid
                 break
 
-        # target_date에 맞는 preview 선택
-        preview = None
-        preview_team_id = None
+        # 선발투수용 preview: 경기 매칭 + gdate가 target_date와 일치하거나 가까운 것
+        starter_preview = None
+        starter_preview_team_id = None
+        preview = None  # 순위/기록용은 아무 preview나 사용
         for pr, tid in [(home_preview, home_team["id"]), (away_preview, away_team["id"])]:
             if pr:
-                preview = pr
-                preview_team_id = tid
-                break
+                if not preview:
+                    preview = pr
+                gi = pr.get("gameInfo") or {}
+                preview_date = str(gi.get("gdate") or "")
+                pr_home = gi.get("hName", "")
+                pr_away = gi.get("aName", "")
+                # 같은 매치업이고 날짜가 target_date와 같거나 하루 전이면 사용
+                if pr_home == home_name and pr_away == away_name:
+                    if preview_date in (target_date.replace("-", ""),
+                                        (datetime.fromisoformat(target_date) - timedelta(days=1)).strftime("%Y%m%d")):
+                        starter_preview = pr
+                        starter_preview_team_id = tid
 
-        # 선발투수는 lineup.json에서, 없으면 preview에서
+        # 선발투수는 lineup.json에서만 (preview의 데이터는 날짜 불일치 가능)
         away_starter = {"name": "미정"}
         home_starter = {"name": "미정"}
 
@@ -152,11 +165,13 @@ def build_games_for_date(target_date, schedule, team_map):
                 l_val = away_standings.get("l", 0)
                 away_record = f"{w}승{d}무{l_val}패"
 
-            # 선발투수를 preview에서도 보완 (lineup에 없을 경우)
-            if home_starter["name"] == "미정" and preview_data.get("homeStarter"):
-                home_starter = starter_summary(preview_data["homeStarter"])
-            if away_starter["name"] == "미정" and preview_data.get("awayStarter"):
-                away_starter = starter_summary(preview_data["awayStarter"])
+            # 선발투수를 preview에서도 보완 (lineup에 없고, preview 날짜가 일치할 경우)
+            if starter_preview:
+                sp_data = starter_preview if not isinstance(starter_preview.get("previewData"), dict) else starter_preview["previewData"]
+                if home_starter["name"] == "미정" and sp_data.get("homeStarter"):
+                    home_starter = starter_summary(sp_data["homeStarter"])
+                if away_starter["name"] == "미정" and sp_data.get("awayStarter"):
+                    away_starter = starter_summary(sp_data["awayStarter"])
 
         # 게임 시간 가져오기
         game_time = ""

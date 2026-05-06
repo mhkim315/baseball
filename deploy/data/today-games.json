@@ -1,6 +1,6 @@
 {
   "date": "2026-05-07",
-  "generatedAt": "2026-05-07T00:13:17.637790+09:00",
+  "generatedAt": "2026-05-07T00:21:36.432842+09:00",
   "games": [
     {
       "id": "20260507-HHHT-0",
@@ -160,7 +160,7 @@
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "배동현"
+          "name": "미정"
         },
         "rank": 4,
         "record": "16승1무14패"
@@ -169,7 +169,7 @@
         "id": "kiwoom",
         "name": "키움",
         "starter": {
-          "name": "최원태"
+          "name": "미정"
         },
         "rank": 10,
         "record": "12승0무20패"
@@ -189,7 +189,7 @@
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "류현진"
+          "name": "미정"
         },
         "rank": 5,
         "record": "15승1무16패"
@@ -198,7 +198,7 @@
         "id": "hanwha",
         "name": "한화",
         "starter": {
-          "name": "올러"
+          "name": "미정"
         },
         "rank": 9,
         "record": "12승0무19패"
@@ -218,7 +218,7 @@
         "id": "kia",
         "name": "KIA",
         "starter": {
-          "name": "비슬리"
+          "name": "미정"
         },
         "rank": 1,
         "record": "22승0무10패"
@@ -227,7 +227,7 @@
         "id": "lotte",
         "name": "롯데",
         "starter": {
-          "name": "보쉴리"
+          "name": "미정"
         },
         "rank": 8,
         "record": "12승1무18패"
@@ -247,7 +247,7 @@
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "??"
+          "name": "미정"
         },
         "rank": 3,
         "record": "18승1무13패"
@@ -256,7 +256,7 @@
         "id": "doosan",
         "name": "두산",
         "starter": {
-          "name": "??"
+          "name": "미정"
         },
         "rank": 7,
         "record": "14승1무18패"
@@ -276,7 +276,7 @@
         "id": "samsung",
         "name": "삼성",
         "starter": {
-          "name": "라일리"
+          "name": "미정"
         },
         "rank": 3,
         "record": "17승1무13패"
@@ -285,7 +285,7 @@
         "id": "nc",
         "name": "NC",
         "starter": {
-          "name": "김건우"
+          "name": "미정"
         },
         "rank": 6,
         "record": "14승1무16패"
