@@ -2768,3 +2768,20 @@ img {
   font-weight: 600;
 }
 
+/* ── 예매정보 ────────────────────────────── */
+
+.ticket-tier-table {
+  font-size: 0.82rem;
+  width: 100%;
+}
+
+.ticket-tier-table th,
+.ticket-tier-table td {
+  padding: 4px 6px;
+  font-size: 0.78rem;
+}
+
+.ticket-table-wrap {
+  overflow-x: auto;
+}
+
