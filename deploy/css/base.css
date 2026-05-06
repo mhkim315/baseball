@@ -74,6 +74,7 @@ section {
 }
 
 .panel {
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
@@ -633,7 +634,7 @@ img {
   --color-placeholder: #5f5f5d;
   --color-border: #eceae4;
   --color-surface: #f7f4ed;
-  --color-canvas: #f7f4ed;
+  --color-canvas: #f0ece1;
   --color-accent: #1c1c1c;
   --color-accent-pressed: rgba(28,28,28,0.85);
   --color-success: #059669;
@@ -800,6 +801,18 @@ button[aria-selected="true"],
   border-color: var(--color-text);
   outline: none;
 }
+
+/* ── team color overrides for selected buttons ─────────── */
+.team-selector button[aria-pressed="true"][data-team-id="doosan"] { background: #131230; border-color: #131230; }
+.team-selector button[aria-pressed="true"][data-team-id="lg"]     { background: #C30452; border-color: #C30452; }
+.team-selector button[aria-pressed="true"][data-team-id="kiwoom"] { background: #570514; border-color: #570514; }
+.team-selector button[aria-pressed="true"][data-team-id="ssg"]    { background: #CE0E2D; border-color: #CE0E2D; }
+.team-selector button[aria-pressed="true"][data-team-id="kt"]     { background: #000000; border-color: #000000; }
+.team-selector button[aria-pressed="true"][data-team-id="hanwha"] { background: #F37321; border-color: #F37321; }
+.team-selector button[aria-pressed="true"][data-team-id="samsung"]{ background: #074CA1; border-color: #074CA1; }
+.team-selector button[aria-pressed="true"][data-team-id="kia"]    { background: #EA0029; border-color: #EA0029; }
+.team-selector button[aria-pressed="true"][data-team-id="lotte"]  { background: #041E42; border-color: #041E42; }
+.team-selector button[aria-pressed="true"][data-team-id="nc"]     { background: #1D467D; border-color: #1D467D; }
 
 main {
   display: grid;
@@ -2518,11 +2531,16 @@ img {
   padding: 6px 12px;
   margin-bottom: 5px;
   border-radius: 8px;
+  background: var(--color-surface);
   transition: background 0.15s;
 }
 
 .game-card:hover {
   background: rgba(28,28,28,0.04);
+}
+
+.game-card:hover[style*="linear-gradient"] {
+  background: rgba(28,28,28,0.02);
 }
 
 .game-card-matchup {
@@ -2680,9 +2698,13 @@ img {
 
 .date-slider-day {
   font-size: 0.65rem;
-  color: var(--color-muted);
+  color: var(--color-text);
   text-transform: none;
+  font-weight: 500;
 }
+
+.date-slider-item--sat .date-slider-day { color: #2b6ed7; }
+.date-slider-item--sun .date-slider-day { color: #d43b3b; }
 
 .date-slider-item--active .date-slider-day,
 .date-slider-item--today .date-slider-day {
@@ -2744,5 +2766,31 @@ img {
   margin: 0 0 8px;
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* ── 예매정보 ────────────────────────────── */
+
+.ticket-tier-table {
+  font-size: 0.82rem;
+  width: 100%;
+}
+
+.ticket-tier-table th,
+.ticket-tier-table td {
+  padding: 4px 6px;
+  font-size: 0.78rem;
+}
+
+.ticket-table-wrap {
+  overflow-x: auto;
+}
+
+.ticket-notes {
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin: 6px 0 0;
+  line-height: 1.5;
 }
 

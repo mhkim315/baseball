@@ -171,6 +171,23 @@ def build_games():
             },
             "score": {"away": None, "home": None},
         }
+
+        # 완료된 경기면 daily-scores.json에서 점수 반영
+        try:
+            daily = load_json("data/daily-scores.json")
+            date_scores = daily.get("dates", {}).get(today, [])
+            for s in date_scores:
+                if s.get("away") == away_name and s.get("home") == home_name:
+                    if s.get("awayScore") is not None and s.get("homeScore") is not None:
+                        game_entry["score"]["away"] = s["awayScore"]
+                        game_entry["score"]["home"] = s["homeScore"]
+                    if s.get("outcome"):
+                        game_entry["status"] = "finished"
+                    elif s.get("cancelled"):
+                        game_entry["status"] = "cancelled"
+                    break
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
         games_out.append(game_entry)
 
     return {

@@ -123,7 +123,7 @@ function findScoreData(game) {
   return dateScores.find((s) => s.away === awayName && s.home === homeName) || null;
 }
 
-function renderGameCard(root, game, scoreData, starters, isPast) {
+function renderGameCard(root, game, scoreData, starters) {
   const card = document.createElement("article");
   card.className = "game-card panel";
 
@@ -144,10 +144,13 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
     card.style.background = `linear-gradient(135deg, transparent 0%, ${homeColor}06 50%, transparent 100%)`;
     card.style.borderLeft = `3px solid ${homeColor}`;
   }
+
+  const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
+
   if (homeId) {
     card.addEventListener("click", () => {
       const opts = {};
-      if (isPast) opts.date = game.date || state.selectedDate;
+      if (hasResult) opts.date = game.date || state.selectedDate;
       window.location.assign(pageUrl("game-detail", homeId, opts));
     });
   }
@@ -168,8 +171,8 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
   `;
   card.appendChild(matchup);
 
-  if (isPast && scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome) {
-    // 지난 경기: 점수 + 승패투수
+  if (hasResult) {
+    // 경기 종료: 점수 + 승패투수
     const scoreEl = document.createElement("div");
     scoreEl.className = "game-card-score";
     scoreEl.textContent = `${scoreData.awayScore} : ${scoreData.homeScore}`;
@@ -189,7 +192,7 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
       card.appendChild(pitchers);
     }
   } else if (starters) {
-    // 오늘/미래 경기: 선발투수
+    // 경기 전: 선발투수
     const pitchers = document.createElement("div");
     pitchers.className = "game-card-pitchers";
     pitchers.innerHTML = `
@@ -207,7 +210,7 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
     metaParts.push("취소");
   } else {
     metaParts.push(game.venue || "경기장 미정");
-    if (!(isPast && scoreData?.outcome) && game.time) metaParts.push(game.time);
+    if (!hasResult && game.time) metaParts.push(game.time);
   }
   meta.textContent = metaParts.join(" · ");
   card.appendChild(meta);
@@ -234,19 +237,16 @@ function renderDailyGames() {
     return;
   }
 
-  const kst = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
-  const todayKey = `${kst.getFullYear()}-${String(kst.getMonth() + 1).padStart(2, "0")}-${String(kst.getDate()).padStart(2, "0")}`;
-
   root.innerHTML = "";
   for (const game of games) {
     const awayName = typeof game.away === "string" ? game.away : game.away?.name || "";
     const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
     const scoreData = findScoreData({ away: awayName, home: homeName, date: state.selectedDate });
-    const isPast = state.selectedDate < todayKey;
+    const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
 
-    // 오늘 경기에만 선발투수 정보 제공 (미래 경지는 todayData에서 가져올 수 없음)
+    // 경기 미완료시에만 선발투수 정보 표시
     let starters = null;
-    if (isTodayView && todayGames.length) {
+    if (!hasResult && isTodayView && todayGames.length) {
       const todayGame = todayGames.find(
         (tg) => (tg.away?.name === awayName || tg.away === awayName) &&
                 (tg.home?.name === homeName || tg.home === homeName)
@@ -259,7 +259,7 @@ function renderDailyGames() {
       }
     }
 
-    renderGameCard(root, game, scoreData, starters, isPast);
+    renderGameCard(root, game, scoreData, starters);
   }
 }
 

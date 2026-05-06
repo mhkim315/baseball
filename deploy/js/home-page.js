@@ -1,6 +1,6 @@
 import { loadSchedule, loadTodayGames, loadDailyScores } from "./data-loader.js";
 import { initPage, showError, pageUrl } from "./router.js";
-import { TEAMS } from "./team-config.js";
+import { TEAMS, getTeamByScheduleName } from "./team-config.js";
 import { escapeHtml } from "./escape.js";
 import { renderBottomTab } from "./bottom-tab.js";
 
@@ -78,6 +78,8 @@ function renderDateSlider() {
     if (!hasGames) btn.classList.add("date-slider-item--empty");
     if (date === state.selectedDate) btn.classList.add("date-slider-item--active");
     if (isToday(date)) btn.classList.add("date-slider-item--today");
+    if (d.getDay() === 6) btn.classList.add("date-slider-item--sat");
+    if (d.getDay() === 0) btn.classList.add("date-slider-item--sun");
 
     const dayLabel = document.createElement("span");
     dayLabel.className = "date-slider-day";
@@ -121,7 +123,7 @@ function findScoreData(game) {
   return dateScores.find((s) => s.away === awayName && s.home === homeName) || null;
 }
 
-function renderGameCard(root, game, scoreData, starters, isPast) {
+function renderGameCard(root, game, scoreData, starters) {
   const card = document.createElement("article");
   card.className = "game-card panel";
 
@@ -129,11 +131,26 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
   const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
 
   const homeTeam = TEAMS.find((t) => t.scheduleName === homeName || t.teamShort === homeName);
+  const awayTeam = TEAMS.find((t) => t.scheduleName === awayName || t.teamShort === awayName);
   const homeId = homeTeam?.id || (typeof game.home === "object" && game.home?.id);
+
+  // 팀 색상 그라데이션 배경 + 왼쪽 악센트
+  const homeColor = homeTeam?.primaryColor;
+  const awayColor = awayTeam?.primaryColor;
+  if (homeColor && awayColor && homeColor !== awayColor) {
+    card.style.background = `linear-gradient(135deg, ${awayColor}08 0%, transparent 40%, transparent 60%, ${homeColor}08 100%)`;
+    card.style.borderLeft = `3px solid ${homeColor}`;
+  } else if (homeColor) {
+    card.style.background = `linear-gradient(135deg, transparent 0%, ${homeColor}06 50%, transparent 100%)`;
+    card.style.borderLeft = `3px solid ${homeColor}`;
+  }
+
+  const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
+
   if (homeId) {
     card.addEventListener("click", () => {
       const opts = {};
-      if (isPast) opts.date = game.date || state.selectedDate;
+      if (hasResult) opts.date = game.date || state.selectedDate;
       window.location.assign(pageUrl("game-detail", homeId, opts));
     });
   }
@@ -144,21 +161,24 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
   matchup.innerHTML = `
     <div class="game-card-team">
       <span class="game-card-role">원정</span>
-      <span class="game-card-team-name">${escapeHtml(awayName)}</span>
+      <span class="game-card-team-name" style="color:${awayColor || 'inherit'}">${escapeHtml(awayName)}</span>
     </div>
     <div class="game-card-vs">VS</div>
     <div class="game-card-team game-card-team--home">
       <span class="game-card-role">홈</span>
-      <span class="game-card-team-name">${escapeHtml(homeName)}</span>
+      <span class="game-card-team-name" style="color:${homeColor || 'inherit'}">${escapeHtml(homeName)}</span>
     </div>
   `;
   card.appendChild(matchup);
 
-  if (isPast && scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome) {
-    // 지난 경기: 점수 + 승패투수
+  if (hasResult) {
+    // 경기 종료: 점수 + 승패투수
     const scoreEl = document.createElement("div");
     scoreEl.className = "game-card-score";
     scoreEl.textContent = `${scoreData.awayScore} : ${scoreData.homeScore}`;
+    // 승리팀 색상 강조
+    if (scoreData.outcome === "W" && homeColor) scoreEl.style.color = homeColor;
+    else if (scoreData.outcome === "L" && awayColor) scoreEl.style.color = awayColor;
     card.appendChild(scoreEl);
 
     if (scoreData.winPitcher || scoreData.losePitcher) {
@@ -172,7 +192,7 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
       card.appendChild(pitchers);
     }
   } else if (starters) {
-    // 오늘/미래 경기: 선발투수
+    // 경기 전: 선발투수
     const pitchers = document.createElement("div");
     pitchers.className = "game-card-pitchers";
     pitchers.innerHTML = `
@@ -190,7 +210,7 @@ function renderGameCard(root, game, scoreData, starters, isPast) {
     metaParts.push("취소");
   } else {
     metaParts.push(game.venue || "경기장 미정");
-    if (!(isPast && scoreData?.outcome) && game.time) metaParts.push(game.time);
+    if (!hasResult && game.time) metaParts.push(game.time);
   }
   meta.textContent = metaParts.join(" · ");
   card.appendChild(meta);
@@ -217,19 +237,16 @@ function renderDailyGames() {
     return;
   }
 
-  const kst = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
-  const todayKey = `${kst.getFullYear()}-${String(kst.getMonth() + 1).padStart(2, "0")}-${String(kst.getDate()).padStart(2, "0")}`;
-
   root.innerHTML = "";
   for (const game of games) {
     const awayName = typeof game.away === "string" ? game.away : game.away?.name || "";
     const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
     const scoreData = findScoreData({ away: awayName, home: homeName, date: state.selectedDate });
-    const isPast = state.selectedDate < todayKey;
+    const hasResult = scoreData && scoreData.awayScore != null && scoreData.homeScore != null && !scoreData.cancelled && scoreData.outcome;
 
-    // 오늘 경기에만 선발투수 정보 제공 (미래 경지는 todayData에서 가져올 수 없음)
+    // 경기 미완료시에만 선발투수 정보 표시
     let starters = null;
-    if (isTodayView && todayGames.length) {
+    if (!hasResult && isTodayView && todayGames.length) {
       const todayGame = todayGames.find(
         (tg) => (tg.away?.name === awayName || tg.away === awayName) &&
                 (tg.home?.name === homeName || tg.home === homeName)
@@ -242,7 +259,7 @@ function renderDailyGames() {
       }
     }
 
-    renderGameCard(root, game, scoreData, starters, isPast);
+    renderGameCard(root, game, scoreData, starters);
   }
 }
 
