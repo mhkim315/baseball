@@ -254,7 +254,7 @@ function renderDailyGames() {
         (tg) => (tg.away?.name === awayName || tg.away === awayName) &&
                 (tg.home?.name === homeName || tg.home === homeName)
       );
-      if (match && match.away?.starter) {
+      if (match && match.away?.starter && match.away.starter.name !== "미정" && match.away.starter.name !== "??") {
         starters = {
           away: match.away.starter.name,
           home: match.home.starter.name,
