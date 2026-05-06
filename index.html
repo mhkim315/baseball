@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="naver-site-verification" content="a0b7c5dc4bf8ef79e148e40869b816acd9993935" />
-    <title>KBO 라인업 · 선발투수 | 풀카운트</title>
-    <meta name="description" content="KBO 10개 구단의 실시간 라인업, 선발투수, 경기 프리뷰를 한눈에. 오늘 경기 타순과 상대 라인업을 확인하세요." />
-    <meta property="og:title" content="KBO 라인업 · 선발투수 | 풀카운트" />
+    <title>KBO 라인업 · 선발투수 | fullcount.kr</title>
+    <meta name="description" content="KBO 10개 구단의 실시간 라인업, 선발투수, 오늘의 경기를 한눈에." />
+    <meta property="og:title" content="KBO 라인업 · 선발투수 | fullcount.kr" />
     <meta property="og:description" content="KBO 10개 구단의 실시간 라인업과 선발투수를 확인하세요." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fullcount.kr" />
@@ -15,27 +14,26 @@
   <body>
     <div class="wrap">
       <header class="site-header">
-        <h1 id="site-title" class="brand-title">직관가이드</h1>
-        <p id="site-subtitle" class="lead">구단을 선택해 주세요.</p>
-        <nav id="team-selector" class="team-selector" aria-label="구단 선택"></nav>
-        <nav id="section-nav" class="nav" aria-label="가이드 섹션"></nav>
+        <h1 id="site-title" class="brand-title">fullcount.kr</h1>
+        <p class="lead">구단별 라인업, 구장 먹거리, 응원가까지 &mdash; 직관 준비는 여기서</p>
+        <div class="date-slider-wrap">
+          <button type="button" id="date-prev" class="date-slider-arrow" aria-label="이전 주">&lsaquo;</button>
+          <div class="date-slider-header">
+            <span id="week-label" class="week-label"></span>
+          </div>
+          <button type="button" id="date-next" class="date-slider-arrow" aria-label="다음 주">&rsaquo;</button>
+        </div>
+        <div id="date-slider" class="date-slider"></div>
       </header>
       <p id="load-error" class="error-banner" role="alert"></p>
       <main>
-        <section id="game-preview" class="panel" aria-label="경기 프리뷰"></section>
-        <section aria-label="라인업">
-          <div class="table-wrap panel">
-            <table id="lineup-table">
-              <thead>
-                <tr><th>타순</th><th>이름</th><th>포지션</th><th id="lineup-opponent-head">상대 라인업</th></tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
+        <section id="games-section" aria-label="경기">
+          <p class="home-hint">카드를 누르면 라인업을 확인할 수 있습니다</p>
+          <div id="daily-games" class="daily-games"></div>
         </section>
       </main>
       <footer class="site-footer muted">기능 추가나 개선 제안은 info@fullcount.kr 로 보내주세요</footer>
     </div>
-    <script type="module" src="js/lineup-page.js"></script>
+    <script type="module" src="js/home-page.js"></script>
   </body>
 </html>

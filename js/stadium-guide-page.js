@@ -7,8 +7,9 @@ import {
   resizeStadiumMap,
   resolveStadiumSpots,
 } from "./stadium-map.js";
-import { initShell, showError } from "./router.js";
-import { getStadiumByTeam } from "./team-config.js";
+import { showError } from "./router.js";
+import { TEAMS, STADIUMS } from "./team-config.js";
+import { renderBottomTab } from "./bottom-tab.js";
 import { escapeHtml } from "./escape.js";
 import {
   CATEGORY_COLORS,
@@ -153,10 +154,12 @@ function renderMarkers(stores) {
   });
 }
 
-function renderSeats(team) {
+function renderSeats() {
   const img = document.getElementById("seat-image");
-  img.src = state.stadium.seatImage;
-  img.alt = `${team.ballparkName} 좌석 배치도`;
+  if (img) {
+    img.src = state.stadium.seatImage;
+    img.alt = `${state.stadium.label} 좌석 배치도`;
+  }
 }
 
 function renderFoodDetail(visibleStores) {
@@ -427,18 +430,70 @@ function bindSubTabs() {
   }
 }
 
+function selectedStadiumId() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = (params.get("stadium") || "").trim();
+  if (raw && STADIUMS[raw]) return raw;
+  return "1";
+}
+
+function renderStadiumSelector() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const nav = document.createElement("nav");
+  nav.className = "subsection-tabs";
+  nav.setAttribute("aria-label", "구장 선택");
+  const currentId = selectedStadiumId();
+  for (const [id, stadium] of Object.entries(STADIUMS)) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = stadium.label;
+    btn.setAttribute("aria-selected", id === currentId ? "true" : "false");
+    btn.addEventListener("click", () => {
+      const url = new URL(window.location.href);
+      url.searchParams.set("stadium", id);
+      history.replaceState(null, "", `${url.pathname.split("/").pop()}${url.search}`);
+      window.location.reload();
+    });
+    nav.appendChild(btn);
+  }
+  header.after(nav);
+}
+
+function homeTeamsForStadium(stadiumId) {
+  return TEAMS.filter((t) => t.stadiumHubId === stadiumId);
+}
+
 async function main() {
-  const team = initShell("stadium", "구장안내");
+  const stadiumId = selectedStadiumId();
+  const stadium = STADIUMS[stadiumId] || STADIUMS["1"];
+  state.stadium = stadium;
+
+  renderBottomTab("stadium");
+
   try {
-    state.team = team;
-    state.stadium = getStadiumByTeam(team);
     const subtitle = document.getElementById("stadium-guide-subtitle");
-    if (subtitle) subtitle.textContent = `${team.teamShort} · ${team.ballparkName}`;
-    renderSeats(team);
+    if (subtitle) {
+      const homeTeams = homeTeamsForStadium(stadiumId);
+      const teamNames = homeTeams.map((t) => t.teamShort).join("·");
+      const ballparkName = homeTeams[0]?.ballparkName || stadium.label;
+      subtitle.textContent = `${teamNames} · ${ballparkName}`;
+    }
+
+    renderStadiumSelector();
+
+    const seatImg = document.getElementById("seat-image");
+    if (seatImg) {
+      seatImg.src = stadium.seatImage;
+      seatImg.alt = `${stadium.label} 좌석 배치도`;
+    }
 
     const foodMap = document.getElementById("food-map-image");
-    foodMap.src = state.stadium.foodMapImage;
-    foodMap.alt = `${team.ballparkName} 먹거리 지도`;
+    if (foodMap) {
+      foodMap.src = stadium.foodMapImage;
+      foodMap.alt = `${stadium.label} 먹거리 지도`;
+    }
+
     const [places, layouts, surroundings] = await Promise.all([
       loadFoodPlaces(),
       loadFoodLayouts(),

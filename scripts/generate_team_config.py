@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX_PATH = ROOT / "data" / "teams" / "index.json"
 OUT_PATH = ROOT / "js" / "team-config.js"
 
-TEMPLATE = """export const SITE_TITLE = "직관가이드";
+TEMPLATE = """export const SITE_TITLE = "fullcount.kr";
 
 export const STADIUMS = {stadiums_json};
 

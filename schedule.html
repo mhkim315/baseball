@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KBO 경기일정 | fullcount.kr</title>
+    <meta name="description" content="2026 KBO 리그 경기 일정." />
+    <meta property="og:title" content="KBO 경기일정 | fullcount.kr" />
+    <meta property="og:description" content="2026 KBO 리그 일정을 확인하세요." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fullcount.kr/schedule" />
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <h1 id="site-title" class="brand-title">fullcount.kr</h1>
+        <p class="lead">구단을 선택해 주세요</p>
+        <nav id="team-filter" class="team-selector" aria-label="구단 선택"></nav>
+      </header>
+      <p id="load-error" class="error-banner" role="alert"></p>
+      <main>
+        <div class="calendar-header">
+          <h2 id="schedule-title" class="visually-hidden">일정</h2>
+          <div class="calendar-controls" aria-label="월 이동">
+            <button type="button" id="prev-month" aria-label="이전 달">이전</button>
+            <span id="calendar-current-month" class="calendar-current-month" aria-live="polite"></span>
+            <button type="button" id="next-month" aria-label="다음 달">다음</button>
+          </div>
+        </div>
+        <div class="calendar-legend" aria-label="캘린더 범례">
+          <span><i class="calendar-legend-dot calendar-legend-dot--home"></i>홈</span>
+          <span><i class="calendar-legend-dot calendar-legend-dot--away"></i>원정</span>
+          <span><i class="calendar-legend-dot calendar-legend-dot--win"></i>승</span>
+          <span><i class="calendar-legend-dot calendar-legend-dot--loss"></i>패</span>
+          <span><b class="calendar-legend-dh">DH</b>더블헤더</span>
+        </div>
+        <div class="calendar panel" aria-label="월간 경기 일정">
+          <div id="calendar-weekdays" class="calendar-weekdays" aria-hidden="true"></div>
+          <div id="calendar-grid" class="calendar-grid"></div>
+        </div>
+      </main>
+      <footer class="site-footer muted">기능 추가나 개선 제안은 info@fullcount.kr 로 보내주세요</footer>
+    </div>
+    <script type="module" src="js/schedule-page.js"></script>
+  </body>
+</html>

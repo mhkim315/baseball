@@ -1,0 +1,147 @@
+{
+  "date": "2026-05-06",
+  "generatedAt": "2026-05-06T17:58:23.304179+09:00",
+  "games": [
+    {
+      "id": "20260506-HHHT-0",
+      "venue": "광주",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
+        "id": "hanwha",
+        "name": "한화",
+        "starter": {
+          "name": "류현진"
+        },
+        "rank": 9,
+        "record": "12승0무19패"
+      },
+      "home": {
+        "id": "kia",
+        "name": "KIA",
+        "starter": {
+          "name": "올러"
+        },
+        "rank": 5,
+        "record": "15승1무16패"
+      },
+      "score": {
+        "away": null,
+        "home": null
+      }
+    },
+    {
+      "id": "20260506-WOSS-0",
+      "venue": "대구",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
+        "id": "kiwoom",
+        "name": "키움",
+        "starter": {
+          "name": "배동현"
+        },
+        "rank": 10,
+        "record": "12승0무20패"
+      },
+      "home": {
+        "id": "samsung",
+        "name": "삼성",
+        "starter": {
+          "name": "최원태"
+        },
+        "rank": 4,
+        "record": "16승1무14패"
+      },
+      "score": {
+        "away": null,
+        "home": null
+      }
+    },
+    {
+      "id": "20260506-NCSK-0",
+      "venue": "문학",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
+        "id": "nc",
+        "name": "NC",
+        "starter": {
+          "name": "라일리"
+        },
+        "rank": 6,
+        "record": "14승1무16패"
+      },
+      "home": {
+        "id": "ssg",
+        "name": "SSG",
+        "starter": {
+          "name": "김건우"
+        },
+        "rank": 3,
+        "record": "17승1무13패"
+      },
+      "score": {
+        "away": null,
+        "home": null
+      }
+    },
+    {
+      "id": "20260506-LTKT-0",
+      "venue": "수원",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
+        "id": "lotte",
+        "name": "롯데",
+        "starter": {
+          "name": "비슬리"
+        },
+        "rank": 8,
+        "record": "12승1무18패"
+      },
+      "home": {
+        "id": "kt",
+        "name": "KT",
+        "starter": {
+          "name": "보쉴리"
+        },
+        "rank": 1,
+        "record": "22승0무10패"
+      },
+      "score": {
+        "away": null,
+        "home": null
+      }
+    },
+    {
+      "id": "20260506-OBLG-0",
+      "venue": "잠실",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
+        "id": "doosan",
+        "name": "두산",
+        "starter": {
+          "name": "최승용"
+        },
+        "rank": 7,
+        "record": "14승1무17패"
+      },
+      "home": {
+        "id": "lg",
+        "name": "LG",
+        "starter": {
+          "name": "임찬규"
+        },
+        "rank": 2,
+        "record": "20승0무11패"
+      },
+      "score": {
+        "away": null,
+        "home": null
+      }
+    }
+  ],
+  "noGames": false
+}

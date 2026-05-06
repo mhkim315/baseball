@@ -1,0 +1,195 @@
+"""
+오늘 날짜의 모든 KBO 경기 정보를 data/today-games.json 으로 집계합니다.
+각 경기당 양팀 선발투수, 순위, 기록, 경기장, 시간 정보를 포함합니다.
+"""
+from __future__ import annotations
+
+import json
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+KST = timezone(timedelta(hours=9))
+
+
+def load_json(path: str):
+    with open(ROOT / path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_team_map():
+    """scheduleName -> team info 매핑 생성"""
+    index = load_json("data/teams/index.json")
+    result = {}
+    for t in index["teams"]:
+        for key in [t["scheduleName"], t["teamName"], t["teamShort"]]:
+            result[key] = t
+    return result
+
+
+def today_str():
+    return datetime.now(KST).strftime("%Y-%m-%d")
+
+
+def find_game_for_team(team, today):
+    """팀의 오늘 경기에서 상대팀 정보 찾기"""
+    schedule = load_json("data/kbo_schedule_2026.json")
+    by_team = schedule.get("byTeam", {})
+    team_schedule = by_team.get(team["scheduleName"], [])
+    for game in team_schedule:
+        if game["date"] == today:
+            return game
+    return None
+
+
+def starter_summary(starter):
+    """선발투수 요약 정보 추출"""
+    if not starter or not isinstance(starter, dict):
+        return {"name": "미정"}
+    info = starter.get("playerInfo") if isinstance(starter.get("playerInfo"), dict) else {}
+    name = (
+        info.get("name")
+        or starter.get("name")
+        or starter.get("playerName")
+        or "미정"
+    )
+    result = {"name": str(name).strip()}
+    for key in ("era", "wins", "losses", "whip"):
+        val = starter.get(key) or (info.get(key) if info else None)
+        if val is not None:
+            result[key] = str(val) if not isinstance(val, (int, float)) else val
+    return result
+
+
+def build_games():
+    today = today_str()
+    schedule = load_json("data/kbo_schedule_2026.json")
+    team_map = build_team_map()
+
+    today_games = [g for g in schedule.get("games", []) if g["date"] == today]
+    if not today_games:
+        return {"date": today, "generatedAt": datetime.now(KST).isoformat(), "games": [], "noGames": True}
+
+    games_out = []
+    for g in today_games:
+        away_name = g["away"]
+        home_name = g["home"]
+        away_team = team_map.get(away_name)
+        home_team = team_map.get(home_name)
+
+        if not away_team or not home_team:
+            continue
+
+        # 홈팀 기준으로 lineup / preview 로드 (양팀 데이터를 모두 포함)
+        lineup = None
+        preview = None
+        try:
+            lineup = load_json(f"data/teams/{home_team['id']}/lineup.json")
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+        try:
+            preview = load_json(f"data/teams/{home_team['id']}/game-preview.json")
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+
+        # 선발투수는 lineup.json에서, 없으면 preview에서
+        away_starter = {"name": "미정"}
+        home_starter = {"name": "미정"}
+
+        if lineup:
+            # lineup.json은 선택된 팀 기준 ours/theirs
+            # home_team의 lineup.json에서 ours=home, opponent=away
+            if lineup.get("meta", {}).get("teamId") == home_team["id"]:
+                home_starter = starter_summary(lineup.get("startingPitcher"))
+                away_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+            else:
+                # 혹시 모를 반대 케이스
+                home_starter = starter_summary(lineup.get("opponentStartingPitcher"))
+                away_starter = starter_summary(lineup.get("startingPitcher"))
+
+        # preview에서 팀 순위/기록 가져오기
+        away_rank = None
+        home_rank = None
+        away_record = None
+        home_record = None
+
+        if preview:
+            preview_data = preview if not isinstance(preview.get("previewData"), dict) else preview["previewData"]
+            game_info = preview_data.get("gameInfo") or preview.get("gameInfo") or {}
+            home_standings = preview_data.get("homeStandings") or preview.get("homeStandings")
+            away_standings = preview_data.get("awayStandings") or preview.get("awayStandings")
+
+            # homeStandings/awayStandings가 실제 홈/원정과 반대일 수 있으므로 보정
+            if home_standings and away_standings:
+                if home_standings.get("name") != home_name and away_standings.get("name") == home_name:
+                    home_standings, away_standings = away_standings, home_standings
+
+            if home_standings:
+                home_rank = home_standings.get("rank")
+                w = home_standings.get("w", 0)
+                d = home_standings.get("d", 0)
+                l_val = home_standings.get("l", 0)
+                home_record = f"{w}승{d}무{l_val}패"
+            if away_standings:
+                away_rank = away_standings.get("rank")
+                w = away_standings.get("w", 0)
+                d = away_standings.get("d", 0)
+                l_val = away_standings.get("l", 0)
+                away_record = f"{w}승{d}무{l_val}패"
+
+            # 선발투수를 preview에서도 보완
+            if home_starter["name"] == "미정" and preview_data.get("homeStarter"):
+                home_starter = starter_summary(preview_data["homeStarter"])
+            if away_starter["name"] == "미정" and preview_data.get("awayStarter"):
+                away_starter = starter_summary(preview_data["awayStarter"])
+
+        # 게임 시간 가져오기
+        game_time = ""
+        if preview:
+            preview_data_inner = preview.get("previewData") or preview
+            gi = preview_data_inner.get("gameInfo") or {}
+            game_time = str(gi.get("gtime") or "").strip()
+
+        game_entry = {
+            "id": f"{today.replace('-', '')}-{away_team['kboCode']}{home_team['kboCode']}-0",
+            "venue": g.get("venue", ""),
+            "time": game_time,
+            "status": "scheduled",
+            "away": {
+                "id": away_team["id"],
+                "name": away_name,
+                "starter": away_starter,
+                "rank": away_rank,
+                "record": away_record,
+            },
+            "home": {
+                "id": home_team["id"],
+                "name": home_name,
+                "starter": home_starter,
+                "rank": home_rank,
+                "record": home_record,
+            },
+            "score": {"away": None, "home": None},
+        }
+        games_out.append(game_entry)
+
+    return {
+        "date": today,
+        "generatedAt": datetime.now(KST).isoformat(),
+        "games": games_out,
+        "noGames": len(games_out) == 0,
+    }
+
+
+def main():
+    result = build_games()
+    out_path = ROOT / "data" / "today-games.json"
+    out_path.write_text(
+        json.dumps(result, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"Wrote {out_path} ({len(result['games'])} games)")
+
+
+if __name__ == "__main__":
+    main()

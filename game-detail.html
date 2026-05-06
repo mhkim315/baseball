@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>경기 상세 | fullcount.kr</title>
+    <meta name="description" content="KBO 경기 상세 — 라인업, 선발투수, 경기 프리뷰." />
+    <meta property="og:title" content="경기 상세 | fullcount.kr" />
+    <meta property="og:description" content="KBO 경기 라인업과 프리뷰를 확인하세요." />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <h1 id="site-title" class="brand-title">fullcount.kr</h1>
+        <p id="site-subtitle" class="lead"></p>
+      </header>
+      <p id="load-error" class="error-banner" role="alert"></p>
+      <main>
+        <section id="game-preview" class="panel" aria-label="경기 프리뷰"></section>
+        <section aria-label="라인업">
+          <div class="lineup-dual">
+            <div class="lineup-side" id="away-lineup-side">
+              <h3 id="away-lineup-title" class="lineup-side-title"></h3>
+              <div class="table-wrap">
+                <table><thead><tr><th>타순</th><th>이름</th><th>포지션</th></tr></thead>
+                  <tbody id="away-lineup-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="lineup-side" id="home-lineup-side">
+              <h3 id="home-lineup-title" class="lineup-side-title"></h3>
+              <div class="table-wrap">
+                <table><thead><tr><th>타순</th><th>이름</th><th>포지션</th></tr></thead>
+                  <tbody id="home-lineup-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer muted">기능 추가나 개선 제안은 info@fullcount.kr 로 보내주세요</footer>
+    </div>
+    <script type="module" src="js/game-detail-page.js"></script>
+  </body>
+</html>

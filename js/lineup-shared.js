@@ -1,26 +1,24 @@
-import { loadGamePreview, loadLineup } from "./data-loader.js";
-import { initShell, showError } from "./router.js";
 import { escapeHtml } from "./escape.js";
 
-function fmtDate(iso) {
+export function fmtDate(iso) {
   if (!iso) return "일정 미정";
   const date = new Date(`${iso}T00:00:00+09:00`);
   if (Number.isNaN(date.getTime())) return iso;
   return new Intl.DateTimeFormat("ko-KR", { year: "numeric", month: "long", day: "numeric", weekday: "short" }).format(date);
 }
 
-function fmtGameDate(raw) {
+export function fmtGameDate(raw) {
   const value = String(raw || "");
   if (/^\d{8}$/.test(value)) return fmtDate(`${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`);
   return value || "날짜 미정";
 }
 
-function fmtSeasonWDL(row) {
+export function fmtSeasonWDL(row) {
   if (!row) return "—승 —무 —패";
   return `${row.w ?? "—"}승 ${row.d ?? 0}무 ${row.l ?? "—"}패`;
 }
 
-function fmtRecentPills(games) {
+export function fmtRecentPills(games) {
   if (!Array.isArray(games) || !games.length) return '<span class="preview-pill preview-pill--empty">—</span>';
   return games.slice(0, 5).map((game) => {
     const raw = game.result || "—";
@@ -30,7 +28,17 @@ function fmtRecentPills(games) {
   }).join("");
 }
 
-function alignStandingsToGame(gameInfo, homeStandings, awayStandings) {
+export function pitcherName(raw) {
+  if (!raw || typeof raw !== "object") return "미정";
+  return raw.name || raw.playerName || (raw.playerInfo && raw.playerInfo.name) || "미정";
+}
+
+export function opponentCell(row) {
+  if (!row) return "—";
+  return `${escapeHtml(row.name || "미정")} (${escapeHtml(row.position || "—")})`;
+}
+
+export function alignStandingsToGame(gameInfo, homeStandings, awayStandings) {
   if (!gameInfo) return { homeStandings, awayStandings };
   const matches = (row, name) => Boolean(row && name && row.name === name);
   if (matches(homeStandings, gameInfo.hName) && matches(awayStandings, gameInfo.aName)) return { homeStandings, awayStandings };
@@ -40,12 +48,11 @@ function alignStandingsToGame(gameInfo, homeStandings, awayStandings) {
   return { homeStandings, awayStandings };
 }
 
-function renderPreview(preview) {
-  const root = document.getElementById("game-preview");
+export function renderPreview(root, preview) {
   if (!root) return;
   const gameInfo = preview?.gameInfo;
   if (!gameInfo) {
-    root.textContent = "경기 프리뷰 데이터가 준비 중입니다.";
+    root.innerHTML = '<p class="muted">경기 프리뷰 데이터가 준비 중입니다.</p>';
     return;
   }
   const { homeStandings, awayStandings } = alignStandingsToGame(gameInfo, preview.homeStandings, preview.awayStandings);
@@ -92,56 +99,33 @@ function renderPreview(preview) {
   `;
 }
 
-function pitcherName(raw) {
-  if (!raw || typeof raw !== "object") return "미정";
-  return raw.name || raw.playerName || raw.playerInfo?.name || "미정";
-}
-
-function opponentCell(row) {
-  if (!row) return "—";
-  const position = escapeHtml(row.position || "—");
-  return `${escapeHtml(row.name || "미정")} (${position})`;
-}
-
-function renderLineup(lineup) {
-  const tbody = document.querySelector("#lineup-table tbody");
-  const opponentHead = document.getElementById("lineup-opponent-head");
-  const meta = lineup?.meta || {};
-  const opponentName = lineup?.opponentMeta?.teamShort || lineup?.opponentMeta?.teamName || meta.opponent || "상대";
+export function renderLineupTable(tbody, opponentHead, lineup) {
+  const opponentName = lineup?.opponentMeta?.teamShort || lineup?.opponentMeta?.teamName || lineup?.meta?.opponent || "상대";
   const confirmed = lineup?.meta?.lineupVerification?.ours?.confirmed;
   const statusTag = confirmed ? " [확정]" : " [예상]";
   if (opponentHead) opponentHead.textContent = `${opponentName} 라인업${statusTag}`;
   if (!tbody) return;
+
   tbody.innerHTML = "";
   const rows = Array.isArray(lineup?.batters) ? lineup.batters : [];
   const opponentRows = Array.isArray(lineup?.opponentBatters) ? lineup.opponentBatters : [];
   const opponentByOrder = new Map(opponentRows.map((row) => [row.order, row]));
   const battingRows = rows.filter((row) => row.position !== "선발투수");
+
   if (!battingRows.length) {
     const tr = document.createElement("tr");
     tr.innerHTML = '<td colspan="4">라인업 발표 전이거나 데이터 준비 중입니다.</td>';
     tbody.appendChild(tr);
-  } else for (const row of battingRows) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${escapeHtml(String(row.order ?? ""))}</td><td class="lineup-our-cell">${escapeHtml(row.name || "")}</td><td class="lineup-our-cell">${escapeHtml(row.position || "-")}</td><td class="opp-cell">${opponentCell(opponentByOrder.get(row.order))}</td>`;
-    tbody.appendChild(tr);
+  } else {
+    for (const row of battingRows) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${escapeHtml(String(row.order ?? ""))}</td><td class="lineup-our-cell">${escapeHtml(row.name || "")}</td><td class="lineup-our-cell">${escapeHtml(row.position || "-")}</td><td class="opp-cell">${opponentCell(opponentByOrder.get(row.order))}</td>`;
+      tbody.appendChild(tr);
+    }
   }
+
   const pitcherRow = document.createElement("tr");
   pitcherRow.className = "lineup-pitcher-row";
   pitcherRow.innerHTML = `<td>선발</td><td class="lineup-our-cell">${escapeHtml(pitcherName(lineup?.startingPitcher))}</td><td class="lineup-our-cell">투수</td><td class="opp-cell">${escapeHtml(pitcherName(lineup?.opponentStartingPitcher))}</td>`;
   tbody.appendChild(pitcherRow);
 }
-
-async function main() {
-  const team = initShell("lineup", "라인업");
-  try {
-    const [lineup, preview] = await Promise.all([loadLineup(team.id), loadGamePreview(team.id)]);
-    renderLineup(lineup);
-    renderPreview(preview);
-  } catch (error) {
-    console.error(error);
-    showError("라인업 데이터를 불러오지 못했습니다. 로컬 서버에서 열었는지 확인해 주세요.");
-  }
-}
-
-main();

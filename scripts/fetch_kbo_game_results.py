@@ -89,6 +89,10 @@ def entry_from_naver(game: dict[str, Any], team: dict[str, Any]) -> dict[str, An
         "outcome": outcome,
         "cancelled": cancelled,
         "gameId": game.get("gameId"),
+        "awayStarter": str(game.get("awayStarterName") or "").strip() or None,
+        "homeStarter": str(game.get("homeStarterName") or "").strip() or None,
+        "winPitcher": str(game.get("winPitcherName") or "").strip() or None,
+        "losePitcher": str(game.get("losePitcherName") or "").strip() or None,
     }
 
 

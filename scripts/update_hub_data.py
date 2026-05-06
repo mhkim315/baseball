@@ -39,6 +39,8 @@ def main() -> None:
         run("build_game_preview_from_naver.py", dated)
     if not args.skip_lineup:
         run("build_lineup_from_naver.py", dated)
+    # 오늘 경기 통합 JSON 생성
+    run("build_today_games.py", [])
 
 
 if __name__ == "__main__":

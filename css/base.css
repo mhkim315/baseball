@@ -380,7 +380,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 3px;
 }
 
 .filter-tabs button[aria-selected="true"] {
@@ -768,7 +768,7 @@ body {
 }
 
 .nav {
-  margin-top: 6px;
+  margin-top: 3px;
   padding-top: 6px;
 }
 
@@ -934,7 +934,7 @@ h3 {
 
 .status-line {
   background: color-mix(in srgb, var(--color-teal) 28%, #ffffff 72%);
-  padding: 14px 16px;
+  padding: 6px 12px;
 }
 
 .error-banner:not(:empty) {
@@ -950,7 +950,7 @@ h3 {
 }
 
 .table-wrap {
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 table {
@@ -1221,7 +1221,7 @@ img {
   margin: 0;
   padding: 14px 16px 8px;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .preview-meta {
@@ -1236,7 +1236,7 @@ img {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 8px;
-  padding: 14px 16px;
+  padding: 6px 12px;
   background: color-mix(in srgb, var(--color-rose) 28%, #ffffff 72%);
   border-top: 1px solid var(--color-ring);
   border-bottom: 1px solid var(--color-ring);
@@ -1375,7 +1375,7 @@ img {
 
 .calendar-current-month {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .calendar-weekdays {
@@ -1730,7 +1730,7 @@ img {
 }
 
 .eats-legend {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   padding: 6px 10px;
   background: var(--color-surface, #fff);
   border-radius: 6px;
@@ -1878,7 +1878,7 @@ img {
 }
 
 .stadium-admin-hub-row {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .stadium-admin-hint {
@@ -1915,7 +1915,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .stadium-admin-coord-row label {
@@ -1990,7 +1990,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .stadium-admin-spot-row {
@@ -2000,7 +2000,7 @@ img {
 }
 
 .stadium-admin-spot-head {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 0.9rem;
 }
 
@@ -2009,7 +2009,7 @@ img {
   flex-direction: column;
   gap: 4px;
   font-size: 0.82rem;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .stadium-admin-spot-label textarea {
@@ -2021,7 +2021,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .stadium-admin-poi-row {
@@ -2054,14 +2054,14 @@ img {
 
 .stadium-admin-file-label {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 0.88rem;
   cursor: pointer;
 }
 
 .stadium-admin-file-label input {
   display: block;
-  margin-top: 6px;
+  margin-top: 3px;
   font-size: 0.8rem;
 }
 
@@ -2157,7 +2157,7 @@ img {
   }
 
   .nav {
-    margin-top: 6px;
+    margin-top: 3px;
     padding-top: 6px;
   }
 
@@ -2432,4 +2432,303 @@ img {
   font-size: 0.9rem;
 }
 
+/* ── Bottom Tab Bar ────────────────────────────────────── */
+
+.has-bottom-tab {
+  padding-bottom: 70px;
+}
+
+.bottom-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  background: #1f2937;
+  border-top: 1px solid #374151;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+}
+
+.bottom-tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 0.72rem;
+  padding: 4px 2px;
+  gap: 2px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 100%;
+}
+
+.bottom-tab-item--active {
+  color: #f9fafb;
+}
+
+.bottom-tab-label {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ── Home Page Game Cards ──────────────────────────────── */
+
+.game-card {
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.game-card:hover {
+  background: #f3f4f6;
+}
+
+.game-card-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.game-card-team {
+  flex: 1;
+  text-align: center;
+}
+
+.game-card-team--home {
+  text-align: center;
+}
+
+.game-card-role {
+  display: block;
+  font-size: 0.6rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.game-card-team-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.game-card-vs {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 0 8px;
+}
+
+.game-card-pitchers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  margin-bottom: 3px;
+}
+
+.game-card-pitcher {
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+.game-card-pitcher--small {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.game-card-pitcher-label {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  text-align: center;
+  flex: 0;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+
+.game-card-meta {
+  font-size: 0.78rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.game-card-score {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 3px;
+}
+
+/* ── Date Slider ───────────────────────────────────────── */
+
+.date-slider-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.date-slider-arrow {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  user-select: none;
+}
+
+.date-slider-arrow:active {
+  background: #f3f4f6;
+}
+
+.date-slider-header {
+  text-align: center;
+}
+
+.week-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.date-slider {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.date-slider-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 8px 2px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.date-slider-item:hover {
+  background: #f3f4f6;
+}
+
+.date-slider-item--empty {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.date-slider-item--empty:hover {
+  background: none;
+}
+
+.date-slider-day {
+  font-size: 0.65rem;
+  color: #9ca3af;
+  text-transform: none;
+}
+
+.date-slider-item--active .date-slider-day,
+.date-slider-item--today .date-slider-day {
+  color: #6b7280;
+}
+
+.date-slider-item--active .date-slider-day {
+  color: #fff;
+}
+
+.date-slider-date {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1f2937;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.date-slider-item--active .date-slider-date {
+  background: #111827;
+  color: #fff;
+  font-weight: 700;
+}
+
+.date-slider-item--today .date-slider-date {
+  font-weight: 700;
+  color: #111827;
+}
+
+.date-slider-item--active.date-slider-item--today .date-slider-date {
+  background: #111827;
+  color: #fff;
+}
+
+.date-slider-item--empty .date-slider-date {
+  color: #d1d5db;
+}
+
+.home-hint {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin: 0 0 8px;
+}
+
+.daily-games {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Game Detail: Dual Lineup ───────────────────────────── */
+
+.lineup-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.lineup-side {
+  min-width: 0;
+}
+
+.lineup-side-title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .lineup-dual {
+    grid-template-columns: 1fr;
+  }
+}
 

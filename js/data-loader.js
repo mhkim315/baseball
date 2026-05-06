@@ -33,3 +33,5 @@ export const loadFoodPlaces = () => loadJson("data/food-places.json");
 export const loadFoodLayouts = () => loadJson("data/food-layouts.json");
 export const loadStadiumSurroundings = () => loadJson("data/stadium-surroundings.json");
 export const loadStadiumEats = () => loadJson("data/stadium-eats.json");
+export const loadTodayGames = () => loadJson("data/today-games.json");
+export const loadDailyScores = () => loadJson("data/daily-scores.json");

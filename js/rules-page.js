@@ -1,7 +1,9 @@
-import { initShell, showError } from "./router.js";
+import { showError } from "./router.js";
+import { renderBottomTab } from "./bottom-tab.js";
 
 try {
-  initShell("rules", "기본규칙");
+  renderBottomTab("cheering");
+  document.title = "fullcount.kr · 기본규칙";
 } catch (error) {
   console.error(error);
   showError("페이지를 초기화하지 못했습니다.");
