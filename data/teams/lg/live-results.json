@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-07T20:17:25+09:00",
+  "fetchedAt": "2026-05-07T22:04:12+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -725,19 +725,19 @@
           "away": "두산",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 1,
-          "scoreLine": "0-1",
-          "ourScore": 1,
-          "oppScore": 0,
-          "ourScoreLine": "1-0",
-          "outcome": null,
+          "awayScore": 3,
+          "homeScore": 2,
+          "scoreLine": "3-2",
+          "ourScore": 2,
+          "oppScore": 3,
+          "ourScoreLine": "2-3",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260507OBLG02026",
           "awayStarter": "최민석",
           "homeStarter": "톨허스트",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "이병헌",
+          "losePitcher": "톨허스트"
         }
       ]
     },
