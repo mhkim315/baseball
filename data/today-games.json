@@ -1,6 +1,6 @@
 {
   "date": "2026-05-07",
-  "generatedAt": "2026-05-07T18:10:02.849190+09:00",
+  "generatedAt": "2026-05-07T20:19:39.771148+09:00",
   "games": [
     {
       "id": "20260507-HHHT-0",
@@ -94,7 +94,7 @@
       "date": "2026-05-07",
       "venue": "수원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "lotte",
         "name": "롯데",
