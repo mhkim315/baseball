@@ -2,7 +2,7 @@
   "meta": {
     "naverGameId": "20260506HHHT02026",
     "gameDate": "2026-05-06",
-    "lastUpdated": "2026-05-07T15:24:33+09:00"
+    "lastUpdated": "2026-05-07T18:09:58+09:00"
   },
   "gameInfo": {
     "aFullName": "한화 이글스",
@@ -904,7 +904,7 @@
         "ab": 4,
         "inn19": "",
         "inn18": "",
-        "hasPlayerEnd": false,
+        "hasPlayerEnd": true,
         "inn13": "",
         "inn12": "",
         "inn11": "",

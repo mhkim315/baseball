@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-05-07",
-    "lastUpdated": "2026-05-07T15:23:31+09:00",
+    "lastUpdated": "2026-05-07T18:09:17+09:00",
     "gameId": "20260507OBLG02026",
     "kboGameId": "20260507OBLG0",
     "opponent": "LG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -45,7 +45,7 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "홍성호",
-      "position": "지명타자"
+      "name": "정수빈",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "오명진",
-      "position": "1루수"
+      "name": "김기연",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "정수빈",
-      "position": "중견수"
+      "name": "박지훈",
+      "position": "1루수"
     }
   ],
   "opponentBatters": [
@@ -91,8 +91,8 @@
     },
     {
       "order": 4,
-      "name": "천성호",
-      "position": "3루수"
+      "name": "오지환",
+      "position": "유격수"
     },
     {
       "order": 5,
@@ -106,13 +106,13 @@
     },
     {
       "order": 7,
-      "name": "박동원",
-      "position": "포수"
+      "name": "구본혁",
+      "position": "3루수"
     },
     {
       "order": 8,
-      "name": "구본혁",
-      "position": "유격수"
+      "name": "박동원",
+      "position": "포수"
     },
     {
       "order": 9,

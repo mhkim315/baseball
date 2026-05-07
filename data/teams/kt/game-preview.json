@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260507LTKT02026",
-    "fetchedAt": "2026-05-07T15:22:32+09:00"
+    "fetchedAt": "2026-05-07T18:08:37+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
     "hPCode": "64001",
     "hCode": "KT",
     "hName": "KT",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260507,
     "aPCode": "64021",
-    "round": 5,
+    "round": 0,
     "gtime": "18:30",
     "aName": "롯데",
     "gameFlag": "0",
