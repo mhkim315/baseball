@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260507OBLG02026",
-    "fetchedAt": "2026-05-07T12:26:59+09:00"
+    "fetchedAt": "2026-05-07T15:22:26+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
@@ -42,14 +42,14 @@
   },
   "awayStandings": {
     "d": 1,
-    "era": "4.52",
-    "hra": "0.254",
-    "w": 10,
-    "wra": "0.400",
+    "era": "4.30",
+    "hra": "0.256",
+    "w": 14,
+    "wra": "0.438",
     "name": "두산",
-    "rank": 8,
-    "hr": 20,
-    "l": 15,
+    "rank": 7,
+    "hr": 25,
+    "l": 18,
     "seriesOutcome": {
       "d": 1,
       "w": 14,

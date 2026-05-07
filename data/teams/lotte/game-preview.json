@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260507LTKT02026",
-    "fetchedAt": "2026-05-07T12:27:12+09:00"
+    "fetchedAt": "2026-05-07T15:22:39+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -42,14 +42,14 @@
   },
   "awayStandings": {
     "d": 1,
-    "era": "4.57",
-    "hra": "0.244",
-    "w": 8,
-    "wra": "0.333",
+    "era": "4.26",
+    "hra": "0.253",
+    "w": 13,
+    "wra": "0.419",
     "name": "롯데",
-    "rank": 10,
-    "hr": 20,
-    "l": 16,
+    "rank": 8,
+    "hr": 23,
+    "l": 18,
     "seriesOutcome": {
       "d": 1,
       "w": 13,

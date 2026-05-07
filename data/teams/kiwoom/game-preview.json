@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260507WOSS02026",
-    "fetchedAt": "2026-05-07T12:27:01+09:00"
+    "fetchedAt": "2026-05-07T15:22:28+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
@@ -26,14 +26,14 @@
   },
   "homeStandings": {
     "d": 1,
-    "era": "4.22",
-    "hra": "0.269",
-    "w": 13,
-    "wra": "0.542",
+    "era": "4.26",
+    "hra": "0.271",
+    "w": 17,
+    "wra": "0.548",
     "name": "삼성",
     "rank": 4,
-    "hr": 18,
-    "l": 11,
+    "hr": 26,
+    "l": 14,
     "seriesOutcome": {
       "d": 1,
       "w": 17,
@@ -42,14 +42,14 @@
   },
   "awayStandings": {
     "d": 0,
-    "era": "4.45",
-    "hra": "0.238",
-    "w": 10,
-    "wra": "0.385",
+    "era": "5.05",
+    "hra": "0.232",
+    "w": 12,
+    "wra": "0.364",
     "name": "키움",
-    "rank": 9,
-    "hr": 12,
-    "l": 16,
+    "rank": 10,
+    "hr": 16,
+    "l": 21,
     "seriesOutcome": {
       "d": 0,
       "w": 12,
