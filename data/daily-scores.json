@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-08T20:46:26.276798+09:00",
+  "generatedAt": "2026-05-08T22:02:11.813988+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2177,18 +2177,18 @@
         "home": "두산",
         "awayScore": 4,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "베니지아노",
         "homeStarter": "벤자민",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "베니지아노",
+        "losePitcher": "벤자민"
       },
       {
         "away": "LG",
         "home": "한화",
-        "awayScore": 5,
-        "homeScore": 5,
+        "awayScore": 8,
+        "homeScore": 6,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "송승기",
@@ -2199,38 +2199,38 @@
       {
         "away": "KT",
         "home": "키움",
-        "awayScore": 5,
+        "awayScore": 8,
         "homeScore": 0,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "오원석",
         "homeStarter": "안우진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "오원석",
+        "losePitcher": "박진형"
       },
       {
         "away": "삼성",
         "home": "NC",
         "awayScore": 4,
-        "homeScore": 2,
-        "outcome": null,
+        "homeScore": 3,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "장찬희",
         "homeStarter": "목지훈",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "장찬희",
+        "losePitcher": "목지훈"
       },
       {
         "away": "KIA",
         "home": "롯데",
-        "awayScore": 5,
-        "homeScore": 1,
-        "outcome": null,
+        "awayScore": 8,
+        "homeScore": 2,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "황동하",
         "homeStarter": "나균안",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "황동하",
+        "losePitcher": "나균안"
       }
     ],
     "2026-05-09": [

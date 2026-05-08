@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-08T20:43:59+09:00",
+  "fetchedAt": "2026-05-08T21:59:25+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -753,13 +753,13 @@
           "ourScore": 4,
           "oppScore": 1,
           "ourScoreLine": "4-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260508SKOB02026",
           "awayStarter": "베니지아노",
           "homeStarter": "벤자민",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "베니지아노",
+          "losePitcher": "벤자민"
         }
       ]
     },

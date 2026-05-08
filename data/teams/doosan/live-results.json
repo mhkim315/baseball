@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-05-08T20:43:59+09:00",
+  "fetchedAt": "2026-05-08T21:59:25+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -755,13 +755,13 @@
           "ourScore": 1,
           "oppScore": 4,
           "ourScoreLine": "1-4",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260508SKOB02026",
           "awayStarter": "베니지아노",
           "homeStarter": "벤자민",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "베니지아노",
+          "losePitcher": "벤자민"
         }
       ]
     },
