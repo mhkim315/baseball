@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-05-07",
-    "lastUpdated": "2026-05-07T22:05:54+09:00",
-    "gameId": "20260507OBLG02026",
-    "kboGameId": "20260507OBLG0",
-    "opponent": "두산",
-    "venue": "잠실",
+    "lineupDate": "2026-05-08",
+    "lastUpdated": "2026-05-08T12:50:56+09:00",
+    "gameId": "20260508LGHH02026",
+    "kboGameId": "20260508LGHH0",
+    "opponent": "한화",
+    "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "두산",
-    "teamName": "두산"
+    "teamShort": "한화",
+    "teamName": "한화"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "이진영",
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "카메론",
+      "name": "페라자",
       "position": "우익수"
     },
     {
       "order": 3,
-      "name": "박준순",
-      "position": "2루수"
+      "name": "문현빈",
+      "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "양의지",
+      "name": "강백호",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "안재석",
+      "name": "노시환",
       "position": "3루수"
     },
     {
       "order": 6,
-      "name": "김민석",
-      "position": "좌익수"
+      "name": "김태연",
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "정수빈",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
-      "name": "김기연",
+      "name": "허인서",
       "position": "포수"
     },
     {
+      "order": 8,
+      "name": "이도윤",
+      "position": "2루수"
+    },
+    {
       "order": 9,
-      "name": "박지훈",
-      "position": "1루수"
+      "name": "심우준",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "송승기"
   },
   "opponentStartingPitcher": {
-    "name": "최민석"
+    "name": "박준영"
   }
 }

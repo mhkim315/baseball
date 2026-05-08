@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T22:07:04.151243+09:00",
+  "generatedAt": "2026-05-08T12:51:45.392678+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2163,12 +2163,12 @@
         "home": "KIA",
         "awayScore": 11,
         "homeScore": 8,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "정우주",
         "homeStarter": "양현종",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "윤산흠",
+        "losePitcher": "양현종"
       }
     ],
     "2026-05-08": [

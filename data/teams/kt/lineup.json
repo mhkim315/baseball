@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-05-07",
-    "lastUpdated": "2026-05-07T22:06:08+09:00",
-    "gameId": "20260507LTKT02026",
-    "kboGameId": "20260507LTKT0",
-    "opponent": "롯데",
-    "venue": "수원",
+    "lineupDate": "2026-05-08",
+    "lastUpdated": "2026-05-08T12:51:05+09:00",
+    "gameId": "20260508KTWO02026",
+    "kboGameId": "20260508KTWO0",
+    "opponent": "키움",
+    "venue": "고척",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "롯데",
-    "teamName": "롯데"
+    "teamShort": "키움",
+    "teamName": "키움"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "장두성",
-      "position": "중견수"
+      "name": "박주홍",
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "고승민",
-      "position": "2루수"
+      "name": "주성원",
+      "position": "지명타자"
     },
     {
       "order": 3,
-      "name": "레이예스",
-      "position": "좌익수"
+      "name": "안치홍",
+      "position": "2루수"
     },
     {
       "order": 4,
-      "name": "나승엽",
+      "name": "최주환",
       "position": "1루수"
     },
     {
       "order": 5,
-      "name": "전준우",
-      "position": "지명타자"
+      "name": "임병욱",
+      "position": "좌익수"
     },
     {
       "order": 6,
-      "name": "윤동희",
-      "position": "우익수"
-    },
-    {
-      "order": 7,
-      "name": "박승욱",
+      "name": "양현종",
       "position": "3루수"
     },
     {
+      "order": 7,
+      "name": "김건희",
+      "position": "포수"
+    },
+    {
       "order": 8,
-      "name": "전민재",
+      "name": "권혁빈",
       "position": "유격수"
     },
     {
       "order": 9,
-      "name": "손성빈",
-      "position": "포수"
+      "name": "박수종",
+      "position": "중견수"
     }
   ],
   "startingPitcher": {
-    "name": "고영표"
+    "name": "오원석"
   },
   "opponentStartingPitcher": {
-    "name": "박세웅"
+    "name": "안우진"
   }
 }
