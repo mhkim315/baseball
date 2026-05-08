@@ -1,13 +1,13 @@
 {
   "date": "2026-05-08",
-  "generatedAt": "2026-05-08T22:02:11.778970+09:00",
+  "generatedAt": "2026-05-08T23:54:20.696970+09:00",
   "games": [
     {
       "id": "20260508-KTWO-0",
       "date": "2026-05-08",
       "venue": "고척",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -27,7 +27,7 @@
         "record": "12승0무22패"
       },
       "score": {
-        "away": 5,
+        "away": 8,
         "home": 0
       }
     },
@@ -56,8 +56,8 @@
         "record": "14승0무19패"
       },
       "score": {
-        "away": 5,
-        "home": 5
+        "away": 8,
+        "home": 6
       }
     },
     {
@@ -65,7 +65,7 @@
       "date": "2026-05-08",
       "venue": "사직",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -85,8 +85,8 @@
         "record": "13승1무18패"
       },
       "score": {
-        "away": 5,
-        "home": 1
+        "away": 8,
+        "home": 2
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-05-08",
       "venue": "잠실",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -123,7 +123,7 @@
       "date": "2026-05-08",
       "venue": "창원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -144,7 +144,7 @@
       },
       "score": {
         "away": 4,
-        "home": 2
+        "home": 3
       }
     }
   ],

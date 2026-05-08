@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-08T22:02:11.813988+09:00",
+  "generatedAt": "2026-05-08T23:54:20.736253+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2187,14 +2187,14 @@
       {
         "away": "LG",
         "home": "한화",
-        "awayScore": 8,
-        "homeScore": 6,
-        "outcome": null,
+        "awayScore": 9,
+        "homeScore": 8,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "송승기",
         "homeStarter": "박준영",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김영우",
+        "losePitcher": "이민우"
       },
       {
         "away": "KT",
