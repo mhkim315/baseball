@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-05-08",
-    "lastUpdated": "2026-05-08T16:12:07+09:00",
+    "lastUpdated": "2026-05-08T17:49:15+09:00",
     "gameId": "20260508HTLT02026",
     "kboGameId": "20260508HTLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,17 +30,17 @@
     {
       "order": 1,
       "name": "박재현",
-      "position": "중견수"
+      "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "데일",
-      "position": "2루수"
+      "name": "박상준",
+      "position": "1루수"
     },
     {
       "order": 3,
       "name": "김선빈",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 4,
@@ -50,7 +50,7 @@
     {
       "order": 5,
       "name": "아데를린",
-      "position": "1루수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -59,8 +59,8 @@
     },
     {
       "order": 7,
-      "name": "한승연",
-      "position": "좌익수"
+      "name": "김호령",
+      "position": "중견수"
     },
     {
       "order": 8,
@@ -101,18 +101,18 @@
     },
     {
       "order": 6,
-      "name": "윤동희",
-      "position": "우익수"
-    },
-    {
-      "order": 7,
       "name": "박승욱",
       "position": "3루수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "전민재",
       "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "윤동희",
+      "position": "우익수"
     },
     {
       "order": 9,
