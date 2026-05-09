@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-05-09T20:29:15+09:00",
+  "fetchedAt": "2026-05-09T20:48:43+09:00",
   "rows": [
     {
       "rank": 1,
@@ -21,10 +21,10 @@
     {
       "rank": 3,
       "teamName": "삼성",
-      "winRate": 0.576,
-      "wlt": "19승1무14패",
-      "gamesBehind": 3.5,
-      "streak": "5승"
+      "winRate": 0.588,
+      "wlt": "20승1무14패",
+      "gamesBehind": 3.0,
+      "streak": "6승"
     },
     {
       "rank": 4,
@@ -53,10 +53,10 @@
     {
       "rank": 7,
       "teamName": "NC",
-      "winRate": 0.455,
-      "wlt": "15승1무18패",
-      "gamesBehind": 7.5,
-      "streak": "1패"
+      "winRate": 0.441,
+      "wlt": "15승1무19패",
+      "gamesBehind": 8.0,
+      "streak": "2패"
     },
     {
       "rank": 8,

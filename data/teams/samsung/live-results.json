@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-09T20:29:24+09:00",
+  "fetchedAt": "2026-05-09T20:48:53+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -775,13 +775,13 @@
           "ourScore": 5,
           "oppScore": 4,
           "ourScoreLine": "5-4",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260509SSNC02026",
           "awayStarter": "후라도",
           "homeStarter": "신민혁",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김태훈",
+          "losePitcher": "김진호"
         }
       ]
     },

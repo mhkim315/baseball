@@ -1,6 +1,6 @@
 {
   "date": "2026-05-09",
-  "generatedAt": "2026-05-09T20:31:58.797597+09:00",
+  "generatedAt": "2026-05-09T20:51:33.129239+09:00",
   "games": [
     {
       "id": "20260509-KTWO-0",
@@ -27,7 +27,7 @@
         "record": "12승0무23패"
       },
       "score": {
-        "away": 5,
+        "away": 6,
         "home": 5
       }
     },
@@ -65,7 +65,7 @@
       "date": "2026-05-09",
       "venue": "사직",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -94,7 +94,7 @@
       "date": "2026-05-09",
       "venue": "잠실",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 4,
-        "home": 7
+        "home": 9
       }
     },
     {
@@ -144,7 +144,7 @@
       },
       "score": {
         "away": 5,
-        "home": 2
+        "home": 4
       }
     }
   ],

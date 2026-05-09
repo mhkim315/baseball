@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T20:31:58.829111+09:00",
+  "generatedAt": "2026-05-09T20:51:33.166658+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2262,7 +2262,7 @@
         "away": "KT",
         "home": "키움",
         "awayScore": 6,
-        "homeScore": 5,
+        "homeScore": 6,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "고영표",
@@ -2275,12 +2275,12 @@
         "home": "NC",
         "awayScore": 5,
         "homeScore": 4,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "후라도",
         "homeStarter": "신민혁",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김태훈",
+        "losePitcher": "김진호"
       },
       {
         "away": "KIA",
