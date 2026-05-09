@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-05-08",
-    "lastUpdated": "2026-05-08T23:53:23+09:00",
-    "gameId": "20260508LGHH02026",
-    "kboGameId": "20260508LGHH0",
+    "lineupDate": "2026-05-09",
+    "lastUpdated": "2026-05-09T12:53:48+09:00",
+    "gameId": "20260509LGHH02026",
+    "kboGameId": "20260509LGHH0",
     "opponent": "한화",
     "venue": "대전",
-    "gameTime": "18:30",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "송승기"
+    "name": "치리노스"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "왕옌청"
   }
 }
