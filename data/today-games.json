@@ -1,13 +1,13 @@
 {
   "date": "2026-05-09",
-  "generatedAt": "2026-05-09T22:51:37.800515+09:00",
+  "generatedAt": "2026-05-09T23:25:10.727894+09:00",
   "games": [
     {
       "id": "20260509-KTWO-0",
       "date": "2026-05-09",
       "venue": "고척",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
