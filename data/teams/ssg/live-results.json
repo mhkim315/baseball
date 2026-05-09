@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-09T15:07:00+09:00",
+  "fetchedAt": "2026-05-09T17:07:35+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -777,7 +777,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260509SKOB0"
+          "gameId": "20260509SKOB02026",
+          "awayStarter": "긴지로",
+          "homeStarter": "곽빈",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

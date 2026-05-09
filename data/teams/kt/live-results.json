@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-09T15:07:00+09:00",
+  "fetchedAt": "2026-05-09T17:07:35+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -777,7 +777,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260509KTWO0"
+          "gameId": "20260509KTWO02026",
+          "awayStarter": "고영표",
+          "homeStarter": "알칸타라",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
