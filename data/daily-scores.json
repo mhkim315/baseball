@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T12:54:51.232732+09:00",
+  "generatedAt": "2026-05-09T15:08:52.194557+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2249,12 +2249,12 @@
       {
         "away": "LG",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "치리노스",
+        "homeStarter": "왕옌청",
         "winPitcher": null,
         "losePitcher": null
       },

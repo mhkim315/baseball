@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-05-09",
-    "lastUpdated": "2026-05-09T12:53:48+09:00",
+    "lastUpdated": "2026-05-09T15:08:08+09:00",
     "gameId": "20260509LGHH02026",
     "kboGameId": "20260509LGHH0",
     "opponent": "한화",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,22 +30,22 @@
     {
       "order": 1,
       "name": "홍창기",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "신민재",
+      "name": "구본혁",
       "position": "2루수"
     },
     {
       "order": 3,
-      "name": "천성호",
-      "position": "1루수"
+      "name": "송찬의",
+      "position": "좌익수"
     },
     {
       "order": 4,
       "name": "오스틴",
-      "position": "지명타자"
+      "position": "1루수"
     },
     {
       "order": 5,
@@ -54,23 +54,23 @@
     },
     {
       "order": 6,
-      "name": "구본혁",
+      "name": "천성호",
       "position": "3루수"
     },
     {
       "order": 7,
-      "name": "박해민",
-      "position": "중견수"
+      "name": "이재원",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "이재원",
-      "position": "좌익수"
+      "name": "박동원",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "이주헌",
-      "position": "포수"
+      "name": "김성진",
+      "position": "지명타자"
     }
   ],
   "opponentBatters": [
@@ -101,23 +101,23 @@
     },
     {
       "order": 6,
-      "name": "김태연",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
       "name": "허인서",
       "position": "포수"
     },
     {
+      "order": 7,
+      "name": "김태연",
+      "position": "1루수"
+    },
+    {
       "order": 8,
       "name": "이도윤",
-      "position": "2루수"
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "황영묵",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
