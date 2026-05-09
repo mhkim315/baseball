@@ -1,6 +1,6 @@
 {
   "date": "2026-05-09",
-  "generatedAt": "2026-05-09T18:44:10.228767+09:00",
+  "generatedAt": "2026-05-09T19:38:44.309608+09:00",
   "games": [
     {
       "id": "20260509-KTWO-0",
@@ -27,8 +27,8 @@
         "record": "12승0무23패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 3,
+        "home": 5
       }
     },
     {
@@ -36,7 +36,7 @@
       "date": "2026-05-09",
       "venue": "대전",
       "time": "14:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lg",
         "name": "LG",
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 0,
-        "home": 0
+        "home": 1
       }
     },
     {
@@ -114,8 +114,8 @@
         "record": "15승1무19패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 2,
+        "home": 6
       }
     },
     {
@@ -143,7 +143,7 @@
         "record": "15승1무18패"
       },
       "score": {
-        "away": 0,
+        "away": 2,
         "home": 0
       }
     }
