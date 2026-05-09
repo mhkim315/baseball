@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T21:12:43.224317+09:00",
+  "generatedAt": "2026-05-09T22:51:37.836063+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2263,7 +2263,7 @@
         "home": "키움",
         "awayScore": 6,
         "homeScore": 6,
-        "outcome": null,
+        "outcome": "T",
         "cancelled": false,
         "awayStarter": "고영표",
         "homeStarter": "알칸타라",
