@@ -207,11 +207,22 @@ function renderGameCard(root, game, scoreData, starters) {
     if (scoreData.winPitcher || scoreData.losePitcher) {
       const pitchers = document.createElement("div");
       pitchers.className = "game-card-pitchers";
-      pitchers.innerHTML = `
-        <span class="game-card-pitcher game-card-pitcher--small">승: ${escapeHtml(scoreData.winPitcher || "")}</span>
-        <span class="game-card-pitcher-label"></span>
-        <span class="game-card-pitcher game-card-pitcher--small">패: ${escapeHtml(scoreData.losePitcher || "")}</span>
-      `;
+      // 승리팀 쪽에 승리투수를 표시
+      if (homeWon) {
+        // 홈팀 승리 → 승리투수 오른쪽(홈), 패배투수 왼쪽(원정)
+        pitchers.innerHTML = `
+          <span class="game-card-pitcher game-card-pitcher--small">패: ${escapeHtml(scoreData.losePitcher || "")}</span>
+          <span class="game-card-pitcher-label"></span>
+          <span class="game-card-pitcher game-card-pitcher--small">승: ${escapeHtml(scoreData.winPitcher || "")}</span>
+        `;
+      } else {
+        // 원정팀 승리 → 승리투수 왼쪽(원정), 패배투수 오른쪽(홈)
+        pitchers.innerHTML = `
+          <span class="game-card-pitcher game-card-pitcher--small">승: ${escapeHtml(scoreData.winPitcher || "")}</span>
+          <span class="game-card-pitcher-label"></span>
+          <span class="game-card-pitcher game-card-pitcher--small">패: ${escapeHtml(scoreData.losePitcher || "")}</span>
+        `;
+      }
       card.appendChild(pitchers);
     }
   } else if (starters) {
