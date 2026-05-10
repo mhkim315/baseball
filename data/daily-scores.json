@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T17:31:43.098676+09:00",
+  "generatedAt": "2026-05-10T18:53:10.134326+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2325,12 +2325,12 @@
         "home": "키움",
         "awayScore": 1,
         "homeScore": 5,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "배제성",
         "homeStarter": "박준현",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "유토",
+        "losePitcher": "김민수"
       },
       {
         "away": "삼성",

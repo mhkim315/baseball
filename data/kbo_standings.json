@@ -1,21 +1,21 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-05-10T17:28:24+09:00",
+  "fetchedAt": "2026-05-10T18:50:14+09:00",
   "rows": [
     {
       "rank": 1,
       "teamName": "KT",
-      "winRate": 0.676,
-      "wlt": "23승1무11패",
+      "winRate": 0.657,
+      "wlt": "23승1무12패",
       "gamesBehind": 0.0,
-      "streak": "1승"
+      "streak": "1패"
     },
     {
       "rank": 2,
       "teamName": "LG",
       "winRate": 0.611,
       "wlt": "22승0무14패",
-      "gamesBehind": 2.0,
+      "gamesBehind": 1.5,
       "streak": "2패"
     },
     {
@@ -23,7 +23,7 @@
       "teamName": "삼성",
       "winRate": 0.6,
       "wlt": "21승1무14패",
-      "gamesBehind": 2.5,
+      "gamesBehind": 2.0,
       "streak": "7승"
     },
     {
@@ -31,7 +31,7 @@
       "teamName": "SSG",
       "winRate": 0.543,
       "wlt": "19승1무16패",
-      "gamesBehind": 4.5,
+      "gamesBehind": 4.0,
       "streak": "2패"
     },
     {
@@ -39,7 +39,7 @@
       "teamName": "KIA",
       "winRate": 0.472,
       "wlt": "17승1무19패",
-      "gamesBehind": 7.0,
+      "gamesBehind": 6.5,
       "streak": "1패"
     },
     {
@@ -47,7 +47,7 @@
       "teamName": "두산",
       "winRate": 0.472,
       "wlt": "17승1무19패",
-      "gamesBehind": 7.0,
+      "gamesBehind": 6.5,
       "streak": "2승"
     },
     {
@@ -55,7 +55,7 @@
       "teamName": "한화",
       "winRate": 0.444,
       "wlt": "16승0무20패",
-      "gamesBehind": 8.0,
+      "gamesBehind": 7.5,
       "streak": "2승"
     },
     {
@@ -63,7 +63,7 @@
       "teamName": "NC",
       "winRate": 0.429,
       "wlt": "15승1무20패",
-      "gamesBehind": 8.5,
+      "gamesBehind": 8.0,
       "streak": "3패"
     },
     {
@@ -71,16 +71,16 @@
       "teamName": "롯데",
       "winRate": 0.412,
       "wlt": "14승1무20패",
-      "gamesBehind": 9.0,
+      "gamesBehind": 8.5,
       "streak": "1승"
     },
     {
       "rank": 10,
       "teamName": "키움",
-      "winRate": 0.343,
-      "wlt": "12승1무23패",
-      "gamesBehind": 11.5,
-      "streak": "5패"
+      "winRate": 0.361,
+      "wlt": "13승1무23패",
+      "gamesBehind": 10.5,
+      "streak": "1승"
     }
   ]
 }
