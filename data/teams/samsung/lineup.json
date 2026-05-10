@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-05-10",
-    "lastUpdated": "2026-05-10T12:27:04+09:00",
+    "lastUpdated": "2026-05-10T13:07:16+09:00",
     "gameId": "20260510SSNC02026",
     "kboGameId": "20260510SSNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,13 +29,13 @@
   "batters": [
     {
       "order": 1,
-      "name": "김지찬",
-      "position": "중견수"
+      "name": "김헌곤",
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "김성윤",
-      "position": "우익수"
+      "name": "구자욱",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -49,8 +49,8 @@
     },
     {
       "order": 5,
-      "name": "구자욱",
-      "position": "좌익수"
+      "name": "박승규",
+      "position": "중견수"
     },
     {
       "order": 6,
@@ -59,7 +59,7 @@
     },
     {
       "order": 7,
-      "name": "양우현",
+      "name": "류지혁",
       "position": "2루수"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "김상준",
+      "name": "박계범",
       "position": "유격수"
     }
   ],
@@ -81,43 +81,43 @@
     },
     {
       "order": 2,
-      "name": "한석현",
+      "name": "오태양",
       "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
+      "name": "권희동",
+      "position": "우익수"
     },
     {
       "order": 4,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 5,
       "name": "이우성",
-      "position": "지명타자"
-    },
-    {
-      "order": 6,
-      "name": "오영수",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
-      "name": "권희동",
       "position": "좌익수"
     },
     {
-      "order": 8,
+      "order": 6,
+      "name": "서호철",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
       "name": "김형준",
       "position": "포수"
     },
     {
+      "order": 8,
+      "name": "도태훈",
+      "position": "1루수"
+    },
+    {
       "order": 9,
       "name": "김한별",
-      "position": "3루수"
+      "position": "2루수"
     }
   ],
   "startingPitcher": {

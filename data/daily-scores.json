@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T12:27:37.853981+09:00",
+  "generatedAt": "2026-05-10T13:07:56.093585+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2339,8 +2339,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "오러클린",
+        "homeStarter": "구창모",
         "winPitcher": null,
         "losePitcher": null
       },
