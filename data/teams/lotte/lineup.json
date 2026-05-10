@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-05-09",
-    "lastUpdated": "2026-05-09T23:41:52+09:00",
-    "gameId": "20260509HTLT02026",
-    "kboGameId": "20260509HTLT0",
+    "lineupDate": "2026-05-10",
+    "lastUpdated": "2026-05-10T12:27:10+09:00",
+    "gameId": "20260510HTLT02026",
+    "kboGameId": "20260510HTLT0",
     "opponent": "KIA",
     "venue": "사직",
-    "gameTime": "17:00",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김진욱"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "네일"
+    "name": "이의리"
   }
 }
