@@ -401,6 +401,9 @@ img {
   outline-offset: 2px;
 }
 
+.subsection-panel {
+  min-width: 0;
+}
 .subsection-panel[hidden] {
   display: none;
 }
@@ -1989,6 +1992,8 @@ img {
   font-size: 0.85rem;
   line-height: 1.45;
   color: var(--color-muted);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .stadium-admin-layout {
