@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-05-10",
-    "lastUpdated": "2026-05-10T13:07:09+09:00",
+    "lastUpdated": "2026-05-10T14:28:10+09:00",
     "gameId": "20260510KTWO02026",
     "kboGameId": "20260510KTWO0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,7 +30,7 @@
     {
       "order": 1,
       "name": "김민혁",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 2,
@@ -44,12 +44,12 @@
     },
     {
       "order": 4,
-      "name": "힐리어드",
-      "position": "좌익수"
+      "name": "장성우",
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "유준규",
+      "name": "힐리어드",
       "position": "중견수"
     },
     {
@@ -59,7 +59,7 @@
     },
     {
       "order": 7,
-      "name": "오윤석",
+      "name": "권동진",
       "position": "3루수"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "권동진",
+      "name": "이강민",
       "position": "유격수"
     }
   ],
@@ -77,47 +77,47 @@
     {
       "order": 1,
       "name": "박주홍",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "이주형",
-      "position": "중견수"
+      "name": "서건창",
+      "position": "지명타자"
     },
     {
       "order": 3,
       "name": "안치홍",
-      "position": "지명타자"
-    },
-    {
-      "order": 4,
-      "name": "임병욱",
-      "position": "우익수"
-    },
-    {
-      "order": 5,
-      "name": "서건창",
       "position": "2루수"
     },
     {
-      "order": 6,
-      "name": "양현종",
-      "position": "3루수"
-    },
-    {
-      "order": 7,
+      "order": 4,
       "name": "최주환",
       "position": "1루수"
     },
     {
+      "order": 5,
+      "name": "임병욱",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "주성원",
+      "position": "우익수"
+    },
+    {
+      "order": 7,
+      "name": "양현종",
+      "position": "3루수"
+    },
+    {
       "order": 8,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "박성빈",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "김건희",
-      "position": "포수"
+      "name": "권혁빈",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {

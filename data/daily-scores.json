@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T13:07:56.093585+09:00",
+  "generatedAt": "2026-05-10T14:28:56.468980+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -2303,8 +2303,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최민준",
+        "homeStarter": "잭로그",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -2315,8 +2315,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "웰스",
+        "homeStarter": "박준영",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -2327,8 +2327,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "배제성",
+        "homeStarter": "박준현",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -2347,12 +2347,12 @@
       {
         "away": "KIA",
         "home": "롯데",
-        "awayScore": 0,
+        "awayScore": 2,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "이의리",
+        "homeStarter": "박세웅",
         "winPitcher": null,
         "losePitcher": null
       }
