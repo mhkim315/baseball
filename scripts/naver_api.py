@@ -18,7 +18,7 @@ def get_json(path: str, query: dict[str, str] | None = None) -> dict[str, Any]:
 
 
 def schedule_games(from_date: str, to_date: str) -> list[dict[str, Any]]:
-    data = get_json("/schedule/games", {"fields": "all", "fromDate": from_date, "toDate": to_date, "size": "500", "excludeUpperCategoryId": "event"})
+    data = get_json("/schedule/games", {"fields": "all", "fromDate": from_date, "toDate": to_date, "size": "500", "categoryId": "kbo", "excludeUpperCategoryId": "event"})
     if data.get("code") != 200 or not data.get("success"):
         return []
     return list(data.get("result", {}).get("games") or [])

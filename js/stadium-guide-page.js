@@ -1,4 +1,4 @@
-import { loadFoodLayouts, loadFoodPlaces, loadStadiumSurroundings, loadStadiumEats } from "./data-loader.js";
+import { loadFoodLayouts, loadFoodPlaces, loadStadiumSurroundings, loadStadiumEats, loadStadiumBrief } from "./data-loader.js";
 import { TICKET_POLICY } from "./ticket-config.js";
 import {
   SPOT_KIND_BUS,
@@ -202,6 +202,22 @@ function renderTicketInfo() {
 
   body.innerHTML = html;
   root.hidden = false;
+}
+
+function renderStadiumBrief(brief) {
+  const root = document.getElementById("stadium-brief");
+  if (!root || !brief) return;
+  root.innerHTML = `
+    <h3 class="panel-heading">구장 정보</h3>
+    <dl class="stadium-brief-rows">
+      <div><dt>구장명</dt><dd>${escapeHtml(brief.name)}</dd></div>
+      <div><dt>위치</dt><dd>${escapeHtml(brief.location)}</dd></div>
+      <div><dt>수용 인원</dt><dd>${escapeHtml(brief.capacity)}</dd></div>
+      <div><dt>연고팀</dt><dd>${escapeHtml(brief.homeTeams)}</dd></div>
+      <div><dt>티켓</dt><dd>${escapeHtml(brief.ticket.purchase)} — ${escapeHtml(brief.ticket.price)}</dd></div>
+      <div><dt>주차</dt><dd>${escapeHtml(brief.parking.fee)}${brief.parking.note ? `<br><span class="muted">${escapeHtml(brief.parking.note)}</span>` : ""}</dd></div>
+      <div><dt>대중교통</dt><dd>지하철: ${escapeHtml(brief.transit.subway)}<br>버스: ${escapeHtml(brief.transit.bus)}</dd></div>
+    </dl>`;
 }
 
 function renderFoodDetail(visibleStores) {
@@ -649,11 +665,14 @@ async function main() {
       foodMap.alt = `${state.stadium.label} 먹거리 지도`;
     }
 
-    const [places, layouts, surroundings] = await Promise.all([
+    const [places, layouts, surroundings, briefMap] = await Promise.all([
       loadFoodPlaces(),
       loadFoodLayouts(),
       loadStadiumSurroundings().catch(() => ({ stadiums: {} })),
+      loadStadiumBrief().catch(() => ({})),
     ]);
+
+    renderStadiumBrief(briefMap?.[state.stadium.id]);
 
     injectStadiumLdJson(team, state.stadium, surroundings);
 

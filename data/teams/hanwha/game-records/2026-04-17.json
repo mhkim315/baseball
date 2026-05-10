@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260417HHLT02026",
+    "gameDate": "2026-04-17",
+    "lastUpdated": "2026-05-11T00:02:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "56523",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "Y",
+    "gdate": 20260417,
+    "aPCode": "52731",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.71",
+    "hra": "0.246",
+    "w": 6,
+    "wra": "0.316",
+    "name": "롯데",
+    "rank": 9,
+    "hr": 17,
+    "l": 13,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 6,
+      "l": 10
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "5.58",
+    "hra": "0.277",
+    "w": 8,
+    "wra": "0.421",
+    "name": "한화",
+    "rank": 6,
+    "hr": 15,
+    "l": 11,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 6,
+      "l": 10
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "비슬리"
+  },
+  "awayStarter": {
+    "name": "박준영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

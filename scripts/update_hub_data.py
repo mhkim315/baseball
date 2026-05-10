@@ -22,6 +22,7 @@ def main() -> None:
     ap.add_argument("--team", help="team id, omitted means all teams")
     ap.add_argument("--date", help="YYYY-MM-DD for preview/lineup")
     ap.add_argument("--recent", default="30", help="recent days for KBO results")
+    ap.add_argument("--records-recent", default="10", help="recent days for game records (default 10)")
     ap.add_argument("--skip-results", action="store_true")
     ap.add_argument("--skip-preview", action="store_true")
     ap.add_argument("--skip-lineup", action="store_true")
@@ -48,7 +49,7 @@ def main() -> None:
         for d in dates_to_fetch:
             run("build_lineup_from_naver.py", dated + ["--date", d])
     if not args.skip_records:
-        run("build_game_records.py", common)
+        run("build_game_records.py", common + ["--recent", str(args.records_recent), "--skip-existing"])
     # 오늘 경기 통합 JSON 생성 (내일 데이터도 함께 생성)
     run("build_today_games.py", [])
     # 날짜별 경기 점수 집계 (live-results.json 기반)

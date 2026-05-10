@@ -96,6 +96,14 @@ function renderDateSlider() {
     }
     root.appendChild(btn);
   }
+
+  // update prev/next button disabled state
+  const hasBefore = state.allDates.some(d => d < weekDates[0]);
+  const hasAfter = state.allDates.some(d => d > weekDates[6]);
+  const prevBtn = document.getElementById("prev-week");
+  const nextBtn = document.getElementById("next-week");
+  if (prevBtn) prevBtn.disabled = !hasBefore;
+  if (nextBtn) nextBtn.disabled = !hasAfter;
 }
 
 function selectDate(date) {
@@ -105,6 +113,20 @@ function selectDate(date) {
   const url = new URL(window.location.href);
   url.searchParams.set("date", date);
   history.replaceState(null, "", `${url.pathname.split("/").pop()}${url.search}`);
+}
+
+function goToPrevWeek() {
+  const d = new Date(`${state.selectedDate}T00:00:00+09:00`);
+  d.setDate(d.getDate() - 7);
+  const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  selectDate(iso);
+}
+
+function goToNextWeek() {
+  const d = new Date(`${state.selectedDate}T00:00:00+09:00`);
+  d.setDate(d.getDate() + 7);
+  const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  selectDate(iso);
 }
 
 // ── daily games ───────────────────────────────────────────
@@ -287,6 +309,9 @@ async function main() {
 
     renderDateSlider();
     renderDailyGames();
+
+    document.getElementById("prev-week")?.addEventListener("click", goToPrevWeek);
+    document.getElementById("next-week")?.addEventListener("click", goToNextWeek);
   } catch (error) {
     console.error(error);
     showError("경기 데이터를 불러오지 못했습니다.");

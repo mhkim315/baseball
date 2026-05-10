@@ -33,10 +33,13 @@ def fetch_record(naver_game_id: str) -> dict[str, Any] | None:
         return None
 
 
-def build_for_team(team: dict[str, Any], target_date: str) -> None:
+def build_for_team(team: dict[str, Any], target_date: str, games_by_date: dict[str, list[dict[str, Any]]] | None = None) -> None:
     """Build game-record.json for a team's game on target_date."""
-    games = schedule_games(target_date, target_date)
-    kbo_games = [g for g in games if g.get("categoryId") == "kbo"]
+    if games_by_date is not None:
+        kbo_games = [g for g in games_by_date.get(target_date, []) if g.get("categoryId") == "kbo"]
+    else:
+        all_games = schedule_games(target_date, target_date)
+        kbo_games = [g for g in all_games if g.get("categoryId") == "kbo"]
 
     team_name = team["scheduleName"]
     team_code = team["kboCode"]
@@ -132,17 +135,36 @@ def build_for_team(team: dict[str, Any], target_date: str) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Build game records for past KBO games")
     ap.add_argument("--team")
-    ap.add_argument("--date", help="YYYY-MM-DD to build game record for (default: yesterday)")
+    ap.add_argument("--date", help="YYYY-MM-DD to build game record for")
+    ap.add_argument("--recent", type=int, default=1, help="build records for last N days (default 1, ignored if --date is set)")
+    ap.add_argument("--skip-existing", action="store_true", help="skip dates that already have a record file")
     args = ap.parse_args()
 
     if args.date:
-        target = args.date
+        targets = [args.date]
     else:
-        target = (datetime.now(KST) - timedelta(days=1)).date().isoformat()
+        today = datetime.now(KST).date()
+        targets = [(today - timedelta(days=i)).isoformat() for i in range(args.recent - 1, -1, -1)]
 
-    print(f"Building game records for {target}")
+    print(f"Building game records for {len(targets)} day(s): {targets[0]} ~ {targets[-1]}")
+
+    # Fetch all games in one call for efficiency
+    if len(targets) > 1:
+        games = schedule_games(targets[0], targets[-1])
+        games_by_date: dict[str, list[dict[str, Any]]] = {}
+        for g in games:
+            d = g.get("gameDate") or str(g.get("gameDateTime", ""))[:10]
+            games_by_date.setdefault(d, []).append(g)
+    else:
+        games_by_date = None
+
     for team in selected_teams(args.team):
-        build_for_team(team, target)
+        for target in targets:
+            if args.skip_existing:
+                existing = ROOT / "data" / "teams" / team["id"] / "game-records" / f"{target}.json"
+                if existing.exists():
+                    continue
+            build_for_team(team, target, games_by_date)
 
 
 if __name__ == "__main__":

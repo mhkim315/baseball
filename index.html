@@ -27,8 +27,12 @@
       <header class="site-header">
         <h1 id="site-title" class="brand-title">fullcount.kr</h1>
         <p class="lead">구단별 라인업, 구장 먹거리, 응원가까지 &mdash; 직관 준비는 여기서</p>
-        <div class="date-slider-header">
-          <span id="week-label" class="week-label"></span>
+        <div class="date-slider-wrap">
+          <button type="button" id="prev-week" class="date-slider-arrow" aria-label="이전 주">←</button>
+          <div class="date-slider-header">
+            <span id="week-label" class="week-label"></span>
+          </div>
+          <button type="button" id="next-week" class="date-slider-arrow" aria-label="다음 주">→</button>
         </div>
         <div id="date-slider" class="date-slider"></div>
       </header>
