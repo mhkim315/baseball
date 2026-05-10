@@ -2699,10 +2699,17 @@ img {
 }
 
 .game-card-vs {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-muted);
   padding: 0 8px;
+}
+
+.game-card-pitcher-sub {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 .game-card-pitchers {
