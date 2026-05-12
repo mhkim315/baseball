@@ -1,0 +1,302 @@
+import { useState, useEffect, useMemo } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
+import { fetchScheduleByMonth, fetchAllDailyScores } from "@/lib/api";
+
+const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+
+const TEAM_NAME_TO_ID: Record<string, string> = {
+  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
+  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
+  "롯데": "lotte", "키움": "kiwoom",
+};
+
+interface ScheduleGame {
+  date: string;
+  month: number;
+  day: number;
+  venue: string;
+  away: string;
+  home: string;
+}
+
+interface ScoreInfo {
+  away: string;
+  home: string;
+  awayScore: number;
+  homeScore: number;
+  outcome: string | null;
+  cancelled: boolean;
+}
+
+function getDaysInMonth(year: number, month: number): number {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+function getFirstDayOfMonth(year: number, month: number): number {
+  return new Date(year, month, 1).getDay();
+}
+
+function teamShortName(teamId: string): string {
+  return TEAM_LIST.find((t) => t.id === teamId)?.shortName || "";
+}
+
+export default function CalendarPage() {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedTeam, setSelectedTeam] = useState<string>(() => {
+    return localStorage.getItem("cal-team") || TEAM_LIST[0]?.id || "doosan";
+  });
+  const [games, setGames] = useState<ScheduleGame[]>([]);
+  const [scoresByDate, setScoresByDate] = useState<Record<string, ScoreInfo[]>>({});
+  const [loading, setLoading] = useState(true);
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  useEffect(() => {
+    setLoading(true);
+    Promise.all([
+      fetchScheduleByMonth(month + 1),
+      fetchAllDailyScores(),
+    ]).then(([schedule, allScores]) => {
+      if (schedule) setGames(schedule.games);
+      if (allScores) {
+        const mapped: Record<string, ScoreInfo[]> = {};
+        for (const [date, dateScores] of Object.entries(allScores.dates)) {
+          mapped[date] = dateScores as ScoreInfo[];
+        }
+        setScoresByDate(mapped);
+      }
+      setLoading(false);
+    });
+  }, [month, year]);
+
+  const teamName = useMemo(() => teamShortName(selectedTeam), [selectedTeam]);
+  const teamColor = TEAM_COLORS[selectedTeam];
+
+  // Filter games by selected team
+  const filteredGames = useMemo(() => {
+    if (!teamName) return [];
+    return games.filter((g) => g.away === teamName || g.home === teamName);
+  }, [games, teamName]);
+
+  // Group filtered games by date
+  const gamesByDate = useMemo(() => {
+    const map = new Map<string, ScheduleGame[]>();
+    for (const game of filteredGames) {
+      const bucket = map.get(game.date) || [];
+      bucket.push(game);
+      map.set(game.date, bucket);
+    }
+    return map;
+  }, [filteredGames]);
+
+  const daysInMonth = getDaysInMonth(year, month);
+  const firstDay = getFirstDayOfMonth(year, month);
+  const today = new Date();
+
+  const goToPrevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
+  const goToNextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
+
+  const calendarDays: (number | null)[] = [];
+  for (let i = 0; i < firstDay; i++) calendarDays.push(null);
+  for (let i = 1; i <= daysInMonth; i++) calendarDays.push(i);
+
+  return (
+    <div className="min-h-screen pb-20 md:pb-8">
+      {/* Header */}
+      <div className="md:hidden px-5 pt-6 pb-4">
+        <h1 className="text-xl font-bold">캘린더</h1>
+        <p className="text-sm text-muted-foreground mt-0.5">구단을 선택하면 해당 팀 경기만 볼 수 있어요</p>
+      </div>
+
+      {/* Team filter (no "전체" button) */}
+      <div className="max-w-lg mx-auto px-4">
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
+          {TEAM_LIST.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => {
+                setSelectedTeam(t.id);
+                localStorage.setItem("cal-team", t.id);
+              }}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+                selectedTeam === t.id
+                  ? "text-white border-transparent shadow-sm"
+                  : "text-foreground border-border bg-card hover:bg-accent"
+              }`}
+              style={selectedTeam === t.id ? { backgroundColor: t.primary, borderColor: t.primary } : undefined}
+            >
+              {t.shortName}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
+        {/* Month navigation */}
+        <div className="flex items-center justify-between mb-3">
+          <button onClick={goToPrevMonth} className="p-2 rounded-full hover:bg-accent transition-colors">
+            <ChevronLeft size={20} />
+          </button>
+          <h2 className="text-lg font-bold">{year}년 {month + 1}월</h2>
+          <button onClick={goToNextMonth} className="p-2 rounded-full hover:bg-accent transition-colors">
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Legend */}
+        <div className="flex flex-wrap gap-3 mb-3 text-[11px] text-muted-foreground">
+          <span className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: teamColor?.primary }} />
+            홈
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-sm bg-muted-foreground/30" />
+            원정
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-sm bg-blue-500" />
+            승
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-sm bg-red-400" />
+            패
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2.5 h-2.5 rounded-sm bg-amber-400" />
+            무
+          </span>
+          <span className="flex items-center gap-1 text-muted-foreground">
+            <span className="text-[9px] font-bold bg-accent px-1 rounded">DH</span>
+            더블헤더
+          </span>
+        </div>
+
+        {/* Loading */}
+        {loading ? (
+          <div className="flex justify-center py-16">
+            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+          </div>
+        ) : (
+          <div className="bg-card rounded-2xl border border-border p-3">
+            {/* Weekday headers */}
+            <div className="grid grid-cols-7 mb-1">
+              {DAYS.map((day, i) => (
+                <div key={day} className={`text-center text-xs font-medium py-1.5 ${
+                  i === 0 ? "text-red-500" : i === 6 ? "text-blue-500" : "text-muted-foreground"
+                }`}>
+                  {day}
+                </div>
+              ))}
+            </div>
+
+            {/* Calendar grid */}
+            <div className="grid grid-cols-7 gap-0.5">
+              {calendarDays.map((day, index) => {
+                if (day === null) return <div key={`empty-${index}`} className="min-h-[72px]" />;
+
+                const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+                const dayGames = gamesByDate.get(dateStr) || [];
+                const dayScores = scoresByDate[dateStr] || [];
+                const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
+                const isDH = dayGames.length > 1;
+
+                return (
+                  <div
+                    key={day}
+                    className={`min-h-[72px] rounded-lg p-1 text-xs transition-colors ${
+                      isToday
+                        ? "bg-foreground/10 ring-1 ring-foreground/20"
+                        : dayGames.length > 0
+                        ? "hover:bg-accent"
+                        : ""
+                    }`}
+                  >
+                    {/* Day number */}
+                    <div className={`text-center text-[11px] font-medium mb-0.5 ${
+                      isToday ? "text-foreground font-bold" : dayGames.length > 0 ? "" : "text-muted-foreground/50"
+                    }`}>
+                      {day}
+                      {isDH && (
+                        <span className="ml-0.5 text-[8px] font-bold text-muted-foreground bg-accent rounded px-0.5">DH</span>
+                      )}
+                    </div>
+
+                    {/* Games */}
+                    <div className="flex flex-col gap-0.5">
+                      {dayGames.map((game, gi) => {
+                        const isHome = game.home === teamName;
+                        const opponent = isHome ? game.away : game.home;
+                        const isDh = dayGames.length > 1;
+
+                        // Find score for this matchup
+                        const score = dayScores.find(
+                          (s) => s.away === game.away && s.home === game.home
+                        );
+
+                        let resultClass = "";
+                        let resultText = "";
+
+                        if (score?.cancelled) {
+                          resultClass = "line-through text-muted-foreground";
+                          resultText = "취소";
+                        } else if (score && score.awayScore != null && score.homeScore != null) {
+                          const homeWon = score.homeScore > score.awayScore;
+                          const tied = score.homeScore === score.awayScore;
+                          if (tied) {
+                            resultClass = "bg-amber-400/20 text-amber-700 font-medium";
+                            resultText = `${score.awayScore}:${score.homeScore}`;
+                          } else if (isHome) {
+                            resultClass = homeWon
+                              ? "bg-blue-500/15 text-blue-700 font-medium"
+                              : "bg-red-400/15 text-red-600 font-medium";
+                            resultText = `${score.awayScore}:${score.homeScore}`;
+                          } else {
+                            resultClass = homeWon
+                              ? "bg-red-400/15 text-red-600 font-medium"
+                              : "bg-blue-500/15 text-blue-700 font-medium";
+                            resultText = `${score.awayScore}:${score.homeScore}`;
+                          }
+                        }
+
+                        const prefix = isDh ? `${gi + 1}차 ` : "";
+
+                        return (
+                          <div
+                            key={gi}
+                            className={`flex items-center gap-1 rounded px-1 py-[2px] text-[10px] leading-tight ${
+                              isHome
+                                ? "font-medium"
+                                : "text-muted-foreground"
+                            }`}
+                            style={isHome ? { backgroundColor: (teamColor?.primary || "#000") + "15" } : undefined}
+                            title={`${game.away} vs ${game.home} · ${game.venue}`}
+                          >
+                            <span className="truncate">
+                              {prefix}
+                              {opponent}
+                            </span>
+                            {resultText ? (
+                              <span className={`ml-auto flex-shrink-0 rounded px-1 py-[1px] ${resultClass}`}>
+                                {resultText}
+                              </span>
+                            ) : (
+                              <span className="ml-auto flex-shrink-0 text-muted-foreground/60 truncate max-w-[45%]">
+                                {game.venue}
+                              </span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

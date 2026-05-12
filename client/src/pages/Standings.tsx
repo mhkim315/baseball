@@ -1,0 +1,121 @@
+import { useState, useEffect } from "react";
+import { TEAM_COLORS } from "@/lib/teamColors";
+import { fetchStandingsJson, type StandingRow } from "@/lib/api";
+
+const TEAM_NAME_TO_ID: Record<string, string> = {
+  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
+  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
+  "롯데": "lotte", "키움": "kiwoom",
+};
+
+function parseWLT(wlt: string): { wins: number; draws: number; losses: number } {
+  const m = wlt.match(/(\d+)승(\d+)무(\d+)패/);
+  if (!m) return { wins: 0, draws: 0, losses: 0 };
+  return { wins: parseInt(m[1]), draws: parseInt(m[2]), losses: parseInt(m[3]) };
+}
+
+function formatDate(isoStr: string): string {
+  try {
+    const d = new Date(isoStr);
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+  } catch {
+    return isoStr;
+  }
+}
+
+export default function Standings() {
+  const [standings, setStandings] = useState<StandingRow[]>([]);
+  const [fetchedAt, setFetchedAt] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStandingsJson().then((data) => {
+      if (data) {
+        setStandings(data.rows);
+        setFetchedAt(data.fetchedAt);
+      }
+      setLoading(false);
+    });
+  }, []);
+
+  return (
+    <div className="min-h-screen pb-20 md:pb-8">
+      {/* 모바일 헤더 */}
+      <div className="md:hidden px-5 pt-6 pb-4">
+        <h1 className="text-xl font-bold">순위</h1>
+        <p className="text-sm text-muted-foreground mt-0.5">2026 KBO 리그</p>
+      </div>
+
+      <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
+        {loading ? (
+          <div className="flex justify-center py-16">
+            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+          </div>
+        ) : (
+          <div className="bg-card rounded-2xl border border-border overflow-hidden">
+            {/* 테이블 헤더 */}
+            <div className="grid grid-cols-[32px_1fr_36px_36px_36px_48px_40px_48px] px-3 py-3 text-[11px] text-muted-foreground border-b border-border bg-accent/50">
+              <span className="text-center">#</span>
+              <span>팀</span>
+              <span className="text-center">승</span>
+              <span className="text-center">무</span>
+              <span className="text-center">패</span>
+              <span className="text-center">승률</span>
+              <span className="text-center">차</span>
+              <span className="text-center">연속</span>
+            </div>
+
+            {/* 순위 목록 */}
+            {standings.map((row, index) => {
+              const teamId = TEAM_NAME_TO_ID[row.teamName];
+              const team = teamId ? TEAM_COLORS[teamId] : null;
+              const { wins, draws, losses } = parseWLT(row.wlt);
+
+              return (
+                <div
+                  key={`${row.teamName}-${index}`}
+                  className="grid grid-cols-[32px_1fr_36px_36px_36px_48px_40px_48px] px-3 py-3 items-center border-b border-border last:border-b-0 hover:bg-accent/30 transition-colors"
+                >
+                  <span className={`text-center text-sm font-bold ${index < 5 ? "text-foreground" : "text-muted-foreground"}`}>
+                    {row.rank}
+                  </span>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div
+                      className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[7px] font-bold"
+                      style={{
+                        backgroundColor: team?.primary || "#888",
+                        color: team?.secondary || "#fff",
+                      }}
+                    >
+                      {(team?.shortName || row.teamName).slice(0, 1)}
+                    </div>
+                    <span className="text-sm font-medium truncate">{team?.shortName || row.teamName}</span>
+                  </div>
+                  <span className="text-center text-sm">{wins}</span>
+                  <span className="text-center text-sm">{draws}</span>
+                  <span className="text-center text-sm">{losses}</span>
+                  <span className="text-center text-sm font-medium">{row.winRate.toFixed(3).slice(1)}</span>
+                  <span className="text-center text-xs text-muted-foreground">
+                    {row.gamesBehind === 0 ? "-" : row.gamesBehind.toFixed(1)}
+                  </span>
+                  <span className={`text-center text-[11px] font-medium ${
+                    row.streak.includes("승") ? "text-blue-600" : "text-red-500"
+                  }`}>
+                    {row.streak}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* 업데이트 시간 */}
+        {fetchedAt && (
+          <p className="text-center text-xs text-muted-foreground mt-4">
+            {formatDate(fetchedAt)} 기준
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}

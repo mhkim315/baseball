@@ -1,0 +1,308 @@
+import { useState, useEffect } from "react";
+import { useLocation, useParams } from "wouter";
+import { ChevronLeft } from "lucide-react";
+import { TEAM_COLORS } from "@/lib/teamColors";
+import { fetchGameDetail, type GameDetail } from "@/lib/api";
+
+interface TeamBadgeProps {
+  teamId: string;
+  size?: "sm" | "md" | "lg";
+}
+
+function TeamBadge({ teamId, size = "md" }: TeamBadgeProps) {
+  const team = TEAM_COLORS[teamId];
+  if (!team) return null;
+  const sizeClasses = {
+    sm: "w-8 h-8 text-[9px]",
+    md: "w-12 h-12 text-xs",
+    lg: "w-16 h-16 text-sm",
+  };
+  return (
+    <div
+      className={`${sizeClasses[size]} rounded-full flex items-center justify-center font-bold border-2`}
+      style={{
+        backgroundColor: team.primary,
+        color: team.secondary,
+        borderColor: team.tertiary === "#FFFFFF" ? team.primary : team.tertiary,
+      }}
+    >
+      {team.shortName}
+    </div>
+  );
+}
+
+const POSITION_LABELS: Record<string, string> = {
+  "1": "1루", "2": "2루", "3": "3루",
+  "유": "유격", "포": "포수", "중": "중견",
+  "좌": "좌익", "우": "우익", "지": "지명",
+};
+
+export default function GameDetailPage() {
+  const [, setLocation] = useLocation();
+  const params = useParams<{ id: string }>();
+  const gameId = params.id || "";
+
+  const [detail, setDetail] = useState<GameDetail | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!gameId) return;
+    fetchGameDetail(gameId).then((data) => {
+      setDetail(data);
+      setLoading(false);
+    });
+  }, [gameId]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pb-20 md:pb-8 flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!detail) {
+    return (
+      <div className="min-h-screen pb-20 md:pb-8">
+        <div className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+          <div className="max-w-lg mx-auto flex items-center gap-2 px-4 py-3">
+            <button onClick={() => setLocation("/")} className="p-1 -ml-1 rounded-lg hover:bg-accent transition-colors">
+              <ChevronLeft size={20} />
+            </button>
+            <span className="text-sm font-medium">경기 상세</span>
+          </div>
+        </div>
+        <div className="max-w-lg mx-auto px-4 mt-16 text-center">
+          <p className="text-muted-foreground">경기 정보를 찾을 수 없습니다</p>
+        </div>
+      </div>
+    );
+  }
+
+  const home = TEAM_COLORS[detail.homeTeam];
+  const away = TEAM_COLORS[detail.awayTeam];
+  const homeLineup = detail.lineup?.home || [];
+  const awayLineup = detail.lineup?.away || [];
+  const hasLineup = homeLineup.length > 0 && awayLineup.length > 0;
+  const isFinished = detail.gameInfo?.status === "finished";
+  const isLive = detail.gameInfo?.status === "live";
+  const statusLabel = isFinished ? "경기 종료" : isLive ? "LIVE" : "경기 전";
+  const scoreBoard = detail.scoreBoard;
+  const innData = scoreBoard?.inn;
+  const maxInn = innData ? Math.max(innData.away.length, innData.home.length) : 0;
+
+  return (
+    <div className="min-h-screen pb-20 md:pb-8">
+      {/* 뒤로가기 헤더 */}
+      <div className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="max-w-lg mx-auto flex items-center gap-2 px-4 py-3">
+          <button
+            onClick={() => setLocation("/")}
+            className="p-1 -ml-1 rounded-lg hover:bg-accent transition-colors"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <span className="text-sm font-medium">경기 상세</span>
+        </div>
+      </div>
+
+      <div className="max-w-lg mx-auto px-4 mt-4">
+        {/* 경기 헤더 */}
+        <div className="bg-card rounded-2xl border border-border p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col items-center gap-2">
+              <TeamBadge teamId={detail.awayTeam} size="lg" />
+              <span className="text-sm font-medium">{away?.name}</span>
+              <span className="text-xs text-muted-foreground">
+                {detail.starters?.away?.name || "-"}
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-xs text-muted-foreground">{detail.gameInfo?.time || "18:30"}</span>
+              {detail.score ? (
+                <div className="flex items-center gap-3">
+                  <span className={`text-2xl font-bold ${isFinished && detail.score!.away > detail.score!.home ? "" : ""}`}>{detail.score.away}</span>
+                  <span className="text-sm text-muted-foreground">:</span>
+                  <span className={`text-2xl font-bold ${isFinished && detail.score!.home > detail.score!.away ? "" : ""}`}>{detail.score.home}</span>
+                </div>
+              ) : (
+                <span className="text-lg font-bold text-muted-foreground">VS</span>
+              )}
+              <span className={`text-[10px] px-2 py-0.5 rounded-full ${
+                isLive ? "bg-destructive/10 text-destructive animate-pulse" :
+                isFinished ? "bg-accent text-muted-foreground" :
+                "bg-accent text-muted-foreground"
+              }`}>
+                {isLive ? "LIVE" : statusLabel}
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <TeamBadge teamId={detail.homeTeam} size="lg" />
+              <span className="text-sm font-medium">{home?.name}</span>
+              <span className="text-xs text-muted-foreground">
+                {detail.starters?.home?.name || "-"}
+              </span>
+            </div>
+          </div>
+          {detail.gameInfo?.venue && (
+            <p className="text-center text-xs text-muted-foreground mt-3">{detail.gameInfo.venue}</p>
+          )}
+        </div>
+
+        {/* 스코어보드 (이닝별) */}
+        {innData && (
+          <div className="bg-card rounded-2xl border border-border p-4 mt-3 overflow-x-auto">
+            <h3 className="text-sm font-semibold mb-3">스코어보드</h3>
+            <table className="w-full text-xs text-center">
+              <thead>
+                <tr className="text-muted-foreground">
+                  <th className="py-1 pr-2 text-left">팀</th>
+                  {Array.from({ length: maxInn }).map((_, i) => (
+                    <th key={i} className="py-1 px-1.5 w-7">{i + 1}</th>
+                  ))}
+                  <th className="py-1 px-1.5 border-l border-border w-7">R</th>
+                  <th className="py-1 px-1.5 w-7">H</th>
+                  <th className="py-1 px-1.5 w-7">E</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border">
+                  <td className="py-1.5 pr-2 text-left font-medium">{away?.shortName}</td>
+                  {Array.from({ length: maxInn }).map((_, i) => (
+                    <td key={i} className="py-1.5 px-1.5">{innData.away[i] != null ? innData.away[i] : '-'}</td>
+                  ))}
+                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{scoreBoard?.rheb?.away.r ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.away.h ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.away.e ?? '-'}</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 pr-2 text-left font-medium">{home?.shortName}</td>
+                  {Array.from({ length: maxInn }).map((_, i) => (
+                    <td key={i} className="py-1.5 px-1.5">{innData.home[i] != null ? innData.home[i] : '-'}</td>
+                  ))}
+                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{scoreBoard?.rheb?.home.r ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.home.h ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.home.e ?? '-'}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* 선발투수 정보 */}
+        <div className="bg-card rounded-2xl border border-border p-4 mt-3">
+          <h3 className="text-sm font-semibold mb-3">선발투수</h3>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="flex items-center gap-2 bg-accent/30 rounded-xl p-3">
+              <TeamBadge teamId={detail.awayTeam} size="sm" />
+              <div>
+                <p className="text-sm font-medium">{detail.starters?.away?.name || "미정"}</p>
+                <p className="text-xs text-muted-foreground">{away?.shortName}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 bg-accent/30 rounded-xl p-3">
+              <TeamBadge teamId={detail.homeTeam} size="sm" />
+              <div>
+                <p className="text-sm font-medium">{detail.starters?.home?.name || "미정"}</p>
+                <p className="text-xs text-muted-foreground">{home?.shortName}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 투수 기록 (승/패/세) */}
+        {detail.pitchingResult && detail.pitchingResult.length > 0 && (
+          <div className="bg-card rounded-2xl border border-border p-4 mt-3">
+            <h3 className="text-sm font-semibold mb-3">투수 기록</h3>
+            <div className="flex flex-col gap-2">
+              {detail.pitchingResult.map((p, i) => {
+                const wlsLabel = p.wls === "W" ? "승" : p.wls === "L" ? "패" : p.wls === "S" ? "세" : p.wls;
+                const wlsColor = p.wls === "W" ? "text-blue-600" : p.wls === "L" ? "text-red-500" : p.wls === "S" ? "text-amber-600" : "";
+                return (
+                  <div key={i} className="flex items-center justify-between bg-accent/30 rounded-xl px-4 py-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-bold ${wlsColor}`}>{wlsLabel}</span>
+                      <span className="text-sm font-medium">{p.name}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {p.ip && <span>{p.ip}이닝</span>}
+                      {p.era && <span className="ml-2">ERA {p.era}</span>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* 라인업 or 준비중 메시지 */}
+        {hasLineup ? (
+          <div className="mt-3 grid grid-cols-2 gap-3">
+            {/* 원정팀 라인업 */}
+            <div className="bg-card rounded-2xl border border-border p-4">
+              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
+                <TeamBadge teamId={detail.awayTeam} size="sm" />
+                <span className="text-sm font-semibold">{away?.shortName}</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {awayLineup.map((player: any) => (
+                  <div key={player.order} className="flex items-center gap-2 text-sm">
+                    <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
+                    <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
+                      {POSITION_LABELS[player.position] || player.position}
+                    </span>
+                    <span className="font-medium">{player.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 홈팀 라인업 */}
+            <div className="bg-card rounded-2xl border border-border p-4">
+              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
+                <TeamBadge teamId={detail.homeTeam} size="sm" />
+                <span className="text-sm font-semibold">{home?.shortName}</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {homeLineup.map((player: any) => (
+                  <div key={player.order} className="flex items-center gap-2 text-sm">
+                    <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
+                    <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
+                      {POSITION_LABELS[player.position] || player.position}
+                    </span>
+                    <span className="font-medium">{player.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-3 bg-card rounded-2xl border border-border p-8 text-center">
+            <p className="text-muted-foreground text-sm mb-1">라인업이 아직 발표되지 않았습니다</p>
+            <p className="text-xs text-muted-foreground">경기 시작 전 확정 후 업데이트됩니다</p>
+          </div>
+        )}
+
+        {/* 경기 하이라이트 */}
+        {detail.etcRecords && detail.etcRecords.length > 0 && (
+          <div className="bg-card rounded-2xl border border-border p-4 mt-3">
+            <h3 className="text-sm font-semibold mb-3">경기 기록</h3>
+            <div className="flex flex-col gap-2">
+              {detail.etcRecords.map((r, i) => (
+                <div key={i} className="text-sm flex items-start gap-2">
+                  <span className="text-xs font-medium text-muted-foreground whitespace-nowrap mt-0.5 bg-accent rounded px-1.5 py-0.5">{r.result}</span>
+                  <span>{r.how}{r.desc ? ` (${r.desc})` : ""}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 안내 메시지 */}
+        <p className="text-center text-xs text-muted-foreground mt-6 mb-4">
+          {hasLineup ? "라인업은 경기 시작 전 확정 후 업데이트됩니다" : "실시간 스코어는 제공되지 않습니다"}
+        </p>
+      </div>
+    </div>
+  );
+}
