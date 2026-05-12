@@ -37,6 +37,17 @@ const POSITION_LABELS: Record<string, string> = {
   "좌": "좌익", "우": "우익", "지": "지명",
 };
 
+const WLS_LABELS: Record<string, string> = {
+  "W": "승", "L": "패", "S": "세", "H": "홀",
+};
+
+const WLS_COLORS: Record<string, string> = {
+  "W": "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950",
+  "L": "text-red-500 bg-red-50 dark:text-red-400 dark:bg-red-950",
+  "S": "text-amber-600 bg-amber-50 dark:text-amber-400 dark:bg-amber-950",
+  "H": "text-green-600 bg-green-50 dark:text-green-400 dark:bg-green-950",
+};
+
 export default function GameDetailPage() {
   const [, setLocation] = useLocation();
   const params = useParams<{ id: string }>();
@@ -87,13 +98,16 @@ export default function GameDetailPage() {
   const isFinished = detail.gameInfo?.status === "finished";
   const isLive = detail.gameInfo?.status === "live";
   const statusLabel = isFinished ? "경기 종료" : isLive ? "LIVE" : "경기 전";
+  const showLineupStatus = !isFinished && !isLive;
+  const lineupConfirmed = detail.lineupConfirmed ?? false;
+
   const scoreBoard = detail.scoreBoard;
+  const rheb = scoreBoard?.rheb;
   const innData = scoreBoard?.inn;
   const maxInn = innData ? Math.max(innData.away.length, innData.home.length) : 0;
 
   return (
     <div className="min-h-screen pb-20 md:pb-8">
-      {/* 뒤로가기 헤더 */}
       <div className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-lg mx-auto flex items-center gap-2 px-4 py-3">
           <button
@@ -107,7 +121,7 @@ export default function GameDetailPage() {
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-4">
-        {/* 경기 헤더 */}
+        {/* Game header */}
         <div className="bg-card rounded-2xl border border-border p-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center gap-2">
@@ -149,8 +163,8 @@ export default function GameDetailPage() {
           )}
         </div>
 
-        {/* 스코어보드 (이닝별) */}
-        {innData && (
+        {/* Scoreboard (inning-by-inning) for past games */}
+        {innData && rheb && (
           <div className="bg-card rounded-2xl border border-border p-4 mt-3 overflow-x-auto">
             <h3 className="text-sm font-semibold mb-3">스코어보드</h3>
             <table className="w-full text-xs text-center">
@@ -171,25 +185,25 @@ export default function GameDetailPage() {
                   {Array.from({ length: maxInn }).map((_, i) => (
                     <td key={i} className="py-1.5 px-1.5">{innData.away[i] != null ? innData.away[i] : '-'}</td>
                   ))}
-                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{scoreBoard?.rheb?.away.r ?? '-'}</td>
-                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.away.h ?? '-'}</td>
-                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.away.e ?? '-'}</td>
+                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{rheb.away.r ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{rheb.away.h ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{rheb.away.e ?? '-'}</td>
                 </tr>
                 <tr>
                   <td className="py-1.5 pr-2 text-left font-medium">{home?.shortName}</td>
                   {Array.from({ length: maxInn }).map((_, i) => (
                     <td key={i} className="py-1.5 px-1.5">{innData.home[i] != null ? innData.home[i] : '-'}</td>
                   ))}
-                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{scoreBoard?.rheb?.home.r ?? '-'}</td>
-                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.home.h ?? '-'}</td>
-                  <td className="py-1.5 px-1.5">{scoreBoard?.rheb?.home.e ?? '-'}</td>
+                  <td className="py-1.5 px-1.5 border-l border-border font-bold">{rheb.home.r ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{rheb.home.h ?? '-'}</td>
+                  <td className="py-1.5 px-1.5">{rheb.home.e ?? '-'}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         )}
 
-        {/* 선발투수 정보 */}
+        {/* Starting pitchers */}
         <div className="bg-card rounded-2xl border border-border p-4 mt-3">
           <h3 className="text-sm font-semibold mb-3">선발투수</h3>
           <div className="grid grid-cols-2 gap-3">
@@ -210,18 +224,18 @@ export default function GameDetailPage() {
           </div>
         </div>
 
-        {/* 투수 기록 (승/패/세) */}
+        {/* Pitching results (Win/Loss/Save) */}
         {detail.pitchingResult && detail.pitchingResult.length > 0 && (
           <div className="bg-card rounded-2xl border border-border p-4 mt-3">
             <h3 className="text-sm font-semibold mb-3">투수 기록</h3>
             <div className="flex flex-col gap-2">
               {detail.pitchingResult.map((p, i) => {
-                const wlsLabel = p.wls === "W" ? "승" : p.wls === "L" ? "패" : p.wls === "S" ? "세" : p.wls;
-                const wlsColor = p.wls === "W" ? "text-blue-600" : p.wls === "L" ? "text-red-500" : p.wls === "S" ? "text-amber-600" : "";
+                const wlsLabel = WLS_LABELS[p.wls] || p.wls;
+                const wlsColor = WLS_COLORS[p.wls] || "text-muted-foreground bg-accent";
                 return (
                   <div key={i} className="flex items-center justify-between bg-accent/30 rounded-xl px-4 py-2.5">
                     <div className="flex items-center gap-2">
-                      <span className={`text-xs font-bold ${wlsColor}`}>{wlsLabel}</span>
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${wlsColor}`}>{wlsLabel}</span>
                       <span className="text-sm font-medium">{p.name}</span>
                     </div>
                     <div className="text-xs text-muted-foreground">
@@ -235,44 +249,58 @@ export default function GameDetailPage() {
           </div>
         )}
 
-        {/* 라인업 or 준비중 메시지 */}
+        {/* Lineup or 예상/확정 */}
         {hasLineup ? (
-          <div className="mt-3 grid grid-cols-2 gap-3">
-            {/* 원정팀 라인업 */}
-            <div className="bg-card rounded-2xl border border-border p-4">
-              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
-                <TeamBadge teamId={detail.awayTeam} size="sm" />
-                <span className="text-sm font-semibold">{away?.shortName}</span>
+          <div className="mt-3">
+            {/* Lineup status badge */}
+            {showLineupStatus && (
+              <div className="text-center mb-2">
+                <span className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${
+                  lineupConfirmed
+                    ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
+                    : "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300"
+                }`}>
+                  {lineupConfirmed ? "라인업 확정" : "예상 라인업"}
+                </span>
               </div>
-              <div className="flex flex-col gap-1.5">
-                {awayLineup.map((player: any) => (
-                  <div key={player.order} className="flex items-center gap-2 text-sm">
-                    <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
-                    <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
-                      {POSITION_LABELS[player.position] || player.position}
-                    </span>
-                    <span className="font-medium">{player.name}</span>
-                  </div>
-                ))}
+            )}
+            <div className="grid grid-cols-2 gap-3">
+              {/* Away lineup */}
+              <div className="bg-card rounded-2xl border border-border p-4">
+                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
+                  <TeamBadge teamId={detail.awayTeam} size="sm" />
+                  <span className="text-sm font-semibold">{away?.shortName}</span>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {awayLineup.map((player: any) => (
+                    <div key={player.order} className="flex items-center gap-2 text-sm">
+                      <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
+                      <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
+                        {POSITION_LABELS[player.position] || player.position}
+                      </span>
+                      <span className="font-medium">{player.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* 홈팀 라인업 */}
-            <div className="bg-card rounded-2xl border border-border p-4">
-              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
-                <TeamBadge teamId={detail.homeTeam} size="sm" />
-                <span className="text-sm font-semibold">{home?.shortName}</span>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                {homeLineup.map((player: any) => (
-                  <div key={player.order} className="flex items-center gap-2 text-sm">
-                    <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
-                    <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
-                      {POSITION_LABELS[player.position] || player.position}
-                    </span>
-                    <span className="font-medium">{player.name}</span>
-                  </div>
-                ))}
+              {/* Home lineup */}
+              <div className="bg-card rounded-2xl border border-border p-4">
+                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
+                  <TeamBadge teamId={detail.homeTeam} size="sm" />
+                  <span className="text-sm font-semibold">{home?.shortName}</span>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {homeLineup.map((player: any) => (
+                    <div key={player.order} className="flex items-center gap-2 text-sm">
+                      <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
+                      <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
+                        {POSITION_LABELS[player.position] || player.position}
+                      </span>
+                      <span className="font-medium">{player.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -283,7 +311,7 @@ export default function GameDetailPage() {
           </div>
         )}
 
-        {/* 경기 하이라이트 */}
+        {/* Game highlights */}
         {detail.etcRecords && detail.etcRecords.length > 0 && (
           <div className="bg-card rounded-2xl border border-border p-4 mt-3">
             <h3 className="text-sm font-semibold mb-3">경기 기록</h3>
@@ -298,9 +326,11 @@ export default function GameDetailPage() {
           </div>
         )}
 
-        {/* 안내 메시지 */}
+        {/* Info message */}
         <p className="text-center text-xs text-muted-foreground mt-6 mb-4">
-          {hasLineup ? "라인업은 경기 시작 전 확정 후 업데이트됩니다" : "실시간 스코어는 제공되지 않습니다"}
+          {hasLineup
+            ? (lineupConfirmed ? "라인업은 경기 시작 전 확정 후 업데이트됩니다" : "예상 라인업은 전날 경기 데이터를 기반으로 합니다")
+            : "실시간 스코어는 제공되지 않습니다"}
         </p>
       </div>
     </div>
