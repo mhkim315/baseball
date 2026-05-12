@@ -112,7 +112,7 @@ export default function CalendarPage() {
 
       {/* Team filter (no "전체" button) */}
       <div className="max-w-lg mx-auto px-4">
-        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
+        <div className="grid grid-cols-5 gap-2">
           {TEAM_LIST.map((t) => (
             <button
               key={t.id}
@@ -120,7 +120,7 @@ export default function CalendarPage() {
                 setSelectedTeam(t.id);
                 localStorage.setItem("cal-team", t.id);
               }}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+              className={`px-2 py-2 rounded-lg text-sm font-medium transition-all border text-center ${
                 selectedTeam === t.id
                   ? "text-white border-transparent shadow-sm"
                   : "text-foreground border-border bg-card hover:bg-accent"
@@ -149,11 +149,7 @@ export default function CalendarPage() {
         <div className="flex flex-wrap gap-3 mb-3 text-[11px] text-muted-foreground">
           <span className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: teamColor?.primary }} />
-            홈
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-sm bg-muted-foreground/30" />
-            원정
+            홈경기
           </span>
           <span className="flex items-center gap-1">
             <span className="w-2.5 h-2.5 rounded-sm bg-blue-500" />
@@ -201,26 +197,50 @@ export default function CalendarPage() {
                 const dayScores = scoresByDate[dateStr] || [];
                 const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
                 const isDH = dayGames.length > 1;
+                const dayLabels: string[] = dayGames.map((game) => {
+                  const s = dayScores.find((sc) => sc.away === game.away && sc.home === game.home);
+                  if (!s || s.cancelled || s.awayScore == null || s.homeScore == null || (s.awayScore === 0 && s.homeScore === 0)) return "";
+                  const homeWon = s.homeScore > s.awayScore;
+                  const tied = s.homeScore === s.awayScore;
+                  if (tied) return "무";
+                  const isHome = game.home === teamName;
+                  if ((isHome && homeWon) || (!isHome && !homeWon)) return "승";
+                  return "패";
+                });
+                const hasWin = dayLabels.includes("승");
+                const hasLoss = dayLabels.includes("패");
+                const dayBg = hasWin && !hasLoss ? "bg-blue-500/10" : hasLoss && !hasWin ? "bg-red-400/10" : "";
+                const hasHome = dayGames.some((game) => game.home === teamName);
 
                 return (
                   <div
                     key={day}
                     className={`min-h-[72px] rounded-lg p-1 text-xs transition-colors ${
-                      isToday
-                        ? "bg-foreground/10 ring-1 ring-foreground/20"
-                        : dayGames.length > 0
-                        ? "hover:bg-accent"
-                        : ""
+                      isToday ? "bg-foreground/10 ring-1 ring-foreground/20" : ""
+                    } ${
+                      !isToday && dayGames.length > 0 ? "hover:bg-accent" : ""
                     }`}
                   >
+                    <div className={`rounded-xl border border-border ${dayBg || "bg-card"}`} style={hasHome && teamColor ? { borderLeft: `3px solid ${teamColor.primary}` } : undefined}>
                     {/* Day number */}
-                    <div className={`text-center text-[11px] font-medium mb-0.5 ${
+                    <div className={`flex items-center text-[11px] font-medium mb-0.5 ${
                       isToday ? "text-foreground font-bold" : dayGames.length > 0 ? "" : "text-muted-foreground/50"
                     }`}>
-                      {day}
-                      {isDH && (
-                        <span className="ml-0.5 text-[8px] font-bold text-muted-foreground bg-accent rounded px-0.5">DH</span>
-                      )}
+                      <span className="flex-1 text-center">{day}</span>
+                      <div className="flex items-center gap-0.5">
+                        {dayLabels.map((label, i) => label ? (
+                          <span
+                            key={i}
+                            className="w-4 h-4 rounded-full flex items-center justify-center text-[7px] font-bold text-white flex-shrink-0"
+                            style={{ backgroundColor: label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#f59e0b" }}
+                          >
+                            {label}
+                          </span>
+                        ) : null)}
+                        {isDH && (
+                          <span className="text-[8px] font-bold text-muted-foreground bg-accent rounded px-0.5">DH</span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Games */}
@@ -235,28 +255,28 @@ export default function CalendarPage() {
                           (s) => s.away === game.away && s.home === game.home
                         );
 
-                        let resultClass = "";
-                        let resultText = "";
+                        let resultLabel = "";
+                        let resultScore = "";
+                        let resultBgClass = "";
+                        let resultCancelled = false;
 
                         if (score?.cancelled) {
-                          resultClass = "line-through text-muted-foreground";
-                          resultText = "취소";
-                        } else if (score && score.awayScore != null && score.homeScore != null) {
+                          resultCancelled = true;
+                          resultScore = "취소";
+                          resultBgClass = "line-through text-muted-foreground";
+                        } else if (score && score.awayScore != null && score.homeScore != null && !(score.awayScore === 0 && score.homeScore === 0)) {
                           const homeWon = score.homeScore > score.awayScore;
                           const tied = score.homeScore === score.awayScore;
+                          resultScore = `${score.awayScore}:${score.homeScore}`;
                           if (tied) {
-                            resultClass = "bg-amber-400/20 text-amber-700 font-medium";
-                            resultText = `${score.awayScore}:${score.homeScore}`;
-                          } else if (isHome) {
-                            resultClass = homeWon
-                              ? "bg-blue-500/15 text-blue-700 font-medium"
-                              : "bg-red-400/15 text-red-600 font-medium";
-                            resultText = `${score.awayScore}:${score.homeScore}`;
+                            resultLabel = "무";
+                            resultBgClass = "bg-amber-400/20 text-amber-700";
+                          } else if ((isHome && homeWon) || (!isHome && !homeWon)) {
+                            resultLabel = "승";
+                            resultBgClass = "bg-blue-500/15 text-blue-700";
                           } else {
-                            resultClass = homeWon
-                              ? "bg-red-400/15 text-red-600 font-medium"
-                              : "bg-blue-500/15 text-blue-700 font-medium";
-                            resultText = `${score.awayScore}:${score.homeScore}`;
+                            resultLabel = "패";
+                            resultBgClass = "bg-red-400/15 text-red-600";
                           }
                         }
 
@@ -265,30 +285,29 @@ export default function CalendarPage() {
                         return (
                           <div
                             key={gi}
-                            className={`flex items-center gap-1 rounded px-1 py-[2px] text-[10px] leading-tight ${
+                            className={`py-[2px] text-[11px] leading-tight text-center ${
                               isHome
                                 ? "font-medium"
                                 : "text-muted-foreground"
                             }`}
-                            style={isHome ? { backgroundColor: (teamColor?.primary || "#000") + "15" } : undefined}
                             title={`${game.away} vs ${game.home} · ${game.venue}`}
                           >
-                            <span className="truncate">
-                              {prefix}
-                              {opponent}
-                            </span>
-                            {resultText ? (
-                              <span className={`ml-auto flex-shrink-0 rounded px-1 py-[1px] ${resultClass}`}>
-                                {resultText}
+                            <div className="truncate text-center">
+                              {prefix}{opponent}
+                            </div>
+                            {resultScore ? (
+                              <span className={`inline-block rounded px-1 py-[1px] font-medium ${resultBgClass}`}>
+                                {resultScore}
                               </span>
                             ) : (
-                              <span className="ml-auto flex-shrink-0 text-muted-foreground/60 truncate max-w-[45%]">
+                              <span className="text-muted-foreground/60 truncate">
                                 {game.venue}
                               </span>
                             )}
                           </div>
                         );
                       })}
+                    </div>
                     </div>
                   </div>
                 );

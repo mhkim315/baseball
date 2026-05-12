@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
 import {
   fetchStadiumBrief, fetchStadiumFoods, fetchStadiumEats, fetchStadiumSurroundings,
   type StadiumBrief, type FoodPlace, type EatsSpot, type SurroundingSpot,
 } from "@/lib/api";
+import { getTicketPolicy } from "@/lib/ticketPolicy";
 import {
   MapPin, UtensilsCrossed, Car, Train, Store,
   Ticket, Users, Phone, Navigation,
@@ -13,6 +14,11 @@ import StadiumMap from "@/components/StadiumMap";
 const FOOD_MAP_IMAGES: Record<string, string> = {
   "1": "jamsil", "2": "gochuck", "3": "incheon", "4": "suwon",
   "5": "daejeon", "6": "daegu", "7": "gwangju", "8": "busan", "9": "changwon",
+};
+
+const SEAT_IMAGES: Record<string, string> = {
+  "1": "jamsil", "2": "gochuck", "3": "incheon", "4": "suwon",
+  "5": "daejeon", "6": "daegu", "7": "gwangju", "8": "sajik", "9": "changwon",
 };
 
 const TABS = [
@@ -134,9 +140,9 @@ function InfoCard({ icon: Icon, label, value }: { icon: typeof MapPin; label: st
   );
 }
 
-function ParkingCard({ spot }: { spot: SurroundingSpot }) {
+function ParkingCard({ spot, onClick }: { spot: SurroundingSpot; onClick?: () => void }) {
   return (
-    <div className="bg-card rounded-xl border border-border p-4 hover:bg-accent/20 transition-colors">
+    <div onClick={onClick} className="bg-card rounded-xl border border-border p-4 hover:bg-accent/20 transition-colors cursor-pointer">
       <div className="flex items-center gap-2 mb-1.5">
         <Car size={14} className="text-muted-foreground" />
         <span className="text-sm font-semibold">{spot.name}</span>
@@ -146,9 +152,9 @@ function ParkingCard({ spot }: { spot: SurroundingSpot }) {
   );
 }
 
-function NearbyCard({ restaurant }: { restaurant: EatsSpot }) {
+function NearbyCard({ restaurant, onClick }: { restaurant: EatsSpot; onClick?: () => void }) {
   return (
-    <div className="bg-card rounded-xl border border-border p-4 hover:bg-accent/20 transition-colors">
+    <div onClick={onClick} className="bg-card rounded-xl border border-border p-4 hover:bg-accent/20 transition-colors cursor-pointer">
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-sm font-semibold">{restaurant.name}</span>
         <span className="text-[10px] text-muted-foreground bg-accent rounded-full px-2 py-0.5">
@@ -163,6 +169,21 @@ function NearbyCard({ restaurant }: { restaurant: EatsSpot }) {
             {restaurant.phone}
           </a>
         </div>
+      )}
+    </div>
+  );
+}
+
+function TransitSpotCard({ spot, onClick }: { spot: SurroundingSpot; onClick?: () => void }) {
+  const Icon = spot.kind === "bus" ? Navigation : Train;
+  return (
+    <div onClick={onClick} className="bg-card rounded-xl border border-border p-4 hover:bg-accent/20 transition-colors cursor-pointer">
+      <div className="flex items-center gap-2 mb-1.5">
+        <Icon size={14} className="text-muted-foreground" />
+        <span className="text-sm font-semibold">{spot.name}</span>
+      </div>
+      {spot.description && (
+        <p className="text-xs text-muted-foreground leading-relaxed">{spot.description}</p>
       )}
     </div>
   );
@@ -185,6 +206,8 @@ export default function Stadium() {
   const [foodCategory, setFoodCategory] = useState("all");
   const [selectedShop, setSelectedShop] = useState("");
   const [foodLayouts, setFoodLayouts] = useState<Record<string, any> | null>(null);
+  const [focusedSpot, setFocusedSpot] = useState<string | undefined>(undefined);
+  const [showTicket, setShowTicket] = useState(false);
 
   useEffect(() => {
     const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
@@ -220,9 +243,14 @@ export default function Stadium() {
     });
   }, [selectedTeam]);
 
+  useEffect(() => {
+    setFocusedSpot(undefined);
+  }, [activeTab]);
+
   const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
   const team = TEAM_COLORS[selectedTeam];
   const foodMapImage = stadiumId ? `/food-maps/${FOOD_MAP_IMAGES[stadiumId] || "jamsil"}.webp` : null;
+  const seatImage = stadiumId ? `/stadium-seats/${SEAT_IMAGES[stadiumId] || "jamsil"}.jpg` : null;
 
   return (
     <div className="min-h-screen pb-20 md:pb-8">
@@ -233,13 +261,13 @@ export default function Stadium() {
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
-        {/* 팀 선택 스크롤 */}
-        <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide -mx-4 px-4">
+        {/* 팀 선택 2×5 고정 그리드 */}
+        <div className="grid grid-cols-5 gap-2 pb-2">
           {TEAM_LIST.map((t) => (
             <button
               key={t.id}
               onClick={() => { setSelectedTeam(t.id); setActiveTab("info"); }}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+              className={`px-2 py-2 rounded-lg text-sm font-medium transition-all border text-center ${
                 selectedTeam === t.id
                   ? "text-white border-transparent shadow-sm"
                   : "text-foreground border-border bg-card hover:bg-accent"
@@ -311,16 +339,79 @@ export default function Stadium() {
             <div className="mt-3 pb-4">
               {/* 기본정보 탭 */}
               {activeTab === "info" && stadium && (
-                <div className="bg-card rounded-2xl border border-border p-5">
-                  <InfoCard icon={Ticket} label="티켓 구매" value={`${stadium.ticket.purchase}\n${stadium.ticket.price}`} />
-                  <div className="border-t border-border" />
-                  <InfoCard icon={Users} label="수용인원" value={stadium.capacity} />
-                  <div className="border-t border-border" />
-                  <InfoCard icon={Navigation} label="위치" value={stadium.location} />
-                  <div className="border-t border-border" />
-                  <InfoCard icon={Car} label="주차" value={`${stadium.parking.fee}\n${stadium.parking.note}`} />
-                  <div className="border-t border-border" />
-                  <InfoCard icon={Train} label="대중교통" value={`${stadium.transit.subway}\n버스: ${stadium.transit.bus}`} />
+                <div className="flex flex-col gap-3">
+                  <div className="bg-card rounded-2xl border border-border p-5">
+                    <InfoCard icon={Ticket} label="티켓 구매" value={`${stadium.ticket.purchase}\n${stadium.ticket.price}`} />
+                    <div className="border-t border-border" />
+                    <InfoCard icon={Users} label="수용인원" value={stadium.capacity} />
+                    <div className="border-t border-border" />
+                    <InfoCard icon={Navigation} label="위치" value={stadium.location} />
+                    <div className="border-t border-border" />
+                    <InfoCard icon={Car} label="주차" value={`${stadium.parking.fee}\n${stadium.parking.note}`} />
+                    <div className="border-t border-border" />
+                    <InfoCard icon={Train} label="대중교통" value={`${stadium.transit.subway}\n버스: ${stadium.transit.bus}`} />
+                  </div>
+
+                  {/* 좌석 배치도 */}
+                  {seatImage && (
+                    <div className="bg-card rounded-2xl border border-border overflow-hidden">
+                      <div className="px-5 pt-4 pb-2">
+                        <h3 className="text-sm font-semibold">좌석 배치도</h3>
+                      </div>
+                      <img
+                        src={seatImage}
+                        alt="좌석 배치도"
+                        className="w-full h-auto"
+                        draggable={false}
+                      />
+                    </div>
+                  )}
+
+                  {/* 예매 정보 */}
+                  {(() => {
+                    const tp = getTicketPolicy(selectedTeam);
+                    if (!tp) return null;
+                    return (
+                      <div className="bg-card rounded-2xl border border-border p-5">
+                        <button
+                          onClick={() => setShowTicket(!showTicket)}
+                          className="flex items-center justify-between w-full text-left"
+                        >
+                          <h3 className="text-sm font-semibold">예매 정보</h3>
+                          <span className="text-xs text-muted-foreground">{showTicket ? "접기" : "펼치기"}</span>
+                        </button>
+                        {showTicket && (
+                          <div className="mt-3">
+                            <p className="text-xs text-muted-foreground mb-2">예매: {tp.platform}</p>
+                            <div className="overflow-x-auto">
+                              <table className="w-full text-xs">
+                                <thead>
+                                  <tr className="border-b border-border">
+                                    <th className="text-left py-1.5 pr-2 font-medium text-muted-foreground">등급</th>
+                                    <th className="text-left py-1.5 pr-2 font-medium text-muted-foreground">예매</th>
+                                    <th className="text-left py-1.5 pr-2 font-medium text-muted-foreground">시간</th>
+                                    <th className="text-left py-1.5 pr-2 font-medium text-muted-foreground">최대</th>
+                                    <th className="text-left py-1.5 font-medium text-muted-foreground">좌석</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {tp.tiers.map((tier) => (
+                                    <tr key={tier.id} className="border-b border-border/50 last:border-0">
+                                      <td className="py-1.5 pr-2">{tier.name}</td>
+                                      <td className="py-1.5 pr-2">{tier.dDay === null ? "고정좌석" : tier.dDay < 0 ? `D${tier.dDay}` : `D-${tier.dDay}`}</td>
+                                      <td className="py-1.5 pr-2">{tier.time || "—"}</td>
+                                      <td className="py-1.5 pr-2">{tier.maxTickets != null ? `${tier.maxTickets}매` : "—"}</td>
+                                      <td className="py-1.5">{tier.seats}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
 
@@ -555,10 +646,12 @@ export default function Stadium() {
                       spots={parking.map((s) => ({ ...s, kind: "parking" }))}
                       center={surroundingsCenter}
                       zoom={surroundingsZoom}
+                      focusedSpotId={focusedSpot}
+                      onPinClick={(spotId) => setFocusedSpot(spotId)}
                     />
                   )}
                   {parking.length > 0 ? (
-                    parking.map((spot, i) => <ParkingCard key={i} spot={spot} />)
+                    parking.map((spot, i) => <ParkingCard key={i} spot={spot} onClick={() => setFocusedSpot(spot.id || String(i))} />)
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
                       <p className="text-muted-foreground text-sm">주차 정보 준비 중</p>
@@ -575,13 +668,22 @@ export default function Stadium() {
                       spots={transitSpots}
                       center={surroundingsCenter}
                       zoom={surroundingsZoom}
+                      focusedSpotId={focusedSpot}
+                      onPinClick={(spotId) => setFocusedSpot(spotId)}
                     />
                   )}
+                  {transitSpots.length > 0 ? (
+                    transitSpots.map((spot, i) => (
+                      <TransitSpotCard key={i} spot={spot} onClick={() => setFocusedSpot(spot.id || String(i))} />
+                    ))
+                  ) : (
+                    <div className="bg-card rounded-2xl border border-border p-5">
+                      <InfoCard icon={Train} label="지하철" value={stadium.transit.subway} />
+                      <div className="border-t border-border" />
+                      <InfoCard icon={Navigation} label="버스" value={stadium.transit.bus} />
+                    </div>
+                  )}
                   <div className="bg-card rounded-2xl border border-border p-5">
-                    <InfoCard icon={Train} label="지하철" value={stadium.transit.subway} />
-                    <div className="border-t border-border" />
-                    <InfoCard icon={Navigation} label="버스" value={stadium.transit.bus} />
-                    <div className="border-t border-border" />
                     <InfoCard icon={Car} label="주차 안내" value={`${stadium.parking.fee}\n${stadium.parking.note}`} />
                   </div>
                 </div>
@@ -592,13 +694,15 @@ export default function Stadium() {
                 <div className="flex flex-col gap-2">
                   {nearby.length > 0 && (
                     <StadiumMap
-                      spots={nearby.map((r) => ({ lng: r.lng, lat: r.lat, name: r.name, description: `${r.cat} · ${r.address}`, kind: "parking" }))}
+                      spots={nearby.map((r, i) => ({ id: String(i), lng: r.lng, lat: r.lat, name: r.name, description: `${r.cat} · ${r.address}`, kind: "parking" }))}
                       center={eatsCenter}
                       zoom={14}
+                      focusedSpotId={focusedSpot}
+                      onPinClick={(spotId) => setFocusedSpot(spotId)}
                     />
                   )}
                   {nearby.length > 0 ? (
-                    nearby.map((r, i) => <NearbyCard key={i} restaurant={r} />)
+                    nearby.map((r, i) => <NearbyCard key={i} restaurant={r} onClick={() => setFocusedSpot(String(i))} />)
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
                       <p className="text-muted-foreground text-sm">주변 맛집 정보 준비 중</p>

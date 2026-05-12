@@ -19,6 +19,8 @@ interface StadiumMapProps {
   zoom?: number;
   className?: string;
   style?: React.CSSProperties;
+  focusedSpotId?: string;
+  onPinClick?: (spotId: string) => void;
 }
 
 function pinSvgHtml(fill: string): string {
@@ -52,9 +54,10 @@ function spotKind(raw: string | undefined, index: number): string {
   return index === 0 ? "stadium" : "parking";
 }
 
-export default function StadiumMap({ spots, center, zoom = 15, className, style }: StadiumMapProps) {
+export default function StadiumMap({ spots, center, zoom = 15, className, style, focusedSpotId, onPinClick }: StadiumMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const markersRef = useRef<Map<string, { marker: maplibregl.Marker; popup: maplibregl.Popup }>>(new Map());
 
   useEffect(() => {
     const container = containerRef.current;
@@ -70,6 +73,7 @@ export default function StadiumMap({ spots, center, zoom = 15, className, style 
 
     map.addControl(new maplibregl.NavigationControl({ showCompass: true }), "top-right");
     mapRef.current = map;
+    const markers = markersRef.current;
 
     map.once("load", () => {
       for (let i = 0; i < spots.length; i++) {
@@ -94,7 +98,13 @@ export default function StadiumMap({ spots, center, zoom = 15, className, style 
           .setPopup(popup)
           .addTo(map);
 
-        el.firstElementChild?.addEventListener("click", () => marker.togglePopup());
+        const spotId = spot.id || String(i);
+        markers.set(spotId, { marker, popup });
+
+        el.firstElementChild?.addEventListener("click", () => {
+          marker.togglePopup();
+          onPinClick?.(spotId);
+        });
       }
       map.resize();
     });
@@ -106,8 +116,29 @@ export default function StadiumMap({ spots, center, zoom = 15, className, style 
     return () => {
       map.remove();
       mapRef.current = null;
+      markers.clear();
     };
   }, []);
+
+  // Fly to focused spot when focusedSpotId changes
+  useEffect(() => {
+    if (!focusedSpotId || !mapRef.current) return;
+    const entry = markersRef.current.get(focusedSpotId);
+    if (!entry) return;
+
+    const { marker, popup } = entry;
+    const lngLat = marker.getLngLat();
+
+    mapRef.current.flyTo({ center: lngLat, zoom: Math.max(mapRef.current.getZoom(), 16), duration: 600 });
+
+    // Close other popups, open this one
+    markersRef.current.forEach((e) => {
+      if (e.marker !== marker) e.popup.remove();
+    });
+    if (!popup.isOpen()) {
+      marker.togglePopup();
+    }
+  }, [focusedSpotId]);
 
   return (
     <div

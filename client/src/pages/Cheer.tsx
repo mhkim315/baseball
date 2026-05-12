@@ -36,13 +36,13 @@ export default function Cheer() {
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
-        {/* 팀 선택 스크롤 */}
-        <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide -mx-4 px-4">
+        {/* 팀 선택 2×5 그리드 */}
+        <div className="grid grid-cols-5 gap-2">
           {TEAM_LIST.map((t) => (
             <button
               key={t.id}
               onClick={() => { setSelectedTeam(t.id); setExpandedSection(0); }}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+              className={`px-2 py-2 rounded-lg text-sm font-medium transition-all border text-center ${
                 selectedTeam === t.id
                   ? "text-white border-transparent shadow-sm"
                   : "text-foreground border-border bg-card hover:bg-accent"
