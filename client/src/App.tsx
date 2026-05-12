@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Router, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -14,7 +14,7 @@ import Rules from "./pages/Rules";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
 
-function Router() {
+function AppRoutes() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -24,7 +24,6 @@ function Router() {
       <Route path={"/cheer"} component={Cheer} />
       <Route path={"/rank"} component={Standings} />
       <Route path={"/rules"} component={Rules} />
-      <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -35,10 +34,12 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Toaster />
-          <Header />
-          <Router />
-          <BottomNav />
+          <Router base="/baseball_app">
+            <Toaster />
+            <Header />
+            <AppRoutes />
+            <BottomNav />
+          </Router>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
