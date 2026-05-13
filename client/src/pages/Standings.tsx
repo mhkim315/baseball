@@ -79,18 +79,7 @@ export default function Standings() {
                   <span className={`text-center text-sm font-bold ${index < 5 ? "text-foreground" : "text-muted-foreground"}`}>
                     {row.rank}
                   </span>
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div
-                      className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-[7px] font-bold"
-                      style={{
-                        backgroundColor: team?.primary || "#888",
-                        color: team?.secondary || "#fff",
-                      }}
-                    >
-                      {(team?.shortName || row.teamName).slice(0, 1)}
-                    </div>
-                    <span className="text-sm font-medium truncate">{team?.shortName || row.teamName}</span>
-                  </div>
+                  <span className="text-sm font-medium truncate">{team?.shortName || row.teamName}</span>
                   <span className="text-center text-sm">{wins}</span>
                   <span className="text-center text-sm">{draws}</span>
                   <span className="text-center text-sm">{losses}</span>

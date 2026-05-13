@@ -1,13 +1,12 @@
 import { useLocation } from "wouter";
-import { Home, Calendar, MapPin, Music, BarChart3, BookOpen } from "lucide-react";
+import { Home, Calendar, MapPin, Music, BarChart3 } from "lucide-react";
 
 const navItems = [
   { path: "/", label: "홈", icon: Home },
   { path: "/calendar", label: "캘린더", icon: Calendar },
   { path: "/stadium", label: "구장안내", icon: MapPin },
-  { path: "/cheer", label: "응원", icon: Music },
   { path: "/rank", label: "순위", icon: BarChart3 },
-  { path: "/rules", label: "규칙", icon: BookOpen },
+  { path: "/cheer", label: "응원", icon: Music },
 ];
 
 export default function BottomNav() {
