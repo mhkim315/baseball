@@ -79,11 +79,11 @@ export default function GameCard({
             {away.shortName}
           </div>
           {hasResult && winPitcher ? (
-            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+            <span className="text-xs text-muted-foreground">
               {isDraw ? `무: ${winPitcher}` : awayWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
             </span>
           ) : awayPitcher ? (
-            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+            <span className="text-xs text-muted-foreground">
               선발 {awayPitcher}
             </span>
           ) : null}
@@ -122,11 +122,11 @@ export default function GameCard({
             {home.shortName}
           </div>
           {hasResult && winPitcher ? (
-            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+            <span className="text-xs text-muted-foreground">
               {isDraw ? `무: ${winPitcher}` : homeWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
             </span>
           ) : homePitcher ? (
-            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+            <span className="text-xs text-muted-foreground">
               선발 {homePitcher}
             </span>
           ) : null}
