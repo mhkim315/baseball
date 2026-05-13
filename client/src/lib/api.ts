@@ -29,6 +29,17 @@ export interface TeamData {
   short_name: string;
 }
 
+export interface ScoreEntry {
+  away: string;
+  home: string;
+  awayScore: number;
+  homeScore: number;
+  outcome: string | null;
+  cancelled: boolean;
+  winPitcher: string | null;
+  losePitcher: string | null;
+}
+
 export interface StadiumBrief {
   id: string;
   name: string;
@@ -111,6 +122,7 @@ export interface GameDetail {
   awayTeam: string;
   starters: { home: { name: string } | null; away: { name: string } | null };
   lineup: { home: any[]; away: any[] };
+  lineupConfirmed?: boolean;
   gameInfo?: { time: string; venue: string; status: string };
   score?: { away: number; home: number };
   scoreBoard?: {

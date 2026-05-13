@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import DateSelector from "@/components/DateSelector";
 import GameCard from "@/components/GameCard";
-import { fetchGames, fetchTodayGames, fetchDailyScores, type GameData, type TodayGame } from "@/lib/api";
+import { fetchGames, fetchTodayGames, fetchDailyScores, fetchScheduleByMonth, type GameData, type TodayGame, type ScoreEntry } from "@/lib/api";
 import { TEAM_COLORS } from "@/lib/teamColors";
 
 const TEAM_NAME_TO_ID: Record<string, string> = {
@@ -10,6 +10,11 @@ const TEAM_NAME_TO_ID: Record<string, string> = {
   "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
   "롯데": "lotte", "키움": "kiwoom",
 };
+
+// Reverse: teamId → shortName (Korean)
+function teamShortName(teamId: string): string {
+  return TEAM_COLORS[teamId]?.shortName || "";
+}
 
 function formatDateStr(date: Date): string {
   const y = date.getFullYear();
@@ -44,6 +49,9 @@ interface EnhancedGame {
   awayScore?: number;
   homePitcher?: string;
   awayPitcher?: string;
+  winPitcher?: string | null;
+  losePitcher?: string | null;
+  cancelled?: boolean;
 }
 
 export default function Home() {
@@ -51,6 +59,7 @@ export default function Home() {
   const [, setLocation] = useLocation();
   const [enhancedGames, setEnhancedGames] = useState<EnhancedGame[]>([]);
   const [loading, setLoading] = useState(true);
+  const scheduleCache = useRef<{ month: number; games: any[] } | null>(null);
 
   useEffect(() => {
     const dateStr = formatDateStr(selectedDate);
@@ -81,21 +90,41 @@ export default function Home() {
         setLoading(false);
       });
     } else {
-      // Other dates: use daily-scores (has results) + games DB (has teams)
+      // Past/future dates: use schedule + dailyScores
+      const month = selectedDate.getMonth() + 1;
+      const schedulePromise = scheduleCache.current?.month === month
+        ? Promise.resolve(scheduleCache.current.games)
+        : fetchScheduleByMonth(month).then((s) => {
+            const games = s?.games || [];
+            scheduleCache.current = { month, games };
+            return games;
+          });
+
       Promise.all([
-        fetchGames(dateStr),
+        schedulePromise,
         fetchDailyScores(dateStr),
-      ]).then(([gamesData, scoresData]) => {
-        const games: EnhancedGame[] = (gamesData || []).map((g: GameData) => {
+      ]).then(([scheduleGames, scoresData]) => {
+        const dayGames = scheduleGames.filter((g: any) => g.date === dateStr);
+        const scoreEntries: ScoreEntry[] = scoresData?.games || [];
+
+        const games: EnhancedGame[] = dayGames.map((g: any) => {
+          const homeId = TEAM_NAME_TO_ID[g.home] || "";
+          const awayId = TEAM_NAME_TO_ID[g.away] || "";
+          const score = scoreEntries.find(
+            (s) => s.home === g.home && s.away === g.away
+          );
           return {
-            id: g.id || `${dateStr}-${g.home_team_id}-${g.away_team_id}`,
-            homeTeam: g.home_team_id,
-            awayTeam: g.away_team_id,
+            id: `${dateStr.replace(/-/g, "")}-${awayId}-${homeId}`,
+            homeTeam: homeId,
+            awayTeam: awayId,
             time: g.time || "18:30",
             venue: g.venue || "",
-            status: g.status as "scheduled" | "live" | "finished",
-            homeScore: g.home_score ?? undefined,
-            awayScore: g.away_score ?? undefined,
+            status: score ? "finished" : (g.status || "scheduled"),
+            homeScore: score ? score.homeScore : undefined,
+            awayScore: score ? score.awayScore : undefined,
+            winPitcher: score?.winPitcher,
+            losePitcher: score?.losePitcher,
+            cancelled: score?.cancelled,
           };
         });
         setEnhancedGames(games);
@@ -153,6 +182,9 @@ export default function Home() {
                   awayScore={game.awayScore}
                   homePitcher={game.homePitcher}
                   awayPitcher={game.awayPitcher}
+                  winPitcher={game.winPitcher}
+                  losePitcher={game.losePitcher}
+                  cancelled={game.cancelled}
                   onClick={() => setLocation(`/game/${game.id}`)}
                 />
               );

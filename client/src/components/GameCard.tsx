@@ -10,6 +10,9 @@ interface GameCardProps {
   status?: "scheduled" | "live" | "finished";
   homeScore?: number;
   awayScore?: number;
+  winPitcher?: string | null;
+  losePitcher?: string | null;
+  cancelled?: boolean;
   onClick?: () => void;
 }
 
@@ -23,6 +26,9 @@ export default function GameCard({
   status = "scheduled",
   homeScore,
   awayScore,
+  winPitcher,
+  losePitcher,
+  cancelled,
   onClick,
 }: GameCardProps) {
   const home = TEAM_COLORS[homeTeam];
@@ -30,8 +36,9 @@ export default function GameCard({
 
   if (!home || !away) return null;
 
-  const hasResult = status === "finished" && homeScore !== undefined && awayScore !== undefined;
+  const hasResult = status === "finished" && homeScore !== undefined && awayScore !== undefined && !cancelled;
   const homeWon = hasResult ? homeScore! > awayScore! : null;
+  const awayWon = hasResult ? awayScore! > homeScore! : null;
 
   const cardStyle: React.CSSProperties = {
     borderLeft: `3px solid ${home.primary}`,
@@ -69,20 +76,26 @@ export default function GameCard({
           >
             {away.shortName}
           </div>
-          {awayPitcher && (
+          {hasResult && winPitcher ? (
+            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+              {awayWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
+            </span>
+          ) : awayPitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
               {awayPitcher}
             </span>
-          )}
+          ) : null}
         </div>
 
         {/* 스코어 또는 VS */}
         <div className="flex flex-col items-center gap-1 px-4">
-          {status === "finished" || status === "live" ? (
+          {cancelled ? (
+            <span className="text-sm font-medium text-muted-foreground line-through">취소</span>
+          ) : status === "finished" || status === "live" ? (
             <div className="flex items-center gap-3">
-              <span className="text-2xl font-bold">{awayScore}</span>
+              <span className={`text-2xl font-bold ${hasResult && !awayWon ? "text-muted-foreground/50" : ""}`}>{awayScore}</span>
               <span className="text-sm text-muted-foreground">:</span>
-              <span className="text-2xl font-bold">{homeScore}</span>
+              <span className={`text-2xl font-bold ${hasResult && !homeWon ? "text-muted-foreground/50" : ""}`}>{homeScore}</span>
             </div>
           ) : (
             <span className="text-sm font-medium text-muted-foreground">VS</span>
@@ -106,11 +119,15 @@ export default function GameCard({
           >
             {home.shortName}
           </div>
-          {homePitcher && (
+          {hasResult && winPitcher ? (
+            <span className="text-xs text-muted-foreground truncate max-w-[80px]">
+              {homeWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
+            </span>
+          ) : homePitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
               {homePitcher}
             </span>
-          )}
+          ) : null}
         </div>
       </div>
 

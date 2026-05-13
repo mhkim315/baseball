@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useParams } from "wouter";
 import { ChevronLeft } from "lucide-react";
 import { TEAM_COLORS } from "@/lib/teamColors";
-import { fetchGameDetail, type GameDetail } from "@/lib/api";
+import { fetchGameDetail, fetchDailyScores, type GameDetail, type ScoreEntry } from "@/lib/api";
 
 interface TeamBadgeProps {
   teamId: string;
@@ -55,12 +55,26 @@ export default function GameDetailPage() {
 
   const [detail, setDetail] = useState<GameDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [scoreFallback, setScoreFallback] = useState<ScoreEntry | null>(null);
 
   useEffect(() => {
     if (!gameId) return;
     fetchGameDetail(gameId).then((data) => {
       setDetail(data);
       setLoading(false);
+      // If finished game but no scoreBoard/pitchingResult, try dailyScores fallback
+      if (data?.gameInfo?.status === "finished" && !data.scoreBoard && !data.pitchingResult) {
+        const dateStr = `${gameId.slice(0, 4)}-${gameId.slice(4, 6)}-${gameId.slice(6, 8)}`;
+        fetchDailyScores(dateStr).then((scores) => {
+          if (!scores?.games) return;
+          const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
+          const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
+          const match = scores.games.find(
+            (s) => s.home === homeName && s.away === awayName
+          );
+          if (match) setScoreFallback(match);
+        });
+      }
     });
   }, [gameId]);
 
@@ -224,8 +238,8 @@ export default function GameDetailPage() {
           </div>
         </div>
 
-        {/* Pitching results (Win/Loss/Save) */}
-        {detail.pitchingResult && detail.pitchingResult.length > 0 && (
+        {/* Pitching result: 승/패 from game-records or dailyScores fallback */}
+        {detail.pitchingResult && detail.pitchingResult.length > 0 ? (
           <div className="bg-card rounded-2xl border border-border p-4 mt-3">
             <h3 className="text-sm font-semibold mb-3">투수 기록</h3>
             <div className="flex flex-col gap-2">
@@ -247,7 +261,23 @@ export default function GameDetailPage() {
               })}
             </div>
           </div>
-        )}
+        ) : scoreFallback ? (
+          <div className="bg-card rounded-2xl border border-border p-4 mt-3">
+            <h3 className="text-sm font-semibold mb-3">투수 기록</h3>
+            <div className="flex items-center justify-between bg-accent/30 rounded-xl px-4 py-2.5">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-950">승</span>
+                <span className="text-sm font-medium">{scoreFallback.winPitcher || "-"}</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between bg-accent/30 rounded-xl px-4 py-2.5 mt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded text-red-500 bg-red-50 dark:text-red-400 dark:bg-red-950">패</span>
+                <span className="text-sm font-medium">{scoreFallback.losePitcher || "-"}</span>
+              </div>
+            </div>
+          </div>
+        ) : null}
 
         {/* Lineup or 예상/확정 */}
         {hasLineup ? (
