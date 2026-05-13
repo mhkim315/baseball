@@ -132,13 +132,6 @@ export default function GameCard({
           ) : null}
         </div>
       </div>
-
-      {/* 하단: 라인업 확인 안내 */}
-      <div className="mt-4 pt-3 border-t border-border">
-        <p className="text-center text-xs text-muted-foreground">
-          탭하여 라인업 확인 →
-        </p>
-      </div>
     </button>
   );
 }
