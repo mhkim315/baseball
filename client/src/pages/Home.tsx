@@ -68,21 +68,33 @@ export default function Home() {
     const todayView = isToday(selectedDate);
 
     if (todayView) {
-      // Today: use today-games (has starters)
-      fetchTodayGames().then((data) => {
-        if (data?.games) {
-          const games: EnhancedGame[] = data.games.map((g: TodayGame) => ({
-            id: g.id,
-            homeTeam: g.home.id,
-            awayTeam: g.away.id,
-            time: g.time || "18:30",
-            venue: g.venue || "",
-            status: (g.status as "scheduled" | "live" | "finished") || "scheduled",
-            homeScore: g.score?.home,
-            awayScore: g.score?.away,
-            homePitcher: g.home.starter?.name,
-            awayPitcher: g.away.starter?.name,
-          }));
+      // Today: use today-games (has starters) + dailyScores (has win/loss)
+      Promise.all([
+        fetchTodayGames(),
+        fetchDailyScores(dateStr),
+      ]).then(([gamesData, scoresData]) => {
+        const scoreEntries: ScoreEntry[] = scoresData?.games || [];
+        if (gamesData?.games) {
+          const games: EnhancedGame[] = gamesData.games.map((g: TodayGame) => {
+            const score = scoreEntries.find(
+              (s) => s.away === TEAM_COLORS[g.away.id]?.shortName && s.home === TEAM_COLORS[g.home.id]?.shortName
+            );
+            return {
+              id: g.id,
+              homeTeam: g.home.id,
+              awayTeam: g.away.id,
+              time: g.time || "18:30",
+              venue: g.venue || "",
+              status: (g.status as "scheduled" | "live" | "finished") || "scheduled",
+              homeScore: g.score?.home ?? score?.homeScore,
+              awayScore: g.score?.away ?? score?.awayScore,
+              homePitcher: g.home.starter?.name,
+              awayPitcher: g.away.starter?.name,
+              winPitcher: score?.winPitcher,
+              losePitcher: score?.losePitcher,
+              cancelled: score?.cancelled,
+            };
+          });
           setEnhancedGames(games);
         } else {
           setEnhancedGames([]);

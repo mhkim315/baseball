@@ -82,7 +82,7 @@ export default function GameCard({
             </span>
           ) : awayPitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
-              {awayPitcher}
+              선발 {awayPitcher}
             </span>
           ) : null}
         </div>
@@ -125,7 +125,7 @@ export default function GameCard({
             </span>
           ) : homePitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
-              {homePitcher}
+              선발 {homePitcher}
             </span>
           ) : null}
         </div>
