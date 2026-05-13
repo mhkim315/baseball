@@ -10,7 +10,6 @@ import CalendarPage from "./pages/CalendarPage";
 import Stadium from "./pages/Stadium";
 import Cheer from "./pages/Cheer";
 import Standings from "./pages/Standings";
-import Rules from "./pages/Rules";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
 
@@ -23,7 +22,6 @@ function AppRoutes() {
       <Route path={"/stadium"} component={Stadium} />
       <Route path={"/cheer"} component={Cheer} />
       <Route path={"/rank"} component={Standings} />
-      <Route path={"/rules"} component={Rules} />
       <Route component={NotFound} />
     </Switch>
   );
