@@ -314,7 +314,7 @@ export default function Cheer() {
                           rel="noopener noreferrer"
                           className="bg-card flex items-center justify-center py-4 px-2 hover:bg-accent/20 transition-colors"
                         >
-                          <span className="text-sm font-medium truncate">{name}</span>
+                          <span className="text-sm font-medium">{name}</span>
                         </a>
                       ))}
                     </div>
