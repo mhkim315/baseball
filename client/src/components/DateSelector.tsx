@@ -68,7 +68,8 @@ export default function DateSelector({
           const isSelected = isSameDay(date, selectedDate);
           const isToday = isSameDay(date, new Date());
           const dayIndex = date.getDay();
-          const dateStr = date.toISOString().split("T")[0];
+          const d = date;
+          const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
           const hasGame = hasGameDates.includes(dateStr);
 
           return (

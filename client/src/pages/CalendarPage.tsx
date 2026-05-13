@@ -44,7 +44,11 @@ function teamShortName(teamId: string): string {
 export default function CalendarPage() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedTeam, setSelectedTeam] = useState<string>(() => {
-    return localStorage.getItem("cal-team") || TEAM_LIST[0]?.id || "doosan";
+    try {
+      return localStorage.getItem("cal-team") || TEAM_LIST[0]?.id || "doosan";
+    } catch {
+      return TEAM_LIST[0]?.id || "doosan";
+    }
   });
   const [games, setGames] = useState<ScheduleGame[]>([]);
   const [scoresByDate, setScoresByDate] = useState<Record<string, ScoreInfo[]>>({});
@@ -68,7 +72,7 @@ export default function CalendarPage() {
         setScoresByDate(mapped);
       }
       setLoading(false);
-    });
+    }).catch(() => setLoading(false));
   }, [month, year]);
 
   const teamName = useMemo(() => teamShortName(selectedTeam), [selectedTeam]);

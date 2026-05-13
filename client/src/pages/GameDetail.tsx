@@ -62,14 +62,16 @@ export default function GameDetailPage() {
 
   useEffect(() => {
     if (!gameId) return;
+    let cancelled = false;
+    setScoreFallback(null);
     fetchGameDetail(gameId).then((data) => {
+      if (cancelled) return;
       setDetail(data);
       setLoading(false);
-      // If finished game but no scoreBoard/pitchingResult, try dailyScores fallback
       if (data?.gameInfo?.status === "finished" && !data.scoreBoard && !data.pitchingResult) {
         const dateStr = `${gameId.slice(0, 4)}-${gameId.slice(4, 6)}-${gameId.slice(6, 8)}`;
         fetchDailyScores(dateStr).then((scores) => {
-          if (!scores?.games) return;
+          if (cancelled || !scores?.games) return;
           const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
           const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
           const match = scores.games.find(
@@ -79,6 +81,7 @@ export default function GameDetailPage() {
         });
       }
     });
+    return () => { cancelled = true; };
   }, [gameId]);
 
   if (loading) {

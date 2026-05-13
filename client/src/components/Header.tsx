@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { Home, Calendar, MapPin, Music, BarChart3, BookOpen } from "lucide-react";
+import { Home, Calendar, MapPin, Music, BarChart3 } from "lucide-react";
 
 const navItems = [
   { path: "/", label: "홈", icon: Home },
@@ -7,7 +7,6 @@ const navItems = [
   { path: "/stadium", label: "구장안내", icon: MapPin },
   { path: "/cheer", label: "응원", icon: Music },
   { path: "/rank", label: "순위", icon: BarChart3 },
-  { path: "/rules", label: "규칙", icon: BookOpen },
 ];
 
 export default function Header() {
@@ -24,7 +23,7 @@ export default function Header() {
         </button>
         <nav className="flex items-center gap-1">
           {navItems.map((item) => {
-            const isActive = location === item.path;
+            const isActive = item.path === "/" ? location === "/" : location.startsWith(item.path);
             const Icon = item.icon;
             return (
               <button

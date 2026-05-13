@@ -39,6 +39,7 @@ export default function GameCard({
   const hasResult = status === "finished" && homeScore !== undefined && awayScore !== undefined && !cancelled;
   const homeWon = hasResult ? homeScore! > awayScore! : null;
   const awayWon = hasResult ? awayScore! > homeScore! : null;
+  const isDraw = hasResult ? homeScore === awayScore : null;
   const showScore = (status === "finished" || ((homeScore || 0) + (awayScore || 0) > 0)) && homeScore !== undefined && awayScore !== undefined;
 
   const cardStyle: React.CSSProperties = {
@@ -79,7 +80,7 @@ export default function GameCard({
           </div>
           {hasResult && winPitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
-              {awayWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
+              {isDraw ? `무: ${winPitcher}` : awayWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
             </span>
           ) : awayPitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
@@ -94,9 +95,9 @@ export default function GameCard({
             <span className="text-sm font-medium text-muted-foreground line-through">취소</span>
           ) : showScore ? (
             <div className="flex items-center gap-3">
-              <span className={`text-2xl font-bold ${hasResult && !awayWon ? "text-muted-foreground/50" : ""}`}>{awayScore}</span>
+              <span className={`text-2xl font-bold ${hasResult && !awayWon && !isDraw ? "text-muted-foreground/50" : ""}`}>{awayScore}</span>
               <span className="text-sm text-muted-foreground">:</span>
-              <span className={`text-2xl font-bold ${hasResult && !homeWon ? "text-muted-foreground/50" : ""}`}>{homeScore}</span>
+              <span className={`text-2xl font-bold ${hasResult && !homeWon && !isDraw ? "text-muted-foreground/50" : ""}`}>{homeScore}</span>
             </div>
           ) : (
             <span className="text-sm font-medium text-muted-foreground">VS</span>
@@ -122,7 +123,7 @@ export default function GameCard({
           </div>
           {hasResult && winPitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">
-              {homeWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
+              {isDraw ? `무: ${winPitcher}` : homeWon ? `승: ${winPitcher}` : `패: ${losePitcher ?? ""}`}
             </span>
           ) : homePitcher ? (
             <span className="text-xs text-muted-foreground truncate max-w-[80px]">

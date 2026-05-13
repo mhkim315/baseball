@@ -242,7 +242,7 @@ export default function Stadium() {
       }
       if (layouts) setFoodLayouts(layouts);
       setLoading(false);
-    });
+    }).catch(() => setLoading(false));
   }, [selectedTeam]);
 
   useEffect(() => {

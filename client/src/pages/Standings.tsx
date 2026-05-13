@@ -35,7 +35,7 @@ export default function Standings() {
         setFetchedAt(data.fetchedAt);
       }
       setLoading(false);
-    });
+    }).catch(() => setLoading(false));
   }, []);
 
   return (
@@ -83,12 +83,12 @@ export default function Standings() {
                   <span className="text-center text-sm">{wins}</span>
                   <span className="text-center text-sm">{draws}</span>
                   <span className="text-center text-sm">{losses}</span>
-                  <span className="text-center text-sm font-medium">{row.winRate.toFixed(3).slice(1)}</span>
+                  <span className="text-center text-sm font-medium">{row.winRate != null ? row.winRate.toFixed(3).slice(1) : "-"}</span>
                   <span className="text-center text-xs text-muted-foreground">
-                    {row.gamesBehind === 0 ? "-" : row.gamesBehind.toFixed(1)}
+                    {row.gamesBehind == null ? "-" : row.gamesBehind === 0 ? "-" : row.gamesBehind.toFixed(1)}
                   </span>
                   <span className={`text-center text-[11px] font-medium ${
-                    row.streak.includes("승") ? "text-blue-600" : "text-red-500"
+                    row.streak.includes("승") ? "text-blue-600" : row.streak.includes("무") ? "text-amber-600" : "text-red-500"
                   }`}>
                     {row.streak}
                   </span>

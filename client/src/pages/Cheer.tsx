@@ -54,16 +54,17 @@ export default function Cheer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let cancelled = false;
     setLoading(true);
     setLineupPlayers([]);
     Promise.all([
       fetchCheeringSongs(selectedTeam),
       fetchCheeringPlayers(selectedTeam),
     ]).then(([songsData, playersData]) => {
+      if (cancelled) return;
       if (songsData) setSections(songsData.sections);
       if (playersData) setPlayers(playersData.players);
 
-      // Try to get today's lineup for this team
       const tryTodayLineup = () =>
         fetchTodayGames().then((today) => {
           if (!today?.games) return null;
@@ -79,7 +80,6 @@ export default function Cheer() {
           });
         });
 
-      // Fallback: try yesterday's game lineup
       const tryPrevLineup = () => {
         const yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
@@ -107,21 +107,25 @@ export default function Cheer() {
       };
 
       tryTodayLineup().then((names) => {
+        if (cancelled) return;
         if (names) {
           setLineupPlayers(names);
           setLineupSource("today");
-          setLoading(false);
         } else {
           tryPrevLineup().then((prevNames) => {
+            if (cancelled) return;
             if (prevNames) {
               setLineupPlayers(prevNames);
               setLineupSource("prev");
             }
-            setLoading(false);
-          });
+          }).catch(() => {}).finally(() => { if (!cancelled) setLoading(false); });
+          return;
         }
-      });
-    });
+        setLoading(false);
+      }).catch(() => { if (!cancelled) setLoading(false); });
+    }).catch(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
   }, [selectedTeam]);
 
   // Use lineup players if available, otherwise fall back to dummy players
