@@ -10,6 +10,11 @@ const TEAM_NAME_TO_ID: Record<string, string> = {
   "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
   "롯데": "lotte", "키움": "kiwoom",
 };
+const TEAM_ID_TO_CODE: Record<string, string> = {
+  "doosan": "OB", "lg": "LG", "kiwoom": "WO", "ssg": "SK",
+  "kt": "KT", "hanwha": "HH", "samsung": "SS", "kia": "HT",
+  "lotte": "LT", "nc": "NC",
+};
 
 // Reverse: teamId → shortName (Korean)
 function teamShortName(teamId: string): string {
@@ -125,11 +130,13 @@ export default function Home() {
         const games: EnhancedGame[] = dayGames.map((g: any) => {
           const homeId = TEAM_NAME_TO_ID[g.home] || "";
           const awayId = TEAM_NAME_TO_ID[g.away] || "";
+          const homeCode = TEAM_ID_TO_CODE[homeId] || "";
+          const awayCode = TEAM_ID_TO_CODE[awayId] || "";
           const score = scoreEntries.find(
             (s) => s.home === g.home && s.away === g.away
           );
           return {
-            id: `${dateStr.replace(/-/g, "")}-${awayId}-${homeId}`,
+            id: `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`,
             homeTeam: homeId,
             awayTeam: awayId,
             time: g.time || "18:30",

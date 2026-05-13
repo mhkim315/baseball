@@ -34,7 +34,10 @@ function TeamBadge({ teamId, size = "md" }: TeamBadgeProps) {
 const POSITION_LABELS: Record<string, string> = {
   "1": "1B", "2": "2B", "3": "3B",
   "유": "SS", "포": "C", "중": "CF",
-  "좌": "LF", "우": "RF", "지": "DH",
+  "좌": "LF", "우": "RF", "지": "DH", "투": "P",
+  "1루수": "1B", "2루수": "2B", "3루수": "3B",
+  "유격수": "SS", "포수": "C", "중견수": "CF",
+  "좌익수": "LF", "우익수": "RF", "지명타자": "DH", "투수": "P",
 };
 
 const WLS_LABELS: Record<string, string> = {
