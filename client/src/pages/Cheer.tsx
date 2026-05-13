@@ -1,7 +1,25 @@
 import { useState, useEffect } from "react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
-import { fetchCheeringSongs, fetchCheeringPlayers, type CheerSection, type PlayerCheer } from "@/lib/api";
+import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores, type CheerSection, type PlayerCheer } from "@/lib/api";
 import { Music, ExternalLink, User, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+
+const TEAM_NAME_TO_ID: Record<string, string> = {
+  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
+  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
+  "롯데": "lotte", "키움": "kiwoom",
+};
+const TEAM_TO_CODE: Record<string, string> = {
+  "doosan": "OB", "lg": "LG", "kiwoom": "WO", "ssg": "SK",
+  "kt": "KT", "hanwha": "HH", "samsung": "SS", "kia": "HT",
+  "lotte": "LT", "nc": "NC",
+};
+
+function formatDateStr(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -31,19 +49,83 @@ export default function Cheer() {
 
   const [sections, setSections] = useState<CheerSection[]>([]);
   const [players, setPlayers] = useState<PlayerCheer[]>([]);
+  const [lineupPlayers, setLineupPlayers] = useState<string[]>([]);
+  const [lineupSource, setLineupSource] = useState<"today" | "prev" | "dummy">("dummy");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
+    setLineupPlayers([]);
     Promise.all([
       fetchCheeringSongs(selectedTeam),
       fetchCheeringPlayers(selectedTeam),
     ]).then(([songsData, playersData]) => {
       if (songsData) setSections(songsData.sections);
       if (playersData) setPlayers(playersData.players);
-      setLoading(false);
+
+      // Try to get today's lineup for this team
+      const tryTodayLineup = () =>
+        fetchTodayGames().then((today) => {
+          if (!today?.games) return null;
+          const myGame = today.games.find(
+            (g: any) => g.home?.id === selectedTeam || g.away?.id === selectedTeam
+          );
+          if (!myGame?.id) return null;
+          return fetchGameDetail(myGame.id).then((detail) => {
+            if (!detail?.lineup) return null;
+            const side = detail.homeTeam === selectedTeam ? "home" : "away";
+            const batters = detail.lineup[side] || [];
+            return batters.length > 0 ? batters.map((b: any) => b.name) : null;
+          });
+        });
+
+      // Fallback: try yesterday's game lineup
+      const tryPrevLineup = () => {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yStr = formatDateStr(yesterday);
+        return fetchDailyScores(yStr).then((scores) => {
+          if (!scores?.games) return null;
+          const teamKr = TEAM_COLORS[selectedTeam]?.shortName || "";
+          const game = scores.games.find(
+            (g: any) => g.home === teamKr || g.away === teamKr
+          );
+          if (!game) return null;
+          const awayId = TEAM_NAME_TO_ID[game.away] || "";
+          const homeId = TEAM_NAME_TO_ID[game.home] || "";
+          const awayCode = TEAM_TO_CODE[awayId] || "";
+          const homeCode = TEAM_TO_CODE[homeId] || "";
+          if (!awayCode || !homeCode) return null;
+          const gameId = `${yStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`;
+          return fetchGameDetail(gameId).then((detail) => {
+            if (!detail?.lineup) return null;
+            const side = detail.homeTeam === selectedTeam ? "home" : "away";
+            const batters = detail.lineup[side] || [];
+            return batters.length > 0 ? batters.map((b: any) => b.name) : null;
+          });
+        });
+      };
+
+      tryTodayLineup().then((names) => {
+        if (names) {
+          setLineupPlayers(names);
+          setLineupSource("today");
+          setLoading(false);
+        } else {
+          tryPrevLineup().then((prevNames) => {
+            if (prevNames) {
+              setLineupPlayers(prevNames);
+              setLineupSource("prev");
+            }
+            setLoading(false);
+          });
+        }
+      });
     });
   }, [selectedTeam]);
+
+  // Use lineup players if available, otherwise fall back to dummy players
+  const displayPlayers = lineupPlayers.length > 0 ? lineupPlayers : players.map((p) => p.name);
 
   const team = TEAM_COLORS[selectedTeam];
   const totalSongs = sections.reduce((a, s) => a + s.songs.length, 0);
@@ -96,7 +178,7 @@ export default function Cheer() {
               <div>
                 <h3 className="font-semibold text-base">{team.name}</h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  응원가 {totalSongs}곡 · 선수 {players.length}명
+                  응원가 {totalSongs}곡 · 선수 {displayPlayers.length}명
                 </p>
               </div>
             </div>
@@ -209,20 +291,21 @@ export default function Cheer() {
                 </div>
               )}
 
-              {/* 선수 응원가 */}
+              {/* 선수 응원가 (라인업 기준) */}
               {activeTab === "players" && (
                 <div className="bg-card rounded-2xl border border-border overflow-hidden">
                   <div className="px-4 py-3 border-b border-border bg-accent/30">
                     <p className="text-xs text-muted-foreground">
+                      {lineupSource === "today" ? "오늘 라인업 기준 · " : lineupSource === "prev" ? "전경기 라인업 기준 · " : ""}
                       선수 이름을 탭하면 YouTube에서 응원가를 검색합니다
                     </p>
                   </div>
-                  {players.length > 0 ? (
+                  {displayPlayers.length > 0 ? (
                     <div className="grid grid-cols-3 gap-px bg-border">
-                      {players.map((player, i) => (
+                      {displayPlayers.map((name, i) => (
                         <a
                           key={i}
-                          href={`https://www.youtube.com/results?search_query=${encodeURIComponent(team?.name + " " + player.name + " 응원가")}`}
+                          href={`https://www.youtube.com/results?search_query=${encodeURIComponent(team?.name + " " + name + " 응원가")}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-card flex flex-col items-center gap-2 py-4 hover:bg-accent/20 transition-colors"
@@ -231,15 +314,15 @@ export default function Cheer() {
                             className="w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold"
                             style={{ backgroundColor: (team?.primary || "#000") + "15", color: team?.primary }}
                           >
-                            {player.name.slice(0, 1)}
+                            {name.slice(0, 1)}
                           </div>
-                          <span className="text-xs font-medium">{player.name}</span>
+                          <span className="text-xs font-medium">{name}</span>
                         </a>
                       ))}
                     </div>
                   ) : (
                     <div className="p-8 text-center">
-                      <p className="text-muted-foreground text-sm">선수 응원가 정보 준비 중</p>
+                      <p className="text-muted-foreground text-sm">라인업 정보를 불러오는 중입니다</p>
                     </div>
                   )}
                 </div>
