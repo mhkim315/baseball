@@ -312,15 +312,9 @@ export default function Cheer() {
                           href={`https://www.youtube.com/results?search_query=${encodeURIComponent(team?.name + " " + name + " 응원가")}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-card flex flex-col items-center gap-2 py-4 hover:bg-accent/20 transition-colors"
+                          className="bg-card flex items-center justify-center py-4 px-2 hover:bg-accent/20 transition-colors"
                         >
-                          <div
-                            className="w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold"
-                            style={{ backgroundColor: (team?.primary || "#000") + "15", color: team?.primary }}
-                          >
-                            {name.slice(0, 1)}
-                          </div>
-                          <span className="text-xs font-medium">{name}</span>
+                          <span className="text-sm font-medium truncate">{name}</span>
                         </a>
                       ))}
                     </div>
