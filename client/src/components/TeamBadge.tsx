@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { TEAM_COLORS } from "@/lib/teamColors";
 import { config } from "@/lib/config";
 
@@ -28,10 +28,18 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", className 
 
   const imgSrc = `${config.baseUrl}team-characters/${teamId}_${emotion}.png`;
 
+  const bgColor = useMemo(() => {
+    const hex = team.primary.replace("#", "");
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, 0.35)`;
+  }, [team.primary]);
+
   return (
     <div
       className={`${sizeClasses[size]} rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ${className}`}
-      style={{ backgroundColor: team.primary }}
+      style={{ backgroundColor: bgColor }}
     >
       {imgFailed ? (
         <span
