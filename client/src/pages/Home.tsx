@@ -51,8 +51,19 @@ interface EnhancedGame {
   cancelled?: boolean;
 }
 
+function getDefaultDate(): Date {
+  const now = new Date();
+  // After 8 PM KST, advance to next day (starting pitchers already announced)
+  if (now.getHours() >= 20) {
+    const next = new Date(now);
+    next.setDate(next.getDate() + 1);
+    return next;
+  }
+  return now;
+}
+
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(getDefaultDate());
   const [, setLocation] = useLocation();
   const [enhancedGames, setEnhancedGames] = useState<EnhancedGame[]>([]);
   const [loading, setLoading] = useState(true);
