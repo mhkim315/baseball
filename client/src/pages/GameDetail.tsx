@@ -130,7 +130,7 @@ export default function GameDetailPage() {
   const hasLineup = homeLineup.length > 0 && awayLineup.length > 0;
   const isFinished = detail.gameInfo?.status === "finished";
   const isLive = detail.gameInfo?.status === "live";
-  const statusLabel = isFinished ? "경기 종료" : isLive ? "LIVE" : "경기 전";
+  const statusLabel = isFinished ? "경기 종료" : isLive ? "경기 중" : "경기 전";
   const showLineupStatus = !isFinished && !isLive;
   const lineupConfirmed = detail.lineupConfirmed ?? false;
 
@@ -180,7 +180,7 @@ export default function GameDetailPage() {
                 isFinished ? "bg-accent text-muted-foreground" :
                 "bg-accent text-muted-foreground"
               }`}>
-                {isLive ? "LIVE" : statusLabel}
+                {isLive ? "경기 중" : statusLabel}
               </span>
             </div>
             <div className="flex flex-col items-center gap-2">

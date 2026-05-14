@@ -29,11 +29,8 @@ export function TeamBadge({ teamId, size = "md", className = "" }: TeamBadgeProp
 
   return (
     <div
-      className={`${sizeClasses[size]} rounded-full flex items-center justify-center overflow-hidden border-2 flex-shrink-0 ${className}`}
-      style={{
-        backgroundColor: team.primary,
-        borderColor: team.tertiary === "#FFFFFF" ? team.primary : team.tertiary,
-      }}
+      className={`${sizeClasses[size]} rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ${className}`}
+      style={{ backgroundColor: team.primary }}
     >
       {imgFailed ? (
         <span

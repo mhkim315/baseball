@@ -76,7 +76,7 @@ export default function GameCard({
             </span>
           ) : awayPitcher ? (
             <span className="text-xs text-muted-foreground">
-              오늘의 투수 {awayPitcher}
+              {awayPitcher}
             </span>
           ) : null}
         </div>
@@ -96,7 +96,7 @@ export default function GameCard({
           )}
           {status === "live" && (awayScore || 0) + (homeScore || 0) > 0 && (
             <span className="text-[10px] font-medium text-destructive animate-pulse">
-              LIVE
+              경기 중
             </span>
           )}
         </div>
@@ -110,7 +110,7 @@ export default function GameCard({
             </span>
           ) : homePitcher ? (
             <span className="text-xs text-muted-foreground">
-              오늘의 투수 {homePitcher}
+              {homePitcher}
             </span>
           ) : null}
         </div>
