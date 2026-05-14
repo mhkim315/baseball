@@ -139,8 +139,8 @@ export default function GameDetailPage() {
   const awayWin = isFinished && gs ? gs.away > gs.home : null;
   const homeWin = isFinished && gs ? gs.home > gs.away : null;
   const isDraw = isFinished && gs ? gs.away === gs.home : false;
-  const awayEmotion: "default" | "determined" | "sad" | "joyful" = isBeforeGame ? "determined" : awayWin ? "joyful" : isFinished && !isDraw ? "sad" : "default";
-  const homeEmotion: "default" | "determined" | "sad" | "joyful" = isBeforeGame ? "determined" : homeWin ? "joyful" : isFinished && !isDraw ? "sad" : "default";
+  const awayEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isBeforeGame ? "determined" : awayWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
+  const homeEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isBeforeGame ? "determined" : homeWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
 
   const scoreBoard = detail.scoreBoard;
   const rheb = scoreBoard?.rheb;

@@ -43,8 +43,8 @@ export default function GameCard({
   const isDraw = hasResult ? homeScore === awayScore : null;
   const showScore = (status === "finished" || ((homeScore || 0) + (awayScore || 0) > 0)) && homeScore !== undefined && awayScore !== undefined;
 
-  const awayEmotion = status === "scheduled" ? "determined" : awayWon === true ? "joyful" : awayWon === false && !isDraw ? "sad" : "default" as const;
-  const homeEmotion = status === "scheduled" ? "determined" : homeWon === true ? "joyful" : homeWon === false && !isDraw ? "sad" : "default" as const;
+  const awayEmotion = status === "scheduled" ? "determined" : awayWon === true ? "joyful" : isDraw || cancelled ? "neutral" : awayWon === false ? "sad" : "default" as const;
+  const homeEmotion = status === "scheduled" ? "determined" : homeWon === true ? "joyful" : isDraw || cancelled ? "neutral" : homeWon === false ? "sad" : "default" as const;
 
   const cardStyle: React.CSSProperties = {
     borderLeft: `3px solid ${home.primary}`,

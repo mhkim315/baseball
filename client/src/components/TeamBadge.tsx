@@ -5,7 +5,7 @@ import { config } from "@/lib/config";
 interface TeamBadgeProps {
   teamId: string;
   size?: "sm" | "md" | "lg";
-  emotion?: "default" | "determined" | "sad" | "joyful";
+  emotion?: "default" | "determined" | "sad" | "joyful" | "neutral";
   className?: string;
 }
 
