@@ -16,16 +16,7 @@ export const TEAM_STADIUM_MAP: Record<string, string> = {
   hanwha: "5", samsung: "6", kia: "7", lotte: "8", nc: "9",
 };
 
-export interface StadiumBrief {
-  id: string;
-  name: string;
-  location: string;
-  capacity: string;
-  homeTeams: string;
-  ticket: { purchase: string; price: string };
-  parking: { fee: string; note: string };
-  transit: { subway: string; bus: string };
-}
+import type { StadiumBrief } from "@shared/types";
 
 export const STADIUM_BRIEFS: Record<string, StadiumBrief> = {
   "1": {
@@ -93,14 +84,9 @@ export const STADIUM_BRIEFS: Record<string, StadiumBrief> = {
   },
 };
 
+import type { FoodPlace, ParkingSpot, NearbyRestaurant } from "@shared/types";
+
 // 구장 내 먹거리 (food-places 기반 - 잠실 샘플)
-export interface FoodPlace {
-  shop: string;
-  menu: string;
-  category: string;
-  floor: string;
-  zone: string;
-}
 
 export const STADIUM_FOODS: Record<string, FoodPlace[]> = {
   "1": [
@@ -163,10 +149,6 @@ export const STADIUM_FOODS: Record<string, FoodPlace[]> = {
 };
 
 // 구장 주변 주차장 정보 (stadium-surroundings 기반)
-export interface ParkingSpot {
-  name: string;
-  description: string;
-}
 
 export const STADIUM_PARKING: Record<string, ParkingSpot[]> = {
   "1": [
@@ -207,12 +189,6 @@ export const STADIUM_PARKING: Record<string, ParkingSpot[]> = {
 };
 
 // 구장 주변 맛집 (stadium-eats 기반 - 잠실 샘플)
-export interface NearbyRestaurant {
-  name: string;
-  category: string;
-  address: string;
-  phone: string;
-}
 
 export const STADIUM_NEARBY: Record<string, NearbyRestaurant[]> = {
   "1": [

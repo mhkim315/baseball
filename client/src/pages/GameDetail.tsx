@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation, useParams } from "wouter";
 import { ChevronLeft } from "lucide-react";
 import { TEAM_COLORS } from "@/lib/teamColors";
 import { fetchGameDetail, fetchDailyScores, type GameDetail, type ScoreEntry } from "@/lib/api";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
 
 interface TeamBadgeProps {
   teamId: string;
@@ -58,36 +60,73 @@ export default function GameDetailPage() {
 
   const [detail, setDetail] = useState<GameDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [scoreFallback, setScoreFallback] = useState<ScoreEntry | null>(null);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     if (!gameId) return;
-    let cancelled = false;
+    setLoading(true);
+    setError(false);
     setScoreFallback(null);
+    let cancelled = false;
+
     fetchGameDetail(gameId).then((data) => {
       if (cancelled) return;
-      setDetail(data);
+      if (data) {
+        setDetail(data);
+        if (data.gameInfo?.status === "finished" && !data.scoreBoard && !data.pitchingResult) {
+          const dateStr = `${gameId.slice(0, 4)}-${gameId.slice(4, 6)}-${gameId.slice(6, 8)}`;
+          fetchDailyScores(dateStr).then((scores) => {
+            if (cancelled || !scores?.games) return;
+            const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
+            const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
+            const match = scores.games.find(
+              (s) => s.home === homeName && s.away === awayName
+            );
+            if (match) setScoreFallback(match);
+          });
+        }
+      } else {
+        setError(true);
+      }
       setLoading(false);
-      if (data?.gameInfo?.status === "finished" && !data.scoreBoard && !data.pitchingResult) {
-        const dateStr = `${gameId.slice(0, 4)}-${gameId.slice(4, 6)}-${gameId.slice(6, 8)}`;
-        fetchDailyScores(dateStr).then((scores) => {
-          if (cancelled || !scores?.games) return;
-          const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
-          const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
-          const match = scores.games.find(
-            (s) => s.home === homeName && s.away === awayName
-          );
-          if (match) setScoreFallback(match);
-        });
+    }).catch(() => {
+      if (!cancelled) {
+        setError(true);
+        setLoading(false);
       }
     });
+
     return () => { cancelled = true; };
   }, [gameId]);
+
+  useEffect(() => {
+    const cleanup = load();
+    return cleanup;
+  }, [load]);
 
   if (loading) {
     return (
       <div className="min-h-screen pb-20 md:pb-8 flex items-center justify-center">
-        <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen pb-20 md:pb-8">
+        <div className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+          <div className="max-w-lg mx-auto flex items-center gap-2 px-4 py-3">
+            <button onClick={() => setLocation("/")} className="p-1 -ml-1 rounded-lg hover:bg-accent transition-colors">
+              <ChevronLeft size={20} />
+            </button>
+            <span className="text-sm font-medium">경기 상세</span>
+          </div>
+        </div>
+        <div className="max-w-lg mx-auto px-4 mt-16">
+          <ErrorRetry onRetry={load} />
+        </div>
       </div>
     );
   }

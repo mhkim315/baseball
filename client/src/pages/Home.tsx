@@ -1,20 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "wouter";
 import DateSelector from "@/components/DateSelector";
 import GameCard from "@/components/GameCard";
-import { fetchGames, fetchTodayGames, fetchDailyScores, fetchScheduleByMonth, type GameData, type TodayGame, type ScoreEntry } from "@/lib/api";
+import { fetchTodayGames, fetchDailyScores, fetchScheduleByMonth, type TodayGame, type ScoreEntry } from "@/lib/api";
 import { TEAM_COLORS } from "@/lib/teamColors";
-
-const TEAM_NAME_TO_ID: Record<string, string> = {
-  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
-  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
-  "롯데": "lotte", "키움": "kiwoom",
-};
-const TEAM_ID_TO_CODE: Record<string, string> = {
-  "doosan": "OB", "lg": "LG", "kiwoom": "WO", "ssg": "SK",
-  "kt": "KT", "hanwha": "HH", "samsung": "SS", "kia": "HT",
-  "lotte": "LT", "nc": "NC",
-};
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
+import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE } from "@shared/constants";
 
 // Reverse: teamId → shortName (Korean)
 function teamShortName(teamId: string): string {
@@ -65,10 +57,12 @@ export default function Home() {
   const [enhancedGames, setEnhancedGames] = useState<EnhancedGame[]>([]);
   const [loading, setLoading] = useState(true);
   const scheduleCache = useRef<{ month: number; games: any[] } | null>(null);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     const dateStr = formatDateStr(selectedDate);
     setLoading(true);
+    setError(false);
 
     const todayView = isToday(selectedDate);
 
@@ -107,6 +101,7 @@ export default function Home() {
         setLoading(false);
       }).catch(() => {
         setEnhancedGames([]);
+        setError(true);
         setLoading(false);
       });
     } else {
@@ -153,10 +148,13 @@ export default function Home() {
         setLoading(false);
       }).catch(() => {
         setEnhancedGames([]);
+        setError(true);
         setLoading(false);
       });
     }
   }, [selectedDate]);
+
+  useEffect(() => { load(); }, [load]);
 
   return (
     <div className="min-h-screen pb-20 md:pb-8">
@@ -186,9 +184,9 @@ export default function Home() {
       {/* Game cards */}
       <div className="max-w-lg mx-auto px-4 mt-4">
         {loading ? (
-          <div className="flex justify-center py-12">
-            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
+        ) : error ? (
+          <ErrorRetry onRetry={load} />
         ) : enhancedGames.length > 0 ? (
           <div className="flex flex-col gap-3">
             {enhancedGames.map((game) => {

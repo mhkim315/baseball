@@ -1,4 +1,6 @@
-const BASE = import.meta.env.BASE_URL;
+import { config } from "@/lib/config";
+
+const BASE = config.baseUrl;
 
 export default function Rules() {
   const rules = [

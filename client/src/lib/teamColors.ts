@@ -1,11 +1,4 @@
-export interface TeamColor {
-  id: string;
-  name: string;
-  shortName: string;
-  primary: string;
-  secondary: string;
-  tertiary: string;
-}
+import type { TeamColor } from "@shared/types";
 
 export const TEAM_COLORS: Record<string, TeamColor> = {
   doosan: {

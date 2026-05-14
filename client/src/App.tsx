@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Router, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AnimatedPage } from "./components/AnimatedPage";
 import Home from "./pages/Home";
 import GameDetail from "./pages/GameDetail";
 import CalendarPage from "./pages/CalendarPage";
@@ -13,15 +14,18 @@ import Standings from "./pages/Standings";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
 
+const withAnimation = (Page: React.ComponentType) => () =>
+  <AnimatedPage><Page /></AnimatedPage>;
+
 function AppRoutes() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/game/:id"} component={GameDetail} />
-      <Route path={"/calendar"} component={CalendarPage} />
-      <Route path={"/stadium"} component={Stadium} />
-      <Route path={"/cheer"} component={Cheer} />
-      <Route path={"/rank"} component={Standings} />
+      <Route path={"/"} component={withAnimation(Home)} />
+      <Route path={"/game/:id"} component={withAnimation(GameDetail)} />
+      <Route path={"/calendar"} component={withAnimation(CalendarPage)} />
+      <Route path={"/stadium"} component={withAnimation(Stadium)} />
+      <Route path={"/cheer"} component={withAnimation(Cheer)} />
+      <Route path={"/rank"} component={withAnimation(Standings)} />
       <Route component={NotFound} />
     </Switch>
   );

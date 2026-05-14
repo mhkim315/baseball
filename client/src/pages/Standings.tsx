@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { TEAM_COLORS } from "@/lib/teamColors";
 import { fetchStandingsJson, type StandingRow } from "@/lib/api";
-
-const TEAM_NAME_TO_ID: Record<string, string> = {
-  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
-  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
-  "롯데": "lotte", "키움": "kiwoom",
-};
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
+import { TEAM_NAME_TO_ID } from "@shared/constants";
 
 function parseWLT(wlt: string): { wins: number; draws: number; losses: number } {
   const m = wlt.match(/(\d+)승(\d+)무(\d+)패/);
@@ -27,16 +24,26 @@ export default function Standings() {
   const [standings, setStandings] = useState<StandingRow[]>([]);
   const [fetchedAt, setFetchedAt] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
+    setLoading(true);
+    setError(false);
     fetchStandingsJson().then((data) => {
       if (data) {
         setStandings(data.rows);
         setFetchedAt(data.fetchedAt);
+      } else {
+        setError(true);
       }
       setLoading(false);
-    }).catch(() => setLoading(false));
+    }).catch(() => {
+      setError(true);
+      setLoading(false);
+    });
   }, []);
+
+  useEffect(() => { load(); }, [load]);
 
   return (
     <div className="min-h-screen pb-20 md:pb-8">
@@ -48,9 +55,9 @@ export default function Standings() {
 
       <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
         {loading ? (
-          <div className="flex justify-center py-16">
-            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
+        ) : error ? (
+          <ErrorRetry onRetry={load} />
         ) : (
           <div className="bg-card rounded-2xl border border-border overflow-hidden">
             {/* 테이블 헤더 */}

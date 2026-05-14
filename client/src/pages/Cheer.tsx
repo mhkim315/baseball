@@ -1,18 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
 import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores, type CheerSection, type PlayerCheer } from "@/lib/api";
 import { Music, ExternalLink, User, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
-
-const TEAM_NAME_TO_ID: Record<string, string> = {
-  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
-  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
-  "롯데": "lotte", "키움": "kiwoom",
-};
-const TEAM_TO_CODE: Record<string, string> = {
-  "doosan": "OB", "lg": "LG", "kiwoom": "WO", "ssg": "SK",
-  "kt": "KT", "hanwha": "HH", "samsung": "SS", "kia": "HT",
-  "lotte": "LT", "nc": "NC",
-};
+import { config } from "@/lib/config";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
+import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE as TEAM_TO_CODE } from "@shared/constants";
 
 function formatDateStr(date: Date): string {
   const y = date.getFullYear();
@@ -21,7 +14,7 @@ function formatDateStr(date: Date): string {
   return `${y}-${m}-${d}`;
 }
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = config.baseUrl;
 
 const RULES = [
   { title: "이닝(회)", desc: "공격(초)·수비(말)가 한 바퀴 도는 단위예요. 공격측에서 아웃 세 개가 나오면 그 이닝은 끝나요." },
@@ -52,10 +45,12 @@ export default function Cheer() {
   const [lineupPlayers, setLineupPlayers] = useState<string[]>([]);
   const [lineupSource, setLineupSource] = useState<"today" | "prev" | "dummy">("dummy");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false;
     setLoading(true);
+    setError(false);
     setLineupPlayers([]);
     Promise.all([
       fetchCheeringSongs(selectedTeam),
@@ -123,10 +118,12 @@ export default function Cheer() {
         }
         setLoading(false);
       }).catch(() => { if (!cancelled) setLoading(false); });
-    }).catch(() => { if (!cancelled) setLoading(false); });
+    }).catch(() => { if (!cancelled) { setError(true); setLoading(false); } });
 
     return () => { cancelled = true; };
   }, [selectedTeam]);
+
+  useEffect(() => { const cleanup = load(); return cleanup; }, [load]);
 
   // Use lineup players if available, otherwise fall back to dummy players
   const displayPlayers = lineupPlayers.length > 0 ? lineupPlayers : players.map((p) => p.name);
@@ -229,9 +226,9 @@ export default function Cheer() {
         {/* 콘텐츠 */}
         <div className="mt-3 pb-4">
           {loading ? (
-            <div className="flex justify-center py-16">
-              <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-            </div>
+            <LoadingSpinner />
+          ) : error ? (
+            <ErrorRetry onRetry={load} />
           ) : (
             <>
               {/* 팀 응원가 */}

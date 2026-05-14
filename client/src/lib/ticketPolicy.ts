@@ -1,20 +1,4 @@
-export interface TicketTier {
-  id: string;
-  name: string;
-  dDay: number | null;
-  time: string | null;
-  maxTickets: number | null;
-  seats: string;
-  note?: string;
-}
-
-export interface TeamTicketPolicy {
-  name: string;
-  color: string;
-  venue: string;
-  platform: string;
-  tiers: TicketTier[];
-}
+import type { TicketTier, TeamTicketPolicy } from "@shared/types";
 
 const TICKET_POLICY: Record<string, TeamTicketPolicy> = {
   LG: {

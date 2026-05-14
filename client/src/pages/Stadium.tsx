@@ -5,13 +5,15 @@ import {
   type StadiumBrief, type FoodPlace, type EatsSpot, type SurroundingSpot,
 } from "@/lib/api";
 import { getTicketPolicy } from "@/lib/ticketPolicy";
-import {
-  MapPin, UtensilsCrossed, Car, Train, Store,
+import { MapPin, UtensilsCrossed, Car, Train, Store,
   Ticket, Users, Phone, Navigation,
 } from "lucide-react";
 import StadiumMap from "@/components/StadiumMap";
+import { config } from "@/lib/config";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = config.baseUrl;
 
 const FOOD_MAP_IMAGES: Record<string, string> = {
   "1": "jamsil", "2": "gochuck", "3": "incheon", "4": "suwon",
@@ -204,6 +206,7 @@ export default function Stadium() {
   const [surroundingsZoom, setSurroundingsZoom] = useState(14.5);
   const [eatsCenter, setEatsCenter] = useState<number[]>([127, 37.5]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [foodFloor, setFoodFloor] = useState("");
   const [foodCategory, setFoodCategory] = useState("all");
   const [selectedShop, setSelectedShop] = useState("");
@@ -211,11 +214,12 @@ export default function Stadium() {
   const [focusedSpot, setFocusedSpot] = useState<string | undefined>(undefined);
   const [showTicket, setShowTicket] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
     if (!stadiumId) return;
 
     setLoading(true);
+    setError(false);
 
     Promise.all([
       fetchStadiumBrief(stadiumId),
@@ -242,8 +246,10 @@ export default function Stadium() {
       }
       if (layouts) setFoodLayouts(layouts);
       setLoading(false);
-    }).catch(() => setLoading(false));
+    }).catch(() => { setError(true); setLoading(false); });
   }, [selectedTeam]);
+
+  useEffect(() => { load(); }, [load]);
 
   useEffect(() => {
     setFocusedSpot(undefined);
@@ -287,9 +293,9 @@ export default function Stadium() {
 
         {/* 로딩 */}
         {loading ? (
-          <div className="flex justify-center py-16">
-            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
+        ) : error ? (
+          <ErrorRetry onRetry={load} />
         ) : (
           <>
             {/* 구장 헤더 카드 */}

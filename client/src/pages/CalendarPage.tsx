@@ -1,15 +1,12 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
 import { fetchScheduleByMonth, fetchAllDailyScores } from "@/lib/api";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorRetry } from "@/components/ErrorRetry";
+import { TEAM_NAME_TO_ID } from "@shared/constants";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
-
-const TEAM_NAME_TO_ID: Record<string, string> = {
-  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
-  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
-  "롯데": "lotte", "키움": "kiwoom",
-};
 
 interface ScheduleGame {
   date: string;
@@ -53,12 +50,14 @@ export default function CalendarPage() {
   const [games, setGames] = useState<ScheduleGame[]>([]);
   const [scoresByDate, setScoresByDate] = useState<Record<string, ScoreInfo[]>>({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  useEffect(() => {
+  const load = useCallback(() => {
     setLoading(true);
+    setError(false);
     Promise.all([
       fetchScheduleByMonth(month + 1),
       fetchAllDailyScores(),
@@ -71,9 +70,15 @@ export default function CalendarPage() {
         }
         setScoresByDate(mapped);
       }
+      if (!schedule && !allScores) setError(true);
       setLoading(false);
-    }).catch(() => setLoading(false));
+    }).catch(() => {
+      setError(true);
+      setLoading(false);
+    });
   }, [month, year]);
+
+  useEffect(() => { load(); }, [load]);
 
   const teamName = useMemo(() => teamShortName(selectedTeam), [selectedTeam]);
   const teamColor = TEAM_COLORS[selectedTeam];
@@ -173,11 +178,11 @@ export default function CalendarPage() {
           </span>
         </div>
 
-        {/* Loading */}
+        {/* Loading / Error / Calendar */}
         {loading ? (
-          <div className="flex justify-center py-16">
-            <div className="w-6 h-6 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
+        ) : error ? (
+          <ErrorRetry onRetry={load} />
         ) : (
           <div className="bg-card rounded-2xl border border-border p-3">
             {/* Weekday headers */}

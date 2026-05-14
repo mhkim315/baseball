@@ -1,16 +1,4 @@
-export interface CheerSong {
-  name: string;
-  youtubeUrl: string;
-}
-
-export interface CheerSection {
-  title: string;
-  songs: CheerSong[];
-}
-
-export interface PlayerCheer {
-  name: string;
-}
+import type { CheerSong, CheerSection, PlayerCheer } from "@shared/types";
 
 // cheering-songs.json 기반 더미 데이터
 export const CHEER_SONGS: Record<string, CheerSection[]> = {
@@ -165,15 +153,7 @@ export const CHEER_PLAYERS: Record<string, PlayerCheer[]> = {
   ],
 };
 
-// kbo_standings.json 기반 더미 데이터
-export interface StandingRow {
-  rank: number;
-  teamName: string;
-  winRate: number;
-  wlt: string;
-  gamesBehind: number;
-  streak: string;
-}
+import type { StandingRow } from "@shared/types";
 
 export const KBO_STANDINGS: StandingRow[] = [
   { rank: 1, teamName: "KT", winRate: 0.657, wlt: "23승1무12패", gamesBehind: 0.0, streak: "1패" },
@@ -188,9 +168,4 @@ export const KBO_STANDINGS: StandingRow[] = [
   { rank: 10, teamName: "키움", winRate: 0.361, wlt: "13승1무23패", gamesBehind: 10.5, streak: "1승" },
 ];
 
-// 팀 이름 → 팀 ID 매핑
-export const TEAM_NAME_TO_ID: Record<string, string> = {
-  "KT": "kt", "LG": "lg", "삼성": "samsung", "SSG": "ssg",
-  "KIA": "kia", "두산": "doosan", "한화": "hanwha", "NC": "nc",
-  "롯데": "lotte", "키움": "kiwoom",
-};
+export { TEAM_NAME_TO_ID } from "@shared/constants";
