@@ -134,7 +134,7 @@ export default function GameDetailPage() {
   const statusLabel = isFinished ? "경기 종료" : isLive ? "경기 중" : isFuture ? "경기 예정" : "경기 전";
   const isBeforeGame = !isFinished && !isLive;
   const showLineupStatus = isBeforeGame;
-  const lineupConfirmed = detail.lineupConfirmed ?? false;
+  const lineupConfirmed = isFuture ? false : (detail.lineupConfirmed ?? false);
   const gs = detail.score;
   const awayWin = isFinished && gs ? gs.away > gs.home : null;
   const homeWin = isFinished && gs ? gs.home > gs.away : null;
