@@ -103,8 +103,8 @@ export function createApi(options: ApiClientOptions) {
         `/schedule/${month}`
       ),
 
-    fetchTodayGames: (): Promise<{ date: string; games: TodayGame[] } | null> =>
-      client.get<{ date: string; games: TodayGame[] }>("/today-games"),
+    fetchTodayGames: (): Promise<{ date: string; games: TodayGame[]; nextGames?: TodayGame[] } | null> =>
+      client.get<{ date: string; games: TodayGame[]; nextGames?: TodayGame[] }>("/today-games"),
 
     fetchGameDetail: (gameId: string): Promise<GameDetail | null> =>
       client.get<GameDetail>(`/game-detail/${gameId}`),

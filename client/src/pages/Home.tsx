@@ -51,19 +51,8 @@ interface EnhancedGame {
   cancelled?: boolean;
 }
 
-function getDefaultDate(): Date {
-  const now = new Date();
-  // After 8 PM KST, advance to next day (starting pitchers already announced)
-  if (now.getHours() >= 20) {
-    const next = new Date(now);
-    next.setDate(next.getDate() + 1);
-    return next;
-  }
-  return now;
-}
-
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState(getDefaultDate());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [, setLocation] = useLocation();
   const [enhancedGames, setEnhancedGames] = useState<EnhancedGame[]>([]);
   const [loading, setLoading] = useState(true);
@@ -116,7 +105,7 @@ export default function Home() {
         setLoading(false);
       });
     } else {
-      // Past/future dates: use schedule + dailyScores
+      // Past/future dates: use schedule + dailyScores + nextGames (for pitchers)
       const month = selectedDate.getMonth() + 1;
       const schedulePromise = scheduleCache.current?.month === month
         ? Promise.resolve(scheduleCache.current.games)
@@ -129,10 +118,20 @@ export default function Home() {
       Promise.all([
         schedulePromise,
         fetchDailyScores(dateStr),
-      ]).then(([scheduleGames, scoresData]) => {
+        fetchTodayGames(),
+      ]).then(([scheduleGames, scoresData, todayData]) => {
         const dayGames = scheduleGames.filter((g: ScheduleGame) => g.date === dateStr);
         const scoreEntries: ScoreEntry[] = scoresData?.games || [];
         const isFuture = dateStr > formatDateStr(new Date());
+
+        // Build pitcher map from nextGames (API returns tomorrow's games with pitchers)
+        const pitcherMap = new Map<string, { away?: string; home?: string }>();
+        for (const ng of todayData?.nextGames ?? []) {
+          pitcherMap.set(`${ng.away.id}-${ng.home.id}`, {
+            away: ng.away.starter?.name,
+            home: ng.home.starter?.name,
+          });
+        }
 
         const games: EnhancedGame[] = dayGames.map((g: ScheduleGame) => {
           const homeId = TEAM_NAME_TO_ID[g.home] || "";
@@ -142,6 +141,7 @@ export default function Home() {
           const score = scoreEntries.find(
             (s) => s.home === g.home && s.away === g.away
           );
+          const pitchers = pitcherMap.get(`${awayId}-${homeId}`);
           return {
             id: `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`,
             homeTeam: homeId,
@@ -151,6 +151,8 @@ export default function Home() {
             status: score && !isFuture ? "finished" : "scheduled",
             homeScore: score ? score.homeScore : undefined,
             awayScore: score ? score.awayScore : undefined,
+            homePitcher: pitchers?.home,
+            awayPitcher: pitchers?.away,
             winPitcher: score?.winPitcher,
             losePitcher: score?.losePitcher,
             cancelled: score?.cancelled,
