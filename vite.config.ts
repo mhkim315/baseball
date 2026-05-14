@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
+import { VitePWA } from "vite-plugin-pwa";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -203,10 +204,63 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const base = '/baseball_app/';
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), VitePWA({
+  base,
+  registerType: "autoUpdate",
+  includeAssets: ["**/*.{png,jpg,webp,svg,woff2}"],
+  manifest: {
+    name: "Fullcount.kr",
+    short_name: "풀카운트",
+    description: "야구 경기 일정, 응원가, 구장 정보를 한눈에",
+    theme_color: "#f97316",
+    background_color: "#faf8f5",
+    display: "standalone",
+    orientation: "portrait-primary",
+    lang: "ko",
+    scope: base,
+    start_url: base,
+    icons: [
+      { src: `${base}pwa-192x192.png`, sizes: "192x192", type: "image/png" },
+      { src: `${base}pwa-512x512.png`, sizes: "512x512", type: "image/png" },
+      { src: `${base}pwa-512x512.png`, sizes: "512x512", type: "image/png", purpose: "any maskable" },
+    ],
+  },
+  workbox: {
+    globPatterns: ["**/*.{js,css,html,ico,png,jpg,webp,svg,woff2}"],
+    runtimeCaching: [
+      {
+        urlPattern: /\/api\//i,
+        handler: "NetworkFirst",
+        options: {
+          cacheName: "api-cache",
+          expiration: { maxEntries: 100, maxAgeSeconds: 300 },
+          networkTimeoutSeconds: 5,
+        },
+      },
+      {
+        urlPattern: /\/team-characters\/.*\.png$/i,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "characters-cache",
+          expiration: { maxEntries: 60, maxAgeSeconds: 604800 },
+        },
+      },
+      {
+        urlPattern: /\.(png|jpg|webp)$/i,
+        handler: "StaleWhileRevalidate",
+        options: {
+          cacheName: "image-cache",
+          expiration: { maxEntries: 50, maxAgeSeconds: 604800 },
+        },
+      },
+    ],
+  },
+})];
 
 export default defineConfig({
-  base: '/baseball_app/',
+  base,
   plugins,
   resolve: {
     alias: {

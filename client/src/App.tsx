@@ -13,6 +13,7 @@ import Cheer from "./pages/Cheer";
 import Standings from "./pages/Standings";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
 
 const withAnimation = (Page: React.ComponentType) => () =>
   <AnimatedPage><Page /></AnimatedPage>;
@@ -32,6 +33,7 @@ function AppRoutes() {
 }
 
 function App() {
+  useOnlineStatus();
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
