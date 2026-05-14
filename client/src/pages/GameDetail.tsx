@@ -48,7 +48,8 @@ export default function GameDetailPage() {
       if (cancelled) return;
       if (data) {
         setDetail(data);
-        if (data.gameInfo?.status === "finished" && !data.scoreBoard && !data.pitchingResult) {
+        if (data.gameInfo?.status === "finished") {
+          // Always fetch daily scores for finished games to detect cancellation
           const dateStr = `${gameId.slice(0, 4)}-${gameId.slice(4, 6)}-${gameId.slice(6, 8)}`;
           fetchDailyScores(dateStr).then((scores) => {
             if (cancelled || !scores?.games) return;
@@ -129,18 +130,19 @@ export default function GameDetailPage() {
   const awayLineup = detail.lineup?.away || [];
   const hasLineup = homeLineup.length > 0 && awayLineup.length > 0;
   const isFuture = detail.date > new Date().toISOString().slice(0, 10);
-  const isFinished = !isFuture && detail.gameInfo?.status === "finished";
+  const isCancelled = detail.gameInfo?.status === "cancelled" || scoreFallback?.cancelled === true || detail.etcRecords?.some(r => r.how?.includes("취소") || r.result?.includes("취소")) === true;
+  const isFinished = !isFuture && !isCancelled && detail.gameInfo?.status === "finished";
   const isLive = detail.gameInfo?.status === "live";
-  const statusLabel = isFinished ? "경기 종료" : isLive ? "경기 중" : isFuture ? "경기 예정" : "경기 전";
-  const isBeforeGame = !isFinished && !isLive;
+  const statusLabel = isCancelled ? "취소" : isFinished ? "경기 종료" : isLive ? "경기 중" : isFuture ? "경기 예정" : "경기 전";
+  const isBeforeGame = !isFinished && !isLive && !isCancelled;
   const showLineupStatus = isBeforeGame;
   const lineupConfirmed = isFuture ? false : (detail.lineupConfirmed ?? false);
   const gs = detail.score;
   const awayWin = isFinished && gs ? gs.away > gs.home : null;
   const homeWin = isFinished && gs ? gs.home > gs.away : null;
   const isDraw = isFinished && gs ? gs.away === gs.home : false;
-  const awayEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isBeforeGame ? "determined" : awayWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
-  const homeEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isBeforeGame ? "determined" : homeWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
+  const awayEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isCancelled ? "neutral" : isBeforeGame ? "determined" : awayWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
+  const homeEmotion: "default" | "determined" | "sad" | "joyful" | "neutral" = isCancelled ? "neutral" : isBeforeGame ? "determined" : homeWin ? "joyful" : isDraw ? "neutral" : isFinished ? "sad" : "default";
 
   const scoreBoard = detail.scoreBoard;
   const rheb = scoreBoard?.rheb;
@@ -174,11 +176,13 @@ export default function GameDetailPage() {
             </div>
             <div className="flex flex-col items-center gap-1">
               <span className="text-xs text-muted-foreground">{detail.gameInfo?.time || "18:30"}</span>
-              {detail.score ? (
+              {isCancelled ? (
+                <span className="text-lg font-bold text-muted-foreground line-through">취소</span>
+              ) : detail.score ? (
                 <div className="flex items-center gap-3">
-                  <span className={`text-2xl font-bold ${isFinished && detail.score!.away > detail.score!.home ? "" : ""}`}>{detail.score.away}</span>
+                  <span className={`text-2xl font-bold ${isFinished && detail.score.away > detail.score.home ? "" : ""}`}>{detail.score.away}</span>
                   <span className="text-sm text-muted-foreground">:</span>
-                  <span className={`text-2xl font-bold ${isFinished && detail.score!.home > detail.score!.away ? "" : ""}`}>{detail.score.home}</span>
+                  <span className={`text-2xl font-bold ${isFinished && detail.score.home > detail.score.away ? "" : ""}`}>{detail.score.home}</span>
                 </div>
               ) : (
                 <span className="text-lg font-bold text-muted-foreground">VS</span>
