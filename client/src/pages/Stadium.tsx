@@ -5,6 +5,7 @@ import {
   type StadiumBrief, type FoodPlace, type EatsSpot, type SurroundingSpot,
 } from "@/lib/api";
 import { getTicketPolicy } from "@/lib/ticketPolicy";
+import { STADIUM_BRIEFS } from "@/lib/stadiumData";
 import { MapPin, UtensilsCrossed, Car, Train, Store,
   Ticket, Users, Phone, Navigation,
 } from "lucide-react";
@@ -229,7 +230,11 @@ export default function Stadium() {
       fetchStadiumSurroundings(stadiumId),
       fetch(`${BASE}data/food-layouts.json`).then((r) => r.ok ? r.json() : null),
     ]).then(([brief, foodData, eatsData, surroundings, layouts]) => {
-      if (brief) setStadium(brief);
+      if (brief) {
+        // Patch API data with local corrections (name, capacity)
+        const local = STADIUM_BRIEFS[stadiumId];
+        setStadium(local ? { ...brief, name: local.name, capacity: local.capacity } : brief);
+      }
       if (foodData) {
         setFoods(foodData);
         const floors = uniqueFloors(foodData);
