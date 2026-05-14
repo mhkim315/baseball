@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -i \"\\\\.md$\")",
+      "Bash(git *)",
+      "Bash(grep \"\\\\.md$\")",
+      "Bash(find \"C:/Users/user/Documents/baseball_app/client/src/components/ui\" -type f -name \"*.tsx\" -exec wc -l {} +)",
+      "Bash(pnpm check *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm test *)",
+      "WebSearch",
+      "WebFetch(domain:search.naver.com)",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:play.google.com)",
+      "WebFetch(domain:blog.naver.com)",
+      "WebFetch(domain:www.producthunt.com)",
+      "WebFetch(domain:www.reddit.com)",
+      "WebFetch(domain:apps.apple.com)",
+      "WebFetch(domain:namu.wiki)",
+      "WebFetch(domain:m.blog.naver.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.crunchbase.com)",
+      "WebFetch(domain:disquiet.io)",
+      "WebFetch(domain:apkpure.com)",
+      "WebFetch(domain:www.ppomppu.co.kr)",
+      "WebFetch(domain:www.youtube.com)",
+      "WebFetch(domain:apkcombo.com)",
+      "WebFetch(domain:news.google.com)",
+      "WebFetch(domain:m.cafe.naver.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:ko.wikipedia.org)",
+      "Bash(pnpm install *)"
+    ]
+  }
+}

@@ -119,13 +119,19 @@ export interface TodayGame {
   score?: { away: number; home: number };
 }
 
+export interface LineupPlayer {
+  order: number;
+  position: string;
+  name: string;
+}
+
 export interface GameDetail {
   gameId: string;
   date: string;
   homeTeam: string;
   awayTeam: string;
   starters: { home: { name: string } | null; away: { name: string } | null };
-  lineup: { home: any[]; away: any[] };
+  lineup: { home: LineupPlayer[]; away: LineupPlayer[] };
   lineupConfirmed?: boolean;
   gameInfo?: { time: string; venue: string; status: string };
   score?: { away: number; home: number };
@@ -163,6 +169,17 @@ export interface TeamTicketPolicy {
   venue: string;
   platform: string;
   tiers: TicketTier[];
+}
+
+export interface ScheduleGame {
+  date: string;
+  month: number;
+  day: number;
+  venue: string;
+  away: string;
+  home: string;
+  time?: string;
+  status?: string;
 }
 
 // Stadium-specific types (used only in stadiumData.ts)

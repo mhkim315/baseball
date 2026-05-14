@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
-import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores, type CheerSection, type PlayerCheer } from "@/lib/api";
+import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores, type CheerSection, type PlayerCheer, type TodayGame, type ScoreEntry } from "@/lib/api";
 import { Music, ExternalLink, User, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import { config } from "@/lib/config";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -64,14 +64,14 @@ export default function Cheer() {
         fetchTodayGames().then((today) => {
           if (!today?.games) return null;
           const myGame = today.games.find(
-            (g: any) => g.home?.id === selectedTeam || g.away?.id === selectedTeam
+            (g: TodayGame) => g.home?.id === selectedTeam || g.away?.id === selectedTeam
           );
           if (!myGame?.id) return null;
           return fetchGameDetail(myGame.id).then((detail) => {
             if (!detail?.lineup) return null;
             const side = detail.homeTeam === selectedTeam ? "home" : "away";
             const batters = detail.lineup[side] || [];
-            return batters.length > 0 ? batters.map((b: any) => b.name) : null;
+            return batters.length > 0 ? batters.map((b) => b.name) : null;
           });
         });
 
@@ -83,7 +83,7 @@ export default function Cheer() {
           if (!scores?.games) return null;
           const teamKr = TEAM_COLORS[selectedTeam]?.shortName || "";
           const game = scores.games.find(
-            (g: any) => g.home === teamKr || g.away === teamKr
+            (g: ScoreEntry) => g.home === teamKr || g.away === teamKr
           );
           if (!game) return null;
           const awayId = TEAM_NAME_TO_ID[game.away] || "";
@@ -96,7 +96,7 @@ export default function Cheer() {
             if (!detail?.lineup) return null;
             const side = detail.homeTeam === selectedTeam ? "home" : "away";
             const batters = detail.lineup[side] || [];
-            return batters.length > 0 ? batters.map((b: any) => b.name) : null;
+            return batters.length > 0 ? batters.map((b) => b.name) : null;
           });
         });
       };
@@ -135,8 +135,8 @@ export default function Cheer() {
     <div className="min-h-screen pb-20 md:pb-8">
       {/* 모바일 헤더 */}
       <div className="md:hidden px-5 pt-6 pb-4">
-        <h1 className="text-xl font-bold">응원</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">구단별 응원가와 선수 응원가를 확인하세요</p>
+        <h1 className="text-xl font-bold">응원가</h1>
+        <p className="text-sm text-muted-foreground mt-0.5">구단별 응원가와 선수 응원가를 모아봤어요</p>
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-2 md:mt-6">
@@ -286,7 +286,7 @@ export default function Cheer() {
                     ))
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                      <p className="text-muted-foreground text-sm">응원가 정보를 불러오는 중입니다</p>
+                      <p className="text-muted-foreground text-sm">아직 응원가 정보가 없어요</p>
                     </div>
                   )}
                 </div>
@@ -317,7 +317,7 @@ export default function Cheer() {
                     </div>
                   ) : (
                     <div className="p-8 text-center">
-                      <p className="text-muted-foreground text-sm">라인업 정보를 불러오는 중입니다</p>
+                      <p className="text-muted-foreground text-sm">아직 라인업 정보가 없어요</p>
                     </div>
                   )}
                 </div>

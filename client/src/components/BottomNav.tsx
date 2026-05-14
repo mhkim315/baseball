@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { path: "/", label: "홈", icon: Home },
-  { path: "/calendar", label: "캘린더", icon: Calendar },
-  { path: "/stadium", label: "구장안내", icon: MapPin },
+  { path: "/calendar", label: "일정", icon: Calendar },
+  { path: "/stadium", label: "구장", icon: MapPin },
   { path: "/rank", label: "순위", icon: BarChart3 },
-  { path: "/cheer", label: "응원", icon: Music },
+  { path: "/cheer", label: "응원가", icon: Music },
 ];
 
 export default function BottomNav() {

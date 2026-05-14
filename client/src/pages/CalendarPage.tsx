@@ -1,21 +1,12 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM_COLORS, TEAM_LIST } from "@/lib/teamColors";
-import { fetchScheduleByMonth, fetchAllDailyScores } from "@/lib/api";
+import { fetchScheduleByMonth, fetchAllDailyScores, type ScheduleGame } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorRetry } from "@/components/ErrorRetry";
 import { TEAM_NAME_TO_ID } from "@shared/constants";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
-
-interface ScheduleGame {
-  date: string;
-  month: number;
-  day: number;
-  venue: string;
-  away: string;
-  home: string;
-}
 
 interface ScoreInfo {
   away: string;
@@ -66,7 +57,7 @@ export default function CalendarPage() {
       if (allScores) {
         const mapped: Record<string, ScoreInfo[]> = {};
         for (const [date, dateScores] of Object.entries(allScores.dates)) {
-          mapped[date] = dateScores as ScoreInfo[];
+          mapped[date] = dateScores;
         }
         setScoresByDate(mapped);
       }
@@ -115,7 +106,7 @@ export default function CalendarPage() {
     <div className="min-h-screen pb-20 md:pb-8">
       {/* Header */}
       <div className="md:hidden px-5 pt-6 pb-4">
-        <h1 className="text-xl font-bold">캘린더</h1>
+        <h1 className="text-xl font-bold">일정</h1>
         <p className="text-sm text-muted-foreground mt-0.5">구단을 선택하면 해당 팀 경기만 볼 수 있어요</p>
       </div>
 

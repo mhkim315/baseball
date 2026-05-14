@@ -624,7 +624,7 @@ export default function Stadium() {
                                 })()
                               ) : (
                                 <div className="w-full bg-card rounded-2xl border border-border p-8 text-center">
-                                  <p className="text-muted-foreground text-sm">해당 조건에 맞는 매장이 없습니다</p>
+                                  <p className="text-muted-foreground text-sm">해당 조건에 맞는 매장이 없어요</p>
                                 </div>
                               )}
                             </div>
@@ -634,7 +634,7 @@ export default function Stadium() {
                     </>
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                      <p className="text-muted-foreground text-sm">먹거리 정보 준비 중</p>
+                      <p className="text-muted-foreground text-sm">아직 먹거리 정보가 없어요</p>
                     </div>
                   )}
                 </div>
@@ -662,7 +662,7 @@ export default function Stadium() {
                     parking.map((spot, i) => <ParkingCard key={i} spot={spot} onClick={() => setFocusedSpot(spot.id || String(i))} />)
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                      <p className="text-muted-foreground text-sm">주차 정보 준비 중</p>
+                      <p className="text-muted-foreground text-sm">아직 주차 정보가 없어요</p>
                     </div>
                   )}
                 </div>
@@ -713,7 +713,7 @@ export default function Stadium() {
                     nearby.map((r, i) => <NearbyCard key={i} restaurant={r} onClick={() => setFocusedSpot(String(i))} />)
                   ) : (
                     <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                      <p className="text-muted-foreground text-sm">주변 맛집 정보 준비 중</p>
+                      <p className="text-muted-foreground text-sm">아직 주변 맛집 정보가 없어요</p>
                     </div>
                   )}
                 </div>

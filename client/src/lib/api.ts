@@ -2,14 +2,14 @@ import { config } from "./config";
 import { toast } from "sonner";
 
 export type {
-  GameData, StandingsData, TeamData, ScoreEntry,
+  StandingsData, TeamData, ScoreEntry,
   StadiumBrief, FoodPlace, SurroundingSpot, EatsSpot,
-  CheerSection, PlayerCheer, StandingRow, TodayGame, GameDetail,
+  CheerSection, PlayerCheer, StandingRow, TodayGame, GameDetail, ScheduleGame, LineupPlayer,
 } from "@shared/types";
 import type {
-  GameData, StandingsData, TeamData, ScoreEntry,
+  StandingsData, TeamData, ScoreEntry,
   StadiumBrief, FoodPlace, SurroundingSpot, EatsSpot,
-  CheerSection, PlayerCheer, StandingRow, TodayGame, GameDetail,
+  CheerSection, PlayerCheer, StandingRow, TodayGame, GameDetail, ScheduleGame, LineupPlayer,
 } from "@shared/types";
 
 let lastErrorToast = 0;
@@ -31,20 +31,7 @@ async function apiFetch<T>(path: string): Promise<T | null> {
         description: "잠시 후 다시 시도해 주세요",
       });
     }
-    console.error(`API error [${path}]:`, error);
     return null;
-  }
-}
-
-// Games
-export async function fetchGames(date?: string): Promise<GameData[]> {
-  const url = date ? `${config.apiBase}/games/${date}` : `${config.apiBase}/games`;
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } catch {
-    return [];
   }
 }
 
@@ -101,21 +88,21 @@ export async function fetchStandingsJson(): Promise<{ source: string; fetchedAt:
 }
 
 // Daily scores
-export async function fetchDailyScores(date: string): Promise<{ date: string; games: any[] } | null> {
-  return apiFetch<{ date: string; games: any[] }>(`/daily-scores/${date}`);
+export async function fetchDailyScores(date: string): Promise<{ date: string; games: ScoreEntry[] } | null> {
+  return apiFetch<{ date: string; games: ScoreEntry[] }>(`/daily-scores/${date}`);
 }
 
-export async function fetchAllDailyScores(): Promise<{ dates: Record<string, any[]> } | null> {
-  return apiFetch<{ dates: Record<string, any[]> }>("/daily-scores");
+export async function fetchAllDailyScores(): Promise<{ dates: Record<string, ScoreEntry[]> } | null> {
+  return apiFetch<{ dates: Record<string, ScoreEntry[]> }>("/daily-scores");
 }
 
 // Schedule
-export async function fetchSchedule(): Promise<{ year: number; games: any[] } | null> {
-  return apiFetch<{ year: number; games: any[] }>("/schedule");
+export async function fetchSchedule(): Promise<{ year: number; games: ScheduleGame[] } | null> {
+  return apiFetch<{ year: number; games: ScheduleGame[] }>("/schedule");
 }
 
-export async function fetchScheduleByMonth(month: number): Promise<{ year: number; month: number; games: any[] } | null> {
-  return apiFetch<{ year: number; month: number; games: any[] }>(`/schedule/${month}`);
+export async function fetchScheduleByMonth(month: number): Promise<{ year: number; month: number; games: ScheduleGame[] } | null> {
+  return apiFetch<{ year: number; month: number; games: ScheduleGame[] }>(`/schedule/${month}`);
 }
 
 // Today's games (with starters)

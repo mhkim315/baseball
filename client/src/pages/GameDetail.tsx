@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation, useParams } from "wouter";
 import { ChevronLeft } from "lucide-react";
 import { TEAM_COLORS } from "@/lib/teamColors";
-import { fetchGameDetail, fetchDailyScores, type GameDetail, type ScoreEntry } from "@/lib/api";
+import { fetchGameDetail, fetchDailyScores, type GameDetail, type ScoreEntry, type LineupPlayer } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorRetry } from "@/components/ErrorRetry";
 
@@ -143,7 +143,7 @@ export default function GameDetailPage() {
           </div>
         </div>
         <div className="max-w-lg mx-auto px-4 mt-16 text-center">
-          <p className="text-muted-foreground">경기 정보를 찾을 수 없습니다</p>
+          <p className="text-muted-foreground">경기 정보를 준비 중이에요</p>
         </div>
       </div>
     );
@@ -328,7 +328,13 @@ export default function GameDetailPage() {
         {hasLineup ? (
           <div className="mt-3">
             {/* Lineup status badge */}
-            {showLineupStatus && (
+            {isLive ? (
+              <div className="text-center mb-2">
+                <span className="text-[11px] px-2 py-0.5 rounded-full font-medium bg-destructive/10 text-destructive animate-pulse">
+                  경기 중
+                </span>
+              </div>
+            ) : showLineupStatus ? (
               <div className="text-center mb-2">
                 <span className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${
                   lineupConfirmed
@@ -338,7 +344,7 @@ export default function GameDetailPage() {
                   {lineupConfirmed ? "라인업 확정" : "예상 라인업"}
                 </span>
               </div>
-            )}
+            ) : null}
             <div className="grid grid-cols-2 gap-3">
               {/* Away lineup */}
               <div className="bg-card rounded-2xl border border-border p-4">
@@ -347,7 +353,7 @@ export default function GameDetailPage() {
                   <span className="text-sm font-semibold">{away?.shortName}</span>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  {awayLineup.map((player: any) => (
+                  {awayLineup.map((player: LineupPlayer) => (
                     <div key={player.order} className="flex items-center gap-2 text-sm">
                       <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
                       <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
@@ -366,7 +372,7 @@ export default function GameDetailPage() {
                   <span className="text-sm font-semibold">{home?.shortName}</span>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  {homeLineup.map((player: any) => (
+                  {homeLineup.map((player: LineupPlayer) => (
                     <div key={player.order} className="flex items-center gap-2 text-sm">
                       <span className="text-xs text-muted-foreground w-4 text-right">{player.order}</span>
                       <span className="text-xs text-muted-foreground w-5 text-center bg-accent rounded px-1">
@@ -381,8 +387,8 @@ export default function GameDetailPage() {
           </div>
         ) : (
           <div className="mt-3 bg-card rounded-2xl border border-border p-8 text-center">
-            <p className="text-muted-foreground text-sm mb-1">라인업이 아직 발표되지 않았습니다</p>
-            <p className="text-xs text-muted-foreground">경기 시작 전 확정 후 업데이트됩니다</p>
+            <p className="text-muted-foreground text-sm mb-1">아직 라인업이 공개되지 않았어요</p>
+            <p className="text-xs text-muted-foreground">경기 시작 전에 확정 후 업데이트돼요</p>
           </div>
         )}
 
@@ -404,8 +410,8 @@ export default function GameDetailPage() {
         {/* Info message */}
         <p className="text-center text-xs text-muted-foreground mt-6 mb-4">
           {hasLineup
-            ? (lineupConfirmed ? "라인업은 경기 시작 전 확정 후 업데이트됩니다" : "예상 라인업은 전날 경기 데이터를 기반으로 합니다")
-            : "실시간 스코어는 제공되지 않습니다"}
+            ? (lineupConfirmed ? "라인업은 경기 시작 전에 확정돼요" : "예상 라인업은 전날 경기 데이터를 기반으로 해요")
+            : ""}
         </p>
       </div>
     </div>

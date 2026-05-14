@@ -84,7 +84,7 @@ export default function GameCard({
             </span>
           ) : awayPitcher ? (
             <span className="text-xs text-muted-foreground">
-              선발 {awayPitcher}
+              오늘의 투수 {awayPitcher}
             </span>
           ) : null}
         </div>
@@ -127,7 +127,7 @@ export default function GameCard({
             </span>
           ) : homePitcher ? (
             <span className="text-xs text-muted-foreground">
-              선발 {homePitcher}
+              오늘의 투수 {homePitcher}
             </span>
           ) : null}
         </div>

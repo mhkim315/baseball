@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "wouter";
 import DateSelector from "@/components/DateSelector";
 import GameCard from "@/components/GameCard";
-import { fetchTodayGames, fetchDailyScores, fetchScheduleByMonth, type TodayGame, type ScoreEntry } from "@/lib/api";
+import { fetchTodayGames, fetchDailyScores, fetchScheduleByMonth, type TodayGame, type ScoreEntry, type ScheduleGame } from "@/lib/api";
 import { TEAM_COLORS } from "@/lib/teamColors";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorRetry } from "@/components/ErrorRetry";
@@ -56,7 +56,7 @@ export default function Home() {
   const [, setLocation] = useLocation();
   const [enhancedGames, setEnhancedGames] = useState<EnhancedGame[]>([]);
   const [loading, setLoading] = useState(true);
-  const scheduleCache = useRef<{ month: number; games: any[] } | null>(null);
+  const scheduleCache = useRef<{ month: number; games: ScheduleGame[] } | null>(null);
   const [error, setError] = useState(false);
 
   const load = useCallback(() => {
@@ -119,10 +119,10 @@ export default function Home() {
         schedulePromise,
         fetchDailyScores(dateStr),
       ]).then(([scheduleGames, scoresData]) => {
-        const dayGames = scheduleGames.filter((g: any) => g.date === dateStr);
+        const dayGames = scheduleGames.filter((g: ScheduleGame) => g.date === dateStr);
         const scoreEntries: ScoreEntry[] = scoresData?.games || [];
 
-        const games: EnhancedGame[] = dayGames.map((g: any) => {
+        const games: EnhancedGame[] = dayGames.map((g: ScheduleGame) => {
           const homeId = TEAM_NAME_TO_ID[g.home] || "";
           const awayId = TEAM_NAME_TO_ID[g.away] || "";
           const homeCode = TEAM_ID_TO_CODE[homeId] || "";
@@ -136,7 +136,7 @@ export default function Home() {
             awayTeam: awayId,
             time: g.time || "18:30",
             venue: g.venue || "",
-            status: score ? "finished" : (g.status || "scheduled"),
+            status: score ? "finished" : ((g.status || "scheduled") as "scheduled" | "live" | "finished"),
             homeScore: score ? score.homeScore : undefined,
             awayScore: score ? score.awayScore : undefined,
             winPitcher: score?.winPitcher,
@@ -160,9 +160,9 @@ export default function Home() {
     <div className="min-h-screen pb-20 md:pb-8">
       {/* Mobile header */}
       <div className="md:hidden px-5 pt-6 pb-2">
-        <h1 className="text-2xl font-bold tracking-tight">fullcount.kr</h1>
+        <h1 className="text-2xl font-bold tracking-tight">⚾ fullcount.kr</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          구단별 라인업, 구장 먹거리, 응원가까지
+          오늘의 야구, 라인업부터 응원가까지
         </p>
       </div>
 
@@ -216,7 +216,7 @@ export default function Home() {
         ) : (
           <div className="flex flex-col items-center justify-center py-16">
             <p className="text-muted-foreground text-sm">
-              이 날짜에 예정된 경기가 없습니다
+              이 날에는 경기가 없어요
             </p>
           </div>
         )}
@@ -224,7 +224,7 @@ export default function Home() {
         {/* Hint */}
         {enhancedGames.length > 0 && (
           <p className="text-center text-xs text-muted-foreground mt-6 mb-4">
-            카드를 누르면 라인업을 확인할 수 있습니다
+            카드를 누르면 선발 라인업을 확인할 수 있어요
           </p>
         )}
       </div>
