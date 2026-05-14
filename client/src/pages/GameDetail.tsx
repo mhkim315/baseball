@@ -112,16 +112,17 @@ export default function GameDetailPage() {
         if (homeRecent.length >= 5 && awayRecent.length >= 5) break;
         const games = allScores.dates[date];
         for (const g of games) {
-          if (homeRecent.length < 5 && g.away === homeName && !g.cancelled) {
+          if (g.cancelled || g.outcome == null) continue;
+          if (homeRecent.length < 5 && g.away === homeName) {
             homeRecent.push(g.awayScore > g.homeScore ? "승" : g.awayScore < g.homeScore ? "패" : "무");
           }
-          if (homeRecent.length < 5 && g.home === homeName && !g.cancelled) {
+          if (homeRecent.length < 5 && g.home === homeName) {
             homeRecent.push(g.homeScore > g.awayScore ? "승" : g.homeScore < g.awayScore ? "패" : "무");
           }
-          if (awayRecent.length < 5 && g.away === awayName && !g.cancelled) {
+          if (awayRecent.length < 5 && g.away === awayName) {
             awayRecent.push(g.awayScore > g.homeScore ? "승" : g.awayScore < g.homeScore ? "패" : "무");
           }
-          if (awayRecent.length < 5 && g.home === awayName && !g.cancelled) {
+          if (awayRecent.length < 5 && g.home === awayName) {
             awayRecent.push(g.homeScore > g.awayScore ? "승" : g.homeScore < g.awayScore ? "패" : "무");
           }
           if (homeRecent.length >= 5 && awayRecent.length >= 5) break;
@@ -307,8 +308,8 @@ export default function GameDetailPage() {
           </div>
         )}
 
-        {/* Preview card: standings + recent 5 games */}
-        {previewData && (
+        {/* Preview card: standings + recent 5 games (only for upcoming games) */}
+        {!isFinished && previewData && (
           <div className="bg-card rounded-2xl border border-border p-4 mt-3">
             <div className="flex items-center justify-between mb-3">
               <div className="flex flex-col items-center gap-1 flex-1">
