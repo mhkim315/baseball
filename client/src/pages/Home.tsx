@@ -171,7 +171,7 @@ export default function Home() {
         <div className="max-w-lg mx-auto">
           <div className="px-5 pt-2 pb-0">
             <span className="text-xs text-muted-foreground font-medium">
-              {getWeekLabel(selectedDate)}
+              {isToday(selectedDate) ? "오늘" : getWeekLabel(selectedDate)}
             </span>
           </div>
           <DateSelector
