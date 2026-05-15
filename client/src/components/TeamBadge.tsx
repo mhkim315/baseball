@@ -41,10 +41,12 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
     return `rgba(${r}, ${g}, ${b}, 0.35)`;
   }, [team.primary]);
 
+  const isIcon = variant === "ball" || variant === "bat";
+
   return (
     <div
-      className={`${sizeClasses[size]} rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ${className}`}
-      style={{ backgroundColor: bgColor }}
+      className={`${sizeClasses[size]} flex items-center justify-center flex-shrink-0 ${isIcon ? "" : "rounded-full overflow-hidden"} ${className}`}
+      style={isIcon ? undefined : { backgroundColor: bgColor }}
     >
       {imgFailed ? (
         <span
@@ -57,7 +59,7 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
         <img
           src={imgSrc}
           alt={team.shortName}
-          className="w-full h-full object-cover"
+          className={isIcon ? "w-6 h-6 object-contain" : "w-full h-full object-cover"}
           onError={() => setImgFailed(true)}
         />
       )}
