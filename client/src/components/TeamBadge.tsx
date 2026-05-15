@@ -30,7 +30,7 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
   const imgSrc = variant === "ball"
     ? `/team-ball/${teamId}.png`
     : variant === "bat"
-    ? `/team-bat/${teamId}.png`
+    ? `/team-bat/bat.png`
     : `${config.baseUrl}team-characters/${teamId}_${emotion}.png`;
 
   const bgColor = useMemo(() => {
