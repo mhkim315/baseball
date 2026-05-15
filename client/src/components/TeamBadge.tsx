@@ -59,7 +59,7 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
         <img
           src={imgSrc}
           alt={team.shortName}
-          className={isIcon ? "w-6 h-6 object-contain" : "w-full h-full object-cover"}
+          className={variant === "bat" ? "w-8 h-6 object-contain" : isIcon ? "w-6 h-6 object-contain" : "w-full h-full object-cover"}
           onError={() => setImgFailed(true)}
         />
       )}
