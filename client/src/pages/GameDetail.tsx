@@ -196,16 +196,22 @@ export default function GameDetailPage() {
   const isToday = detail.date === todayStr;
   const isCancelled = detail.gameInfo?.status === "cancelled" || scoreFallback?.cancelled === true || detail.etcRecords?.some(r => r.how?.includes("취소") || r.result?.includes("취소")) === true;
 
-  const hasScoreData = gameScore !== null;
+  const hasScoreData = gameScore !== null && (gameScore.away > 0 || gameScore.home > 0);
   const hasFinishedSignals = !!detail.scoreBoard || (detail.pitchingResult && detail.pitchingResult.length > 0) || (detail.etcRecords && detail.etcRecords.length > 0);
   const isGameActive = hasScoreData || hasFinishedSignals;
 
-  const isFinished = !isCancelled && !isFuture && (
+  // Only consider game started if current time is past scheduled start
+  const [gh, gm] = (detail.gameInfo?.time || "18:30").split(":").map(Number);
+  const startTime = new Date(detail.date);
+  startTime.setHours(gh, gm, 0, 0);
+  const gameHasStarted = new Date() >= startTime;
+
+  const isFinished = !isCancelled && !isFuture && gameHasStarted && (
     detail.gameInfo?.status === "finished" ||
     (isGameActive && !isToday)
   );
 
-  const isLive = !isCancelled && !isFinished && (
+  const isLive = !isCancelled && !isFinished && gameHasStarted && (
     detail.gameInfo?.status === "live" ||
     (isGameActive && isToday)
   );
