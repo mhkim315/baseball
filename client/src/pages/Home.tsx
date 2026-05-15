@@ -76,7 +76,12 @@ export default function Home() {
         if (cancelled) return;
         const scoreEntries: ScoreEntry[] = scoresData?.games || [];
         if (gamesData?.games) {
-          const games: EnhancedGame[] = gamesData.games.map((g: TodayGame) => {
+          // If API date doesn't match selected date (e.g. just past midnight),
+          // use nextGames as fallback instead of showing yesterday's games as today's
+          const apiGames = gamesData.date === dateStr
+            ? gamesData.games
+            : (gamesData.nextGames?.filter((g) => g.date === dateStr) ?? []);
+          const games: EnhancedGame[] = apiGames.map((g: TodayGame) => {
             const score = scoreEntries.find(
               (s) => s.away === TEAM_COLORS[g.away.id]?.shortName && s.home === TEAM_COLORS[g.home.id]?.shortName
             );
