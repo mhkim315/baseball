@@ -377,14 +377,14 @@ export default function GameDetailPage() {
           <h3 className="text-sm font-semibold mb-3">선발투수</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-2 bg-accent/30 rounded-xl p-3">
-              <TeamBadge teamId={detail.awayTeam} size="sm" emotion={awayEmotion} />
+              <TeamBadge teamId={detail.awayTeam} size="sm" variant="ball" />
               <div>
                 <p className="text-sm font-medium">{detail.starters?.away?.name || "미정"}</p>
                 <p className="text-xs" style={{ color: away.primary }}>{away?.shortName}</p>
               </div>
             </div>
             <div className="flex items-center gap-2 bg-accent/30 rounded-xl p-3">
-              <TeamBadge teamId={detail.homeTeam} size="sm" emotion={homeEmotion} />
+              <TeamBadge teamId={detail.homeTeam} size="sm" variant="ball" />
               <div>
                 <p className="text-sm font-medium">{detail.starters?.home?.name || "미정"}</p>
                 <p className="text-xs" style={{ color: home.primary }}>{home?.shortName}</p>
@@ -459,7 +459,7 @@ export default function GameDetailPage() {
               {/* Away lineup */}
               <div className="bg-card rounded-2xl border border-border p-4">
                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
-                  <TeamBadge teamId={detail.awayTeam} size="sm" emotion={awayEmotion} />
+                  <TeamBadge teamId={detail.awayTeam} size="sm" variant="bat" />
                   <span className="text-sm font-semibold" style={{ color: away.primary }}>{away?.shortName}</span>
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -478,7 +478,7 @@ export default function GameDetailPage() {
               {/* Home lineup */}
               <div className="bg-card rounded-2xl border border-border p-4">
                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
-                  <TeamBadge teamId={detail.homeTeam} size="sm" emotion={homeEmotion} />
+                  <TeamBadge teamId={detail.homeTeam} size="sm" variant="bat" />
                   <span className="text-sm font-semibold" style={{ color: home.primary }}>{home?.shortName}</span>
                 </div>
                 <div className="flex flex-col gap-1.5">

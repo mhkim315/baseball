@@ -6,6 +6,7 @@ interface TeamBadgeProps {
   teamId: string;
   size?: "sm" | "md" | "lg";
   emotion?: "default" | "determined" | "sad" | "joyful" | "neutral";
+  variant?: "character" | "ball" | "bat";
   className?: string;
 }
 
@@ -21,12 +22,16 @@ const textSizes: Record<string, string> = {
   lg: "text-sm",
 };
 
-export function TeamBadge({ teamId, size = "md", emotion = "default", className = "" }: TeamBadgeProps) {
+export function TeamBadge({ teamId, size = "md", emotion = "default", variant = "character", className = "" }: TeamBadgeProps) {
   const team = TEAM_COLORS[teamId];
   const [imgFailed, setImgFailed] = useState(false);
   if (!team) return null;
 
-  const imgSrc = `${config.baseUrl}team-characters/${teamId}_${emotion}.png`;
+  const imgSrc = variant === "ball"
+    ? `/team-ball/${teamId}.png`
+    : variant === "bat"
+    ? `/team-bat/${teamId}.png`
+    : `${config.baseUrl}team-characters/${teamId}_${emotion}.png`;
 
   const bgColor = useMemo(() => {
     const hex = team.primary.replace("#", "");
