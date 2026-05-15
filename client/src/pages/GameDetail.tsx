@@ -196,7 +196,7 @@ export default function GameDetailPage() {
   const isToday = detail.date === todayStr;
   const isCancelled = detail.gameInfo?.status === "cancelled" || scoreFallback?.cancelled === true || detail.etcRecords?.some(r => r.how?.includes("취소") || r.result?.includes("취소")) === true;
 
-  const hasScoreData = gameScore !== null && (gameScore.away > 0 || gameScore.home > 0);
+  const hasScoreData = gameScore !== null;
   const hasFinishedSignals = !!detail.scoreBoard || (detail.pitchingResult && detail.pitchingResult.length > 0) || (detail.etcRecords && detail.etcRecords.length > 0);
   const isGameActive = hasScoreData || hasFinishedSignals;
 
