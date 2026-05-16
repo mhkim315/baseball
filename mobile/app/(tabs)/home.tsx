@@ -93,8 +93,6 @@ export default function HomeScreen() {
     fetchAndCache(current + 1);
   }, []);
 
-  const activeTeam = displayTeam || myTeam;
-
   const load = useCallback(() => {
     const dateStr = formatDateStr(selectedDate);
     setLoading(true);
@@ -294,16 +292,16 @@ export default function HomeScreen() {
 
   // Sort: my team games first
   const sortedGames = [...games].sort((a, b) => {
-    if (activeTeam) {
-      const aIsMyTeam = (a.homeTeam === activeTeam || a.awayTeam === activeTeam) ? 0 : 1;
-      const bIsMyTeam = (b.homeTeam === activeTeam || b.awayTeam === activeTeam) ? 0 : 1;
+    if (myTeam) {
+      const aIsMyTeam = (a.homeTeam === myTeam || a.awayTeam === myTeam) ? 0 : 1;
+      const bIsMyTeam = (b.homeTeam === myTeam || b.awayTeam === myTeam) ? 0 : 1;
       if (aIsMyTeam !== bIsMyTeam) return aIsMyTeam - bIsMyTeam;
     }
     return 0;
   });
 
   const renderGame = ({ item }: { item: EnhancedGame }) => {
-    const isMyTeamGame = activeTeam && (item.homeTeam === activeTeam || item.awayTeam === activeTeam);
+    const isMyTeamGame = myTeam && (item.homeTeam === myTeam || item.awayTeam === myTeam);
     return (
       <GameCard
         homeTeam={item.homeTeam}
@@ -318,7 +316,7 @@ export default function HomeScreen() {
         winPitcher={item.winPitcher}
         losePitcher={item.losePitcher}
         cancelled={item.cancelled}
-        highlighted={isMyTeamGame ? TEAM_COLORS[activeTeam]?.primary : undefined}
+        highlighted={isMyTeamGame ? TEAM_COLORS[myTeam]?.primary : undefined}
         dense={!isMyTeamGame}
         onClick={() => router.push(`/game/${item.id}?ap=${encodeURIComponent(item.awayPitcher || "")}&hp=${encodeURIComponent(item.homePitcher || "")}`)}
       />
@@ -358,7 +356,7 @@ export default function HomeScreen() {
       <DateStrip
         selectedDate={selectedDate}
         onDateChange={setSelectedDate}
-        teamColor={activeTeam ? TEAM_COLORS[activeTeam]?.primary : undefined}
+        teamColor={myTeam ? TEAM_COLORS[myTeam]?.primary : undefined}
       />
 
       {/* Calendar toggle */}
@@ -377,7 +375,7 @@ export default function HomeScreen() {
           games={calGames}
           scores={calScores}
           loading={false}
-          selectedTeam={activeTeam}
+          selectedTeam={displayTeam || myTeam}
           onSelectDate={(d) => { setSelectedDate(d); setCalendarOpen(false); }}
           onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
           onTeamChange={setDisplayTeam}
