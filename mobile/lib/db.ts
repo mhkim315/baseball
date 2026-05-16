@@ -25,7 +25,14 @@ async function initSchema(database: SQLite.SQLiteDatabase): Promise<void> {
       memo TEXT,
       score_away INTEGER,
       score_home INTEGER,
-      created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      emotion TEXT DEFAULT NULL,
+      three_line_1 TEXT DEFAULT NULL,
+      three_line_2 TEXT DEFAULT NULL,
+      three_line_3 TEXT DEFAULT NULL,
+      frame_style TEXT DEFAULT 'classic',
+      stadium TEXT DEFAULT NULL,
+      is_win INTEGER DEFAULT NULL
     );
     CREATE TABLE IF NOT EXISTS win_rate_cache (
       team_id TEXT PRIMARY KEY,
@@ -36,6 +43,29 @@ async function initSchema(database: SQLite.SQLiteDatabase): Promise<void> {
       updated_at TEXT
     );
   `);
+  await migrateJikgwanSchema(database);
+}
+
+async function migrateJikgwanSchema(database: SQLite.SQLiteDatabase): Promise<void> {
+  const columns = [
+    { name: "emotion", type: "TEXT", dflt: "NULL" },
+    { name: "three_line_1", type: "TEXT", dflt: "NULL" },
+    { name: "three_line_2", type: "TEXT", dflt: "NULL" },
+    { name: "three_line_3", type: "TEXT", dflt: "NULL" },
+    { name: "frame_style", type: "TEXT", dflt: "'classic'" },
+    { name: "stadium", type: "TEXT", dflt: "NULL" },
+    { name: "is_win", type: "INTEGER", dflt: "NULL" },
+  ];
+  const existing = await database.getAllAsync<{ name: string }>(
+    "PRAGMA table_info(jikgwan_records)"
+  );
+  const existingNames = new Set(existing.map((c) => c.name));
+  for (const col of columns) {
+    if (existingNames.has(col.name)) continue;
+    await database.execAsync(
+      `ALTER TABLE jikgwan_records ADD COLUMN ${col.name} ${col.type} DEFAULT ${col.dflt}`
+    );
+  }
 }
 
 // --- User Settings ---
@@ -97,18 +127,34 @@ export interface JikgwanRecord {
   score_away: number | null;
   score_home: number | null;
   created_at: string;
+  emotion: string | null;
+  three_line_1: string | null;
+  three_line_2: string | null;
+  three_line_3: string | null;
+  frame_style: string;
+  stadium: string | null;
+  is_win: number | null;
 }
 
 export async function addJikgwanRecord(record: Omit<JikgwanRecord, "id" | "created_at">): Promise<number> {
   const database = await getDb();
   const result = await database.runAsync(
-    "INSERT INTO jikgwan_records (game_id, date, photo_path, memo, score_away, score_home) VALUES (?, ?, ?, ?, ?, ?)",
+    `INSERT INTO jikgwan_records
+     (game_id, date, photo_path, memo, score_away, score_home, emotion, three_line_1, three_line_2, three_line_3, frame_style, stadium, is_win)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     record.game_id,
     record.date,
     record.photo_path,
     record.memo,
     record.score_away,
-    record.score_home
+    record.score_home,
+    record.emotion ?? null,
+    record.three_line_1 ?? null,
+    record.three_line_2 ?? null,
+    record.three_line_3 ?? null,
+    record.frame_style ?? "classic",
+    record.stadium ?? null,
+    record.is_win ?? null
   );
   return result.lastInsertRowId;
 }
@@ -117,6 +163,34 @@ export async function getJikgwanRecords(): Promise<JikgwanRecord[]> {
   const database = await getDb();
   return database.getAllAsync<JikgwanRecord>(
     "SELECT * FROM jikgwan_records ORDER BY date DESC, id DESC"
+  );
+}
+
+export async function getJikgwanRecordsByMonth(year: number, month: number): Promise<JikgwanRecord[]> {
+  const database = await getDb();
+  const prefix = `${year}.${String(month).padStart(2, "0")}`;
+  return database.getAllAsync<JikgwanRecord>(
+    "SELECT * FROM jikgwan_records WHERE date LIKE ? ORDER BY date DESC, id DESC",
+    `${prefix}%`
+  );
+}
+
+export async function updateJikgwanRecord(
+  id: number,
+  fields: Partial<Pick<JikgwanRecord, "memo" | "emotion" | "three_line_1" | "three_line_2" | "three_line_3" | "frame_style" | "is_win">>
+): Promise<void> {
+  const database = await getDb();
+  const setClauses: string[] = [];
+  const values: any[] = [];
+  for (const [key, value] of Object.entries(fields)) {
+    setClauses.push(`${key} = ?`);
+    values.push(value ?? null);
+  }
+  if (setClauses.length === 0) return;
+  values.push(id);
+  await database.runAsync(
+    `UPDATE jikgwan_records SET ${setClauses.join(", ")} WHERE id = ?`,
+    ...values
   );
 }
 
