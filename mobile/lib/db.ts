@@ -2,13 +2,17 @@ import * as SQLite from "expo-sqlite";
 import { TEAM_COLORS } from "@shared/teamColors";
 
 let db: SQLite.SQLiteDatabase | null = null;
+let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
 async function getDb(): Promise<SQLite.SQLiteDatabase> {
-  if (!db) {
-    db = await SQLite.openDatabaseAsync("fullcount.db");
-    await initSchema(db);
+  if (!dbPromise) {
+    dbPromise = (async () => {
+      db = await SQLite.openDatabaseAsync("fullcount.db");
+      await initSchema(db);
+      return db;
+    })();
   }
-  return db;
+  return dbPromise;
 }
 
 async function initSchema(database: SQLite.SQLiteDatabase): Promise<void> {
@@ -55,6 +59,8 @@ async function migrateJikgwanSchema(database: SQLite.SQLiteDatabase): Promise<vo
     { name: "frame_style", type: "TEXT", dflt: "'classic'" },
     { name: "stadium", type: "TEXT", dflt: "NULL" },
     { name: "is_win", type: "INTEGER", dflt: "NULL" },
+    { name: "photos", type: "TEXT", dflt: "NULL" },
+    { name: "cheered_team", type: "TEXT", dflt: "NULL" },
   ];
   const existing = await database.getAllAsync<{ name: string }>(
     "PRAGMA table_info(jikgwan_records)"
@@ -123,6 +129,7 @@ export interface JikgwanRecord {
   game_id: string;
   date: string;
   photo_path: string | null;
+  photos: string | null;
   memo: string | null;
   score_away: number | null;
   score_home: number | null;
@@ -134,29 +141,40 @@ export interface JikgwanRecord {
   frame_style: string;
   stadium: string | null;
   is_win: number | null;
+  cheered_team: string | null;
 }
 
 export async function addJikgwanRecord(record: Omit<JikgwanRecord, "id" | "created_at">): Promise<number> {
   const database = await getDb();
-  const result = await database.runAsync(
-    `INSERT INTO jikgwan_records
-     (game_id, date, photo_path, memo, score_away, score_home, emotion, three_line_1, three_line_2, three_line_3, frame_style, stadium, is_win)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    record.game_id,
-    record.date,
-    record.photo_path,
-    record.memo,
-    record.score_away,
-    record.score_home,
-    record.emotion ?? null,
-    record.three_line_1 ?? null,
-    record.three_line_2 ?? null,
-    record.three_line_3 ?? null,
-    record.frame_style ?? "classic",
-    record.stadium ?? null,
-    record.is_win ?? null
+
+  // Build SQL with escaped values to bypass prepareAsync parameter binding
+  const esc = (s: string | null | undefined) =>
+    s != null ? `'${s.replace(/'/g, "''")}'` : "NULL";
+  const num = (n: number | null | undefined) =>
+    n != null ? String(n) : "NULL";
+
+  const sql = `INSERT INTO jikgwan_records
+    (game_id, date, photo_path, photos, memo, score_away, score_home, emotion, frame_style, stadium, is_win, cheered_team)
+    VALUES (
+      ${esc(record.game_id || "")},
+      ${esc(record.date || "")},
+      ${esc(record.photo_path)},
+      ${esc(record.photos)},
+      ${esc(record.memo)},
+      ${num(record.score_away)},
+      ${num(record.score_home)},
+      ${esc(record.emotion)},
+      ${esc(record.frame_style || "classic")},
+      ${esc(record.stadium)},
+      ${num(record.is_win)},
+      ${esc(record.cheered_team)}
+    )`;
+
+  await database.execAsync(sql);
+  const row = await database.getFirstAsync<{ id: number }>(
+    "SELECT last_insert_rowid() as id"
   );
-  return result.lastInsertRowId;
+  return row?.id ?? 0;
 }
 
 export async function getJikgwanRecords(): Promise<JikgwanRecord[]> {
@@ -177,7 +195,7 @@ export async function getJikgwanRecordsByMonth(year: number, month: number): Pro
 
 export async function updateJikgwanRecord(
   id: number,
-  fields: Partial<Pick<JikgwanRecord, "memo" | "emotion" | "three_line_1" | "three_line_2" | "three_line_3" | "frame_style" | "is_win">>
+  fields: Partial<Pick<JikgwanRecord, "memo" | "emotion" | "three_line_1" | "three_line_2" | "three_line_3" | "frame_style" | "is_win" | "photos" | "cheered_team">>
 ): Promise<void> {
   const database = await getDb();
   const setClauses: string[] = [];

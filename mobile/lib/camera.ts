@@ -15,8 +15,9 @@ export async function ensurePhotoDir(): Promise<Directory> {
 
 export function generatePhotoName(): string {
   const now = new Date();
-  const ts = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}_${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
-  return `jikgwan_${ts}.jpg`;
+  const ts = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}_${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}${String(now.getMilliseconds()).padStart(3, "0")}`;
+  const rand = Math.random().toString(36).slice(2, 6);
+  return `jikgwan_${ts}_${rand}.jpg`;
 }
 
 export async function savePhoto(sourceUri: string, fileName: string): Promise<string> {

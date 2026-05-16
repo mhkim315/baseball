@@ -1,4 +1,5 @@
-import { View, Text, Image, Pressable, StyleSheet } from "react-native";
+import { useState, useCallback } from "react";
+import { View, Text, Image, Pressable, ScrollView, StyleSheet, NativeSyntheticEvent, NativeScrollEvent, useWindowDimensions } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_ID_TO_CODE } from "@shared/constants";
 import { TeamBadge } from "@/components/TeamBadge";
@@ -6,145 +7,132 @@ import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { theme } from "@/lib/theme";
 import type { JikgwanRecord } from "@/lib/db";
 
-const FRAME_STYLES: Record<string, { borderColor: string; borderWidth: number }> = {
-  classic: { borderColor: "#fff", borderWidth: 12 },
-  retro: { borderColor: "#f0e6d3", borderWidth: 10 },
-  rounded: { borderColor: "transparent", borderWidth: 0 },
-  team: { borderColor: "#fff", borderWidth: 12 },
-  ticket: { borderColor: "#fef3c7", borderWidth: 8 },
-};
-
 interface DiaryCardProps {
   record: JikgwanRecord;
   teamId: string | null;
   onShare?: (uri: string) => void;
   onDelete?: (record: JikgwanRecord) => void;
+  onEdit?: (record: JikgwanRecord) => void;
 }
 
-export default function DiaryCard({ record, teamId, onShare, onDelete }: DiaryCardProps) {
+export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }: DiaryCardProps) {
+  const { width: screenWidth } = useWindowDimensions();
+  const photoWidth = screenWidth - 2; // card border
   const teams = parseGameId(record.game_id);
   const homeTeam = teams.homeId ? TEAM_COLORS[teams.homeId] : null;
   const awayTeam = teams.awayId ? TEAM_COLORS[teams.awayId] : null;
   const hasScore = record.score_away != null && record.score_home != null;
-  const frame = FRAME_STYLES[record.frame_style ?? "classic"] ?? FRAME_STYLES.classic;
-  const isWin = record.is_win;
   const emotionChar = record.emotion ? EMOTION_CHARACTER[record.emotion] ?? null : null;
   const emotionTeam = teams.homeId || teams.awayId;
+  const diaryContent = record.memo || record.three_line_1 || "";
 
-  let teamBorderColor: string | undefined;
-  if (record.frame_style === "team" && teamId) {
-    teamBorderColor = TEAM_COLORS[teamId]?.primary;
-  }
+  const photos = parsePhotos(record);
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  const handleScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const idx = Math.round(e.nativeEvent.contentOffset.x / e.nativeEvent.layoutMeasurement.width);
+    setPhotoIndex(idx);
+  }, []);
 
   return (
     <View style={styles.card}>
-      {/* Photo with frame */}
-      <View style={[styles.photoWrapper, { borderColor: teamBorderColor ?? frame.borderColor, borderWidth: frame.borderWidth }]}>
-        {record.photo_path ? (
-          <Image source={{ uri: record.photo_path }} style={styles.photo} />
-        ) : (
-          <View style={styles.noPhoto}>
-            <Text style={styles.noPhotoIcon}>📸</Text>
-          </View>
-        )}
+      {/* Photos - swipeable */}
+      {photos.length > 0 ? (
+        <View style={styles.photoContainer}>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+          >
+            {photos.map((uri, i) => (
+              <Image key={i} source={{ uri }} style={[styles.photo, { width: photoWidth }]} />
+            ))}
+          </ScrollView>
+          {/* Dots */}
+          {photos.length > 1 && (
+            <View style={styles.dots}>
+              {photos.map((_, i) => (
+                <View key={i} style={[styles.dot, i === photoIndex && styles.dotActive]} />
+              ))}
+            </View>
+          )}
+        </View>
+      ) : (
+        <View style={styles.noPhoto}>
+          <Text style={styles.noPhotoIcon}>⚾</Text>
+        </View>
+      )}
 
-        {/* Emotion character overlay */}
-        {emotionChar && emotionTeam && (
-          <View style={styles.emotionBadge}>
-            <TeamBadge teamId={emotionTeam} size="sm" emotion={emotionChar} />
-          </View>
-        )}
-
-        {/* Win/Loss badge */}
-        {isWin === 1 && (
-          <View style={styles.winBadge}>
-            <Text style={styles.winBadgeText}>승리!</Text>
-          </View>
-        )}
-        {isWin === -1 && (
-          <View style={styles.lossBadge}>
-            <Text style={styles.lossBadgeText}>패</Text>
-          </View>
-        )}
-
-        {/* Team color accent bar */}
-        {teamId && TEAM_COLORS[teamId] && (
-          <View style={[styles.accentBar, { backgroundColor: TEAM_COLORS[teamId].primary }]} />
-        )}
-      </View>
-
-      {/* Info section */}
-      <View style={styles.info}>
-        {/* Teams + Score */}
+      {/* Body */}
+      <View style={styles.body}>
+        {/* Game info bar */}
         {(homeTeam || awayTeam) && (
-          <View style={styles.matchupRow}>
-            {awayTeam && <TeamBadge teamId={teams.awayId!} size="sm" />}
-            <Text style={[styles.teamName, awayTeam && { color: awayTeam.primary }]}>
+          <View style={styles.gameBar}>
+            <Text style={[styles.teamName, awayTeam && { color: awayTeam.primary }]} numberOfLines={1}>
               {awayTeam?.shortName || ""}
             </Text>
             {hasScore ? (
               <Text style={styles.score}>{record.score_away}:{record.score_home}</Text>
             ) : (
-              <Text style={styles.vsText}>VS</Text>
+              <Text style={styles.vs}>VS</Text>
             )}
-            <Text style={[styles.teamName, homeTeam && { color: homeTeam.primary }]}>
+            <Text style={[styles.teamName, homeTeam && { color: homeTeam.primary }]} numberOfLines={1}>
               {homeTeam?.shortName || ""}
             </Text>
-            {homeTeam && <TeamBadge teamId={teams.homeId!} size="sm" />}
           </View>
         )}
 
-        {/* Stadium + Date */}
+        {/* Meta: stadium + date + emotion */}
         <View style={styles.metaRow}>
           {record.stadium && <Text style={styles.metaText}>{record.stadium}</Text>}
+          {record.stadium && <Text style={styles.metaDot}> · </Text>}
           <Text style={styles.metaText}>{record.date}</Text>
+          {emotionChar && emotionTeam && (
+            <>
+              <Text style={styles.metaDot}> · </Text>
+              <TeamBadge teamId={emotionTeam} size="sm" emotion={emotionChar} />
+            </>
+          )}
+          {record.is_win === 1 && <Text style={styles.winTag}>승</Text>}
+          {record.is_win === -1 && <Text style={styles.lossTag}>패</Text>}
         </View>
 
-        {/* Three-line diary */}
-        {record.three_line_1 && (
-          <View style={styles.diaryBox}>
-            <Text style={styles.diaryLine}>
-              <Text style={styles.diaryLabel}>💭 </Text>
-              {record.three_line_1}
-            </Text>
-            {record.three_line_2 && (
-              <Text style={styles.diaryLine}>
-                <Text style={styles.diaryLabel}>📝 </Text>
-                {record.three_line_2}
-              </Text>
-            )}
-            {record.three_line_3 && (
-              <Text style={styles.diaryLine}>
-                <Text style={styles.diaryLabel}>🌟 </Text>
-                {record.three_line_3}
-              </Text>
-            )}
-          </View>
-        )}
+        {/* Diary content */}
+        {diaryContent ? (
+          <Text style={styles.diary}>{diaryContent}</Text>
+        ) : null}
+      </View>
 
-        {/* Legacy memo fallback */}
-        {!record.three_line_1 && record.memo && (
-          <Text style={styles.memoText}>{record.memo}</Text>
+      {/* Actions */}
+      <View style={styles.actions}>
+        {onShare && photos[0] && (
+          <Pressable onPress={() => onShare(photos[0])} style={styles.actionBtn}>
+            <Text style={styles.actionText}>공유</Text>
+          </Pressable>
         )}
-
-        {/* Actions */}
-        {(onShare || onDelete) && (
-          <View style={styles.actions}>
-            {onShare && record.photo_path && (
-              <Pressable onPress={() => onShare(record.photo_path!)} style={styles.actionBtn}>
-                <Text style={styles.actionText}>공유</Text>
-              </Pressable>
-            )}
-            {onDelete && (
-              <Pressable onPress={() => onDelete(record)} style={styles.actionBtn}>
-                <Text style={[styles.actionText, { color: "#ef4444" }]}>삭제</Text>
-              </Pressable>
-            )}
-          </View>
-        )}
+        <Pressable onPress={() => onEdit?.(record)} style={styles.actionBtn}>
+          <Text style={styles.actionText}>수정</Text>
+        </Pressable>
+        <View style={{ flex: 1 }} />
+        <Pressable onPress={() => onDelete?.(record)} style={styles.actionBtn}>
+          <Text style={[styles.actionText, { color: "#ef4444" }]}>삭제</Text>
+        </Pressable>
       </View>
     </View>
   );
+}
+
+function parsePhotos(record: JikgwanRecord): string[] {
+  if (record.photos) {
+    try {
+      const parsed = JSON.parse(record.photos);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    } catch {}
+  }
+  if (record.photo_path) return [record.photo_path];
+  return [];
 }
 
 function parseGameId(gameId: string): { awayId?: string; homeId?: string } {
@@ -169,14 +157,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.border,
   },
-  photoWrapper: {
+  photoContainer: {
     position: "relative",
-    borderRadius: 16,
-    overflow: "hidden",
   },
   photo: {
-    width: "100%",
-    height: 320,
+    height: 340,
     resizeMode: "cover",
   },
   noPhoto: {
@@ -186,92 +171,109 @@ const styles = StyleSheet.create({
     backgroundColor: theme.muted,
   },
   noPhotoIcon: { fontSize: 40 },
-  emotionBadge: {
+  dots: {
     position: "absolute",
-    bottom: 12,
-    right: 12,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    borderRadius: 20,
-    width: 36,
-    height: 36,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  winBadge: {
-    position: "absolute",
-    top: 12,
-    left: 12,
-    backgroundColor: "#22c55e",
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 12,
-  },
-  winBadgeText: { color: "#fff", fontSize: 12, fontWeight: "700" },
-  lossBadge: {
-    position: "absolute",
-    top: 12,
-    left: 12,
-    backgroundColor: "#ef4444",
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 12,
-  },
-  lossBadgeText: { color: "#fff", fontSize: 12, fontWeight: "700" },
-  accentBar: {
-    position: "absolute",
-    bottom: 0,
+    bottom: 10,
     left: 0,
     right: 0,
-    height: 4,
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 6,
   },
-  info: {
-    padding: 16,
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "rgba(255,255,255,0.5)",
+  },
+  dotActive: {
+    backgroundColor: "#fff",
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+  },
+  body: {
+    padding: 14,
     gap: 8,
   },
-  matchupRow: {
+  gameBar: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
   },
-  teamName: { fontSize: 13, fontWeight: "600" },
-  score: { fontSize: 20, fontWeight: "bold", color: theme.foreground },
-  vsText: { fontSize: 13, fontWeight: "600", color: theme.mutedForeground },
+  teamName: {
+    fontSize: 15,
+    fontWeight: "700",
+  },
+  score: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: theme.foreground,
+  },
+  vs: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: theme.mutedForeground,
+  },
   metaRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
+    flexWrap: "wrap",
+    gap: 2,
   },
-  metaText: { fontSize: 11, color: theme.mutedForeground },
-  diaryBox: {
-    backgroundColor: theme.muted,
-    borderRadius: 12,
-    padding: 12,
-    gap: 4,
+  metaText: {
+    fontSize: 11,
+    color: theme.mutedForeground,
   },
-  diaryLine: {
-    fontSize: 13,
+  metaDot: {
+    fontSize: 11,
+    color: theme.mutedForeground,
+  },
+  winTag: {
+    fontSize: 9,
+    fontWeight: "700",
+    color: "#fff",
+    backgroundColor: "#22c55e",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+    overflow: "hidden",
+    marginLeft: 4,
+  },
+  lossTag: {
+    fontSize: 9,
+    fontWeight: "700",
+    color: "#fff",
+    backgroundColor: "#ef4444",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+    overflow: "hidden",
+    marginLeft: 4,
+  },
+  diary: {
+    fontSize: 14,
     color: theme.foreground,
-    lineHeight: 19,
-  },
-  diaryLabel: {
-    fontSize: 12,
-  },
-  memoText: {
-    fontSize: 13,
-    color: theme.foreground,
-    lineHeight: 19,
+    lineHeight: 22,
+    marginTop: 2,
   },
   actions: {
     flexDirection: "row",
-    gap: 8,
-    marginTop: 4,
+    alignItems: "center",
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: theme.border,
   },
   actionBtn: {
     paddingVertical: 6,
     paddingHorizontal: 14,
     borderRadius: 8,
-    backgroundColor: theme.muted,
   },
-  actionText: { fontSize: 12, color: theme.foreground, fontWeight: "500" },
+  actionText: {
+    fontSize: 13,
+    color: theme.mutedForeground,
+    fontWeight: "500",
+  },
 });

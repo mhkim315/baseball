@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator, Linking, Image } from "react-native";
 import { getMyTeam } from "@/lib/db";
 import TeamExpander from "@/components/TeamExpander";
+import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
 import { TEAM_COLORS } from "@shared/teamColors";
 import {
@@ -152,12 +153,15 @@ export default function CheerScreen() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.pageTitle}>응원</Text>
+        <View style={{ flex: 1 }} />
         {myTeam && (
           <TeamExpander
             currentTeamId={activeTeam}
             onSelectTeam={setDisplayTeam}
           />
         )}
+        {myTeam && <View style={{ width: 4 }} />}
+        <SettingsButton color={myTeam ? teamColor?.primary : undefined} />
       </View>
 
       {/* Tab switcher */}

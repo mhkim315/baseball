@@ -11,8 +11,7 @@ import {
 import { useRouter } from "expo-router";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
-import TeamSelector from "@/components/TeamSelector";
-import JikgwanFeed from "@/components/JikgwanFeed";
+
 import { theme } from "@/lib/theme";
 import {
   getMyTeam,
@@ -44,6 +43,7 @@ export default function MyScreen() {
   const [showNicknameModal, setShowNicknameModal] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
   const [showProfilePicker, setShowProfilePicker] = useState(false);
+  const [showTeamPicker, setShowTeamPicker] = useState(false);
   const router = useRouter();
 
   const loadData = useCallback(async () => {
@@ -93,27 +93,28 @@ export default function MyScreen() {
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>MY</Text>
+        <Text style={styles.headerTitle}>설정</Text>
         <Text style={styles.headerSub}>응원팀 선택, 직관기록, 승률 통계</Text>
       </View>
 
       {/* My Team Section */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>
-          {myTeam ? "내 응원팀" : "응원팀을 선택해주세요"}
-        </Text>
-        {myTeam && (
-          <View style={styles.myTeamHeader}>
-            <TeamBadge teamId={myTeam} size="lg" />
-            <Text style={[styles.myTeamName, { color: myTeamColor }]}>
-              {TEAM_COLORS[myTeam]?.name}
+        <Text style={styles.sectionTitle}>내 응원팀</Text>
+        <Pressable style={styles.myTeamRow} onPress={() => setShowTeamPicker(true)}>
+          {myTeam ? (
+            <>
+              <TeamBadge teamId={myTeam} size="md" />
+              <Text style={[styles.myTeamName, { color: myTeamColor, flex: 1 }]}>
+                {TEAM_COLORS[myTeam]?.name}
+              </Text>
+            </>
+          ) : (
+            <Text style={[styles.myTeamName, { color: theme.mutedForeground, flex: 1 }]}>
+              응원팀을 선택해주세요
             </Text>
-          </View>
-        )}
-        <TeamSelector
-          selectedTeam={myTeam}
-          onSelect={handleTeamSelect}
-        />
+          )}
+          <Text style={styles.myTeamArrow}>›</Text>
+        </Pressable>
       </View>
 
       {/* Profile Section */}
@@ -191,13 +192,6 @@ export default function MyScreen() {
         </View>
       )}
 
-      {/* Jikgwan Records */}
-      <View style={styles.section}>
-        <JikgwanFeed
-          onTakePhoto={() => router.push("/jikgwan/camera")}
-        />
-      </View>
-
       {/* Community */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>커뮤니티</Text>
@@ -206,9 +200,9 @@ export default function MyScreen() {
         </Pressable>
       </View>
 
-      {/* Settings Placeholder */}
+      {/* App Info */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>설정</Text>
+        <Text style={styles.sectionTitle}>정보</Text>
         <Pressable style={styles.settingRow}>
           <Text style={styles.settingLabel}>개인정보처리방침</Text>
         </Pressable>
@@ -243,6 +237,35 @@ export default function MyScreen() {
             </View>
           </View>
         </View>
+      </Modal>
+
+      {/* Team Picker Modal */}
+      <Modal visible={showTeamPicker} transparent animationType="fade" onRequestClose={() => setShowTeamPicker(false)}>
+        <Pressable style={styles.modalOverlay} onPress={() => setShowTeamPicker(false)}>
+          <View style={styles.teamPickerModal}>
+            <Text style={styles.modalTitle}>응원팀 선택</Text>
+            <View style={styles.teamPickerGrid}>
+              {TEAM_LIST.map((team) => {
+                const isSelected = myTeam === team.id;
+                return (
+                  <Pressable
+                    key={team.id}
+                    onPress={() => { handleTeamSelect(team.id); setShowTeamPicker(false); }}
+                    style={[
+                      styles.teamPickerItem,
+                      isSelected && { backgroundColor: team.primary + "20", borderColor: team.primary },
+                    ]}
+                  >
+                    <TeamBadge teamId={team.id} size="md" />
+                    <Text style={[styles.teamPickerName, isSelected && { color: team.primary, fontWeight: "700" }]}>
+                      {team.shortName}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        </Pressable>
       </Modal>
 
       {/* Profile Character Picker Modal */}
@@ -352,6 +375,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 16,
     gap: 8,
+  },
+  myTeamRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: theme.card,
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: theme.border,
+    gap: 12,
+  },
+  myTeamArrow: {
+    fontSize: 22,
+    color: theme.mutedForeground,
   },
   myTeamName: {
     fontSize: 18,
@@ -484,6 +521,34 @@ const styles = StyleSheet.create({
     padding: 24,
     width: "100%",
     maxWidth: 340,
+  },
+  teamPickerModal: {
+    backgroundColor: theme.card,
+    borderRadius: 20,
+    padding: 20,
+    width: "100%",
+    maxWidth: 340,
+  },
+  teamPickerGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 10,
+  },
+  teamPickerItem: {
+    width: 72,
+    height: 88,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: theme.border,
+    gap: 6,
+  },
+  teamPickerName: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: theme.mutedForeground,
   },
   modalTitle: {
     fontSize: 18,

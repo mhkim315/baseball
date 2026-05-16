@@ -4,6 +4,7 @@ import { useFocusEffect } from "expo-router";
 import { getMyTeam } from "@/lib/db";
 import TeamExpander from "@/components/TeamExpander";
 import StadiumPage from "@/components/StadiumPage";
+import SettingsButton from "@/components/SettingsButton";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { theme } from "@/lib/theme";
 
@@ -25,6 +26,8 @@ export default function StadiumTab() {
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>구장 안내</Text>
+          <View style={{ flex: 1 }} />
+          <SettingsButton color={myTeamColor} />
         </View>
         <StadiumPage teamId={activeTeam} accentColor={myTeamColor} />
       </ScrollView>
@@ -35,10 +38,13 @@ export default function StadiumTab() {
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>구장 안내</Text>
+        <View style={{ flex: 1 }} />
         <TeamExpander
           currentTeamId={activeTeam}
           onSelectTeam={setDisplayTeam}
         />
+        <View style={{ width: 4 }} />
+        <SettingsButton color={myTeamColor} />
       </View>
       <StadiumPage teamId={activeTeam} accentColor={myTeamColor} />
     </ScrollView>

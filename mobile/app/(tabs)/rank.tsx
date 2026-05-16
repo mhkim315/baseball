@@ -4,6 +4,7 @@ import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID } from "@shared/constants";
 import { fetchStandingsJson, type StandingRow } from "@/lib/api";
 import { getMyTeam } from "@/lib/db";
+import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
 
 function parseWLT(wlt: string): { wins: number; draws: number; losses: number } {
@@ -60,7 +61,11 @@ export default function RankScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>순위</Text>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text style={styles.headerTitle}>순위</Text>
+          <View style={{ flex: 1 }} />
+          <SettingsButton color={myTeam ? TEAM_COLORS[myTeam]?.primary : undefined} />
+        </View>
         <Text style={styles.headerSub}>2026 KBO 리그</Text>
       </View>
 

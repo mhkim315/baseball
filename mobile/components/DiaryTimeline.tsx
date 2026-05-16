@@ -14,11 +14,12 @@ interface DiaryTimelineProps {
   records: JikgwanRecord[];
   teamId: string | null;
   onDelete: (id: number) => void;
+  onEdit: (record: JikgwanRecord) => void;
   onRefresh: () => void;
   refreshing: boolean;
 }
 
-export default function DiaryTimeline({ records, teamId, onDelete, onRefresh, refreshing }: DiaryTimelineProps) {
+export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRefresh, refreshing }: DiaryTimelineProps) {
   const onThisDayRecords = useMemo(() => {
     const now = new Date();
     const todayMD = `${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
@@ -56,6 +57,7 @@ export default function DiaryTimeline({ records, teamId, onDelete, onRefresh, re
       teamId={teamId}
       onShare={handleShare}
       onDelete={handleDelete}
+      onEdit={onEdit}
     />
   );
 

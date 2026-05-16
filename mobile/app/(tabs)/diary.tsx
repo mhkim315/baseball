@@ -8,6 +8,7 @@ import DiaryStats from "@/components/DiaryStats";
 import DiaryEntryModal from "@/components/DiaryEntryModal";
 import { getJikgwanRecords, deleteJikgwanRecord, type JikgwanRecord } from "@/lib/db";
 import { getMyTeam } from "@/lib/db";
+import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
 
 type DiaryTab = "timeline" | "calendar" | "stats";
@@ -24,6 +25,7 @@ export default function DiaryScreen() {
   const [myTeam, setMyTeam] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [showEntryModal, setShowEntryModal] = useState(false);
+  const [editingRecord, setEditingRecord] = useState<JikgwanRecord | null>(null);
 
   // Calendar state
   const now = new Date();
@@ -31,13 +33,17 @@ export default function DiaryScreen() {
   const [calMonth, setCalMonth] = useState(now.getMonth());
 
   const loadRecords = useCallback(async () => {
-    const data = await getJikgwanRecords();
-    setRecords(data);
+    try {
+      const data = await getJikgwanRecords();
+      setRecords(data);
+    } catch {}
   }, []);
 
   const loadMyTeam = useCallback(async () => {
-    const team = await getMyTeam();
-    setMyTeam(team);
+    try {
+      const team = await getMyTeam();
+      setMyTeam(team);
+    } catch {}
   }, []);
 
   useFocusEffect(
@@ -58,6 +64,21 @@ export default function DiaryScreen() {
     loadRecords();
   };
 
+  const handleEdit = (record: JikgwanRecord) => {
+    setEditingRecord(record);
+  };
+
+  const handleCloseModal = () => {
+    setShowEntryModal(false);
+    setEditingRecord(null);
+  };
+
+  const handleSaved = () => {
+    setShowEntryModal(false);
+    setEditingRecord(null);
+    loadRecords();
+  };
+
   const handleSelectDate = (date: Date) => {
     setCalYear(date.getFullYear());
     setCalMonth(date.getMonth());
@@ -68,7 +89,11 @@ export default function DiaryScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>📖 다이어리</Text>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text style={styles.headerTitle}>다이어리</Text>
+          <View style={{ flex: 1 }} />
+          <SettingsButton color={myTeam ? TEAM_COLORS[myTeam]?.primary : undefined} />
+        </View>
         <Text style={styles.headerSub}>나의 직관 기록</Text>
       </View>
 
@@ -99,6 +124,7 @@ export default function DiaryScreen() {
           records={records}
           teamId={myTeam}
           onDelete={handleDelete}
+          onEdit={handleEdit}
           onRefresh={handleRefresh}
           refreshing={refreshing}
         />
@@ -145,9 +171,10 @@ export default function DiaryScreen() {
 
       {/* Entry Modal */}
       <DiaryEntryModal
-        visible={showEntryModal}
-        onClose={() => setShowEntryModal(false)}
-        onSaved={() => { setShowEntryModal(false); loadRecords(); }}
+        visible={showEntryModal || !!editingRecord}
+        onClose={handleCloseModal}
+        onSaved={handleSaved}
+        editRecord={editingRecord}
       />
     </View>
   );
