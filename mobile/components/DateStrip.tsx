@@ -54,12 +54,20 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
 
   const weekDates = getWeekDates(selectedDate);
 
+  const goToday = () => onDateChange(new Date());
+
   return (
     <View style={styles.container}>
       <View style={styles.stripRow}>
         <Pressable onPress={goPrevWeek} style={styles.weekBtn} hitSlop={8}>
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
+
+        {!isToday(selectedDate) && (
+          <Pressable onPress={goToday} style={styles.todayBtn} hitSlop={8}>
+            <Text style={styles.todayBtnText}>오늘</Text>
+          </Pressable>
+        )}
 
         <ScrollView
           ref={scrollRef}
@@ -113,6 +121,8 @@ const styles = StyleSheet.create({
   },
   weekBtn: { paddingHorizontal: 12, paddingVertical: 8 },
   weekArrow: { fontSize: 22, color: "#888", fontWeight: "300", lineHeight: 24 },
+  todayBtn: { paddingHorizontal: 6, paddingVertical: 4, borderRadius: 6, backgroundColor: theme.muted, marginLeft: 4 },
+  todayBtnText: { fontSize: 11, fontWeight: "600", color: theme.primary },
   scrollContent: {
     flexDirection: "row",
     paddingHorizontal: 8,

@@ -290,10 +290,7 @@ export default function HomeScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerRow}>
-          <View>
-            <Text style={styles.title}>⚾ fullcount.kr</Text>
-            <Text style={styles.subtitle}>오늘의 야구</Text>
-          </View>
+          <Text style={styles.title}>홈</Text>
           {myTeam && (
             <TeamExpander
               currentTeamId={activeTeam || myTeam}
@@ -365,7 +362,7 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-start",
+    alignItems: "center",
   },
   title: {
     fontSize: 24,

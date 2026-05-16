@@ -225,19 +225,25 @@ export default function CalendarGrid({
                     return (
                       <View key={gi} style={styles.calGame}>
                         <View style={styles.calGameTop}>
-                          <Text style={[styles.calOpp, score && { color: "#444" }, !score && { color: "#bbb" }]} numberOfLines={1}>
+                          <Text style={styles.calOpp} numberOfLines={1}>
                             {prefix}{oppName}
                           </Text>
                         </View>
                         <View style={styles.calGameBottom}>
-                          {score && !isFuture && score.outcome != null ? (
+                          {score?.cancelled ? (
+                            <Text style={styles.calCancelled}>취소</Text>
+                          ) : score && !isFuture && score.outcome != null ? (
                             <View style={[styles.scoreChip, { backgroundColor: (resultColor || "#999") + "18" }]}>
-                              <Text style={[styles.calScore, { color: resultColor || "#555" }, score.cancelled && { textDecorationLine: "line-through", color: "#ccc" }]}>
+                              <Text style={[
+                                styles.calScore,
+                                { color: resultColor || "#555" },
+                                (score.awayScore >= 10 || score.homeScore >= 10) && styles.calScoreSm,
+                              ]}>
                                 {score.awayScore}:{score.homeScore}
                               </Text>
                             </View>
                           ) : (
-                            <Text style={styles.calTime} numberOfLines={1}>{g.time?.slice(0, 5) || g.venue?.slice(0, 2) || ""}</Text>
+                            <Text style={styles.calVenue} numberOfLines={1}>{g.venue || g.time?.slice(0, 5) || ""}</Text>
                           )}
                         </View>
                       </View>
@@ -322,12 +328,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
-  calOpp: { fontSize: 10, lineHeight: 13, flex: 1, color: "#999" },
+  calOpp: { fontSize: 11, lineHeight: 14, color: "#444", fontWeight: "500" },
   scoreChip: {
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 1,
   },
   calScore: { fontSize: 9, fontWeight: "700" },
-  calTime: { fontSize: 9, color: "#ccc" },
+  calScoreSm: { fontSize: 7, fontWeight: "700" },
+  calCancelled: { fontSize: 8, color: "#ccc", fontWeight: "500" },
+  calVenue: { fontSize: 9, color: "#ccc" },
 });

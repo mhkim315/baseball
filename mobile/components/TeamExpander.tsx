@@ -25,7 +25,7 @@ export default function TeamExpander({ currentTeamId, onSelectTeam }: TeamExpand
         <Text style={[styles.teamName, { color: currentTeam?.primary }]}>
           {currentTeam?.shortName || ""}
         </Text>
-        <Text style={styles.arrow}>{open ? "▲" : "▼"}</Text>
+        <Text style={styles.arrow}>▼</Text>
       </Pressable>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>

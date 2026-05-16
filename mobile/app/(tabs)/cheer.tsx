@@ -152,16 +152,13 @@ export default function CheerScreen() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.pageTitle}>응원가</Text>
-      </View>
-
-      {myTeam && (
-        <View style={styles.teamBar}>
+        {myTeam && (
           <TeamExpander
             currentTeamId={activeTeam}
             onSelectTeam={setDisplayTeam}
           />
-        </View>
-      )}
+        )}
+      </View>
 
       {/* Tab switcher */}
       <View style={styles.tabRow}>
@@ -290,15 +287,14 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingBottom: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   pageTitle: {
     fontSize: 24,
     fontWeight: "bold",
     color: theme.foreground,
-  },
-  teamBar: {
-    paddingHorizontal: 20,
-    paddingBottom: 8,
   },
   content: {
     padding: 16,
