@@ -182,69 +182,67 @@ export default function CalendarGrid({
               return (
                 <Pressable
                   key={dateStr}
-                  style={[styles.calCell, cellBg && { backgroundColor: cellBg }]}
+                  style={[styles.calCell, cellBg && { backgroundColor: cellBg }, hasHome && { borderLeftWidth: 3, borderLeftColor: teamColor?.primary || "#888" }]}
                   onPress={() => onSelectDate(new Date(propYear, propMonth, day))}
                 >
-                  {/* Inner card with home border */}
-                  <View style={[styles.calInner, hasHome && { borderLeftWidth: 3, borderLeftColor: teamColor?.primary || "#888" }]}>
-                    {/* Day number + result dots row */}
-                    <View style={styles.calDayRow}>
-                      <Text style={[styles.calDayNum, isToday && styles.calTodayNum, !hasGames && { color: "#d0d0d0" }]}>
-                        {day}
-                      </Text>
-                      <View style={styles.calDayTags}>
-                        {dayLabels.map((label, li) => (
-                          <View
-                            key={li}
-                            style={[styles.calDayDot, {
-                              backgroundColor: label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#f59e0b",
-                            }]}
-                          >
-                            <Text style={styles.calDayDotText}>{label}</Text>
-                          </View>
-                        ))}
-                        {isDH && <Text style={styles.dhTag}>DH</Text>}
-                      </View>
+                  {/* Day number + result dots row */}
+                  <View style={styles.calDayRow}>
+                    <Text style={[styles.calDayNum, isToday && styles.calTodayNum, !hasGames && { color: "#d0d0d0" }]}>
+                      {day}
+                    </Text>
+                    <View style={styles.calDayTags}>
+                      {dayLabels.map((label, li) => (
+                        <View
+                          key={li}
+                          style={[styles.calDayDot, {
+                            backgroundColor: label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#f59e0b",
+                          }]}
+                        >
+                          <Text style={styles.calDayDotText}>{label}</Text>
+                        </View>
+                      ))}
+                      {isDH && <Text style={styles.dhTag}>DH</Text>}
                     </View>
+                  </View>
 
-                    {/* Game entries */}
-                    {dayGames.slice(0, 2).map((g, gi) => {
-                      const isHome = g.home === teamName;
-                      const score = dayScores.find((s) => s.away === g.away && s.home === g.home);
-                      const oppName = isHome ? g.away : g.home;
+                  {/* Game entries */}
+                  {dayGames.slice(0, 2).map((g, gi) => {
+                    const isHome = g.home === teamName;
+                    const score = dayScores.find((s) => s.away === g.away && s.home === g.home);
+                    const oppName = isHome ? g.away : g.home;
 
-                      let resultColor: string | undefined;
-                      let resultLabel = "";
-                      if (score && !isFuture && score.outcome != null && !score.cancelled) {
-                        const our = isHome ? score.homeScore : score.awayScore;
-                        const their = isHome ? score.awayScore : score.homeScore;
-                        if (our > their) { resultColor = WIN_SCORE; resultLabel = "승"; }
-                        else if (our < their) { resultColor = LOSS_SCORE; resultLabel = "패"; }
-                        else { resultColor = "#d97706"; resultLabel = "무"; }
-                      }
+                    let resultColor: string | undefined;
+                    if (score && !isFuture && score.outcome != null && !score.cancelled) {
+                      const our = isHome ? score.homeScore : score.awayScore;
+                      const their = isHome ? score.awayScore : score.homeScore;
+                      if (our > their) resultColor = WIN_SCORE;
+                      else if (our < their) resultColor = LOSS_SCORE;
+                      else resultColor = "#d97706";
+                    }
 
-                      const prefix = isDH ? `${gi + 1}차 ` : "";
+                    const prefix = isDH ? `${gi + 1}차 ` : "";
 
-                      return (
-                        <View key={gi} style={styles.calGame}>
+                    return (
+                      <View key={gi} style={styles.calGame}>
+                        <View style={styles.calGameTop}>
                           <Text style={[styles.calOpp, score && { color: "#444" }, !score && { color: "#bbb" }]} numberOfLines={1}>
                             {prefix}{oppName}
                           </Text>
-                          <View style={styles.calGameResult}>
-                            {score && !isFuture && score.outcome != null ? (
-                              <View style={[styles.scoreChip, { backgroundColor: (resultColor || "#999") + "18" }]}>
-                                <Text style={[styles.calScore, { color: resultColor || "#555" }, score.cancelled && { textDecorationLine: "line-through", color: "#ccc" }]}>
-                                  {score.awayScore}:{score.homeScore}
-                                </Text>
-                              </View>
-                            ) : (
-                              <Text style={styles.calTime} numberOfLines={1}>{g.time?.slice(0, 5) || g.venue?.slice(0, 2) || ""}</Text>
-                            )}
-                          </View>
                         </View>
-                      );
-                    })}
-                  </View>
+                        <View style={styles.calGameBottom}>
+                          {score && !isFuture && score.outcome != null ? (
+                            <View style={[styles.scoreChip, { backgroundColor: (resultColor || "#999") + "18" }]}>
+                              <Text style={[styles.calScore, { color: resultColor || "#555" }, score.cancelled && { textDecorationLine: "line-through", color: "#ccc" }]}>
+                                {score.awayScore}:{score.homeScore}
+                              </Text>
+                            </View>
+                          ) : (
+                            <Text style={styles.calTime} numberOfLines={1}>{g.time?.slice(0, 5) || g.venue?.slice(0, 2) || ""}</Text>
+                          )}
+                        </View>
+                      </View>
+                    );
+                  })}
                 </Pressable>
               );
             })}
@@ -299,13 +297,9 @@ const styles = StyleSheet.create({
     width: "14.28%",
     padding: 3,
     borderRadius: 8,
-  },
-  calInner: {
-    borderRadius: 10,
+    minHeight: 52,
     borderWidth: 1,
     borderColor: "#f0eeea",
-    padding: 3,
-    minHeight: 64,
   },
   calDayRow: {
     flexDirection: "row", alignItems: "center",
@@ -324,19 +318,16 @@ const styles = StyleSheet.create({
 
   // Game entry
   calGame: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: "column",
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
   calOpp: { fontSize: 10, lineHeight: 13, flex: 1, color: "#999" },
-  calGameResult: { flexShrink: 0 },
   scoreChip: {
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 1,
   },
-  calScore: { fontSize: 10, fontWeight: "700" },
+  calScore: { fontSize: 9, fontWeight: "700" },
   calTime: { fontSize: 9, color: "#ccc" },
 });
