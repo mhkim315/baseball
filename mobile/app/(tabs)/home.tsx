@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { View, Text, FlatList, StyleSheet, ActivityIndicator, Pressable, LayoutAnimation, Platform, UIManager } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, useFocusEffect } from "expo-router";
 import DateStrip from "@/components/DateStrip";
 import GameCard from "@/components/GameCard";
 import CalendarGrid from "@/components/CalendarGrid";
@@ -67,9 +67,11 @@ export default function HomeScreen() {
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
 
-  useEffect(() => {
-    getMyTeam().then(setMyTeamState);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getMyTeam().then(setMyTeamState);
+    }, [])
+  );
 
   // Preload current month + adjacent months on mount
   useEffect(() => {
