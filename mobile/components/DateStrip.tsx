@@ -9,9 +9,17 @@ function getWeekDates(baseDate: Date): Date[] {
   const day = baseDate.getDay();
   const monday = new Date(baseDate);
   monday.setDate(baseDate.getDate() - ((day + 6) % 7));
+  // Default: show Tue→Mon (Mon at end, via scroll)
+  // Exception: if today is Monday in current week, show Mon→Sun
+  const today = new Date();
+  const todayMonday = new Date(today);
+  todayMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
+  const startFromMonday = today.getDay() === 1 && +monday === +todayMonday;
+  const start = new Date(monday);
+  start.setDate(monday.getDate() + (startFromMonday ? 0 : 1));
   for (let i = 0; i < 7; i++) {
-    const d = new Date(monday);
-    d.setDate(monday.getDate() + i);
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
     dates.push(d);
   }
   return dates;
@@ -35,9 +43,10 @@ interface DateStripProps {
   selectedDate: Date;
   onDateChange: (date: Date) => void;
   hasGameDates?: string[];
+  teamColor?: string;
 }
 
-export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [] }: DateStripProps) {
+export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [], teamColor }: DateStripProps) {
   const scrollRef = useRef<ScrollView>(null);
 
   const goPrevWeek = () => {
@@ -63,11 +72,15 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
 
-        {!isToday(selectedDate) && (
-          <Pressable onPress={goToday} style={styles.todayBtn} hitSlop={8}>
-            <Text style={styles.todayBtnText}>오늘</Text>
+        <View style={styles.todayBtnWrapper}>
+          <Pressable
+            onPress={goToday}
+            style={[styles.todayBtn, isToday(selectedDate) && styles.todayBtnHidden]}
+            hitSlop={8}
+          >
+            <Text style={[styles.todayBtnText, isToday(selectedDate) && styles.todayBtnHidden]}>오늘</Text>
           </Pressable>
-        )}
+        </View>
 
         <ScrollView
           ref={scrollRef}
@@ -86,7 +99,7 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
               <Pressable
                 key={ds}
                 onPress={() => onDateChange(date)}
-                style={[styles.dateItem, sel && styles.dateItemSelected]}
+                style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
               >
                 <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
                   {DAYS[dayIndex]}
@@ -118,10 +131,13 @@ const styles = StyleSheet.create({
   stripRow: {
     flexDirection: "row",
     alignItems: "center",
+    minHeight: 56,
   },
   weekBtn: { paddingHorizontal: 12, paddingVertical: 8 },
   weekArrow: { fontSize: 22, color: "#888", fontWeight: "300", lineHeight: 24 },
-  todayBtn: { paddingHorizontal: 6, paddingVertical: 4, borderRadius: 6, backgroundColor: theme.muted, marginLeft: 4 },
+  todayBtnWrapper: { width: 48, alignItems: "center", justifyContent: "center" },
+  todayBtn: { paddingHorizontal: 6, paddingVertical: 4, borderRadius: 6, backgroundColor: theme.muted },
+  todayBtnHidden: { opacity: 0 },
   todayBtnText: { fontSize: 11, fontWeight: "600", color: theme.primary },
   scrollContent: {
     flexDirection: "row",
@@ -145,7 +161,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   dayTextSelected: {
-    color: theme.mutedForeground,
+    color: "rgba(255,255,255,0.7)",
   },
   dateNum: {
     fontSize: 15,

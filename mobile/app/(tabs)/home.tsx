@@ -63,13 +63,35 @@ export default function HomeScreen() {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calGames, setCalGames] = useState<ScheduleGame[]>([]);
   const [calScores, setCalScores] = useState<Record<string, { away: string; home: string; awayScore: number; homeScore: number; outcome?: string | null; cancelled?: boolean }[]>>({});
-  const [calLoading, setCalLoading] = useState(false);
   const scheduleCache = useRef<{ month: number; games: ScheduleGame[] } | null>(null);
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
+  const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
 
   useEffect(() => {
     getMyTeam().then(setMyTeamState);
+  }, []);
+
+  // Preload current month + adjacent months on mount
+  useEffect(() => {
+    const current = new Date().getMonth() + 1;
+    const fetchAndCache = (month: number) => {
+      if (month < 1 || month > 12) return Promise.resolve();
+      return Promise.all([
+        fetchScheduleByMonth(month),
+        fetchAllDailyScores(),
+      ]).then(([schedule, scores]) => {
+        const data = { games: schedule?.games || [], scores: scores?.dates || {} };
+        calCache.current[month] = data;
+        if (month === current) {
+          setCalGames(data.games);
+          setCalScores(data.scores);
+        }
+      }).catch(() => {});
+    };
+    fetchAndCache(current);
+    fetchAndCache(current - 1);
+    fetchAndCache(current + 1);
   }, []);
 
   const activeTeam = displayTeam || myTeam;
@@ -127,7 +149,6 @@ export default function HomeScreen() {
       }).catch(() => {
         if (cancelled) return;
         setGames([]);
-        setError(true);
         setLoading(false);
       });
     } else {
@@ -142,8 +163,8 @@ export default function HomeScreen() {
 
       Promise.all([
         schedulePromise,
-        fetchDailyScores(dateStr),
-        fetchTodayGames(),
+        fetchDailyScores(dateStr).catch(() => null),
+        fetchTodayGames().catch(() => null),
       ]).then(([scheduleGames, scoresData, todayData]) => {
         if (cancelled) return;
         const dayGames = scheduleGames.filter((g: ScheduleGame) => g.date === dateStr);
@@ -210,7 +231,6 @@ export default function HomeScreen() {
       }).catch(() => {
         if (cancelled) return;
         setGames([]);
-        setError(true);
         setLoading(false);
       });
     }
@@ -223,21 +243,42 @@ export default function HomeScreen() {
     return cleanup;
   }, [load]);
 
-  // Fetch calendar data when opened or month changes
+  // Fetch calendar data when opened or month changes (cache + preload adjacent)
   useEffect(() => {
     if (!calendarOpen) return;
     let cancelled = false;
-    setCalLoading(true);
     const month = calMonth + 1;
+
+    // Restore from cache if available
+    const cached = calCache.current[month];
+    if (cached) {
+      setCalGames(cached.games);
+      setCalScores(cached.scores);
+    }
+
+    // Fetch this month (will update if cache exists)
     Promise.all([
       fetchScheduleByMonth(month),
       fetchAllDailyScores(),
     ]).then(([schedule, scores]) => {
       if (cancelled) return;
-      if (schedule?.games) setCalGames(schedule.games);
-      if (scores?.dates) setCalScores(scores.dates);
-      setCalLoading(false);
-    }).catch(() => { if (!cancelled) setCalLoading(false); });
+      const games = schedule?.games || [];
+      const sc = scores?.dates || {};
+      calCache.current[month] = { games, scores: sc };
+      setCalGames(games);
+      setCalScores(sc);
+      // Preload adjacent months in background
+      for (const adj of [month - 1, month + 1]) {
+        if (adj >= 1 && adj <= 12 && !calCache.current[adj]) {
+          Promise.all([
+            fetchScheduleByMonth(adj),
+            fetchAllDailyScores(),
+          ]).then(([s, sc2]) => {
+            calCache.current[adj] = { games: s?.games || [], scores: sc2?.dates || {} };
+          }).catch(() => {});
+        }
+      }
+    }).catch(() => {});
     return () => { cancelled = true; };
   }, [calendarOpen, calMonth]);
 
@@ -267,7 +308,8 @@ export default function HomeScreen() {
         winPitcher={item.winPitcher}
         losePitcher={item.losePitcher}
         cancelled={item.cancelled}
-        highlighted={!!isMyTeamGame}
+        highlighted={isMyTeamGame ? TEAM_COLORS[activeTeam]?.primary : undefined}
+        dense={!isMyTeamGame}
         onClick={() => router.push(`/game/${item.id}`)}
       />
     );
@@ -304,6 +346,7 @@ export default function HomeScreen() {
       <DateStrip
         selectedDate={selectedDate}
         onDateChange={setSelectedDate}
+        teamColor={activeTeam ? TEAM_COLORS[activeTeam]?.primary : undefined}
       />
 
       {/* Calendar toggle */}
@@ -315,20 +358,18 @@ export default function HomeScreen() {
           {calendarOpen ? "캘린더 접기 ▲" : "캘린더 보기 ▼"}
         </Text>
       </Pressable>
-      {calendarOpen && (
-        <View style={styles.calWrapper}>
-          <CalendarGrid
-            year={calYear}
-            month={calMonth}
-            games={calGames}
-            scores={calScores}
-            loading={calLoading}
-            selectedTeam={activeTeam}
-            onSelectDate={(d) => { setSelectedDate(d); setCalendarOpen(false); }}
-            onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
-          />
-        </View>
-      )}
+      <View style={[styles.calWrapper, calendarOpen ? styles.calWrapperOpen : styles.calWrapperHidden]}>
+        <CalendarGrid
+          year={calYear}
+          month={calMonth}
+          games={calGames}
+          scores={calScores}
+          loading={false}
+          selectedTeam={activeTeam}
+          onSelectDate={(d) => { setSelectedDate(d); setCalendarOpen(false); }}
+          onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
+        />
+      </View>
 
       {/* Game list */}
       {loading ? (
@@ -383,8 +424,16 @@ const styles = StyleSheet.create({
     color: theme.mutedForeground,
   },
   calWrapper: {
+    overflow: "hidden",
+  },
+  calWrapperOpen: {
+    maxHeight: 500,
     paddingHorizontal: 16,
     paddingBottom: 8,
+  },
+  calWrapperHidden: {
+    maxHeight: 0,
+    paddingBottom: 0,
   },
   loadingContainer: {
     flex: 1,

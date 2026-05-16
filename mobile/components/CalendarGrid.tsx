@@ -23,17 +23,12 @@ interface CalendarScore {
   outcome?: string | null; cancelled?: boolean;
 }
 
-const WIN_BG = "#e8f4fd";
-const LOSS_BG = "#fde8e8";
-const DRAW_BG = "#f5f5f5";
+const GAME_DAY_BG = "#f5f5f5";
 const WIN_SCORE = "#3b82d9";
 const LOSS_SCORE = "#d94a4a";
 
-function getCellBg(win: number, loss: number, draw: number): string | undefined {
-  if (win > 0 && loss === 0 && draw === 0) return WIN_BG;
-  if (loss > 0 && win === 0 && draw === 0) return LOSS_BG;
-  if (draw > 0 && win === 0 && loss === 0) return DRAW_BG;
-  return undefined;
+function getCellBg(hasResult: boolean): string | undefined {
+  return hasResult ? GAME_DAY_BG : undefined;
 }
 
 export default function CalendarGrid({
@@ -163,8 +158,8 @@ export default function CalendarGrid({
                 else drawCount++;
               }
 
-              const cellBg = hasGames && !isFuture ? getCellBg(winCount, lossCount, drawCount) : undefined;
               const hasResult = winCount + lossCount + drawCount > 0;
+              const cellBg = hasGames && !isFuture && hasResult ? getCellBg(true) : undefined;
               const hasHome = dayGames.some((g) => g.home === teamName);
 
               // Result labels (승/패/무 dots like web)
@@ -224,12 +219,12 @@ export default function CalendarGrid({
 
                     return (
                       <View key={gi} style={styles.calGame}>
-                        <View style={styles.calGameTop}>
+                        <View>
                           <Text style={styles.calOpp} numberOfLines={1}>
                             {prefix}{oppName}
                           </Text>
                         </View>
-                        <View style={styles.calGameBottom}>
+                        <View>
                           {score?.cancelled ? (
                             <Text style={styles.calCancelled}>취소</Text>
                           ) : score && !isFuture && score.outcome != null ? (

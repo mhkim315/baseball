@@ -17,7 +17,8 @@ interface GameCardProps {
   losePitcher?: string | null;
   cancelled?: boolean;
   compact?: boolean;
-  highlighted?: boolean;
+  highlighted?: string;
+  dense?: boolean;
   onClick?: () => void;
 }
 
@@ -36,6 +37,7 @@ export default function GameCard({
   cancelled,
   compact = false,
   highlighted,
+  dense,
   onClick,
 }: GameCardProps) {
   const home = TEAM_COLORS[homeTeam];
@@ -76,17 +78,17 @@ export default function GameCard({
   }
 
   return (
-    <Pressable onPress={onClick} style={[styles.card, { borderLeftColor: home.primary }, highlighted && styles.cardHighlighted]}>
+    <Pressable onPress={onClick} style={[styles.card, { borderLeftColor: home.primary }, highlighted && { backgroundColor: highlighted + "12", borderColor: highlighted + "30" }, dense && styles.cardDense]}>
       {/* Top: time & stadium */}
-      <View style={styles.cardHeader}>
+      <View style={[styles.cardHeader, dense && styles.cardHeaderDense]}>
         <Text style={styles.headerText}>{time}</Text>
         <Text style={styles.headerText}>{stadium}</Text>
       </View>
 
       {/* Matchup */}
-      <View style={styles.matchup}>
+      <View style={[styles.matchup, dense && styles.matchupDense]}>
         {/* Away */}
-        <View style={styles.teamColumn}>
+        <View style={[styles.teamColumn, dense && styles.teamColumnDense]}>
           <TeamBadge teamId={awayTeam} size="md" emotion={awayEmotion} />
           <Text style={[styles.teamName, { color: away.primary }]}>{away.shortName}</Text>
           {hasResult && winPitcher ? (
@@ -113,7 +115,7 @@ export default function GameCard({
         </View>
 
         {/* Home */}
-        <View style={styles.teamColumn}>
+        <View style={[styles.teamColumn, dense && styles.teamColumnDense]}>
           <TeamBadge teamId={homeTeam} size="md" emotion={homeEmotion} />
           <Text style={[styles.teamName, { color: home.primary }]}>{home.shortName}</Text>
           {hasResult && winPitcher ? (
@@ -139,14 +141,17 @@ const styles = StyleSheet.create({
     borderLeftWidth: 3,
     padding: 20,
   },
-  cardHighlighted: {
-    backgroundColor: theme.secondary,
-    borderWidth: 1.5,
+  cardDense: {
+    paddingVertical: 12,
+    paddingHorizontal: 14,
   },
   cardHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 16,
+  },
+  cardHeaderDense: {
+    marginBottom: 8,
   },
   headerText: {
     fontSize: 12,
@@ -157,10 +162,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
   },
+  matchupDense: {
+    alignItems: "center",
+  },
   teamColumn: {
     flex: 1,
     alignItems: "center",
     gap: 8,
+  },
+  teamColumnDense: {
+    gap: 4,
   },
   teamName: {
     fontSize: 12,
@@ -190,8 +201,7 @@ const styles = StyleSheet.create({
     color: theme.foreground,
   },
   scoreDim: {
-    color: theme.border,
-    opacity: 0.5,
+    color: theme.mutedForeground,
   },
   scoreColon: {
     fontSize: 14,
