@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import { theme } from "@/lib/theme";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
@@ -31,6 +30,13 @@ function isToday(date: Date): boolean {
   return isSameDay(date, new Date());
 }
 
+function getWeekOfMonth(date: Date): number {
+  const monday = new Date(date);
+  const day = date.getDay();
+  monday.setDate(date.getDate() - ((day + 6) % 7));
+  return Math.floor((monday.getDate() - 1) / 7) + 1;
+}
+
 interface DateStripProps {
   selectedDate: Date;
   onDateChange: (date: Date) => void;
@@ -39,8 +45,6 @@ interface DateStripProps {
 }
 
 export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [], teamColor }: DateStripProps) {
-  const scrollRef = useRef<ScrollView>(null);
-
   const goPrevWeek = () => {
     const d = new Date(selectedDate);
     d.setDate(d.getDate() - 7);
@@ -59,18 +63,23 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
 
   return (
     <View style={styles.container}>
+      <View style={styles.weekLabelRow}>
+        <Text style={styles.weekLabel}>
+          {selectedDate.getMonth() + 1}월 {getWeekOfMonth(selectedDate)}주차
+        </Text>
+        {!isToday(selectedDate) && (
+          <Pressable onPress={goToday} hitSlop={8}>
+            <Text style={styles.todayLabel}>오늘</Text>
+          </Pressable>
+        )}
+      </View>
       <View style={styles.stripRow}>
         <Pressable onPress={goPrevWeek} style={styles.weekBtn} hitSlop={8}>
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
 
         <View style={styles.scrollArea}>
-          <ScrollView
-            ref={scrollRef}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.scrollContent}
-          >
+          <View style={styles.datesRow}>
             {weekDates.map((date) => {
               const sel = isSameDay(date, selectedDate);
               const today = isToday(date);
@@ -90,18 +99,14 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
                   <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
                     {date.getDate()}
                   </Text>
-                  {today && !sel && <View style={styles.todayDot} />}
-                  {hasGame && !sel && !today && <View style={styles.gameDot} />}
+                  <View style={styles.dotRow}>
+                    {today && !sel && <View style={styles.todayDot} />}
+                    {hasGame && !sel && !today && <View style={styles.gameDot} />}
+                  </View>
                 </Pressable>
               );
             })}
-          </ScrollView>
-
-          {!isToday(selectedDate) && (
-            <Pressable onPress={goToday} style={styles.todayOverlay} hitSlop={8}>
-              <Text style={styles.todayOverlayText}>오늘</Text>
-            </Pressable>
-          )}
+          </View>
         </View>
 
         <Pressable onPress={goNextWeek} style={styles.weekBtn} hitSlop={8}>
@@ -118,6 +123,24 @@ const styles = StyleSheet.create({
     borderBottomColor: theme.border,
     backgroundColor: theme.card,
   },
+  weekLabelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingTop: 6,
+    paddingBottom: 0,
+  },
+  weekLabel: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: theme.mutedForeground,
+  },
+  todayLabel: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: theme.primary,
+  },
   stripRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -126,26 +149,17 @@ const styles = StyleSheet.create({
   weekBtn: { paddingHorizontal: 12, paddingVertical: 8 },
   weekArrow: { fontSize: 22, color: "#888", fontWeight: "300", lineHeight: 24 },
   scrollArea: { flex: 1, position: "relative" },
-  todayOverlay: {
-    position: "absolute", left: 4, top: 8, bottom: 8,
-    paddingHorizontal: 10, borderRadius: 8,
-    backgroundColor: "rgba(239,237,235,0.92)",
-    justifyContent: "center", alignItems: "center",
-    zIndex: 10,
-  },
-  todayOverlayText: { fontSize: 11, fontWeight: "600", color: theme.primary },
-  scrollContent: {
+  datesRow: {
     flexDirection: "row",
-    paddingHorizontal: 8,
+    paddingHorizontal: 4,
     paddingVertical: 10,
-    gap: 4,
   },
   dateItem: {
+    flex: 1,
     alignItems: "center",
     paddingVertical: 8,
-    paddingHorizontal: 14,
+    paddingHorizontal: 2,
     borderRadius: 12,
-    minWidth: 48,
     minHeight: 53,
   },
   dateItemSelected: {
@@ -167,19 +181,23 @@ const styles = StyleSheet.create({
   dateNumSelected: {
     color: theme.background,
   },
+  dotRow: {
+    height: 4,
+    marginTop: 4,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   todayDot: {
     width: 4,
     height: 4,
     borderRadius: 2,
     backgroundColor: theme.destructive,
-    marginTop: 4,
   },
   gameDot: {
     width: 4,
     height: 4,
     borderRadius: 2,
     backgroundColor: theme.primary,
-    marginTop: 4,
   },
   sunday: {
     color: theme.destructive,

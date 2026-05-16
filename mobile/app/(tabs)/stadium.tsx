@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { useFocusEffect } from "expo-router";
 import { getMyTeam } from "@/lib/db";
 import TeamExpander from "@/components/TeamExpander";
 import StadiumPage from "@/components/StadiumPage";
@@ -10,11 +11,14 @@ export default function StadiumTab() {
   const [myTeam, setMyTeam] = useState<string | null>(null);
   const [displayTeam, setDisplayTeam] = useState<string | null>(null);
 
-  useEffect(() => {
-    getMyTeam().then(setMyTeam);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getMyTeam().then(setMyTeam);
+    }, [])
+  );
 
   const activeTeam = displayTeam || myTeam || "doosan";
+  const myTeamColor = myTeam ? TEAM_COLORS[myTeam]?.primary : undefined;
 
   if (!myTeam) {
     return (
@@ -22,7 +26,7 @@ export default function StadiumTab() {
         <View style={styles.header}>
           <Text style={styles.title}>구장 안내</Text>
         </View>
-        <StadiumPage teamId={activeTeam} />
+        <StadiumPage teamId={activeTeam} accentColor={myTeamColor} />
       </ScrollView>
     );
   }
@@ -36,7 +40,7 @@ export default function StadiumTab() {
           onSelectTeam={setDisplayTeam}
         />
       </View>
-      <StadiumPage teamId={activeTeam} />
+      <StadiumPage teamId={activeTeam} accentColor={myTeamColor} />
     </ScrollView>
   );
 }

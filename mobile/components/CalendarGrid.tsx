@@ -84,29 +84,30 @@ export default function CalendarGrid({
 
   return (
     <View style={styles.container}>
-      {/* Month navigation */}
-      <View style={styles.monthNav}>
-        <Pressable onPress={goToPrev} style={styles.monthBtn} hitSlop={8}>
-          <Text style={styles.monthArrow}>‹</Text>
-        </Pressable>
-        <Text style={styles.monthTitle}>{propYear}년 {propMonth + 1}월</Text>
-        <Pressable onPress={goToNext} style={styles.monthBtn} hitSlop={8}>
-          <Text style={styles.monthArrow}>›</Text>
+      {/* Month navigation + Team selector */}
+      <View style={styles.monthRow}>
+        <View style={styles.monthNav}>
+          <Pressable onPress={goToPrev} style={styles.monthBtn} hitSlop={8}>
+            <Text style={styles.monthArrow}>‹</Text>
+          </Pressable>
+          <Text style={styles.monthTitle}>{propYear}년 {propMonth + 1}월</Text>
+          <Pressable onPress={goToNext} style={styles.monthBtn} hitSlop={8}>
+            <Text style={styles.monthArrow}>›</Text>
+          </Pressable>
+        </View>
+
+        <Pressable style={styles.teamSelector} onPress={() => setTeamPickerOpen(true)}>
+          {selectedTeam ? (
+            <TeamBadge teamId={selectedTeam} size="sm" />
+          ) : (
+            <Text style={styles.teamSelectorIcon}>⚾</Text>
+          )}
+          <Text style={[styles.teamSelectorName, selectedTeam && { color: TEAM_COLORS[selectedTeam]?.primary }]}>
+            {selectedTeam ? TEAM_COLORS[selectedTeam]?.shortName : "전체"}
+          </Text>
+          <Text style={styles.teamSelectorArrow}>▼</Text>
         </Pressable>
       </View>
-
-      {/* Team selector */}
-      <Pressable style={styles.teamSelector} onPress={() => setTeamPickerOpen(true)}>
-        {selectedTeam ? (
-          <TeamBadge teamId={selectedTeam} size="sm" />
-        ) : (
-          <Text style={styles.teamSelectorIcon}>⚾</Text>
-        )}
-        <Text style={[styles.teamSelectorName, selectedTeam && { color: TEAM_COLORS[selectedTeam]?.primary }]}>
-          {selectedTeam ? TEAM_COLORS[selectedTeam]?.shortName : "전체"}
-        </Text>
-        <Text style={styles.teamSelectorArrow}>▼</Text>
-      </Pressable>
 
       {/* Legend */}
       {selectedTeam && (
@@ -273,13 +274,6 @@ export default function CalendarGrid({
         <Pressable style={styles.overlay} onPress={() => setTeamPickerOpen(false)}>
           <View style={styles.pickerModal}>
             <Text style={styles.pickerTitle}>팀 선택</Text>
-            <Pressable
-              style={[styles.pickerRow, !selectedTeam && styles.pickerRowActive]}
-              onPress={() => { onTeamChange?.(null); setTeamPickerOpen(false); }}
-            >
-              <Text style={styles.pickerAllIcon}>⚾</Text>
-              <Text style={styles.pickerAllName}>전체</Text>
-            </Pressable>
             {TEAM_LIST.map((t) => (
               <Pressable
                 key={t.id}
@@ -302,14 +296,17 @@ const styles = StyleSheet.create({
   loadingContainer: { paddingVertical: 24, alignItems: "center" },
 
   // Month nav
+  monthRow: {
+    flexDirection: "row", alignItems: "center", justifyContent: "space-between",
+    paddingVertical: 6,
+  },
   monthNav: {
-    flexDirection: "row", alignItems: "center", justifyContent: "center",
-    paddingVertical: 6, gap: 24,
+    flexDirection: "row", alignItems: "center", gap: 20,
   },
   // Team selector
   teamSelector: {
-    flexDirection: "row", alignItems: "center", justifyContent: "center",
-    gap: 6, marginBottom: 8, paddingVertical: 6,
+    flexDirection: "row", alignItems: "center",
+    gap: 4, paddingVertical: 4, paddingHorizontal: 10,
     borderRadius: 10, backgroundColor: theme.secondary,
   },
   teamSelectorIcon: { fontSize: 16 },
@@ -333,8 +330,6 @@ const styles = StyleSheet.create({
   },
   pickerRowActive: { backgroundColor: theme.secondary },
   pickerTeamName: { fontSize: 14, flex: 1 },
-  pickerAllIcon: { fontSize: 24, width: 32, textAlign: "center" },
-  pickerAllName: { fontSize: 14, color: theme.foreground, fontWeight: "500" },
   monthBtn: { padding: 8, borderRadius: 20 },
   monthArrow: { fontSize: 22, color: "#888", fontWeight: "300", lineHeight: 24 },
   monthTitle: { fontSize: 18, fontWeight: "600", color: "#444", minWidth: 130, textAlign: "center", letterSpacing: 1 },

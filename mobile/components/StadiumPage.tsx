@@ -140,7 +140,7 @@ function categoryKey(store: FoodPlace): string {
   return raw in FOOD_CATEGORIES ? raw : "cafe";
 }
 
-export default function StadiumPage({ teamId: propTeamId }: { teamId?: string } = {}) {
+export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamId?: string; accentColor?: string } = {}) {
   const [selectedTeam, setSelectedTeam] = useState(propTeamId || "doosan");
   const [activeTab, setActiveTab] = useState<TabId>("info");
 
@@ -217,6 +217,7 @@ export default function StadiumPage({ teamId: propTeamId }: { teamId?: string } 
 
   const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
   const teamColor = TEAM_COLORS[selectedTeam];
+  const accent = accentColor || teamColor?.primary || theme.primary;
 
   return (
     <View style={styles.container}>
@@ -263,9 +264,9 @@ export default function StadiumPage({ teamId: propTeamId }: { teamId?: string } 
             <Pressable
               key={tab.id}
               onPress={() => setActiveTab(tab.id)}
-              style={[styles.tab, activeTab === tab.id && { borderBottomColor: theme.primary, borderBottomWidth: 2 }]}
+              style={[styles.tab, activeTab === tab.id && { borderBottomColor: accent, borderBottomWidth: 2 }]}
             >
-              <Text style={[styles.tabText, activeTab === tab.id && { color: theme.primary, fontWeight: "700" }]}>
+              <Text style={[styles.tabText, activeTab === tab.id && { color: accent, fontWeight: "700" }]}>
                 {tab.label}
               </Text>
             </Pressable>
@@ -274,7 +275,7 @@ export default function StadiumPage({ teamId: propTeamId }: { teamId?: string } 
 
         {loading ? (
           <View style={styles.loadingRow}>
-            <ActivityIndicator size="large" color={theme.primary} />
+            <ActivityIndicator size="large" color={accent} />
           </View>
         ) : error ? (
           <View style={styles.loadingRow}>
@@ -297,6 +298,7 @@ export default function StadiumPage({ teamId: propTeamId }: { teamId?: string } 
                 selectedShop={selectedShop}
                 setSelectedShop={setSelectedShop}
                 foodLayouts={foodLayouts}
+                accentColor={accent}
               />
             )}
             {activeTab === "parking" && (
@@ -422,12 +424,13 @@ function InfoTab({ stadiumId, brief, teamColor, selectedTeam }: {
 }
 
 /* ====== Food Tab ====== */
-function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setFoodCategory, selectedShop, setSelectedShop, foodLayouts }: {
+function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setFoodCategory, selectedShop, setSelectedShop, foodLayouts, accentColor }: {
   stadiumId: string; foods: FoodPlace[];
   foodFloor: string; setFoodFloor: (f: string) => void;
   foodCategory: string; setFoodCategory: (c: string) => void;
   selectedShop: string; setSelectedShop: (s: string) => void;
   foodLayouts: Record<string, any> | null;
+  accentColor?: string;
 }) {
   const floors = uniqueFloors(foods);
   const currentFloor = floors.includes(foodFloor) ? foodFloor : floors[0] || "";
@@ -451,7 +454,7 @@ function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setF
               <Pressable
                 key={f}
                 onPress={() => { setFoodFloor(f); setFoodCategory("all"); setSelectedShop(""); }}
-                style={[styles.floorChip, f === currentFloor && { borderColor: "#e07b3c", borderWidth: 2 }]}
+                style={[styles.floorChip, f === currentFloor && { borderColor: accentColor || theme.primary, borderWidth: 2 }]}
               >
                 <Text style={[styles.floorChipText, f === currentFloor && { color: theme.foreground, fontWeight: "600" }]}>
                   {f}
