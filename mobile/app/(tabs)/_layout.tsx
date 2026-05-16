@@ -1,26 +1,42 @@
-import { Tabs } from "expo-router";
-import { Text, View, StyleSheet } from "react-native";
+import { useState, useCallback } from "react";
+import { Tabs, useFocusEffect } from "expo-router";
+import { View, StyleSheet } from "react-native";
+import Svg, { Path } from "react-native-svg";
+import { TEAM_COLORS } from "@shared/teamColors";
+import { getMyTeam } from "@/lib/db";
 import { theme } from "@/lib/theme";
 
-function TabIcon({ label, focused }: { label: string; focused: boolean }) {
-  const icons: Record<string, string> = {
-    홈: "🏠",
-    구장: "🏟️",
-    다이어리: "📖",
-    응원: "🎵",
-    순위: "📊",
-    MY: "👤",
-  };
+const ICON_PATHS: Record<string, string> = {
+  홈: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z", // house
+  구장: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", // map pin
+  다이어리: "M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v8l2.5-1.5L13 12V4h5v16z", // book
+  응원: "M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z", // music note
+  순위: "M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z", // bar chart
+  MY: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z", // person
+};
+
+function TabIcon({ name, color }: { name: string; color: string }) {
+  const d = ICON_PATHS[name] || ICON_PATHS.홈;
   return (
     <View style={styles.tabIcon}>
-      <Text style={[styles.tabIconText, focused && styles.tabIconFocused]}>
-        {icons[label] || "•"}
-      </Text>
+      <Svg width="22" height="22" viewBox="0 0 24 24" fill={color}>
+        <Path d={d} />
+      </Svg>
     </View>
   );
 }
 
 export default function TabLayout() {
+  const [myTeam, setMyTeam] = useState<string | null>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      getMyTeam().then(setMyTeam);
+    }, [])
+  );
+
+  const activeColor = myTeam ? TEAM_COLORS[myTeam]?.primary : theme.tabBarActive;
+
   return (
     <Tabs
       screenOptions={{
@@ -30,7 +46,7 @@ export default function TabLayout() {
           borderTopColor: theme.tabBarBorder,
           borderTopWidth: 0.5,
         },
-        tabBarActiveTintColor: theme.tabBarActive,
+        tabBarActiveTintColor: activeColor,
         tabBarInactiveTintColor: theme.tabBarInactive,
         tabBarLabelStyle: {
           fontSize: 10,
@@ -41,42 +57,42 @@ export default function TabLayout() {
         name="home"
         options={{
           title: "홈",
-          tabBarIcon: ({ focused }) => <TabIcon label="홈" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="홈" color={color} />,
         }}
       />
       <Tabs.Screen
         name="stadium"
         options={{
           title: "구장 안내",
-          tabBarIcon: ({ focused }) => <TabIcon label="구장" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="구장" color={color} />,
         }}
       />
       <Tabs.Screen
         name="diary"
         options={{
           title: "다이어리",
-          tabBarIcon: ({ focused }) => <TabIcon label="다이어리" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="다이어리" color={color} />,
         }}
       />
       <Tabs.Screen
         name="cheer"
         options={{
           title: "응원",
-          tabBarIcon: ({ focused }) => <TabIcon label="응원" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="응원" color={color} />,
         }}
       />
       <Tabs.Screen
         name="rank"
         options={{
           title: "순위",
-          tabBarIcon: ({ focused }) => <TabIcon label="순위" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="순위" color={color} />,
         }}
       />
       <Tabs.Screen
         name="my"
         options={{
           title: "MY",
-          tabBarIcon: ({ focused }) => <TabIcon label="MY" focused={focused} />,
+          tabBarIcon: ({ color }) => <TabIcon name="MY" color={color} />,
           href: null,
         }}
       />
@@ -87,11 +103,5 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   tabIcon: {
     alignItems: "center",
-  },
-  tabIconText: {
-    fontSize: 20,
-  },
-  tabIconFocused: {
-    opacity: 1,
   },
 });
