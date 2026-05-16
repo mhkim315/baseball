@@ -170,13 +170,22 @@ export default function HomeScreen() {
         const dayGames = scheduleGames.filter((g: ScheduleGame) => g.date === dateStr);
         const scoreEntries: ScoreEntry[] = scoresData?.games || [];
         const isFuture = dateStr > formatDateStr(new Date());
+        const tomorrowDate = new Date();
+        tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+        const tomorrowStr = formatDateStr(tomorrowDate);
+        const isTomorrow = dateStr === tomorrowStr;
 
         const pitcherMap = new Map<string, { away?: string; home?: string }>();
-        for (const ng of todayData?.nextGames ?? []) {
-          pitcherMap.set(`${ng.date}-${ng.away.id}-${ng.home.id}`, {
-            away: ng.away.starter?.name !== "미정" ? ng.away.starter?.name : undefined,
-            home: ng.home.starter?.name !== "미정" ? ng.home.starter?.name : undefined,
-          });
+        const gameIdMap = new Map<string, string>();
+        if (isTomorrow) {
+          for (const ng of todayData?.nextGames ?? []) {
+            const key = `${ng.date}-${ng.away.id}-${ng.home.id}`;
+            pitcherMap.set(key, {
+              away: ng.away.starter?.name !== "미정" ? ng.away.starter?.name : undefined,
+              home: ng.home.starter?.name !== "미정" ? ng.home.starter?.name : undefined,
+            });
+            gameIdMap.set(key, ng.id);
+          }
         }
 
         const enhanced: EnhancedGame[] = dayGames.map((g: ScheduleGame) => {
@@ -187,9 +196,11 @@ export default function HomeScreen() {
           const score = scoreEntries.find(
             (s) => s.home === g.home && s.away === g.away
           );
-          const pitchers = pitcherMap.get(`${dateStr}-${awayId}-${homeId}`);
+          const gameKey = `${dateStr}-${awayId}-${homeId}`;
+          const pitchers = pitcherMap.get(gameKey);
+          const apiGameId = gameIdMap.get(gameKey);
           return {
-            id: `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`,
+            id: apiGameId || `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`,
             homeTeam: homeId,
             awayTeam: awayId,
             time: g.time || "18:30",
@@ -310,7 +321,7 @@ export default function HomeScreen() {
         cancelled={item.cancelled}
         highlighted={isMyTeamGame ? TEAM_COLORS[activeTeam]?.primary : undefined}
         dense={!isMyTeamGame}
-        onClick={() => router.push(`/game/${item.id}`)}
+        onClick={() => router.push(`/game/${item.id}?ap=${encodeURIComponent(item.awayPitcher || "")}&hp=${encodeURIComponent(item.homePitcher || "")}`)}
       />
     );
   };

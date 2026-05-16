@@ -28,7 +28,7 @@ const WLS_COLORS: Record<string, { text: string; bg: string }> = {
 
 export default function GameDetailScreen() {
   const router = useRouter();
-  const { id: gameId } = useLocalSearchParams<{ id: string }>();
+  const { id: gameId, ap, hp } = useLocalSearchParams<{ id: string; ap?: string; hp?: string }>();
   const gid = gameId || "";
 
   const [detail, setDetail] = useState<GameDetail | null>(null);
@@ -163,8 +163,17 @@ export default function GameDetailScreen() {
   const away = TEAM_COLORS[detail.awayTeam];
   const homeLineup = detail.lineup?.home || [];
   const awayLineup = detail.lineup?.away || [];
-  const hasLineup = homeLineup.length > 0 && awayLineup.length > 0;
   const gameScore = detail.score ?? (scoreFallback ? { away: scoreFallback.awayScore, home: scoreFallback.homeScore } : null);
+
+  // Only show expected pitchers/lineup for tomorrow (today+1); beyond that is undecided
+  const gameDateStr = `${gid.slice(0, 4)}-${gid.slice(4, 6)}-${gid.slice(6, 8)}`;
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const tomorrowStr = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
+  const isBeyondTomorrow = gameDateStr > tomorrowStr;
+  const awayPitcherName = isBeyondTomorrow ? undefined : (ap || "") || detail.starters?.away?.name || undefined;
+  const homePitcherName = isBeyondTomorrow ? undefined : (hp || "") || detail.starters?.home?.name || undefined;
+  const hasLineup = !isBeyondTomorrow && homeLineup.length > 0 && awayLineup.length > 0;
 
   const now = new Date();
   const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
@@ -222,7 +231,7 @@ export default function GameDetailScreen() {
             <View style={styles.teamColumn}>
               <TeamBadge teamId={detail.awayTeam} size="lg" emotion={awayEmotion} />
               <Text style={[styles.teamName, { color: away.primary }]}>{away?.name}</Text>
-              <Text style={styles.pitcherName}>{isFuture ? "미정" : (detail.starters?.away?.name || "-")}</Text>
+              <Text style={styles.pitcherName}>{awayPitcherName || "-"}</Text>
             </View>
 
             {/* Score / VS */}
@@ -254,7 +263,7 @@ export default function GameDetailScreen() {
             <View style={styles.teamColumn}>
               <TeamBadge teamId={detail.homeTeam} size="lg" emotion={homeEmotion} />
               <Text style={[styles.teamName, { color: home.primary }]}>{home?.name}</Text>
-              <Text style={styles.pitcherName}>{isFuture ? "미정" : (detail.starters?.home?.name || "-")}</Text>
+              <Text style={styles.pitcherName}>{homePitcherName || "-"}</Text>
             </View>
           </View>
           {detail.gameInfo?.venue && (
@@ -349,14 +358,14 @@ export default function GameDetailScreen() {
             <View style={styles.pitcherCard}>
               <TeamBadge teamId={detail.awayTeam} size="sm" variant="ball" />
               <View>
-                <Text style={styles.pitcherNameBold}>{isFuture ? "미정" : (detail.starters?.away?.name || "미정")}</Text>
+                <Text style={styles.pitcherNameBold}>{awayPitcherName || "미정"}</Text>
                 <Text style={[styles.pitcherTeam, { color: away.primary }]}>{away?.shortName}</Text>
               </View>
             </View>
             <View style={styles.pitcherCard}>
               <TeamBadge teamId={detail.homeTeam} size="sm" variant="ball" />
               <View>
-                <Text style={styles.pitcherNameBold}>{isFuture ? "미정" : (detail.starters?.home?.name || "미정")}</Text>
+                <Text style={styles.pitcherNameBold}>{homePitcherName || "미정"}</Text>
                 <Text style={[styles.pitcherTeam, { color: home.primary }]}>{home?.shortName}</Text>
               </View>
             </View>

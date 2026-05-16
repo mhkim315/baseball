@@ -9,17 +9,9 @@ function getWeekDates(baseDate: Date): Date[] {
   const day = baseDate.getDay();
   const monday = new Date(baseDate);
   monday.setDate(baseDate.getDate() - ((day + 6) % 7));
-  // Default: show Tue→Mon (Mon at end, via scroll)
-  // Exception: if today is Monday in current week, show Mon→Sun
-  const today = new Date();
-  const todayMonday = new Date(today);
-  todayMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
-  const startFromMonday = today.getDay() === 1 && +monday === +todayMonday;
-  const start = new Date(monday);
-  start.setDate(monday.getDate() + (startFromMonday ? 0 : 1));
   for (let i = 0; i < 7; i++) {
-    const d = new Date(start);
-    d.setDate(start.getDate() + i);
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
     dates.push(d);
   }
   return dates;
@@ -72,47 +64,45 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
 
-        <View style={styles.todayBtnWrapper}>
-          <Pressable
-            onPress={goToday}
-            style={[styles.todayBtn, isToday(selectedDate) && styles.todayBtnHidden]}
-            hitSlop={8}
+        <View style={styles.scrollArea}>
+          <ScrollView
+            ref={scrollRef}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.scrollContent}
           >
-            <Text style={[styles.todayBtnText, isToday(selectedDate) && styles.todayBtnHidden]}>오늘</Text>
-          </Pressable>
+            {weekDates.map((date) => {
+              const sel = isSameDay(date, selectedDate);
+              const today = isToday(date);
+              const dayIndex = date.getDay();
+              const ds = formatDateStr(date);
+              const hasGame = hasGameDates.includes(ds);
+
+              return (
+                <Pressable
+                  key={ds}
+                  onPress={() => onDateChange(date)}
+                  style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
+                >
+                  <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
+                    {DAYS[dayIndex]}
+                  </Text>
+                  <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
+                    {date.getDate()}
+                  </Text>
+                  {today && !sel && <View style={styles.todayDot} />}
+                  {hasGame && !sel && !today && <View style={styles.gameDot} />}
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+
+          {!isToday(selectedDate) && (
+            <Pressable onPress={goToday} style={styles.todayOverlay} hitSlop={8}>
+              <Text style={styles.todayOverlayText}>오늘</Text>
+            </Pressable>
+          )}
         </View>
-
-        <ScrollView
-          ref={scrollRef}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.scrollContent}
-        >
-          {weekDates.map((date) => {
-            const sel = isSameDay(date, selectedDate);
-            const today = isToday(date);
-            const dayIndex = date.getDay();
-            const ds = formatDateStr(date);
-            const hasGame = hasGameDates.includes(ds);
-
-            return (
-              <Pressable
-                key={ds}
-                onPress={() => onDateChange(date)}
-                style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
-              >
-                <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
-                  {DAYS[dayIndex]}
-                </Text>
-                <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
-                  {date.getDate()}
-                </Text>
-                {today && !sel && <View style={styles.todayDot} />}
-                {hasGame && !sel && !today && <View style={styles.gameDot} />}
-              </Pressable>
-            );
-          })}
-        </ScrollView>
 
         <Pressable onPress={goNextWeek} style={styles.weekBtn} hitSlop={8}>
           <Text style={styles.weekArrow}>›</Text>
@@ -135,10 +125,15 @@ const styles = StyleSheet.create({
   },
   weekBtn: { paddingHorizontal: 12, paddingVertical: 8 },
   weekArrow: { fontSize: 22, color: "#888", fontWeight: "300", lineHeight: 24 },
-  todayBtnWrapper: { width: 48, alignItems: "center", justifyContent: "center" },
-  todayBtn: { paddingHorizontal: 6, paddingVertical: 4, borderRadius: 6, backgroundColor: theme.muted },
-  todayBtnHidden: { opacity: 0 },
-  todayBtnText: { fontSize: 11, fontWeight: "600", color: theme.primary },
+  scrollArea: { flex: 1, position: "relative" },
+  todayOverlay: {
+    position: "absolute", left: 4, top: 8, bottom: 8,
+    paddingHorizontal: 10, borderRadius: 8,
+    backgroundColor: "rgba(239,237,235,0.92)",
+    justifyContent: "center", alignItems: "center",
+    zIndex: 10,
+  },
+  todayOverlayText: { fontSize: 11, fontWeight: "600", color: theme.primary },
   scrollContent: {
     flexDirection: "row",
     paddingHorizontal: 8,
@@ -151,6 +146,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 12,
     minWidth: 48,
+    minHeight: 53,
   },
   dateItemSelected: {
     backgroundColor: theme.foreground,
