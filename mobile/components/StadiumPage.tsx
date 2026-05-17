@@ -45,7 +45,7 @@ const CATEGORY_ORDER = ["all", "chicken", "korean", "western", "cafe"];
 
 const NEARBY_CATEGORIES: Record<string, { color: string }> = {
   "치킨·호프": { color: "#e11d48" },
-  "고깃집": { color: "#dc2626" },
+  "고깃집": { color: "#ea580c" },
   "밥집·국밥": { color: "#d97706" },
   "카페·디저트": { color: "#7c3aed" },
   "술집·이자카야": { color: "#0891b2" },
