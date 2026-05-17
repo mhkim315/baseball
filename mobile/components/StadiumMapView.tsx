@@ -26,6 +26,7 @@ interface Spot {
   name?: string;
   description?: string;
   kind?: string;
+  fillColor?: string;
 }
 
 interface StadiumMapViewProps {
@@ -126,7 +127,7 @@ map.once('load',function(){
       if(k2==='bus'||k2==='busstop')return'bus';
       return idx===0?'stadium':'parking';
     })(spot.kind,i);
-    var fill=fills[kind]||'#6b7280';
+    var fill=spot.fillColor||fills[kind]||'#6b7280';
     var label=labels[kind]||'';
     var el=document.createElement('div');
     el.innerHTML=(function(f){

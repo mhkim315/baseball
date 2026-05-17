@@ -43,16 +43,16 @@ const FOOD_MAP_IMAGES: Record<string, string> = {
 
 const CATEGORY_ORDER = ["all", "chicken", "korean", "western", "cafe"];
 
-const NEARBY_CATEGORIES: Record<string, { emoji: string; color: string }> = {
-  "치킨·호프": { emoji: "🍗", color: "#dc2626" },
-  "치킨": { emoji: "🍗", color: "#dc2626" },
-  "한식": { emoji: "🍚", color: "#ca8a04" },
-  "분식": { emoji: "🍜", color: "#059669" },
-  "다양": { emoji: "🍽️", color: "#6b7280" },
-  "베이커리": { emoji: "🥐", color: "#d97706" },
-  "카페": { emoji: "☕", color: "#7c3aed" },
-  "전통시장": { emoji: "🏪", color: "#2563eb" },
-  "해산물": { emoji: "🦐", color: "#0891b2" },
+const NEARBY_CATEGORIES: Record<string, { color: string }> = {
+  "치킨·호프": { color: "#dc2626" },
+  "치킨": { color: "#dc2626" },
+  "한식": { color: "#ca8a04" },
+  "분식": { color: "#059669" },
+  "다양": { color: "#6b7280" },
+  "베이커리": { color: "#d97706" },
+  "카페": { color: "#7c3aed" },
+  "전통시장": { color: "#2563eb" },
+  "해산물": { color: "#0891b2" },
 };
 
 // 8-direction label offsets (percentage points from pin position)
@@ -755,6 +755,7 @@ function NearbyTab({ nearby, stadiumSpot, focusedSpot, setFocusedSpot, eatsCente
     ...nearby.map((r, i) => ({
       id: String(i), lng: r.lng, lat: r.lat, name: r.name,
       description: `${r.cat} · ${r.address}`, kind: "parking",
+      fillColor: NEARBY_CATEGORIES[r.cat]?.color,
     })),
   ];
 
@@ -790,7 +791,7 @@ function NearbyTab({ nearby, stadiumSpot, focusedSpot, setFocusedSpot, eatsCente
                   style={[styles.catChip, currentCat === cat ? { backgroundColor: NEARBY_CATEGORIES[cat]?.color || theme.foreground } : styles.catChipInactive]}
                 >
                   <Text style={[styles.catChipText, currentCat === cat ? styles.catChipTextActive : styles.catChipTextInactive]}>
-                    {NEARBY_CATEGORIES[cat]?.emoji || ""} {cat}
+                    {cat}
                   </Text>
                 </Pressable>
               ))}
@@ -809,7 +810,7 @@ function NearbyTab({ nearby, stadiumSpot, focusedSpot, setFocusedSpot, eatsCente
           {groups.map((group) => (
             <View key={group.category}>
               <Text style={styles.nearbySectionTitle}>
-                {NEARBY_CATEGORIES[group.category]?.emoji || ""} {group.category} ({group.items.length})
+                {group.category} ({group.items.length})
               </Text>
               {group.items.map((r, i) => (
                 <Pressable key={i} onPress={() => handleItemPress(r.name, r.address)}>
@@ -846,7 +847,7 @@ function NearbyTab({ nearby, stadiumSpot, focusedSpot, setFocusedSpot, eatsCente
                   >
                     <View style={[styles.foodChipDot, { backgroundColor: catInfo?.color || "#6b7280" }]} />
                     <Text style={[styles.foodChipText, currentCat === cat && { color: catInfo?.color }]}>
-                      {catInfo?.emoji || ""} {cat} {count}
+                      {cat} {count}
                     </Text>
                   </Pressable>
                 );
