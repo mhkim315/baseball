@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
+import { useFocusEffect } from "expo-router";
 import { getMyTeam } from "@/lib/db";
 import TeamExpander from "@/components/TeamExpander";
 import SettingsButton from "@/components/SettingsButton";
@@ -17,9 +18,11 @@ export default function CheerScreen() {
   const [activeTab, setActiveTab] = useState<TabId>("songs");
   const [expanded, setExpanded] = useState<number | null>(0);
 
-  useEffect(() => {
-    getMyTeam().then(setMyTeam);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getMyTeam().then(setMyTeam);
+    }, [])
+  );
 
   const activeTeam = displayTeam || myTeam;
   const teamColor = activeTeam ? TEAM_COLORS[activeTeam] : null;
@@ -50,6 +53,7 @@ export default function CheerScreen() {
         {myTeam && (
           <TeamExpander
             currentTeamId={activeTeam}
+            myTeam={myTeam}
             onSelectTeam={setDisplayTeam}
           />
         )}

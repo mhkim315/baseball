@@ -47,6 +47,7 @@ export default function StadiumTab() {
         <View style={{ flex: 1 }} />
         <TeamExpander
           currentTeamId={activeTeam}
+          myTeam={myTeam}
           onSelectTeam={setDisplayTeam}
         />
         <View style={{ width: 4 }} />

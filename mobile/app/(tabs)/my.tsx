@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import {
   View,
   Text,
@@ -8,7 +8,7 @@ import {
   Modal,
   StyleSheet,
 } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, useFocusEffect } from "expo-router";
 import { Linking } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { DEFAULT_TEAM_ID } from "@shared/constants";
@@ -61,9 +61,11 @@ export default function MyScreen() {
     setAllWinRates(all);
   }, []);
 
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, [loadData])
+  );
 
   const handleTeamSelect = async (teamId: string) => {
     await setMyTeam(teamId);

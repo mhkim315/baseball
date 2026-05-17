@@ -1,21 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { View, Text, Pressable, Modal, StyleSheet } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
-import { getMyTeam } from "@/lib/db";
 import { theme } from "@/lib/theme";
 
 interface TeamExpanderProps {
   currentTeamId: string;
+  myTeam: string | null;
   onSelectTeam: (teamId: string) => void;
 }
 
-export default function TeamExpander({ currentTeamId, onSelectTeam }: TeamExpanderProps) {
+export default function TeamExpander({ currentTeamId, myTeam, onSelectTeam }: TeamExpanderProps) {
   const [open, setOpen] = useState(false);
-  const [myTeam, setMyTeam] = useState<string | null>(null);
   const currentTeam = TEAM_COLORS[currentTeamId];
-
-  useEffect(() => { getMyTeam().then(setMyTeam); }, []);
 
   const handleSelect = (teamId: string) => {
     onSelectTeam(teamId);

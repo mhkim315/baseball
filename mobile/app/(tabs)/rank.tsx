@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, ActivityIndicator, Pressable, StyleSheet } from "react-native";
+import { useFocusEffect } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID } from "@shared/constants";
 import { fetchStandingsJson, type StandingRow } from "@/lib/api";
@@ -35,9 +36,11 @@ export default function RankScreen() {
   const [error, setError] = useState(false);
   const [myTeam, setMyTeam] = useState<string | null>(null);
 
-  useEffect(() => {
-    getMyTeam().then(setMyTeam);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getMyTeam().then(setMyTeam);
+    }, [])
+  );
 
   const load = useCallback(() => {
     setLoading(true);
