@@ -6,7 +6,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { TEAM_ID_TO_CODE } from "@shared/constants";
+import { parseGameTeamIds, TEAM_ID_TO_CODE } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { theme } from "@/lib/theme";
@@ -42,20 +42,6 @@ function parseEditPhotos(record: JikgwanRecord): string[] {
   return [];
 }
 
-function parseGameTeamIds(gameId: string): { awayId: string; homeId: string } {
-  const codeMap: Record<string, string> = {};
-  for (const [id, c] of Object.entries(TEAM_ID_TO_CODE)) {
-    codeMap[c] = id;
-  }
-  const m = gameId.match(/^\d+-(\w{4})-\d+$/);
-  if (m) {
-    return {
-      awayId: codeMap[m[1].slice(0, 2)] || "",
-      homeId: codeMap[m[1].slice(2, 4)] || "",
-    };
-  }
-  return { awayId: "", homeId: "" };
-}
 
 function gameEmotions(game: GameOption): { away: "joyful" | "sad" | "neutral"; home: "joyful" | "sad" | "neutral" } | null {
   if (game.cancelled) return { away: "neutral", home: "neutral" };

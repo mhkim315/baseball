@@ -117,7 +117,7 @@ export default function RankScreen() {
                   <Text style={[styles.cell, styles.colNum]}>{draws}</Text>
                   <Text style={[styles.cell, styles.colNum]}>{losses}</Text>
                   <Text style={[styles.cell, styles.colRate, styles.rateText]}>
-                    {row.winRate != null ? row.winRate.toFixed(3).slice(1) : "-"}
+                    {row.winRate != null ? row.winRate >= 1 ? "1.000" : row.winRate.toFixed(3).slice(1) : "-"}
                   </Text>
                   <Text style={[styles.cell, styles.colGb, styles.gbText]}>
                     {row.gamesBehind == null || row.gamesBehind === 0 ? "-" : row.gamesBehind.toFixed(1)}

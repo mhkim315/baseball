@@ -6,9 +6,9 @@ import {
   FlatList,
   Pressable,
   StyleSheet,
-  Alert,
 } from "react-native";
 import * as Sharing from "expo-sharing";
+import ConfirmModal from "@/components/ConfirmModal";
 import { JikgwanRecord, getJikgwanRecords, deleteJikgwanRecord } from "@/lib/db";
 import { deletePhoto } from "@/lib/camera";
 import { TEAM_COLORS } from "@shared/teamColors";
@@ -20,6 +20,7 @@ interface Props {
 
 export default function JikgwanFeed({ onTakePhoto }: Props) {
   const [records, setRecords] = useState<(JikgwanRecord & { uri: string })[]>([]);
+  const [deleteTarget, setDeleteTarget] = useState<(JikgwanRecord & { uri: string }) | null>(null);
 
   const loadRecords = useCallback(async () => {
     const data = await getJikgwanRecords();
@@ -36,18 +37,15 @@ export default function JikgwanFeed({ onTakePhoto }: Props) {
   }, [loadRecords]);
 
   const handleDelete = (record: JikgwanRecord & { uri: string }) => {
-    Alert.alert("삭제", "이 직관 기록을 삭제할까요?", [
-      { text: "취소", style: "cancel" },
-      {
-        text: "삭제",
-        style: "destructive",
-        onPress: async () => {
-          if (record.photo_path) await deletePhoto(record.photo_path);
-          await deleteJikgwanRecord(record.id);
-          loadRecords();
-        },
-      },
-    ]);
+    setDeleteTarget(record);
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteTarget) return;
+    if (deleteTarget.photo_path) await deletePhoto(deleteTarget.photo_path);
+    await deleteJikgwanRecord(deleteTarget.id);
+    setDeleteTarget(null);
+    loadRecords();
   };
 
   const handleShare = async (uri: string) => {
@@ -115,6 +113,15 @@ export default function JikgwanFeed({ onTakePhoto }: Props) {
           ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
         />
       )}
+      <ConfirmModal
+        visible={!!deleteTarget}
+        title="삭제"
+        message="이 직관 기록을 삭제할까요?"
+        confirmLabel="삭제"
+        destructive
+        onConfirm={confirmDelete}
+        onCancel={() => setDeleteTarget(null)}
+      />
     </View>
   );
 }

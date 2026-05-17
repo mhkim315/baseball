@@ -31,6 +31,7 @@ export default function DiaryScreen() {
   const now = new Date();
   const [calYear, setCalYear] = useState(now.getFullYear());
   const [calMonth, setCalMonth] = useState(now.getMonth());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const loadRecords = useCallback(async () => {
     try {
@@ -54,6 +55,7 @@ export default function DiaryScreen() {
   );
 
   const handleRefresh = async () => {
+    setSelectedDate(null);
     setRefreshing(true);
     await loadRecords();
     setRefreshing(false);
@@ -83,9 +85,20 @@ export default function DiaryScreen() {
     loadRecords();
   };
 
+  const filteredRecords = selectedDate
+    ? records.filter((r) => {
+        const parts = r.date.split(".");
+        if (parts.length !== 3) return false;
+        const d = `${parseInt(parts[0])}-${parseInt(parts[1])}-${parseInt(parts[2])}`;
+        const sd = `${selectedDate.getFullYear()}-${selectedDate.getMonth() + 1}-${selectedDate.getDate()}`;
+        return d === sd;
+      })
+    : records;
+
   const handleSelectDate = (date: Date) => {
     setCalYear(date.getFullYear());
     setCalMonth(date.getMonth());
+    setSelectedDate(date);
     setActiveTab("timeline");
   };
 
@@ -110,7 +123,7 @@ export default function DiaryScreen() {
               styles.segment,
               activeTab === tab.key && { borderBottomWidth: 2, borderBottomColor: myTeam ? TEAM_COLORS[myTeam]?.primary : theme.foreground },
             ]}
-            onPress={() => setActiveTab(tab.key)}
+            onPress={() => { setActiveTab(tab.key); if (tab.key !== "timeline") setSelectedDate(null); }}
           >
             <Text style={[
               styles.segmentText,
@@ -125,7 +138,7 @@ export default function DiaryScreen() {
       {/* Tab content */}
       {activeTab === "timeline" && (
         <DiaryTimeline
-          records={records}
+          records={filteredRecords}
           teamId={myTeam}
           onDelete={handleDelete}
           onEdit={handleEdit}

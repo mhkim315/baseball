@@ -3,7 +3,7 @@ import { View, Text, Image, Pressable, ScrollView, StyleSheet, NativeSyntheticEv
 import { TeamBadge } from "@/components/TeamBadge";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TEAM_COLORS } from "@shared/teamColors";
-import { TEAM_ID_TO_CODE } from "@shared/constants";
+import { parseGameTeamIds, getWinBadge } from "@shared/constants";
 import { theme } from "@/lib/theme";
 import type { JikgwanRecord } from "@/lib/db";
 
@@ -13,29 +13,6 @@ interface DiaryCardProps {
   onShare?: (uri: string) => void;
   onDelete?: (record: JikgwanRecord) => void;
   onEdit?: (record: JikgwanRecord) => void;
-}
-
-/** game_id "0000-ABCD-0" → { awayId, homeId } */
-function parseGameTeamIds(gameId: string): { awayId: string; homeId: string } {
-  const codeToId: Record<string, string> = {};
-  for (const [id, code] of Object.entries(TEAM_ID_TO_CODE)) {
-    codeToId[code] = id;
-  }
-  const m = gameId.match(/^\d+-(\w{4})-\d+$/);
-  if (m) {
-    return {
-      awayId: codeToId[m[1].slice(0, 2)] || "",
-      homeId: codeToId[m[1].slice(2, 4)] || "",
-    };
-  }
-  return { awayId: "", homeId: "" };
-}
-
-function getWinBadge(isWin: number | null): { label: string; color: string } | null {
-  if (isWin === 1) return { label: "승", color: "#16a34a" };
-  if (isWin === 0) return { label: "무", color: "#ca8a04" };
-  if (isWin === -1) return { label: "패", color: "#dc2626" };
-  return null;
 }
 
 function formatDisplayDate(dateStr: string): string {

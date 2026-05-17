@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { TEAM_ID_TO_CODE } from "@shared/constants";
+import { parseGameTeamIds, getWinBadge } from "@shared/constants";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { theme } from "@/lib/theme";
@@ -16,28 +16,6 @@ function getDaysInMonth(year: number, month: number): number {
 
 function getFirstDayOfMonth(year: number, month: number): number {
   return new Date(year, month, 1).getDay();
-}
-
-function parseGameTeamIds(gameId: string): { awayId: string; homeId: string } {
-  const codeToId: Record<string, string> = {};
-  for (const [id, code] of Object.entries(TEAM_ID_TO_CODE)) {
-    codeToId[code] = id;
-  }
-  const m = gameId.match(/^\d+-(\w{4})-\d+$/);
-  if (m) {
-    return {
-      awayId: codeToId[m[1].slice(0, 2)] || "",
-      homeId: codeToId[m[1].slice(2, 4)] || "",
-    };
-  }
-  return { awayId: "", homeId: "" };
-}
-
-function getWinBadge(isWin: number | null): { label: string; color: string } | null {
-  if (isWin === 1) return { label: "승", color: "#1565c0" };
-  if (isWin === 0) return { label: "무", color: "#9ca3af" };
-  if (isWin === -1) return { label: "패", color: "#d32f2f" };
-  return null;
 }
 
 interface DiaryCalendarProps {

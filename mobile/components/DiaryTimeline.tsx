@@ -1,13 +1,14 @@
-import { useMemo } from "react";
-import { View, Text, FlatList, Pressable, StyleSheet, Alert, RefreshControl } from "react-native";
+import { useMemo, useState } from "react";
+import { View, Text, FlatList, Pressable, StyleSheet, RefreshControl } from "react-native";
 import * as Sharing from "expo-sharing";
 import DiaryCard from "@/components/DiaryCard";
 import { TeamBadge } from "@/components/TeamBadge";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
+import ConfirmModal from "@/components/ConfirmModal";
 import { theme } from "@/lib/theme";
 import type { JikgwanRecord } from "@/lib/db";
 import { TEAM_COLORS } from "@shared/teamColors";
-import { TEAM_ID_TO_CODE } from "@shared/constants";
+import { parseGameTeamIds } from "@shared/constants";
 import { deletePhoto } from "@/lib/camera";
 
 interface DiaryTimelineProps {
@@ -20,6 +21,8 @@ interface DiaryTimelineProps {
 }
 
 export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRefresh, refreshing }: DiaryTimelineProps) {
+  const [deleteTarget, setDeleteTarget] = useState<JikgwanRecord | null>(null);
+
   const onThisDayRecords = useMemo(() => {
     const now = new Date();
     const todayMD = `${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
@@ -38,17 +41,14 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
   };
 
   const handleDelete = (record: JikgwanRecord) => {
-    Alert.alert("삭제", "이 기록을 삭제할까요?", [
-      { text: "취소", style: "cancel" },
-      {
-        text: "삭제",
-        style: "destructive",
-        onPress: async () => {
-          if (record.photo_path) await deletePhoto(record.photo_path);
-          onDelete(record.id);
-        },
-      },
-    ]);
+    setDeleteTarget(record);
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteTarget) return;
+    if (deleteTarget.photo_path) await deletePhoto(deleteTarget.photo_path);
+    onDelete(deleteTarget.id);
+    setDeleteTarget(null);
   };
 
   const renderItem = ({ item }: { item: JikgwanRecord }) => (
@@ -73,13 +73,9 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
           <Pressable style={styles.onThisDayCard}>
             <View style={styles.onThisDayHeader}>
               {item.emotion && (() => {
+                const { awayId, homeId } = parseGameTeamIds(item.game_id);
+                const emTeam = awayId || homeId;
                 const char = EMOTION_CHARACTER[item.emotion];
-                const codeMap: Record<string, string> = {};
-                for (const [id, c] of Object.entries(TEAM_ID_TO_CODE)) {
-                  codeMap[c] = id;
-                }
-                const m = item.game_id.match(/^\d+-(\w{4})-\d+$/);
-                const emTeam = m ? (codeMap[m[1].slice(0, 2)] || codeMap[m[1].slice(2, 4)]) : null;
                 return emTeam && char ? (
                   <TeamBadge teamId={emTeam} size="sm" emotion={char} />
                 ) : (
@@ -92,16 +88,10 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
             </View>
             <Text style={styles.onThisDayTeams}>
               {(() => {
-                const codeMap: Record<string, string> = {};
-                for (const [id, c] of Object.entries(TEAM_ID_TO_CODE)) {
-                  codeMap[c] = id;
-                }
-                const m = item.game_id.match(/^\d+-(\w{4})-\d+$/);
-                if (!m) return "직관 기록";
-                const awayId = codeMap[m[1].slice(0, 2)];
-                const homeId = codeMap[m[1].slice(2, 4)];
-                const away = awayId ? TEAM_COLORS[awayId]?.shortName : "";
-                const home = homeId ? TEAM_COLORS[homeId]?.shortName : "";
+                const { awayId, homeId } = parseGameTeamIds(item.game_id);
+                if (!awayId) return "직관 기록";
+                const away = TEAM_COLORS[awayId]?.shortName || "";
+                const home = TEAM_COLORS[homeId]?.shortName || "";
                 return `${away} vs ${home}`;
               })()}
             </Text>
@@ -118,24 +108,35 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
   ) : null;
 
   return (
-    <FlatList
-      data={records}
-      renderItem={renderItem}
-      keyExtractor={(item) => String(item.id)}
-      contentContainerStyle={styles.listContent}
-      ListHeaderComponent={ListHeaderComponent}
-      ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={theme.mutedForeground} />
-      }
-      ListEmptyComponent={
-        <View style={styles.empty}>
-          <Text style={styles.emptyIcon}>📸</Text>
-          <Text style={styles.emptyText}>아직 직관 기록이 없어요</Text>
-          <Text style={styles.emptySub}>+ 버튼을 눌러 첫 기록을 남겨보세요</Text>
-        </View>
-      }
-    />
+    <>
+      <FlatList
+        data={records}
+        renderItem={renderItem}
+        keyExtractor={(item) => String(item.id)}
+        contentContainerStyle={styles.listContent}
+        ListHeaderComponent={ListHeaderComponent}
+        ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={theme.mutedForeground} />
+        }
+        ListEmptyComponent={
+          <View style={styles.empty}>
+            <Text style={styles.emptyIcon}>📸</Text>
+            <Text style={styles.emptyText}>아직 직관 기록이 없어요</Text>
+            <Text style={styles.emptySub}>+ 버튼을 눌러 첫 기록을 남겨보세요</Text>
+          </View>
+        }
+      />
+      <ConfirmModal
+        visible={!!deleteTarget}
+        title="삭제"
+        message="이 기록을 삭제할까요?"
+        confirmLabel="삭제"
+        destructive
+        onConfirm={confirmDelete}
+        onCancel={() => setDeleteTarget(null)}
+      />
+    </>
   );
 }
 
