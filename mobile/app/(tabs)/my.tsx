@@ -574,14 +574,6 @@ export default function MyScreen() {
         </View>
       )}
 
-      {/* Community */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>커뮤니티</Text>
-        <Pressable style={styles.settingRow} onPress={() => router.push("/community")}>
-          <Text style={styles.settingLabel}>💬 커뮤니티 게시판</Text>
-        </Pressable>
-      </View>
-
       {/* Display Settings */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>화면 설정</Text>
