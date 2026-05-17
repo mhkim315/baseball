@@ -5,7 +5,7 @@ let db: SQLite.SQLiteDatabase | null = null;
 let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
 async function getDb(): Promise<SQLite.SQLiteDatabase> {
-  if (dbPromise && db) return db;
+  if (dbPromise) return dbPromise;
   if (!dbPromise) {
     dbPromise = (async () => {
       try {
@@ -120,15 +120,20 @@ export async function setNickname(name: string): Promise<void> {
 }
 
 export async function getProfileImage(): Promise<{ type: string; value: string } | null> {
+  // Try single JSON key first
+  const raw = await getSetting("profile_image");
+  if (raw) {
+    try { return JSON.parse(raw); } catch {}
+  }
+  // Legacy fallback: separate keys
   const type = await getSetting("profile_image_type");
   const value = await getSetting("profile_image_value");
-  if (!type || !value) return null;
-  return { type, value };
+  if (type && value) return { type, value };
+  return null;
 }
 
 export async function setProfileImage(type: string, value: string): Promise<void> {
-  await setSetting("profile_image_type", type);
-  await setSetting("profile_image_value", value);
+  await setSetting("profile_image", JSON.stringify({ type, value }));
 }
 
 // --- Jikgwan Records ---
@@ -151,6 +156,7 @@ export interface JikgwanRecord {
   stadium: string | null;
   is_win: number | null;
   cheered_team: string | null;
+  is_live: number | null;
 }
 
 export async function addJikgwanRecord(record: Omit<JikgwanRecord, "id" | "created_at">): Promise<number> {

@@ -24,16 +24,30 @@ export async function savePhoto(sourceUri: string, fileName: string): Promise<st
   const dir = await ensurePhotoDir();
   const dest = new File(dir, fileName);
   const src = new File(sourceUri);
-  src.move(dest);
+  try {
+    src.move(dest);
+  } catch {
+    try {
+      src.copy(dest);
+      if (src.exists) src.delete();
+    } catch (e) {
+      throw new Error("사진 저장 실패");
+    }
+  }
   return dest.uri;
 }
 
 export async function resizePhoto(uri: string, maxWidth = 1200): Promise<string> {
-  const result = await manipulateAsync(uri, [{ resize: { width: maxWidth } }], {
-    format: SaveFormat.JPEG,
-    compress: 0.85,
-  });
-  return result.uri;
+  try {
+    const result = await manipulateAsync(uri, [{ resize: { width: maxWidth } }], {
+      format: SaveFormat.JPEG,
+      compress: 0.85,
+    });
+    return result.uri;
+  } catch {
+    console.warn("resizePhoto failed, returning original");
+    return uri;
+  }
 }
 
 export async function getSavedPhotos(): Promise<string[]> {
@@ -46,8 +60,12 @@ export async function getSavedPhotos(): Promise<string[]> {
 }
 
 export async function deletePhoto(uri: string): Promise<void> {
-  const file = new File(uri);
-  if (file.exists) {
-    file.delete();
+  try {
+    const file = new File(uri);
+    if (file.exists) {
+      file.delete();
+    }
+  } catch {
+    // non-critical
   }
 }

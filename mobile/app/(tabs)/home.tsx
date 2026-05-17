@@ -149,7 +149,7 @@ export default function HomeScreen() {
         setLoading(false);
       }).catch(() => {
         if (cancelled) return;
-        setGames([]);
+        setError(true);
         setLoading(false);
       });
     } else {
@@ -242,7 +242,7 @@ export default function HomeScreen() {
         setLoading(false);
       }).catch(() => {
         if (cancelled) return;
-        setGames([]);
+        setError(true);
         setLoading(false);
       });
     }

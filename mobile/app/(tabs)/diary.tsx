@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView } from "react-native";
+import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert } from "react-native";
 import { useFocusEffect } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
 import DiaryTimeline from "@/components/DiaryTimeline";
@@ -60,8 +60,12 @@ export default function DiaryScreen() {
   };
 
   const handleDelete = async (id: number) => {
-    await deleteJikgwanRecord(id);
-    loadRecords();
+    try {
+      await deleteJikgwanRecord(id);
+      loadRecords();
+    } catch {
+      Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
+    }
   };
 
   const handleEdit = (record: JikgwanRecord) => {
