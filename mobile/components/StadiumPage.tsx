@@ -44,12 +44,12 @@ const FOOD_MAP_IMAGES: Record<string, string> = {
 const CATEGORY_ORDER = ["all", "chicken", "korean", "western", "cafe"];
 
 const NEARBY_CATEGORIES: Record<string, { color: string }> = {
-  "치킨호프": { color: "#dc2626" },
-  "고깃집": { color: "#ca8a04" },
-  "밥집국밥": { color: "#2563eb" },
-  "카페디저트": { color: "#7c3aed" },
-  "술집이자카야": { color: "#d97706" },
-  "면분식": { color: "#059669" },
+  "치킨·호프": { color: "#e11d48" },
+  "고깃집": { color: "#dc2626" },
+  "밥집·국밥": { color: "#d97706" },
+  "카페·디저트": { color: "#7c3aed" },
+  "술집·이자카야": { color: "#0891b2" },
+  "면·분식": { color: "#059669" },
 };
 
 // 8-direction label offsets (percentage points from pin position)
