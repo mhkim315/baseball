@@ -11,6 +11,7 @@ import {
 import { useRouter } from "expo-router";
 import { Linking } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
+import { DEFAULT_TEAM_ID } from "@shared/constants";
 import { TeamBadge } from "@/components/TeamBadge";
 
 import { theme } from "@/lib/theme";
@@ -121,7 +122,7 @@ export default function MyScreen() {
         <View style={styles.profileRow}>
           <Pressable onPress={() => setShowProfilePicker(true)} style={styles.profileImage}>
             <TeamBadge
-              teamId={myTeam || "doosan"}
+              teamId={myTeam || DEFAULT_TEAM_ID}
               size="lg"
               emotion={(profileImage?.value as any) || "default"}
             />
@@ -314,7 +315,7 @@ export default function MyScreen() {
                   ]}
                 >
                   <TeamBadge
-                    teamId={myTeam || "doosan"}
+                    teamId={myTeam || DEFAULT_TEAM_ID}
                     size="md"
                     emotion={char as any}
                   />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View, Text, Pressable, TextInput, StyleSheet, Alert, ActivityIndicator } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
+import { DEFAULT_TEAM_ID } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import { theme } from "@/lib/theme";
 import { addJikgwanRecord, getMyTeam } from "@/lib/db";
@@ -130,7 +131,7 @@ export default function JikgwanWriteScreen() {
           <Text style={styles.stepTitle}>오늘 경기 어땠나요?</Text>
           <Text style={styles.stepSub}>기분을 선택해주세요</Text>
           <View style={styles.emotionWrapper}>
-            <EmotionPicker value={emotion} onChange={setEmotion} teamId={params.awayTeam || params.homeTeam || "doosan"} />
+            <EmotionPicker value={emotion} onChange={setEmotion} teamId={params.awayTeam || params.homeTeam || DEFAULT_TEAM_ID} />
           </View>
           <Pressable
             style={[styles.nextBtn, !emotion && styles.nextBtnDisabled]}

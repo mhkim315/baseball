@@ -37,3 +37,27 @@ export function getWinBadge(isWin: number | null): { label: string; color: strin
   if (isWin === -1) return { label: "패", color: "#ef4444" };
   return null;
 }
+
+/** Safe fallback team ID when no team is set */
+export const DEFAULT_TEAM_ID = "doosan";
+
+// --- Calendar utilities ---
+
+export function getDaysInMonth(year: number, month: number): number {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+export function getFirstDayOfMonth(year: number, month: number): number {
+  return new Date(year, month, 1).getDay();
+}
+
+export function formatDate(d: Date): string {
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+}
+
+export function formatDateForApi(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}

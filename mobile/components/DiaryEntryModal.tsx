@@ -6,7 +6,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { parseGameTeamIds, TEAM_ID_TO_CODE } from "@shared/constants";
+import { parseGameTeamIds, TEAM_ID_TO_CODE, getDaysInMonth, getFirstDayOfMonth, formatDate, formatDateForApi, DEFAULT_TEAM_ID } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { theme } from "@/lib/theme";
@@ -16,21 +16,6 @@ import { fetchScheduleByMonth, fetchDailyScores, type ScheduleGame, type ScoreEn
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
-function getDaysInMonth(year: number, month: number): number {
-  return new Date(year, month + 1, 0).getDate();
-}
-function getFirstDayOfMonth(year: number, month: number): number {
-  return new Date(year, month, 1).getDay();
-}
-function formatDate(d: Date): string {
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-}
-function formatDateForApi(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
-}
 function parseEditPhotos(record: JikgwanRecord): string[] {
   if (record.photos) {
     try {
@@ -89,7 +74,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
   const [content, setContent] = useState("");
   const [photoUris, setPhotoUris] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
-  const [userTeam, setUserTeam] = useState("doosan");
+  const [userTeam, setUserTeam] = useState(DEFAULT_TEAM_ID);
   const [cheeredTeam, setCheeredTeam] = useState<string | null>(null);
   const [isLive, setIsLive] = useState<boolean>(true);
   const [showOtherGames, setShowOtherGames] = useState(false);

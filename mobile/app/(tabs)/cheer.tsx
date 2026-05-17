@@ -5,6 +5,7 @@ import TeamExpander from "@/components/TeamExpander";
 import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
 import { TEAM_COLORS } from "@shared/teamColors";
+import { DEFAULT_TEAM_ID } from "@shared/constants";
 import {
   fetchCheeringSongs,
   fetchCheeringPlayers,
@@ -64,7 +65,7 @@ export default function CheerScreen() {
     getMyTeam().then(setMyTeam);
   }, []);
 
-  const activeTeam = displayTeam || myTeam || "doosan";
+  const activeTeam = displayTeam || myTeam || DEFAULT_TEAM_ID;
 
   const load = useCallback(() => {
     let cancelled = false;

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE } from "@shared/constants";
+import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE, getDaysInMonth, getFirstDayOfMonth, DEFAULT_TEAM_ID } from "@shared/constants";
 import { fetchScheduleByMonth, fetchAllDailyScores, type ScheduleGame } from "@/lib/api";
 import { theme } from "@/lib/theme";
 
@@ -14,14 +14,6 @@ interface ScoreInfo {
   outcome: string | null; cancelled: boolean;
 }
 
-function getDaysInMonth(year: number, month: number): number {
-  return new Date(year, month + 1, 0).getDate();
-}
-
-function getFirstDayOfMonth(year: number, month: number): number {
-  return new Date(year, month, 1).getDay();
-}
-
 function teamShortName(teamId: string): string {
   return TEAM_LIST.find((t) => t.id === teamId)?.shortName || "";
 }
@@ -29,7 +21,7 @@ function teamShortName(teamId: string): string {
 export default function CalendarPage() {
   const router = useRouter();
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedTeam, setSelectedTeam] = useState(TEAM_LIST[0]?.id || "doosan");
+  const [selectedTeam, setSelectedTeam] = useState(DEFAULT_TEAM_ID);
   const [games, setGames] = useState<ScheduleGame[]>([]);
   const [scoresByDate, setScoresByDate] = useState<Record<string, ScoreInfo[]>>({});
   const [loading, setLoading] = useState(true);

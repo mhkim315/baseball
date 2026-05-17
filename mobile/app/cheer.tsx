@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, Pressable, Image, StyleSheet, Linking, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE } from "@shared/constants";
+import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE, DEFAULT_TEAM_ID } from "@shared/constants";
 import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores } from "@/lib/api";
 import type { CheerSection, PlayerCheer } from "@/lib/api";
 import { theme } from "@/lib/theme";
@@ -38,7 +38,7 @@ const GALLERY = [
 
 export default function CheerScreen() {
   const router = useRouter();
-  const [selectedTeam, setSelectedTeam] = useState("doosan");
+  const [selectedTeam, setSelectedTeam] = useState(DEFAULT_TEAM_ID);
   const [activeTab, setActiveTab] = useState<"songs" | "players" | "rules">("songs");
   const [expandedSection, setExpandedSection] = useState<number | null>(0);
 

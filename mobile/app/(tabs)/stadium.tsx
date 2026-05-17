@@ -6,6 +6,7 @@ import TeamExpander from "@/components/TeamExpander";
 import StadiumPage from "@/components/StadiumPage";
 import SettingsButton from "@/components/SettingsButton";
 import { TEAM_COLORS } from "@shared/teamColors";
+import { DEFAULT_TEAM_ID } from "@shared/constants";
 import { theme } from "@/lib/theme";
 
 export default function StadiumTab() {
@@ -18,7 +19,7 @@ export default function StadiumTab() {
     }, [])
   );
 
-  const activeTeam = displayTeam || myTeam || "doosan";
+  const activeTeam = displayTeam || myTeam || DEFAULT_TEAM_ID;
   const myTeamColor = myTeam ? TEAM_COLORS[myTeam]?.primary : undefined;
 
   if (!myTeam) {

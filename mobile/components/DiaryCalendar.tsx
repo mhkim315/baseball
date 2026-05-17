@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { parseGameTeamIds, getWinBadge } from "@shared/constants";
+import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { theme } from "@/lib/theme";
@@ -9,14 +9,6 @@ import { fetchScheduleByMonth, fetchAllDailyScores, type ScheduleGame, type Scor
 import type { JikgwanRecord } from "@/lib/db";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
-
-function getDaysInMonth(year: number, month: number): number {
-  return new Date(year, month + 1, 0).getDate();
-}
-
-function getFirstDayOfMonth(year: number, month: number): number {
-  return new Date(year, month, 1).getDay();
-}
 
 interface DiaryCalendarProps {
   year: number;

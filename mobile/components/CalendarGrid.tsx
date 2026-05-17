@@ -2,18 +2,11 @@ import { useState } from "react";
 import { View, Text, Pressable, Modal, StyleSheet, ActivityIndicator } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
+import { getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import type { ScheduleGame } from "@/lib/api";
 import { theme } from "@/lib/theme";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
-
-function getDaysInMonth(year: number, month: number): number {
-  return new Date(year, month + 1, 0).getDate();
-}
-
-function getFirstDayOfMonth(year: number, month: number): number {
-  return new Date(year, month, 1).getDay();
-}
 
 function teamShortName(teamId: string): string {
   return TEAM_LIST.find((t) => t.id === teamId)?.shortName || "";

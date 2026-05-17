@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, Pressable, Image, StyleSheet, ActivityIndicator, Linking } from "react-native";
 import Svg, { Line } from "react-native-svg";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
+import { DEFAULT_TEAM_ID } from "@shared/constants";
 import { TeamBadge } from "@/components/TeamBadge";
 import StadiumMapView from "@/components/StadiumMapView";
 import {
@@ -141,7 +142,7 @@ function categoryKey(store: FoodPlace): string {
 }
 
 export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamId?: string; accentColor?: string } = {}) {
-  const [selectedTeam, setSelectedTeam] = useState(propTeamId || "doosan");
+  const [selectedTeam, setSelectedTeam] = useState(propTeamId || DEFAULT_TEAM_ID);
   const [activeTab, setActiveTab] = useState<TabId>("info");
 
   // Sync internal state when parent changes the prop
