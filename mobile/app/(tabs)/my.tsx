@@ -27,8 +27,15 @@ import {
   getWinRates,
 } from "@/lib/db";
 
-const PROFILE_CHARACTERS = [
-  "default", "determined", "joyful", "sad", "neutral",
+const PROFILE_CHARACTERS: { key: string; label: string }[] = [
+  { key: "default", label: "기본" },
+  { key: "neutral", label: "보통" },
+  { key: "joyful", label: "기쁨" },
+  { key: "sad", label: "슬픔" },
+  { key: "angry", label: "화남" },
+  { key: "furious", label: "대노" },
+  { key: "shocked", label: "놀람" },
+  { key: "determined", label: "불굴" },
 ];
 
 export default function MyScreen() {
@@ -664,26 +671,26 @@ export default function MyScreen() {
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>프로필 이미지 선택</Text>
             <View style={styles.charGrid}>
-              {PROFILE_CHARACTERS.map((char) => (
+              {PROFILE_CHARACTERS.map((c) => (
                 <Pressable
-                  key={char}
-                  onPress={() => handleSelectProfileChar(char)}
+                  key={c.key}
+                  onPress={() => handleSelectProfileChar(c.key)}
                   style={[
                     styles.charItem,
-                    profileImage?.value === char && { borderColor: myTeamColor },
+                    profileImage?.value === c.key && { borderColor: myTeamColor },
                   ]}
                 >
                   <TeamBadge
                     teamId={myTeam || DEFAULT_TEAM_ID}
                     size="md"
-                    emotion={char as any}
+                    emotion={c.key as any}
                   />
-                  <Text style={styles.charName}>{char}</Text>
+                  <Text style={styles.charName}>{c.label}</Text>
                 </Pressable>
               ))}
             </View>
-            <Pressable style={styles.modalCancel} onPress={() => setShowProfilePicker(false)}>
-              <Text style={styles.modalCancelText}>닫기</Text>
+            <Pressable style={[styles.modalSave, { flex: 0, alignSelf: "center", paddingHorizontal: 40 }]} onPress={() => setShowProfilePicker(false)}>
+              <Text style={styles.modalSaveText}>확인</Text>
             </Pressable>
           </View>
         </View>
