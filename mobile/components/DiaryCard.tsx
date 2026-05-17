@@ -49,7 +49,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }:
   const gt = parseGameTeamIds(record.game_id || "");
   const profileTeamId = record.cheered_team || gt.awayId || gt.homeId || "";
   const charKey = record.emotion ? (EMOTION_CHARACTER[record.emotion] || "neutral") : "neutral";
-  const emChar = charKey as "joyful" | "determined" | "neutral" | "sad";
+  const emChar = charKey as "joyful" | "determined" | "neutral" | "sad" | "angry" | "furious" | "shocked";
 
   // Caption text: memo first, fallback to three_line
   const caption = record.memo

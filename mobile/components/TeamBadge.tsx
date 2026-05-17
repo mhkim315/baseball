@@ -9,7 +9,7 @@ const IMAGE_BASE = "https://fullcount.kr";
 interface TeamBadgeProps {
   teamId: string;
   size?: "sm" | "md" | "lg";
-  emotion?: "default" | "determined" | "sad" | "joyful" | "neutral";
+  emotion?: "default" | "determined" | "sad" | "joyful" | "neutral" | "angry" | "furious" | "shocked";
   variant?: "character" | "ball" | "bat";
 }
 
