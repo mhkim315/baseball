@@ -1,16 +1,17 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   View, Text, Pressable, TextInput, Modal, StyleSheet, Image,
   Alert, ActivityIndicator, ScrollView,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
+import { captureRef } from "react-native-view-shot";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TEAM_ID_TO_CODE } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { theme } from "@/lib/theme";
-import { addJikgwanRecord, updateJikgwanRecord, getMyTeam } from "@/lib/db";
+import { addJikgwanRecord, updateJikgwanRecord, getMyTeam, type JikgwanRecord } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { fetchScheduleByMonth, fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
 
@@ -106,6 +107,14 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
   const [userTeam, setUserTeam] = useState("doosan");
   const [cheeredTeam, setCheeredTeam] = useState<string | null>(null);
 
+  // Film stamp compositing
+  const [stampingUri, setStampingUri] = useState<string | null>(null);
+  const [stampInfo, setStampInfo] = useState({
+    awayTeam: "", homeTeam: "", awayScore: null as number | null,
+    homeScore: null as number | null, stadium: "", date: "",
+  });
+  const hiddenStampRef = useRef<View>(null);
+
   const dateStr = formatDate(selectedDate);
   const dateStrShort = `${String(selectedDate.getMonth() + 1)}월 ${selectedDate.getDate()}일`;
 
@@ -132,6 +141,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
         setGames([]);
       }
       getMyTeam().then((t) => { if (t) setUserTeam(t); });
+      setStampingUri(null);
     }
   }, [visible, editRecord]);
 
@@ -230,6 +240,17 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
     }
   };
 
+  const stampPhoto = async (uri: string): Promise<string> => {
+    setStampingUri(uri);
+    // Wait for state update to render the hidden compositor
+    await new Promise((r) => setTimeout(r, 150));
+    const shotUri = await captureRef(hiddenStampRef, { format: "jpg", quality: 0.92 });
+    if (!shotUri) throw new Error("capture failed");
+    const resized = await resizePhoto(shotUri);
+    const fileName = generatePhotoName();
+    return await savePhoto(resized, fileName);
+  };
+
   const handleSave = async () => {
     if (saving) return;
     if (!content.trim()) {
@@ -238,21 +259,50 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
     }
     setSaving(true);
     try {
+      // Compute stamp data from selected game or edit record
+      const stampAwayTeam = selectedGame?.awayTeam ||
+        (editRecord?.game_id ? parseGameTeamIds(editRecord.game_id).awayId : null);
+      const stampHomeTeam = selectedGame?.homeTeam ||
+        (editRecord?.game_id ? parseGameTeamIds(editRecord.game_id).homeId : null);
+      const stampAwayScore = selectedGame?.awayScore ?? editRecord?.score_away ?? null;
+      const stampHomeScore = selectedGame?.homeScore ?? editRecord?.score_home ?? null;
+      const stampStadium = selectedGame?.venue || editRecord?.stadium || null;
+      const stampDate = editRecord?.date || dateStr;
+      const hasStampData = !!(stampAwayTeam || stampHomeTeam);
+
+      if (hasStampData) {
+        setStampInfo({
+          awayTeam: stampAwayTeam || "",
+          homeTeam: stampHomeTeam || "",
+          awayScore: stampAwayScore,
+          homeScore: stampHomeScore,
+          stadium: stampStadium || "",
+          date: stampDate,
+        });
+      }
+
       let savedPhotoUris: string[] = [];
       if (photoUris.length > 0) {
         for (const uri of photoUris) {
           try {
-            const resized = await resizePhoto(uri);
-            const fileName = generatePhotoName();
-            const savedUri = await savePhoto(resized, fileName);
+            let savedUri: string;
+            if (hasStampData) {
+              savedUri = await stampPhoto(uri);
+            } else {
+              const resized = await resizePhoto(uri);
+              const fileName = generatePhotoName();
+              savedUri = await savePhoto(resized, fileName);
+            }
             savedPhotoUris.push(savedUri);
             try {
               const { status } = await MediaLibrary.requestPermissionsAsync();
               if (status === "granted") {
                 await MediaLibrary.saveToLibraryAsync(savedUri);
               }
-            } catch {}
-          } catch {
+            } catch (e) {
+              console.warn("MediaLibrary save failed", e);
+            }
+          } catch (e) {
             throw new Error(`사진 처리 실패: ${uri}`);
           }
         }
@@ -319,6 +369,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
       Alert.alert("저장 완료", editRecord ? "기록이 수정되었습니다" : "직관 기록이 저장되었습니다");
       onSaved();
     } catch (e) {
+      console.warn("DiaryEntryModal handleSave error", e);
       const msg = e instanceof Error ? e.message : String(e);
       Alert.alert("저장 오류", msg);
     } finally {
@@ -355,6 +406,30 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
+        {/* Hidden stamp compositor — renders photo + film stamp as composite image */}
+        {stampingUri && (
+          <View ref={hiddenStampRef} style={{ position: "absolute", left: 0, top: 0, width: 300, height: 400 }} collapsable={false}>
+            <View>
+              <Image source={{ uri: stampingUri }} style={{ width: 300, height: 400 }} resizeMode="cover" />
+              <View style={stampStyles.container}>
+                <View style={stampStyles.bg}>
+                    {stampInfo.awayTeam && stampInfo.homeTeam && (
+                      <Text style={stampStyles.text} numberOfLines={1}>
+                        {TEAM_COLORS[stampInfo.awayTeam]?.shortName} vs {TEAM_COLORS[stampInfo.homeTeam]?.shortName}
+                      </Text>
+                    )}
+                    {stampInfo.homeScore != null && (
+                      <Text style={[stampStyles.text, stampStyles.score]}>{stampInfo.awayScore}:{stampInfo.homeScore}</Text>
+                    )}
+                    {stampInfo.stadium ? (
+                      <Text style={stampStyles.text} numberOfLines={1}>{stampInfo.stadium}</Text>
+                    ) : null}
+                    <Text style={stampStyles.text}>{stampInfo.date}</Text>
+                  </View>
+                </View>
+              </View>
+          </View>
+        )}
         <View style={styles.sheet}>
           <View style={styles.handleRow}>
             <View style={styles.handle} />
@@ -839,5 +914,34 @@ const styles = StyleSheet.create({
   winResultText: {
     fontSize: 14, fontWeight: "700", color: theme.foreground,
     textAlign: "center", marginTop: 8,
+  },
+});
+
+const stampStyles = StyleSheet.create({
+  container: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    padding: 10,
+  },
+  bg: {
+    backgroundColor: "rgba(0,0,0,0.55)",
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    gap: 1,
+    alignItems: "flex-end",
+  },
+  text: {
+    color: "#fff",
+    fontSize: 11,
+    fontWeight: "600",
+    lineHeight: 15,
+    fontFamily: "monospace",
+    includeFontPadding: false,
+  },
+  score: {
+    fontSize: 14,
+    fontWeight: "700",
   },
 });

@@ -11,6 +11,8 @@ import CalendarPage from "./pages/CalendarPage";
 import Stadium from "./pages/Stadium";
 import Cheer from "./pages/Cheer";
 import Standings from "./pages/Standings";
+import TermsPage from "./pages/Terms";
+import PrivacyPage from "./pages/Privacy";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
@@ -27,6 +29,8 @@ function AppRoutes() {
       <Route path={"/stadium"} component={withAnimation(Stadium)} />
       <Route path={"/cheer"} component={withAnimation(Cheer)} />
       <Route path={"/rank"} component={withAnimation(Standings)} />
+      <Route path={"/terms"} component={withAnimation(TermsPage)} />
+      <Route path={"/privacy"} component={withAnimation(PrivacyPage)} />
       <Route component={NotFound} />
     </Switch>
   );

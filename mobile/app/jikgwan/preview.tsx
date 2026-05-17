@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { View, Text, Image, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
+import ViewShot from "react-native-view-shot";
 import { TEAM_COLORS } from "@shared/teamColors";
-import { TeamBadge } from "@/components/TeamBadge";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { theme } from "@/lib/theme";
 
@@ -25,20 +25,22 @@ export default function JikgwanPreviewScreen() {
     awayScore: string;
     stadium: string;
   }>();
+  const shotRef = useRef<ViewShot>(null);
   const [frameStyle, setFrameStyle] = useState("classic");
   const [saving, setSaving] = useState(false);
 
   const now = new Date();
   const dateStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
-  const homeColor = TEAM_COLORS[params.homeTeam]?.primary || "#fff";
-  const awayColor = TEAM_COLORS[params.awayTeam]?.primary || "#fff";
 
   const handleNext = async () => {
     if (saving) return;
     setSaving(true);
     try {
-      // Resize and save the photo
-      const resized = await resizePhoto(params.photoUri);
+      // Capture photo + film stamp as composite image
+      const shotUri = await shotRef.current?.capture({ format: "jpg", quality: 0.92 });
+      if (!shotUri) throw new Error("capture failed");
+
+      const resized = await resizePhoto(shotUri);
       const fileName = generatePhotoName();
       const savedUri = await savePhoto(resized, fileName);
 
@@ -57,8 +59,8 @@ export default function JikgwanPreviewScreen() {
           frameStyle,
         },
       });
-    } catch {
-      // Silently fail, let user retry
+    } catch (e) {
+      console.warn("preview handleNext error", e);
       setSaving(false);
     }
   };
@@ -67,53 +69,47 @@ export default function JikgwanPreviewScreen() {
     <View style={styles.container}>
       {/* Photo preview */}
       <View style={[styles.photoContainer, { borderColor: FRAMES.find((f) => f.id === frameStyle)?.bg || "#fff", borderWidth: frameStyle === "rounded" ? 0 : 10, borderRadius: frameStyle === "rounded" ? 16 : 20 }]}>
-        <Image source={{ uri: params.photoUri }} style={styles.photo} />
+        <ViewShot ref={shotRef} options={{ format: "jpg", quality: 0.92 }}>
+          <View>
+            <Image source={{ uri: params.photoUri }} style={styles.photo} />
 
-        {/* Team overlay at bottom */}
-        <View style={styles.overlay}>
-          {(params.homeTeam || params.awayTeam) && (
-            <View style={styles.infoContainer}>
-              <View style={styles.matchupRow}>
-                <View style={styles.teamInfo}>
-                  {params.awayTeam && <TeamBadge teamId={params.awayTeam} size="sm" variant="ball" />}
-                  <Text style={[styles.teamLabel, { color: awayColor }]}>
-                    {params.awayTeam ? TEAM_COLORS[params.awayTeam]?.shortName : ""}
+            {/* Film camera stamp — embedded into saved photo */}
+            <View style={stampStyles.container}>
+              <View style={stampStyles.bg}>
+                {params.awayTeam && params.homeTeam && (
+                  <Text style={stampStyles.text} numberOfLines={1}>
+                    {TEAM_COLORS[params.awayTeam]?.shortName} vs {TEAM_COLORS[params.homeTeam]?.shortName}
                   </Text>
-                </View>
+                )}
                 {params.homeScore ? (
-                  <Text style={styles.scoreText}>{params.awayScore}:{params.homeScore}</Text>
+                  <Text style={[stampStyles.text, stampStyles.score]}>{params.awayScore}:{params.homeScore}</Text>
                 ) : null}
-                <View style={styles.teamInfo}>
-                  {params.homeTeam && <TeamBadge teamId={params.homeTeam} size="sm" variant="ball" />}
-                  <Text style={[styles.teamLabel, { color: homeColor }]}>
-                    {params.homeTeam ? TEAM_COLORS[params.homeTeam]?.shortName : ""}
-                  </Text>
-                </View>
+                {params.stadium ? (
+                  <Text style={stampStyles.text} numberOfLines={1}>{params.stadium}</Text>
+                ) : null}
+                <Text style={stampStyles.text}>{dateStr}</Text>
               </View>
-              {params.stadium && (
-                <Text style={styles.metaText}>{params.stadium} · {dateStr}</Text>
-              )}
             </View>
-          )}
-        </View>
+          </View>
+        </ViewShot>
       </View>
 
       {/* Frame selector */}
-      <View style={styles.frameSelector}>
-        <Text style={styles.frameTitle}>프레임 선택</Text>
-        <View style={styles.frameRow}>
+      <View style={frameStyles.frameSelector}>
+        <Text style={frameStyles.frameTitle}>프레임 선택</Text>
+        <View style={frameStyles.frameRow}>
           {FRAMES.map((f) => (
             <Pressable
               key={f.id}
               style={[
-                styles.frameItem,
+                frameStyles.frameItem,
                 { backgroundColor: f.bg },
-                frameStyle === f.id && styles.frameItemActive,
+                frameStyle === f.id && frameStyles.frameItemActive,
               ]}
               onPress={() => setFrameStyle(f.id)}
             >
               <Text style={[
-                styles.frameLabel,
+                frameStyles.frameLabel,
                 f.id === "ticket" && { color: "#92400e" },
               ]}>{f.label}</Text>
             </Pressable>
@@ -122,15 +118,15 @@ export default function JikgwanPreviewScreen() {
       </View>
 
       {/* Action buttons */}
-      <View style={styles.actions}>
-        <Pressable style={styles.retakeBtn} onPress={() => router.back()}>
-          <Text style={styles.retakeText}>다시 찍기</Text>
+      <View style={frameStyles.actions}>
+        <Pressable style={frameStyles.retakeBtn} onPress={() => router.back()}>
+          <Text style={frameStyles.retakeText}>다시 찍기</Text>
         </Pressable>
-        <Pressable style={styles.nextBtn} onPress={handleNext} disabled={saving}>
+        <Pressable style={frameStyles.nextBtn} onPress={handleNext} disabled={saving}>
           {saving ? (
             <ActivityIndicator color="#000" size="small" />
           ) : (
-            <Text style={styles.nextText}>다음</Text>
+            <Text style={frameStyles.nextText}>다음</Text>
           )}
         </Pressable>
       </View>
@@ -152,34 +148,38 @@ const styles = StyleSheet.create({
     aspectRatio: 3 / 4,
     resizeMode: "cover",
   },
-  overlay: {
+});
+
+const stampStyles = StyleSheet.create({
+  container: {
     position: "absolute",
     bottom: 0,
-    left: 0,
     right: 0,
+    padding: 10,
   },
-  infoContainer: {
-    backgroundColor: "rgba(0,0,0,0.6)",
-    padding: 14,
-    gap: 6,
+  bg: {
+    backgroundColor: "rgba(0,0,0,0.55)",
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    gap: 1,
+    alignItems: "flex-end",
   },
-  matchupRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 16,
-  },
-  teamInfo: {
-    alignItems: "center",
-    gap: 4,
-  },
-  teamLabel: { fontSize: 12, fontWeight: "bold" },
-  scoreText: { color: "#fff", fontSize: 28, fontWeight: "bold" },
-  metaText: {
-    color: "rgba(255,255,255,0.7)",
+  text: {
+    color: "#fff",
     fontSize: 11,
-    textAlign: "center",
+    fontWeight: "600",
+    lineHeight: 15,
+    fontFamily: "monospace",
+    includeFontPadding: false,
   },
+  score: {
+    fontSize: 14,
+    fontWeight: "700",
+  },
+});
+
+const frameStyles = StyleSheet.create({
   // Frame selector
   frameSelector: {
     paddingHorizontal: 20,

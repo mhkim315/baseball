@@ -59,7 +59,8 @@ async function apiPost<T>(path: string, body: any, auth = false): Promise<T | nu
     });
     if (!res.ok) return null;
     return await res.json();
-  } catch {
+  } catch (e) {
+    console.warn("apiPost error", path, e);
     return null;
   }
 }
@@ -74,7 +75,8 @@ async function apiGet<T>(path: string, auth = false): Promise<T | null> {
     const res = await fetch(`${API_BASE}${path}`, { headers });
     if (!res.ok) return null;
     return await res.json();
-  } catch {
+  } catch (e) {
+    console.warn("apiGet error", path, e);
     return null;
   }
 }
@@ -89,7 +91,8 @@ async function apiDelete<T>(path: string, auth = false): Promise<T | null> {
     const res = await fetch(`${API_BASE}${path}`, { method: "DELETE", headers });
     if (!res.ok) return null;
     return await res.json();
-  } catch {
+  } catch (e) {
+    console.warn("apiDelete error", path, e);
     return null;
   }
 }

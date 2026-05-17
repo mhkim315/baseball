@@ -9,6 +9,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { useRouter } from "expo-router";
+import { Linking } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
 
@@ -203,10 +204,10 @@ export default function MyScreen() {
       {/* App Info */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>정보</Text>
-        <Pressable style={styles.settingRow}>
+        <Pressable style={styles.settingRow} onPress={() => Linking.openURL("https://fullcount.kr/privacy")}>
           <Text style={styles.settingLabel}>개인정보처리방침</Text>
         </Pressable>
-        <Pressable style={styles.settingRow}>
+        <Pressable style={styles.settingRow} onPress={() => Linking.openURL("https://fullcount.kr/terms")}>
           <Text style={styles.settingLabel}>이용약관</Text>
         </Pressable>
         <Text style={styles.version}>v1.0.0</Text>

@@ -5,11 +5,19 @@ let db: SQLite.SQLiteDatabase | null = null;
 let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
 async function getDb(): Promise<SQLite.SQLiteDatabase> {
+  if (dbPromise && db) return db;
   if (!dbPromise) {
     dbPromise = (async () => {
-      db = await SQLite.openDatabaseAsync("fullcount.db");
-      await initSchema(db);
-      return db;
+      try {
+        db = await SQLite.openDatabaseAsync("fullcount.db");
+        await initSchema(db);
+        return db;
+      } catch (e) {
+        console.error("DB init failed, resetting for retry", e);
+        dbPromise = null;
+        db = null;
+        throw e;
+      }
     })();
   }
   return dbPromise;
@@ -147,34 +155,24 @@ export interface JikgwanRecord {
 export async function addJikgwanRecord(record: Omit<JikgwanRecord, "id" | "created_at">): Promise<number> {
   const database = await getDb();
 
-  // Build SQL with escaped values to bypass prepareAsync parameter binding
-  const esc = (s: string | null | undefined) =>
-    s != null ? `'${s.replace(/'/g, "''")}'` : "NULL";
-  const num = (n: number | null | undefined) =>
-    n != null ? String(n) : "NULL";
-
-  const sql = `INSERT INTO jikgwan_records
-    (game_id, date, photo_path, photos, memo, score_away, score_home, emotion, frame_style, stadium, is_win, cheered_team)
-    VALUES (
-      ${esc(record.game_id || "")},
-      ${esc(record.date || "")},
-      ${esc(record.photo_path)},
-      ${esc(record.photos)},
-      ${esc(record.memo)},
-      ${num(record.score_away)},
-      ${num(record.score_home)},
-      ${esc(record.emotion)},
-      ${esc(record.frame_style || "classic")},
-      ${esc(record.stadium)},
-      ${num(record.is_win)},
-      ${esc(record.cheered_team)}
-    )`;
-
-  await database.execAsync(sql);
-  const row = await database.getFirstAsync<{ id: number }>(
-    "SELECT last_insert_rowid() as id"
+  const result = await database.runAsync(
+    `INSERT INTO jikgwan_records
+      (game_id, date, photo_path, photos, memo, score_away, score_home, emotion, frame_style, stadium, is_win, cheered_team)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    record.game_id || "",
+    record.date || "",
+    record.photo_path ?? null,
+    record.photos ?? null,
+    record.memo ?? null,
+    record.score_away ?? null,
+    record.score_home ?? null,
+    record.emotion ?? null,
+    record.frame_style || "classic",
+    record.stadium ?? null,
+    record.is_win ?? null,
+    record.cheered_team ?? null,
   );
-  return row?.id ?? 0;
+  return result.lastInsertRowId ?? 0;
 }
 
 export async function getJikgwanRecords(): Promise<JikgwanRecord[]> {
