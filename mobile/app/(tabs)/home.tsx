@@ -121,7 +121,18 @@ export default function HomeScreen() {
             const startTime = new Date(selectedDate);
             startTime.setHours(h, m, 0, 0);
             const hasStarted = new Date() >= startTime;
-            const gameStatus = rawStatus === "scheduled" && g.score != null && todayView && hasStarted ? "live" : rawStatus || "scheduled";
+            const hasResult = score?.outcome != null;
+            const isCancelled = g.status === "cancelled" || score?.cancelled === true;
+            let gameStatus: "scheduled" | "live" | "finished";
+            if (rawStatus === "finished" || hasResult) {
+              gameStatus = "finished";
+            } else if (isCancelled) {
+              gameStatus = "scheduled";
+            } else if (rawStatus === "live" || hasStarted) {
+              gameStatus = "live";
+            } else {
+              gameStatus = "scheduled";
+            }
             return {
               id: g.id,
               homeTeam: g.home.id,
@@ -135,7 +146,7 @@ export default function HomeScreen() {
               awayPitcher: g.away.starter?.name,
               winPitcher: score?.winPitcher,
               losePitcher: score?.losePitcher,
-              cancelled: score?.cancelled,
+              cancelled: g.status === "cancelled" || score?.cancelled === true,
             };
           });
           setGames(enhanced);
@@ -200,7 +211,7 @@ export default function HomeScreen() {
             awayTeam: awayId,
             time: g.time || "18:30",
             venue: g.venue || "",
-            status: score && !isFuture ? "finished" : "scheduled",
+            status: score?.cancelled ? "finished" as const : (score && !isFuture ? "finished" : "scheduled"),
             homeScore: score ? score.homeScore : undefined,
             awayScore: score ? score.awayScore : undefined,
             homePitcher: pitchers?.home,
