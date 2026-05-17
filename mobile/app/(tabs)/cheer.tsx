@@ -5,7 +5,7 @@ import TeamExpander from "@/components/TeamExpander";
 import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
 import { TEAM_COLORS } from "@shared/teamColors";
-import { DEFAULT_TEAM_ID, TEAM_NAME_TO_ID, buildGameId } from "@shared/constants";
+import { DEFAULT_TEAM_ID, TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
 import {
   fetchCheeringSongs,
   fetchCheeringPlayers,
@@ -19,13 +19,6 @@ import {
 } from "@/lib/api";
 
 const IMAGE_BASE = "https://fullcount.kr";
-
-function formatDateStr(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
 
 const RULES = [
   { title: "이닝(회)", desc: "공격(초)·수비(말)가 한 바퀴 도는 단위예요. 공격측에서 아웃 세 개가 나오면 그 이닝은 끝나요." },

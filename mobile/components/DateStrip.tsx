@@ -1,5 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { theme } from "@/lib/theme";
+import { formatDateForApi as formatDateStr } from "@shared/constants";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -20,10 +21,6 @@ function isSameDay(a: Date, b: Date): boolean {
   return a.getFullYear() === b.getFullYear() &&
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate();
-}
-
-function formatDateStr(date: Date): string {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 function isToday(date: Date): boolean {

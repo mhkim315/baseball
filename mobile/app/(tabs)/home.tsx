@@ -16,7 +16,7 @@ import {
   type ScheduleGame,
 } from "@/lib/api";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
-import { TEAM_NAME_TO_ID, buildGameId } from "@shared/constants";
+import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
 import { getMyTeam } from "@/lib/db";
 import SettingsButton from "@/components/SettingsButton";
 import { theme } from "@/lib/theme";
@@ -24,10 +24,6 @@ import { theme } from "@/lib/theme";
 // Enable LayoutAnimation on Android
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
-function formatDateStr(date: Date): string {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 function isToday(date: Date): boolean {
