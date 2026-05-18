@@ -32,6 +32,15 @@ function parsePhotos(record: JikgwanRecord): string[] {
   return [];
 }
 
+function isFutureDate(dateStr: string): boolean {
+  const parts = dateStr.split(".");
+  if (parts.length !== 3) return false;
+  const d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return d > today;
+}
+
 export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }: DiaryCardProps) {
   const { theme, isDark } = useTheme();
   const { width: screenWidth } = useWindowDimensions();
@@ -247,7 +256,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }:
             {photos.map((uri, i) => (
               <View key={i} style={{ position: "relative" }}>
                 <Image source={{ uri }} style={[styles.photo, { width: photoWidth }]} />
-                {(gt.awayId || gt.homeId) && (
+                {(gt.awayId || gt.homeId) && !isFutureDate(record.date) && (
                   <View style={stampOverlay.container}>
                     <Text style={stampOverlay.text}>
                       {formatDisplayDate(record.date)}
