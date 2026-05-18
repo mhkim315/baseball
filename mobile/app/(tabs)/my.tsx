@@ -393,19 +393,23 @@ export default function MyScreen() {
   const router = useRouter();
 
   const loadData = useCallback(async () => {
-    const team = await getMyTeam();
-    setMyTeamState(team);
-    const nick = await getNickname();
-    setNicknameState(nick ?? "");
-    const profile = await getProfileImage();
-    setProfileImageState(profile);
+    try {
+      const team = await getMyTeam();
+      setMyTeamState(team);
+      const nick = await getNickname();
+      setNicknameState(nick ?? "");
+      const profile = await getProfileImage();
+      setProfileImageState(profile);
 
-    if (team) {
-      const stats = await getTeamDiaryStats(team);
-      setTeamDiaryStats(stats);
+      if (team) {
+        const stats = await getTeamDiaryStats(team);
+        setTeamDiaryStats(stats);
+      }
+      const all = await getWinRates();
+      setAllWinRates(all);
+    } catch (e) {
+      console.warn("my.tsx loadData failed", e);
     }
-    const all = await getWinRates();
-    setAllWinRates(all);
   }, []);
 
   useFocusEffect(
@@ -415,24 +419,36 @@ export default function MyScreen() {
   );
 
   const handleTeamSelect = async (teamId: string) => {
-    await setMyTeam(teamId);
-    setMyTeamState(teamId);
-    const stats = await getTeamDiaryStats(teamId);
-    setTeamDiaryStats(stats);
+    try {
+      await setMyTeam(teamId);
+      setMyTeamState(teamId);
+      const stats = await getTeamDiaryStats(teamId);
+      setTeamDiaryStats(stats);
+    } catch (e) {
+      console.warn("my.tsx handleTeamSelect failed", e);
+    }
   };
 
   const handleSaveNickname = async () => {
     const trimmed = nicknameInput.trim();
     if (!trimmed) return;
-    await setNickname(trimmed);
-    setNicknameState(trimmed);
-    setShowNicknameModal(false);
+    try {
+      await setNickname(trimmed);
+      setNicknameState(trimmed);
+      setShowNicknameModal(false);
+    } catch (e) {
+      console.warn("my.tsx handleSaveNickname failed", e);
+    }
   };
 
   const handleSelectProfileChar = async (char: string) => {
-    await setProfileImage("character", char);
-    setProfileImageState({ type: "character", value: char });
-    setShowProfilePicker(false);
+    try {
+      await setProfileImage("character", char);
+      setProfileImageState({ type: "character", value: char });
+      setShowProfilePicker(false);
+    } catch (e) {
+      console.warn("my.tsx handleSelectProfileChar failed", e);
+    }
   };
 
   const myTeamColor = myTeam ? teamPrimaryColor(myTeam, isDark) : "#888";

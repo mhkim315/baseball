@@ -24,7 +24,6 @@ export default function ConfirmModal({
   onCancel,
 }: ConfirmModalProps) {
   const { theme } = useTheme();
-  if (!visible) return null;
 
   const styles = useMemo(() => StyleSheet.create({
     overlay: {
@@ -97,6 +96,8 @@ export default function ConfirmModal({
       color: "#fff",
     },
   }), [theme]);
+
+  if (!visible) return null;
 
   return (
     <View style={styles.overlay}>

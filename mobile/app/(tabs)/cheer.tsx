@@ -65,7 +65,7 @@ export default function CheerScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      getMyTeam().then(setMyTeam);
+      getMyTeam().then(setMyTeam).catch(() => {});
     }, [])
   );
 

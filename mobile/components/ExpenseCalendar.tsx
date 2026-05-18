@@ -4,7 +4,7 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import { useTheme } from "@/lib/ThemeContext";
 import { getDailyTotals, formatAmount } from "@/lib/expenseStats";
-import type { Expense } from "@/lib/db";
+import type { Expense, JikgwanRecord } from "@/lib/db";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -12,16 +12,26 @@ interface ExpenseCalendarProps {
   year: number;
   month: number;
   expenses: Expense[];
+  records?: JikgwanRecord[];
   onSelectDate: (date: Date) => void;
   onMonthChange: (year: number, month: number) => void;
 }
 
 export default function ExpenseCalendar({
-  year, month, expenses, onSelectDate, onMonthChange,
+  year, month, expenses, records, onSelectDate, onMonthChange,
 }: ExpenseCalendarProps) {
   const { theme } = useTheme();
 
   const dailyTotals = useMemo(() => getDailyTotals(expenses), [expenses]);
+  const recordDates = useMemo(() => {
+    const set = new Set<string>();
+    if (records) {
+      for (const r of records) {
+        set.add(r.date);
+      }
+    }
+    return set;
+  }, [records]);
 
   const daysInMonth = getDaysInMonth(year, month);
   const firstDay = getFirstDayOfMonth(year, month);
@@ -92,6 +102,10 @@ export default function ExpenseCalendar({
     expenseAmt: {
       fontSize: 10, color: theme.mutedForeground, fontWeight: "600",
     },
+    dot: {
+      width: 5, height: 5, borderRadius: 3,
+      backgroundColor: theme.foreground, marginTop: 1,
+    },
   }), [theme]);
 
   return (
@@ -118,6 +132,9 @@ export default function ExpenseCalendar({
           {cells.map((cell, idx) => {
             if (cell.day === 0) return <View key={`e-${idx}`} style={styles.cell} />;
             const total = dailyTotals.get(cell.day) || 0;
+            const hasRecord = recordDates.has(`${year}.${String(month + 1).padStart(2, "0")}.${String(cell.day).padStart(2, "0")}`);
+            const amtStr = formatAmount(total);
+            const amtFontSize = amtStr.length > 6 ? 8 : amtStr.length > 4 ? 9 : 10;
             return (
               <Pressable
                 key={`d-${cell.day}`}
@@ -127,8 +144,9 @@ export default function ExpenseCalendar({
                 <View style={[styles.cellInner, cell.isToday && { borderWidth: 2, borderColor: theme.foreground }]}>
                   <Text style={[styles.dayNum, cell.isToday && { fontWeight: "700" }]}>{cell.day}</Text>
                   {total > 0 && (
-                    <Text style={styles.expenseAmt} numberOfLines={1}>{formatAmount(total)}</Text>
+                    <Text style={[styles.expenseAmt, { fontSize: amtFontSize }]} numberOfLines={1}>{amtStr}</Text>
                   )}
+                  {hasRecord && <View style={styles.dot} />}
                 </View>
               </Pressable>
             );

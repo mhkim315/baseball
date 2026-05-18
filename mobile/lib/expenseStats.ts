@@ -35,7 +35,7 @@ export function computeExpenseStats(expenses: Expense[], seasonYear = 2026): Exp
   }
   const categoryTotals: CategoryTotal[] = Array.from(catMap.entries())
     .map(([cat, amount]) => {
-      const info = EXPENSE_CATEGORIES[cat];
+      const info = EXPENSE_CATEGORIES[cat] || EXPENSE_CATEGORIES.other;
       return { category: cat, label: info.label, icon: info.icon, amount };
     })
     .sort((a, b) => b.amount - a.amount);
@@ -62,7 +62,7 @@ export function computeExpenseStats(expenses: Expense[], seasonYear = 2026): Exp
       const [y, m] = key.split("-").map(Number);
       const categories: CategoryTotal[] = Array.from(data.catMap.entries())
         .map(([cat, amount]) => {
-          const info = EXPENSE_CATEGORIES[cat];
+          const info = EXPENSE_CATEGORIES[cat] || EXPENSE_CATEGORIES.other;
           return { category: cat, label: info.label, icon: info.icon, amount };
         })
         .sort((a, b) => b.amount - a.amount);
@@ -78,7 +78,9 @@ export function getDailyTotals(expenses: Expense[]): Map<number, number> {
   const totals = new Map<number, number>();
   for (const e of expenses) {
     const parts = e.date.split(".");
+    if (parts.length < 3) continue;
     const day = parseInt(parts[2]);
+    if (isNaN(day)) continue;
     totals.set(day, (totals.get(day) || 0) + e.amount);
   }
   return totals;
@@ -92,10 +94,10 @@ export function getCategoryIcons(expenses: Expense[]): { icon: string; amount: n
     catMap.set(cat, (catMap.get(cat) || 0) + e.amount);
   }
   return Array.from(catMap.entries())
-    .map(([cat, amount]) => ({ icon: EXPENSE_CATEGORIES[cat].icon, amount }))
+    .map(([cat, amount]) => ({ icon: (EXPENSE_CATEGORIES[cat] || EXPENSE_CATEGORIES.other).icon, amount }))
     .sort((a, b) => b.amount - a.amount);
 }
 
 export function formatAmount(amount: number): string {
-  return `${amount.toLocaleString()}원`;
+  return `${amount.toLocaleString()}`;
 }

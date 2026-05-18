@@ -54,7 +54,7 @@ export default function StadiumTab() {
 
   useFocusEffect(
     useCallback(() => {
-      getMyTeam().then(setMyTeam);
+      getMyTeam().then(setMyTeam).catch(() => {});
     }, [])
   );
 

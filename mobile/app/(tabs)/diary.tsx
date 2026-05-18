@@ -178,7 +178,9 @@ export default function DiaryScreen() {
       ]);
       setRecords(data);
       setExpenses(exps);
-    } catch {}
+    } catch (e) {
+      console.warn("diary.tsx loadData failed", e);
+    }
   }, []);
 
   const loadMyTeam = useCallback(async () => {
@@ -234,12 +236,16 @@ export default function DiaryScreen() {
   };
 
   const handleExpenseSheetRefresh = async () => {
-    if (expenseSheetDate) {
-      const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
-      const exps = await getExpensesByDate(dateStr);
-      setSheetExpenses(exps);
+    try {
+      if (expenseSheetDate) {
+        const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
+        const exps = await getExpensesByDate(dateStr);
+        setSheetExpenses(exps);
+      }
+      await loadData();
+    } catch (e) {
+      console.warn("diary.tsx handleExpenseSheetRefresh failed", e);
     }
-    await loadData();
   };
 
   const filteredRecords = selectedDate
@@ -268,10 +274,14 @@ export default function DiaryScreen() {
   };
 
   const handleSelectExpenseDate = async (date: Date) => {
-    const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
-    const exps = await getExpensesByDate(dateStr);
-    setExpenseSheetDate(date);
-    setSheetExpenses(exps);
+    try {
+      const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+      const exps = await getExpensesByDate(dateStr);
+      setExpenseSheetDate(date);
+      setSheetExpenses(exps);
+    } catch (e) {
+      console.warn("diary.tsx handleSelectExpenseDate failed", e);
+    }
   };
 
   const handleFabPress = () => {
@@ -382,6 +392,7 @@ export default function DiaryScreen() {
                   year={expCalYear}
                   month={expCalMonth}
                   expenses={expenses}
+                  records={records}
                   onSelectDate={handleSelectExpenseDate}
                   onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); }}
                 />

@@ -264,12 +264,13 @@ export default function HomeScreen() {
             let status: "scheduled" | "live" | "finished" = "scheduled";
             if (score?.cancelled) {
               status = "finished";
-            } else if (score && !isFuture) {
+            } else if (score && !isFuture && score.outcome !== null) {
               status = "finished";
-            } else if (isToday) {
-              const [h, m] = (g.time || "18:30").split(":").map(Number);
+            } else if (isToday && !score?.cancelled) {
+              const timeStr = g.time || "18:30";
+              const [h, m] = timeStr.split(":").map(Number);
               const startTime = new Date();
-              startTime.setHours(h, m, 0, 0);
+              startTime.setHours(h ?? 18, m ?? 30, 0, 0);
               if (new Date() >= startTime) status = "live";
             }
 

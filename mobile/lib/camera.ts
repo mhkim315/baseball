@@ -26,7 +26,8 @@ export async function savePhoto(sourceUri: string, fileName: string): Promise<st
   try {
     await FileSystem.copyAsync({ from: sourceUri, to: destUri });
     return destUri;
-  } catch {
+  } catch (e) {
+    console.warn("savePhoto failed", e);
     throw new Error("사진 저장 실패");
   }
 }
@@ -51,6 +52,19 @@ export async function getSavedPhotos(): Promise<string[]> {
     .filter((f) => f.endsWith(".jpg"))
     .sort((a, b) => b.localeCompare(a))
     .map((f) => `${dirUri}${f}`);
+}
+
+export async function cropToSquare(uri: string, cropRect: { originX: number; originY: number; width: number; height: number }): Promise<string> {
+  try {
+    const result = await manipulateAsync(uri, [{ crop: cropRect }], {
+      format: SaveFormat.JPEG,
+      compress: 0.85,
+    });
+    return result.uri;
+  } catch {
+    console.warn("cropToSquare failed, returning original");
+    return uri;
+  }
 }
 
 export async function deletePhoto(uri: string): Promise<void> {

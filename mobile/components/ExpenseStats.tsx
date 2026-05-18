@@ -75,9 +75,8 @@ export default function ExpenseStats({ expenses }: ExpenseStatsProps) {
       <View style={styles.card}>
         <Text style={styles.cardTitle}>2026시즌 총 지출</Text>
         <View style={styles.totalRow}>
-          <Text style={styles.totalLabel}>총 </Text>
+          <Text style={styles.totalLabel}>총</Text>
           <Text style={styles.totalAmount}>{stats.seasonTotal.toLocaleString()}</Text>
-          <Text style={styles.totalUnit}>원</Text>
         </View>
       </View>
 

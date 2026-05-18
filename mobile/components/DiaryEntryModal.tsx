@@ -9,6 +9,7 @@ import * as ImagePicker from "expo-image-picker";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getDaysInMonth, getFirstDayOfMonth, formatDate, formatDateForApi, DEFAULT_TEAM_ID, buildGameId } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
+import PhotoCropper from "@/components/PhotoCropper";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -109,6 +110,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const [teamPickerGame, setTeamPickerGame] = useState<GameOption | null>(null);
   const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const [cropUri, setCropUri] = useState<string | null>(null);
 
   const scrollRef = useRef<ScrollView>(null);
 
@@ -131,8 +133,24 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           useNativeDriver: true,
         }),
       ]).start();
+    } else if (shouldRender) {
+      // Close animation when parent sets visible=false (e.g. after successful save)
+      Animated.parallel([
+        Animated.timing(sheetTranslateY, {
+          toValue: 500,
+          duration: 280,
+          useNativeDriver: true,
+        }),
+        Animated.timing(backdropOpacity, {
+          toValue: 0,
+          duration: 250,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        setShouldRender(false);
+      });
     }
-  }, [visible]);
+  }, [visible, shouldRender]);
 
   // Track keyboard height for both platforms
   useEffect(() => {
@@ -298,7 +316,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       quality: 0.8,
     });
     if (!result.canceled && result.assets.length > 0) {
-      setPhotoUris((prev) => [...prev, result.assets[0].uri]);
+      setCropUri(result.assets[0].uri);
     }
   };
 
@@ -1280,7 +1298,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                     <View key={idx} style={styles.expenseRow}>
                       <Text style={styles.expenseIcon}>{EXPENSE_CATEGORIES[exp.category]?.icon || "💸"}</Text>
                       <Text style={styles.expenseLabel}>{EXPENSE_CATEGORIES[exp.category]?.label || exp.category}</Text>
-                      <Text style={styles.expenseAmount}>{Number(exp.amount).toLocaleString()}원</Text>
+                      <Text style={styles.expenseAmount}>{Number(exp.amount).toLocaleString()}</Text>
                       {exp.memo ? <Text style={styles.expenseMemo}>{exp.memo}</Text> : null}
                       <Pressable onPress={() => setPendingExpenses((prev) => prev.filter((_, i) => i !== idx))} hitSlop={8}>
                         <Text style={styles.expenseRemove}>✕</Text>
@@ -1430,6 +1448,16 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           </View>
         );
       })()}
+
+      <PhotoCropper
+        visible={!!cropUri}
+        imageUri={cropUri || ""}
+        onCrop={(uri) => {
+          setPhotoUris((prev) => [...prev, uri]);
+          setCropUri(null);
+        }}
+        onCancel={() => setCropUri(null)}
+      />
     </View>
   );
 }
