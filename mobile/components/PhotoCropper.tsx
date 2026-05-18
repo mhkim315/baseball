@@ -56,6 +56,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
   };
 
   const panGesture = Gesture.Pan()
+    .maxPointers(1)
     .onStart(() => {
       startOffsetRef.current = { ...offsetRef.current };
     })
@@ -239,7 +240,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
           disabled={loading}
         >
           <Text style={[styles.btnText, styles.confirmText]}>
-            {loading ? "처리중..." : "사용하기"}
+            {loading ? "처리중..." : "확인"}
           </Text>
         </Pressable>
       </View>
