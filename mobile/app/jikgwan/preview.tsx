@@ -145,28 +145,27 @@ export default function JikgwanPreviewScreen() {
     // Actions
     actions: {
       flexDirection: "row",
-      justifyContent: "center",
-      gap: 16,
-      paddingVertical: 16,
+      gap: 12,
+      marginBottom: 16,
       paddingHorizontal: 20,
     },
     retakeBtn: {
       flex: 1,
-      paddingVertical: 14,
-      borderRadius: 12,
+      paddingVertical: 10,
+      borderRadius: 10,
       borderWidth: 1,
       borderColor: "#444",
       alignItems: "center",
     },
-    retakeText: { color: "#fff", fontSize: 14 },
+    retakeText: { color: "#fff", fontSize: 13 },
     nextBtn: {
       flex: 1,
-      paddingVertical: 14,
-      borderRadius: 12,
+      paddingVertical: 10,
+      borderRadius: 10,
       backgroundColor: "#fff",
       alignItems: "center",
     },
-    nextText: { color: "#000", fontSize: 14, fontWeight: "600" },
+    nextText: { color: "#000", fontSize: 13, fontWeight: "600" },
   }), [theme]);
 
   return (
@@ -202,6 +201,20 @@ export default function JikgwanPreviewScreen() {
         </ViewShot>
       </View>
 
+      {/* Action buttons */}
+      <View style={frameStyles.actions}>
+        <Pressable style={frameStyles.retakeBtn} onPress={() => router.back()}>
+          <Text style={frameStyles.retakeText}>다시 찍기</Text>
+        </Pressable>
+        <Pressable style={frameStyles.nextBtn} onPress={handleNext} disabled={saving}>
+          {saving ? (
+            <ActivityIndicator color="#000" size="small" />
+          ) : (
+            <Text style={frameStyles.nextText}>다음</Text>
+          )}
+        </Pressable>
+      </View>
+
       {/* Frame selector */}
       <View style={frameStyles.frameSelector}>
         <Text style={frameStyles.frameTitle}>프레임 선택</Text>
@@ -223,20 +236,6 @@ export default function JikgwanPreviewScreen() {
             </Pressable>
           ))}
         </View>
-      </View>
-
-      {/* Action buttons */}
-      <View style={frameStyles.actions}>
-        <Pressable style={frameStyles.retakeBtn} onPress={() => router.back()}>
-          <Text style={frameStyles.retakeText}>다시 찍기</Text>
-        </Pressable>
-        <Pressable style={frameStyles.nextBtn} onPress={handleNext} disabled={saving}>
-          {saving ? (
-            <ActivityIndicator color="#000" size="small" />
-          ) : (
-            <Text style={frameStyles.nextText}>다음</Text>
-          )}
-        </Pressable>
       </View>
     </View>
   );

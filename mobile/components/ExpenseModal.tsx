@@ -113,9 +113,30 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
     handleRow: { alignItems: "center", paddingVertical: 16 },
     handle: { width: 48, height: 5, borderRadius: 3, backgroundColor: theme.border },
     header: {
+      flexDirection: "row", alignItems: "center",
       paddingHorizontal: 20, marginBottom: 16,
     },
+    headerBtn: {
+      paddingVertical: 8, paddingHorizontal: 12,
+      borderRadius: 10, minWidth: 52, alignItems: "center",
+    },
+    headerCancelBtn: {
+      borderWidth: 1, borderColor: theme.border,
+    },
+    headerSaveBtn: {
+      backgroundColor: theme.foreground,
+    },
+    headerBtnText: {
+      fontSize: 14, fontWeight: "600",
+    },
+    headerCancelText: {
+      color: theme.foreground,
+    },
+    headerSaveText: {
+      fontWeight: "700", color: theme.background,
+    },
     title: {
+      flex: 1,
       fontSize: 17, fontWeight: "700", color: theme.foreground, textAlign: "center",
     },
     content: { padding: 20, paddingTop: 0 },
@@ -177,7 +198,13 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
           </View>
 
           <View style={styles.header}>
+            <Pressable style={[styles.headerBtn, styles.headerCancelBtn]} onPress={handleClose}>
+              <Text style={[styles.headerBtnText, styles.headerCancelText]}>취소</Text>
+            </Pressable>
             <Text style={styles.title}>지출 기록</Text>
+            <Pressable style={[styles.headerBtn, styles.headerSaveBtn]} onPress={handleSave}>
+              <Text style={[styles.headerBtnText, styles.headerSaveText]}>저장</Text>
+            </Pressable>
           </View>
 
           <Animated.ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
@@ -232,15 +259,6 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
             </View>
           </Animated.ScrollView>
 
-          {/* Bottom */}
-          <View style={styles.bottomRow}>
-            <Pressable style={styles.cancelBtn} onPress={handleClose}>
-              <Text style={styles.cancelText}>취소</Text>
-            </Pressable>
-            <Pressable style={styles.saveBtn} onPress={handleSave}>
-              <Text style={styles.saveText}>저장</Text>
-            </Pressable>
-          </View>
         </Animated.View>
       </KeyboardAvoidingView>
     </View>

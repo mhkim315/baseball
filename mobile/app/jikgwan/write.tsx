@@ -196,6 +196,58 @@ export default function JikgwanWriteScreen() {
       color: theme.mutedForeground,
     },
     // Buttons
+    headerActions: {
+      flexDirection: "row",
+      justifyContent: "flex-end",
+      gap: 10,
+      marginBottom: 20,
+    },
+    headerActionsCenter: {
+      justifyContent: "center",
+    },
+    headerNextBtn: {
+      backgroundColor: theme.foreground,
+      borderRadius: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 20,
+      alignItems: "center",
+    },
+    headerNextBtnDisabled: {
+      backgroundColor: theme.muted,
+    },
+    headerNextText: {
+      fontSize: 14,
+      fontWeight: "700",
+      color: theme.background,
+    },
+    headerNextTextDisabled: {
+      color: theme.mutedForeground,
+    },
+    headerBackBtn: {
+      borderRadius: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 20,
+      alignItems: "center",
+      borderWidth: 1,
+      borderColor: theme.border,
+    },
+    headerBackText: {
+      fontSize: 14,
+      fontWeight: "600",
+      color: theme.foreground,
+    },
+    headerSaveBtn: {
+      backgroundColor: theme.foreground,
+      borderRadius: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 20,
+      alignItems: "center",
+    },
+    headerSaveText: {
+      fontSize: 14,
+      fontWeight: "700",
+      color: theme.background,
+    },
     nextBtn: {
       backgroundColor: theme.foreground,
       borderRadius: 14,
@@ -309,6 +361,50 @@ export default function JikgwanWriteScreen() {
         <View style={[styles.stepDot, step >= 3 && styles.stepActive]} />
       </View>
 
+      {/* Header action buttons */}
+      {step === 1 && (
+        <View style={styles.headerActions}>
+          <Pressable
+            style={[styles.headerNextBtn, !emotion && styles.headerNextBtnDisabled]}
+            onPress={handleNext}
+            disabled={!emotion}
+          >
+            <Text style={[styles.headerNextText, !emotion && styles.headerNextTextDisabled]}>다음</Text>
+          </Pressable>
+        </View>
+      )}
+      {step === 2 && (
+        <View style={styles.headerActions}>
+          <Pressable
+            style={styles.headerNextBtn}
+            onPress={handleNext}
+          >
+            <Text style={styles.headerNextText}>다음</Text>
+          </Pressable>
+        </View>
+      )}
+      {step === 3 && (
+        <View style={[styles.headerActions, styles.headerActionsCenter]}>
+          <Pressable
+            style={styles.headerBackBtn}
+            onPress={() => setStep(2)}
+          >
+            <Text style={styles.headerBackText}>수정</Text>
+          </Pressable>
+          <Pressable
+            style={styles.headerSaveBtn}
+            onPress={handleSave}
+            disabled={saving}
+          >
+            {saving ? (
+              <ActivityIndicator color={theme.background} size="small" />
+            ) : (
+              <Text style={styles.headerSaveText}>저장하기</Text>
+            )}
+          </Pressable>
+        </View>
+      )}
+
       {/* Step 1: Emotion */}
       {step === 1 && (
         <View style={styles.stepContent}>
@@ -317,13 +413,6 @@ export default function JikgwanWriteScreen() {
           <View style={styles.emotionWrapper}>
             <EmotionPicker value={emotion} onChange={setEmotion} teamId={params.awayTeam || params.homeTeam || DEFAULT_TEAM_ID} />
           </View>
-          <Pressable
-            style={[styles.nextBtn, !emotion && styles.nextBtnDisabled]}
-            onPress={handleNext}
-            disabled={!emotion}
-          >
-            <Text style={[styles.nextBtnText, !emotion && styles.nextBtnTextDisabled]}>다음</Text>
-          </Pressable>
         </View>
       )}
 
@@ -373,10 +462,6 @@ export default function JikgwanWriteScreen() {
             />
             <Text style={styles.charCount}>{line3.length}/30</Text>
           </View>
-
-          <Pressable style={styles.nextBtn} onPress={handleNext}>
-            <Text style={styles.nextBtnText}>다음</Text>
-          </Pressable>
         </View>
       )}
 
@@ -426,26 +511,6 @@ export default function JikgwanWriteScreen() {
                 </View>
               </>
             )}
-          </View>
-
-          <View style={styles.confirmActions}>
-            <Pressable
-              style={styles.backBtn}
-              onPress={() => setStep(2)}
-            >
-              <Text style={styles.backBtnText}>수정</Text>
-            </Pressable>
-            <Pressable
-              style={styles.saveBtn}
-              onPress={handleSave}
-              disabled={saving}
-            >
-              {saving ? (
-                <ActivityIndicator color={theme.background} size="small" />
-              ) : (
-                <Text style={styles.saveBtnText}>저장하기</Text>
-              )}
-            </Pressable>
           </View>
         </View>
       )}

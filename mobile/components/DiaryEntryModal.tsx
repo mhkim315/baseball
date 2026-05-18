@@ -322,6 +322,18 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const handleSave = async () => {
     if (saving || savingRef.current) return;
+
+    // If expense input is open, auto-add before saving
+    if (showExpenseInput) {
+      const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
+      if (amt && amt > 0) {
+        setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
+      }
+      setShowExpenseInput(false);
+      setNewExpenseAmt("");
+      setNewExpenseMemo("");
+    }
+
     if (!content.trim()) {
       setSimpleAlert({ visible: true, title: "알림", message: "내용을 입력해주세요" });
       return;
@@ -547,6 +559,18 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       justifyContent: "space-between",
     },
     backArrow: { fontSize: 16, color: theme.foreground },
+    headerSaveBtn: {
+      paddingVertical: 8, paddingHorizontal: 16,
+      borderRadius: 10, backgroundColor: theme.foreground,
+      alignItems: "center", minWidth: 52,
+    },
+    headerSaveText: { fontSize: 14, fontWeight: "700", color: theme.background },
+    headerCancelBtn: {
+      paddingVertical: 8, paddingHorizontal: 16,
+      borderRadius: 10, borderWidth: 1, borderColor: theme.border,
+      alignItems: "center",
+    },
+    headerCancelText: { fontSize: 14, color: theme.foreground, fontWeight: "600" },
 
     scrollContent: { padding: 20, paddingTop: 0 },
 
@@ -920,7 +944,18 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                   <Text style={styles.backArrow}>◀</Text>
                 </Pressable>
                 <Text style={styles.stepTitle}>{editRecord ? "기록 수정" : "기록 작성"}</Text>
-                <View style={{ width: 20 }} />
+                <View style={{ flexDirection: "row", gap: 8 }}>
+                  <Pressable style={styles.headerCancelBtn} onPress={handleClose}>
+                    <Text style={styles.headerCancelText}>취소</Text>
+                  </Pressable>
+                  <Pressable style={styles.headerSaveBtn} onPress={handleSave} disabled={saving}>
+                    {saving ? (
+                      <ActivityIndicator color={theme.background} size="small" />
+                    ) : (
+                      <Text style={styles.headerSaveText}>저장</Text>
+                    )}
+                  </Pressable>
+                </View>
               </View>
             )}
           </View>
@@ -1369,27 +1404,14 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             )}
           </ScrollView>
 
-          {/* Bottom button */}
-          <View style={styles.bottomRow}>
-            {step === "write" ? (
-              <>
-                <Pressable style={styles.cancelBtn} onPress={handleClose}>
-                  <Text style={styles.cancelText}>취소</Text>
-                </Pressable>
-                <Pressable style={styles.saveBtn} onPress={handleSave} disabled={saving}>
-                  {saving ? (
-                    <ActivityIndicator color={theme.background} size="small" />
-                  ) : (
-                    <Text style={styles.saveText}>저장</Text>
-                  )}
-                </Pressable>
-              </>
-            ) : (
+          {/* Bottom button — only for non-write steps */}
+          {step !== "write" && (
+            <View style={styles.bottomRow}>
               <Pressable style={styles.cancelBtnFull} onPress={handleClose}>
                 <Text style={styles.cancelText}>취소</Text>
               </Pressable>
-            )}
-          </View>
+            </View>
+          )}
         </Animated.View>
       </KeyboardAvoidingView>
 
