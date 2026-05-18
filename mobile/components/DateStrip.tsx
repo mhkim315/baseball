@@ -1,5 +1,5 @@
-import { useMemo, useRef } from "react";
-import { View, Text, Pressable, StyleSheet, PanResponder } from "react-native";
+import { useMemo, useRef, useState, useEffect, useCallback } from "react";
+import { View, Text, Pressable, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { formatDateForApi as formatDateStr } from "@shared/constants";
 
@@ -60,22 +60,36 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
 
   const goToday = () => onDateChange(new Date());
 
-  const goPrevWeekRef = useRef(goPrevWeek);
-  goPrevWeekRef.current = goPrevWeek;
-  const goNextWeekRef = useRef(goNextWeek);
-  goNextWeekRef.current = goNextWeek;
+  const scrollRef = useRef<ScrollView>(null);
+  const [stripWidth, setStripWidth] = useState(0);
 
-  const weekPan = useRef(PanResponder.create({
-    onStartShouldSetPanResponder: () => false,
-    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
-    onPanResponderRelease: (_, gs) => {
-      if (gs.dx > 50) {
-        goPrevWeekRef.current();
-      } else if (gs.dx < -50) {
-        goNextWeekRef.current();
+  const prevWeekDates = getWeekDates(new Date(selectedDate.getTime() - 7 * 24 * 60 * 60 * 1000));
+  const nextWeekDates = getWeekDates(new Date(selectedDate.getTime() + 7 * 24 * 60 * 60 * 1000));
+  const ALL_WEEKS = [prevWeekDates, weekDates, nextWeekDates];
+
+  // Reset scroll to middle page whenever selectedDate changes (e.g., via arrow buttons)
+  useEffect(() => {
+    if (stripWidth > 0) {
+      scrollRef.current?.scrollTo({ x: stripWidth, animated: false });
+    }
+  }, [selectedDate, stripWidth]);
+
+  const handleMomentumScrollEnd = useCallback(
+    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+      if (stripWidth <= 0) return;
+      const page = Math.round(e.nativeEvent.contentOffset.x / stripWidth);
+      if (page === 0) {
+        const d = new Date(selectedDate);
+        d.setDate(d.getDate() - 7);
+        onDateChange(d);
+      } else if (page === 2) {
+        const d = new Date(selectedDate);
+        d.setDate(d.getDate() + 7);
+        onDateChange(d);
       }
     },
-  })).current;
+    [selectedDate, stripWidth, onDateChange]
+  );
 
   const styles = useMemo(() => StyleSheet.create({
     container: {
@@ -179,40 +193,52 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
           </Pressable>
         )}
       </View>
-      <View style={styles.stripRow} {...weekPan.panHandlers}>
+      <View style={styles.stripRow}>
         <Pressable onPress={goPrevWeek} style={styles.weekBtn} hitSlop={8}>
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
 
-        <View style={styles.scrollArea}>
-          <View style={styles.datesRow}>
-            {weekDates.map((date) => {
-              const sel = isSameDay(date, selectedDate);
-              const today = isToday(date);
-              const dayIndex = date.getDay();
-              const ds = formatDateStr(date);
-              const hasGame = hasGameDates.includes(ds);
+        <View style={styles.scrollArea} onLayout={(e) => setStripWidth(e.nativeEvent.layout.width)}>
+          <ScrollView
+            ref={scrollRef}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={handleMomentumScrollEnd}
+          >
+            {ALL_WEEKS.map((weekDates, weekIdx) => (
+              <View key={weekIdx} style={{ width: stripWidth || undefined, flex: stripWidth === 0 ? 1 : undefined }}>
+                <View style={styles.datesRow}>
+                  {weekDates.map((date) => {
+                    const sel = isSameDay(date, selectedDate);
+                    const today = isToday(date);
+                    const dayIndex = date.getDay();
+                    const ds = formatDateStr(date);
+                    const hasGame = hasGameDates.includes(ds);
 
-              return (
-                <Pressable
-                  key={ds}
-                  onPress={() => onDateChange(date)}
-                  style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
-                >
-                  <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
-                    {DAYS[dayIndex]}
-                  </Text>
-                  <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
-                    {date.getDate()}
-                  </Text>
-                  <View style={styles.dotRow}>
-                    {today && !sel && <View style={styles.todayDot} />}
-                    {hasGame && !sel && !today && <View style={styles.gameDot} />}
-                  </View>
-                </Pressable>
-              );
-            })}
-          </View>
+                    return (
+                      <Pressable
+                        key={ds}
+                        onPress={() => onDateChange(date)}
+                        style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
+                      >
+                        <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
+                          {DAYS[dayIndex]}
+                        </Text>
+                        <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
+                          {date.getDate()}
+                        </Text>
+                        <View style={styles.dotRow}>
+                          {today && !sel && <View style={styles.todayDot} />}
+                          {hasGame && !sel && !today && <View style={styles.gameDot} />}
+                        </View>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </View>
+            ))}
+          </ScrollView>
         </View>
 
         <Pressable onPress={goNextWeek} style={styles.weekBtn} hitSlop={8}>

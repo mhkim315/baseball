@@ -169,7 +169,7 @@ export default function HomeScreen() {
       onStartShouldSetPanResponder: () => false,
       onMoveShouldSetPanResponder: (_, gs) => calendarOpenRef.current && Math.abs(gs.dy) > 10,
       onPanResponderRelease: (_, gs) => {
-        if (gs.dy > 80) {
+        if (gs.dy < -80) {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
           setCalendarOpen(false);
         }

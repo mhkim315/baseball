@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef } from "react";
-import { View, Text, Pressable, Modal, StyleSheet, ActivityIndicator, PanResponder, Animated } from "react-native";
+import { View, Text, Pressable, Modal, StyleSheet, ActivityIndicator, Animated } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
 import { getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
@@ -79,21 +80,20 @@ export default function CalendarGrid({
   const goToNextRef = useRef(goToNext);
   goToNextRef.current = goToNext;
 
-  const monthPan = useRef(PanResponder.create({
-    onStartShouldSetPanResponder: () => false,
-    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
-    onPanResponderMove: (_, gs) => {
-      monthTranslateX.setValue(Math.max(-40, Math.min(40, gs.dx)));
-    },
-    onPanResponderRelease: (_, gs) => {
-      if (gs.dx > 60) {
+  const monthPanGesture = Gesture.Pan()
+    .activeOffsetX([-15, 15])
+    .failOffsetY([-10, 10])
+    .onUpdate((e) => {
+      monthTranslateX.setValue(Math.max(-40, Math.min(40, e.translationX)));
+    })
+    .onEnd((e) => {
+      if (e.translationX > 60) {
         goToPrevRef.current();
-      } else if (gs.dx < -60) {
+      } else if (e.translationX < -60) {
         goToNextRef.current();
       }
       Animated.spring(monthTranslateX, { toValue: 0, useNativeDriver: true }).start();
-    },
-  })).current;
+    });
 
   const styles = useMemo(() => StyleSheet.create({
     container: {},
@@ -217,7 +217,8 @@ export default function CalendarGrid({
 
   return (
     <View style={styles.container}>
-      <Animated.View style={{ transform: [{ translateX: monthTranslateX }] }} {...monthPan.panHandlers}>
+      <GestureDetector gesture={monthPanGesture}>
+      <Animated.View style={{ transform: [{ translateX: monthTranslateX }] }}>
       {/* Month navigation + Team selector */}
       <View style={styles.monthRow}>
         <View style={styles.monthNav}>
@@ -400,6 +401,7 @@ export default function CalendarGrid({
 
       {/* Team picker modal */}
       </Animated.View>
+      </GestureDetector>
       <Modal visible={teamPickerOpen} transparent animationType="fade" onRequestClose={() => setTeamPickerOpen(false)}>
         <Pressable style={styles.overlay} onPress={() => setTeamPickerOpen(false)}>
           <View style={styles.pickerModal}>

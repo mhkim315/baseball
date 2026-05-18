@@ -1,5 +1,5 @@
-import { useState, useCallback, useMemo } from "react";
-import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert } from "react-native";
+import { useState, useCallback, useMemo, useRef } from "react";
+import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { useFocusEffect } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
 import DiaryTimeline from "@/components/DiaryTimeline";
@@ -98,6 +98,24 @@ export default function DiaryScreen() {
   const [editingRecord, setEditingRecord] = useState<JikgwanRecord | null>(null);
   const [presetDate, setPresetDate] = useState<Date | null>(null);
 
+  // Horizontal tab scroll
+  const tabScrollRef = useRef<ScrollView>(null);
+  const { width: screenWidth } = useWindowDimensions();
+
+  const handleTabPress = (tabKey: DiaryTab, index: number) => {
+    tabScrollRef.current?.scrollTo({ x: screenWidth * index, animated: true });
+    if (tabKey !== "timeline") setSelectedDate(null);
+  };
+
+  const handleMomentumScrollEnd = useCallback(
+    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const page = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
+      const tab = TABS[page];
+      if (tab) setActiveTab(tab.key);
+    },
+    [screenWidth]
+  );
+
   // Calendar state
   const now = new Date();
   const [calYear, setCalYear] = useState(now.getFullYear());
@@ -176,6 +194,7 @@ export default function DiaryScreen() {
     const hasRecord = records.some((r) => r.date === dateStr);
     if (hasRecord) {
       setActiveTab("timeline");
+      tabScrollRef.current?.scrollTo({ x: 0, animated: true });
     } else {
       setPresetDate(date);
       setShowEntryModal(true);
@@ -196,14 +215,14 @@ export default function DiaryScreen() {
 
       {/* Segmented Control */}
       <View style={styles.segmentRow}>
-        {TABS.map((tab) => (
+        {TABS.map((tab, idx) => (
           <Pressable
             key={tab.key}
             style={[
               styles.segment,
               activeTab === tab.key && { borderBottomWidth: 2, borderBottomColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground },
             ]}
-            onPress={() => { setActiveTab(tab.key); if (tab.key !== "timeline") setSelectedDate(null); }}
+            onPress={() => handleTabPress(tab.key, idx)}
           >
             <Text style={[
               styles.segmentText,
@@ -215,51 +234,61 @@ export default function DiaryScreen() {
         ))}
       </View>
 
-      {/* Tab content */}
-      {activeTab === "timeline" && (
-        <DiaryTimeline
-          records={filteredRecords}
-          teamId={myTeam}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-          onRefresh={handleRefresh}
-          refreshing={refreshing}
-        />
-      )}
-
-      {activeTab === "calendar" && (
+      {/* Tab content — horizontal paging scroll */}
+      <View style={{ flex: 1 }}>
         <ScrollView
-          style={styles.tabContent}
-          contentContainerStyle={styles.scrollContent}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
-          }
+          ref={tabScrollRef}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onMomentumScrollEnd={handleMomentumScrollEnd}
         >
-          <DiaryCalendar
-            year={calYear}
-            month={calMonth}
-            records={records}
-            teamId={myTeam}
-            onSelectDate={handleSelectDate}
-            onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
-          />
-        </ScrollView>
-      )}
+          <View style={{ width: screenWidth }}>
+            <DiaryTimeline
+              records={filteredRecords}
+              teamId={myTeam}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+              onRefresh={handleRefresh}
+              refreshing={refreshing}
+            />
+          </View>
 
-      {activeTab === "stats" && (
-        <ScrollView
-          style={styles.tabContent}
-          contentContainerStyle={styles.scrollContent}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
-          }
-        >
-          <DiaryStats
-            records={records}
-            teamId={myTeam}
-          />
+          <View style={{ width: screenWidth }}>
+            <ScrollView
+              style={styles.tabContent}
+              contentContainerStyle={styles.scrollContent}
+              refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
+              }
+            >
+              <DiaryCalendar
+                year={calYear}
+                month={calMonth}
+                records={records}
+                teamId={myTeam}
+                onSelectDate={handleSelectDate}
+                onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
+              />
+            </ScrollView>
+          </View>
+
+          <View style={{ width: screenWidth }}>
+            <ScrollView
+              style={styles.tabContent}
+              contentContainerStyle={styles.scrollContent}
+              refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
+              }
+            >
+              <DiaryStats
+                records={records}
+                teamId={myTeam}
+              />
+            </ScrollView>
+          </View>
         </ScrollView>
-      )}
+      </View>
 
       {/* FAB */}
       <Pressable style={styles.fab} onPress={() => setShowEntryModal(true)}>

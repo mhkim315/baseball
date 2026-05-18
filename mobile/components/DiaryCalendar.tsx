@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo, useRef } from "react";
-import { View, Text, Pressable, StyleSheet, ActivityIndicator, PanResponder, Animated } from "react-native";
+import { View, Text, Pressable, StyleSheet, ActivityIndicator, Animated } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
@@ -102,21 +103,20 @@ export default function DiaryCalendar({
   const handleNextRef = useRef(handleNext);
   handleNextRef.current = handleNext;
 
-  const monthPan = useRef(PanResponder.create({
-    onStartShouldSetPanResponder: () => false,
-    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
-    onPanResponderMove: (_, gs) => {
-      monthTranslateX.setValue(Math.max(-40, Math.min(40, gs.dx)));
-    },
-    onPanResponderRelease: (_, gs) => {
-      if (gs.dx > 60) {
+  const monthPanGesture = Gesture.Pan()
+    .activeOffsetX([-15, 15])
+    .failOffsetY([-10, 10])
+    .onUpdate((e) => {
+      monthTranslateX.setValue(Math.max(-40, Math.min(40, e.translationX)));
+    })
+    .onEnd((e) => {
+      if (e.translationX > 60) {
         handlePrevRef.current();
-      } else if (gs.dx < -60) {
+      } else if (e.translationX < -60) {
         handleNextRef.current();
       }
       Animated.spring(monthTranslateX, { toValue: 0, useNativeDriver: true }).start();
-    },
-  })).current;
+    });
 
   const styles = useMemo(() => StyleSheet.create({
     container: {
@@ -222,7 +222,8 @@ export default function DiaryCalendar({
   }), [theme]);
 
   return (
-    <View style={styles.container} {...monthPan.panHandlers}>
+    <GestureDetector gesture={monthPanGesture}>
+    <View style={styles.container}>
       <Animated.View style={{ transform: [{ translateX: monthTranslateX }] }}>
       {/* Month navigator */}
       <View style={styles.header}>
@@ -379,6 +380,7 @@ export default function DiaryCalendar({
       </View>
       </Animated.View>
     </View>
+    </GestureDetector>
   );
 }
 

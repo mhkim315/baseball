@@ -4,6 +4,7 @@ import {
   ActivityIndicator, ScrollView, PanResponder,
   Animated, KeyboardAvoidingView, BackHandler, Platform,
 } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getDaysInMonth, getFirstDayOfMonth, formatDate, formatDateForApi, DEFAULT_TEAM_ID, buildGameId } from "@shared/constants";
@@ -436,16 +437,15 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   calPrevRef.current = calPrev;
   const calNextRef = useRef(calNext);
   calNextRef.current = calNext;
-  const calMonthPan = useRef(PanResponder.create({
-    onStartShouldSetPanResponder: () => false,
-    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
-    onPanResponderMove: (_, gs) => { calTranslateX.setValue(Math.max(-40, Math.min(40, gs.dx))); },
-    onPanResponderRelease: (_, gs) => {
-      if (gs.dx > 60) calPrevRef.current();
-      else if (gs.dx < -60) calNextRef.current();
+  const calMonthPanGesture = Gesture.Pan()
+    .activeOffsetX([-15, 15])
+    .failOffsetY([-10, 10])
+    .onUpdate((e) => { calTranslateX.setValue(Math.max(-40, Math.min(40, e.translationX))); })
+    .onEnd((e) => {
+      if (e.translationX > 60) calPrevRef.current();
+      else if (e.translationX < -60) calNextRef.current();
       Animated.spring(calTranslateX, { toValue: 0, useNativeDriver: true }).start();
-    },
-  })).current;
+    });
   const styles = useMemo(() => StyleSheet.create({
     overlay: {
       position: "absolute",
@@ -809,7 +809,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
             {/* Step 1: Calendar */}
             {step === "calendar" && (
-              <Animated.View style={{ transform: [{ translateX: calTranslateX }] }} {...calMonthPan.panHandlers}>
+              <GestureDetector gesture={calMonthPanGesture}>
+              <Animated.View style={{ transform: [{ translateX: calTranslateX }] }}>
                 {/* Month nav */}
                 <View style={styles.calHeader}>
                   <Pressable onPress={calPrev} hitSlop={8}>
@@ -849,6 +850,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                 </View>
 
               </Animated.View>
+              </GestureDetector>
             )}
 
             {/* Step 2: Game list */}
