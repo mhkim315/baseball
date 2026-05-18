@@ -15,14 +15,18 @@ import { getMyTeam } from "@/lib/db";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
-type DiaryTab = "timeline" | "jikgwan_calendar" | "expense_calendar" | "jikgwan_stats" | "expense_stats";
+type DiaryTab = "timeline" | "calendar" | "stats";
+type SubTab = "jikgwan" | "expense";
 
 const TABS: { key: DiaryTab; label: string }[] = [
   { key: "timeline", label: "타임라인" },
-  { key: "jikgwan_calendar", label: "직관캘린더" },
-  { key: "expense_calendar", label: "지출캘린더" },
-  { key: "jikgwan_stats", label: "직관통계" },
-  { key: "expense_stats", label: "지출통계" },
+  { key: "calendar", label: "캘린더" },
+  { key: "stats", label: "통계" },
+];
+
+const SUB_TABS: { key: SubTab; label: string }[] = [
+  { key: "jikgwan", label: "직관" },
+  { key: "expense", label: "지출" },
 ];
 
 export default function DiaryScreen() {
@@ -47,7 +51,7 @@ export default function DiaryScreen() {
       color: theme.mutedForeground,
       marginTop: 4,
     },
-    // Segmented Control
+    // Main tabs
     segmentRow: {
       flexDirection: "row",
       marginHorizontal: 20,
@@ -60,9 +64,25 @@ export default function DiaryScreen() {
       paddingVertical: 10,
     },
     segmentText: {
-      fontSize: 12,
+      fontSize: 14,
       color: theme.mutedForeground,
       fontWeight: "500",
+    },
+    // Sub tabs
+    subRow: {
+      flexDirection: "row",
+      marginHorizontal: 20,
+      marginBottom: 4,
+      gap: 0,
+      justifyContent: "center",
+    },
+    subSegment: {
+      paddingVertical: 6,
+      paddingHorizontal: 20,
+    },
+    subSegmentText: {
+      fontSize: 13,
+      color: theme.mutedForeground,
     },
     // Tab content
     tabContent: {
@@ -97,6 +117,7 @@ export default function DiaryScreen() {
     },
   }), [theme]);
   const [activeTab, setActiveTab] = useState<DiaryTab>("timeline");
+  const [subTab, setSubTab] = useState<SubTab>("jikgwan");
   const [records, setRecords] = useState<JikgwanRecord[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [myTeam, setMyTeam] = useState<string | null>(null);
@@ -254,14 +275,14 @@ export default function DiaryScreen() {
   };
 
   const handleFabPress = () => {
-    if (activeTab === "expense_calendar" || activeTab === "expense_stats") {
+    if (subTab === "expense") {
       setShowExpenseModal(true);
     } else {
       setShowEntryModal(true);
     }
   };
 
-  const isExpenseTab = activeTab === "expense_calendar" || activeTab === "expense_stats";
+  const showSubTabs = activeTab === "calendar" || activeTab === "stats";
 
   return (
     <View style={styles.container}>
@@ -296,6 +317,26 @@ export default function DiaryScreen() {
         ))}
       </View>
 
+      {/* Sub-tabs: 직관 / 지출 (only for calendar & stats) */}
+      {showSubTabs && (
+        <View style={styles.subRow}>
+          {SUB_TABS.map((st) => (
+            <Pressable
+              key={st.key}
+              style={styles.subSegment}
+              onPress={() => setSubTab(st.key)}
+            >
+              <Text style={[
+                styles.subSegmentText,
+                subTab === st.key && { color: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground, fontWeight: "700" },
+              ]}>
+                {st.label}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      )}
+
       {/* Tab content — horizontal paging scroll */}
       <View style={{ flex: 1 }}>
         <ScrollView
@@ -318,27 +359,7 @@ export default function DiaryScreen() {
             />
           </View>
 
-          {/* Tab 2: Jikgwan Calendar */}
-          <View style={{ width: screenWidth }}>
-            <ScrollView
-              style={styles.tabContent}
-              contentContainerStyle={styles.scrollContent}
-              refreshControl={
-                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
-              }
-            >
-              <DiaryCalendar
-                year={calYear}
-                month={calMonth}
-                records={records}
-                teamId={myTeam}
-                onSelectDate={handleSelectDate}
-                onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
-              />
-            </ScrollView>
-          </View>
-
-          {/* Tab 3: Expense Calendar */}
+          {/* Tab 2: Calendar (직관/지출 sub-tabs) */}
           <View style={{ width: screenWidth, position: "relative" }}>
             <ScrollView
               style={styles.tabContent}
@@ -347,23 +368,36 @@ export default function DiaryScreen() {
                 <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
               }
             >
-              <ExpenseCalendar
-                year={expCalYear}
-                month={expCalMonth}
-                expenses={expenses}
-                onSelectDate={handleSelectExpenseDate}
-                onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); }}
-              />
+              {subTab === "jikgwan" ? (
+                <DiaryCalendar
+                  year={calYear}
+                  month={calMonth}
+                  records={records}
+                  teamId={myTeam}
+                  onSelectDate={handleSelectDate}
+                  onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
+                />
+              ) : (
+                <ExpenseCalendar
+                  year={expCalYear}
+                  month={expCalMonth}
+                  expenses={expenses}
+                  onSelectDate={handleSelectExpenseDate}
+                  onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); }}
+                />
+              )}
             </ScrollView>
-            <ExpenseBottomSheet
-              date={expenseSheetDate}
-              expenses={sheetExpenses}
-              onClose={() => { setExpenseSheetDate(null); setSheetExpenses([]); }}
-              onRefresh={handleExpenseSheetRefresh}
-            />
+            {subTab === "expense" && (
+              <ExpenseBottomSheet
+                date={expenseSheetDate}
+                expenses={sheetExpenses}
+                onClose={() => { setExpenseSheetDate(null); setSheetExpenses([]); }}
+                onRefresh={handleExpenseSheetRefresh}
+              />
+            )}
           </View>
 
-          {/* Tab 4: Jikgwan Stats */}
+          {/* Tab 3: Stats (직관/지출 sub-tabs) */}
           <View style={{ width: screenWidth }}>
             <ScrollView
               style={styles.tabContent}
@@ -372,30 +406,21 @@ export default function DiaryScreen() {
                 <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
               }
             >
-              <DiaryStats
-                records={records}
-                teamId={myTeam}
-              />
-            </ScrollView>
-          </View>
-
-          {/* Tab 5: Expense Stats */}
-          <View style={{ width: screenWidth }}>
-            <ScrollView
-              style={styles.tabContent}
-              contentContainerStyle={styles.scrollContent}
-              refreshControl={
-                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
-              }
-            >
-              <ExpenseStats expenses={expenses} />
+              {subTab === "jikgwan" ? (
+                <DiaryStats
+                  records={records}
+                  teamId={myTeam}
+                />
+              ) : (
+                <ExpenseStats expenses={expenses} />
+              )}
             </ScrollView>
           </View>
         </ScrollView>
       </View>
 
       {/* FAB — context-aware */}
-      <Pressable style={[styles.fab, isExpenseTab && { backgroundColor: theme.mutedForeground }]} onPress={handleFabPress}>
+      <Pressable style={[styles.fab, subTab === "expense" && { backgroundColor: theme.mutedForeground }]} onPress={handleFabPress}>
         <Text style={styles.fabText}>+</Text>
       </Pressable>
 

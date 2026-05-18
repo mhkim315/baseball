@@ -15,11 +15,9 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
   const { theme } = useTheme();
 
   const total = useMemo(() => expenses.reduce((s, e) => s + e.amount, 0), [expenses]);
-  const dateStr = date
+  const dateStr = useMemo(() => date
     ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`
-    : "";
-
-  if (!date) return null;
+    : "", [date]);
 
   const handleDelete = async (id: number) => {
     try {
@@ -69,6 +67,8 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
       paddingVertical: 40,
     },
   }), [theme]);
+
+  if (!date) return null;
 
   return (
     <View style={styles.overlay}>
