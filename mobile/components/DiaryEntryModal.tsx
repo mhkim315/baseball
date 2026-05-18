@@ -179,7 +179,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       setNewExpenseMemo("");
       if (editRecord) {
         setStep("write");
-        setSelectedDate(new Date());
+        const parts = editRecord.date.split(".");
+        setSelectedDate(parts.length === 3 ? new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2])) : new Date());
         setSelectedGame(null);
         setEmotion(editRecord.emotion || null);
         setContent(editRecord.memo || "");
@@ -322,6 +323,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const handleSave = async () => {
     if (saving || savingRef.current) return;
+    // Set guard immediately (synchronous) to prevent re-entry
+    savingRef.current = true;
 
     // If expense input is open, auto-add before saving
     if (showExpenseInput) {
@@ -335,11 +338,11 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     }
 
     if (!content.trim()) {
+      savingRef.current = false;
       setSimpleAlert({ visible: true, title: "알림", message: "내용을 입력해주세요" });
       return;
     }
     setSaving(true);
-    savingRef.current = true;
     try {
       let savedPhotoUris: string[] = [];
       if (photoUris.length > 0) {
@@ -377,7 +380,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           } else if (isAway) {
             isWin = aScore > hScore ? 1 : aScore < hScore ? -1 : 0;
           }
-          // targetTeam not in game → isWin stays null
         }
       }
 
@@ -389,9 +391,34 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         }
       } catch {}
 
+      const saveExpenses = async (recordId: number) => {
+        for (const exp of pendingExpenses) {
+          const amt = parseInt(String(exp.amount).replace(/,/g, ""));
+          if (!amt || amt <= 0) continue;
+          await addExpense({
+            record_id: recordId,
+            date: dateStr,
+            category: exp.category,
+            amount: amt,
+            memo: exp.memo || null,
+          });
+        }
+      };
+
       let recordId: number;
       if (editRecord) {
-        await updateJikgwanRecord(editRecord.id, {
+        recordId = editRecord.id;
+        // Insert new expenses FIRST (before deleting old ones)
+        // If insert fails mid-way, old expenses are preserved → no data loss
+        await saveExpenses(recordId);
+        // Delete old expenses (best-effort — if this fails, duplicates remain but no data loss)
+        try {
+          await deleteExpensesByRecordId(recordId);
+        } catch (e) {
+          console.warn("Failed to delete old expenses (non-critical)", e);
+        }
+        // Update the jikgwan record
+        await updateJikgwanRecord(recordId, {
           memo: content.trim(),
           emotion: emotion || null,
           photos: photosJson,
@@ -400,9 +427,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
         });
-        recordId = editRecord.id;
-        // Replace expenses: delete old, insert new
-        await deleteExpensesByRecordId(recordId);
       } else {
         recordId = await addJikgwanRecord({
           game_id: gameId || "",
@@ -423,19 +447,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
         });
-      }
-
-      // Save expenses
-      for (const exp of pendingExpenses) {
-        const amt = parseInt(String(exp.amount).replace(/,/g, ""));
-        if (!amt || amt <= 0) continue;
-        await addExpense({
-          record_id: recordId,
-          date: dateStr,
-          category: exp.category,
-          amount: amt,
-          memo: exp.memo || null,
-        });
+        // Save expenses for new record
+        await saveExpenses(recordId);
       }
 
       // Auto-close on success (no alert needed)
@@ -965,7 +978,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
       {/* Sheet */}
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ justifyContent: "flex-end" }}>
-        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }], paddingBottom: Math.max(insets.bottom, 8) + keyboardHeight }]}>
+        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }], paddingBottom: Math.max(insets.bottom, 8) }]}>
           <View style={styles.handleRow} {...sheetPan.panHandlers}>
             <View style={styles.handle} />
           </View>
@@ -1330,7 +1343,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                       value={seat}
                       onChangeText={setSeat}
                       placeholder="예: 1루 5열 12번"
-                      placeholderTextColor="#999"
+                      placeholderTextColor={theme.mutedForeground}
                     />
                   </View>
                 )}
@@ -1361,7 +1374,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                     value={content}
                     onChangeText={setContent}
                     placeholder={`${dateStrShort}의 직관 이야기를 자유롭게 적어보세요 :)`}
-                    placeholderTextColor="#999"
+                    placeholderTextColor={theme.mutedForeground}
                     multiline
                     textAlignVertical="top"
                     onFocus={() => requestAnimationFrame(() => scrollRef.current?.scrollToEnd({ animated: true }))}
@@ -1418,7 +1431,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                           value={newExpenseAmt}
                           onChangeText={setNewExpenseAmt}
                           placeholder="금액"
-                          placeholderTextColor="#999"
+                          placeholderTextColor={theme.mutedForeground}
                           keyboardType="number-pad"
                           autoFocus
                         />
@@ -1430,7 +1443,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                         value={newExpenseMemo}
                         onChangeText={setNewExpenseMemo}
                         placeholder="무엇을 사셨나요? (선택)"
-                        placeholderTextColor="#999"
+                        placeholderTextColor={theme.mutedForeground}
                       />
                       {/* Action buttons — equal sized */}
                       <View style={styles.expenseActions}>

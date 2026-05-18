@@ -6,7 +6,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useTheme } from "@/lib/ThemeContext";
 import { EXPENSE_CATEGORIES, addExpense, type ExpenseCategory } from "@/lib/db";
-import { formatAmount } from "@/lib/expenseStats";
+
 
 interface ExpenseModalProps {
   visible: boolean;
@@ -192,7 +192,7 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
       </Animated.View>
 
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ justifyContent: "flex-end" }}>
-        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }], paddingBottom: Math.max(insets.bottom, 8) + keyboardHeight }]}>
+        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }], paddingBottom: Math.max(insets.bottom, 8) }]}>
           <View style={styles.handleRow}>
             <View style={styles.handle} />
           </View>
@@ -240,7 +240,7 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
                 value={amount}
                 onChangeText={setAmount}
                 placeholder="0"
-                placeholderTextColor="#999"
+                placeholderTextColor={theme.mutedForeground}
                 keyboardType="number-pad"
                 autoFocus
               />
@@ -254,7 +254,7 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
                 value={memo}
                 onChangeText={setMemo}
                 placeholder="무엇을 샀나요?"
-                placeholderTextColor="#999"
+                placeholderTextColor={theme.mutedForeground}
               />
             </View>
           </Animated.ScrollView>
