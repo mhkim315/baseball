@@ -18,13 +18,8 @@ interface CalendarScore {
   outcome?: string | null; cancelled?: boolean;
 }
 
-const GAME_DAY_BG = "#f5f5f5";
 const WIN_SCORE = "#3b82d9";
 const LOSS_SCORE = "#d94a4a";
-
-function getCellBg(hasResult: boolean): string | undefined {
-  return hasResult ? GAME_DAY_BG : undefined;
-}
 
 export default function CalendarGrid({
   year: propYear, month: propMonth, games, scores, loading, selectedTeam, myTeam, onSelectDate, onMonthChange, onTeamChange,
@@ -135,7 +130,7 @@ export default function CalendarGrid({
     legendDot: { width: 10, height: 10, borderRadius: 3 },
     legendText: { fontSize: 11, color: theme.mutedForeground },
     legendBadge: {
-      backgroundColor: "#f0eeea", borderRadius: 4,
+      backgroundColor: theme.muted, borderRadius: 4,
       paddingHorizontal: 6, paddingVertical: 1,
     },
     legendBadgeText: { fontSize: 10, fontWeight: "600", color: theme.mutedForeground },
@@ -162,7 +157,7 @@ export default function CalendarGrid({
       borderRadius: 8,
       minHeight: 52,
       borderWidth: 1,
-      borderColor: "#f0eeea",
+      borderColor: theme.border,
     },
     calDayRow: {
       flexDirection: "row", alignItems: "center",
@@ -287,7 +282,7 @@ export default function CalendarGrid({
               }
 
               const hasResult = winCount + lossCount + drawCount > 0;
-              const cellBg = hasGames && !isFuture && hasResult ? getCellBg(true) : undefined;
+              const cellBg = hasGames && !isFuture && hasResult ? theme.muted : undefined;
               const hasHome = dayGames.some((g) => g.home === teamName);
 
               // Result labels (승/패/무 dots like web)
@@ -359,7 +354,7 @@ export default function CalendarGrid({
                             <View style={[styles.scoreChip, { backgroundColor: (resultColor || theme.mutedForeground) + "18" }]}>
                               <Text style={[
                                 styles.calScore,
-                                { color: resultColor || "#555" },
+                                { color: resultColor || theme.mutedForeground },
                                 (score.awayScore >= 10 || score.homeScore >= 10) && styles.calScoreSm,
                               ]}>
                                 {score.awayScore}:{score.homeScore}
