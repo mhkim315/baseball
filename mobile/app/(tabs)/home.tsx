@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { View, Text, FlatList, StyleSheet, ActivityIndicator, Pressable, LayoutAnimation, Platform, UIManager } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable, LayoutAnimation, Platform, UIManager } from "react-native";
 
 import { useRouter, useFocusEffect } from "expo-router";
 import DateStrip from "@/components/DateStrip";
@@ -421,7 +421,7 @@ export default function HomeScreen() {
       {/* Header */}
       <View style={[styles.header, { flexDirection: "row", alignItems: "center" }]}>
         <View style={styles.logoRow}>
-          <Text style={styles.logoIcon}>⚾</Text>
+          <Image source={require("../../assets/icon.png")} style={{ width: 28, height: 28, borderRadius: 7 }} />
           <Text style={styles.title}>fullcount</Text>
         </View>
         <View style={{ flex: 1 }} />
