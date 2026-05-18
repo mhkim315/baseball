@@ -1,17 +1,16 @@
-import { Paths, File, Directory } from "expo-file-system";
-import { readAsStringAsync } from "expo-file-system/legacy";
+import * as FileSystem from "expo-file-system/legacy";
 import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
+import { File, Directory, Paths } from "expo-file-system";
 
-function getPhotoDir(): Directory {
-  return new Directory(Paths.document, "jikgwan");
-}
+const PHOTO_DIR_NAME = "jikgwan";
 
-export async function ensurePhotoDir(): Promise<Directory> {
-  const dir = getPhotoDir();
-  if (!dir.exists) {
-    dir.create();
+export async function ensurePhotoDir(): Promise<string> {
+  const dirUri = `${FileSystem.documentDirectory}${PHOTO_DIR_NAME}/`;
+  const info = await FileSystem.getInfoAsync(dirUri);
+  if (!info.exists) {
+    await FileSystem.makeDirectoryAsync(dirUri, { intermediates: true });
   }
-  return dir;
+  return dirUri;
 }
 
 export function generatePhotoName(): string {
@@ -21,43 +20,13 @@ export function generatePhotoName(): string {
   return `jikgwan_${ts}_${rand}.jpg`;
 }
 
-function base64ToUint8Array(base64: string): Uint8Array {
-  const binaryStr = atob(base64);
-  const bytes = new Uint8Array(binaryStr.length);
-  for (let i = 0; i < binaryStr.length; i++) {
-    bytes[i] = binaryStr.charCodeAt(i);
-  }
-  return bytes;
-}
-
 export async function savePhoto(sourceUri: string, fileName: string): Promise<string> {
-  const dir = await ensurePhotoDir();
-  const dest = new File(dir, fileName);
-
-  // If source is a file:// URI, try move/copy (fast path)
-  if (sourceUri.startsWith("file://")) {
-    const src = new File(sourceUri);
-    if (src.exists) {
-      try {
-        src.move(dest);
-        return dest.uri;
-      } catch {
-        try {
-          src.copy(dest);
-          if (src.exists) src.delete();
-          return dest.uri;
-        } catch {}
-      }
-    }
-  }
-
-  // Fallback: read source via legacy API (handles content:// on Android),
-  // decode base64, and write as bytes
+  const dirUri = await ensurePhotoDir();
+  const destUri = `${dirUri}${fileName}`;
   try {
-    const base64 = await readAsStringAsync(sourceUri, { encoding: "base64" });
-    dest.write(base64ToUint8Array(base64));
-    return dest.uri;
-  } catch (e) {
+    await FileSystem.copyAsync({ from: sourceUri, to: destUri });
+    return destUri;
+  } catch {
     throw new Error("사진 저장 실패");
   }
 }
@@ -76,20 +45,17 @@ export async function resizePhoto(uri: string, maxWidth = 1200): Promise<string>
 }
 
 export async function getSavedPhotos(): Promise<string[]> {
-  const dir = await ensurePhotoDir();
-  const files = dir.list();
+  const dirUri = await ensurePhotoDir();
+  const files = await FileSystem.readDirectoryAsync(dirUri);
   return files
-    .filter((f): f is File => f instanceof File && f.extension === ".jpg")
-    .sort((a, b) => b.name.localeCompare(a.name))
-    .map((f) => f.uri);
+    .filter((f) => f.endsWith(".jpg"))
+    .sort((a, b) => b.localeCompare(a))
+    .map((f) => `${dirUri}${f}`);
 }
 
 export async function deletePhoto(uri: string): Promise<void> {
   try {
-    const file = new File(uri);
-    if (file.exists) {
-      file.delete();
-    }
+    await FileSystem.deleteAsync(uri, { idempotent: true });
   } catch {
     // non-critical
   }
