@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "fullcount.kr",
-    "slug": "fullcount-kr",
+    "name": "fullcount",
+    "slug": "fullcount",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "scheme": "fullcount",
     "splash": {
@@ -30,6 +30,13 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fb67090c-c448-49ae-b07a-73203a69fd9c"
+      }
+    },
+    "owner": "minani"
   }
 }

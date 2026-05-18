@@ -422,7 +422,7 @@ export default function HomeScreen() {
       <View style={[styles.header, { flexDirection: "row", alignItems: "center" }]}>
         <View style={styles.logoRow}>
           <Text style={styles.logoIcon}>⚾</Text>
-          <Text style={styles.title}>풀카운트</Text>
+          <Text style={styles.title}>fullcount</Text>
         </View>
         <View style={{ flex: 1 }} />
         <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
