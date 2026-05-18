@@ -81,7 +81,7 @@ export default function StadiumTab() {
   const activeTeam = displayTeam || myTeam;
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>구장 안내</Text>
         <View style={{ flex: 1 }} />
@@ -94,6 +94,6 @@ export default function StadiumTab() {
         <SettingsButton color={myTeamColor} />
       </View>
       <StadiumPage teamId={activeTeam} accentColor={myTeamColor} />
-    </ScrollView>
+    </View>
   );
 }

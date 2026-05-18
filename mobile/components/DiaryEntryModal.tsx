@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   View, Text, Pressable, TextInput, StyleSheet, Image,
   ActivityIndicator, ScrollView, PanResponder,
-  Animated, KeyboardAvoidingView, BackHandler, Platform,
+  Animated, KeyboardAvoidingView, BackHandler, Platform, Keyboard,
 } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
@@ -99,6 +99,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   }>({ visible: false, title: "", message: "" });
 
   const [teamPickerGame, setTeamPickerGame] = useState<GameOption | null>(null);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
 
   const scrollRef = useRef<ScrollView>(null);
 
@@ -123,6 +124,19 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       ]).start();
     }
   }, [visible]);
+
+  // Track keyboard height for both platforms
+  useEffect(() => {
+    const show = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillShow" : "keyboardDidShow",
+      (e) => setKeyboardHeight(e.endCoordinates.height)
+    );
+    const hide = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillHide" : "keyboardDidHide",
+      () => setKeyboardHeight(0)
+    );
+    return () => { show.remove(); hide.remove(); };
+  }, []);
 
   const dateStr = formatDate(selectedDate);
   const dateStrShort = `${String(selectedDate.getMonth() + 1)}월 ${selectedDate.getDate()}일`;
@@ -458,7 +472,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       borderTopLeftRadius: 24,
       borderTopRightRadius: 24,
       maxHeight: "92%",
-      paddingBottom: Math.max(insets.bottom, 8),
     },
     handleRow: { alignItems: "center", paddingVertical: 16 },
     handle: { width: 48, height: 5, borderRadius: 3, backgroundColor: theme.border },
@@ -777,8 +790,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       </Animated.View>
 
       {/* Sheet */}
-      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={{ justifyContent: "flex-end" }}>
-        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }] }]}>
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ justifyContent: "flex-end" }}>
+        <Animated.View style={[styles.sheet, { transform: [{ translateY: sheetTranslateY }], paddingBottom: Math.max(insets.bottom, 8) + keyboardHeight }]}>
           <View style={styles.handleRow} {...sheetPan.panHandlers}>
             <View style={styles.handle} />
           </View>
@@ -806,7 +819,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             )}
           </View>
 
-          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
+          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive">
             {/* Step 1: Calendar */}
             {step === "calendar" && (
               <GestureDetector gesture={calMonthPanGesture}>
@@ -1166,7 +1179,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                     placeholderTextColor="#999"
                     multiline
                     textAlignVertical="top"
-                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 200)}
+                    onFocus={() => requestAnimationFrame(() => scrollRef.current?.scrollToEnd({ animated: true }))}
                   />
                 </View>
               </View>

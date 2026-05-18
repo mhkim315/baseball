@@ -522,7 +522,7 @@ export default function HomeScreen() {
                   </View>
                 ) : empty ? renderEmpty() : (
                   <FlatList
-                    key={ds}
+                    key={slot}
                     data={pageGames}
                     renderItem={renderGame}
                     keyExtractor={(item) => item.id}
