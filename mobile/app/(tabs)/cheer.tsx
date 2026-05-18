@@ -130,8 +130,8 @@ export default function CheerScreen() {
         style={{ flex: 1 }}
       >
         {(["songs", "players", "rules"] as const).map((tab) => (
-          <View key={tab} style={{ width: screenWidth }}>
-            <ScrollView contentContainerStyle={styles.content}>
+          <View key={tab} style={{ width: screenWidth, flex: 1 }}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.content}>
               <CheerContent
                 teamId={activeTeam}
                 activeTab={tab}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable, Animated, PanResponder, LayoutAnimation, Platform, UIManager } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable, PanResponder, LayoutAnimation, Platform, UIManager } from "react-native";
 
 import { useRouter, useFocusEffect } from "expo-router";
 import DateStrip from "@/components/DateStrip";
@@ -136,30 +136,6 @@ export default function HomeScreen() {
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
-
-  // Card swipe: ±1 day
-  const cardSwipePan = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => false,
-      onMoveShouldSetPanResponder: (_, gs) =>
-        Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 20,
-      onPanResponderRelease: (_, gs) => {
-        if (gs.dx > 60) {
-          setSelectedDate(prev => {
-            const d = new Date(prev);
-            d.setDate(d.getDate() - 1);
-            return d;
-          });
-        } else if (gs.dx < -60) {
-          setSelectedDate(prev => {
-            const d = new Date(prev);
-            d.setDate(d.getDate() + 1);
-            return d;
-          });
-        }
-      },
-    })
-  ).current;
 
   // Swipe-to-close for calendar
   const calendarOpenRef = useRef(calendarOpen);
@@ -500,7 +476,7 @@ export default function HomeScreen() {
       </View>
 
       {/* Game list */}
-      <View {...cardSwipePan.panHandlers}>
+      <View>
       {loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={theme.primary} />

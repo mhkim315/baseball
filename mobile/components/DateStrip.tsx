@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, useEffect, useCallback } from "react";
+import { useMemo, useRef, useState, useEffect, useLayoutEffect, useCallback } from "react";
 import { View, Text, Pressable, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { formatDateForApi as formatDateStr } from "@shared/constants";
@@ -68,7 +68,7 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
   const ALL_WEEKS = [prevWeekDates, weekDates, nextWeekDates];
 
   // Reset scroll to middle page whenever selectedDate changes (e.g., via arrow buttons)
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (stripWidth > 0) {
       scrollRef.current?.scrollTo({ x: stripWidth, animated: false });
     }
