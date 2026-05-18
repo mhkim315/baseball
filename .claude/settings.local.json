@@ -119,7 +119,11 @@
       "Read(//c/Users/user/Documents/baseball//**)",
       "Read(//c/Users/user/Documents//**)",
       "Bash(npx kill-port *)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Read(//mnt/c/Users/user/Pictures/**)",
+      "Read(//c/Users/user/Pictures/character/**)",
+      "Bash(npx eas *)",
+      "Bash(convert --version)"
     ],
     "mode": "bypass"
   }

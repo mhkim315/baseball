@@ -118,13 +118,6 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }:
       height: 360,
       resizeMode: "cover",
     },
-    noPhoto: {
-      height: 200,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: theme.muted,
-    },
-    noPhotoIcon: { fontSize: 40 },
     dots: {
       position: "absolute",
       bottom: 10,
@@ -267,11 +260,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }:
             </View>
           )}
         </View>
-      ) : (
-        <View style={styles.noPhoto}>
-          <Text style={styles.noPhotoIcon}>⚾</Text>
-        </View>
-      )}
+      ) : null}
 
       {/* Caption — diary text */}
       {caption ? (

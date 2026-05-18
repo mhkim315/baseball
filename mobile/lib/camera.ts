@@ -1,4 +1,5 @@
 import { Paths, File, Directory } from "expo-file-system";
+import { readAsStringAsync } from "expo-file-system/legacy";
 import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
 
 function getPhotoDir(): Directory {
@@ -20,31 +21,41 @@ export function generatePhotoName(): string {
   return `jikgwan_${ts}_${rand}.jpg`;
 }
 
+function base64ToUint8Array(base64: string): Uint8Array {
+  const binaryStr = atob(base64);
+  const bytes = new Uint8Array(binaryStr.length);
+  for (let i = 0; i < binaryStr.length; i++) {
+    bytes[i] = binaryStr.charCodeAt(i);
+  }
+  return bytes;
+}
+
 export async function savePhoto(sourceUri: string, fileName: string): Promise<string> {
   const dir = await ensurePhotoDir();
   const dest = new File(dir, fileName);
 
-  // Try 1: move (fastest, works with file:// URIs)
-  const src = new File(sourceUri);
-  if (src.exists) {
-    try {
-      src.move(dest);
-      return dest.uri;
-    } catch {
+  // If source is a file:// URI, try move/copy (fast path)
+  if (sourceUri.startsWith("file://")) {
+    const src = new File(sourceUri);
+    if (src.exists) {
       try {
-        src.copy(dest);
-        if (src.exists) src.delete();
+        src.move(dest);
         return dest.uri;
-      } catch {}
+      } catch {
+        try {
+          src.copy(dest);
+          if (src.exists) src.delete();
+          return dest.uri;
+        } catch {}
+      }
     }
   }
 
-  // Try 2: fetch + write (handles content:// and any URI fetch supports)
+  // Fallback: read source via legacy API (handles content:// on Android),
+  // decode base64, and write as bytes
   try {
-    const response = await fetch(sourceUri);
-    const blob = await response.blob();
-    const buffer = await blob.arrayBuffer();
-    dest.write(new Uint8Array(buffer));
+    const base64 = await readAsStringAsync(sourceUri, { encoding: "base64" });
+    dest.write(base64ToUint8Array(base64));
     return dest.uri;
   } catch (e) {
     throw new Error("사진 저장 실패");
