@@ -1,5 +1,5 @@
-import { useState, useCallback, useMemo } from "react";
-import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
+import { useState, useCallback, useMemo, useRef } from "react";
+import { View, Text, ScrollView, Pressable, StyleSheet, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { useFocusEffect } from "expo-router";
 import { getMyTeam } from "@/lib/db";
 import TeamExpander from "@/components/TeamExpander";
@@ -48,6 +48,20 @@ export default function CheerScreen() {
   const [displayTeam, setDisplayTeam] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabId>("songs");
   const [expanded, setExpanded] = useState<number | null>(0);
+  const { width: screenWidth } = useWindowDimensions();
+  const tabScrollRef = useRef<ScrollView>(null);
+  const TABS_ORDER = useMemo(() => ["songs", "players", "rules"] as const, []);
+
+  const handleTabPress = useCallback((tab: TabId) => {
+    setActiveTab(tab);
+    tabScrollRef.current?.scrollTo({ x: TABS_ORDER.indexOf(tab) * screenWidth, animated: true });
+  }, [screenWidth]);
+
+  const handleMomentumScrollEnd = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const idx = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
+    const ids = ["songs", "players", "rules"] as const;
+    if (idx >= 0 && idx < ids.length) setActiveTab(ids[idx]);
+  }, [screenWidth]);
 
   useFocusEffect(
     useCallback(() => {
@@ -97,7 +111,7 @@ export default function CheerScreen() {
         {(["songs", "players", "rules"] as const).map((tab) => (
           <Pressable
             key={tab}
-            onPress={() => setActiveTab(tab)}
+            onPress={() => handleTabPress(tab)}
             style={[styles.tab, activeTab === tab && { borderBottomColor: teamPrimaryColor(activeTeam, isDark) || theme.primary, borderBottomWidth: 2 }]}
           >
             <Text style={[styles.tabText, activeTab === tab && { color: teamPrimaryColor(activeTeam, isDark) || theme.primary, fontWeight: "700" }]}>
@@ -107,13 +121,26 @@ export default function CheerScreen() {
         ))}
       </View>
 
-      <ScrollView contentContainerStyle={styles.content}>
-        <CheerContent
-          teamId={activeTeam}
-          activeTab={activeTab}
-          expandedSection={expanded}
-          onToggleSection={setExpanded}
-        />
+      <ScrollView
+        ref={tabScrollRef}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onMomentumScrollEnd={handleMomentumScrollEnd}
+        style={{ flex: 1 }}
+      >
+        {(["songs", "players", "rules"] as const).map((tab) => (
+          <View key={tab} style={{ width: screenWidth }}>
+            <ScrollView contentContainerStyle={styles.content}>
+              <CheerContent
+                teamId={activeTeam}
+                activeTab={tab}
+                expandedSection={expanded}
+                onToggleSection={setExpanded}
+              />
+            </ScrollView>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );

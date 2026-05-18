@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { useMemo, useRef } from "react";
+import { View, Text, Pressable, StyleSheet, PanResponder } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { formatDateForApi as formatDateStr } from "@shared/constants";
 
@@ -59,6 +59,18 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
   const weekDates = getWeekDates(selectedDate);
 
   const goToday = () => onDateChange(new Date());
+
+  const weekPan = useRef(PanResponder.create({
+    onStartShouldSetPanResponder: () => false,
+    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
+    onPanResponderRelease: (_, gs) => {
+      if (gs.dx > 50) {
+        goPrevWeek();
+      } else if (gs.dx < -50) {
+        goNextWeek();
+      }
+    },
+  })).current;
 
   const styles = useMemo(() => StyleSheet.create({
     container: {
@@ -162,7 +174,7 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
           </Pressable>
         )}
       </View>
-      <View style={styles.stripRow}>
+      <View style={styles.stripRow} {...weekPan.panHandlers}>
         <Pressable onPress={goPrevWeek} style={styles.weekBtn} hitSlop={8}>
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>

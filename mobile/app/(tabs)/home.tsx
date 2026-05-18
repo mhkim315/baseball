@@ -137,6 +137,30 @@ export default function HomeScreen() {
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
 
+  // Card swipe: ±1 day
+  const cardSwipePan = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => false,
+      onMoveShouldSetPanResponder: (_, gs) =>
+        Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 20,
+      onPanResponderRelease: (_, gs) => {
+        if (gs.dx > 60) {
+          setSelectedDate(prev => {
+            const d = new Date(prev);
+            d.setDate(d.getDate() - 1);
+            return d;
+          });
+        } else if (gs.dx < -60) {
+          setSelectedDate(prev => {
+            const d = new Date(prev);
+            d.setDate(d.getDate() + 1);
+            return d;
+          });
+        }
+      },
+    })
+  ).current;
+
   // Swipe-to-close for calendar
   const calendarOpenRef = useRef(calendarOpen);
   calendarOpenRef.current = calendarOpen;
@@ -476,6 +500,7 @@ export default function HomeScreen() {
       </View>
 
       {/* Game list */}
+      <View {...cardSwipePan.panHandlers}>
       {loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={theme.primary} />
@@ -490,6 +515,7 @@ export default function HomeScreen() {
           ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
         />
       )}
+      </View>
     </View>
   );
 }

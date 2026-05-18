@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
-import { View, Text, ScrollView, Pressable, Image, StyleSheet, ActivityIndicator, Linking } from "react-native";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { View, Text, ScrollView, Pressable, Image, StyleSheet, ActivityIndicator, Linking, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import Svg, { Line } from "react-native-svg";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { DEFAULT_TEAM_ID } from "@shared/constants";
@@ -287,6 +287,19 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
   const styles = useStadiumStyles();
   const [selectedTeam, setSelectedTeam] = useState(propTeamId || DEFAULT_TEAM_ID);
   const [activeTab, setActiveTab] = useState<TabId>("info");
+  const { width: screenWidth } = useWindowDimensions();
+  const tabScrollRef = useRef<ScrollView>(null);
+
+  const handleTabPress = useCallback((tabId: TabId) => {
+    setActiveTab(tabId);
+    const idx = TABS.findIndex(t => t.id === tabId);
+    tabScrollRef.current?.scrollTo({ x: idx * screenWidth, animated: true });
+  }, [screenWidth]);
+
+  const handleMomentumScrollEnd = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const idx = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
+    if (idx >= 0 && idx < TABS.length) setActiveTab(TABS[idx].id);
+  }, [screenWidth]);
 
   // Sync internal state when parent changes the prop
   useEffect(() => {
@@ -366,6 +379,12 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
 
   useEffect(() => { setFocusedSpot(undefined); }, [activeTab]);
 
+  // Reset scroll to first tab when team changes
+  useEffect(() => {
+    setActiveTab("info");
+    tabScrollRef.current?.scrollTo({ x: 0, animated: false });
+  }, [selectedTeam]);
+
   const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
   const teamColor = TEAM_COLORS[selectedTeam];
   const accent = accentColor || teamPrimaryColor(selectedTeam, isDark) || theme.primary;
@@ -379,7 +398,6 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
         </View>
       )}
 
-      <ScrollView>
         {/* Team selector — grid when standalone, badge bar when controlled by parent */}
         {!propTeamId ? (
           <View style={styles.teamGrid}>
@@ -414,7 +432,7 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
           {TABS.map((tab) => (
             <Pressable
               key={tab.id}
-              onPress={() => setActiveTab(tab.id)}
+              onPress={() => handleTabPress(tab.id)}
               style={[styles.tab, activeTab === tab.id && { borderBottomColor: accent, borderBottomWidth: 2 }]}
             >
               <Text style={[styles.tabText, activeTab === tab.id && { color: accent, fontWeight: "700" }]}>
@@ -424,6 +442,7 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
           ))}
         </View>
 
+        {/* Tab pages */}
         {loading ? (
           <View style={styles.loadingRow}>
             <ActivityIndicator size="large" color={accent} />
@@ -434,56 +453,68 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
             <Pressable onPress={load} style={styles.retryBtn}><Text style={styles.retryText}>재시도</Text></Pressable>
           </View>
         ) : (
-          <>
-            {activeTab === "info" && (
-              <InfoTab stadiumId={stadiumId} brief={stadium} teamColor={teamColor} selectedTeam={selectedTeam} />
-            )}
-            {activeTab === "food" && (
-              <FoodTab
-                stadiumId={stadiumId}
-                foods={foods}
-                foodFloor={foodFloor}
-                setFoodFloor={setFoodFloor}
-                foodCategory={foodCategory}
-                setFoodCategory={setFoodCategory}
-                selectedShop={selectedShop}
-                setSelectedShop={setSelectedShop}
-                foodLayouts={foodLayouts}
-                accentColor={accent}
-              />
-            )}
-            {activeTab === "parking" && (
-              <ParkingTab
-                brief={stadium}
-                parkingSpots={parking}
-                focusedSpot={focusedSpot}
-                setFocusedSpot={setFocusedSpot}
-                surroundingsCenter={surroundingsCenter}
-                surroundingsZoom={Math.max(surroundingsZoom - 1, 10)}
-              />
-            )}
-            {activeTab === "transport" && (
-              <TransportTab
-                brief={stadium}
-                transitSpots={transitSpots}
-                focusedSpot={focusedSpot}
-                setFocusedSpot={setFocusedSpot}
-                surroundingsCenter={surroundingsCenter}
-                surroundingsZoom={Math.max(surroundingsZoom - 1, 10)}
-              />
-            )}
-            {activeTab === "nearby" && (
-              <NearbyTab
-                nearby={nearby}
-                stadiumSpot={stadiumSpot}
-                focusedSpot={focusedSpot}
-                setFocusedSpot={setFocusedSpot}
-                eatsCenter={eatsCenter}
-              />
-            )}
-          </>
+          <ScrollView
+            ref={tabScrollRef}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={handleMomentumScrollEnd}
+            style={{ flex: 1 }}
+          >
+            {TABS.map((tab) => (
+              <View key={tab.id} style={{ width: screenWidth }}>
+                <View style={styles.tabContent}>
+                  {tab.id === "info" && (
+                    <InfoTab stadiumId={stadiumId} brief={stadium} teamColor={teamColor} selectedTeam={selectedTeam} />
+                  )}
+                  {tab.id === "food" && (
+                    <FoodTab
+                      stadiumId={stadiumId}
+                      foods={foods}
+                      foodFloor={foodFloor}
+                      setFoodFloor={setFoodFloor}
+                      foodCategory={foodCategory}
+                      setFoodCategory={setFoodCategory}
+                      selectedShop={selectedShop}
+                      setSelectedShop={setSelectedShop}
+                      foodLayouts={foodLayouts}
+                      accentColor={accent}
+                    />
+                  )}
+                  {tab.id === "parking" && (
+                    <ParkingTab
+                      brief={stadium}
+                      parkingSpots={parking}
+                      focusedSpot={focusedSpot}
+                      setFocusedSpot={setFocusedSpot}
+                      surroundingsCenter={surroundingsCenter}
+                      surroundingsZoom={Math.max(surroundingsZoom - 1, 10)}
+                    />
+                  )}
+                  {tab.id === "transport" && (
+                    <TransportTab
+                      brief={stadium}
+                      transitSpots={transitSpots}
+                      focusedSpot={focusedSpot}
+                      setFocusedSpot={setFocusedSpot}
+                      surroundingsCenter={surroundingsCenter}
+                      surroundingsZoom={Math.max(surroundingsZoom - 1, 10)}
+                    />
+                  )}
+                  {tab.id === "nearby" && (
+                    <NearbyTab
+                      nearby={nearby}
+                      stadiumSpot={stadiumSpot}
+                      focusedSpot={focusedSpot}
+                      setFocusedSpot={setFocusedSpot}
+                      eatsCenter={eatsCenter}
+                    />
+                  )}
+                </View>
+              </View>
+            ))}
+          </ScrollView>
         )}
-      </ScrollView>
     </View>
   );
 }

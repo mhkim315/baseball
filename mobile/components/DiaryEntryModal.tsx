@@ -64,6 +64,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   const sheetTranslateY = useRef(new Animated.Value(500)).current;
   const backdropOpacity = useRef(new Animated.Value(0)).current;
   const [shouldRender, setShouldRender] = useState(false);
+  const calTranslateX = useRef(new Animated.Value(0)).current;
   const now = new Date();
   const [step, setStep] = useState<"calendar" | "games" | "write">("calendar");
 
@@ -431,6 +432,16 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     setCalYear(calMonth === 11 ? calYear + 1 : calYear);
     setCalMonth(m);
   };
+  const calMonthPan = useRef(PanResponder.create({
+    onStartShouldSetPanResponder: () => false,
+    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
+    onPanResponderMove: (_, gs) => { calTranslateX.setValue(Math.max(-40, Math.min(40, gs.dx))); },
+    onPanResponderRelease: (_, gs) => {
+      if (gs.dx > 60) calPrev();
+      else if (gs.dx < -60) calNext();
+      Animated.spring(calTranslateX, { toValue: 0, useNativeDriver: true }).start();
+    },
+  })).current;
   const styles = useMemo(() => StyleSheet.create({
     overlay: {
       position: "absolute",
@@ -794,7 +805,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
             {/* Step 1: Calendar */}
             {step === "calendar" && (
-              <View>
+              <Animated.View style={{ transform: [{ translateX: calTranslateX }] }} {...calMonthPan.panHandlers}>
                 {/* Month nav */}
                 <View style={styles.calHeader}>
                   <Pressable onPress={calPrev} hitSlop={8}>
@@ -833,7 +844,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                   })}
                 </View>
 
-              </View>
+              </Animated.View>
             )}
 
             {/* Step 2: Game list */}

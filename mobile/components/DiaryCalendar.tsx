@@ -1,5 +1,5 @@
-import { useEffect, useState, useMemo } from "react";
-import { View, Text, Pressable, StyleSheet, ActivityIndicator } from "react-native";
+import { useEffect, useState, useMemo, useRef } from "react";
+import { View, Text, Pressable, StyleSheet, ActivityIndicator, PanResponder, Animated } from "react-native";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
@@ -94,6 +94,24 @@ export default function DiaryCalendar({
     const y = month === 11 ? year + 1 : year;
     onMonthChange(y, m);
   };
+
+  const monthTranslateX = useRef(new Animated.Value(0)).current;
+
+  const monthPan = useRef(PanResponder.create({
+    onStartShouldSetPanResponder: () => false,
+    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dx) > Math.abs(gs.dy) && Math.abs(gs.dx) > 15,
+    onPanResponderMove: (_, gs) => {
+      monthTranslateX.setValue(Math.max(-40, Math.min(40, gs.dx)));
+    },
+    onPanResponderRelease: (_, gs) => {
+      if (gs.dx > 60) {
+        handlePrev();
+      } else if (gs.dx < -60) {
+        handleNext();
+      }
+      Animated.spring(monthTranslateX, { toValue: 0, useNativeDriver: true }).start();
+    },
+  })).current;
 
   const styles = useMemo(() => StyleSheet.create({
     container: {
@@ -199,7 +217,8 @@ export default function DiaryCalendar({
   }), [theme]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} {...monthPan.panHandlers}>
+      <Animated.View style={{ transform: [{ translateX: monthTranslateX }] }}>
       {/* Month navigator */}
       <View style={styles.header}>
         <Pressable onPress={handlePrev} hitSlop={8}>
@@ -353,6 +372,7 @@ export default function DiaryCalendar({
           <Text style={styles.legendText}>기록</Text>
         </View>
       </View>
+      </Animated.View>
     </View>
   );
 }
