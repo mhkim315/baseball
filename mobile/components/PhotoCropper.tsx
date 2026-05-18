@@ -1,9 +1,8 @@
 import { useState, useRef, useMemo } from "react";
 import {
   View, Text, Pressable, Image, StyleSheet,
-  Dimensions,
+  Dimensions, PanResponder,
 } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { useTheme } from "@/lib/ThemeContext";
 import { cropToSquare } from "@/lib/camera";
 
@@ -19,6 +18,12 @@ const SCALE = 1.5; // Image is larger than crop area, enabling pan
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 5;
 
+function getDistance(touches: any[]): number {
+  const dx = touches[0].pageX - touches[1].pageX;
+  const dy = touches[0].pageY - touches[1].pageY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
 export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: PhotoCropperProps) {
   const { theme } = useTheme();
   const [loading, setLoading] = useState(false);
@@ -30,7 +35,8 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
   const imageDisplayRef = useRef({ w: 0, h: 0 });
   const startOffsetRef = useRef({ x: 0, y: 0 });
   const scaleRef = useRef(1);
-  const baseScaleRef = useRef(1);
+  const startScaleRef = useRef(1);
+  const startDistanceRef = useRef(0);
 
   const getMaxOffset = () => {
     const { w, h } = imageDisplayRef.current;
@@ -55,34 +61,45 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
     });
   };
 
-  const panGesture = Gesture.Pan()
-    .maxPointers(1)
-    .onStart(() => {
+  const panResponder = useMemo(() => PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderGrant: (evt) => {
       startOffsetRef.current = { ...offsetRef.current };
-    })
-    .onUpdate((e) => {
-      const max = getMaxOffset();
-      offsetRef.current.x = Math.max(-max.x, Math.min(max.x, startOffsetRef.current.x + e.translationX));
-      offsetRef.current.y = Math.max(-max.y, Math.min(max.y, startOffsetRef.current.y + e.translationY));
-      applyTransform();
-    });
-
-  const pinchGesture = Gesture.Pinch()
-    .onStart(() => {
-      baseScaleRef.current = scaleRef.current;
-    })
-    .onUpdate((e) => {
-      const newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, baseScaleRef.current * e.scale));
-      scaleRef.current = newScale;
-      // Re-clamp offset to new zoom bounds
-      const max = getMaxOffset();
-      offsetRef.current.x = Math.max(-max.x, Math.min(max.x, offsetRef.current.x));
-      offsetRef.current.y = Math.max(-max.y, Math.min(max.y, offsetRef.current.y));
-      applyTransform();
-      setZoomPct(Math.round(newScale * 100));
-    });
-
-  const composedGesture = Gesture.Simultaneous(panGesture, pinchGesture);
+      const touches = evt.nativeEvent.touches;
+      if (touches && touches.length >= 2) {
+        startDistanceRef.current = getDistance(touches as any);
+        startScaleRef.current = scaleRef.current;
+      }
+    },
+    onPanResponderMove: (evt, gs) => {
+      const touches = evt.nativeEvent.touches;
+      if (touches && touches.length >= 2) {
+        // Pinch mode: scale based on finger distance ratio
+        const dist = getDistance(touches as any);
+        if (startDistanceRef.current > 0) {
+          const newScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, startScaleRef.current * (dist / startDistanceRef.current)));
+          scaleRef.current = newScale;
+          // Re-clamp offset to new zoom bounds
+          const max = getMaxOffset();
+          offsetRef.current.x = Math.max(-max.x, Math.min(max.x, offsetRef.current.x));
+          offsetRef.current.y = Math.max(-max.y, Math.min(max.y, offsetRef.current.y));
+          applyTransform();
+          setZoomPct(Math.round(newScale * 100));
+        }
+      } else {
+        // Pan mode
+        const max = getMaxOffset();
+        offsetRef.current.x = Math.max(-max.x, Math.min(max.x, startOffsetRef.current.x + gs.dx));
+        offsetRef.current.y = Math.max(-max.y, Math.min(max.y, startOffsetRef.current.y + gs.dy));
+        applyTransform();
+      }
+    },
+    onPanResponderRelease: () => {
+      // Reset pan start offset for next gesture
+      startOffsetRef.current = { ...offsetRef.current };
+    },
+  }), []);
 
   const handleImageLoad = (e: any) => {
     const { width: imgW, height: imgH } = e.nativeEvent.source;
@@ -93,7 +110,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
     setImageSize({ width: dispW, height: dispH });
     offsetRef.current = { x: 0, y: 0 };
     scaleRef.current = 1;
-    baseScaleRef.current = 1;
+    startScaleRef.current = 1;
     setZoomPct(100);
   };
 
@@ -209,23 +226,21 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
         사진 영역 선택
       </Text>
 
-      <GestureDetector gesture={composedGesture}>
-        <View style={styles.guide}>
-          <Image
-            ref={imageRef}
-            source={{ uri: imageUri }}
-            style={[{
-              width: imageSize.width || CROP_SIZE,
-              height: imageSize.height || CROP_SIZE,
-              position: "absolute",
-              top: (CROP_SIZE - (imageSize.height || CROP_SIZE)) / 2,
-              left: (CROP_SIZE - (imageSize.width || CROP_SIZE)) / 2,
-              opacity: imageSize.width > 0 ? 1 : 0,
-            }]}
-            onLoad={handleImageLoad}
-          />
-        </View>
-      </GestureDetector>
+      <View style={styles.guide} {...panResponder.panHandlers}>
+        <Image
+          ref={imageRef}
+          source={{ uri: imageUri }}
+          style={[{
+            width: imageSize.width || CROP_SIZE,
+            height: imageSize.height || CROP_SIZE,
+            position: "absolute",
+            top: (CROP_SIZE - (imageSize.height || CROP_SIZE)) / 2,
+            left: (CROP_SIZE - (imageSize.width || CROP_SIZE)) / 2,
+            opacity: imageSize.width > 0 ? 1 : 0,
+          }]}
+          onLoad={handleImageLoad}
+        />
+      </View>
 
       <Text style={styles.hint}>핀치하여 확대/축소, 드래그하여 위치 조정</Text>
       <Text style={styles.zoomText}>{zoomPct}%</Text>
