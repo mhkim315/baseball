@@ -85,6 +85,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   const [content, setContent] = useState("");
   const [photoUris, setPhotoUris] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
+  const savingRef = useRef(false);
   const [userTeam, setUserTeam] = useState(DEFAULT_TEAM_ID);
   const [cheeredTeam, setCheeredTeam] = useState<string | null>(null);
   const [isLive, setIsLive] = useState<boolean>(true);
@@ -295,8 +296,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
       quality: 0.8,
-      allowsEditing: true,
-      aspect: [1, 1],
     });
     if (!result.canceled && result.assets.length > 0) {
       setPhotoUris((prev) => [...prev, result.assets[0].uri]);
@@ -304,12 +303,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   };
 
   const handleSave = async () => {
-    if (saving) return;
+    if (saving || savingRef.current) return;
     if (!content.trim()) {
       setSimpleAlert({ visible: true, title: "알림", message: "내용을 입력해주세요" });
       return;
     }
     setSaving(true);
+    savingRef.current = true;
     try {
       let savedPhotoUris: string[] = [];
       if (photoUris.length > 0) {
@@ -408,13 +408,15 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         });
       }
 
-      setSimpleAlert({ visible: true, title: "저장 완료", message: editRecord ? "기록이 수정되었습니다" : "직관 기록이 저장되었습니다", onOk: onSaved });
+      // Auto-close on success (no alert needed)
+      onSaved();
     } catch (e) {
       console.warn("DiaryEntryModal handleSave error", e);
       const msg = e instanceof Error ? e.message : String(e);
       setSimpleAlert({ visible: true, title: "저장 오류", message: msg });
     } finally {
       setSaving(false);
+      savingRef.current = false;
     }
   };
 
