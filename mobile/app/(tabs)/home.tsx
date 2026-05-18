@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState, useEffect, useRef, useLayoutEffect, useCallback, useMemo } from "react";
 import { View, Text, Image, ScrollView, FlatList, StyleSheet, ActivityIndicator, Pressable, PanResponder, LayoutAnimation, Platform, UIManager, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 
 import { useRouter, useFocusEffect } from "expo-router";
@@ -6,15 +6,17 @@ import DateStrip from "@/components/DateStrip";
 import GameCard from "@/components/GameCard";
 import CalendarGrid from "@/components/CalendarGrid";
 import {
-  fetchTodayGames,
-  fetchDailyScores,
-  fetchScheduleByMonth,
-  fetchGameDetail,
-  fetchAllDailyScores,
   type TodayGame,
   type ScoreEntry,
   type ScheduleGame,
 } from "@/lib/api";
+import {
+  cachedScheduleByMonth,
+  cachedDailyScores,
+  cachedTodayGames,
+  cachedGameDetail,
+  cachedAllDailyScores,
+} from "@/lib/gameCache";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
 import { getMyTeam } from "@/lib/db";
@@ -99,11 +101,6 @@ export default function HomeScreen() {
       maxHeight: 0,
       paddingBottom: 0,
     },
-    loadingContainer: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    },
     listContent: {
       padding: 16,
       paddingBottom: 100,
@@ -138,6 +135,8 @@ export default function HomeScreen() {
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
   const { width: screenWidth } = useWindowDimensions();
   const pageScrollRef = useRef<ScrollView>(null);
+  const hasEverLoaded = useRef(false);
+  const lastActedPageRef = useRef(1);
 
   // 3-date window for ScrollView paging
   const getDateWindow = useCallback((date: Date) => {
@@ -179,8 +178,8 @@ export default function HomeScreen() {
     const fetchAndCache = (month: number) => {
       if (month < 1 || month > 12) return Promise.resolve();
       return Promise.all([
-        fetchScheduleByMonth(month),
-        fetchAllDailyScores(),
+        cachedScheduleByMonth(month),
+        cachedAllDailyScores(),
       ]).then(([schedule, scores]) => {
         const data = { games: schedule?.games || [], scores: scores?.dates || {} };
         calCache.current[month] = data;
@@ -197,21 +196,20 @@ export default function HomeScreen() {
 
   const load = useCallback(() => {
     const dates = getDateWindow(selectedDate);
-    setLoading(true);
     setError(false);
     let cancelled = false;
 
     const month = selectedDate.getMonth() + 1;
     const schedulePromise = scheduleCache.current?.month === month
       ? Promise.resolve(scheduleCache.current.games)
-      : fetchScheduleByMonth(month).then((s) => {
+      : cachedScheduleByMonth(month).then((s) => {
           const gamesList = s?.games || [];
           scheduleCache.current = { month, games: gamesList };
           return gamesList;
-        });
+        }).catch(() => [] as ScheduleGame[]);
 
-    const scorePromises = dates.map((ds) => fetchDailyScores(ds).catch(() => null));
-    const todayPromise = fetchTodayGames().catch(() => null);
+    const scorePromises = dates.map((ds) => cachedDailyScores(ds).catch(() => null));
+    const todayPromise = cachedTodayGames().catch(() => null);
     const todayStr = formatDateStr(new Date());
 
     Promise.all([schedulePromise, ...scorePromises, todayPromise])
@@ -298,7 +296,7 @@ export default function HomeScreen() {
           );
           if (gamesNeedingPitchers.length > 0) {
             Promise.all(
-              gamesNeedingPitchers.map((g) => fetchGameDetail(g.id).catch(() => null))
+              gamesNeedingPitchers.map((g) => cachedGameDetail(g.id).catch(() => null))
             ).then((results) => {
               if (cancelled) return;
               setGamesByDate((prev) => ({
@@ -321,11 +319,12 @@ export default function HomeScreen() {
           result[ds] = enhanced;
         }
         setGamesByDate(result);
+        hasEverLoaded.current = true;
         setLoading(false);
       })
       .catch(() => {
         if (cancelled) return;
-        setError(true);
+        if (!hasEverLoaded.current) setError(true);
         setLoading(false);
       });
 
@@ -352,8 +351,8 @@ export default function HomeScreen() {
 
     // Fetch this month (will update if cache exists)
     Promise.all([
-      fetchScheduleByMonth(month),
-      fetchAllDailyScores(),
+      cachedScheduleByMonth(month),
+      cachedAllDailyScores(),
     ]).then(([schedule, scores]) => {
       if (cancelled) return;
       const games = schedule?.games || [];
@@ -365,8 +364,8 @@ export default function HomeScreen() {
       for (const adj of [month - 1, month + 1]) {
         if (adj >= 1 && adj <= 12 && !calCache.current[adj]) {
           Promise.all([
-            fetchScheduleByMonth(adj),
-            fetchAllDailyScores(),
+            cachedScheduleByMonth(adj),
+            cachedAllDailyScores(),
           ]).then(([s, sc2]) => {
             calCache.current[adj] = { games: s?.games || [], scores: sc2?.dates || {} };
           }).catch(() => {});
@@ -376,37 +375,29 @@ export default function HomeScreen() {
     return () => { cancelled = true; };
   }, [calendarOpen, calMonth]);
 
-  // 3-date paging handlers
-  const dateStrs = useMemo(() => getDateWindow(selectedDate), [selectedDate, getDateWindow]);
-
-  const handleMomentumScrollEnd = useCallback(
+  const handlePageSwipe = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
       const page = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
+      if (page === 1 || page === lastActedPageRef.current) return;
+      lastActedPageRef.current = page;
+      const d = new Date(selectedDate);
       if (page === 0) {
-        setSelectedDate((prev) => {
-          const d = new Date(prev);
-          d.setDate(d.getDate() - 1);
-          return d;
-        });
-      } else if (page === 2) {
-        setSelectedDate((prev) => {
-          const d = new Date(prev);
-          d.setDate(d.getDate() + 1);
-          return d;
-        });
+        d.setDate(d.getDate() - 1);
+      } else {
+        d.setDate(d.getDate() + 1);
       }
+      setSelectedDate(d);
     },
-    [screenWidth]
+    [screenWidth, selectedDate]
   );
 
-  // Reset scroll to center page when selectedDate changes
-  useEffect(() => {
-    const id = setTimeout(() => {
-      if (screenWidth > 0) {
-        pageScrollRef.current?.scrollTo({ x: screenWidth, animated: false });
-      }
-    }, 50);
-    return () => clearTimeout(id);
+  // Reset scroll to center before paint.
+  // Guard is NOT reset here — onMomentumScrollEnd fires again after scrollTo with
+  // the same page value, so keeping the guard prevents a double advance.
+  useLayoutEffect(() => {
+    if (screenWidth > 0) {
+      pageScrollRef.current?.scrollTo({ x: screenWidth, animated: false });
+    }
   }, [selectedDate, screenWidth]);
 
   const sortGames = useCallback(
@@ -505,26 +496,33 @@ export default function HomeScreen() {
 
       {/* Game list — horizontal paging scroll */}
       <View style={{ flex: 1 }}>
-      {loading ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color={theme.primary} />
-        </View>
-      ) : (
         <ScrollView
           ref={pageScrollRef}
           horizontal
           pagingEnabled
           showsHorizontalScrollIndicator={false}
-          onMomentumScrollEnd={handleMomentumScrollEnd}
+          onMomentumScrollEnd={handlePageSwipe}
+          onScrollBeginDrag={() => { lastActedPageRef.current = 1; }}
           style={{ flex: 1 }}
         >
-          {dateStrs.map((ds) => {
-            const pageGames = sortGames(gamesByDate[ds] || []);
-            const empty = pageGames.length === 0 && !error;
+          {(["prev", "current", "next"] as const).map((slot, idx) => {
+            const offset = idx - 1; // -1, 0, +1
+            const d = new Date(selectedDate);
+            d.setDate(d.getDate() + offset);
+            const ds = formatDateStr(d);
+            const pageData = gamesByDate[ds];
+            const loaded = pageData !== undefined;
+            const pageGames = loaded ? sortGames(pageData) : [];
+            const empty = loaded && pageGames.length === 0 && !error;
             return (
-              <View key={ds} style={{ width: screenWidth, flex: 1 }}>
-                {error ? renderError() : empty ? renderEmpty() : (
+              <View key={slot} style={{ width: screenWidth, flex: 1 }}>
+                {error ? renderError() : !loaded ? (
+                  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                    <ActivityIndicator size="small" color={theme.mutedForeground} />
+                  </View>
+                ) : empty ? renderEmpty() : (
                   <FlatList
+                    key={ds}
                     data={pageGames}
                     renderItem={renderGame}
                     keyExtractor={(item) => item.id}
@@ -536,7 +534,6 @@ export default function HomeScreen() {
             );
           })}
         </ScrollView>
-      )}
       </View>
     </View>
   );

@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState, useEffect, useLayoutEffect, useCallback } from "react";
-import { View, Text, Pressable, StyleSheet, ScrollView, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { useMemo } from "react";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { formatDateForApi as formatDateStr } from "@shared/constants";
 
@@ -38,12 +38,13 @@ function getWeekOfMonth(date: Date): number {
 interface DateStripProps {
   selectedDate: Date;
   onDateChange: (date: Date) => void;
-  hasGameDates?: string[];
   teamColor?: string;
 }
 
-export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [], teamColor }: DateStripProps) {
+export default function DateStrip({ selectedDate, onDateChange, teamColor }: DateStripProps) {
   const { theme } = useTheme();
+  const weekDates = useMemo(() => getWeekDates(selectedDate), [selectedDate]);
+
   const goPrevWeek = () => {
     const d = new Date(selectedDate);
     d.setDate(d.getDate() - 7);
@@ -56,40 +57,7 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
     onDateChange(d);
   };
 
-  const weekDates = getWeekDates(selectedDate);
-
   const goToday = () => onDateChange(new Date());
-
-  const scrollRef = useRef<ScrollView>(null);
-  const [stripWidth, setStripWidth] = useState(0);
-
-  const prevWeekDates = getWeekDates(new Date(selectedDate.getTime() - 7 * 24 * 60 * 60 * 1000));
-  const nextWeekDates = getWeekDates(new Date(selectedDate.getTime() + 7 * 24 * 60 * 60 * 1000));
-  const ALL_WEEKS = [prevWeekDates, weekDates, nextWeekDates];
-
-  // Reset scroll to middle page whenever selectedDate changes (e.g., via arrow buttons)
-  useLayoutEffect(() => {
-    if (stripWidth > 0) {
-      scrollRef.current?.scrollTo({ x: stripWidth, animated: false });
-    }
-  }, [selectedDate, stripWidth]);
-
-  const handleMomentumScrollEnd = useCallback(
-    (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-      if (stripWidth <= 0) return;
-      const page = Math.round(e.nativeEvent.contentOffset.x / stripWidth);
-      if (page === 0) {
-        const d = new Date(selectedDate);
-        d.setDate(d.getDate() - 7);
-        onDateChange(d);
-      } else if (page === 2) {
-        const d = new Date(selectedDate);
-        d.setDate(d.getDate() + 7);
-        onDateChange(d);
-      }
-    },
-    [selectedDate, stripWidth, onDateChange]
-  );
 
   const styles = useMemo(() => StyleSheet.create({
     container: {
@@ -122,8 +90,8 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
     },
     weekBtn: { paddingHorizontal: 12, paddingVertical: 8 },
     weekArrow: { fontSize: 22, color: theme.mutedForeground, fontWeight: "300", lineHeight: 24 },
-    scrollArea: { flex: 1, position: "relative" },
     datesRow: {
+      flex: 1,
       flexDirection: "row",
       paddingHorizontal: 4,
       paddingVertical: 10,
@@ -135,9 +103,6 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
       paddingHorizontal: 2,
       borderRadius: 12,
       minHeight: 53,
-    },
-    dateItemSelected: {
-      backgroundColor: theme.foreground,
     },
     dayText: {
       fontSize: 10,
@@ -167,12 +132,6 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
       borderRadius: 2,
       backgroundColor: theme.destructive,
     },
-    gameDot: {
-      width: 4,
-      height: 4,
-      borderRadius: 2,
-      backgroundColor: theme.primary,
-    },
     sunday: {
       color: theme.destructive,
     },
@@ -198,47 +157,30 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
           <Text style={styles.weekArrow}>‹</Text>
         </Pressable>
 
-        <View style={styles.scrollArea} onLayout={(e) => setStripWidth(e.nativeEvent.layout.width)}>
-          <ScrollView
-            ref={scrollRef}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onMomentumScrollEnd={handleMomentumScrollEnd}
-          >
-            {ALL_WEEKS.map((weekDates, weekIdx) => (
-              <View key={weekIdx} style={{ width: stripWidth || undefined, flex: stripWidth === 0 ? 1 : undefined }}>
-                <View style={styles.datesRow}>
-                  {weekDates.map((date) => {
-                    const sel = isSameDay(date, selectedDate);
-                    const today = isToday(date);
-                    const dayIndex = date.getDay();
-                    const ds = formatDateStr(date);
-                    const hasGame = hasGameDates.includes(ds);
+        <View style={styles.datesRow}>
+          {weekDates.map((date) => {
+            const sel = isSameDay(date, selectedDate);
+            const today = isToday(date);
+            const dayIndex = date.getDay();
 
-                    return (
-                      <Pressable
-                        key={ds}
-                        onPress={() => onDateChange(date)}
-                        style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
-                      >
-                        <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
-                          {DAYS[dayIndex]}
-                        </Text>
-                        <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
-                          {date.getDate()}
-                        </Text>
-                        <View style={styles.dotRow}>
-                          {today && !sel && <View style={styles.todayDot} />}
-                          {hasGame && !sel && !today && <View style={styles.gameDot} />}
-                        </View>
-                      </Pressable>
-                    );
-                  })}
+            return (
+              <Pressable
+                key={formatDateStr(date)}
+                onPress={() => onDateChange(date)}
+                style={[styles.dateItem, sel && { backgroundColor: teamColor || theme.foreground }]}
+              >
+                <Text style={[styles.dayText, sel && styles.dayTextSelected, dayIndex === 0 && !sel && styles.sunday, dayIndex === 6 && !sel && styles.saturday]}>
+                  {DAYS[dayIndex]}
+                </Text>
+                <Text style={[styles.dateNum, sel && styles.dateNumSelected]}>
+                  {date.getDate()}
+                </Text>
+                <View style={styles.dotRow}>
+                  {today && !sel && <View style={styles.todayDot} />}
                 </View>
-              </View>
-            ))}
-          </ScrollView>
+              </Pressable>
+            );
+          })}
         </View>
 
         <Pressable onPress={goNextWeek} style={styles.weekBtn} hitSlop={8}>
@@ -248,4 +190,3 @@ export default function DateStrip({ selectedDate, onDateChange, hasGameDates = [
     </View>
   );
 }
-
