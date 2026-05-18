@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable, LayoutAnimation, Platform, UIManager } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable, Animated, PanResponder, LayoutAnimation, Platform, UIManager } from "react-native";
 
 import { useRouter, useFocusEffect } from "expo-router";
 import DateStrip from "@/components/DateStrip";
@@ -136,6 +136,20 @@ export default function HomeScreen() {
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
+
+  // Swipe-to-close for calendar
+  const calendarPan = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => false,
+      onMoveShouldSetPanResponder: (_, gs) => calendarOpen && Math.abs(gs.dy) > 10,
+      onPanResponderRelease: (_, gs) => {
+        if (gs.dy > 80) {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setCalendarOpen(false);
+        }
+      },
+    })
+  ).current;
 
   useFocusEffect(
     useCallback(() => {
@@ -444,7 +458,7 @@ export default function HomeScreen() {
           {calendarOpen ? "캘린더 접기 ▲" : "캘린더 보기 ▼"}
         </Text>
       </Pressable>
-      <View style={[styles.calWrapper, calendarOpen ? styles.calWrapperOpen : styles.calWrapperHidden]}>
+      <View style={[styles.calWrapper, calendarOpen ? styles.calWrapperOpen : styles.calWrapperHidden]} {...calendarPan.panHandlers}>
         <CalendarGrid
           year={calYear}
           month={calMonth}

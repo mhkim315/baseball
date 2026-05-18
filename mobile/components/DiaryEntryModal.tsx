@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   View, Text, Pressable, TextInput, Modal, StyleSheet, Image,
-  ActivityIndicator, ScrollView,
+  ActivityIndicator, ScrollView, PanResponder,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
@@ -9,6 +9,7 @@ import { parseGameTeamIds, getDaysInMonth, getFirstDayOfMonth, formatDate, forma
 import EmotionPicker from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { addJikgwanRecord, updateJikgwanRecord, getMyTeam, type JikgwanRecord } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { fetchScheduleByMonth, fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
@@ -58,6 +59,7 @@ interface DiaryEntryModalProps {
 
 export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord, presetGame, presetDate }: DiaryEntryModalProps) {
   const { theme, isDark } = useTheme();
+  const insets = useSafeAreaInsets();
   const now = new Date();
   const [step, setStep] = useState<"calendar" | "games" | "write">("calendar");
 
@@ -91,6 +93,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   }>({ visible: false, title: "", message: "" });
 
   const [teamPickerGame, setTeamPickerGame] = useState<GameOption | null>(null);
+
+  const scrollRef = useRef<ScrollView>(null);
 
   const dateStr = formatDate(selectedDate);
   const dateStrShort = `${String(selectedDate.getMonth() + 1)}월 ${selectedDate.getDate()}일`;
@@ -342,6 +346,16 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     onClose();
   };
 
+  const sheetPan = useMemo(() => PanResponder.create({
+    onStartShouldSetPanResponder: () => false,
+    onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dy) > 10,
+    onPanResponderRelease: (_, gs) => {
+      if (gs.dy > 80) {
+        handleClose();
+      }
+    },
+  }), [handleClose]);
+
   // --- Calendar helpers ---
   const daysInMonth = getDaysInMonth(calYear, calMonth);
   const firstDay = getFirstDayOfMonth(calYear, calMonth);
@@ -375,7 +389,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       borderTopLeftRadius: 24,
       borderTopRightRadius: 24,
       maxHeight: "92%",
-      paddingBottom: 8,
+      paddingBottom: Math.max(insets.bottom, 8),
     },
     handleRow: { alignItems: "center", paddingVertical: 10 },
     handle: { width: 36, height: 4, borderRadius: 2, backgroundColor: theme.border },
@@ -682,13 +696,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       fontWeight: "600",
       color: theme.mutedForeground,
     },
-  }), [theme]);
+  }), [theme, insets.bottom]);
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.sheet}>
-          <View style={styles.handleRow}>
+          <View style={styles.handleRow} {...sheetPan.panHandlers}>
             <View style={styles.handle} />
           </View>
 
@@ -715,7 +729,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             )}
           </View>
 
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
             {/* Step 1: Calendar */}
             {step === "calendar" && (
               <View>
@@ -1073,6 +1087,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                     placeholderTextColor="#999"
                     multiline
                     textAlignVertical="top"
+                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 200)}
                   />
                 </View>
               </View>
