@@ -5,7 +5,8 @@ import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge } from "@shared/constants";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
-import type { JikgwanRecord } from "@/lib/db";
+import type { JikgwanRecord, Expense } from "@/lib/db";
+import { getCategoryIcons, formatAmount } from "@/lib/expenseStats";
 
 interface DiaryCardProps {
   record: JikgwanRecord;
@@ -13,6 +14,7 @@ interface DiaryCardProps {
   onShare?: (uri: string) => void;
   onDelete?: (record: JikgwanRecord) => void;
   onEdit?: (record: JikgwanRecord) => void;
+  expenses?: Expense[];
 }
 
 function formatDisplayDate(dateStr: string): string {
@@ -41,7 +43,7 @@ function isFutureDate(dateStr: string): boolean {
   return d > today;
 }
 
-export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }: DiaryCardProps) {
+export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, expenses }: DiaryCardProps) {
   const { theme, isDark } = useTheme();
   const { width: screenWidth } = useWindowDimensions();
   const photoWidth = screenWidth;
@@ -293,6 +295,22 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit }:
       {record.seat ? (
         <View style={styles.seatRow}>
           <Text style={styles.seatText}>🎫 {record.seat}</Text>
+        </View>
+      ) : null}
+
+      {/* Expense summary */}
+      {expenses && expenses.length > 0 ? (
+        <View style={styles.seatRow}>
+          <Text style={styles.seatText}>
+            💰 {formatAmount(expenses.reduce((s, e) => s + e.amount, 0))}
+          </Text>
+          {(() => {
+            const icons = getCategoryIcons(expenses);
+            const maxIcons = 4;
+            return icons.slice(0, maxIcons).map((item, i) => (
+              <Text key={i} style={{ fontSize: 13 }}>{item.icon}</Text>
+            ));
+          })()}
         </View>
       ) : null}
 

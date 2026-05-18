@@ -6,7 +6,7 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import ConfirmModal from "@/components/ConfirmModal";
 import { useTheme } from "@/lib/ThemeContext";
-import type { JikgwanRecord } from "@/lib/db";
+import type { JikgwanRecord, Expense } from "@/lib/db";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { parseGameTeamIds } from "@shared/constants";
 import { deletePhoto } from "@/lib/camera";
@@ -18,9 +18,10 @@ interface DiaryTimelineProps {
   onEdit: (record: JikgwanRecord) => void;
   onRefresh: () => void;
   refreshing: boolean;
+  expensesByRecordId?: Map<number, Expense[]>;
 }
 
-export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRefresh, refreshing }: DiaryTimelineProps) {
+export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRefresh, refreshing, expensesByRecordId }: DiaryTimelineProps) {
   const { theme } = useTheme();
   const [deleteTarget, setDeleteTarget] = useState<JikgwanRecord | null>(null);
 
@@ -113,6 +114,7 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
       onShare={handleShare}
       onDelete={handleDelete}
       onEdit={onEdit}
+      expenses={expensesByRecordId?.get(item.id)}
     />
   );
 

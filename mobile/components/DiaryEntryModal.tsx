@@ -13,6 +13,7 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { addJikgwanRecord, updateJikgwanRecord, getMyTeam, type JikgwanRecord } from "@/lib/db";
+import { addExpense, getExpensesByRecordId, deleteExpensesByRecordId, EXPENSE_CATEGORIES, type Expense, type ExpenseCategory } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { fetchScheduleByMonth, fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
 
@@ -90,6 +91,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   const [seat, setSeat] = useState("");
   const [showOtherGames, setShowOtherGames] = useState(false);
 
+  // Expense state
+  const [pendingExpenses, setPendingExpenses] = useState<{ category: ExpenseCategory; amount: string; memo: string }[]>([]);
+  const [showExpenseInput, setShowExpenseInput] = useState(false);
+  const [newExpenseCat, setNewExpenseCat] = useState<ExpenseCategory>("food");
+  const [newExpenseAmt, setNewExpenseAmt] = useState("");
+  const [newExpenseMemo, setNewExpenseMemo] = useState("");
+
   // Custom alert state
   const [simpleAlert, setSimpleAlert] = useState<{
     visible: boolean;
@@ -145,6 +153,11 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   useEffect(() => {
     if (visible) {
       setCheeredTeam(null);
+      setPendingExpenses([]);
+      setShowExpenseInput(false);
+      setNewExpenseCat("food");
+      setNewExpenseAmt("");
+      setNewExpenseMemo("");
       if (editRecord) {
         setStep("write");
         setSelectedDate(new Date());
@@ -156,6 +169,10 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         setIsLive(editRecord.is_live !== 0);
         setSeat(editRecord.seat || "");
         setGames([]);
+        // Load existing expenses
+        getExpensesByRecordId(editRecord.id).then((exps) => {
+          setPendingExpenses(exps.map((e) => ({ category: e.category as ExpenseCategory, amount: String(e.amount), memo: e.memo || "" })));
+        }).catch(() => {});
       } else if (presetGame) {
         setStep("write");
         setSelectedDate(presetDate || new Date());
@@ -342,6 +359,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         }
       } catch {}
 
+      let recordId: number;
       if (editRecord) {
         await updateJikgwanRecord(editRecord.id, {
           memo: content.trim(),
@@ -352,8 +370,11 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
         });
+        recordId = editRecord.id;
+        // Replace expenses: delete old, insert new
+        await deleteExpensesByRecordId(recordId);
       } else {
-        await addJikgwanRecord({
+        recordId = await addJikgwanRecord({
           game_id: gameId || "",
           date: dateStr,
           photo_path: savedPhotoUris[0] || null,
@@ -371,6 +392,19 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           cheered_team: (cheeredTeam || myTeam || null) as string | null,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
+        });
+      }
+
+      // Save expenses
+      for (const exp of pendingExpenses) {
+        const amt = parseInt(String(exp.amount).replace(/,/g, ""));
+        if (!amt || amt <= 0) continue;
+        await addExpense({
+          record_id: recordId,
+          date: dateStr,
+          category: exp.category,
+          amount: amt,
+          memo: exp.memo || null,
         });
       }
 
@@ -635,6 +669,58 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     charCount: {
       position: "absolute", bottom: 8, right: 12,
       fontSize: 10, color: theme.mutedForeground,
+    },
+
+    // Expense
+    expenseRow: {
+      flexDirection: "row", alignItems: "center",
+      gap: 8, paddingVertical: 8,
+      borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    expenseIcon: { fontSize: 16 },
+    expenseLabel: { fontSize: 13, color: theme.foreground, fontWeight: "600", width: 60 },
+    expenseAmount: { fontSize: 13, color: theme.foreground, fontWeight: "700", flex: 1, textAlign: "right" },
+    expenseMemo: { fontSize: 11, color: theme.mutedForeground, flex: 1 },
+    expenseRemove: { fontSize: 14, color: theme.mutedForeground, paddingLeft: 8 },
+    expenseForm: {
+      backgroundColor: theme.muted, borderRadius: 12,
+      padding: 12, marginTop: 8, gap: 10,
+    },
+    expenseCatRow: {
+      flexDirection: "row", gap: 8, flexWrap: "wrap",
+    },
+    expenseCatBtn: {
+      width: 36, height: 36, borderRadius: 18,
+      justifyContent: "center", alignItems: "center",
+      backgroundColor: theme.card,
+    },
+    expenseCatBtnActive: {
+      backgroundColor: theme.foreground,
+    },
+    expenseCatIcon: { fontSize: 18 },
+    expenseInput: {
+      backgroundColor: theme.card, borderRadius: 10,
+      padding: 12, fontSize: 14, color: theme.foreground,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    expenseMemoInput: {
+      backgroundColor: theme.card, borderRadius: 10,
+      padding: 12, fontSize: 13, color: theme.foreground,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    expenseAddBtn: {
+      backgroundColor: theme.foreground,
+      paddingVertical: 8, paddingHorizontal: 24, borderRadius: 10,
+    },
+    expenseAddBtnText: {
+      fontSize: 13, fontWeight: "700", color: theme.background,
+    },
+    expenseAddLink: {
+      paddingVertical: 10, alignItems: "center",
+      backgroundColor: theme.muted, borderRadius: 10, marginTop: 4,
+    },
+    expenseAddLinkText: {
+      fontSize: 13, fontWeight: "600", color: theme.mutedForeground,
     },
 
     // Bottom
@@ -1181,6 +1267,83 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                     textAlignVertical="top"
                     onFocus={() => requestAnimationFrame(() => scrollRef.current?.scrollToEnd({ animated: true }))}
                   />
+                </View>
+
+                {/* Expense recording section */}
+                <View style={styles.section}>
+                  <Text style={styles.sectionTitle}>지출 기록</Text>
+
+                  {/* Existing expenses list */}
+                  {pendingExpenses.map((exp, idx) => (
+                    <View key={idx} style={styles.expenseRow}>
+                      <Text style={styles.expenseIcon}>{EXPENSE_CATEGORIES[exp.category]?.icon || "💸"}</Text>
+                      <Text style={styles.expenseLabel}>{EXPENSE_CATEGORIES[exp.category]?.label || exp.category}</Text>
+                      <Text style={styles.expenseAmount}>{Number(exp.amount).toLocaleString()}원</Text>
+                      {exp.memo ? <Text style={styles.expenseMemo}>{exp.memo}</Text> : null}
+                      <Pressable onPress={() => setPendingExpenses((prev) => prev.filter((_, i) => i !== idx))} hitSlop={8}>
+                        <Text style={styles.expenseRemove}>✕</Text>
+                      </Pressable>
+                    </View>
+                  ))}
+
+                  {/* Inline add form */}
+                  {showExpenseInput ? (
+                    <View style={styles.expenseForm}>
+                      {/* Category selector */}
+                      <View style={styles.expenseCatRow}>
+                        {(Object.entries(EXPENSE_CATEGORIES) as [ExpenseCategory, typeof EXPENSE_CATEGORIES[ExpenseCategory]][]).map(([key, info]) => (
+                          <Pressable
+                            key={key}
+                            style={[styles.expenseCatBtn, newExpenseCat === key && styles.expenseCatBtnActive]}
+                            onPress={() => setNewExpenseCat(key)}
+                          >
+                            <Text style={styles.expenseCatIcon}>{info.icon}</Text>
+                          </Pressable>
+                        ))}
+                      </View>
+                      {/* Amount input */}
+                      <TextInput
+                        style={styles.expenseInput}
+                        value={newExpenseAmt}
+                        onChangeText={setNewExpenseAmt}
+                        placeholder="금액"
+                        placeholderTextColor="#999"
+                        keyboardType="number-pad"
+                      />
+                      {/* Memo */}
+                      <TextInput
+                        style={styles.expenseMemoInput}
+                        value={newExpenseMemo}
+                        onChangeText={setNewExpenseMemo}
+                        placeholder="메모 (선택)"
+                        placeholderTextColor="#999"
+                      />
+                      {/* Action buttons */}
+                      <View style={{ flexDirection: "row", gap: 8 }}>
+                        <Pressable style={styles.expenseAddBtn} onPress={() => {
+                          const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
+                          if (!amt || amt <= 0) return;
+                          setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
+                          setNewExpenseAmt("");
+                          setNewExpenseMemo("");
+                          setShowExpenseInput(false);
+                        }}>
+                          <Text style={styles.expenseAddBtnText}>추가</Text>
+                        </Pressable>
+                        <Pressable style={{ paddingVertical: 6, paddingHorizontal: 16 }} onPress={() => {
+                          setShowExpenseInput(false);
+                          setNewExpenseAmt("");
+                          setNewExpenseMemo("");
+                        }}>
+                          <Text style={{ fontSize: 13, color: theme.mutedForeground }}>취소</Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  ) : (
+                    <Pressable style={styles.expenseAddLink} onPress={() => setShowExpenseInput(true)}>
+                      <Text style={styles.expenseAddLinkText}>＋ 지출 추가</Text>
+                    </Pressable>
+                  )}
                 </View>
               </View>
             )}

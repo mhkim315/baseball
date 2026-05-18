@@ -6,17 +6,23 @@ import DiaryTimeline from "@/components/DiaryTimeline";
 import DiaryCalendar from "@/components/DiaryCalendar";
 import DiaryStats from "@/components/DiaryStats";
 import DiaryEntryModal from "@/components/DiaryEntryModal";
-import { getJikgwanRecords, deleteJikgwanRecord, type JikgwanRecord } from "@/lib/db";
+import ExpenseCalendar from "@/components/ExpenseCalendar";
+import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
+import ExpenseStats from "@/components/ExpenseStats";
+import ExpenseModal from "@/components/ExpenseModal";
+import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
 import { getMyTeam } from "@/lib/db";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
-type DiaryTab = "timeline" | "calendar" | "stats";
+type DiaryTab = "timeline" | "jikgwan_calendar" | "expense_calendar" | "jikgwan_stats" | "expense_stats";
 
 const TABS: { key: DiaryTab; label: string }[] = [
   { key: "timeline", label: "타임라인" },
-  { key: "calendar", label: "캘린더" },
-  { key: "stats", label: "통계" },
+  { key: "jikgwan_calendar", label: "직관캘린더" },
+  { key: "expense_calendar", label: "지출캘린더" },
+  { key: "jikgwan_stats", label: "직관통계" },
+  { key: "expense_stats", label: "지출통계" },
 ];
 
 export default function DiaryScreen() {
@@ -54,7 +60,7 @@ export default function DiaryScreen() {
       paddingVertical: 10,
     },
     segmentText: {
-      fontSize: 14,
+      fontSize: 12,
       color: theme.mutedForeground,
       fontWeight: "500",
     },
@@ -92,15 +98,32 @@ export default function DiaryScreen() {
   }), [theme]);
   const [activeTab, setActiveTab] = useState<DiaryTab>("timeline");
   const [records, setRecords] = useState<JikgwanRecord[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [myTeam, setMyTeam] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [showEntryModal, setShowEntryModal] = useState(false);
   const [editingRecord, setEditingRecord] = useState<JikgwanRecord | null>(null);
   const [presetDate, setPresetDate] = useState<Date | null>(null);
+  const [showExpenseModal, setShowExpenseModal] = useState(false);
+  const [expenseSheetDate, setExpenseSheetDate] = useState<Date | null>(null);
+  const [sheetExpenses, setSheetExpenses] = useState<Expense[]>([]);
 
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);
   const { width: screenWidth } = useWindowDimensions();
+
+  // Build expense map for timeline (record_id → expenses[])
+  const expenseMap = useMemo(() => {
+    const map = new Map<number, Expense[]>();
+    for (const exp of expenses) {
+      if (exp.record_id != null) {
+        const list = map.get(exp.record_id) || [];
+        list.push(exp);
+        map.set(exp.record_id, list);
+      }
+    }
+    return map;
+  }, [expenses]);
 
   const handleTabPress = (tabKey: DiaryTab, index: number) => {
     tabScrollRef.current?.scrollTo({ x: screenWidth * index, animated: true });
@@ -122,10 +145,18 @@ export default function DiaryScreen() {
   const [calMonth, setCalMonth] = useState(now.getMonth());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-  const loadRecords = useCallback(async () => {
+  // Expense calendar state
+  const [expCalYear, setExpCalYear] = useState(now.getFullYear());
+  const [expCalMonth, setExpCalMonth] = useState(now.getMonth());
+
+  const loadData = useCallback(async () => {
     try {
-      const data = await getJikgwanRecords();
+      const [data, exps] = await Promise.all([
+        getJikgwanRecords(),
+        getAllExpenses(),
+      ]);
       setRecords(data);
+      setExpenses(exps);
     } catch {}
   }, []);
 
@@ -138,22 +169,22 @@ export default function DiaryScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      loadRecords();
+      loadData();
       loadMyTeam();
-    }, [loadRecords, loadMyTeam])
+    }, [loadData, loadMyTeam])
   );
 
   const handleRefresh = async () => {
     setSelectedDate(null);
     setRefreshing(true);
-    await loadRecords();
+    await loadData();
     setRefreshing(false);
   };
 
   const handleDelete = async (id: number) => {
     try {
       await deleteJikgwanRecord(id);
-      loadRecords();
+      loadData();
     } catch {
       Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
     }
@@ -173,7 +204,21 @@ export default function DiaryScreen() {
     setShowEntryModal(false);
     setEditingRecord(null);
     setPresetDate(null);
-    loadRecords();
+    loadData();
+  };
+
+  const handleExpenseSaved = () => {
+    setShowExpenseModal(false);
+    loadData();
+  };
+
+  const handleExpenseSheetRefresh = async () => {
+    if (expenseSheetDate) {
+      const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
+      const exps = await getExpensesByDate(dateStr);
+      setSheetExpenses(exps);
+    }
+    await loadData();
   };
 
   const filteredRecords = selectedDate
@@ -200,6 +245,23 @@ export default function DiaryScreen() {
       setShowEntryModal(true);
     }
   };
+
+  const handleSelectExpenseDate = async (date: Date) => {
+    const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+    const exps = await getExpensesByDate(dateStr);
+    setExpenseSheetDate(date);
+    setSheetExpenses(exps);
+  };
+
+  const handleFabPress = () => {
+    if (activeTab === "expense_calendar" || activeTab === "expense_stats") {
+      setShowExpenseModal(true);
+    } else {
+      setShowEntryModal(true);
+    }
+  };
+
+  const isExpenseTab = activeTab === "expense_calendar" || activeTab === "expense_stats";
 
   return (
     <View style={styles.container}>
@@ -243,6 +305,7 @@ export default function DiaryScreen() {
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={handleMomentumScrollEnd}
         >
+          {/* Tab 1: Timeline */}
           <View style={{ width: screenWidth }}>
             <DiaryTimeline
               records={filteredRecords}
@@ -251,9 +314,11 @@ export default function DiaryScreen() {
               onEdit={handleEdit}
               onRefresh={handleRefresh}
               refreshing={refreshing}
+              expensesByRecordId={expenseMap}
             />
           </View>
 
+          {/* Tab 2: Jikgwan Calendar */}
           <View style={{ width: screenWidth }}>
             <ScrollView
               style={styles.tabContent}
@@ -273,6 +338,32 @@ export default function DiaryScreen() {
             </ScrollView>
           </View>
 
+          {/* Tab 3: Expense Calendar */}
+          <View style={{ width: screenWidth, position: "relative" }}>
+            <ScrollView
+              style={styles.tabContent}
+              contentContainerStyle={styles.scrollContent}
+              refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
+              }
+            >
+              <ExpenseCalendar
+                year={expCalYear}
+                month={expCalMonth}
+                expenses={expenses}
+                onSelectDate={handleSelectExpenseDate}
+                onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); }}
+              />
+            </ScrollView>
+            <ExpenseBottomSheet
+              date={expenseSheetDate}
+              expenses={sheetExpenses}
+              onClose={() => { setExpenseSheetDate(null); setSheetExpenses([]); }}
+              onRefresh={handleExpenseSheetRefresh}
+            />
+          </View>
+
+          {/* Tab 4: Jikgwan Stats */}
           <View style={{ width: screenWidth }}>
             <ScrollView
               style={styles.tabContent}
@@ -287,11 +378,24 @@ export default function DiaryScreen() {
               />
             </ScrollView>
           </View>
+
+          {/* Tab 5: Expense Stats */}
+          <View style={{ width: screenWidth }}>
+            <ScrollView
+              style={styles.tabContent}
+              contentContainerStyle={styles.scrollContent}
+              refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
+              }
+            >
+              <ExpenseStats expenses={expenses} />
+            </ScrollView>
+          </View>
         </ScrollView>
       </View>
 
-      {/* FAB */}
-      <Pressable style={styles.fab} onPress={() => setShowEntryModal(true)}>
+      {/* FAB — context-aware */}
+      <Pressable style={[styles.fab, isExpenseTab && { backgroundColor: theme.mutedForeground }]} onPress={handleFabPress}>
         <Text style={styles.fabText}>+</Text>
       </Pressable>
 
@@ -303,7 +407,13 @@ export default function DiaryScreen() {
         editRecord={editingRecord}
         presetDate={presetDate}
       />
+
+      {/* Expense Modal */}
+      <ExpenseModal
+        visible={showExpenseModal}
+        onClose={() => setShowExpenseModal(false)}
+        onSaved={handleExpenseSaved}
+      />
     </View>
   );
 }
-
