@@ -220,6 +220,7 @@ export default function DiaryScreen() {
     setShowEntryModal(false);
     setEditingRecord(null);
     setPresetDate(null);
+    setSelectedDate(null);
     loadData();
   };
 
