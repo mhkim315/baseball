@@ -178,7 +178,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
     overlay: {
       position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
       backgroundColor: "rgba(0,0,0,0.85)",
-      zIndex: 200,
+      zIndex: 1000,
       justifyContent: "center",
       alignItems: "center",
     },

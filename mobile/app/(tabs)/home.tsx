@@ -234,7 +234,9 @@ export default function HomeScreen() {
               gameIdMap.set(key, g.id);
             }
           } else {
-            const tomorrowStr = formatDateStr(new Date(Date.now() + 86400000));
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const tomorrowStr = formatDateStr(tomorrow);
             if (ds === tomorrowStr && todayData?.nextGames) {
               for (const ng of todayData.nextGames) {
                 const key = `${ng.date}-${ng.away.id}-${ng.home.id}`;

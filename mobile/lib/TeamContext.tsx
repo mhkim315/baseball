@@ -4,15 +4,20 @@ import { getMyTeam, setMyTeam as setMyTeamInDb } from "@/lib/db";
 interface TeamContextValue {
   myTeam: string | null;
   setMyTeam: (team: string | null) => void;
+  loading: boolean;
 }
 
 const TeamContext = createContext<TeamContextValue | null>(null);
 
 export function TeamProvider({ children }: { children: ReactNode }) {
   const [myTeam, setMyTeamState] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getMyTeam().then(setMyTeamState);
+    getMyTeam().then((team) => {
+      setMyTeamState(team);
+      setLoading(false);
+    });
   }, []);
 
   const setMyTeam = useCallback((team: string | null) => {
@@ -21,7 +26,7 @@ export function TeamProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <TeamContext.Provider value={{ myTeam, setMyTeam }}>
+    <TeamContext.Provider value={{ myTeam, setMyTeam, loading }}>
       {children}
     </TeamContext.Provider>
   );

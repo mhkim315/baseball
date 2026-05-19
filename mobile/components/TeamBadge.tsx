@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { TEAM_COLORS } from "@shared/teamColors";
@@ -20,6 +20,11 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
   const team = TEAM_COLORS[teamId];
   const { isDark } = useTheme();
   const [imgFailed, setImgFailed] = useState(false);
+
+  useEffect(() => {
+    setImgFailed(false);
+  }, [teamId, variant, emotion]);
+
   if (!team) return null;
 
   const px = sizePx[size];

@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo, useRef } from "react";
-import { View, Text, ScrollView, Pressable, StyleSheet, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, ActivityIndicator } from "react-native";
 import TeamExpander from "@/components/TeamExpander";
 import SettingsButton from "@/components/SettingsButton";
 import CheerContent from "@/components/CheerContent";
@@ -44,7 +44,7 @@ export default function CheerScreen() {
     emptyDesc: { fontSize: 13, color: theme.mutedForeground, lineHeight: 20, textAlign: "center" },
   }), [theme]);
   const [displayTeam, setDisplayTeam] = useState<string | null>(null);
-  const { myTeam } = useTeam();
+  const { myTeam, loading } = useTeam();
   const [activeTab, setActiveTab] = useState<TabId>("songs");
   const [expanded, setExpanded] = useState<number | null>(0);
   const { width: screenWidth } = useWindowDimensions();
@@ -64,6 +64,21 @@ export default function CheerScreen() {
 
   const activeTeam = displayTeam || myTeam;
   const teamColor = activeTeam ? TEAM_COLORS[activeTeam] : null;
+
+  if (loading) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.pageTitle}>응원</Text>
+          <View style={{ flex: 1 }} />
+          <SettingsButton />
+        </View>
+        <View style={styles.emptyContainer}>
+          <ActivityIndicator size="large" color={theme.foreground} />
+        </View>
+      </View>
+    );
+  }
 
   if (!activeTeam) {
     return (
@@ -125,12 +140,14 @@ export default function CheerScreen() {
         {(["songs", "players", "rules"] as const).map((tab) => (
           <View key={tab} style={{ width: screenWidth, flex: 1 }}>
             <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.content}>
-              <CheerContent
-                teamId={activeTeam}
-                activeTab={tab}
-                expandedSection={expanded}
-                onToggleSection={setExpanded}
-              />
+              {tab === activeTab && (
+                <CheerContent
+                  teamId={activeTeam}
+                  activeTab={tab}
+                  expandedSection={expanded}
+                  onToggleSection={setExpanded}
+                />
+              )}
             </ScrollView>
           </View>
         ))}

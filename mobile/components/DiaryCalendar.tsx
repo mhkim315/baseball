@@ -38,16 +38,21 @@ export default function DiaryCalendar({
   // Fetch schedule + scores for the month
   useEffect(() => {
     if (!teamName) return;
+    let cancelled = false;
     setLoading(true);
     Promise.all([
       fetchScheduleByMonth(month + 1),
       fetchAllDailyScores(),
     ]).then(([schedule, scores]) => {
+      if (cancelled) return;
       if (schedule) setGames(schedule.games || []);
       if (scores) setScoresByDate(scores.dates || {});
     }).catch(() => {
       // silent
-    }).finally(() => setLoading(false));
+    }).finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+    return () => { cancelled = true; };
   }, [year, month, teamName]);
 
   // Build a map of date string -> records (YYYY.MM.DD format)

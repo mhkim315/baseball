@@ -7,8 +7,8 @@ import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
 
-function parseWLT(wlt: string): { wins: number; draws: number; losses: number } {
-  const m = wlt.match(/(\d+)승(\d+)무(\d+)패/);
+function parseWLT(wlt: string | undefined | null): { wins: number; draws: number; losses: number } {
+  const m = wlt?.match(/(\d+)승(\d+)무(\d+)패/);
   if (!m) return { wins: 0, draws: 0, losses: 0 };
   return { wins: parseInt(m[1]), draws: parseInt(m[2]), losses: parseInt(m[3]) };
 }
@@ -19,9 +19,9 @@ function formatDate(isoStr: string): string {
   return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function streakColor(streak: string): string {
-  if (streak.includes("승")) return "#2563eb";
-  if (streak.includes("무")) return "#d97706";
+function streakColor(streak: string | undefined | null): string {
+  if (streak?.includes("승")) return "#2563eb";
+  if (streak?.includes("무")) return "#d97706";
   return "#ef4444";
 }
 

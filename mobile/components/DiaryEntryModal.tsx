@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   View, Text, Pressable, TextInput, StyleSheet, Image,
-  ActivityIndicator, ScrollView, Animated,
+  ActivityIndicator, ScrollView, Animated, Keyboard, Platform,
 } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
@@ -106,11 +106,26 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   }>({ visible: false, title: "", message: "" });
 
   const [teamPickerGame, setTeamPickerGame] = useState<GameOption | null>(null);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [cropUri, setCropUri] = useState<string | null>(null);
 
   const scrollRef = useRef<ScrollView>(null);
+  const loadGamesRef = useRef<((date: Date) => Promise<void>) | null>(null);
   const dateStr = formatDate(selectedDate);
   const dateStrShort = `${String(selectedDate.getMonth() + 1)}월 ${selectedDate.getDate()}일`;
+
+  // Track keyboard height for both platforms
+  useEffect(() => {
+    const show = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillShow" : "keyboardDidShow",
+      (e) => setKeyboardHeight(e.endCoordinates.height)
+    );
+    const hide = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillHide" : "keyboardDidHide",
+      () => setKeyboardHeight(0)
+    );
+    return () => { show.remove(); hide.remove(); };
+  }, []);
 
   // Reset on open
   useEffect(() => {
@@ -156,6 +171,17 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           }
         }
         return;
+      } else if (presetDate) {
+        setStep("games");
+        setSelectedDate(presetDate);
+        setSelectedGame(null);
+        setEmotion(null);
+        setContent("");
+        setPhotoUris([]);
+        setIsLive(true);
+        setSeat("");
+        setGames([]);
+        loadGamesRef.current?.(presetDate);
       } else {
         setStep("calendar");
         setSelectedDate(new Date());
@@ -220,6 +246,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       setGamesLoading(false);
     }
   }, [userTeam]);
+  loadGamesRef.current = loadGames;
 
   const handleDateSelect = (d: number) => {
     const date = new Date(calYear, calMonth, d);
@@ -266,11 +293,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     // Set guard immediately (synchronous) to prevent re-entry
     savingRef.current = true;
 
-    // If expense input is open, auto-add before saving
+    // Collect expenses to save (including any auto-added from open form)
+    let expensesToSave = pendingExpenses;
     if (showExpenseInput) {
       const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
       if (amt && amt > 0) {
-        setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
+        expensesToSave = [...pendingExpenses, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }];
+        setPendingExpenses(expensesToSave);
       }
       setShowExpenseInput(false);
       setNewExpenseAmt("");
@@ -331,7 +360,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       } catch {}
 
       const saveExpenses = async (recordId: number) => {
-        for (const exp of pendingExpenses) {
+        for (const exp of expensesToSave) {
           const amt = parseInt(String(exp.amount).replace(/,/g, ""));
           if (!amt || amt <= 0) continue;
           await addExpense({
@@ -347,15 +376,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       let recordId: number;
       if (editRecord) {
         recordId = editRecord.id;
-        // Insert new expenses FIRST (before deleting old ones)
-        // If insert fails mid-way, old expenses are preserved → no data loss
-        await saveExpenses(recordId);
-        // Delete old expenses (best-effort — if this fails, duplicates remain but no data loss)
+        // Delete old expenses first, then save new ones
         try {
           await deleteExpensesByRecordId(recordId);
         } catch (e) {
           console.warn("Failed to delete old expenses (non-critical)", e);
         }
+        await saveExpenses(recordId);
         // Update the jikgwan record
         await updateJikgwanRecord(recordId, {
           memo: content.trim(),
@@ -887,7 +914,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             )}
           </View>
 
-          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive">
+          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContent, { paddingBottom: 20 + keyboardHeight }]} keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive">
             {/* Step 1: Calendar */}
             {step === "calendar" && (
               <GestureDetector gesture={calMonthPanGesture}>

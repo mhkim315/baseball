@@ -54,7 +54,7 @@ export default function StadiumMapView({ spots, center, zoom = 15, focusedSpotId
   const { theme } = useTheme();
   const webViewRef = useRef<WebView>(null);
 
-  const html = generateMapHtml(spots, center, zoom);
+  const html = useMemo(() => generateMapHtml(spots, center, zoom), [spots, center, zoom]);
 
   useEffect(() => {
     if (!focusedSpotId || !webViewRef.current) return;

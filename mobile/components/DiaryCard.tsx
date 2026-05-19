@@ -47,7 +47,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
   const { theme, isDark } = useTheme();
   const { width: screenWidth } = useWindowDimensions();
   const photoWidth = screenWidth;
-  const photos = parsePhotos(record);
+  const photos = useMemo(() => parsePhotos(record), [record.photos, record.photo_path]);
   const [photoIndex, setPhotoIndex] = useState(0);
   const liveTeamColor = teamId ? teamPrimaryColor(teamId, isDark) : "#3b82f6";
 

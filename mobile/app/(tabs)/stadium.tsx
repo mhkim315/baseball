@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from "react-native";
 import TeamExpander from "@/components/TeamExpander";
 import StadiumPage from "@/components/StadiumPage";
 import SettingsButton from "@/components/SettingsButton";
@@ -50,9 +50,24 @@ export default function StadiumTab() {
   }), [theme]);
   const [displayTeam, setDisplayTeam] = useState<string | null>(null);
 
-  const { myTeam } = useTeam();
+  const { myTeam, loading } = useTeam();
 
   const myTeamColor = myTeam ? teamPrimaryColor(myTeam, isDark) : undefined;
+
+  if (loading) {
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>구장 안내</Text>
+          <View style={{ flex: 1 }} />
+          <SettingsButton />
+        </View>
+        <View style={styles.emptyContainer}>
+          <ActivityIndicator size="large" color={theme.foreground} />
+        </View>
+      </ScrollView>
+    );
+  }
 
   if (!myTeam) {
     return (

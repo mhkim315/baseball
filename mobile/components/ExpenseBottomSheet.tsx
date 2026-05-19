@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
 import { View, Text, Pressable, FlatList, StyleSheet } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { EXPENSE_CATEGORIES, deleteExpense, type Expense } from "@/lib/db";
@@ -15,16 +15,34 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
   const { theme } = useTheme();
 
   const total = useMemo(() => expenses.reduce((s, e) => s + e.amount, 0), [expenses]);
-  const dateStr = useMemo(() => date
-    ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`
-    : "", [date]);
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = useCallback(async (id: number) => {
     try {
       await deleteExpense(id);
       onRefresh();
-    } catch {}
-  };
+    } catch (e) {
+      console.warn("ExpenseBottomSheet delete failed", e);
+    }
+  }, [onRefresh]);
+
+  const renderItem = useCallback(({ item }: { item: Expense }) => {
+    const cat = EXPENSE_CATEGORIES[item.category as keyof typeof EXPENSE_CATEGORIES] || EXPENSE_CATEGORIES.other;
+    return (
+      <View style={styles.row}>
+        <Text style={styles.icon}>{cat.icon}</Text>
+        <Text style={styles.catLabel}>{cat.label}</Text>
+        <Text style={styles.memoText} numberOfLines={1}>{item.memo || ""}</Text>
+        <Text style={styles.amountText}>{formatAmount(item.amount)}</Text>
+        <Pressable style={styles.deleteBtn} onPress={() => handleDelete(item.id)}>
+          <Text style={styles.deleteText}>삭제</Text>
+        </Pressable>
+      </View>
+    );
+  }, [handleDelete]);
+
+  const dateStr = useMemo(() => date
+    ? `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`
+    : "", [date]);
 
   const styles = useMemo(() => StyleSheet.create({
     overlay: {
@@ -93,20 +111,7 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
             data={expenses}
             keyExtractor={(item) => String(item.id)}
             contentContainerStyle={styles.list}
-            renderItem={({ item }) => {
-              const cat = EXPENSE_CATEGORIES[item.category as keyof typeof EXPENSE_CATEGORIES] || EXPENSE_CATEGORIES.other;
-              return (
-                <View style={styles.row}>
-                  <Text style={styles.icon}>{cat.icon}</Text>
-                  <Text style={styles.catLabel}>{cat.label}</Text>
-                  <Text style={styles.memoText} numberOfLines={1}>{item.memo || ""}</Text>
-                  <Text style={styles.amountText}>{formatAmount(item.amount)}</Text>
-                  <Pressable style={styles.deleteBtn} onPress={() => handleDelete(item.id)}>
-                    <Text style={styles.deleteText}>삭제</Text>
-                  </Pressable>
-                </View>
-              );
-            }}
+            renderItem={renderItem}
           />
         )}
       </View>

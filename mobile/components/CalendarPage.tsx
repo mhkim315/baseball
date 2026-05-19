@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { useRouter } from "expo-router";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
@@ -31,23 +31,30 @@ export default function CalendarPage() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  const load = useCallback(() => {
+  const [retryKey, setRetryKey] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
     setLoading(true);
     setError(false);
     Promise.all([
       fetchScheduleByMonth(month + 1),
       fetchAllDailyScores(),
     ]).then(([schedule, allScores]) => {
+      if (cancelled) return;
       if (schedule) setGames(schedule.games || []);
       if (allScores) setScoresByDate(allScores.dates || {});
       setLoading(false);
     }).catch(() => {
-      setError(true);
-      setLoading(false);
+      if (!cancelled) {
+        setError(true);
+        setLoading(false);
+      }
     });
-  }, [month]);
+    return () => { cancelled = true; };
+  }, [month, retryKey]);
 
-  useEffect(() => { load(); }, [load]);
+  const retry = () => setRetryKey((k) => k + 1);
 
   const teamName = TEAM_LIST.find((t) => t.id === selectedTeam)?.shortName || "";
   const teamColor = TEAM_COLORS[selectedTeam];
@@ -173,7 +180,7 @@ export default function CalendarPage() {
         ) : error ? (
           <View style={styles.loadingContainer}>
             <Text style={styles.errorText}>일정을 불러올 수 없습니다</Text>
-            <Pressable onPress={load} style={styles.retryBtn}><Text style={styles.retryText}>재시도</Text></Pressable>
+            <Pressable onPress={retry} style={styles.retryBtn}><Text style={styles.retryText}>재시도</Text></Pressable>
           </View>
         ) : (
           /* Calendar grid */

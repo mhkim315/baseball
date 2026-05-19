@@ -8,15 +8,16 @@ export default function JikgwanCameraScreen() {
   const { theme } = useTheme();
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef<CameraView>(null);
+  const capturingRef = useRef(false);
   const router = useRouter();
   const params = useLocalSearchParams<{ gameId?: string; homeTeam?: string; awayTeam?: string; homeScore?: string; awayScore?: string; stadium?: string }>();
 
   const takePicture = async () => {
-    if (!cameraRef.current) return;
+    if (!cameraRef.current || capturingRef.current) return;
+    capturingRef.current = true;
     try {
       const photo = await cameraRef.current.takePictureAsync({ quality: 0.8 });
       if (photo) {
-        // Navigate to preview with the photo and game data
         router.push({
           pathname: "/jikgwan/preview",
           params: {
@@ -33,6 +34,8 @@ export default function JikgwanCameraScreen() {
     } catch (e) {
       console.warn("takePicture failed", e);
       Alert.alert("촬영 오류", "사진을 촬영하지 못했습니다");
+    } finally {
+      capturingRef.current = false;
     }
   };
 

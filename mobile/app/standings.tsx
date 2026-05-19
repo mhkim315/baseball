@@ -33,9 +33,9 @@ export default function StandingsScreen() {
 
   useEffect(() => { load(); }, [load]);
 
-  const getStreakColor = (streak: string) => {
-    if (streak.includes("패")) return { color: "#d32f2f" };
-    if (streak.includes("승")) return { color: "#1565c0" };
+  const getStreakColor = (streak: string | undefined | null) => {
+    if (streak?.includes("패")) return { color: "#d32f2f" };
+    if (streak?.includes("승")) return { color: "#1565c0" };
     return { color: theme.mutedForeground };
   };
 
@@ -119,7 +119,7 @@ export default function StandingsScreen() {
             standings.map((row, i) => {
               const teamId = TEAM_NAME_TO_ID[row.teamName] || "";
               const teamColor = TEAM_COLORS[teamId];
-              const wlt = row.wlt.match(/(\d+)승(\d+)무(\d+)패/);
+              const wlt = row.wlt?.match(/(\d+)승(\d+)무(\d+)패/);
               const wins = wlt ? parseInt(wlt[1]) : 0;
               const draws = wlt ? parseInt(wlt[2]) : 0;
               const losses = wlt ? parseInt(wlt[3]) : 0;
@@ -137,7 +137,7 @@ export default function StandingsScreen() {
                   <Text style={[styles.cell, styles.statCell]}>{draws}</Text>
                   <Text style={[styles.cell, styles.statCell, { color: "#d32f2f" }]}>{losses}</Text>
                   <Text style={[styles.cell, styles.statCell, { fontWeight: "700" }]}>
-                    {(row.winRate * 100).toFixed(3).slice(0, -1)}
+                    {(row.winRate != null ? (row.winRate * 100).toFixed(3).slice(0, -1) : "-")}
                   </Text>
                   <Text style={[styles.cell, styles.statCell]}>
                     {row.gamesBehind === 0 ? "-" : row.gamesBehind.toFixed(1)}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { View, Text, FlatList, Pressable, StyleSheet, RefreshControl } from "react-native";
 import * as Sharing from "expo-sharing";
 import DiaryCard from "@/components/DiaryCard";
@@ -36,11 +36,11 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
     }).slice(0, 5);
   }, [records]);
 
-  const handleShare = async (uri: string) => {
+  const handleShare = useCallback(async (uri: string) => {
     if (await Sharing.isAvailableAsync()) {
       await Sharing.shareAsync(uri);
     }
-  };
+  }, []);
 
   const handleDelete = (record: JikgwanRecord) => {
     setDeleteTarget(record);
@@ -107,7 +107,7 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
     emptySub: { color: theme.mutedForeground, fontSize: 12, marginTop: 6 },
   }), [theme]);
 
-  const renderItem = ({ item }: { item: JikgwanRecord }) => (
+  const renderItem = useCallback(({ item }: { item: JikgwanRecord }) => (
     <DiaryCard
       record={item}
       teamId={teamId}
@@ -116,7 +116,7 @@ export default function DiaryTimeline({ records, teamId, onDelete, onEdit, onRef
       onEdit={onEdit}
       expenses={expensesByRecordId?.get(item.id)}
     />
-  );
+  ), [teamId, handleShare, handleDelete, onEdit, expensesByRecordId]);
 
   const ListHeaderComponent = onThisDayRecords.length > 0 ? (
     <View style={styles.onThisDaySection}>

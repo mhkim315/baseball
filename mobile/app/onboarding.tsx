@@ -3,17 +3,18 @@ import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
-import { setMyTeam } from "@/lib/db";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
+import { useTeam } from "@/lib/TeamContext";
 
 export default function OnboardingScreen() {
   const { theme, isDark } = useTheme();
+  const { setMyTeam } = useTeam();
   const router = useRouter();
   const [selectedTeam, setSelectedTeam] = useState<string>("");
 
   const handleStart = async () => {
     if (!selectedTeam) return;
-    await setMyTeam(selectedTeam);
+    setMyTeam(selectedTeam);
     router.replace("/(tabs)/home");
   };
 

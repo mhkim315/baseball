@@ -6,6 +6,7 @@ import {
   FlatList,
   Pressable,
   StyleSheet,
+  Alert,
 } from "react-native";
 import * as Sharing from "expo-sharing";
 import ConfirmModal from "@/components/ConfirmModal";
@@ -37,25 +38,30 @@ export default function JikgwanFeed({ onTakePhoto }: Props) {
     loadRecords();
   }, [loadRecords]);
 
-  const handleDelete = (record: JikgwanRecord & { uri: string }) => {
+  const handleDelete = useCallback((record: JikgwanRecord & { uri: string }) => {
     setDeleteTarget(record);
-  };
+  }, []);
 
   const confirmDelete = async () => {
     if (!deleteTarget) return;
-    if (deleteTarget.photo_path) await deletePhoto(deleteTarget.photo_path);
-    await deleteJikgwanRecord(deleteTarget.id);
-    setDeleteTarget(null);
-    loadRecords();
-  };
-
-  const handleShare = async (uri: string) => {
-    if (await Sharing.isAvailableAsync()) {
-      await Sharing.shareAsync(uri);
+    try {
+      if (deleteTarget.photo_path) await deletePhoto(deleteTarget.photo_path);
+      await deleteJikgwanRecord(deleteTarget.id);
+      setDeleteTarget(null);
+      loadRecords();
+    } catch (e) {
+      console.warn("JikgwanFeed delete failed", e);
+      Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
     }
   };
 
-  const renderItem = ({ item }: { item: JikgwanRecord & { uri: string } }) => {
+  const handleShare = useCallback(async (uri: string) => {
+    if (await Sharing.isAvailableAsync()) {
+      await Sharing.shareAsync(uri);
+    }
+  }, []);
+
+  const renderItem = useCallback(({ item }: { item: JikgwanRecord & { uri: string } }) => {
     const date = item.date;
     const hasScore = item.score_away != null && item.score_home != null;
     const homeColor = "#888";
@@ -89,7 +95,7 @@ export default function JikgwanFeed({ onTakePhoto }: Props) {
         </View>
       </View>
     );
-  };
+  }, [handleShare, handleDelete]);
 
   const styles = useMemo(() => StyleSheet.create({
     container: { marginTop: 8 },

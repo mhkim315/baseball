@@ -127,7 +127,7 @@ export default function GameDetailScreen() {
         homeRank: homeStanding.rank, awayRank: awayStanding.rank,
         homeRecent: homeRecent.slice(0, 5), awayRecent: awayRecent.slice(0, 5),
       });
-    }).catch(() => {});
+    }).catch((e) => console.warn("game/[id] preview fetch failed", e));
 
     return () => { cancelled = true; };
   }, [detail]);

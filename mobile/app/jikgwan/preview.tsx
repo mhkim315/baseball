@@ -1,5 +1,5 @@
 import { useState, useRef, useMemo } from "react";
-import { View, Text, Image, Pressable, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, Image, Pressable, StyleSheet, ActivityIndicator, Alert } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import ViewShot, { captureRef } from "react-native-view-shot";
 import { TEAM_COLORS } from "@shared/teamColors";
@@ -63,6 +63,7 @@ export default function JikgwanPreviewScreen() {
       });
     } catch (e) {
       console.warn("preview handleNext error", e);
+      Alert.alert("저장 오류", "사진을 저장하지 못했습니다");
     } finally {
       setSaving(false);
     }
@@ -188,7 +189,7 @@ export default function JikgwanPreviewScreen() {
                     {TEAM_COLORS[params.awayTeam]?.shortName} vs {TEAM_COLORS[params.homeTeam]?.shortName}
                   </Text>
                 )}
-                {params.homeScore ? (
+                {params.homeScore != null && params.homeScore !== "" ? (
                   <Text style={[stampStyles.text, stampStyles.score]}>{params.awayScore}:{params.homeScore}</Text>
                 ) : null}
                 {params.stadium ? (
