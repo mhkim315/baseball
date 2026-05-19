@@ -277,17 +277,22 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   };
 
   const pickPhoto = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== "granted") {
-      setSimpleAlert({ visible: true, title: "권한 필요", message: "앨범 접근 권한이 필요합니다" });
-      return;
-    }
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ["images"],
-      quality: 0.8,
-    });
-    if (!result.canceled && result.assets.length > 0) {
-      setCropUri(result.assets[0].uri);
+    try {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== "granted") {
+        setSimpleAlert({ visible: true, title: "권한 필요", message: "앨범 접근 권한이 필요합니다" });
+        return;
+      }
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ["images"],
+        quality: 0.8,
+      });
+      if (!result.canceled && result.assets.length > 0) {
+        setCropUri(result.assets[0].uri);
+      }
+    } catch (e) {
+      console.warn("pickPhoto failed", e);
+      setSimpleAlert({ visible: true, title: "오류", message: "사진을 불러오지 못했습니다" });
     }
   };
 
@@ -318,6 +323,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     try {
       let savedPhotoUris: string[] = [];
       if (photoUris.length > 0) {
+        let failedCount = 0;
         for (const uri of photoUris) {
           try {
             const resized = await resizePhoto(uri);
@@ -325,8 +331,15 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             const savedUri = await savePhoto(resized, fileName);
             savedPhotoUris.push(savedUri);
           } catch (e) {
-            console.warn("사진 저장 실패, 건너뜁니다", uri, e);
+            failedCount++;
+            console.warn("사진 저장 실패", uri, e);
           }
+        }
+        if (failedCount > 0 && savedPhotoUris.length === 0) {
+          savingRef.current = false;
+          setSaving(false);
+          setSimpleAlert({ visible: true, title: "저장 오류", message: "사진을 저장하지 못했습니다" });
+          return;
         }
       }
       const photosJson = savedPhotoUris.length > 0 ? JSON.stringify(savedPhotoUris) : null;
