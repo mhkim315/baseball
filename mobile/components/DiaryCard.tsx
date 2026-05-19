@@ -254,6 +254,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
             showsHorizontalScrollIndicator={false}
             onScroll={handleScroll}
             scrollEventThrottle={16}
+            nestedScrollEnabled
           >
             {photos.map((uri, i) => (
               <View key={i} style={{ position: "relative" }}>

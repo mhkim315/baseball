@@ -105,7 +105,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     onOk?: () => void;
   }>({ visible: false, title: "", message: "" });
 
-  const [teamPickerGame, setTeamPickerGame] = useState<GameOption | null>(null);
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [cropUri, setCropUri] = useState<string | null>(null);
 
@@ -166,8 +165,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         if (contextTeam) {
           if (presetGame.homeTeam === contextTeam || presetGame.awayTeam === contextTeam) {
             setCheeredTeam(contextTeam);
-          } else if (!presetGame.cancelled) {
-            setTeamPickerGame(presetGame);
+          } else {
+            setCheeredTeam(null);
           }
         }
         return;
@@ -270,7 +269,9 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       setStep("write");
       return;
     }
-    setTeamPickerGame(game);
+    // Non-my-team game: skip team picker, let user choose in write step
+    setCheeredTeam(null);
+    setStep("write");
   };
 
   const pickPhoto = async () => {
@@ -1398,46 +1399,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           </View>
         </View>
       )}
-
-      {/* Custom team picker */}
-      {teamPickerGame && (() => {
-        const home = TEAM_COLORS[teamPickerGame.homeTeam];
-        const away = TEAM_COLORS[teamPickerGame.awayTeam];
-        return (
-          <View style={styles.alertOverlay}>
-            <View style={styles.alertCard}>
-              <Text style={styles.alertTitle}>응원 팀 선택</Text>
-              <Text style={styles.alertMessage}>어느 팀을 응원했나요?</Text>
-              <View style={styles.teamPickerRow}>
-                <Pressable style={styles.teamPickerCard} onPress={() => {
-                  setCheeredTeam(teamPickerGame.awayTeam);
-                  setTeamPickerGame(null);
-                  setStep("write");
-                }}>
-                  <TeamBadge teamId={teamPickerGame.awayTeam} size="md" />
-                  <Text style={[styles.teamPickerName, { color: teamPrimaryColor(teamPickerGame.awayTeam, isDark) }]}>
-                    {away?.shortName || "원정팀"}
-                  </Text>
-                </Pressable>
-                <Text style={styles.teamPickerVs}>VS</Text>
-                <Pressable style={styles.teamPickerCard} onPress={() => {
-                  setCheeredTeam(teamPickerGame.homeTeam);
-                  setTeamPickerGame(null);
-                  setStep("write");
-                }}>
-                  <TeamBadge teamId={teamPickerGame.homeTeam} size="md" />
-                  <Text style={[styles.teamPickerName, { color: teamPrimaryColor(teamPickerGame.homeTeam, isDark) }]}>
-                    {home?.shortName || "홈팀"}
-                  </Text>
-                </Pressable>
-              </View>
-              <Pressable style={styles.alertCancelBtn} onPress={() => { setCheeredTeam(null); setTeamPickerGame(null); setStep("write"); }}>
-                <Text style={styles.alertCancelText}>선택안함</Text>
-              </Pressable>
-            </View>
-          </View>
-        );
-      })()}
 
       <PhotoCropper
         visible={!!cropUri}

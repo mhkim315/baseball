@@ -68,7 +68,7 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
     totalText: { fontSize: 18, fontWeight: "700", color: theme.foreground },
     closeBtn: { padding: 4 },
     closeText: { fontSize: 16, color: theme.mutedForeground },
-    list: { paddingHorizontal: 20 },
+    list: { paddingHorizontal: 20, paddingBottom: 90 },
     row: {
       flexDirection: "row", alignItems: "center",
       paddingVertical: 12, gap: 10,
