@@ -10,7 +10,7 @@ import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 import ExpenseModal from "@/components/ExpenseModal";
 import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
-import { cachedAllDailyScores } from "@/lib/gameCache";
+import { cachedAllDailyScores, cachedDailyScores } from "@/lib/gameCache";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
@@ -182,20 +182,15 @@ export default function DiaryScreen() {
         cachedAllDailyScores(),
       ]);
       // Merge scores into records in-memory (no DB write needed)
-      if (scoresData?.dates) {
-        for (const r of data) {
+      const merge = (records: JikgwanRecord[], scoresList: { away: string; home: string; awayScore: number; homeScore: number; cancelled: boolean }[]) => {
+        for (const r of records) {
           if (r.score_away != null && r.score_home != null && r.is_win != null) continue;
-          const apiDate = r.date.split(".").join("-");
-          const dayScores = scoresData.dates[apiDate];
-          if (!dayScores?.length) continue;
           const { awayId, homeId } = parseGameTeamIds(r.game_id);
           if (!awayId || !homeId) continue;
           const awayShort = TEAM_COLORS[awayId]?.shortName;
           const homeShort = TEAM_COLORS[homeId]?.shortName;
           if (!awayShort || !homeShort) continue;
-          const match = dayScores.find(
-            (s) => s.away === awayShort && s.home === homeShort
-          );
+          const match = scoresList.find((s) => s.away === awayShort && s.home === homeShort);
           if (!match || match.cancelled) continue;
           if (match.awayScore == null || match.homeScore == null) continue;
           if (match.awayScore === 0 && match.homeScore === 0) continue;
@@ -206,7 +201,21 @@ export default function DiaryScreen() {
             else if (r.cheered_team === awayId) r.is_win = match.awayScore > match.homeScore ? 1 : match.awayScore < match.homeScore ? -1 : 0;
           }
         }
+      };
+      // 1) Bulk merge from all-dates cache (Infinity TTL for past dates)
+      if (scoresData?.dates) {
+        for (const [apiDate, dayScores] of Object.entries(scoresData.dates)) {
+          const dayRecords = data.filter((r) => r.date.split(".").join("-") === apiDate);
+          if (dayRecords.length > 0) merge(dayRecords, dayScores);
+        }
       }
+      // 2) Overlay today's scores using per-date cache (shares key with home tab)
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      try {
+        const todayScores = await cachedDailyScores(todayStr);
+        if (todayScores?.games) merge(data, todayScores.games);
+      } catch {}
       setRecords(data);
       setExpenses(exps);
     } catch (e) {
