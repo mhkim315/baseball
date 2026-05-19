@@ -34,13 +34,18 @@ function parsePhotos(record: JikgwanRecord): string[] {
   return [];
 }
 
-function isFutureDate(dateStr: string): boolean {
+function isUpcoming(dateStr: string, scoreAway: number | null, scoreHome: number | null): boolean {
   const parts = dateStr.split(".");
   if (parts.length !== 3) return false;
   const d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return d > today;
+  if (d > today) return true;
+  // Today but game hasn't ended yet (no scores / both zero)
+  if (d.getTime() === today.getTime()) {
+    return scoreAway == null || scoreHome == null || (scoreAway === 0 && scoreHome === 0);
+  }
+  return false;
 }
 
 export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, expenses }: DiaryCardProps) {
@@ -218,7 +223,11 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
             {(gt.awayId || gt.homeId) && (
               <Text style={styles.idTeams} numberOfLines={1}>
                 {gt.awayId && gt.homeId
-                  ? `${TEAM_COLORS[gt.awayId]?.shortName || "?"} ${record.score_away != null ? record.score_away : ""} : ${record.score_home != null ? record.score_home : ""} ${TEAM_COLORS[gt.homeId]?.shortName || "?"}`
+                  ? isUpcoming(record.date, record.score_away, record.score_home)
+                    ? `${TEAM_COLORS[gt.awayId]?.shortName || "?"} vs ${TEAM_COLORS[gt.homeId]?.shortName || "?"} (예정)`
+                    : record.score_away != null && record.score_home != null
+                      ? `${TEAM_COLORS[gt.awayId]?.shortName || "?"} ${record.score_away} : ${record.score_home} ${TEAM_COLORS[gt.homeId]?.shortName || "?"}`
+                      : `${TEAM_COLORS[gt.awayId]?.shortName || "?"} vs ${TEAM_COLORS[gt.homeId]?.shortName || "?"}`
                   : TEAM_COLORS[gt.awayId || gt.homeId]?.shortName}
               </Text>
             )}
@@ -270,7 +279,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
             {photos.map((uri, i) => (
               <View key={i} style={{ position: "relative" }}>
                 <Image source={{ uri }} style={[styles.photo, { width: photoWidth }]} />
-                {(gt.awayId || gt.homeId) && !isFutureDate(record.date) && (
+                {(gt.awayId || gt.homeId) && !isUpcoming(record.date, record.score_away, record.score_home) && (
                   <View style={stampOverlay.container}>
                     <Text style={stampOverlay.text}>
                       {formatDisplayDate(record.date)}

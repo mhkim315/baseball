@@ -11,6 +11,7 @@ import EmotionPicker from "@/components/EmotionPicker";
 import PhotoCropper from "@/components/PhotoCropper";
 import { TeamBadge } from "@/components/TeamBadge";
 import BottomSheet from "@/components/BottomSheet";
+import ExpenseForm from "@/components/ExpenseForm";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
 import { addJikgwanRecord, updateJikgwanRecord, type JikgwanRecord } from "@/lib/db";
@@ -679,62 +680,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       fontSize: 11, color: theme.mutedForeground,
       marginTop: 4, marginLeft: 22,
     },
-    // Expense — form
-    expenseForm: {
-      backgroundColor: theme.muted, borderRadius: 14,
-      padding: 16, marginTop: 10, gap: 14,
-    },
-    expenseCatScroll: {
-      marginBottom: 2,
-    },
-    expenseCatPill: {
-      flexDirection: "row", alignItems: "center", gap: 4,
-      paddingVertical: 8, paddingHorizontal: 14,
-      borderRadius: 20, backgroundColor: theme.card,
-      borderWidth: 1, borderColor: theme.border,
-      marginRight: 8,
-    },
-    expenseCatPillActive: {
-      backgroundColor: theme.foreground, borderColor: theme.foreground,
-    },
-    expenseCatPillIcon: { fontSize: 15 },
-    expenseCatPillLabel: { fontSize: 13, fontWeight: "600", color: theme.foreground },
-    expenseCatPillLabelActive: { color: theme.background },
-    expenseAmtRow: {
-      flexDirection: "row", alignItems: "center", gap: 10,
-    },
-    expenseInput: {
-      flex: 1,
-      backgroundColor: theme.card, borderRadius: 10,
-      padding: 12, fontSize: 16, color: theme.foreground,
-      borderWidth: 1, borderColor: theme.border,
-    },
-    expenseUnit: {
-      fontSize: 14, color: theme.mutedForeground, fontWeight: "600",
-    },
-    expenseMemoInput: {
-      backgroundColor: theme.card, borderRadius: 10,
-      padding: 12, fontSize: 13, color: theme.foreground,
-      borderWidth: 1, borderColor: theme.border,
-    },
-    expenseActions: {
-      flexDirection: "row", gap: 10,
-    },
-    expenseFormCancel: {
-      flex: 1, paddingVertical: 12, borderRadius: 12,
-      borderWidth: 1, borderColor: theme.border,
-      alignItems: "center",
-    },
-    expenseFormCancelText: {
-      fontSize: 14, fontWeight: "600", color: theme.foreground,
-    },
-    expenseAddBtn: {
-      flex: 1, paddingVertical: 12, borderRadius: 12,
-      backgroundColor: theme.foreground, alignItems: "center",
-    },
-    expenseAddBtnText: {
-      fontSize: 14, fontWeight: "700", color: theme.background,
-    },
+    // Expense — form (now shared via ExpenseForm component)
     expenseAddLink: {
       flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 4,
       paddingVertical: 12, marginTop: 6,
@@ -1318,62 +1264,30 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
                   {/* Inline add form */}
                   {showExpenseInput ? (
-                    <View style={styles.expenseForm}>
-                      {/* Category selector — horizontal scrollable pills */}
-                      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.expenseCatScroll}>
-                        {(Object.entries(EXPENSE_CATEGORIES) as [ExpenseCategory, typeof EXPENSE_CATEGORIES[ExpenseCategory]][]).map(([key, info]) => (
-                          <Pressable
-                            key={key}
-                            style={[styles.expenseCatPill, newExpenseCat === key && styles.expenseCatPillActive]}
-                            onPress={() => setNewExpenseCat(key)}
-                          >
-                            <Text style={styles.expenseCatPillIcon}>{info.icon}</Text>
-                            <Text style={[styles.expenseCatPillLabel, newExpenseCat === key && styles.expenseCatPillLabelActive]}>{info.label}</Text>
-                          </Pressable>
-                        ))}
-                      </ScrollView>
-                      {/* Amount input + 원 label */}
-                      <View style={styles.expenseAmtRow}>
-                        <TextInput
-                          style={styles.expenseInput}
-                          value={newExpenseAmt}
-                          onChangeText={setNewExpenseAmt}
-                          placeholder="금액"
-                          placeholderTextColor={theme.mutedForeground}
-                          keyboardType="number-pad"
-                          autoFocus
-                        />
-                        <Text style={styles.expenseUnit}>원</Text>
-                      </View>
-                      {/* Memo */}
-                      <TextInput
-                        style={styles.expenseMemoInput}
-                        value={newExpenseMemo}
-                        onChangeText={setNewExpenseMemo}
-                        placeholder="무엇을 사셨나요? (선택)"
-                        placeholderTextColor={theme.mutedForeground}
-                      />
-                      {/* Action buttons — equal sized */}
-                      <View style={styles.expenseActions}>
-                        <Pressable style={styles.expenseFormCancel} onPress={() => {
-                          setShowExpenseInput(false);
-                          setNewExpenseAmt("");
-                          setNewExpenseMemo("");
-                        }}>
-                          <Text style={styles.expenseFormCancelText}>취소</Text>
-                        </Pressable>
-                        <Pressable style={styles.expenseAddBtn} onPress={() => {
-                          const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
-                          if (!amt || amt <= 0) return;
-                          setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
-                          setNewExpenseAmt("");
-                          setNewExpenseMemo("");
-                          setShowExpenseInput(false);
-                        }}>
-                          <Text style={styles.expenseAddBtnText}>추가</Text>
-                        </Pressable>
-                      </View>
-                    </View>
+                    <ExpenseForm
+                      category={newExpenseCat}
+                      onCategoryChange={setNewExpenseCat}
+                      amount={newExpenseAmt}
+                      onAmountChange={setNewExpenseAmt}
+                      memo={newExpenseMemo}
+                      onMemoChange={setNewExpenseMemo}
+                      onSave={() => {
+                        const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
+                        if (!amt || amt <= 0) return;
+                        setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
+                        setNewExpenseAmt("");
+                        setNewExpenseMemo("");
+                        setShowExpenseInput(false);
+                      }}
+                      onCancel={() => {
+                        setNewExpenseAmt("");
+                        setNewExpenseMemo("");
+                        setShowExpenseInput(false);
+                      }}
+                      saveLabel="추가"
+                      cancelLabel="취소"
+                      autoFocusAmount
+                    />
                   ) : (
                     <Pressable style={styles.expenseAddLink} onPress={() => setShowExpenseInput(true)}>
                       <Text style={styles.expenseAddLinkText}>＋ 지출 추가</Text>

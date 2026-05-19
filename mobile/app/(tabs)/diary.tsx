@@ -1,7 +1,6 @@
 import { useState, useCallback, useMemo, useRef } from "react";
 import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { useFocusEffect } from "expo-router";
-import { TEAM_COLORS } from "@shared/teamColors";
 import DiaryTimeline from "@/components/DiaryTimeline";
 import DiaryCalendar from "@/components/DiaryCalendar";
 import DiaryStats from "@/components/DiaryStats";
@@ -10,7 +9,10 @@ import ExpenseCalendar from "@/components/ExpenseCalendar";
 import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 import ExpenseModal from "@/components/ExpenseModal";
-import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
+import { getJikgwanRecords, deleteJikgwanRecord, updateJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
+import { cachedDailyScores } from "@/lib/gameCache";
+import { parseGameTeamIds } from "@shared/constants";
+import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
@@ -111,7 +113,7 @@ export default function DiaryScreen() {
     },
     fabText: {
       fontSize: 28,
-      color: theme.background,
+      color: "#fff",
       fontWeight: "300",
       lineHeight: 30,
     },
@@ -123,6 +125,7 @@ export default function DiaryScreen() {
   const [refreshing, setRefreshing] = useState(false);
 
   const { myTeam } = useTeam();
+  const teamColor = myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground;
   const [showEntryModal, setShowEntryModal] = useState(false);
   const [editingRecord, setEditingRecord] = useState<JikgwanRecord | null>(null);
   const [presetDate, setPresetDate] = useState<Date | null>(null);
@@ -171,6 +174,64 @@ export default function DiaryScreen() {
   const [expCalYear, setExpCalYear] = useState(now.getFullYear());
   const [expCalMonth, setExpCalMonth] = useState(now.getMonth());
 
+  const refreshStaleScores = useCallback(async (records: JikgwanRecord[]) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const stale = records.filter((r) => {
+      if (r.score_away != null || r.score_home != null) return false;
+      if (!r.game_id) return false;
+      const parts = r.date.split(".");
+      if (parts.length !== 3) return false;
+      const d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      return d <= today;
+    });
+    if (stale.length === 0) return;
+    // Group by date to batch API calls
+    const byDate = new Map<string, JikgwanRecord[]>();
+    for (const r of stale) {
+      const apiDate = `${r.date.split(".").join("-")}`;
+      const list = byDate.get(apiDate) || [];
+      list.push(r);
+      byDate.set(apiDate, list);
+    }
+    let updated = false;
+    for (const [apiDate, recs] of byDate) {
+      try {
+        const scores = await cachedDailyScores(apiDate);
+        if (!scores?.games) continue;
+        for (const r of recs) {
+          const { awayId, homeId } = parseGameTeamIds(r.game_id);
+          if (!awayId || !homeId) continue;
+          const awayShort = TEAM_COLORS[awayId]?.shortName;
+          const homeShort = TEAM_COLORS[homeId]?.shortName;
+          const match = scores.games.find(
+            (s) => s.away === awayShort && s.home === homeShort
+          );
+          if (!match || match.outcome == null || match.cancelled) continue;
+          const sa = match.awayScore;
+          const sh = match.homeScore;
+          let isWin: number | null = null;
+          if (r.cheered_team) {
+            if (r.cheered_team === awayId) isWin = sa > sh ? 1 : sa < sh ? -1 : 0;
+            else if (r.cheered_team === homeId) isWin = sh > sa ? 1 : sh < sa ? -1 : 0;
+          }
+          await updateJikgwanRecord(r.id, {
+            score_away: sa,
+            score_home: sh,
+            is_win: isWin,
+          });
+          updated = true;
+        }
+      } catch (e) {
+        console.warn("refreshScores failed for", apiDate, e);
+      }
+    }
+    if (updated) {
+      const fresh = await getJikgwanRecords();
+      setRecords(fresh);
+    }
+  }, []);
+
   const loadData = useCallback(async () => {
     try {
       const [data, exps] = await Promise.all([
@@ -179,10 +240,12 @@ export default function DiaryScreen() {
       ]);
       setRecords(data);
       setExpenses(exps);
+      // Auto-refresh scores for past games with null scores
+      refreshStaleScores(data);
     } catch (e) {
       console.warn("diary.tsx loadData failed", e);
     }
-  }, []);
+  }, [refreshStaleScores]);
 
   useFocusEffect(
     useCallback(() => {
@@ -226,8 +289,11 @@ export default function DiaryScreen() {
 
   const handleExpenseSaved = () => {
     setShowExpenseModal(false);
+    setExpensePresetDate(null);
     loadData();
   };
+
+  const [expensePresetDate, setExpensePresetDate] = useState<Date | null>(null);
 
   const handleExpenseSheetRefresh = async () => {
     try {
@@ -279,9 +345,11 @@ export default function DiaryScreen() {
   };
 
   const showSubTabs = activeTab === "calendar" || activeTab === "stats";
+  const isExpenseFab = showSubTabs && subTab === "expense";
 
   const handleFabPress = () => {
-    if (showSubTabs && subTab === "expense") {
+    if (isExpenseFab) {
+      setExpensePresetDate(null);
       setShowExpenseModal(true);
     } else {
       setShowEntryModal(true);
@@ -398,6 +466,10 @@ export default function DiaryScreen() {
                 expenses={sheetExpenses}
                 onClose={() => { setExpenseSheetDate(null); setSheetExpenses([]); }}
                 onRefresh={handleExpenseSheetRefresh}
+                onAdd={() => {
+                  setExpensePresetDate(expenseSheetDate);
+                  setShowExpenseModal(true);
+                }}
               />
             )}
           </View>
@@ -425,7 +497,10 @@ export default function DiaryScreen() {
       </View>
 
       {/* FAB — context-aware */}
-      <Pressable style={[styles.fab, subTab === "expense" && { backgroundColor: theme.mutedForeground }]} onPress={handleFabPress}>
+      <Pressable
+        style={[styles.fab, { backgroundColor: isExpenseFab ? "gray" : teamColor }]}
+        onPress={handleFabPress}
+      >
         <Text style={styles.fabText}>+</Text>
       </Pressable>
 
@@ -441,8 +516,9 @@ export default function DiaryScreen() {
       {/* Expense Modal */}
       <ExpenseModal
         visible={showExpenseModal}
-        onClose={() => setShowExpenseModal(false)}
+        onClose={() => { setShowExpenseModal(false); setExpensePresetDate(null); }}
         onSaved={handleExpenseSaved}
+        presetDate={expensePresetDate}
       />
     </View>
   );

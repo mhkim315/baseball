@@ -1,11 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import {
-  View, Text, Pressable, TextInput, StyleSheet, ScrollView,
+  View, Text, Pressable, StyleSheet, ScrollView, Keyboard, Platform, Animated,
 } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { useTheme } from "@/lib/ThemeContext";
 import BottomSheet from "@/components/BottomSheet";
-import { EXPENSE_CATEGORIES, addExpense, type ExpenseCategory } from "@/lib/db";
+import ExpenseForm from "@/components/ExpenseForm";
+import { getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
+import { addExpense, type ExpenseCategory } from "@/lib/db";
 
+const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+
+type Step = "calendar" | "input";
 
 interface ExpenseModalProps {
   visible: boolean;
@@ -18,15 +24,37 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
   const { theme } = useTheme();
 
   const now = new Date();
+  const [step, setStep] = useState<Step>("calendar");
   const [selectedDate, setSelectedDate] = useState(presetDate || now);
+  const [calYear, setCalYear] = useState((presetDate || now).getFullYear());
+  const [calMonth, setCalMonth] = useState((presetDate || now).getMonth());
   const [category, setCategory] = useState<ExpenseCategory>("food");
   const [amount, setAmount] = useState("");
   const [memo, setMemo] = useState("");
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const scrollRef = useRef<ScrollView>(null);
+
+  // Track keyboard height for ScrollView padding
+  useEffect(() => {
+    const show = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillShow" : "keyboardDidShow",
+      (e) => setKeyboardHeight(e.endCoordinates.height)
+    );
+    const hide = Keyboard.addListener(
+      Platform.OS === "ios" ? "keyboardWillHide" : "keyboardDidHide",
+      () => setKeyboardHeight(0)
+    );
+    return () => { show.remove(); hide.remove(); };
+  }, []);
 
   // Reset on open
   useEffect(() => {
     if (visible) {
-      setSelectedDate(presetDate || new Date());
+      const d = presetDate || new Date();
+      setSelectedDate(d);
+      setCalYear(d.getFullYear());
+      setCalMonth(d.getMonth());
+      setStep(presetDate ? "input" : "calendar");
       setCategory("food");
       setAmount("");
       setMemo("");
@@ -53,10 +81,53 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
     }
   };
 
+  const handleDateSelect = (day: number) => {
+    setSelectedDate(new Date(calYear, calMonth, day));
+    setStep("input");
+    requestAnimationFrame(() => scrollRef.current?.scrollToEnd({ animated: true }));
+  };
+
+  // Calendar
+  const daysInMonth = getDaysInMonth(calYear, calMonth);
+  const firstDay = getFirstDayOfMonth(calYear, calMonth);
+  const today = new Date();
+  const isCurrentMonth = today.getFullYear() === calYear && today.getMonth() === calMonth;
+  const cells: { day: number; isToday: boolean }[] = [];
+  for (let i = 0; i < firstDay; i++) cells.push({ day: 0, isToday: false });
+  for (let d = 1; d <= daysInMonth; d++) {
+    cells.push({ day: d, isToday: isCurrentMonth && today.getDate() === d });
+  }
+  const isSelectedToday = selectedDate.getFullYear() === calYear && selectedDate.getMonth() === calMonth;
+
+  const calPrev = () => {
+    const m = calMonth === 0 ? 11 : calMonth - 1;
+    setCalYear(calMonth === 0 ? calYear - 1 : calYear);
+    setCalMonth(m);
+  };
+  const calNext = () => {
+    const m = calMonth === 11 ? 0 : calMonth + 1;
+    setCalYear(calMonth === 11 ? calYear + 1 : calYear);
+    setCalMonth(m);
+  };
+  const calPrevRef = useRef(calPrev);
+  calPrevRef.current = calPrev;
+  const calNextRef = useRef(calNext);
+  calNextRef.current = calNext;
+  const calTranslateX = useRef(new Animated.Value(0)).current;
+  const calMonthPanGesture = Gesture.Pan()
+    .activeOffsetX([-15, 15])
+    .failOffsetY([-10, 10])
+    .onUpdate((e) => { calTranslateX.setValue(Math.max(-40, Math.min(40, e.translationX))); })
+    .onEnd((e) => {
+      if (e.translationX > 60) calPrevRef.current();
+      else if (e.translationX < -60) calNextRef.current();
+      Animated.spring(calTranslateX, { toValue: 0, useNativeDriver: true }).start();
+    });
+
   const styles = useMemo(() => StyleSheet.create({
     header: {
       flexDirection: "row", alignItems: "center",
-      paddingHorizontal: 20, marginBottom: 16,
+      paddingHorizontal: 20, marginBottom: 12,
     },
     headerBtn: {
       paddingVertical: 8, paddingHorizontal: 12,
@@ -65,131 +136,139 @@ export default function ExpenseModal({ visible, onClose, onSaved, presetDate }: 
     headerCancelBtn: {
       borderWidth: 1, borderColor: theme.border,
     },
-    headerSaveBtn: {
-      backgroundColor: theme.foreground,
+    headerBackBtn: {
+      paddingVertical: 8, paddingHorizontal: 12,
+      borderRadius: 10, alignItems: "center",
     },
+    headerBackText: { fontSize: 14, color: theme.mutedForeground, fontWeight: "600" },
     headerBtnText: {
       fontSize: 14, fontWeight: "600",
     },
     headerCancelText: {
       color: theme.foreground,
     },
-    headerSaveText: {
-      fontWeight: "700", color: theme.background,
-    },
     title: {
       flex: 1,
       fontSize: 17, fontWeight: "700", color: theme.foreground, textAlign: "center",
     },
-    content: { padding: 20, paddingTop: 0 },
-    section: { marginBottom: 20 },
-    sectionTitle: { fontSize: 14, fontWeight: "700", color: theme.foreground, marginBottom: 10 },
-    dateText: { fontSize: 15, color: theme.foreground, fontWeight: "600" },
-    catRow: {
-      flexDirection: "row", gap: 8, flexWrap: "wrap",
+    // Calendar
+    calHeader: {
+      flexDirection: "row", justifyContent: "space-between", alignItems: "center",
+      marginBottom: 8,
     },
-    catBtn: {
-      flexDirection: "row", alignItems: "center", gap: 4,
-      paddingVertical: 10, paddingHorizontal: 14,
-      borderRadius: 12, backgroundColor: theme.card,
-      borderWidth: 1, borderColor: theme.border,
+    calNav: { fontSize: 14, color: theme.foreground, paddingHorizontal: 8 },
+    calMonth: { fontSize: 15, fontWeight: "700", color: theme.foreground },
+    calDayRow: { flexDirection: "row", marginBottom: 2 },
+    calDayHeader: {
+      flex: 1, textAlign: "center", fontSize: 11,
+      color: theme.mutedForeground, fontWeight: "600", paddingVertical: 4,
     },
-    catBtnActive: {
-      borderColor: theme.foreground, backgroundColor: theme.muted,
+    calGrid: { flexDirection: "row", flexWrap: "wrap" },
+    calCell: {
+      width: "14.28%", aspectRatio: 1,
+      justifyContent: "center", alignItems: "center",
     },
-    catIcon: { fontSize: 16 },
-    catLabel: { fontSize: 13, color: theme.foreground, fontWeight: "500" },
-    input: {
-      backgroundColor: theme.card, borderRadius: 12,
-      padding: 14, fontSize: 16, color: theme.foreground,
-      borderWidth: 1, borderColor: theme.border,
+    calDayInner: {
+      width: 30, height: 30, justifyContent: "center", alignItems: "center", borderRadius: 15,
     },
-    memoInput: {
-      backgroundColor: theme.card, borderRadius: 12,
-      padding: 14, fontSize: 14, color: theme.foreground,
-      borderWidth: 1, borderColor: theme.border,
+    calDayToday: { backgroundColor: theme.muted },
+    calDaySelected: { backgroundColor: theme.foreground },
+    calDayNum: { fontSize: 13, color: theme.foreground, fontWeight: "500" },
+    calDayNumSelected: { color: theme.background, fontWeight: "700" },
+    // Input step
+    dateLabel: {
+      fontSize: 15, color: theme.foreground, fontWeight: "600", marginBottom: 16,
+      paddingHorizontal: 20,
     },
-    bottomRow: {
-      flexDirection: "row", gap: 12,
-      paddingHorizontal: 20, paddingTop: 8,
+    formWrapper: {
+      paddingHorizontal: 20, paddingBottom: 20,
     },
-    cancelBtn: {
-      flex: 1, paddingVertical: 14, borderRadius: 14,
-      borderWidth: 1, borderColor: theme.border, alignItems: "center",
-    },
-    cancelText: { fontSize: 14, color: theme.foreground, fontWeight: "600" },
-    saveBtn: {
-      flex: 1, paddingVertical: 14, borderRadius: 14,
-      backgroundColor: theme.foreground, alignItems: "center",
-    },
-    saveText: { fontSize: 14, fontWeight: "700", color: theme.background },
   }), [theme]);
 
   return (
-    <>
-      <BottomSheet visible={visible} onClose={onClose}>
-        <View style={styles.header}>
-          <Pressable style={[styles.headerBtn, styles.headerCancelBtn]} onPress={onClose}>
-              <Text style={[styles.headerBtnText, styles.headerCancelText]}>취소</Text>
-            </Pressable>
-            <Text style={styles.title}>지출 기록</Text>
-            <Pressable style={[styles.headerBtn, styles.headerSaveBtn]} onPress={handleSave}>
-              <Text style={[styles.headerBtnText, styles.headerSaveText]}>저장</Text>
-            </Pressable>
-          </View>
-
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-
-            {/* Date */}
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>날짜</Text>
-              <Text style={styles.dateText}>{dateStr}</Text>
+    <BottomSheet visible={visible} onClose={onClose}>
+      <ScrollView
+        ref={scrollRef}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 0, paddingBottom: 20 + keyboardHeight }}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="interactive"
+      >
+        {step === "calendar" ? (
+          <>
+            <View style={styles.header}>
+              <Pressable style={[styles.headerBtn, styles.headerCancelBtn]} onPress={onClose}>
+                <Text style={[styles.headerBtnText, styles.headerCancelText]}>취소</Text>
+              </Pressable>
+              <Text style={styles.title}>날짜 선택</Text>
+              <View style={{ minWidth: 52 }} />
             </View>
 
-            {/* Category */}
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>카테고리</Text>
-              <View style={styles.catRow}>
-                {(Object.entries(EXPENSE_CATEGORIES) as [ExpenseCategory, { label: string; icon: string }][]).map(([key, info]) => (
-                  <Pressable
-                    key={key}
-                    style={[styles.catBtn, category === key && styles.catBtnActive]}
-                    onPress={() => setCategory(key)}
-                  >
-                    <Text style={styles.catIcon}>{info.icon}</Text>
-                    <Text style={styles.catLabel}>{info.label}</Text>
+            <GestureDetector gesture={calMonthPanGesture}>
+              <Animated.View style={{ paddingHorizontal: 20, transform: [{ translateX: calTranslateX }] }}>
+                <View style={styles.calHeader}>
+                  <Pressable onPress={calPrev} hitSlop={8}>
+                    <Text style={styles.calNav}>◀</Text>
                   </Pressable>
-                ))}
-              </View>
+                  <Text style={styles.calMonth}>{calYear}년 {calMonth + 1}월</Text>
+                  <Pressable onPress={calNext} hitSlop={8}>
+                    <Text style={styles.calNav}>▶</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.calDayRow}>
+                  {DAYS.map((d, i) => (
+                    <Text key={d} style={[styles.calDayHeader, (i === 0 || i === 6) && { color: theme.mutedForeground }]}>{d}</Text>
+                  ))}
+                </View>
+                <View style={styles.calGrid}>
+                  {cells.map((cell, idx) => {
+                    if (cell.day === 0) return <View key={`e-${idx}`} style={styles.calCell} />;
+                    const sel = isSelectedToday && selectedDate.getDate() === cell.day;
+                    return (
+                      <Pressable key={`d-${cell.day}`} style={styles.calCell} onPress={() => handleDateSelect(cell.day)}>
+                        <View style={[styles.calDayInner, cell.isToday && styles.calDayToday, sel && styles.calDaySelected]}>
+                          <Text style={[styles.calDayNum, sel && styles.calDayNumSelected]}>{cell.day}</Text>
+                        </View>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </Animated.View>
+            </GestureDetector>
+          </>
+        ) : (
+          <>
+            <View style={styles.header}>
+              <Pressable style={styles.headerBackBtn} onPress={() => {
+                setStep("calendar");
+                setKeyboardHeight(0);
+              }}>
+                <Text style={styles.headerBackText}>← 뒤로</Text>
+              </Pressable>
+              <Text style={styles.title}>지출 기록</Text>
+              <View style={{ minWidth: 52 }} />
             </View>
 
-            {/* Amount */}
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>금액</Text>
-              <TextInput
-                style={styles.input}
-                value={amount}
-                onChangeText={setAmount}
-                placeholder="0"
-                placeholderTextColor={theme.mutedForeground}
-                keyboardType="number-pad"
-                autoFocus
-              />
-            </View>
+            <Text style={styles.dateLabel}>{dateStr}</Text>
 
-            {/* Memo */}
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>메모 (선택)</Text>
-              <TextInput
-                style={styles.memoInput}
-                value={memo}
-                onChangeText={setMemo}
-                placeholder="무엇을 샀나요?"
-                placeholderTextColor={theme.mutedForeground}
+            <View style={styles.formWrapper}>
+              <ExpenseForm
+                category={category}
+                onCategoryChange={setCategory}
+                amount={amount}
+                onAmountChange={setAmount}
+                memo={memo}
+                onMemoChange={setMemo}
+                onSave={handleSave}
+                onCancel={() => { setStep("calendar"); setKeyboardHeight(0); }}
+                saveLabel="저장"
+                cancelLabel="취소"
+                autoFocusAmount
               />
             </View>
-          </ScrollView>
-      </BottomSheet>
-    </>
+          </>
+        )}
+      </ScrollView>
+    </BottomSheet>
   );
 }

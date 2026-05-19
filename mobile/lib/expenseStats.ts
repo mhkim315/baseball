@@ -74,12 +74,14 @@ export function computeExpenseStats(expenses: Expense[], seasonYear = 2026): Exp
   return { seasonTotal, categoryTotals, monthlyTotals };
 }
 
-/** Get daily totals for a month (for calendar display) */
-export function getDailyTotals(expenses: Expense[]): Map<number, number> {
+/** Get daily totals for a specific month (for calendar display).
+ *  @param month 0-indexed (0=January, 11=December) — matches JS Date convention. */
+export function getDailyTotals(expenses: Expense[], year: number, month: number): Map<number, number> {
   const totals = new Map<number, number>();
   for (const e of expenses) {
     const parts = e.date.split(".");
     if (parts.length < 3) continue;
+    if (parseInt(parts[0]) !== year || parseInt(parts[1]) !== month + 1) continue;
     const day = parseInt(parts[2]);
     if (isNaN(day)) continue;
     totals.set(day, (totals.get(day) || 0) + e.amount);
@@ -120,6 +122,7 @@ export function computeHomeAwayExpenses(expenses: Expense[], records: JikgwanRec
     const rec = recMap.get(e.record_id);
     if (!rec?.game_id || !rec.cheered_team) continue;
     const { homeId } = parseGameTeamIds(rec.game_id);
+    if (!homeId) continue;
     if (homeId === rec.cheered_team) {
       homeTotal.total += e.amount; homeTotal.games.add(e.record_id);
     } else {
@@ -148,10 +151,11 @@ export function computeWinLossExpenses(expenses: Expense[], records: JikgwanReco
   for (const e of expenses) {
     if (e.record_id == null) continue;
     const rec = recMap.get(e.record_id);
-    if (!rec || rec.is_win == null) continue;
-    if (rec.is_win === 1) { w.total += e.amount; w.games.add(e.record_id); }
-    else if (rec.is_win === -1) { l.total += e.amount; l.games.add(e.record_id); }
-    else { d.total += e.amount; d.games.add(e.record_id); }
+    if (!rec) continue;
+    const iw = resolveIsWin(rec);
+    if (iw === 1) { w.total += e.amount; w.games.add(e.record_id); }
+    else if (iw === -1) { l.total += e.amount; l.games.add(e.record_id); }
+    else if (iw === 0) { d.total += e.amount; d.games.add(e.record_id); }
   }
   if (w.games.size === 0 && l.games.size === 0 && d.games.size === 0) return null;
   return {
@@ -176,9 +180,9 @@ export function computeStadiumExpenses(expenses: Expense[], records: JikgwanReco
     if (e.record_id == null) continue;
     const rec = recMap.get(e.record_id);
     if (!rec?.stadium) continue;
-    const s = m.get(rec.stadium) || { total: 0, games: new Set() };
+    if (!m.has(rec.stadium)) m.set(rec.stadium, { total: 0, games: new Set() });
+    const s = m.get(rec.stadium)!;
     s.total += e.amount; s.games.add(e.record_id);
-    m.set(rec.stadium, s);
   }
   if (m.size === 0) return null;
   return Array.from(m.entries()).map(([stadium, v]) => ({
@@ -192,6 +196,20 @@ export interface ResultCategoryData {
   loss: Map<string, number>;
 }
 
+/** Derive isWin from record scores when stored is_win is null/unset.
+ *  Only returns a result when both scores are present and not both zero. */
+function resolveIsWin(rec: JikgwanRecord): number | null {
+  if (rec.is_win != null) return rec.is_win;
+  if (rec.score_away == null || rec.score_home == null) return null;
+  if (rec.score_away === 0 && rec.score_home === 0) return null;
+  if (!rec.cheered_team) return null;
+  const { awayId, homeId } = parseGameTeamIds(rec.game_id);
+  if (!awayId || !homeId) return null;
+  if (rec.cheered_team === homeId) return rec.score_home > rec.score_away ? 1 : rec.score_home < rec.score_away ? -1 : 0;
+  if (rec.cheered_team === awayId) return rec.score_away > rec.score_home ? 1 : rec.score_away < rec.score_home ? -1 : 0;
+  return null;
+}
+
 export function computeResultCategoryExpenses(expenses: Expense[], records: JikgwanRecord[]): ResultCategoryData | null {
   const recMap = new Map<number, JikgwanRecord>();
   for (const r of records) recMap.set(r.id, r);
@@ -200,9 +218,10 @@ export function computeResultCategoryExpenses(expenses: Expense[], records: Jikg
   for (const e of expenses) {
     if (e.record_id == null) continue;
     const rec = recMap.get(e.record_id);
-    if (!rec || rec.is_win == null) continue;
-    if (rec.is_win === 1) winMap.set(e.category, (winMap.get(e.category) || 0) + e.amount);
-    else if (rec.is_win === -1) lossMap.set(e.category, (lossMap.get(e.category) || 0) + e.amount);
+    if (!rec) continue;
+    const iw = resolveIsWin(rec);
+    if (iw === 1) winMap.set(e.category, (winMap.get(e.category) || 0) + e.amount);
+    else if (iw === -1) lossMap.set(e.category, (lossMap.get(e.category) || 0) + e.amount);
   }
   if (winMap.size === 0 && lossMap.size === 0) return null;
   return { win: winMap, loss: lossMap };

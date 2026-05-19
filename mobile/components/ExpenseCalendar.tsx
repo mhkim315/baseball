@@ -22,7 +22,7 @@ export default function ExpenseCalendar({
 }: ExpenseCalendarProps) {
   const { theme } = useTheme();
 
-  const dailyTotals = useMemo(() => getDailyTotals(expenses), [expenses]);
+  const dailyTotals = useMemo(() => getDailyTotals(expenses, year, month), [expenses, year, month]);
   const recordDates = useMemo(() => {
     const set = new Set<string>();
     if (records) {

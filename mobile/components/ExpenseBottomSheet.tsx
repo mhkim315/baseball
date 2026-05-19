@@ -9,9 +9,10 @@ interface ExpenseBottomSheetProps {
   expenses: Expense[];
   onClose: () => void;
   onRefresh: () => void;
+  onAdd?: () => void;
 }
 
-export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh }: ExpenseBottomSheetProps) {
+export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh, onAdd }: ExpenseBottomSheetProps) {
   const { theme } = useTheme();
 
   const total = useMemo(() => expenses.reduce((s, e) => s + e.amount, 0), [expenses]);
@@ -98,10 +99,17 @@ export default function ExpenseBottomSheet({ date, expenses, onClose, onRefresh 
 
         <View style={styles.header}>
           <Text style={styles.title}>{dateStr}</Text>
-          <Text style={styles.totalText}>{formatAmount(total)}</Text>
-          <Pressable style={styles.closeBtn} onPress={onClose}>
-            <Text style={styles.closeText}>✕</Text>
-          </Pressable>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+            {onAdd && (
+              <Pressable style={{ paddingVertical: 4, paddingHorizontal: 10, borderRadius: 8, backgroundColor: theme.muted }} onPress={onAdd}>
+                <Text style={{ fontSize: 14, fontWeight: "700", color: theme.foreground }}>+ 추가</Text>
+              </Pressable>
+            )}
+            <Text style={styles.totalText}>{formatAmount(total)}</Text>
+            <Pressable style={styles.closeBtn} onPress={onClose}>
+              <Text style={styles.closeText}>✕</Text>
+            </Pressable>
+          </View>
         </View>
 
         {expenses.length === 0 ? (
