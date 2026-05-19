@@ -10,7 +10,7 @@ import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 import ExpenseModal from "@/components/ExpenseModal";
 import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
-import { cachedDailyScores } from "@/lib/gameCache";
+import { cachedDailyScores, cachedAllDailyScores } from "@/lib/gameCache";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
@@ -179,11 +179,12 @@ export default function DiaryScreen() {
   const loadData = useCallback(async () => {
     const gen = ++generationRef.current;
     try {
-      const [data, exps] = await Promise.all([
+      const [data, exps, scoresData] = await Promise.all([
         getJikgwanRecords(),
         getAllExpenses(),
+        cachedAllDailyScores(),
       ]);
-      // Merge today's scores into records in-memory (shares cache key with home tab)
+      // Merge scores into records in-memory (no DB write needed)
       const merge = (records: JikgwanRecord[], scoresList: { away: string; home: string; awayScore: number; homeScore: number; cancelled: boolean }[]) => {
         for (const r of records) {
           if (r.score_away != null && r.score_home != null) continue;
@@ -204,6 +205,14 @@ export default function DiaryScreen() {
           }
         }
       };
+      // 1) All-dates merge (Infinity TTL for past via cachedAllDailyScores)
+      if (scoresData?.dates) {
+        for (const [apiDate, dayScores] of Object.entries(scoresData.dates)) {
+          const dayRecords = data.filter((r) => r.date.split(".").join("-") === apiDate);
+          if (dayRecords.length > 0) merge(dayRecords, dayScores);
+        }
+      }
+      // 2) Overlay today's scores (shares cache key with home tab for freshness)
       const today = new Date();
       const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
       try {
