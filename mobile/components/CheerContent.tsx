@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { View, Text, Pressable, StyleSheet, ActivityIndicator, Linking, Image } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
-import { fetchCheeringSongs, fetchCheeringPlayers, fetchTodayGames, fetchGameDetail, fetchDailyScores } from "@/lib/api";
+import { cachedCheeringSongs, cachedCheeringPlayers } from "@/lib/gameCache";
+import { fetchTodayGames, fetchGameDetail, fetchDailyScores } from "@/lib/api";
 import type { CheerSection, PlayerCheer, TodayGame, ScoreEntry } from "@/lib/api";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
@@ -42,6 +43,7 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
   const [lineupSource, setLineupSource] = useState<"today" | "prev" | "dummy">("dummy");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
 
   const load = useCallback(() => {
     let cancelled = false;
@@ -49,8 +51,8 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
     setError(false);
     setLineupPlayers([]);
     Promise.all([
-      fetchCheeringSongs(teamId),
-      fetchCheeringPlayers(teamId),
+      cachedCheeringSongs(teamId),
+      cachedCheeringPlayers(teamId),
     ]).then(([songsData, playersData]) => {
       if (cancelled) return;
       if (songsData) setSections(songsData.sections);
@@ -182,6 +184,8 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
       backgroundColor: theme.card, borderRadius: 16, borderWidth: 1, borderColor: theme.border, overflow: "hidden",
     },
     galleryImage: { width: "100%", height: 200 },
+    galleryFallback: { width: "100%", height: 134, alignItems: "center", justifyContent: "center", backgroundColor: theme.muted },
+    galleryFallbackText: { fontSize: 14, color: theme.mutedForeground, fontWeight: "500" },
     galleryCaption: { fontSize: 12, color: theme.mutedForeground, lineHeight: 18, padding: 12 },
 
     // States
@@ -189,28 +193,21 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
     emptyText: { fontSize: 13, color: theme.mutedForeground },
   }), [theme]);
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color={theme.primary} />
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.errorText}>정보를 불러올 수 없습니다</Text>
-        <Pressable onPress={load} style={styles.retryBtn}>
-          <Text style={styles.retryText}>재시도</Text>
-        </Pressable>
-      </View>
-    );
-  }
-
   return (
     <View>
       {activeTab === "songs" && (
+        loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={theme.primary} />
+          </View>
+        ) : error ? (
+          <View style={styles.loadingContainer}>
+            <Text style={styles.errorText}>정보를 불러올 수 없습니다</Text>
+            <Pressable onPress={load} style={styles.retryBtn}>
+              <Text style={styles.retryText}>재시도</Text>
+            </Pressable>
+          </View>
+        ) : (
         sections.length > 0 ? (
           sections.map((section, idx) => (
             <View key={idx} style={styles.section}>
@@ -240,9 +237,22 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
             <Text style={styles.emptyText}>아직 응원가 정보가 없어요</Text>
           </View>
         )
+      )
       )}
 
       {activeTab === "players" && (
+        loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={theme.primary} />
+          </View>
+        ) : error ? (
+          <View style={styles.loadingContainer}>
+            <Text style={styles.errorText}>정보를 불러올 수 없습니다</Text>
+            <Pressable onPress={load} style={styles.retryBtn}>
+              <Text style={styles.retryText}>재시도</Text>
+            </Pressable>
+          </View>
+        ) : (
         <View style={styles.playersCard}>
           <View style={styles.playersHeader}>
             <Text style={styles.playersSource}>
@@ -270,6 +280,7 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
             </View>
           )}
         </View>
+        )
       )}
 
       {activeTab === "rules" && (
@@ -288,11 +299,18 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
           <View style={styles.gallerySection}>
             {GALLERY.map((item, i) => (
               <View key={i} style={styles.galleryCard}>
-                <Image
-                  source={{ uri: `${IMAGE_BASE}/rules/${item.img}.jpg` }}
-                  style={styles.galleryImage}
-                  resizeMode="contain"
-                />
+                {failedImages.has(i) ? (
+                  <View style={styles.galleryFallback}>
+                    <Text style={styles.galleryFallbackText}>{item.alt}</Text>
+                  </View>
+                ) : (
+                  <Image
+                    source={{ uri: `${IMAGE_BASE}/rules/${item.img}.jpg` }}
+                    style={styles.galleryImage}
+                    resizeMode="contain"
+                    onError={() => setFailedImages((prev) => new Set(prev).add(i))}
+                  />
+                )}
                 <Text style={styles.galleryCaption}>{item.caption}</Text>
               </View>
             ))}

@@ -5,10 +5,14 @@ import {
   fetchTodayGames as apiTodayGames,
   fetchGameDetail as apiGameDetail,
   fetchAllDailyScores as apiAllDailyScores,
+  fetchCheeringSongs as apiCheeringSongs,
+  fetchCheeringPlayers as apiCheeringPlayers,
   type ScoreEntry,
   type ScheduleGame,
   type TodayGame,
   type GameDetail,
+  type CheerSection,
+  type PlayerCheer,
 } from "./api";
 
 function cacheKey(name: string, id: string): string {
@@ -63,6 +67,20 @@ async function fetchWithCache<T>(
     if (parsed) return parsed as T;
   }
   return null;
+}
+
+// Cheering songs — effectively immutable per team
+export async function cachedCheeringSongs(teamId: string): Promise<{ sections: CheerSection[] } | null> {
+  return fetchWithCache(cacheKey("cheer-songs", teamId), Infinity, () =>
+    apiCheeringSongs(teamId)
+  );
+}
+
+// Cheering players — effectively immutable per team
+export async function cachedCheeringPlayers(teamId: string): Promise<{ players: PlayerCheer[] } | null> {
+  return fetchWithCache(cacheKey("cheer-players", teamId), Infinity, () =>
+    apiCheeringPlayers(teamId)
+  );
 }
 
 // Schedule by month — never changes, cache forever (key includes year)

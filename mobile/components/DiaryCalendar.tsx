@@ -6,7 +6,8 @@ import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } fro
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
-import { fetchScheduleByMonth, fetchAllDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
+import { cachedScheduleByMonth } from "@/lib/gameCache";
+import { fetchAllDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import type { JikgwanRecord } from "@/lib/db";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
@@ -41,7 +42,7 @@ export default function DiaryCalendar({
     let cancelled = false;
     setLoading(true);
     Promise.all([
-      fetchScheduleByMonth(month + 1),
+      cachedScheduleByMonth(month + 1),
       fetchAllDailyScores(),
     ]).then(([schedule, scores]) => {
       if (cancelled) return;

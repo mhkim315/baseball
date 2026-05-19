@@ -9,7 +9,7 @@ import {
   fetchStadiumBrief, fetchStadiumFoods, fetchStadiumEats, fetchStadiumSurroundings,
 } from "@/lib/api";
 import type { StadiumBrief, FoodPlace, SurroundingSpot, EatsSpot } from "@/lib/api";
-import { STADIUM_BRIEFS, TEAM_STADIUM_MAP, FOOD_CATEGORIES } from "@/lib/stadiumData";
+import { STADIUM_BRIEFS, STADIUM_FOODS, TEAM_STADIUM_MAP, FOOD_CATEGORIES } from "@/lib/stadiumData";
 import { getTicketPolicy } from "@/lib/ticketPolicy";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
@@ -306,8 +306,10 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
     if (propTeamId) setSelectedTeam(propTeamId);
   }, [propTeamId]);
 
-  const [stadium, setStadium] = useState<StadiumBrief | null>(null);
-  const [foods, setFoods] = useState<FoodPlace[]>([]);
+  const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
+
+  const [stadium, setStadium] = useState<StadiumBrief | null>(() => stadiumId ? STADIUM_BRIEFS[stadiumId] ?? null : null);
+  const [foods, setFoods] = useState<FoodPlace[]>(() => stadiumId ? STADIUM_FOODS[stadiumId] || [] : []);
   const [parking, setParking] = useState<SurroundingSpot[]>([]);
   const [transitSpots, setTransitSpots] = useState<SurroundingSpot[]>([]);
   const [nearby, setNearby] = useState<EatsSpot[]>([]);
@@ -315,8 +317,6 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
   const [surroundingsCenter, setSurroundingsCenter] = useState<number[]>([127, 37.5]);
   const [surroundingsZoom, setSurroundingsZoom] = useState(14.5);
   const [eatsCenter, setEatsCenter] = useState<number[]>([127, 37.5]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   const [focusedSpot, setFocusedSpot] = useState<string | undefined>(undefined);
   const [foodLayouts, setFoodLayouts] = useState<Record<string, any> | null>(null);
 
@@ -326,22 +326,23 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
 
   const load = useCallback(() => {
     let cancelled = false;
-    const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
-    if (!stadiumId) return;
+    const sid = TEAM_STADIUM_MAP[selectedTeam];
+    if (!sid) return;
 
-    setLoading(true);
-    setError(false);
+    // Set local data immediately for instant rendering
+    setStadium(STADIUM_BRIEFS[sid] || null);
+    setFoods(STADIUM_FOODS[sid] || []);
 
+    // Background API refresh
     Promise.all([
-      fetchStadiumBrief(stadiumId),
-      fetchStadiumFoods(stadiumId),
-      fetchStadiumEats(stadiumId),
-      fetchStadiumSurroundings(stadiumId),
+      fetchStadiumBrief(sid),
+      fetchStadiumFoods(sid),
+      fetchStadiumEats(sid),
+      fetchStadiumSurroundings(sid),
       fetch(`${IMAGE_BASE}/data/food-layouts.json`).then((r) => r.ok ? r.json() : null),
     ]).then(([brief, foodData, eatsData, surroundings, layouts]) => {
       if (cancelled) return;
-      const local = STADIUM_BRIEFS[stadiumId];
-      setStadium(convertStadiumBrief(brief, local));
+      if (brief) setStadium(brief);
       if (foodData) {
         setFoods(foodData);
         const floors = uniqueFloors(foodData);
@@ -352,26 +353,15 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
         if (eatsData.center) setEatsCenter(eatsData.center);
       }
       if (surroundings) {
-        const stadium = surroundings.spots.find((s) => s.kind === "stadium" || s.kind === "ballpark") || null;
-        setStadiumSpot(stadium);
+        const st = surroundings.spots.find((s) => s.kind === "stadium" || s.kind === "ballpark") || null;
+        setStadiumSpot(st);
         setParking(surroundings.spots.filter((s) => s.kind === "parking" || s.kind === "stadium"));
         setTransitSpots(surroundings.spots.filter((s) => s.kind === "transit" || s.kind === "bus" || s.kind === "stadium"));
         if (surroundings.center) setSurroundingsCenter(surroundings.center);
         if (surroundings.zoom) setSurroundingsZoom(surroundings.zoom);
       }
       if (layouts) setFoodLayouts(layouts);
-      setLoading(false);
-    }).catch(() => {
-      if (cancelled) return;
-      const sid = TEAM_STADIUM_MAP[selectedTeam];
-      setStadium(STADIUM_BRIEFS[sid] || null);
-      setFoods([]);
-      setNearby([]);
-      setParking([]);
-      setTransitSpots([]);
-      setError(false);
-      setLoading(false);
-    });
+    }).catch(() => {});
     return () => { cancelled = true; };
   }, [selectedTeam]);
 
@@ -385,7 +375,6 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
     tabScrollRef.current?.scrollTo({ x: 0, animated: false });
   }, [selectedTeam]);
 
-  const stadiumId = TEAM_STADIUM_MAP[selectedTeam];
   const teamColor = TEAM_COLORS[selectedTeam];
   const accent = accentColor || teamPrimaryColor(selectedTeam, isDark) || theme.primary;
 
@@ -443,17 +432,7 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
         </View>
 
         {/* Tab pages */}
-        {loading ? (
-          <View style={styles.loadingRow}>
-            <ActivityIndicator size="large" color={accent} />
-          </View>
-        ) : error ? (
-          <View style={styles.loadingRow}>
-            <Text style={styles.errorText}>정보를 불러올 수 없습니다</Text>
-            <Pressable onPress={load} style={styles.retryBtn}><Text style={styles.retryText}>재시도</Text></Pressable>
-          </View>
-        ) : (
-          <ScrollView
+        <ScrollView
             ref={tabScrollRef}
             horizontal
             pagingEnabled
@@ -514,8 +493,7 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
               </View>
             ))}
           </ScrollView>
-        )}
-    </View>
+	    </View>
   );
 }
 

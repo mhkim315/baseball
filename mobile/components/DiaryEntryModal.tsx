@@ -16,7 +16,8 @@ import { useTeam } from "@/lib/TeamContext";
 import { addJikgwanRecord, updateJikgwanRecord, type JikgwanRecord } from "@/lib/db";
 import { addExpense, getExpensesByRecordId, deleteExpensesByRecordId, EXPENSE_CATEGORIES, type Expense, type ExpenseCategory } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
-import { fetchScheduleByMonth, fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
+import { cachedScheduleByMonth } from "@/lib/gameCache";
+import { fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -202,7 +203,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       const month = date.getMonth() + 1;
       const apiDate = formatDateForApi(date);
       const [schedule, scores] = await Promise.all([
-        fetchScheduleByMonth(month),
+        cachedScheduleByMonth(month),
         fetchDailyScores(apiDate),
       ]);
 
