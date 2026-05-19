@@ -802,7 +802,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       backgroundColor: "rgba(0,0,0,0.45)",
       justifyContent: "center",
       alignItems: "center",
-      zIndex: 100,
+      zIndex: 1000,
     },
     alertCard: {
       backgroundColor: theme.card,

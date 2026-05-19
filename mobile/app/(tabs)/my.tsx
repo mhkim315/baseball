@@ -8,6 +8,8 @@ import {
   Modal,
   Switch,
   StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { useRouter, useFocusEffect } from "expo-router";
 import { Linking } from "react-native";
@@ -625,27 +627,32 @@ export default function MyScreen() {
 
       {/* Nickname Modal */}
       <Modal visible={showNicknameModal} transparent animationType="fade">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>닉네임 설정</Text>
-            <TextInput
-              style={styles.input}
-              value={nicknameInput}
-              onChangeText={setNicknameInput}
-              placeholder="닉네임을 입력하세요"
-              placeholderTextColor="#666"
-              maxLength={20}
-            />
-            <View style={styles.modalButtons}>
-              <Pressable style={styles.modalCancel} onPress={() => setShowNicknameModal(false)}>
-                <Text style={styles.modalCancelText}>취소</Text>
-              </Pressable>
-              <Pressable style={styles.modalSave} onPress={handleSaveNickname}>
-                <Text style={styles.modalSaveText}>저장</Text>
-              </Pressable>
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>닉네임 설정</Text>
+              <TextInput
+                style={styles.input}
+                value={nicknameInput}
+                onChangeText={setNicknameInput}
+                placeholder="닉네임을 입력하세요"
+                placeholderTextColor="#666"
+                maxLength={20}
+              />
+              <View style={styles.modalButtons}>
+                <Pressable style={styles.modalCancel} onPress={() => setShowNicknameModal(false)}>
+                  <Text style={styles.modalCancelText}>취소</Text>
+                </Pressable>
+                <Pressable style={styles.modalSave} onPress={handleSaveNickname}>
+                  <Text style={styles.modalSaveText}>저장</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </Modal>
 
       {/* Team Picker Modal */}
