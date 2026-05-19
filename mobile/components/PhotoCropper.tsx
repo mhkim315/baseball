@@ -35,6 +35,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
   const imageRef = useRef<Image>(null);
   const offsetRef = useRef({ x: 0, y: 0 });
   const imageDisplayRef = useRef({ w: 0, h: 0 });
+  const naturalSizeRef = useRef({ w: 0, h: 0 });
   const scaleRef = useRef(1);
   const zoomPctRef = useRef(100);
 
@@ -125,6 +126,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
 
   const handleImageLoad = (e: any) => {
     const { width: imgW, height: imgH } = e.nativeEvent.source;
+    naturalSizeRef.current = { w: imgW, h: imgH };
     const scale = Math.max(CROP_SIZE / imgW, CROP_SIZE / imgH);
     const dispW = imgW * scale;
     const dispH = imgH * scale;
@@ -148,16 +150,14 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
       const visWidth = Math.min(CROP_SIZE / s, dispW - visLeft);
       const visHeight = Math.min(CROP_SIZE / s, dispH - visTop);
 
-      const imgInfo = await new Promise<{ width: number; height: number }>((resolve) => {
-        Image.getSize(imageUri, (w, h) => resolve({ width: w, height: h }), () => resolve({ width: 0, height: 0 }));
-      });
-      if (imgInfo.width === 0 || dispW === 0) {
+      const { w: imgNatW, h: imgNatH } = naturalSizeRef.current;
+      if (imgNatW === 0 || dispW === 0) {
         onCrop(imageUri);
         return;
       }
 
-      const scaleX = imgInfo.width / dispW;
-      const scaleY = imgInfo.height / dispH;
+      const scaleX = imgNatW / dispW;
+      const scaleY = imgNatH / dispH;
       const cropRect = {
         originX: Math.round(visLeft * scaleX),
         originY: Math.round(visTop * scaleY),
