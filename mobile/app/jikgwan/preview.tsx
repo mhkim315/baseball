@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo } from "react";
 import { View, Text, Image, Pressable, StyleSheet, ActivityIndicator, Alert } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import ViewShot, { captureRef } from "react-native-view-shot";
+import ViewShot, { captureRef, type ViewShotRef } from "react-native-view-shot";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { useTheme } from "@/lib/ThemeContext";
@@ -26,7 +26,7 @@ export default function JikgwanPreviewScreen() {
     awayScore: string;
     stadium: string;
   }>();
-  const shotRef = useRef<ViewShot>(null);
+  const shotRef = useRef<ViewShotRef>(null);
   const [frameStyle, setFrameStyle] = useState("classic");
   const [saving, setSaving] = useState(false);
 

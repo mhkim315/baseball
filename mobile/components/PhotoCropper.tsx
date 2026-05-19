@@ -4,7 +4,7 @@ import {
   Dimensions, GestureResponderEvent,
 } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
-import { cropToSquare } from "@/lib/camera";
+import { captureRef } from "react-native-view-shot";
 
 interface PhotoCropperProps {
   visible: boolean;
@@ -15,19 +15,15 @@ interface PhotoCropperProps {
 
 const CROP_SIZE = Dimensions.get("window").width - 32;
 
-function clamp(v: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, v));
-}
-
 export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: PhotoCropperProps) {
   const { theme } = useTheme();
   const [loading, setLoading] = useState(false);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 
+  const guideRef = useRef<View>(null);
   const imageRef = useRef<Image>(null);
   const offsetRef = useRef({ x: 0, y: 0 });
   const imageDisplayRef = useRef({ w: 0, h: 0 });
-  const naturalSizeRef = useRef({ w: 0, h: 0 });
   const lastTouchRef = useRef({ x: 0, y: 0 });
 
   const getMaxOffset = useCallback(() => {
@@ -57,14 +53,13 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
     lastTouchRef.current = { x: touch.pageX, y: touch.pageY };
 
     const max = getMaxOffset();
-    offsetRef.current.x = clamp(offsetRef.current.x + dx, -max.x, max.x);
-    offsetRef.current.y = clamp(offsetRef.current.y + dy, -max.y, max.y);
+    offsetRef.current.x = Math.max(-max.x, Math.min(max.x, offsetRef.current.x + dx));
+    offsetRef.current.y = Math.max(-max.y, Math.min(max.y, offsetRef.current.y + dy));
     applyTransform();
   }, [getMaxOffset, applyTransform]);
 
   const handleImageLoad = (e: any) => {
     const { width: imgW, height: imgH } = e.nativeEvent.source;
-    naturalSizeRef.current = { w: imgW, h: imgH };
     const scale = Math.max(CROP_SIZE / imgW, CROP_SIZE / imgH);
     const dispW = imgW * scale;
     const dispH = imgH * scale;
@@ -76,31 +71,8 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
   const handleConfirm = async () => {
     setLoading(true);
     try {
-      const { w: dispW, h: dispH } = imageDisplayRef.current;
-      const offset = offsetRef.current;
-
-      const visLeft = clamp(dispW / 2 - CROP_SIZE / 2 - offset.x, 0, Math.max(0, dispW - CROP_SIZE));
-      const visTop = clamp(dispH / 2 - CROP_SIZE / 2 - offset.y, 0, Math.max(0, dispH - CROP_SIZE));
-      const visWidth = Math.min(CROP_SIZE, dispW - visLeft);
-      const visHeight = Math.min(CROP_SIZE, dispH - visTop);
-
-      const { w: imgNatW, h: imgNatH } = naturalSizeRef.current;
-      if (imgNatW === 0 || dispW === 0) {
-        onCrop(imageUri);
-        return;
-      }
-
-      const scaleX = imgNatW / dispW;
-      const scaleY = imgNatH / dispH;
-      const cropRect = {
-        originX: Math.round(visLeft * scaleX),
-        originY: Math.round(visTop * scaleY),
-        width: Math.round(visWidth * scaleX),
-        height: Math.round(visHeight * scaleY),
-      };
-
-      const cropped = await cropToSquare(imageUri, cropRect);
-      onCrop(cropped);
+      const uri = await captureRef(guideRef, { format: "jpg", quality: 0.92 });
+      onCrop(uri);
     } catch {
       onCrop(imageUri);
     } finally {
@@ -170,7 +142,9 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
       </Text>
 
       <View
+        ref={guideRef}
         style={styles.guide}
+        collapsable={false}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
