@@ -9,8 +9,8 @@ import ExpenseCalendar from "@/components/ExpenseCalendar";
 import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 import ExpenseModal from "@/components/ExpenseModal";
-import { getJikgwanRecords, deleteJikgwanRecord, updateJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
-import { cachedDailyScores } from "@/lib/gameCache";
+import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
+import { cachedAllDailyScores } from "@/lib/gameCache";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
@@ -174,78 +174,45 @@ export default function DiaryScreen() {
   const [expCalYear, setExpCalYear] = useState(now.getFullYear());
   const [expCalMonth, setExpCalMonth] = useState(now.getMonth());
 
-  const refreshStaleScores = useCallback(async (records: JikgwanRecord[]) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const stale = records.filter((r) => {
-      if (r.score_away != null || r.score_home != null) return false;
-      if (!r.game_id) return false;
-      const parts = r.date.split(".");
-      if (parts.length !== 3) return false;
-      const d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
-      return d <= today;
-    });
-    if (stale.length === 0) return;
-    // Group by date to batch API calls
-    const byDate = new Map<string, JikgwanRecord[]>();
-    for (const r of stale) {
-      const apiDate = `${r.date.split(".").join("-")}`;
-      const list = byDate.get(apiDate) || [];
-      list.push(r);
-      byDate.set(apiDate, list);
-    }
-    let updated = false;
-    for (const [apiDate, recs] of byDate) {
-      try {
-        const scores = await cachedDailyScores(apiDate);
-        if (!scores?.games) continue;
-        for (const r of recs) {
+  const loadData = useCallback(async () => {
+    try {
+      const [data, exps, scoresData] = await Promise.all([
+        getJikgwanRecords(),
+        getAllExpenses(),
+        cachedAllDailyScores(),
+      ]);
+      // Merge scores into records in-memory (no DB write needed)
+      if (scoresData?.dates) {
+        for (const r of data) {
+          if (r.score_away != null && r.score_home != null && r.is_win != null) continue;
+          const apiDate = r.date.split(".").join("-");
+          const dayScores = scoresData.dates[apiDate];
+          if (!dayScores?.length) continue;
           const { awayId, homeId } = parseGameTeamIds(r.game_id);
           if (!awayId || !homeId) continue;
           const awayShort = TEAM_COLORS[awayId]?.shortName;
           const homeShort = TEAM_COLORS[homeId]?.shortName;
-          const match = scores.games.find(
+          if (!awayShort || !homeShort) continue;
+          const match = dayScores.find(
             (s) => s.away === awayShort && s.home === homeShort
           );
-          if (!match || match.outcome == null || match.cancelled) continue;
-          const sa = match.awayScore;
-          const sh = match.homeScore;
-          let isWin: number | null = null;
+          if (!match || match.cancelled) continue;
+          if (match.awayScore == null || match.homeScore == null) continue;
+          if (match.awayScore === 0 && match.homeScore === 0) continue;
+          r.score_away = match.awayScore;
+          r.score_home = match.homeScore;
           if (r.cheered_team) {
-            if (r.cheered_team === awayId) isWin = sa > sh ? 1 : sa < sh ? -1 : 0;
-            else if (r.cheered_team === homeId) isWin = sh > sa ? 1 : sh < sa ? -1 : 0;
+            if (r.cheered_team === homeId) r.is_win = match.homeScore > match.awayScore ? 1 : match.homeScore < match.awayScore ? -1 : 0;
+            else if (r.cheered_team === awayId) r.is_win = match.awayScore > match.homeScore ? 1 : match.awayScore < match.homeScore ? -1 : 0;
           }
-          await updateJikgwanRecord(r.id, {
-            score_away: sa,
-            score_home: sh,
-            is_win: isWin,
-          });
-          updated = true;
         }
-      } catch (e) {
-        console.warn("refreshScores failed for", apiDate, e);
       }
-    }
-    if (updated) {
-      const fresh = await getJikgwanRecords();
-      setRecords(fresh);
-    }
-  }, []);
-
-  const loadData = useCallback(async () => {
-    try {
-      const [data, exps] = await Promise.all([
-        getJikgwanRecords(),
-        getAllExpenses(),
-      ]);
       setRecords(data);
       setExpenses(exps);
-      // Auto-refresh scores for past games with null scores
-      refreshStaleScores(data);
     } catch (e) {
       console.warn("diary.tsx loadData failed", e);
     }
-  }, [refreshStaleScores]);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {

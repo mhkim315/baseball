@@ -6,9 +6,10 @@ import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } fro
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
-import { cachedScheduleByMonth } from "@/lib/gameCache";
-import { fetchAllDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
+import { cachedScheduleByMonth, cachedAllDailyScores } from "@/lib/gameCache";
+import { type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import type { JikgwanRecord } from "@/lib/db";
+import { resolveIsWin } from "@/lib/expenseStats";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -43,7 +44,7 @@ export default function DiaryCalendar({
     setLoading(true);
     Promise.all([
       cachedScheduleByMonth(month + 1),
-      fetchAllDailyScores(),
+      cachedAllDailyScores(),
     ]).then(([schedule, scores]) => {
       if (cancelled) return;
       if (schedule) setGames(schedule.games || []);
@@ -311,9 +312,10 @@ export default function DiaryCalendar({
             const isTodayUnplayed = isToday && (latest.score_home == null || latest.score_home === 0) && (latest.score_away == null || latest.score_away === 0);
             const skipResult = isFuture || isTodayUnplayed;
             if (!skipResult) {
-              if (latest.is_win === 1) cellBg = isDark ? "#1a3a5c" : "#e3f2fd";
-              else if (latest.is_win === -1) cellBg = isDark ? "#3a1a1a" : "#ffebee";
-              else if (latest.is_win === 0) cellBg = isDark ? "#2a2a2a" : "#f5f5f5";
+              const iw = resolveIsWin(latest);
+              if (iw === 1) cellBg = isDark ? "#1a3a5c" : "#e3f2fd";
+              else if (iw === -1) cellBg = isDark ? "#3a1a1a" : "#ffebee";
+              else if (iw === 0) cellBg = isDark ? "#2a2a2a" : "#f5f5f5";
               else cellBg = theme.muted;
             } else {
               cellBg = theme.muted;
@@ -323,7 +325,7 @@ export default function DiaryCalendar({
               emotionChar = EMOTION_CHARACTER[latest.emotion];
             }
 
-            diaryResultBadge = skipResult ? null : getWinBadge(latest.is_win);
+            diaryResultBadge = skipResult ? null : getWinBadge(resolveIsWin(latest));
             if (latest.game_id && latest.cheered_team) {
               const gt = parseGameTeamIds(latest.game_id);
               const oppId = gt.awayId === latest.cheered_team ? gt.homeId : gt.awayId;

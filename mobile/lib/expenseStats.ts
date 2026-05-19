@@ -198,7 +198,7 @@ export interface ResultCategoryData {
 
 /** Derive isWin from record scores when stored is_win is null/unset.
  *  Only returns a result when both scores are present and not both zero. */
-function resolveIsWin(rec: JikgwanRecord): number | null {
+export function resolveIsWin(rec: JikgwanRecord): number | null {
   if (rec.is_win != null) return rec.is_win;
   if (rec.score_away == null || rec.score_home == null) return null;
   if (rec.score_away === 0 && rec.score_home === 0) return null;

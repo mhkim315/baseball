@@ -6,7 +6,7 @@ import { TEAM_COLORS } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge } from "@shared/constants";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import type { JikgwanRecord, Expense } from "@/lib/db";
-import { getCategoryIcons, formatAmount } from "@/lib/expenseStats";
+import { getCategoryIcons, formatAmount, resolveIsWin } from "@/lib/expenseStats";
 
 interface DiaryCardProps {
   record: JikgwanRecord;
@@ -232,7 +232,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
               </Text>
             )}
             {(() => {
-              const badge = getWinBadge(record.is_win);
+              const badge = getWinBadge(resolveIsWin(record));
               if (!badge) return null;
               const parts = record.date.split(".");
               if (parts.length === 3) {
