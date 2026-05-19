@@ -278,15 +278,15 @@ export default function DiaryScreen() {
     }
   };
 
+  const showSubTabs = activeTab === "calendar" || activeTab === "stats";
+
   const handleFabPress = () => {
-    if (subTab === "expense") {
+    if (showSubTabs && subTab === "expense") {
       setShowExpenseModal(true);
     } else {
       setShowEntryModal(true);
     }
   };
-
-  const showSubTabs = activeTab === "calendar" || activeTab === "stats";
 
   return (
     <View style={styles.container}>
