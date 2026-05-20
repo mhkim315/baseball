@@ -15,7 +15,7 @@ interface TeamStatsProps {
 const DAY_NAMES = ["일", "월", "화", "수", "목", "금", "토"];
 
 function formatPct(v: number): string {
-  return (v * 100).toFixed(1) + "%";
+  return Math.round(v * 100) + "%";
 }
 
 function brightness(hex: string): number {
