@@ -246,6 +246,13 @@ export default function DiaryScreen() {
   const handleDelete = async (id: number) => {
     try {
       await deleteJikgwanRecord(id);
+      if (expenseSheetDate) {
+        const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
+        try {
+          const exps = await getExpensesByDate(dateStr);
+          setSheetExpenses(exps);
+        } catch {}
+      }
       loadData();
     } catch {
       Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
@@ -262,17 +269,31 @@ export default function DiaryScreen() {
     setPresetDate(null);
   };
 
-  const handleSaved = () => {
+  const handleSaved = async () => {
     setShowEntryModal(false);
     setEditingRecord(null);
     setPresetDate(null);
     setSelectedDate(null);
+    if (expenseSheetDate) {
+      const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
+      try {
+        const exps = await getExpensesByDate(dateStr);
+        setSheetExpenses(exps);
+      } catch {}
+    }
     loadData();
   };
 
-  const handleExpenseSaved = () => {
+  const handleExpenseSaved = async () => {
     setShowExpenseModal(false);
     setExpensePresetDate(null);
+    if (expenseSheetDate) {
+      const dateStr = `${expenseSheetDate.getFullYear()}.${String(expenseSheetDate.getMonth() + 1).padStart(2, "0")}.${String(expenseSheetDate.getDate()).padStart(2, "0")}`;
+      try {
+        const exps = await getExpensesByDate(dateStr);
+        setSheetExpenses(exps);
+      } catch {}
+    }
     loadData();
   };
 
