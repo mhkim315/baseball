@@ -10,7 +10,7 @@ import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 import ExpenseModal from "@/components/ExpenseModal";
 import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
-import { cachedDailyScores, cachedAllDailyScores } from "@/lib/gameCache";
+import { cachedDailyScores } from "@/lib/gameCache";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
@@ -179,10 +179,9 @@ export default function DiaryScreen() {
   const loadData = useCallback(async () => {
     const gen = ++generationRef.current;
     try {
-      const [data, exps, scoresData] = await Promise.all([
+      const [data, exps] = await Promise.all([
         getJikgwanRecords(),
         getAllExpenses(),
-        cachedAllDailyScores(),
       ]);
       // Merge scores into records in-memory (no DB write needed)
       const merge = (records: JikgwanRecord[], scoresList: { away: string; home: string; awayScore: number; homeScore: number; cancelled: boolean }[]) => {
@@ -205,21 +204,24 @@ export default function DiaryScreen() {
           }
         }
       };
-      // 1) All-dates merge (Infinity TTL for past via cachedAllDailyScores)
-      if (scoresData?.dates) {
-        for (const [apiDate, dayScores] of Object.entries(scoresData.dates)) {
-          const dayRecords = data.filter((r) => r.date.split(".").join("-") === apiDate);
-          if (dayRecords.length > 0) merge(dayRecords, dayScores);
-        }
+      // Per-date score lookup: only fetch dates for records without scores
+      const dateSet = new Set<string>();
+      for (const r of data) {
+        if (r.score_away != null && r.score_home != null) continue;
+        dateSet.add(r.date.split(".").join("-"));
       }
-      // 2) Overlay today's scores (shares cache key with home tab for freshness)
-      const today = new Date();
-      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-      try {
-        const todayScores = await cachedDailyScores(todayStr);
-        const todayRecords = data.filter((r) => r.date.split(".").join("-") === todayStr);
-        if (todayScores?.games) merge(todayRecords, todayScores.games);
-      } catch {}
+      const scoresResults = await Promise.all(
+        Array.from(dateSet).map((date) =>
+          cachedDailyScores(date).catch(() => null)
+        )
+      );
+      let i = 0;
+      for (const apiDate of dateSet) {
+        const dayScores = scoresResults[i++];
+        if (!dayScores?.games) continue;
+        const dayRecords = data.filter((r) => r.date.split(".").join("-") === apiDate);
+        if (dayRecords.length > 0) merge(dayRecords, dayScores.games);
+      }
       if (gen !== generationRef.current) return; // discard stale
       setRecords(data);
       setExpenses(exps);
