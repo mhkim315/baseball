@@ -456,13 +456,13 @@ export default function DiaryScreen() {
             style={[styles.viewModeBtn, timelineViewMode === "list" && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
             onPress={() => setTimelineViewMode("list")}
           >
-            <Text style={[styles.viewModeBtnText, timelineViewMode === "list" && styles.viewModeBtnTextActive]}>☰ 리스트형</Text>
+            <Text style={[styles.viewModeBtnText, timelineViewMode === "list" && styles.viewModeBtnTextActive]}>▦ 카드형</Text>
           </Pressable>
           <Pressable
             style={[styles.viewModeBtn, timelineViewMode === "webzine" && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
             onPress={() => setTimelineViewMode("webzine")}
           >
-            <Text style={[styles.viewModeBtnText, timelineViewMode === "webzine" && styles.viewModeBtnTextActive]}>▦ 카드형</Text>
+            <Text style={[styles.viewModeBtnText, timelineViewMode === "webzine" && styles.viewModeBtnTextActive]}>☰ 리스트형</Text>
           </Pressable>
         </View>
       )}
