@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo, useRef } from "react";
-import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, Modal } from "react-native";
+import { View, Text, TextInput, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, Modal } from "react-native";
 import { useFocusEffect } from "expo-router";
 import DiaryTimeline from "@/components/DiaryTimeline";
 import WebzineTimeline from "@/components/WebzineTimeline";
@@ -139,6 +139,8 @@ export default function DiaryScreen() {
   const [timelineViewMode, setTimelineViewMode] = useState<TimelineViewMode>("list");
   const [webzineDetailRecord, setWebzineDetailRecord] = useState<JikgwanRecord | null>(null);
   const [scrollTargetDate, setScrollTargetDate] = useState<string | null>(null);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const { myTeam } = useTeam();
   const teamColor = myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground;
@@ -152,6 +154,22 @@ export default function DiaryScreen() {
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);
   const { width: screenWidth } = useWindowDimensions();
+
+  // Filter records by search query
+  const filteredRecords = useMemo(() => {
+    if (!searchQuery.trim()) return records;
+    const q = searchQuery.trim().toLowerCase();
+    return records.filter((r) => {
+      const fields = [r.memo, r.stadium, r.seat, r.three_line_1, r.three_line_2, r.three_line_3];
+      if (fields.some((f) => f?.toLowerCase().includes(q))) return true;
+      // Search opponent team name
+      const { awayId, homeId } = parseGameTeamIds(r.game_id || "");
+      const cheered = r.cheered_team;
+      const oppId = cheered ? (cheered === awayId ? homeId : awayId) : null;
+      if (oppId && TEAM_COLORS[oppId]?.shortName?.toLowerCase().includes(q)) return true;
+      return false;
+    });
+  }, [searchQuery, records]);
 
   // Build expense map for timeline (record_id → expenses[])
   const expenseMap = useMemo(() => {
@@ -405,6 +423,14 @@ export default function DiaryScreen() {
               ))}
             </View>
           )}
+          {(activeTab === "timeline") && (
+          <Pressable
+            style={[styles.viewModeBtn, { marginRight: 8 }, showSearch && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
+            onPress={() => { setShowSearch(!showSearch); if (showSearch) setSearchQuery(""); }}
+          >
+            <Text style={[styles.viewModeBtnText, showSearch && styles.viewModeBtnTextActive, { fontSize: 15 }]}>⌕</Text>
+          </Pressable>
+          )}
           <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
         </View>
         <Text style={styles.headerSub}>나의 직관 기록</Text>
@@ -431,6 +457,27 @@ export default function DiaryScreen() {
         ))}
       </View>
 
+      {/* Search bar */}
+      {showSearch && (
+        <View style={{ marginHorizontal: 20, marginBottom: 8 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: theme.muted, borderRadius: 10, paddingHorizontal: 12, height: 36 }}>
+            <Text style={{ fontSize: 14, marginRight: 6, color: theme.mutedForeground }}>⌕</Text>
+            <TextInput
+              style={{ flex: 1, fontSize: 14, color: theme.foreground, paddingVertical: 0 }}
+              placeholder="메모, 구장, 상대팀, 좌석 검색"
+              placeholderTextColor={theme.mutedForeground}
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              autoFocus
+            />
+            {searchQuery ? (
+              <Pressable onPress={() => setSearchQuery("")} hitSlop={8}>
+                <Text style={{ fontSize: 16, color: theme.mutedForeground }}>×</Text>
+              </Pressable>
+            ) : null}
+          </View>
+        </View>
+      )}
 
       {/* Tab content — horizontal paging scroll */}
       <View style={{ flex: 1 }}>
@@ -445,7 +492,7 @@ export default function DiaryScreen() {
           <View style={{ width: screenWidth }}>
             {timelineViewMode === "list" ? (
               <DiaryTimeline
-                records={records}
+                records={filteredRecords}
                 teamId={myTeam}
                 onDelete={handleDelete}
                 onEdit={handleEdit}
@@ -456,7 +503,7 @@ export default function DiaryScreen() {
               />
             ) : timelineViewMode === "webzine" ? (
               <WebzineTimeline
-                records={records}
+                records={filteredRecords}
                 teamId={myTeam}
                 onDelete={handleDelete}
                 onRefresh={handleRefresh}
@@ -467,7 +514,7 @@ export default function DiaryScreen() {
               />
             ) : (
               <GridTimeline
-                records={records}
+                records={filteredRecords}
                 teamId={myTeam}
                 onDelete={handleDelete}
                 onRefresh={handleRefresh}
