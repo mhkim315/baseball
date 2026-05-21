@@ -296,7 +296,7 @@ export default function DiaryCalendar({
 
           // Game result from scores
           let gameOpponent: string | undefined;
-          let gameResult: { label: string; color: string } | null = null;
+          let gameResult: { label: string; color: string; textColor?: string } | null = null;
           if (dayGames.length > 0 && !isFuture && dayScores.length > 0) {
             const g = dayGames[0];
             const score = dayScores.find((s) => s.away === g.away && s.home === g.home);
@@ -308,6 +308,10 @@ export default function DiaryCalendar({
               if (our > their) gameResult = getWinBadge(1);
               else if (our < their) gameResult = getWinBadge(-1);
               else gameResult = getWinBadge(0);
+            } else if (score && score.cancelled) {
+              const isHome = g.home === teamName;
+              gameOpponent = isHome ? g.away : g.home;
+              gameResult = { label: "취", color: isDark ? "#fff" : "#000", textColor: isDark ? "#000" : "#fff" };
             }
           } else if (dayGames.length > 0 && !isFuture && !teamName) {
             // No team filter — just show first game
@@ -318,7 +322,7 @@ export default function DiaryCalendar({
           let cellBg: string | undefined;
           let emotionChar: string | undefined;
           let diaryOpponent: string | undefined;
-          let diaryResultBadge: { label: string; color: string } | null = null;
+          let diaryResultBadge: { label: string; color: string; textColor?: string } | null = null;
           if (dayRecords && dayRecords.length > 0) {
             const latest = dayRecords[0];
             const isTodayUnplayed = isToday && (latest.score_home == null || latest.score_home === 0) && (latest.score_away == null || latest.score_away === 0);
@@ -369,7 +373,7 @@ export default function DiaryCalendar({
                   <View style={styles.resultRow}>
                     <Text style={styles.oppName} numberOfLines={1}>{showOpponent}</Text>
                     <View style={[styles.resultBadge, { backgroundColor: showResult.color }]}>
-                      <Text style={styles.resultBadgeText}>{showResult.label}</Text>
+                      <Text style={[styles.resultBadgeText, showResult.textColor ? { color: showResult.textColor } : undefined]}>{showResult.label}</Text>
                     </View>
                   </View>
                 ) : null}

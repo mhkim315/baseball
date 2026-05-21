@@ -1,20 +1,22 @@
 import { useState, useMemo } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import { useTheme } from "@/lib/ThemeContext";
+import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { EXPENSE_CATEGORIES, type Expense, type JikgwanRecord } from "@/lib/db";
 import { computeExpenseStats, computeHomeAwayExpenses, computeWinLossExpenses, computeStadiumExpenses, computeResultCategoryExpenses, formatAmount } from "@/lib/expenseStats";
 
 interface ExpenseStatsProps {
   expenses: Expense[];
   records: JikgwanRecord[];
+  teamId?: string | null;
 }
 
 function avgFmt(n: number): string {
   return n >= 10000 ? `${Math.round(n / 10000)}만` : n.toLocaleString();
 }
 
-export default function ExpenseStats({ expenses, records }: ExpenseStatsProps) {
+export default function ExpenseStats({ expenses, records, teamId }: ExpenseStatsProps) {
   const { theme, isDark } = useTheme();
+  const teamColor = teamPrimaryColor(teamId, isDark);
   const stats = useMemo(() => computeExpenseStats(expenses), [expenses]);
   const maxCatAmount = stats.categoryTotals.length > 0 ? stats.categoryTotals[0].amount : 1;
   const liveRecords = useMemo(() => records.filter((r) => r.is_live === 1), [records]);
@@ -191,7 +193,7 @@ export default function ExpenseStats({ expenses, records }: ExpenseStatsProps) {
                 flexDirection: "row", alignItems: "center", gap: 6,
                 paddingVertical: 4, paddingHorizontal: 10,
                 borderRadius: 12,
-                backgroundColor: includeBroadcast ? theme.foreground : theme.muted,
+                backgroundColor: includeBroadcast ? teamColor : theme.muted,
               }}
             >
               <View style={{
@@ -200,7 +202,7 @@ export default function ExpenseStats({ expenses, records }: ExpenseStatsProps) {
                 alignItems: "center", justifyContent: "center",
               }}>
                 {includeBroadcast && (
-                  <Text style={{ fontSize: 10, color: theme.foreground, fontWeight: "700" }}>✓</Text>
+                  <Text style={{ fontSize: 10, color: teamColor, fontWeight: "700" }}>✓</Text>
                 )}
               </View>
               <Text style={{
