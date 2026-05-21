@@ -105,11 +105,15 @@ export default function WebzineCard({ record, teamId, expenses, onPress, onLongP
               <Text style={[styles.teamText, { color: theme.foreground }]} numberOfLines={1}>{teamText}</Text>
             ) : null}
           </View>
-          {badge && (
+          {badge ? (
             <View style={[styles.resultBadge, { backgroundColor: badge.color }]}>
               <Text style={styles.resultBadgeText}>{badge.label}</Text>
             </View>
-          )}
+          ) : record.is_cancelled ? (
+            <View style={[styles.resultBadge, { backgroundColor: isDark ? "#fff" : "#000" }]}>
+              <Text style={[styles.resultBadgeText, { color: isDark ? "#000" : "#fff" }]}>취</Text>
+            </View>
+          ) : null}
           {record.is_live !== null && (
             <View style={[styles.resultBadge, record.is_live === 1
               ? { backgroundColor: liveTeamColor }
@@ -120,11 +124,6 @@ export default function WebzineCard({ record, teamId, expenses, onPress, onLongP
               </Text>
             </View>
           )}
-          {record.is_cancelled ? (
-            <View style={[styles.resultBadge, { backgroundColor: isDark ? "#fff" : "#000" }]}>
-              <Text style={[styles.resultBadgeText, { color: isDark ? "#000" : "#fff" }]}>취</Text>
-            </View>
-          ) : null}
         </View>
 
         {/* Seat info */}

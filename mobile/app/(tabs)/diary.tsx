@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, u
 import { useFocusEffect } from "expo-router";
 import DiaryTimeline from "@/components/DiaryTimeline";
 import WebzineTimeline from "@/components/WebzineTimeline";
+import GridTimeline from "@/components/GridTimeline";
 import DiaryCard from "@/components/DiaryCard";
 import DiaryCalendar from "@/components/DiaryCalendar";
 import DiaryStats from "@/components/DiaryStats";
@@ -21,7 +22,7 @@ import { useTeam } from "@/lib/TeamContext";
 
 type DiaryTab = "timeline" | "calendar" | "stats";
 type SubTab = "jikgwan" | "expense";
-type TimelineViewMode = "list" | "webzine";
+type TimelineViewMode = "list" | "webzine" | "grid";
 
 const TABS: { key: DiaryTab; label: string }[] = [
   { key: "timeline", label: "타임라인" },
@@ -73,22 +74,6 @@ export default function DiaryScreen() {
       color: theme.mutedForeground,
       fontWeight: "500",
     },
-    // Sub tabs
-    subRow: {
-      flexDirection: "row",
-      marginHorizontal: 20,
-      marginBottom: 4,
-      gap: 0,
-      justifyContent: "center",
-    },
-    subSegment: {
-      paddingVertical: 6,
-      paddingHorizontal: 20,
-    },
-    subSegmentText: {
-      fontSize: 13,
-      color: theme.mutedForeground,
-    },
     // Tab content
     tabContent: {
       flex: 1,
@@ -123,12 +108,12 @@ export default function DiaryScreen() {
     // View mode toggle
     viewModeBtn: {
       paddingVertical: 4,
-      paddingHorizontal: 12,
-      borderRadius: 14,
+      paddingHorizontal: 8,
+      borderRadius: 12,
       backgroundColor: theme.muted,
     },
     viewModeBtnText: {
-      fontSize: 12,
+      fontSize: 11,
       fontWeight: "600",
       color: theme.mutedForeground,
     },
@@ -385,20 +370,39 @@ export default function DiaryScreen() {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={styles.headerTitle}>다이어리</Text>
           <View style={{ flex: 1 }} />
-          {activeTab === "timeline" && (
-            <View style={{ flexDirection: "row", gap: 4, marginRight: 10 }}>
+          {(activeTab === "timeline") && (
+            <View style={{ flexDirection: "row", gap: 3, marginRight: 8 }}>
               <Pressable
                 style={[styles.viewModeBtn, timelineViewMode === "list" && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
                 onPress={() => setTimelineViewMode("list")}
               >
-                <Text style={[styles.viewModeBtnText, timelineViewMode === "list" && styles.viewModeBtnTextActive]}>▦ 카드형</Text>
+                <Text style={[styles.viewModeBtnText, timelineViewMode === "list" && styles.viewModeBtnTextActive]}>▣ 카드</Text>
               </Pressable>
               <Pressable
                 style={[styles.viewModeBtn, timelineViewMode === "webzine" && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
                 onPress={() => setTimelineViewMode("webzine")}
               >
-                <Text style={[styles.viewModeBtnText, timelineViewMode === "webzine" && styles.viewModeBtnTextActive]}>☰ 리스트형</Text>
+                <Text style={[styles.viewModeBtnText, timelineViewMode === "webzine" && styles.viewModeBtnTextActive]}>☰ 리스트</Text>
               </Pressable>
+              <Pressable
+                style={[styles.viewModeBtn, timelineViewMode === "grid" && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
+                onPress={() => setTimelineViewMode("grid")}
+              >
+                <Text style={[styles.viewModeBtnText, timelineViewMode === "grid" && styles.viewModeBtnTextActive]}>⊞ 그리드</Text>
+              </Pressable>
+            </View>
+          )}
+          {(activeTab === "calendar" || activeTab === "stats") && (
+            <View style={{ flexDirection: "row", gap: 4, marginRight: 10 }}>
+              {SUB_TABS.map((st) => (
+                <Pressable
+                  key={st.key}
+                  style={[styles.viewModeBtn, subTab === st.key && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
+                  onPress={() => setSubTab(st.key)}
+                >
+                  <Text style={[styles.viewModeBtnText, subTab === st.key && styles.viewModeBtnTextActive]}>{st.label}</Text>
+                </Pressable>
+              ))}
             </View>
           )}
           <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
@@ -427,26 +431,6 @@ export default function DiaryScreen() {
         ))}
       </View>
 
-      {/* Sub-tabs: 직관 / 지출 (only for calendar & stats) */}
-      {showSubTabs && (
-        <View style={styles.subRow}>
-          {SUB_TABS.map((st) => (
-            <Pressable
-              key={st.key}
-              style={styles.subSegment}
-              onPress={() => setSubTab(st.key)}
-            >
-              <Text style={[
-                styles.subSegmentText,
-                subTab === st.key && { color: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground, fontWeight: "700" },
-              ]}>
-                {st.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-      )}
-
 
       {/* Tab content — horizontal paging scroll */}
       <View style={{ flex: 1 }}>
@@ -470,8 +454,19 @@ export default function DiaryScreen() {
                 expensesByRecordId={expenseMap}
                 scrollTargetDate={scrollTargetDate}
               />
-            ) : (
+            ) : timelineViewMode === "webzine" ? (
               <WebzineTimeline
+                records={records}
+                teamId={myTeam}
+                onDelete={handleDelete}
+                onRefresh={handleRefresh}
+                refreshing={refreshing}
+                expensesByRecordId={expenseMap}
+                onPressRecord={setWebzineDetailRecord}
+                scrollTargetDate={scrollTargetDate}
+              />
+            ) : (
+              <GridTimeline
                 records={records}
                 teamId={myTeam}
                 onDelete={handleDelete}

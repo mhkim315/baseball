@@ -2,7 +2,7 @@
   "expo": {
     "name": "풀카운트",
     "slug": "fullcount-kr",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -23,7 +23,8 @@
         "backgroundColor": "#fde8d6"
       },
       "edgeToEdgeEnabled": true,
-      "package": "kr.fullcount.app"
+      "package": "kr.fullcount.app",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,9 +35,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "86749cb8-778f-4eba-a5ad-afd1409c8138"
+        "projectId": "61b58472-e18f-48c4-8471-fa6fa4294c42"
       }
     },
-    "owner": "nanimi"
+    "owner": "duboo82"
   }
 }

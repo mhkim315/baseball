@@ -235,7 +235,14 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
             )}
             {(() => {
               const badge = getWinBadge(resolveIsWin(record));
-              if (!badge || upcoming) return null;
+              if (!badge || upcoming) {
+                if (record.is_cancelled) return (
+                  <View style={[styles.winBadge, { backgroundColor: isDark ? "#fff" : "#000" }]}>
+                    <Text style={[styles.winBadgeText, { color: isDark ? "#000" : "#fff" }]}>취</Text>
+                  </View>
+                );
+                return null;
+              }
               return (
                 <View style={[styles.winBadge, { backgroundColor: badge.color }]}>
                   <Text style={styles.winBadgeText}>{badge.label}</Text>
@@ -252,11 +259,6 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
                 </Text>
               </View>
             )}
-            {record.is_cancelled ? (
-              <View style={[styles.winBadge, { backgroundColor: isDark ? "#fff" : "#000" }]}>
-                <Text style={[styles.winBadgeText, { color: isDark ? "#000" : "#fff" }]}>취</Text>
-              </View>
-            ) : null}
           </View>
         </View>
       </View>
