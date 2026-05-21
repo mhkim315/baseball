@@ -522,11 +522,9 @@ export default function DiaryScreen() {
             ) : (
               <GridTimeline
                 records={filteredRecords}
-                teamId={myTeam}
                 onDelete={handleDelete}
                 onRefresh={handleRefresh}
                 refreshing={refreshing}
-                expensesByRecordId={expenseMap}
                 onPressRecord={setWebzineDetailRecord}
                 scrollTargetDate={scrollTargetDate}
               />

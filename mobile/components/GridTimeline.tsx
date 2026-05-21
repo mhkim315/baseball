@@ -2,16 +2,14 @@ import { useMemo, useState, useEffect, useCallback, useRef } from "react";
 import { View, Text, Image, FlatList, Pressable, StyleSheet, RefreshControl, useWindowDimensions } from "react-native";
 import ConfirmModal from "@/components/ConfirmModal";
 import { useTheme } from "@/lib/ThemeContext";
-import type { JikgwanRecord, Expense } from "@/lib/db";
+import type { JikgwanRecord } from "@/lib/db";
 import { deletePhoto } from "@/lib/camera";
 
 interface GridTimelineProps {
   records: JikgwanRecord[];
-  teamId: string | null;
   onDelete: (id: number) => void;
   onRefresh: () => void;
   refreshing: boolean;
-  expensesByRecordId?: Map<number, Expense[]>;
   onPressRecord?: (record: JikgwanRecord) => void;
   scrollTargetDate?: string | null;
 }
@@ -29,7 +27,7 @@ function parsePhotos(record: JikgwanRecord): string[] {
 
 const NUM_COLUMNS = 3;
 
-export default function GridTimeline({ records, teamId, onDelete, onRefresh, refreshing, onPressRecord, scrollTargetDate }: GridTimelineProps) {
+export default function GridTimeline({ records, onDelete, onRefresh, refreshing, onPressRecord, scrollTargetDate }: GridTimelineProps) {
   const { theme } = useTheme();
   const { width: screenWidth } = useWindowDimensions();
   const [deleteTarget, setDeleteTarget] = useState<JikgwanRecord | null>(null);
@@ -43,7 +41,7 @@ export default function GridTimeline({ records, teamId, onDelete, onRefresh, ref
       const rowIndex = Math.floor(idx / NUM_COLUMNS);
       setTimeout(() => flatListRef.current?.scrollToOffset({ offset: rowIndex * cellSize, animated: true }), 100);
     }
-  }, [scrollTargetDate, cellSize]);
+  }, [scrollTargetDate, cellSize, records]);
 
   const handleDelete = (record: JikgwanRecord) => {
     setDeleteTarget(record);

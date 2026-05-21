@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { useState, useMemo } from "react";
+import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
@@ -40,17 +40,19 @@ function interpolateColor(from: string, to: string, t: number): string {
 
 export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
   const { theme, isDark } = useTheme();
-  const overallStats: Stats = computeDiaryStats(records);
+  const [includeJipgwan, setIncludeJipgwan] = useState(false);
   const liveRecords = records.filter((r) => r.is_live === 1);
+  const activeRecords = includeJipgwan ? records : liveRecords;
+  const activeStats: Stats = computeDiaryStats(activeRecords);
   const liveStats: Stats | null = liveRecords.length > 0 ? computeDiaryStats(liveRecords) : null;
   const teamColor = teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground;
-  const opponentStats = useMemo(() => teamId ? computeOpponentStats(records, teamId) : [], [records, teamId]);
-  const homeAway = useMemo(() => teamId ? computeHomeAwayStats(liveRecords, teamId) : null, [liveRecords, teamId]);
-  const dayStats = useMemo(() => computeDayOfWeekStats(records), [records]);
-  const streak = useMemo(() => computeStreakStats(records), [records]);
+  const opponentStats = useMemo(() => teamId ? computeOpponentStats(activeRecords, teamId) : [], [activeRecords, teamId]);
+  const homeAway = useMemo(() => teamId ? computeHomeAwayStats(activeRecords, teamId) : null, [activeRecords, teamId]);
+  const dayStats = useMemo(() => computeDayOfWeekStats(activeRecords), [activeRecords]);
+  const streak = useMemo(() => computeStreakStats(activeRecords), [activeRecords]);
   const stadiumStats = useMemo(() => {
     const map = new Map<string, { wins: number; total: number }>();
-    for (const r of liveRecords) {
+    for (const r of activeRecords) {
       if (!r.stadium) continue;
       const entry = map.get(r.stadium) || { wins: 0, total: 0 };
       entry.total++;
@@ -119,14 +121,6 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
       fontWeight: "700",
       color: theme.foreground,
       marginBottom: 12,
-    },
-    // Win rate ring card
-    ringCard: {
-      backgroundColor: theme.card,
-      borderRadius: 16,
-      borderWidth: 1,
-      borderColor: theme.border,
-      padding: 16,
     },
     dualRingRow: {
       flexDirection: "row",
@@ -274,6 +268,22 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
       textAlign: "center",
       paddingVertical: 16,
     },
+    // 집관 포함 토글
+    toggleTrack: {
+      width: 40, height: 22, borderRadius: 11,
+      backgroundColor: theme.muted,
+      justifyContent: "center", paddingHorizontal: 2,
+    },
+    toggleThumb: {
+      width: 18, height: 18, borderRadius: 9,
+      backgroundColor: theme.foreground,
+    },
+    toggleThumbActive: {
+      alignSelf: "flex-end", backgroundColor: "#fff",
+    },
+    toggleLabel: {
+      fontSize: 12, fontWeight: "600", marginLeft: 8,
+    },
     // Home/Away
     haRow: { flexDirection: "row", gap: 12 },
     haCard: {
@@ -314,12 +324,25 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
 
   return (
     <View style={styles.container}>
+      {/* 집관 포함 토글 */}
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-end" }}>
+        <Pressable
+          style={[styles.toggleTrack, includeJipgwan && { backgroundColor: teamColor }]}
+          onPress={() => setIncludeJipgwan((v) => !v)}
+        >
+          <View style={[styles.toggleThumb, includeJipgwan && styles.toggleThumbActive]} />
+        </Pressable>
+        <Text style={[styles.toggleLabel, { color: includeJipgwan ? teamColor : theme.mutedForeground }]}>
+          집관 포함
+        </Text>
+      </View>
+
       {/* Win Rate Rings */}
-      <View style={styles.ringCard}>
+      <View style={styles.card}>
         <View style={styles.dualRingRow}>
-          <RingSection stats={overallStats} label="전체 승률" />
-          {liveStats && <View style={styles.dualRingDivider} />}
-          {liveStats && <RingSection stats={liveStats} label="직관 승률" />}
+          <RingSection stats={activeStats} label={includeJipgwan ? "전체 승률" : "직관 승률"} />
+          {includeJipgwan && liveStats && <View style={styles.dualRingDivider} />}
+          {includeJipgwan && liveStats && <RingSection stats={liveStats} label="직관 승률" />}
         </View>
       </View>
 
@@ -412,14 +435,14 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
         <View style={styles.streakRow}>
           <View style={styles.streakItem}>
             <Text style={[styles.streakNum, { color: teamColor }]}>
-              {overallStats.currentStreak}
+              {activeStats.currentStreak}
             </Text>
             <Text style={styles.streakLabel}>현재 연속일</Text>
           </View>
           <View style={styles.streakDivider} />
           <View style={styles.streakItem}>
             <Text style={[styles.streakNum, { color: teamColor }]}>
-              {overallStats.longestStreak}
+              {activeStats.longestStreak}
             </Text>
             <Text style={styles.streakLabel}>최장 기록</Text>
           </View>
@@ -432,7 +455,7 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
         {stadiumStats.length > 0 ? (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.stadiumGrid}>
             {stadiumStats.map((ss) => {
-              const bg = ss.count === 0 ? grayHex : interpolateColor(grayHex, teamColor, ss.winRate);
+              const bg = interpolateColor(grayHex, teamColor, ss.winRate);
               const fg = brightness(bg) > 150 ? '#000' : '#fff';
               return (
                 <View key={ss.name} style={[styles.stadiumCell, { backgroundColor: bg }]}>
@@ -451,13 +474,13 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
       </View>
 
       {/* Emotion distribution */}
-      {Object.keys(overallStats.emotionCounts).length > 0 && (
+      {Object.keys(activeStats.emotionCounts).length > 0 && (
         <View style={styles.card}>
           <Text style={styles.cardTitle}>감정 분포</Text>
           <View style={styles.emotionRow}>
-            {Object.entries(overallStats.emotionCounts).map(([emotion, count]) => {
-              const pct = overallStats.totalGames > 0
-                ? ((count / overallStats.totalGames) * 100).toFixed(0)
+            {Object.entries(activeStats.emotionCounts).map(([emotion, count]) => {
+              const pct = activeStats.totalGames > 0
+                ? ((count / activeStats.totalGames) * 100).toFixed(0)
                 : "0";
               const char = EMOTION_CHARACTER[emotion];
               return (
@@ -480,11 +503,11 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
         <Text style={styles.cardTitle}>2026시즌</Text>
         <View style={styles.seasonRow}>
           <View style={styles.seasonItem}>
-            <Text style={styles.seasonNum}>{overallStats.totalGames}</Text>
+            <Text style={styles.seasonNum}>{activeStats.totalGames}</Text>
             <Text style={styles.seasonLabel}>경기 직관</Text>
           </View>
           <View style={styles.seasonItem}>
-            <Text style={styles.seasonNum}>{overallStats.stadiums.length}</Text>
+            <Text style={styles.seasonNum}>{activeStats.stadiums.length}</Text>
             <Text style={styles.seasonLabel}>방문 구장</Text>
           </View>
         </View>

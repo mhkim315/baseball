@@ -16,7 +16,7 @@ import {
   cachedTodayGames,
   cachedGameDetail,
 } from "@/lib/gameCache";
-import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
+import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";

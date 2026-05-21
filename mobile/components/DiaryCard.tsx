@@ -54,8 +54,6 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
   const photoWidth = screenWidth;
   const photos = useMemo(() => parsePhotos(record), [record.photos, record.photo_path]);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const liveTeamColor = teamId ? teamPrimaryColor(teamId, isDark) : "#3b82f6";
-
   const handleScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const idx = Math.round(e.nativeEvent.contentOffset.x / e.nativeEvent.layoutMeasurement.width);
     setPhotoIndex(idx);
@@ -64,6 +62,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
   // Parse teams from game_id
   const gt = parseGameTeamIds(record.game_id || "");
   const profileTeamId = record.cheered_team || gt.awayId || gt.homeId || "";
+  const liveTeamColor = profileTeamId ? teamPrimaryColor(profileTeamId, isDark) : "#3b82f6";
   const charKey = record.emotion ? (EMOTION_CHARACTER[record.emotion] || "neutral") : "neutral";
   const emChar = charKey as "joyful" | "determined" | "neutral" | "sad" | "angry" | "furious" | "shocked";
 
