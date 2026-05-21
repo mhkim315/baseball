@@ -93,21 +93,23 @@ export function computeDiaryStats(records: JikgwanRecord[]): DiaryStats {
   }
 
   let longestStreak = 0;
-  let streak = 1;
-  for (let i = 1; i < dates.length; i++) {
-    const prev = parseDateStr(dates[i - 1]);
-    const curr = parseDateStr(dates[i]);
-    if (prev && curr) {
-      const diffDays = (prev.getTime() - curr.getTime()) / (1000 * 60 * 60 * 24);
-      if (Math.round(diffDays) === 1) {
-        streak++;
-      } else {
-        longestStreak = Math.max(longestStreak, streak);
-        streak = 1;
+  if (dates.length > 0) {
+    let streak = 1;
+    for (let i = 1; i < dates.length; i++) {
+      const prev = parseDateStr(dates[i - 1]);
+      const curr = parseDateStr(dates[i]);
+      if (prev && curr) {
+        const diffDays = (prev.getTime() - curr.getTime()) / (1000 * 60 * 60 * 24);
+        if (Math.round(diffDays) === 1) {
+          streak++;
+        } else {
+          longestStreak = Math.max(longestStreak, streak);
+          streak = 1;
+        }
       }
     }
+    longestStreak = Math.max(longestStreak, streak);
   }
-  longestStreak = Math.max(longestStreak, streak);
 
   return {
     totalGames,

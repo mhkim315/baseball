@@ -1,10 +1,11 @@
 import { useMemo } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { computeDiaryStats, computeOpponentStats, computeHomeAwayStats, computeDayOfWeekStats, computeStreakStats, type DiaryStats as Stats } from "@/lib/stats";
+import { resolveIsWin } from "@/lib/expenseStats";
 import type { JikgwanRecord } from "@/lib/db";
 
 interface DiaryStatsProps {
@@ -47,6 +48,20 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
   const homeAway = useMemo(() => teamId ? computeHomeAwayStats(liveRecords, teamId) : null, [liveRecords, teamId]);
   const dayStats = useMemo(() => computeDayOfWeekStats(records), [records]);
   const streak = useMemo(() => computeStreakStats(records), [records]);
+  const stadiumStats = useMemo(() => {
+    const map = new Map<string, { wins: number; total: number }>();
+    for (const r of liveRecords) {
+      if (!r.stadium) continue;
+      const entry = map.get(r.stadium) || { wins: 0, total: 0 };
+      entry.total++;
+      const iw = resolveIsWin(r);
+      if (iw === 1) entry.wins++;
+      map.set(r.stadium, entry);
+    }
+    return [...map.entries()]
+      .map(([name, data]) => ({ name, count: data.total, winRate: data.total > 0 ? data.wins / data.total : 0 }))
+      .sort((a, b) => b.count - a.count);
+  }, [liveRecords]);
 
   const grayHex = isDark ? "#333" : "#e0e0e0";
   const streakColor = streak.currentType === "W" ? "#22c55e" : streak.currentType === "L" ? "#ef4444" : theme.mutedForeground;
@@ -205,20 +220,18 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
       backgroundColor: theme.border,
     },
     // Stadiums
-    stadiumRow: {
-      flexDirection: "row",
-      flexWrap: "wrap",
-      gap: 8,
+    stadiumGrid: {
+      flexDirection: "row", gap: 4,
     },
-    stadiumBadge: {
-      borderWidth: 1,
-      borderRadius: 12,
-      paddingHorizontal: 10,
-      paddingVertical: 4,
+    stadiumCell: {
+      borderRadius: 8, paddingVertical: 8, paddingHorizontal: 4,
+      alignItems: "center", gap: 2, minWidth: 40, 
     },
-    stadiumText: {
-      fontSize: 12,
-      fontWeight: "500",
+    stadiumName: {
+      fontSize: 13, fontWeight: "600",
+    },
+    stadiumMeta: {
+      fontSize: 11, fontWeight: "500", opacity: 0.85,
     },
     // Emotion
     emotionRow: {
@@ -281,11 +294,12 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
     // Day heatmap
     dayGrid: { flexDirection: "row", gap: 4 },
     dayCell: {
-      flex: 1, borderRadius: 8, paddingVertical: 10, paddingHorizontal: 2,
-      alignItems: "center",
+      flex: 1, borderRadius: 8, paddingVertical: 8, paddingHorizontal: 4,
+      alignItems: "center", gap: 2,
     },
-    dayLabel: { fontSize: 11, fontWeight: "600", marginBottom: 2 },
+    dayLabel: { fontSize: 11, fontWeight: "600" },
     dayValue: { fontSize: 13, fontWeight: "700" },
+    dayCount: { fontSize: 10, fontWeight: "500" },
     // Streak analysis
     streakAnalysisRow: {
       flexDirection: "row", alignItems: "center", gap: 8,
@@ -357,6 +371,7 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
                 return (
                   <View key={ds.day} style={[styles.dayCell, { backgroundColor: bg }]}>
                     <Text style={[styles.dayLabel, { color: fg, opacity: 0.7 }]}>{ds.day}</Text>
+                    <Text style={[styles.dayCount, { color: fg }]}>{ds.total}회</Text>
                     <Text style={[styles.dayValue, { color: fg }]}>
                       {ds.total > 0 ? formatPct(ds.winRate) : "-"}
                     </Text>
@@ -414,14 +429,22 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
       {/* Stadiums visited */}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>방문한 구장</Text>
-        {(liveStats?.stadiums ?? []).length > 0 ? (
-          <View style={styles.stadiumRow}>
-            {(liveStats?.stadiums ?? []).map((s) => (
-              <View key={s} style={[styles.stadiumBadge, { borderColor: teamColor }]}>
-                <Text style={[styles.stadiumText, { color: teamColor }]}>{s}</Text>
-              </View>
-            ))}
-          </View>
+        {stadiumStats.length > 0 ? (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.stadiumGrid}>
+            {stadiumStats.map((ss) => {
+              const bg = ss.count === 0 ? grayHex : interpolateColor(grayHex, teamColor, ss.winRate);
+              const fg = brightness(bg) > 150 ? '#000' : '#fff';
+              return (
+                <View key={ss.name} style={[styles.stadiumCell, { backgroundColor: bg }]}>
+                  <Text style={[styles.stadiumName, { color: fg }]} numberOfLines={1}>{ss.name}</Text>
+                  <Text style={[styles.stadiumMeta, { color: fg }]}>{ss.count}회</Text>
+                  <Text style={[styles.stadiumMeta, { color: fg }]}>
+                    {ss.count > 0 ? formatPct(ss.winRate) : '-'}
+                  </Text>
+                </View>
+              );
+            })}
+          </ScrollView>
         ) : (
           <Text style={styles.noData}>아직 기록이 없어요</Text>
         )}

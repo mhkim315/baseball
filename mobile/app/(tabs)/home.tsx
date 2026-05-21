@@ -446,8 +446,11 @@ export default function HomeScreen() {
     );
   };
 
-  const renderEmpty = () => (
-    <View style={styles.emptyContainer}>
+  const renderEmpty = (isMonday?: boolean) => (
+    <View style={[styles.emptyContainer, isMonday && { paddingVertical: 20 }]}>
+      {isMonday && (
+        <Image source={require("../../assets/monday.png")} style={{ width: 300, height: 170, marginBottom: 12 }} resizeMode="contain" />
+      )}
       <Text style={styles.emptyText}>이 날에는 경기가 없어요</Text>
     </View>
   );
@@ -529,7 +532,7 @@ export default function HomeScreen() {
                   <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                     <ActivityIndicator size="small" color={theme.mutedForeground} />
                   </View>
-                ) : empty ? renderEmpty() : (
+                ) : empty ? renderEmpty(d.getDay() === 1) : (
                   <FlatList
                     key={slot}
                     data={pageGames}

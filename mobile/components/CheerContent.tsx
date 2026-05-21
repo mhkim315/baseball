@@ -183,8 +183,10 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
     galleryCard: {
       backgroundColor: theme.card, borderRadius: 16, borderWidth: 1, borderColor: theme.border, overflow: "hidden",
     },
-    galleryImage: { width: "100%", height: 200 },
-    galleryFallback: { width: "100%", height: 134, alignItems: "center", justifyContent: "center", backgroundColor: theme.muted },
+    galleryImage: { width: "100%", aspectRatio: 16 / 9 },
+    galleryImageTall: { width: "100%", height: 200 },
+    galleryFallback: { width: "100%", aspectRatio: 16 / 9, alignItems: "center", justifyContent: "center", backgroundColor: theme.muted },
+    galleryFallbackTall: { width: "100%", height: 200, alignItems: "center", justifyContent: "center", backgroundColor: theme.muted },
     galleryFallbackText: { fontSize: 14, color: theme.mutedForeground, fontWeight: "500" },
     galleryCaption: { fontSize: 12, color: theme.mutedForeground, lineHeight: 18, padding: 12 },
 
@@ -300,14 +302,14 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
             {GALLERY.map((item, i) => (
               <View key={i} style={styles.galleryCard}>
                 {failedImages.has(i) ? (
-                  <View style={styles.galleryFallback}>
+                  <View style={i === 1 ? styles.galleryFallbackTall : styles.galleryFallback}>
                     <Text style={styles.galleryFallbackText}>{item.alt}</Text>
                   </View>
                 ) : (
                   <Image
                     source={{ uri: `${IMAGE_BASE}/rules/${item.img}.jpg` }}
-                    style={styles.galleryImage}
-                    resizeMode="contain"
+                    style={i === 1 ? styles.galleryImageTall : styles.galleryImage}
+                    resizeMode={i === 1 ? "cover" : "contain"}
                     onError={() => setFailedImages((prev) => new Set(prev).add(i))}
                   />
                 )}

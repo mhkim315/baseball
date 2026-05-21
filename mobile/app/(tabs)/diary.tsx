@@ -185,16 +185,23 @@ export default function DiaryScreen() {
   }, [expenses]);
 
   const handleTabPress = (tabKey: DiaryTab, index: number) => {
+    handleTabChange(tabKey);
     tabScrollRef.current?.scrollTo({ x: screenWidth * index, animated: true });
   };
+
+  const handleTabChange = useCallback((tab: DiaryTab) => {
+    setActiveTab(tab);
+    setShowSearch(false);
+    setSearchQuery("");
+  }, []);
 
   const handleMomentumScrollEnd = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
       const page = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
       const tab = TABS[page];
-      if (tab) setActiveTab(tab.key);
+      if (tab) handleTabChange(tab.key);
     },
-    [screenWidth]
+    [screenWidth, handleTabChange]
   );
 
   // Calendar state
@@ -349,7 +356,7 @@ export default function DiaryScreen() {
     const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
     const hasRecord = records.some((r) => r.date === dateStr);
     if (hasRecord) {
-      setActiveTab("timeline");
+      handleTabChange("timeline");
       tabScrollRef.current?.scrollTo({ x: 0, animated: true });
       setScrollTargetDate(dateStr);
     } else {
