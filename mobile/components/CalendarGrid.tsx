@@ -298,6 +298,7 @@ export default function CalendarGrid({
               let winCount = 0, lossCount = 0, drawCount = 0;
               for (const s of dayScores) {
                 if (s.outcome == null || s.cancelled) continue;
+                if (teamName && s.home !== teamName && s.away !== teamName) continue;
                 const isHm = s.home === teamName;
                 const our = isHm ? s.homeScore : s.awayScore;
                 const their = isHm ? s.awayScore : s.homeScore;
