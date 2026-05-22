@@ -422,7 +422,6 @@ export default function GameDetailScreen() {
   const isBeyondTomorrow = gameDateStr > tomorrowStr;
   const awayPitcherName = isBeyondTomorrow ? undefined : (ap || "") || detail.starters?.away?.name || undefined;
   const homePitcherName = isBeyondTomorrow ? undefined : (hp || "") || detail.starters?.home?.name || undefined;
-  const hasLineup = !isBeyondTomorrow && homeLineup.length > 0 && awayLineup.length > 0;
 
   const now = new Date();
   const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
@@ -446,6 +445,7 @@ export default function GameDetailScreen() {
     detail.gameInfo?.status === "live" || (isGameActive && isToday)
   );
   const isBeforeGame = !isFinished && !isLive && !isCancelled;
+  const hasLineup = !isBeyondTomorrow && !isFinished && homeLineup.length > 0 && awayLineup.length > 0;
   const showLineupStatus = isBeforeGame;
   const lineupConfirmed = isFuture ? false : (detail.lineupConfirmed ?? false);
   const statusLabel = isCancelled ? "취소" : isFinished ? "경기 종료" : isLive ? "경기 중" : "경기 전";
