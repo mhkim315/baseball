@@ -183,6 +183,7 @@ export interface ScheduleGame {
   time?: string;
   status?: string;
   gubun?: string;  // "정규" | "시범" etc.
+  isExhibition?: boolean;
 }
 
 // Stadium-specific types (used only in stadiumData.ts)

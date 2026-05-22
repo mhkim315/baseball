@@ -237,7 +237,7 @@ export default function HomeScreen() {
         const result: Record<string, EnhancedGame[]> = {};
         for (let i = 0; i < 3; i++) {
           const ds = dates[i];
-          const dayGames = schedule.filter((g) => g.date === ds && g.gubun !== "시범");
+          const dayGames = schedule.filter((g) => g.date === ds && !g.isExhibition);
           const scoreEntries: ScoreEntry[] = scoresList[i]?.games || [];
           const isFuture = ds > todayStr;
           const isToday = ds === todayStr;
