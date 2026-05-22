@@ -30,6 +30,7 @@ export default function LineupSection({
   homeLineup,
   hasLineup,
   isLive,
+  isFuture,
   lineupConfirmed,
   showLineupStatus,
 }: LineupSectionProps) {
@@ -40,8 +41,8 @@ export default function LineupSection({
   if (!hasLineup) {
     return (
       <div className="mt-3 bg-card rounded-2xl border border-border p-8 text-center">
-        <p className="text-muted-foreground text-sm mb-1">아직 라인업이 공개되지 않았어요</p>
-        <p className="text-xs text-muted-foreground">경기 시작 전에 확정 후 업데이트돼요</p>
+        <p className="text-muted-foreground text-sm mb-1">{isFuture ? "아직 라인업이 공개되지 않았어요" : "라인업 정보가 없어요"}</p>
+        {isFuture && <p className="text-xs text-muted-foreground">경기 시작 전에 확정 후 업데이트돼요</p>}
       </div>
     );
   }

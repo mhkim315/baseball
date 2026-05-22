@@ -116,7 +116,16 @@ export default function GameDetailScreen() {
           if (cancelled || !scores?.games) return;
           const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
           const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
+          // Extract game sequence from gameId suffix (e.g. "20260917SKNC-0" → 0)
+          const gameSeq = (() => {
+            const parts = gid.split("-");
+            const suffix = parts[parts.length - 1];
+            const n = parseInt(suffix, 10);
+            return isNaN(n) ? 0 : n;
+          })();
           const match = scores.games.find(
+            (s: ScoreEntry) => s.home === homeName && s.away === awayName && (s.gameIdx ?? 0) === gameSeq
+          ) || scores.games.find(
             (s: ScoreEntry) => s.home === homeName && s.away === awayName
           );
           if (match) setScoreFallback(match);
@@ -713,8 +722,8 @@ export default function GameDetailScreen() {
           </View>
         ) : isExhibition ? null : (
           <View style={[styles.card, styles.noLineupCard]}>
-            <Text style={styles.noLineupText}>아직 라인업이 공개되지 않았어요</Text>
-            <Text style={styles.noLineupSub}>경기 시작 전에 확정 후 업데이트돼요</Text>
+            <Text style={styles.noLineupText}>{isFuture ? "아직 라인업이 공개되지 않았어요" : "라인업 정보가 없어요"}</Text>
+            <Text style={styles.noLineupSub}>{isFuture ? "경기 시작 전에 확정 후 업데이트돼요" : ""}</Text>
           </View>
         )}
 
