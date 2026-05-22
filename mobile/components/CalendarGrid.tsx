@@ -160,10 +160,10 @@ export default function CalendarGrid({
     legendDot: { width: 10, height: 10, borderRadius: 3 },
     legendText: { fontSize: 11, color: theme.mutedForeground },
     legendBadge: {
-      backgroundColor: theme.muted, borderRadius: 4,
+      backgroundColor: "#1a1a1a", borderRadius: 4,
       paddingHorizontal: 6, paddingVertical: 1,
     },
-    legendBadgeText: { fontSize: 10, fontWeight: "600", color: theme.mutedForeground },
+    legendBadgeText: { fontSize: 10, fontWeight: "600", color: "#fff" },
 
     // Week header
     weekRow: { flexDirection: "row", marginBottom: 2 },
@@ -388,7 +388,7 @@ export default function CalendarGrid({
                                 else if (s.outcome === "T") label = "무";
                               }
                               if (!label) return <View key={i} style={{ width: 16, height: 16 }} />;
-                              const bgColor = label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#d97706";
+                              const bgColor = label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : label === "무" ? "#f59e0b" : "#888";
                               return (
                                 <View key={i} style={{
                                   backgroundColor: bgColor,

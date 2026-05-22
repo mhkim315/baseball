@@ -315,7 +315,7 @@ export default function DiaryCalendar({
                   gameResults.push({ opponent, result });
                 } else if (score && score.cancelled) {
                   const isHome = g.home === teamName;
-                  gameResults.push({ opponent: isHome ? g.away : g.home, result: { label: "취", color: isDark ? "#fff" : "#000", textColor: isDark ? "#000" : "#fff" } });
+                  gameResults.push({ opponent: isHome ? g.away : g.home, result: { label: "취", color: "#888" } });
                 }
               }
             } else if (!teamName) {
