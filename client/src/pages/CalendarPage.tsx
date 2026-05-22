@@ -16,6 +16,7 @@ interface ScoreInfo {
   homeScore: number;
   outcome: string | null;
   cancelled: boolean;
+  gameIdx?: number;
 }
 
 function getDaysInMonth(year: number, month: number): number {
@@ -201,8 +202,13 @@ export default function CalendarPage() {
                 const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
                 const isFuture = dateStr > todayStr;
                 const isDH = dayGames.length > 1;
+                const labelPairCount = new Map<string, number>();
                 const dayLabels: string[] = dayGames.map((game) => {
-                  const s = dayScores.find((sc) => sc.away === game.away && sc.home === game.home);
+                  const pairKey = `${game.away}|${game.home}`;
+                  const pairIdx = labelPairCount.get(pairKey) ?? 0;
+                  labelPairCount.set(pairKey, pairIdx + 1);
+                  const s = dayScores.find((sc) => sc.away === game.away && sc.home === game.home && (sc.gameIdx ?? 0) === pairIdx)
+                    || dayScores.find((sc) => sc.away === game.away && sc.home === game.home);
                   if (!s || s.cancelled || s.awayScore == null || s.homeScore == null || (s.awayScore === 0 && s.homeScore === 0)) return "";
                   const homeWon = s.homeScore > s.awayScore;
                   const tied = s.homeScore === s.awayScore;
@@ -217,6 +223,7 @@ export default function CalendarPage() {
                 const hasHome = dayGames.some((game) => game.home === teamName);
 
                 const isClickable = !isFuture && dayGames.length > 0;
+                const cellPairCount = new Map<string, number>();
 
                 return (
                   <div
@@ -238,7 +245,6 @@ export default function CalendarPage() {
                     } : undefined}
                   >
                     <div className={`rounded-xl border border-border ${dayBg || "bg-card"}`} style={hasHome && teamColor ? { borderLeft: `3px solid ${teamColor.primary}` } : undefined}>
-                    {/* Day number */}
                     <div className={`flex items-center text-[11px] font-medium mb-0.5 ${
                       isToday ? "text-foreground font-bold" : dayGames.length > 0 ? "" : "text-muted-foreground/50"
                     }`}>
@@ -266,10 +272,22 @@ export default function CalendarPage() {
                         const opponent = isHome ? game.away : game.home;
                         const isDh = dayGames.length > 1;
 
-                        // Find score for this matchup
+                        // Find score for this matchup using pair count
+                        const pairKey = `${game.away}|${game.home}`;
+                        const cPairIdx = cellPairCount.get(pairKey) ?? 0;
+                        cellPairCount.set(pairKey, cPairIdx + 1);
                         const score = dayScores.find(
+                          (s) => s.away === game.away && s.home === game.home && (s.gameIdx ?? 0) === cPairIdx
+                        ) || dayScores.find(
                           (s) => s.away === game.away && s.home === game.home
                         );
+
+                        // Navigate to specific game detail
+                        const gameHomeId = TEAM_NAME_TO_ID[game.home];
+                        const gameAwayId = TEAM_NAME_TO_ID[game.away];
+                        const gameHomeCode = TEAM_ID_TO_CODE[gameHomeId || ""];
+                        const gameAwayCode = TEAM_ID_TO_CODE[gameAwayId || ""];
+                        const gameDetailId = `${dateStr.replace(/-/g, "")}-${gameAwayCode}${gameHomeCode}-${cPairIdx}`;
 
                         let resultLabel = "";
                         let resultScore = "";
@@ -298,6 +316,7 @@ export default function CalendarPage() {
 
                         const prefix = isDh ? `${gi + 1}차 ` : "";
 
+                        const hasCodes = gameHomeCode && gameAwayCode;
                         return (
                           <div
                             key={gi}
@@ -305,8 +324,9 @@ export default function CalendarPage() {
                               isHome
                                 ? "font-medium"
                                 : "text-muted-foreground"
-                            }`}
+                            } ${!isFuture && hasCodes ? "cursor-pointer" : ""}`}
                             title={`${game.away} vs ${game.home} · ${game.venue}`}
+                            onClick={!isFuture && hasCodes ? (e) => { e.stopPropagation(); setLocation(`/game/${gameDetailId}`); } : undefined}
                           >
                             <div className="truncate text-center">
                               {prefix}{opponent}

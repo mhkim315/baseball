@@ -37,6 +37,7 @@ export interface ScoreEntry {
   cancelled: boolean;
   winPitcher: string | null;
   losePitcher: string | null;
+  gameIdx?: number;   // 0, 1, ... for DH games
 }
 
 export interface StadiumBrief {

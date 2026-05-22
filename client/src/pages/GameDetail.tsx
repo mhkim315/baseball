@@ -46,7 +46,10 @@ export default function GameDetailPage() {
           if (cancelled || !scores?.games) return;
           const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
           const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
+          const gameSeq = parseInt(gameId.split("-").pop() || "0", 10);
           const match = scores.games.find(
+            (s) => s.home === homeName && s.away === awayName && (s.gameIdx ?? 0) === gameSeq
+          ) || scores.games.find(
             (s) => s.home === homeName && s.away === awayName
           );
           if (match) setScoreFallback(match);

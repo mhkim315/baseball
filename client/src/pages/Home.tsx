@@ -84,8 +84,14 @@ export default function Home() {
           const apiGames = gamesData.date === dateStr
             ? gamesData.games
             : (gamesData.nextGames?.filter((g) => g.date === dateStr) ?? []);
+          const pairCount = new Map<string, number>();
           const games: EnhancedGame[] = apiGames.map((g: TodayGame) => {
+            const pairKey = `${g.away.id}-${g.home.id}`;
+            const pairIdx = pairCount.get(pairKey) ?? 0;
+            pairCount.set(pairKey, pairIdx + 1);
             const score = scoreEntries.find(
+              (s) => s.away === TEAM_COLORS[g.away.id]?.shortName && s.home === TEAM_COLORS[g.home.id]?.shortName && (s.gameIdx ?? 0) === pairIdx
+            ) || scoreEntries.find(
               (s) => s.away === TEAM_COLORS[g.away.id]?.shortName && s.home === TEAM_COLORS[g.home.id]?.shortName
             );
             const rawStatus = g.status as "scheduled" | "live" | "finished";
@@ -186,17 +192,23 @@ export default function Home() {
           });
         }
 
+        const pairCount = new Map<string, number>();
         const games: EnhancedGame[] = dayGames.map((g: ScheduleGame) => {
           const homeId = TEAM_NAME_TO_ID[g.home] || "";
           const awayId = TEAM_NAME_TO_ID[g.away] || "";
           const homeCode = TEAM_ID_TO_CODE[homeId] || "";
           const awayCode = TEAM_ID_TO_CODE[awayId] || "";
+          const pairKey = `${awayId}-${homeId}`;
+          const pairIdx = pairCount.get(pairKey) ?? 0;
+          pairCount.set(pairKey, pairIdx + 1);
           const score = scoreEntries.find(
+            (s) => s.home === g.home && s.away === g.away && (s.gameIdx ?? 0) === pairIdx
+          ) || scoreEntries.find(
             (s) => s.home === g.home && s.away === g.away
           );
           const pitchers = pitcherMap.get(`${awayId}-${homeId}`);
           return {
-            id: `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-0`,
+            id: `${dateStr.replace(/-/g, "")}-${awayCode}${homeCode}-${pairIdx}`,
             homeTeam: homeId,
             awayTeam: awayId,
             time: g.time || "18:30",

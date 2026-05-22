@@ -84,6 +84,8 @@ export default function Cheer() {
           if (!scores?.games) return null;
           const teamKr = TEAM_COLORS[selectedTeam]?.shortName || "";
           const game = scores.games.find(
+            (g: ScoreEntry) => (g.home === teamKr || g.away === teamKr) && (g.gameIdx ?? 0) === 0
+          ) || scores.games.find(
             (g: ScoreEntry) => g.home === teamKr || g.away === teamKr
           );
           if (!game) return null;
