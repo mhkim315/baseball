@@ -21,7 +21,7 @@ export class ApiClient {
   }
 
   private isRetryable(error: unknown): boolean {
-    if (error instanceof DOMException && error.name === "AbortError") return false;
+    if (error instanceof Error && error.name === "AbortError") return false;
     if (error instanceof TypeError) return true; // network error
     if (error instanceof Error && /^HTTP (5|429)/.test(error.message)) return true;
     return false;

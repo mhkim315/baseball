@@ -17,7 +17,8 @@ export interface MatchedGame {
  */
 export async function matchGame(
   gameId?: string,
-  stadium?: string
+  stadium?: string,
+  gameIdx?: number
 ): Promise<MatchedGame | null> {
   if (!gameId && !stadium) return null;
 
@@ -51,6 +52,7 @@ export async function matchGame(
     const scores = await fetchDailyScores(dateStr);
     if (scores?.games) {
       for (const s of scores.games) {
+        if (gameIdx !== undefined && (s.gameIdx ?? 0) !== gameIdx) continue;
         const homeTeam = findTeamByShortName(s.home);
         const awayTeam = findTeamByShortName(s.away);
         if (homeTeam && awayTeam) {

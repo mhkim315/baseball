@@ -8,16 +8,17 @@ interface ExpenseStatsProps {
   expenses: Expense[];
   records: JikgwanRecord[];
   teamId?: string | null;
+  year: number;
 }
 
 function avgFmt(n: number): string {
   return n >= 10000 ? `${Math.round(n / 10000)}만` : n.toLocaleString();
 }
 
-export default function ExpenseStats({ expenses, records, teamId }: ExpenseStatsProps) {
+export default function ExpenseStats({ expenses, records, teamId, year }: ExpenseStatsProps) {
   const { theme, isDark } = useTheme();
   const teamColor = teamPrimaryColor(teamId, isDark);
-  const stats = useMemo(() => computeExpenseStats(expenses), [expenses]);
+  const stats = useMemo(() => computeExpenseStats(expenses, year), [expenses, year]);
   const maxCatAmount = stats.categoryTotals.length > 0 ? stats.categoryTotals[0].amount : 1;
   const liveRecords = useMemo(() => records.filter((r) => r.is_live === 1), [records]);
   const ha = useMemo(() => computeHomeAwayExpenses(expenses, liveRecords), [expenses, liveRecords]);
@@ -130,7 +131,7 @@ export default function ExpenseStats({ expenses, records, teamId }: ExpenseStats
     <View style={styles.container}>
       {/* Season Total */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>2026시즌 총 지출</Text>
+        <Text style={styles.cardTitle}>{year}시즌 총 지출</Text>
         <View style={styles.totalRow}>
           <Text style={styles.totalLabel}>총</Text>
           <Text style={styles.totalAmount}>{stats.seasonTotal.toLocaleString()}</Text>

@@ -6,6 +6,7 @@ import WebzineTimeline from "@/components/WebzineTimeline";
 import GridTimeline from "@/components/GridTimeline";
 import DiaryCard from "@/components/DiaryCard";
 import DiaryCalendar from "@/components/DiaryCalendar";
+import YearSelector from "@/components/YearSelector";
 import DiaryStats from "@/components/DiaryStats";
 import DiaryEntryModal from "@/components/DiaryEntryModal";
 import ExpenseCalendar from "@/components/ExpenseCalendar";
@@ -212,6 +213,9 @@ export default function DiaryScreen() {
   // Expense calendar state
   const [expCalYear, setExpCalYear] = useState(now.getFullYear());
   const [expCalMonth, setExpCalMonth] = useState(now.getMonth());
+
+  // Shared year state for calendar + stats
+  const [diaryYear, setDiaryYear] = useState(now.getFullYear());
 
   const generationRef = useRef(0);
 
@@ -441,24 +445,36 @@ export default function DiaryScreen() {
                 <Pressable
                   key={st.key}
                   style={[styles.viewModeBtn, subTab === st.key && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
-                  onPress={() => setSubTab(st.key)}
+                  onPress={() => {
+                    setSubTab(st.key);
+                    if (st.key === "jikgwan") { setCalYear(expCalYear); setCalMonth(expCalMonth); }
+                    else { setExpCalYear(calYear); setExpCalMonth(calMonth); }
+                  }}
                 >
                   <Text style={[styles.viewModeBtnText, subTab === st.key && styles.viewModeBtnTextActive]}>{st.label}</Text>
                 </Pressable>
               ))}
             </View>
           )}
-          {(activeTab === "timeline") && (
+          <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
+        </View>
+        <View style={{ flexDirection: "row", alignItems: "center", paddingHorizontal: 20, marginBottom: 8 }}>
+          <Text style={styles.headerSub}>나의 직관 기록</Text>
+          <View style={{ flex: 1 }} />
+          {activeTab === "timeline" && (
           <Pressable
-            style={[styles.viewModeBtn, { marginRight: 8 }, showSearch && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
+            style={[styles.viewModeBtn, { marginRight: 6 }, showSearch && { backgroundColor: myTeam ? teamPrimaryColor(myTeam, isDark) : theme.foreground }]}
             onPress={() => { setShowSearch(!showSearch); if (showSearch) setSearchQuery(""); }}
           >
             <Text style={[styles.viewModeBtnText, showSearch && styles.viewModeBtnTextActive, { fontSize: 15 }]}>⌕</Text>
           </Pressable>
           )}
-          <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
+          <YearSelector year={diaryYear} onYearChange={(y) => {
+            setDiaryYear(y);
+            setCalYear(y);
+            setExpCalYear(y);
+          }} />
         </View>
-        <Text style={styles.headerSub}>나의 직관 기록</Text>
       </View>
 
       {/* Segmented Control */}
@@ -566,7 +582,6 @@ export default function DiaryScreen() {
                   teamId={myTeam}
                   onSelectDate={handleSelectDate}
                   onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
-                  onYearChange={(y) => setCalYear(y)}
                 />
               ) : (
                 <ExpenseCalendar
@@ -606,9 +621,10 @@ export default function DiaryScreen() {
                 <DiaryStats
                   records={records}
                   teamId={myTeam}
+                  year={diaryYear}
                 />
               ) : (
-                <ExpenseStats expenses={expenses} records={records} teamId={myTeam} />
+                <ExpenseStats expenses={expenses} records={records} teamId={myTeam} year={diaryYear} />
               )}
             </ScrollView>
           </View>

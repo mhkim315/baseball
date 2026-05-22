@@ -116,7 +116,9 @@ export default function ExpenseCalendar({
           <Pressable onPress={handlePrev} hitSlop={8}>
             <Text style={styles.navBtn}>◀</Text>
           </Pressable>
-          <Text style={styles.monthTitle}>{year}년 {month + 1}월</Text>
+          <Text style={styles.monthTitle}>
+            {month + 1}월
+          </Text>
           <Pressable onPress={handleNext} hitSlop={8}>
             <Text style={styles.navBtn}>▶</Text>
           </Pressable>

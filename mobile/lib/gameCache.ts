@@ -1,18 +1,17 @@
 import * as db from "./db";
 import {
   fetchDailyScores as apiDailyScores,
+  fetchAllDailyScores as apiAllDailyScores,
   fetchScheduleByMonth as apiScheduleByMonth,
   fetchTodayGames as apiTodayGames,
   fetchGameDetail as apiGameDetail,
-  fetchCheeringSongs as apiCheeringSongs,
-  fetchCheeringPlayers as apiCheeringPlayers,
   type ScoreEntry,
   type ScheduleGame,
   type TodayGame,
   type GameDetail,
-  type CheerSection,
-  type PlayerCheer,
 } from "./api";
+import { CHEER_SONGS, CHEER_PLAYERS } from "./cheerData";
+import type { CheerSection, PlayerCheer } from "./api";
 
 function cacheKey(name: string, id: string): string {
   return `${name}:${id}`;
@@ -82,18 +81,19 @@ async function fetchWithCache<T>(
   }
 }
 
-// Cheering songs — effectively immutable per team
+// Fallback cheering data for when the server endpoint hasn't been deployed yet
+// Cheer data sourced from mobile/lib/cheerData.ts (same data as web's client/src/lib/cheerData.ts)
+
+// Cheer songs — use local data directly
 export async function cachedCheeringSongs(teamId: string): Promise<{ sections: CheerSection[] } | null> {
-  return fetchWithCache(cacheKey("cheer-songs", teamId), Infinity, () =>
-    apiCheeringSongs(teamId)
-  );
+  const sections = CHEER_SONGS[teamId];
+  return sections ? { sections } : null;
 }
 
-// Cheering players — effectively immutable per team
+// Cheer players — use local data directly
 export async function cachedCheeringPlayers(teamId: string): Promise<{ players: PlayerCheer[] } | null> {
-  return fetchWithCache(cacheKey("cheer-players", teamId), Infinity, () =>
-    apiCheeringPlayers(teamId)
-  );
+  const players = CHEER_PLAYERS[teamId];
+  return players ? { players } : null;
 }
 
 // Schedule by month — never changes, cache forever (key includes year)
@@ -109,6 +109,49 @@ export async function cachedDailyScores(date: string): Promise<{ games: ScoreEnt
   return fetchWithCache(cacheKey("scores", date), ttlForDate(date), () =>
     apiDailyScores(date)
   );
+}
+
+// Bulk fetch all daily scores → populate per-date cache for instant individual lookups
+const ALL_SCORES_TTL = 300_000; // 5 min
+let allScoresPromise: Promise<Record<string, ScoreEntry[]> | null> | null = null;
+
+export async function cachedAllDailyScores(): Promise<Record<string, ScoreEntry[]> | null> {
+  const allScoresCacheKey = cacheKey("scores", "__all__");
+
+  // Check cache first (with TTL)
+  const cached = await db.getCache(allScoresCacheKey);
+  if (cached) {
+    const parsed = safeParse(cached.data) as Record<string, ScoreEntry[]> | null;
+    if (parsed && Date.now() - cached.updatedAt < ALL_SCORES_TTL) return parsed;
+    if (parsed) await db.deleteCache(allScoresCacheKey);
+  }
+
+  // Dedup concurrent calls
+  if (allScoresPromise) return allScoresPromise;
+
+  allScoresPromise = (async () => {
+    const data = await apiAllDailyScores();
+    if (!data) return null;
+
+    // data is the raw dates map: { "2026-05-21": [...], ... }
+    const dates = data as unknown as Record<string, ScoreEntry[]>;
+
+    // Populate per-date cache so individual cachedDailyScores calls hit instantly
+    for (const [date, games] of Object.entries(dates)) {
+      const key = cacheKey("scores", date);
+      await db.setCache(key, JSON.stringify({ date, games }));
+    }
+
+    // Also cache the full result briefly so rapid remounts skip the loop
+    await db.setCache(allScoresCacheKey, JSON.stringify(dates));
+    return dates;
+  })();
+
+  try {
+    return await allScoresPromise;
+  } finally {
+    allScoresPromise = null;
+  }
 }
 
 // Today's games — date-qualified key to survive midnight

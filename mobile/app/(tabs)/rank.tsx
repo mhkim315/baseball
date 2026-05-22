@@ -3,6 +3,8 @@ import { View, Text, ScrollView, ActivityIndicator, Pressable, StyleSheet } from
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID } from "@shared/constants";
 import { fetchStandingsJson, type StandingRow } from "@/lib/api";
+import { HISTORICAL_STANDINGS } from "@/lib/standingsData";
+import YearSelector from "@/components/YearSelector";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
@@ -27,6 +29,7 @@ function streakColor(streak: string | undefined | null): string {
 
 export default function RankScreen() {
   const { theme, isDark } = useTheme();
+  const [year, setYear] = useState(new Date().getFullYear());
   const [standings, setStandings] = useState<StandingRow[]>([]);
   const [fetchedAt, setFetchedAt] = useState("");
   const [loading, setLoading] = useState(true);
@@ -34,6 +37,21 @@ export default function RankScreen() {
   const { myTeam } = useTeam();
 
   const load = useCallback(() => {
+    // For past seasons (2020–2025), use local data
+    if (year < 2026) {
+      const data = HISTORICAL_STANDINGS[year];
+      if (data) {
+        setStandings(data);
+        setFetchedAt("");
+      } else {
+        setStandings([]);
+      }
+      setLoading(false);
+      setError(false);
+      return;
+    }
+
+    // Current season (2026+) — fetch from API
     setLoading(true);
     setError(false);
     fetchStandingsJson().then((data) => {
@@ -48,7 +66,7 @@ export default function RankScreen() {
       setError(true);
       setLoading(false);
     });
-  }, []);
+  }, [year]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -206,9 +224,11 @@ export default function RankScreen() {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={styles.headerTitle}>순위</Text>
           <View style={{ flex: 1 }} />
+          <YearSelector year={year} onYearChange={setYear} />
+          <View style={{ width: 8 }} />
           <SettingsButton color={myTeam ? teamPrimaryColor(myTeam, isDark) : undefined} />
         </View>
-        <Text style={styles.headerSub}>2026 KBO 리그</Text>
+        <Text style={styles.headerSub}>{year} KBO 리그</Text>
       </View>
 
       {loading ? (
@@ -264,8 +284,8 @@ export default function RankScreen() {
                   <Text style={[styles.cell, styles.colGb, styles.gbText]}>
                     {row.gamesBehind == null || Number(row.gamesBehind) === 0 ? "-" : Number(row.gamesBehind).toFixed(1)}
                   </Text>
-                  <Text style={[styles.cell, styles.colStreak, { color: streakColor(row.streak) }]}>
-                    {row.streak}
+                  <Text style={[styles.cell, styles.colStreak, { color: row.streak ? streakColor(row.streak) : theme.mutedForeground }]}>
+                    {row.streak || "-"}
                   </Text>
                 </View>
               );

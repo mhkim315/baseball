@@ -11,6 +11,7 @@ import type { JikgwanRecord } from "@/lib/db";
 interface DiaryStatsProps {
   records: JikgwanRecord[];
   teamId: string | null;
+  year: number;
 }
 
 function formatPct(v: number): string {
@@ -38,16 +39,19 @@ function interpolateColor(from: string, to: string, t: number): string {
   return `rgb(${r},${g},${b})`;
 }
 
-export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
+export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
   const { theme, isDark } = useTheme();
   const teamColor = teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground;
 
+  // Filter records by selected year
+  const yearRecords = useMemo(() => records.filter((r) => r.date.startsWith(`${year}.`)), [records, year]);
+
   // Tier 1 — 직관 전용 (liveRecords), 토글 영향 없음
-  const liveRecords = useMemo(() => records.filter((r) => Number(r.is_live) === 1), [records]);
-  const liveStats = useMemo(() => computeDiaryStats(liveRecords), [liveRecords]);
-  const allStats = useMemo(() => computeDiaryStats(records), [records]);
-  const dayStatsLive = useMemo(() => computeDayOfWeekStats(liveRecords), [liveRecords]);
-  const homeAwayLive = useMemo(() => teamId ? computeHomeAwayStats(liveRecords, teamId) : null, [liveRecords, teamId]);
+  const liveRecords = useMemo(() => yearRecords.filter((r) => Number(r.is_live) === 1), [yearRecords]);
+  const liveStats = useMemo(() => computeDiaryStats(liveRecords, year), [liveRecords, year]);
+  const allStats = useMemo(() => computeDiaryStats(yearRecords, year), [yearRecords, year]);
+  const dayStatsLive = useMemo(() => computeDayOfWeekStats(liveRecords, year), [liveRecords, year]);
+  const homeAwayLive = useMemo(() => teamId ? computeHomeAwayStats(liveRecords, teamId, year) : null, [liveRecords, teamId, year]);
   const stadiumStatsLive = useMemo(() => {
     const map = new Map<string, { wins: number; total: number }>();
     for (const r of liveRecords) {
@@ -65,10 +69,10 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
 
   // Tier 2 — 토글 영향 받음 (하단 비교 섹션용)
   const [includeJipgwan, setIncludeJipgwan] = useState(false);
-  const activeRecords = useMemo(() => includeJipgwan ? records : liveRecords, [includeJipgwan, records, liveRecords]);
-  const activeStats = useMemo(() => computeDiaryStats(activeRecords), [activeRecords]);
-  const opponentStats = useMemo(() => teamId ? computeOpponentStats(activeRecords, teamId) : [], [activeRecords, teamId]);
-  const streakActive = useMemo(() => computeStreakStats(activeRecords), [activeRecords]);
+  const activeRecords = useMemo(() => includeJipgwan ? yearRecords : liveRecords, [includeJipgwan, yearRecords, liveRecords]);
+  const activeStats = useMemo(() => computeDiaryStats(activeRecords, year), [activeRecords, year]);
+  const opponentStats = useMemo(() => teamId ? computeOpponentStats(activeRecords, teamId, year) : [], [activeRecords, teamId, year]);
+  const streakActive = useMemo(() => computeStreakStats(activeRecords, year), [activeRecords, year]);
 
   // DEBUG: log record state for diagnosing SM-S901N stats bug
   useEffect(() => {
@@ -451,7 +455,7 @@ export default function DiaryStats({ records, teamId }: DiaryStatsProps) {
 
       {/* Season summary (직관 only) */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>2026시즌</Text>
+        <Text style={styles.cardTitle}>{year}시즌</Text>
         <View style={styles.seasonRow}>
           <View style={styles.seasonItem}>
             <Text style={styles.seasonNum}>{liveStats.totalGames}</Text>

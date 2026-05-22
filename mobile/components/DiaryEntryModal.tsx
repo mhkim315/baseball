@@ -9,7 +9,6 @@ import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getDaysInMonth, getFirstDayOfMonth, formatDate, formatDateForApi, DEFAULT_TEAM_ID, buildGameId } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import PhotoCropper from "@/components/PhotoCropper";
-import DatePhotoPicker from "@/components/DatePhotoPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import BottomSheet from "@/components/BottomSheet";
 import ExpenseForm from "@/components/ExpenseForm";
@@ -114,7 +113,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [cropUri, setCropUri] = useState<string | null>(null);
-  const [showDatePhotoPicker, setShowDatePhotoPicker] = useState(false);
   const cropQueueRef = useRef<string[]>([]);
   const cropQueueIndexRef = useRef(0);
   const croppedUrisRef = useRef<string[]>([]);
@@ -213,9 +211,9 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       const month = date.getMonth() + 1;
       const apiDate = formatDateForApi(date);
       const [schedule, scores, exhibitionData] = await Promise.all([
-        cachedScheduleByMonth(month, calYear),
+        cachedScheduleByMonth(month, date.getFullYear()),
         fetchDailyScores(apiDate),
-        fetchExhibitionGames(calYear),
+        fetchExhibitionGames(date.getFullYear()),
       ]);
 
       const daySched = (schedule?.games ?? []).filter(
@@ -238,11 +236,15 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
       const scoreMap = new Map<string, ScoreEntry>();
       for (const s of scores?.games ?? []) {
-        scoreMap.set(`${s.away} vs ${s.home}`, s);
+        scoreMap.set(`${s.away} vs ${s.home}#${s.gameIdx ?? 0}`, s);
       }
 
+      const schedulePairCount = new Map<string, number>();
       const gameOpts: GameOption[] = daySched.map((g: ScheduleGame) => {
-        const score = scoreMap.get(`${g.away} vs ${g.home}`);
+        const pairKey = `${g.away} vs ${g.home}`;
+        const pairIdx = schedulePairCount.get(pairKey) || 0;
+        schedulePairCount.set(pairKey, pairIdx + 1);
+        const score = scoreMap.get(`${g.away} vs ${g.home}#${pairIdx}`) || scoreMap.get(`${g.away} vs ${g.home}#0`);
         const homeTeamId = TEAM_LIST.find((t) => t.shortName === g.home)?.id || "";
         const awayTeamId = TEAM_LIST.find((t) => t.shortName === g.away)?.id || "";
         return {
@@ -267,7 +269,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         return 0;
       });
 
-      setGames(sorted.slice(0, 5));
+      setGames(sorted);
     } catch {
       setGames([]);
     } finally {
@@ -323,6 +325,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"],
         quality: 0.8,
+        allowsMultipleSelection: true,
+        selectionLimit: 10,
       });
       if (!result.canceled && result.assets.length > 0) {
         handlePhotoSelect(result.assets.map((a) => a.uri));
@@ -1013,22 +1017,21 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                 ) : (
                   <>
                   {(() => {
-                    const myGame = games.find(g => userTeam && (g.homeTeam === userTeam || g.awayTeam === userTeam));
+                    const myGames = games.filter(g => userTeam && (g.homeTeam === userTeam || g.awayTeam === userTeam));
                     const otherGames = games.filter(g => !(userTeam && (g.homeTeam === userTeam || g.awayTeam === userTeam)));
 
                     return (
                       <>
-                      {/* MY team game — prominent */}
-                      {myGame && (() => {
+                      {/* MY team game(s) — prominent */}
+                      {myGames.map((myGame, myIdx) => {
                         const home = TEAM_COLORS[myGame.homeTeam];
                         const away = TEAM_COLORS[myGame.awayTeam];
                         const hasScore = myGame.homeScore != null && myGame.awayScore != null;
                         const emotions = gameEmotions(myGame);
                         const myTeamColor = teamPrimaryColor(userTeam, isDark);
                         return (
-                          <View style={styles.gameList}>
+                          <View key={`my-${myGame.homeTeam}-${myGame.awayTeam}-${myIdx}`} style={styles.gameList}>
                             <Pressable
-                              key={`my-${myGame.homeTeam}-${myGame.awayTeam}`}
                               style={[styles.gameCard, myTeamColor && { borderColor: myTeamColor, borderWidth: 2 }]}
                               onPress={() => handleGameSelect(myGame)}
                             >
@@ -1079,41 +1082,42 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                                 </View>
                               </View>
                             </Pressable>
+                          </View>
+                        );
+                      })}
 
-                            {/* Other games toggle */}
-                            {otherGames.length > 0 && (
-                              <Pressable style={styles.otherGamesToggle} onPress={() => setShowOtherGames((v) => !v)}>
-                                <Text style={styles.otherGamesToggleText}>
-                                  {showOtherGames ? "접기 ▲" : `그 외 ${otherGames.length}경기 ▼`}
-                                </Text>
-                              </Pressable>
-                            )}
+                      {/* Other games section — rendered once, outside myGames.map */}
+                      {myGames.length > 0 && otherGames.length > 0 && (
+                        <View style={styles.gameList}>
+                          <Pressable style={styles.otherGamesToggle} onPress={() => setShowOtherGames((v) => !v)}>
+                            <Text style={styles.otherGamesToggleText}>
+                              {showOtherGames ? "접기 ▲" : `그 외 ${otherGames.length}경기 ▼`}
+                            </Text>
+                          </Pressable>
+                          {showOtherGames && otherGames.map((g, i) => {
+                            const home = TEAM_COLORS[g.homeTeam];
+                            const away = TEAM_COLORS[g.awayTeam];
+                            const hasScore = g.homeScore != null && g.awayScore != null;
+                            const emotions = gameEmotions(g);
+                            return (
+                              <Pressable
+                                key={`other-${g.homeTeam}-${g.awayTeam}-${i}`}
+                                style={styles.gameCard}
+                                onPress={() => handleGameSelect(g)}
+                              >
+                                <View style={styles.gameCardTop}>
+                                  <View style={styles.gameTeamRow}>
+                                    <TeamBadge teamId={g.awayTeam} size="sm" emotion={emotions?.away ?? "default"} />
+                                    <Text style={[styles.gameTeamName, { color: teamPrimaryColor(g.awayTeam, isDark) }]}>
+                                      {away?.shortName || "?"}
+                                    </Text>
+                                    {hasScore && <Text style={styles.gameScore}>{g.awayScore}</Text>}
+                                  </View>
 
-                            {/* Other games (expanded) */}
-                            {showOtherGames && otherGames.map((g, i) => {
-                              const home = TEAM_COLORS[g.homeTeam];
-                              const away = TEAM_COLORS[g.awayTeam];
-                              const hasScore = g.homeScore != null && g.awayScore != null;
-                              const emotions = gameEmotions(g);
-                              return (
-                                <Pressable
-                                  key={`other-${g.homeTeam}-${g.awayTeam}-${i}`}
-                                  style={styles.gameCard}
-                                  onPress={() => handleGameSelect(g)}
-                                >
-                                  <View style={styles.gameCardTop}>
-                                    <View style={styles.gameTeamRow}>
-                                      <TeamBadge teamId={g.awayTeam} size="sm" emotion={emotions?.away ?? "default"} />
-                                      <Text style={[styles.gameTeamName, { color: teamPrimaryColor(g.awayTeam, isDark) }]}>
-                                        {away?.shortName || "?"}
-                                      </Text>
-                                      {hasScore && <Text style={styles.gameScore}>{g.awayScore}</Text>}
-                                    </View>
-
-                                    {g.cancelled ? (
-                                      <Text style={styles.gameVs}>취소</Text>
-                                    ) : (
-                                      <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+                                  {g.cancelled ? (
+                                    <Text style={styles.gameVs}>취소</Text>
+                                  ) : (
+                                    <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
                                         <Text style={styles.gameVs}>VS</Text>
                                         <Text style={styles.gameMeta}>{g.time}</Text>
                                         {g.isExhibition && (
@@ -1136,11 +1140,10 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                               );
                             })}
                           </View>
-                        );
-                      })()}
+                        )}
 
                       {/* No MY team game: show all games in a flat list */}
-                      {!myGame && (
+                      {myGames.length === 0 && (
                         <View style={styles.gameList}>
                           {games.map((g, i) => {
                             const home = TEAM_COLORS[g.homeTeam];
@@ -1305,7 +1308,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                         )}
                       </View>
                     ))}
-                    <Pressable style={styles.photoAddBtn} onPress={() => setShowDatePhotoPicker(true)}>
+                    <Pressable style={styles.photoAddBtn} onPress={handleFullGalleryPick}>
                       <Text style={styles.photoAddIcon}>+</Text>
                     </Pressable>
                   </View>
@@ -1414,16 +1417,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           </View>
         </View>
       )}
-
-      <DatePhotoPicker
-        visible={showDatePhotoPicker}
-        date={selectedDate}
-        onSelect={(uris) => {
-          setShowDatePhotoPicker(false);
-          handlePhotoSelect(uris);
-        }}
-        onClose={() => setShowDatePhotoPicker(false)}
-      />
 
       <PhotoCropper
         visible={!!cropUri}

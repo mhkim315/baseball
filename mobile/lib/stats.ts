@@ -58,26 +58,31 @@ function opponentTeam(gameId: string, cheeredTeam: string): string {
   return awayId === cheeredTeam ? homeId : awayId;
 }
 
-export function computeDiaryStats(records: JikgwanRecord[]): DiaryStats {
-  const wins = records.filter((r) => resolveIsWin(r) === 1).length;
-  const draws = records.filter((r) => resolveIsWin(r) === 0).length;
-  const losses = records.filter((r) => resolveIsWin(r) === -1).length;
+function filterByYear(records: JikgwanRecord[], year?: number): JikgwanRecord[] {
+  return year ? records.filter((r) => r.date.startsWith(`${year}.`)) : records;
+}
+
+export function computeDiaryStats(records: JikgwanRecord[], year?: number): DiaryStats {
+  const filtered = filterByYear(records, year);
+  const wins = filtered.filter((r) => resolveIsWin(r) === 1).length;
+  const draws = filtered.filter((r) => resolveIsWin(r) === 0).length;
+  const losses = filtered.filter((r) => resolveIsWin(r) === -1).length;
   const totalGames = wins + draws + losses;
   const winRate = totalGames > 0 ? wins / totalGames : 0;
 
   const stadiums = [
-    ...new Set(records.map((r) => r.stadium).filter(Boolean)),
+    ...new Set(filtered.map((r) => r.stadium).filter(Boolean)),
   ] as string[];
 
   const emotionCounts: Record<string, number> = {};
-  for (const r of records) {
+  for (const r of filtered) {
     if (r.emotion) {
       emotionCounts[r.emotion] = (emotionCounts[r.emotion] || 0) + 1;
     }
   }
 
   const dates = [
-    ...new Set(records.map((r) => r.date)),
+    ...new Set(filtered.map((r) => r.date)),
   ].sort().reverse();
   let currentStreak = 0;
   const today = new Date();
@@ -124,9 +129,10 @@ export function computeDiaryStats(records: JikgwanRecord[]): DiaryStats {
   };
 }
 
-export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: string): OpponentStat[] {
+export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: string, year?: number): OpponentStat[] {
+  const filtered = filterByYear(records, year);
   const map = new Map<string, { wins: number; draws: number; losses: number }>();
-  for (const r of records) {
+  for (const r of filtered) {
     if (resolveIsWin(r) == null || !r.cheered_team) continue;
     if (r.cheered_team !== cheeredTeam) continue;
     const opp = opponentTeam(r.game_id, cheeredTeam);
@@ -147,10 +153,11 @@ export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: stri
   return stats;
 }
 
-export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: string): HomeAwayStat {
+export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: string, year?: number): HomeAwayStat {
+  const filtered = filterByYear(records, year);
   const home = { wins: 0, draws: 0, losses: 0, total: 0, winRate: 0 };
   const away = { wins: 0, draws: 0, losses: 0, total: 0, winRate: 0 };
-  for (const r of records) {
+  for (const r of filtered) {
     if (resolveIsWin(r) == null || !r.cheered_team) continue;
     if (r.cheered_team !== cheeredTeam) continue;
     const { homeId } = parseGameTeamIds(r.game_id);
@@ -167,10 +174,11 @@ export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: stri
   return { home, away };
 }
 
-export function computeDayOfWeekStats(records: JikgwanRecord[]): DayOfWeekStat[] {
+export function computeDayOfWeekStats(records: JikgwanRecord[], year?: number): DayOfWeekStat[] {
+  const filtered = filterByYear(records, year);
   const dayMap = new Map<number, { wins: number; draws: number; losses: number }>();
   for (let i = 0; i < 7; i++) dayMap.set(i, { wins: 0, draws: 0, losses: 0 });
-  for (const r of records) {
+  for (const r of filtered) {
     const iw = resolveIsWin(r);
     if (iw == null) continue;
     const d = parseDateStr(r.date);
@@ -188,8 +196,8 @@ export function computeDayOfWeekStats(records: JikgwanRecord[]): DayOfWeekStat[]
   });
 }
 
-export function computeStreakStats(records: JikgwanRecord[]): StreakStat {
-  const games = records
+export function computeStreakStats(records: JikgwanRecord[], year?: number): StreakStat {
+  const games = filterByYear(records, year)
     .filter((r) => {
       const iw = resolveIsWin(r);
       return iw != null && iw !== 0;

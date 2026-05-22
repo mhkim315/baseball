@@ -7,7 +7,6 @@ import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
-import YearSelector from "@/components/YearSelector";
 import { type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import type { JikgwanRecord } from "@/lib/db";
 import { resolveIsWin } from "@/lib/expenseStats";
@@ -21,7 +20,6 @@ interface DiaryCalendarProps {
   teamId: string | null;
   onSelectDate: (date: Date) => void;
   onMonthChange: (year: number, month: number) => void;
-  onYearChange?: (year: number) => void;
 }
 
 export default function DiaryCalendar({
@@ -31,7 +29,6 @@ export default function DiaryCalendar({
   teamId,
   onSelectDate,
   onMonthChange,
-  onYearChange,
 }: DiaryCalendarProps) {
   const { theme, isDark } = useTheme();
   const [games, setGames] = useState<ScheduleGame[]>([]);
@@ -252,7 +249,6 @@ export default function DiaryCalendar({
         <Pressable onPress={handlePrev} hitSlop={8}>
           <Text style={styles.navBtn}>◀</Text>
         </Pressable>
-        {onYearChange && <YearSelector year={year} onYearChange={onYearChange} />}
         <Text style={styles.monthTitle}>
           {month + 1}월
         </Text>
@@ -298,29 +294,36 @@ export default function DiaryCalendar({
           const dayGames = myGamesByDate.get(apiDateStr) || [];
           const dayScores = scoresByDate[apiDateStr] || [];
 
-          // Game result from scores
-          let gameOpponent: string | undefined;
-          let gameResult: { label: string; color: string; textColor?: string } | null = null;
-          if (dayGames.length > 0 && !isFuture && dayScores.length > 0) {
-            const g = dayGames[0];
-            const score = dayScores.find((s) => s.away === g.away && s.home === g.home);
-            if (score && !score.cancelled && score.outcome != null) {
-              const isHome = g.home === teamName;
-              const our = isHome ? score.homeScore : score.awayScore;
-              const their = isHome ? score.awayScore : score.homeScore;
-              gameOpponent = isHome ? g.away : g.home;
-              if (our > their) gameResult = getWinBadge(1);
-              else if (our < their) gameResult = getWinBadge(-1);
-              else gameResult = getWinBadge(0);
-            } else if (score && score.cancelled) {
-              const isHome = g.home === teamName;
-              gameOpponent = isHome ? g.away : g.home;
-              gameResult = { label: "취", color: isDark ? "#fff" : "#000", textColor: isDark ? "#000" : "#fff" };
+          // Game result from scores (handles DH)
+          interface GameResult { opponent: string; result: { label: string; color: string; textColor?: string } | null; }
+          let gameResults: GameResult[] = [];
+          const isDH = dayGames.length > 1;
+          if (dayGames.length > 0 && !isFuture) {
+            if (dayScores.length > 0) {
+              const pairCount = new Map<string, number>();
+              for (const g of dayGames) {
+                const pairKey = `${g.away}|${g.home}`;
+                const pairIdx = pairCount.get(pairKey) ?? 0;
+                pairCount.set(pairKey, pairIdx + 1);
+                const score = dayScores.find((s) => s.away === g.away && s.home === g.home && (s.gameIdx ?? 0) === pairIdx);
+                if (score && !score.cancelled && score.outcome != null) {
+                  const isHome = g.home === teamName;
+                  const our = isHome ? score.homeScore : score.awayScore;
+                  const their = isHome ? score.awayScore : score.homeScore;
+                  const opponent = isHome ? g.away : g.home;
+                  const result = our > their ? getWinBadge(1) : our < their ? getWinBadge(-1) : getWinBadge(0);
+                  gameResults.push({ opponent, result });
+                } else if (score && score.cancelled) {
+                  const isHome = g.home === teamName;
+                  gameResults.push({ opponent: isHome ? g.away : g.home, result: { label: "취", color: isDark ? "#fff" : "#000", textColor: isDark ? "#000" : "#fff" } });
+                }
+              }
+            } else if (!teamName) {
+              gameResults.push({ opponent: `${dayGames[0].away} vs ${dayGames[0].home}`, result: null });
             }
-          } else if (dayGames.length > 0 && !isFuture && !teamName) {
-            // No team filter — just show first game
-            gameOpponent = `${dayGames[0].away} vs ${dayGames[0].home}`;
           }
+          const gameOpponent = gameResults[0]?.opponent;
+          const gameResult = gameResults[0]?.result || null;
 
           // Diary record info (overrides game result if exists)
           let cellBg: string | undefined;
@@ -379,6 +382,11 @@ export default function DiaryCalendar({
                     <View style={[styles.resultBadge, { backgroundColor: showResult.color }]}>
                       <Text style={[styles.resultBadgeText, showResult.textColor ? { color: showResult.textColor } : undefined]}>{showResult.label}</Text>
                     </View>
+                    {!diaryResultBadge && isDH && gameResults.slice(1).map((gr, i) => gr.result ? (
+                      <View key={i} style={[styles.resultBadge, { backgroundColor: gr.result.color }]}>
+                        <Text style={[styles.resultBadgeText, gr.result.textColor ? { color: gr.result.textColor } : undefined]}>{gr.result.label}</Text>
+                      </View>
+                    ) : null)}
                   </View>
                 ) : null}
                 {emotionChar && dayRecords?.[0]?.cheered_team && (

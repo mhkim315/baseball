@@ -5,11 +5,8 @@ import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { DEFAULT_TEAM_ID } from "@shared/constants";
 import { TeamBadge } from "@/components/TeamBadge";
 import StadiumMapView from "@/components/StadiumMapView";
-import {
-  fetchStadiumBrief, fetchStadiumFoods, fetchStadiumEats, fetchStadiumSurroundings,
-} from "@/lib/api";
 import type { StadiumBrief, FoodPlace, SurroundingSpot, EatsSpot } from "@/lib/api";
-import { STADIUM_BRIEFS, STADIUM_FOODS, TEAM_STADIUM_MAP, FOOD_CATEGORIES } from "@/lib/stadiumData";
+import { STADIUM_BRIEFS, STADIUM_FOODS, STADIUM_PARKING, STADIUM_NEARBY, TEAM_STADIUM_MAP, FOOD_CATEGORIES } from "@/lib/stadiumData";
 import { getTicketPolicy } from "@/lib/ticketPolicy";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
@@ -333,35 +330,25 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
     setStadium(STADIUM_BRIEFS[sid] || null);
     setFoods(STADIUM_FOODS[sid] || []);
 
-    // Background API refresh
-    Promise.all([
-      fetchStadiumBrief(sid),
-      fetchStadiumFoods(sid),
-      fetchStadiumEats(sid),
-      fetchStadiumSurroundings(sid),
-      fetch(`${IMAGE_BASE}/data/food-layouts.json`).then((r) => r.ok ? r.json() : null),
-    ]).then(([brief, foodData, eatsData, surroundings, layouts]) => {
-      if (cancelled) return;
-      if (brief) setStadium(brief);
-      if (foodData) {
-        setFoods(foodData);
-        const floors = uniqueFloors(foodData);
-        if (floors.length > 0 && !floors.includes(foodFloor)) setFoodFloor(floors[0]);
-      }
-      if (eatsData) {
-        setNearby(eatsData.spots.filter((s) => s.address));
-        if (eatsData.center) setEatsCenter(eatsData.center);
-      }
-      if (surroundings) {
-        const st = surroundings.spots.find((s) => s.kind === "stadium" || s.kind === "ballpark") || null;
-        setStadiumSpot(st);
-        setParking(surroundings.spots.filter((s) => s.kind === "parking" || s.kind === "stadium"));
-        setTransitSpots(surroundings.spots.filter((s) => s.kind === "transit" || s.kind === "bus" || s.kind === "stadium"));
-        if (surroundings.center) setSurroundingsCenter(surroundings.center);
-        if (surroundings.zoom) setSurroundingsZoom(surroundings.zoom);
-      }
-      if (layouts) setFoodLayouts(layouts);
-    }).catch(() => {});
+    // Set local parking/nearby/transit data
+    const localParking: SurroundingSpot[] = (STADIUM_PARKING[sid] || []).map((p, i) => ({
+      id: `parking-${i}`, name: p.name, description: p.description, kind: "parking",
+      lng: 0, lat: 0,
+    }));
+    setParking(localParking);
+
+    const localNearby: EatsSpot[] = (STADIUM_NEARBY[sid] || []).map((r) => ({
+      name: r.name, cat: r.category, category: r.category,
+      address: r.address, phone: r.phone || "",
+      lng: 0, lat: 0,
+    }));
+    setNearby(localNearby);
+
+    // Only fetch food-layouts.json (static file, not API)
+    fetch(`${IMAGE_BASE}/data/food-layouts.json`).then((r) => r.ok ? r.json() : null)
+      .then((layouts) => { if (!cancelled && layouts) setFoodLayouts(layouts); })
+      .catch(() => {});
+
     return () => { cancelled = true; };
   }, [selectedTeam]);
 

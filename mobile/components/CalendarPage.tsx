@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator } from
 import { useRouter } from "expo-router";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, getDaysInMonth, getFirstDayOfMonth, DEFAULT_TEAM_ID, buildGameId } from "@shared/constants";
-import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
+import { cachedScheduleByMonth, cachedDailyScores, cachedAllDailyScores } from "@/lib/gameCache";
 import { type ScheduleGame } from "@/lib/api";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import YearSelector from "@/components/YearSelector";
@@ -43,17 +43,17 @@ export default function CalendarPage() {
       if (cancelled) return;
       const gamesList = schedule?.games || [];
       setGames(gamesList);
-      // Per-date scores: fetch all dates with games (not team-specific),
-      // so switching team filter instantly shows scores for any team
-      const allDates = [...new Set(gamesList.map((g) => g.date))];
-      const scoreResults = await Promise.all(
-        allDates.map((d) => cachedDailyScores(d).catch(() => null))
-      );
+      // Bulk fetch all daily scores (1 HTTP call) — per-date cache gets populated
+      const allScores = await cachedAllDailyScores();
       if (cancelled) return;
       const scores: Record<string, ScoreInfo[]> = {};
-      for (let i = 0; i < allDates.length; i++) {
-        if (scoreResults[i]?.games) {
-          scores[allDates[i]] = scoreResults[i]!.games;
+      if (allScores) {
+        const allDates = [...new Set(gamesList.map((g) => g.date))];
+        for (const date of allDates) {
+          const games = allScores[date];
+          if (games) {
+            scores[date] = games;
+          }
         }
       }
       setScoresByDate(scores);
@@ -137,7 +137,6 @@ export default function CalendarPage() {
     dhTag: { fontSize: 8, fontWeight: "700", color: theme.mutedForeground, backgroundColor: theme.muted, borderRadius: 3, paddingHorizontal: 3 },
     calGame: { marginBottom: 1, paddingLeft: 2 },
     calOpp: { fontSize: 9, lineHeight: 12 },
-    calGameNum: { fontSize: 8 },
     calScore: { fontSize: 9, fontWeight: "600" },
     calVenue: { fontSize: 8, color: theme.mutedForeground },
   }), [theme]);
@@ -222,64 +221,115 @@ export default function CalendarPage() {
                 const dayScores = scoresByDate[dateStr] || [];
                 const isFuture = dateStr > todayStr;
 
-                // Compute win/loss colors
-                let hasWin = false, hasLoss = false;
+                // Compute win/loss colors (single game days only)
+                let cellBg = "transparent";
                 const homeTeamName = TEAM_LIST.find((t) => t.id === selectedTeam)?.shortName || "";
-                for (const s of dayScores) {
-                  if (s.outcome == null || s.cancelled) continue;
-                  const isHome = s.home === homeTeamName;
-                  const won = isHome ? s.homeScore > s.awayScore : s.awayScore > s.homeScore;
-                  if (won) hasWin = true; else hasLoss = true;
+                const isDH = dayGames.length > 1 && !isFuture;
+
+                if (!isDH) {
+                  let hasWin = false, hasLoss = false;
+                  for (const s of dayScores) {
+                    if (s.outcome == null || s.cancelled) continue;
+                    const isHome = s.home === homeTeamName;
+                    const won = isHome ? s.homeScore > s.awayScore : s.awayScore > s.homeScore;
+                    if (won) hasWin = true; else hasLoss = true;
+                  }
+                  if (hasWin && !hasLoss) cellBg = "#e3f2fd";
+                  else if (hasLoss && !hasWin) cellBg = "#ffebee";
                 }
 
-                const cellBg = hasWin && !hasLoss ? "#e3f2fd" : hasLoss && !hasWin ? "#ffebee" : "transparent";
+                const handlePress = () => {
+                  if (isFuture || dayGames.length === 0) return;
+                  const g = dayGames[0];
+                  const homeId = TEAM_NAME_TO_ID[g.home] || "";
+                  const awayId = TEAM_NAME_TO_ID[g.away] || "";
+                  const gameId = buildGameId(awayId, homeId, dateStr.replace(/-/g, ""));
+                  if (gameId) router.push(`/game/${gameId}`);
+                };
+
+                const outcomeLabel = (outcome: string | null): string | null => {
+                  if (outcome === "W") return "승";
+                  if (outcome === "L") return "패";
+                  if (outcome === "T") return "무";
+                  return null;
+                };
+
+                const outcomeColor = (outcome: string | null, isHome: boolean): string => {
+                  if (outcome === "W") return "#1565c0";
+                  if (outcome === "L") return "#d32f2f";
+                  if (outcome === "T") return theme.mutedForeground;
+                  return theme.mutedForeground;
+                };
 
                 return (
                   <Pressable
                     key={dateStr}
-                    style={[styles.calCell, dayGames.length > 0 && !isFuture && { backgroundColor: cellBg }]}
-                    onPress={() => {
-                      if (isFuture || dayGames.length === 0) return;
-                      const g = dayGames[0];
-                      const homeId = TEAM_NAME_TO_ID[g.home] || "";
-                      const awayId = TEAM_NAME_TO_ID[g.away] || "";
-                      const gameId = buildGameId(awayId, homeId, dateStr.replace(/-/g, ""));
-                      if (gameId) router.push(`/game/${gameId}`);
-                    }}
+                    style={[styles.calCell, dayGames.length > 0 && !isFuture && !isDH && { backgroundColor: cellBg }]}
+                    onPress={handlePress}
                     disabled={isFuture || dayGames.length === 0}
                   >
                     <View style={styles.calDayRow}>
                       <Text style={[styles.calDayNum, isToday && styles.calTodayNum]}>{day}</Text>
-                      {dayGames.length > 1 && !isFuture && (
-                        <Text style={styles.dhTag}>DH</Text>
-                      )}
+                      {isDH && <Text style={styles.dhTag}>DH</Text>}
                     </View>
-                    {dayGames.slice(0, 2).map((g, i) => {
-                      const isHome = g.home === homeTeamName;
-                      const score = dayScores.find(s => s.away === g.away && s.home === g.home);
-                      const oppName = isHome ? g.away : g.home;
-                      const col = teamPrimaryColor(selectedTeam, isDark);
 
-                      return (
-                        <View key={i} style={[styles.calGame, isHome && { borderLeftWidth: 2, borderLeftColor: col }]}>
-                          <Text style={[styles.calOpp, { color: score ? theme.foreground : theme.mutedForeground }]} numberOfLines={1}>
-                            {dayGames.length > 1 && <Text style={styles.calGameNum}>{i + 1}차 </Text>}
-                            {oppName}
-                          </Text>
-                          {score && !isFuture && score.outcome != null ? (
-                            <Text style={[
-                              styles.calScore,
-                              { color: score.cancelled ? theme.mutedForeground : (!isHome ? (score.awayScore > score.homeScore ? "#1565c0" : "#d32f2f") : (score.homeScore > score.awayScore ? "#1565c0" : "#d32f2f")) },
-                              score.cancelled && { textDecorationLine: "line-through" },
-                            ]}>
-                              {score.awayScore}:{score.homeScore}
+                    {isDH ? (
+                      // DH layout: single opponent row with result badges
+                      (() => {
+                        const g0 = dayGames[0];
+                        const isHome = g0.home === homeTeamName;
+                        const oppName = isHome ? g0.away : g0.home;
+                        const col = teamPrimaryColor(selectedTeam, isDark);
+                        return (
+                          <View style={[styles.calGame, isHome && { borderLeftWidth: 2, borderLeftColor: col }]}>
+                            <Text style={[styles.calOpp, { color: theme.foreground }]} numberOfLines={1}>{oppName}</Text>
+                            <View style={{ flexDirection: "row", gap: 2, flexWrap: "wrap" }}>
+                              {dayGames.slice(0, 2).map((g, i) => {
+                                const s = dayScores.find(x => x.away === g.away && x.home === g.home);
+                                const label = s && !s.cancelled ? outcomeLabel(s.outcome) : null;
+                                return (
+                                  <View key={i} style={{
+                                    backgroundColor: label === "승" ? "#1565c0" : label === "패" ? "#d32f2f" : label === "무" ? theme.muted : "#888",
+                                    borderRadius: 3, paddingHorizontal: 3, paddingVertical: 1,
+                                  }}>
+                                    <Text style={{ fontSize: 9, fontWeight: "700", color: "#fff" }}>
+                                      {i + 1}차{s?.cancelled ? "취" : label || ""}
+                                    </Text>
+                                  </View>
+                                );
+                              })}
+                            </View>
+                          </View>
+                        );
+                      })()
+                    ) : (
+                      // Single game layout
+                      dayGames.slice(0, 2).map((g, i) => {
+                        const isHome = g.home === homeTeamName;
+                        const score = dayScores.find(s => s.away === g.away && s.home === g.home);
+                        const oppName = isHome ? g.away : g.home;
+                        const col = teamPrimaryColor(selectedTeam, isDark);
+
+                        return (
+                          <View key={i} style={[styles.calGame, isHome && { borderLeftWidth: 2, borderLeftColor: col }]}>
+                            <Text style={[styles.calOpp, { color: score ? theme.foreground : theme.mutedForeground }]} numberOfLines={1}>
+                              {oppName}
                             </Text>
-                          ) : (
-                            (!score || score.outcome == null) && <Text style={styles.calVenue} numberOfLines={1}>{g.venue?.slice(0, 2) || ""}</Text>
-                          )}
-                        </View>
-                      );
-                    })}
+                            {score && !isFuture && score.outcome != null ? (
+                              <Text style={[
+                                styles.calScore,
+                                { color: score.cancelled ? theme.mutedForeground : (!isHome ? (score.awayScore > score.homeScore ? "#1565c0" : "#d32f2f") : (score.homeScore > score.awayScore ? "#1565c0" : "#d32f2f")) },
+                                score.cancelled && { textDecorationLine: "line-through" },
+                              ]}>
+                                {score.awayScore}:{score.homeScore}
+                              </Text>
+                            ) : (
+                              (!score || score.outcome == null) && <Text style={styles.calVenue} numberOfLines={1}>{g.venue?.slice(0, 2) || ""}</Text>
+                            )}
+                          </View>
+                        );
+                      })
+                    )}
                   </Pressable>
                 );
               })}

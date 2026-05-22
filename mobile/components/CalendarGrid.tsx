@@ -14,10 +14,15 @@ function teamShortName(teamId: string): string {
   return TEAM_LIST.find((t) => t.id === teamId)?.shortName || "";
 }
 
+function cleanVenue(venue: string): string {
+  return venue.replace(/\s*\(.*?\)\s*$/, "").trim();
+}
+
 interface CalendarScore {
   away: string; home: string;
   awayScore: number; homeScore: number;
   outcome?: string | null; cancelled?: boolean;
+  gameIdx?: number;
 }
 
 const WIN_SCORE = "#3b82d9";
@@ -315,8 +320,13 @@ export default function CalendarGrid({
               const hasHome = dayGames.some((g) => g.home === teamName);
 
               // Result labels (승/패/무 dots like web)
+              const labelPairCount = new Map<string, number>();
               const dayLabels: string[] = dayGames.map((g) => {
-                const s = dayScores.find((sc) => sc.away === g.away && sc.home === g.home);
+                const pairKey = `${g.away}|${g.home}`;
+                const pairIdx = labelPairCount.get(pairKey) || 0;
+                labelPairCount.set(pairKey, pairIdx + 1);
+                const matchingScores = dayScores.filter((sc) => sc.away === g.away && sc.home === g.home);
+                const s = matchingScores.find(sc => sc.gameIdx === pairIdx) || matchingScores[pairIdx] || matchingScores[0];
                 if (!s || s.cancelled || s.outcome == null || (s.awayScore === 0 && s.homeScore === 0)) return "";
                 const homeWon = s.homeScore > s.awayScore;
                 const tied = s.homeScore === s.awayScore;
@@ -338,64 +348,112 @@ export default function CalendarGrid({
                       {day}
                     </Text>
                     <View style={styles.calDayTags}>
-                      {dayLabels.map((label, li) => (
-                        <View
-                          key={li}
-                          style={[styles.calDayDot, {
-                            backgroundColor: label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#f59e0b",
-                          }]}
-                        >
-                          <Text style={styles.calDayDotText}>{label}</Text>
-                        </View>
-                      ))}
-                      {isDH && <Text style={styles.dhTag}>DH</Text>}
+                      {isDH ? (
+                        <Text style={[styles.dhTag, { backgroundColor: "#1a1a1a", color: "#fff" }]}>DH</Text>
+                      ) : (
+                        dayLabels.map((label, li) => (
+                          <View
+                            key={li}
+                            style={[styles.calDayDot, {
+                              backgroundColor: label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#f59e0b",
+                            }]}
+                          >
+                            <Text style={styles.calDayDotText}>{label}</Text>
+                          </View>
+                        ))
+                      )}
                     </View>
                   </View>
 
                   {/* Game entries */}
-                  {dayGames.slice(0, 2).map((g, gi) => {
-                    const isHome = g.home === teamName;
-                    const score = dayScores.find((s) => s.away === g.away && s.home === g.home);
-                    const oppName = isHome ? g.away : g.home;
-
-                    let resultColor: string | undefined;
-                    if (score && !isFuture && score.outcome != null && !score.cancelled) {
-                      const our = isHome ? score.homeScore : score.awayScore;
-                      const their = isHome ? score.awayScore : score.homeScore;
-                      if (our > their) resultColor = WIN_SCORE;
-                      else if (our < their) resultColor = LOSS_SCORE;
-                      else resultColor = "#d97706";
-                    }
-
-                    const prefix = isDH ? `${gi + 1}차 ` : "";
-
-                    return (
-                      <View key={gi} style={styles.calGame}>
-                        <View>
-                          <Text style={styles.calOpp} numberOfLines={1}>
-                            {prefix}{oppName}
-                          </Text>
+                  {isDH ? (
+                    (() => {
+                      const g0 = dayGames[0];
+                      const isHome = g0.home === teamName;
+                      const oppName = isHome ? g0.away : g0.home;
+                      const dhScores = dayScores.filter(x => x.away === g0.away && x.home === g0.home)
+                        .sort((a, b) => (a.gameIdx ?? 0) - (b.gameIdx ?? 0));
+                      return (
+                        <View style={styles.calGame}>
+                          <Text style={styles.calOpp} numberOfLines={1}>{oppName}</Text>
+                          <View style={{ flexDirection: "row", gap: 4, marginTop: 1 }}>
+                            {dayGames.slice(0, 2).map((g, i) => {
+                              const s = dhScores[i];
+                              let label: string | null = null;
+                              if (s?.cancelled) {
+                                label = "취";
+                              } else if (s && !s.cancelled && s.outcome != null) {
+                                if (s.outcome === "W") label = "승";
+                                else if (s.outcome === "L") label = "패";
+                                else if (s.outcome === "T") label = "무";
+                              }
+                              if (!label) return <View key={i} style={{ width: 16, height: 16 }} />;
+                              const bgColor = label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : "#d97706";
+                              return (
+                                <View key={i} style={{
+                                  backgroundColor: bgColor,
+                                  width: 16, height: 16, borderRadius: 8,
+                                  alignItems: "center", justifyContent: "center",
+                                }}>
+                                  <Text style={{ fontSize: 8, fontWeight: "700", color: "#fff" }}>
+                                    {label}
+                                  </Text>
+                                </View>
+                              );
+                            })}
+                          </View>
                         </View>
-                        <View>
-                          {score?.cancelled ? (
-                            <Text style={styles.calCancelled}>취소</Text>
-                          ) : score && !isFuture && score.outcome != null ? (
-                            <View style={[styles.scoreChip, { backgroundColor: (resultColor || theme.mutedForeground) + "18" }]}>
-                              <Text style={[
-                                styles.calScore,
-                                { color: resultColor || theme.mutedForeground },
-                                (score.awayScore >= 10 || score.homeScore >= 10) && styles.calScoreSm,
-                              ]}>
-                                {score.awayScore}:{score.homeScore}
-                              </Text>
-                            </View>
-                          ) : (
-                            <Text style={styles.calVenue} numberOfLines={1}>{g.venue || g.time?.slice(0, 5) || ""}</Text>
-                          )}
+                      );
+                    })()
+                  ) : (
+                    (() => {
+                      const nonDHPairCount = new Map<string, number>();
+                      return dayGames.slice(0, 2).map((g, gi) => {
+                      const isHome = g.home === teamName;
+                      const pairKey = `${g.away}|${g.home}`;
+                      const pairIdx = nonDHPairCount.get(pairKey) || 0;
+                      nonDHPairCount.set(pairKey, pairIdx + 1);
+                      const matchingScores = dayScores.filter((s) => s.away === g.away && s.home === g.home);
+                      const score = matchingScores.find(s => s.gameIdx === pairIdx) || matchingScores[pairIdx] || matchingScores[0];
+                      const oppName = isHome ? g.away : g.home;
+
+                      let resultColor: string | undefined;
+                      if (score && !isFuture && score.outcome != null && !score.cancelled) {
+                        const our = isHome ? score.homeScore : score.awayScore;
+                        const their = isHome ? score.awayScore : score.homeScore;
+                        if (our > their) resultColor = WIN_SCORE;
+                        else if (our < their) resultColor = LOSS_SCORE;
+                        else resultColor = "#d97706";
+                      }
+
+                      return (
+                        <View key={gi} style={styles.calGame}>
+                          <View>
+                            <Text style={styles.calOpp} numberOfLines={1}>
+                              {oppName}
+                            </Text>
+                          </View>
+                          <View>
+                            {score?.cancelled ? (
+                              <Text style={styles.calCancelled}>취소</Text>
+                            ) : score && !isFuture && score.outcome != null ? (
+                              <View style={[styles.scoreChip, { backgroundColor: (resultColor || theme.mutedForeground) + "18" }]}>
+                                <Text style={[
+                                  styles.calScore,
+                                  { color: resultColor || theme.mutedForeground },
+                                  (score.awayScore >= 10 || score.homeScore >= 10) && styles.calScoreSm,
+                                ]}>
+                                  {score.awayScore}:{score.homeScore}
+                                </Text>
+                              </View>
+                            ) : (
+                              <Text style={styles.calVenue} numberOfLines={1}>{cleanVenue(g.venue) || g.time?.slice(0, 5) || ""}</Text>
+                            )}
+                          </View>
                         </View>
-                      </View>
-                    );
-                  })}
+                      );
+                    })
+                  })())}
                 </Pressable>
               );
             })}

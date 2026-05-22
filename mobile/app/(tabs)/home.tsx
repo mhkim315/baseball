@@ -13,6 +13,7 @@ import {
 import {
   cachedScheduleByMonth,
   cachedDailyScores,
+  cachedAllDailyScores,
   cachedTodayGames,
   cachedGameDetail,
 } from "@/lib/gameCache";
@@ -130,7 +131,7 @@ export default function HomeScreen() {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calGames, setCalGames] = useState<ScheduleGame[]>([]);
   const [calScores, setCalScores] = useState<Record<string, { away: string; home: string; awayScore: number; homeScore: number; outcome?: string | null; cancelled?: boolean }[]>>({});
-  const scheduleCache = useRef<{ month: number; games: ScheduleGame[] } | null>(null);
+  const scheduleCache = useRef<{ month: number; year: number; games: ScheduleGame[] } | null>(null);
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
@@ -170,27 +171,36 @@ export default function HomeScreen() {
   // Preload current month + adjacent months on mount
   useEffect(() => {
     const current = new Date().getMonth() + 1;
-    const fetchAndCache = async (month: number) => {
-      if (month < 1 || month > 12) return;
-      const schedule = await cachedScheduleByMonth(month, new Date().getFullYear());
-      const gamesList = schedule?.games || [];
-      const myDates = [...new Set(gamesList.map((g) => g.date))];
-      const scoreResults = await Promise.all(
-        myDates.map((d) => cachedDailyScores(d).catch(() => null))
-      );
-      const scoresRecord: Record<string, any[]> = {};
-      for (let i = 0; i < myDates.length; i++) {
-        if (scoreResults[i]?.games) scoresRecord[myDates[i]] = scoreResults[i]!.games;
-      }
-      calCache.current[month] = { games: gamesList, scores: scoresRecord };
-      if (month === current) {
-        setCalGames(gamesList);
-        setCalScores(scoresRecord);
-      }
+    // Load all scores in one call first, then build per-month caches from it
+    const preloadAll = async () => {
+      const [allScores] = await Promise.all([
+        cachedAllDailyScores(),
+        cachedScheduleByMonth(current, new Date().getFullYear()),
+        cachedScheduleByMonth(current - 1, new Date().getFullYear()).catch(() => null),
+        cachedScheduleByMonth(current + 1, new Date().getFullYear()).catch(() => null),
+      ]);
+
+      const fetchAndCache = async (month: number) => {
+        if (month < 1 || month > 12) return;
+        const schedule = await cachedScheduleByMonth(month, new Date().getFullYear());
+        const gamesList = schedule?.games || [];
+        const myDates = [...new Set(gamesList.map((g) => g.date))];
+        const scoresRecord: Record<string, any[]> = {};
+        for (const date of myDates) {
+          const games = allScores?.[date];
+          if (games) scoresRecord[date] = games;
+        }
+        calCache.current[month] = { games: gamesList, scores: scoresRecord };
+        if (month === current) {
+          setCalGames(gamesList);
+          setCalScores(scoresRecord);
+        }
+      };
+      fetchAndCache(current);
+      fetchAndCache(current - 1);
+      fetchAndCache(current + 1);
     };
-    fetchAndCache(current);
-    fetchAndCache(current - 1);
-    fetchAndCache(current + 1);
+    preloadAll();
   }, []);
 
   const load = useCallback(() => {
@@ -199,11 +209,11 @@ export default function HomeScreen() {
     let cancelled = false;
 
     const month = selectedDate.getMonth() + 1;
-    const schedulePromise = scheduleCache.current?.month === month
+    const schedulePromise = (scheduleCache.current?.month === month && scheduleCache.current?.year === selectedDate.getFullYear())
       ? Promise.resolve(scheduleCache.current.games)
       : cachedScheduleByMonth(month, selectedDate.getFullYear()).then((s) => {
           const gamesList = s?.games || [];
-          scheduleCache.current = { month, games: gamesList };
+          scheduleCache.current = { month, year: selectedDate.getFullYear(), games: gamesList };
           return gamesList;
         }).catch(() => [] as ScheduleGame[]);
 
@@ -254,13 +264,19 @@ export default function HomeScreen() {
             }
           }
 
-          const enhanced: EnhancedGame[] = dayGames.map((g) => {
+          const pairCount = new Map<string, number>();
+          const enhanced: EnhancedGame[] = dayGames.map((g, gi) => {
             const homeId = TEAM_NAME_TO_ID[g.home] || "";
             const awayId = TEAM_NAME_TO_ID[g.away] || "";
-            const score = scoreEntries.find((s) => s.home === g.home && s.away === g.away);
+            const pairKey = `${g.away}|${g.home}`;
+            const pairIdx = pairCount.get(pairKey) || 0;
+            pairCount.set(pairKey, pairIdx + 1);
+            const matchingScores = scoreEntries.filter((s) => s.home === g.home && s.away === g.away);
+            const score = matchingScores.find(s => s.gameIdx === pairIdx) || matchingScores[pairIdx] || matchingScores[0];
             const gameKey = `${ds}-${awayId}-${homeId}`;
             const pitchers = pitcherMap.get(gameKey);
             const apiGameId = gameIdMap.get(gameKey);
+
 
             let status: "scheduled" | "live" | "finished" = "scheduled";
             if (score?.cancelled) {
@@ -275,12 +291,13 @@ export default function HomeScreen() {
               if (new Date() >= startTime) status = "live";
             }
 
+            const gameDate = ds.replace(/-/g, "");
             return {
-              id: apiGameId || buildGameId(awayId, homeId, ds.replace(/-/g, "")),
+              id: apiGameId || buildGameId(awayId, homeId, gameDate, String(gi)),
               homeTeam: homeId,
               awayTeam: awayId,
               time: g.time || "18:30",
-              venue: g.venue || "",
+              venue: (g.venue || "").replace(/\s*\(.*?\)\s*$/, "").trim(),
               status,
               homeScore: score?.homeScore,
               awayScore: score?.awayScore,
