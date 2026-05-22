@@ -9,6 +9,7 @@ import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getDaysInMonth, getFirstDayOfMonth, formatDate, formatDateForApi, DEFAULT_TEAM_ID, buildGameId } from "@shared/constants";
 import EmotionPicker from "@/components/EmotionPicker";
 import PhotoCropper from "@/components/PhotoCropper";
+import DatePhotoPicker from "@/components/DatePhotoPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import BottomSheet from "@/components/BottomSheet";
 import ExpenseForm from "@/components/ExpenseForm";
@@ -109,6 +110,10 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [cropUri, setCropUri] = useState<string | null>(null);
+  const [showDatePhotoPicker, setShowDatePhotoPicker] = useState(false);
+  const cropQueueRef = useRef<string[]>([]);
+  const cropQueueIndexRef = useRef(0);
+  const croppedUrisRef = useRef<string[]>([]);
 
   const scrollRef = useRef<ScrollView>(null);
   const loadGamesRef = useRef<((date: Date) => Promise<void>) | null>(null);
@@ -276,7 +281,17 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     setStep("write");
   };
 
-  const pickPhoto = async () => {
+  const handlePhotoSelect = (uris: string[]) => {
+    // Start sequential crop queue
+    cropQueueRef.current = [...uris];
+    cropQueueIndexRef.current = 0;
+    croppedUrisRef.current = [];
+    if (uris.length > 0) {
+      setCropUri(uris[0]);
+    }
+  };
+
+  const handleFullGalleryPick = async () => {
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== "granted") {
@@ -288,10 +303,10 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         quality: 0.8,
       });
       if (!result.canceled && result.assets.length > 0) {
-        setCropUri(result.assets[0].uri);
+        handlePhotoSelect(result.assets.map((a) => a.uri));
       }
     } catch (e) {
-      console.warn("pickPhoto failed", e);
+      console.warn("handleFullGalleryPick failed", e);
       setSimpleAlert({ visible: true, title: "오류", message: "사진을 불러오지 못했습니다" });
     }
   };
@@ -1245,7 +1260,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                         )}
                       </View>
                     ))}
-                    <Pressable style={styles.photoAddBtn} onPress={pickPhoto}>
+                    <Pressable style={styles.photoAddBtn} onPress={() => setShowDatePhotoPicker(true)}>
                       <Text style={styles.photoAddIcon}>+</Text>
                     </Pressable>
                   </View>
@@ -1355,14 +1370,37 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         </View>
       )}
 
+      <DatePhotoPicker
+        visible={showDatePhotoPicker}
+        date={selectedDate}
+        onSelect={(uris) => {
+          setShowDatePhotoPicker(false);
+          handlePhotoSelect(uris);
+        }}
+        onClose={() => setShowDatePhotoPicker(false)}
+      />
+
       <PhotoCropper
         visible={!!cropUri}
         imageUri={cropUri || ""}
         onCrop={(uri) => {
-          setPhotoUris((prev) => [...prev, uri]);
-          setCropUri(null);
+          croppedUrisRef.current.push(uri);
+          cropQueueIndexRef.current++;
+          if (cropQueueIndexRef.current < cropQueueRef.current.length) {
+            setCropUri(cropQueueRef.current[cropQueueIndexRef.current]);
+          } else {
+            setPhotoUris((prev) => [...prev, ...croppedUrisRef.current]);
+            setCropUri(null);
+            cropQueueRef.current = [];
+            croppedUrisRef.current = [];
+          }
         }}
-        onCancel={() => setCropUri(null)}
+        onCancel={() => {
+          setCropUri(null);
+          cropQueueRef.current = [];
+          cropQueueIndexRef.current = 0;
+          croppedUrisRef.current = [];
+        }}
       />
       </>
   );
