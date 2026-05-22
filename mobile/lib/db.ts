@@ -1,6 +1,8 @@
 import * as SQLite from "expo-sqlite";
 import { TEAM_COLORS } from "@shared/teamColors";
 
+const CACHE_VERSION = 1;
+
 let db: SQLite.SQLiteDatabase | null = null;
 let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
@@ -76,6 +78,19 @@ async function initSchema(database: SQLite.SQLiteDatabase): Promise<void> {
     "DELETE FROM api_cache WHERE updated_at < ?",
     Date.now() - 30 * 86400_000
   );
+  // Invalidate all cache if version changed (forces re-fetch after server changes)
+  const cachedVer = await database.getFirstAsync<{ value: string }>(
+    "SELECT value FROM user_settings WHERE key = ?",
+    "api_cache_version"
+  );
+  if (!cachedVer || cachedVer.value !== String(CACHE_VERSION)) {
+    await database.runAsync("DELETE FROM api_cache");
+    await database.runAsync(
+      "INSERT OR REPLACE INTO user_settings (key, value) VALUES (?, ?)",
+      "api_cache_version",
+      String(CACHE_VERSION)
+    );
+  }
 }
 
 async function migrateJikgwanSchema(database: SQLite.SQLiteDatabase): Promise<void> {
