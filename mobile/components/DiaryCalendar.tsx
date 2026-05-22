@@ -7,6 +7,7 @@ import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
+import YearSelector from "@/components/YearSelector";
 import { type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import type { JikgwanRecord } from "@/lib/db";
 import { resolveIsWin } from "@/lib/expenseStats";
@@ -20,6 +21,7 @@ interface DiaryCalendarProps {
   teamId: string | null;
   onSelectDate: (date: Date) => void;
   onMonthChange: (year: number, month: number) => void;
+  onYearChange?: (year: number) => void;
 }
 
 export default function DiaryCalendar({
@@ -29,6 +31,7 @@ export default function DiaryCalendar({
   teamId,
   onSelectDate,
   onMonthChange,
+  onYearChange,
 }: DiaryCalendarProps) {
   const { theme, isDark } = useTheme();
   const [games, setGames] = useState<ScheduleGame[]>([]);
@@ -42,7 +45,7 @@ export default function DiaryCalendar({
     if (!teamName) return;
     let cancelled = false;
     setLoading(true);
-    cachedScheduleByMonth(month + 1).then(async (schedule) => {
+    cachedScheduleByMonth(month + 1, year).then(async (schedule) => {
       if (cancelled) return;
       const gamesList = schedule?.games || [];
       setGames(gamesList);
@@ -249,8 +252,9 @@ export default function DiaryCalendar({
         <Pressable onPress={handlePrev} hitSlop={8}>
           <Text style={styles.navBtn}>◀</Text>
         </Pressable>
+        {onYearChange && <YearSelector year={year} onYearChange={onYearChange} />}
         <Text style={styles.monthTitle}>
-          {year}년 {month + 1}월
+          {month + 1}월
         </Text>
         <Pressable onPress={handleNext} hitSlop={8}>
           <Text style={styles.navBtn}>▶</Text>

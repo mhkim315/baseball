@@ -61,7 +61,7 @@ export default function GameDetailScreen() {
     const tryExhibitionFallback = async () => {
       if (cancelled) return;
       try {
-        const exhibitionGames = await fetchExhibitionGames();
+        const exhibitionGames = await fetchExhibitionGames(parseInt(gid.slice(0, 4)));
         if (cancelled) return;
         const eg = exhibitionGames.find((g: any) => g.gameId === gid);
         if (eg) {
@@ -105,7 +105,7 @@ export default function GameDetailScreen() {
       if (cancelled) return;
       if (data) {
         setDetail(data);
-        fetchExhibitionGames().then((exhibitionGames) => {
+        fetchExhibitionGames(parseInt(gid.slice(0, 4))).then((exhibitionGames) => {
           if (cancelled) return;
           if (exhibitionGames.some((g: any) => g.gameId === gid)) {
             setIsExhibition(true);
@@ -154,10 +154,11 @@ export default function GameDetailScreen() {
       if (!homeStanding || !awayStanding) return;
 
       // Fetch recent game dates from schedules (current + past 2 months)
+      const gameYear = parseInt(gid.slice(0, 4) || "2026");
       const now = new Date();
       const months = [now.getMonth() + 1, now.getMonth(), now.getMonth() - 1];
       const schedules = await Promise.all(
-        months.map((m) => cachedScheduleByMonth(m).catch(() => null))
+        months.map((m) => cachedScheduleByMonth(m, gameYear).catch(() => null))
       );
       if (cancelled) return;
 

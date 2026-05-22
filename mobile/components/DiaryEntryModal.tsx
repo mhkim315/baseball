@@ -22,6 +22,7 @@ import { cachedScheduleByMonth } from "@/lib/gameCache";
 import { fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import { resolveVenue } from "@/lib/stadiumData";
 import { fetchExhibitionGames } from "@/lib/exhibitionData";
+import YearSelector from "@/components/YearSelector";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -212,9 +213,9 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       const month = date.getMonth() + 1;
       const apiDate = formatDateForApi(date);
       const [schedule, scores, exhibitionData] = await Promise.all([
-        cachedScheduleByMonth(month),
+        cachedScheduleByMonth(month, calYear),
         fetchDailyScores(apiDate),
-        fetchExhibitionGames(),
+        fetchExhibitionGames(calYear),
       ]);
 
       const daySched = (schedule?.games ?? []).filter(
@@ -272,7 +273,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     } finally {
       setGamesLoading(false);
     }
-  }, [userTeam]);
+  }, [userTeam, calYear]);
   loadGamesRef.current = loadGames;
 
   const handleDateSelect = (d: number) => {
@@ -955,7 +956,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                   <Pressable onPress={calPrev} hitSlop={8}>
                     <Text style={styles.calNav}>◀</Text>
                   </Pressable>
-                  <Text style={styles.calMonth}>{calYear}년 {calMonth + 1}월</Text>
+                  <YearSelector year={calYear} onYearChange={setCalYear} />
+                  <Text style={styles.calMonth}>{calMonth + 1}월</Text>
                   <Pressable onPress={calNext} hitSlop={8}>
                     <Text style={styles.calNav}>▶</Text>
                   </Pressable>

@@ -548,6 +548,7 @@ export default function DiaryScreen() {
                   teamId={myTeam}
                   onSelectDate={handleSelectDate}
                   onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
+                  onYearChange={(y) => setCalYear(y)}
                 />
               ) : (
                 <ExpenseCalendar

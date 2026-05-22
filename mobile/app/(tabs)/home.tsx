@@ -172,7 +172,7 @@ export default function HomeScreen() {
     const current = new Date().getMonth() + 1;
     const fetchAndCache = async (month: number) => {
       if (month < 1 || month > 12) return;
-      const schedule = await cachedScheduleByMonth(month);
+      const schedule = await cachedScheduleByMonth(month, new Date().getFullYear());
       const gamesList = schedule?.games || [];
       const myDates = [...new Set(gamesList.map((g) => g.date))];
       const scoreResults = await Promise.all(
@@ -201,7 +201,7 @@ export default function HomeScreen() {
     const month = selectedDate.getMonth() + 1;
     const schedulePromise = scheduleCache.current?.month === month
       ? Promise.resolve(scheduleCache.current.games)
-      : cachedScheduleByMonth(month).then((s) => {
+      : cachedScheduleByMonth(month, selectedDate.getFullYear()).then((s) => {
           const gamesList = s?.games || [];
           scheduleCache.current = { month, games: gamesList };
           return gamesList;
@@ -371,7 +371,7 @@ export default function HomeScreen() {
     }
 
     // Fetch this month (will update if cache exists)
-    cachedScheduleByMonth(month).then(async (schedule) => {
+    cachedScheduleByMonth(month, calYear).then(async (schedule) => {
       if (cancelled) return;
       const gamesList = schedule?.games || [];
       const myDates = [...new Set(gamesList.map((g) => g.date))];
@@ -389,7 +389,7 @@ export default function HomeScreen() {
       // Preload adjacent months in background
       for (const adj of [month - 1, month + 1]) {
         if (adj >= 1 && adj <= 12 && !calCache.current[adj]) {
-          cachedScheduleByMonth(adj).then(async (s) => {
+          cachedScheduleByMonth(adj, calYear).then(async (s) => {
             const gl = s?.games || [];
             const dts = [...new Set(gl.map((g) => g.date))];
             const srs = await Promise.all(dts.map((d) => cachedDailyScores(d).catch(() => null)));
@@ -525,6 +525,7 @@ export default function HomeScreen() {
           onSelectDate={(d) => { setSelectedDate(d); setCalendarOpen(false); }}
           onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
           onTeamChange={setDisplayTeam}
+          onYearChange={(y) => setCalYear(y)}
         />
       </View>
       </View>

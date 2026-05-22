@@ -3,6 +3,7 @@ import { View, Text, Pressable, Modal, ScrollView, StyleSheet, ActivityIndicator
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { TeamBadge } from "@/components/TeamBadge";
+import YearSelector from "@/components/YearSelector";
 import { getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
 import type { ScheduleGame } from "@/lib/api";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
@@ -23,7 +24,7 @@ const WIN_SCORE = "#3b82d9";
 const LOSS_SCORE = "#d94a4a";
 
 export default function CalendarGrid({
-  year: propYear, month: propMonth, games, scores, loading, selectedTeam, myTeam, onSelectDate, onMonthChange, onTeamChange,
+  year: propYear, month: propMonth, games, scores, loading, selectedTeam, myTeam, onSelectDate, onMonthChange, onTeamChange, onYearChange,
 }: {
   year: number; month: number;
   games: ScheduleGame[];
@@ -34,6 +35,7 @@ export default function CalendarGrid({
   onSelectDate: (d: Date) => void;
   onMonthChange: (year: number, month: number) => void;
   onTeamChange?: (teamId: string | null) => void;
+  onYearChange?: (year: number) => void;
 }) {
   const { theme, isDark } = useTheme();
   const [teamPickerOpen, setTeamPickerOpen] = useState(false);
@@ -225,7 +227,8 @@ export default function CalendarGrid({
           <Pressable onPress={goToPrev} style={styles.monthBtn} hitSlop={8}>
             <Text style={styles.monthArrow}>‹</Text>
           </Pressable>
-          <Text style={styles.monthTitle}>{propYear}년 {propMonth + 1}월</Text>
+          {onYearChange && <YearSelector year={propYear} onYearChange={onYearChange} />}
+          <Text style={styles.monthTitle}>{propMonth + 1}월</Text>
           <Pressable onPress={goToNext} style={styles.monthBtn} hitSlop={8}>
             <Text style={styles.monthArrow}>›</Text>
           </Pressable>

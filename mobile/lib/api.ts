@@ -18,6 +18,7 @@ export const {
   fetchScheduleByMonth,
   fetchTodayGames,
   fetchGameDetail,
+  fetchSeasons,
 } = createApi({
   baseUrl: API_BASE,
   timeout: 8000,

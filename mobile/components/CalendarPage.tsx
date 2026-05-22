@@ -6,6 +6,7 @@ import { TEAM_NAME_TO_ID, getDaysInMonth, getFirstDayOfMonth, DEFAULT_TEAM_ID, b
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
 import { type ScheduleGame } from "@/lib/api";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
+import YearSelector from "@/components/YearSelector";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -38,7 +39,7 @@ export default function CalendarPage() {
     let cancelled = false;
     setLoading(true);
     setError(false);
-    cachedScheduleByMonth(month + 1).then(async (schedule) => {
+    cachedScheduleByMonth(month + 1, year).then(async (schedule) => {
       if (cancelled) return;
       const gamesList = schedule?.games || [];
       setGames(gamesList);
@@ -64,7 +65,7 @@ export default function CalendarPage() {
       }
     });
     return () => { cancelled = true; };
-  }, [month, retryKey]);
+  }, [month, year, retryKey]);
 
   const retry = () => setRetryKey((k) => k + 1);
 
@@ -92,6 +93,7 @@ export default function CalendarPage() {
 
   const goToPrevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const goToNextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
+  const goToYear = (y: number) => setCurrentDate(new Date(y, month, 1));
 
   const styles = useMemo(() => StyleSheet.create({
     container: { flex: 1, backgroundColor: theme.background },
@@ -152,7 +154,8 @@ export default function CalendarPage() {
           <Pressable onPress={goToPrevMonth} style={styles.monthBtn}>
             <Text style={styles.monthArrow}>◀</Text>
           </Pressable>
-          <Text style={styles.monthTitle}>{year}년 {month + 1}월</Text>
+          <YearSelector year={year} onYearChange={goToYear} />
+          <Text style={styles.monthTitle}>{month + 1}월</Text>
           <Pressable onPress={goToNextMonth} style={styles.monthBtn}>
             <Text style={styles.monthArrow}>▶</Text>
           </Pressable>
