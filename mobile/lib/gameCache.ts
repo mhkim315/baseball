@@ -11,6 +11,7 @@ import {
   type GameDetail,
 } from "./api";
 import { CHEER_SONGS, CHEER_PLAYERS } from "./cheerData";
+import { LOCAL_SCHEDULE, LOCAL_SCORES } from "./scheduleData";
 import type { CheerSection, PlayerCheer } from "./api";
 
 function cacheKey(name: string, id: string): string {
@@ -99,6 +100,11 @@ export async function cachedCheeringPlayers(teamId: string): Promise<{ players: 
 // Schedule by month — never changes, cache forever (key includes year)
 export async function cachedScheduleByMonth(month: number, year?: number): Promise<{ games: ScheduleGame[] } | null> {
   const y = year ?? thisYear();
+  // Past seasons (2021–2025): use local data, no API call
+  if (y <= 2025) {
+    const games = LOCAL_SCHEDULE[`${y}:${month}`];
+    return games ? { games } : null;
+  }
   return fetchWithCache(cacheKey("schedule", `${y}:${month}`), Infinity, () =>
     apiScheduleByMonth(month, y)
   );
@@ -106,6 +112,12 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
 
 // Daily scores — TTL based on date
 export async function cachedDailyScores(date: string): Promise<{ games: ScoreEntry[] } | null> {
+  // Past seasons (2020–2025): use local data, no API call
+  const year = parseInt(date.slice(0, 4), 10);
+  if (!isNaN(year) && year <= 2025) {
+    const games = LOCAL_SCORES[date];
+    return games ? { games } : null;
+  }
   return fetchWithCache(cacheKey("scores", date), ttlForDate(date), () =>
     apiDailyScores(date)
   );
@@ -115,7 +127,19 @@ export async function cachedDailyScores(date: string): Promise<{ games: ScoreEnt
 const ALL_SCORES_TTL = 300_000; // 5 min
 let allScoresPromise: Promise<Record<string, ScoreEntry[]> | null> | null = null;
 
-export async function cachedAllDailyScores(): Promise<Record<string, ScoreEntry[]> | null> {
+export async function cachedAllDailyScores(year?: number): Promise<Record<string, ScoreEntry[]> | null> {
+  // Past seasons (2021–2025): use local data, no API call
+  if (year !== undefined && year <= 2025) {
+    const filtered: Record<string, ScoreEntry[]> = {};
+    const prefix = String(year);
+    for (const [date, entries] of Object.entries(LOCAL_SCORES)) {
+      if (date.startsWith(prefix)) {
+        filtered[date] = entries;
+      }
+    }
+    return filtered;
+  }
+
   const allScoresCacheKey = cacheKey("scores", "__all__");
 
   // Check cache first (with TTL)

@@ -37,7 +37,7 @@ export default function RankScreen() {
   const { myTeam } = useTeam();
 
   const load = useCallback(() => {
-    // For past seasons (2020–2025), use local data
+    // For past seasons (2021–2025), use local data
     if (year < 2026) {
       const data = HISTORICAL_STANDINGS[year];
       if (data) {

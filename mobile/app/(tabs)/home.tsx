@@ -134,7 +134,7 @@ export default function HomeScreen() {
   const scheduleCache = useRef<{ month: number; year: number; games: ScheduleGame[] } | null>(null);
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
-  const calCache = useRef<Record<number, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
+  const calCache = useRef<Record<string, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
   const { width: screenWidth } = useWindowDimensions();
   const pageScrollRef = useRef<ScrollView>(null);
   const hasEverLoaded = useRef(false);
@@ -180,9 +180,10 @@ export default function HomeScreen() {
         cachedScheduleByMonth(current + 1, new Date().getFullYear()).catch(() => null),
       ]);
 
+      const cy = new Date().getFullYear();
       const fetchAndCache = async (month: number) => {
         if (month < 1 || month > 12) return;
-        const schedule = await cachedScheduleByMonth(month, new Date().getFullYear());
+        const schedule = await cachedScheduleByMonth(month, cy);
         const gamesList = schedule?.games || [];
         const myDates = [...new Set(gamesList.map((g) => g.date))];
         const scoresRecord: Record<string, any[]> = {};
@@ -190,7 +191,7 @@ export default function HomeScreen() {
           const games = allScores?.[date];
           if (games) scoresRecord[date] = games;
         }
-        calCache.current[month] = { games: gamesList, scores: scoresRecord };
+        calCache.current[`${cy}:${month}`] = { games: gamesList, scores: scoresRecord };
         if (month === current) {
           setCalGames(gamesList);
           setCalScores(scoresRecord);
@@ -374,14 +375,15 @@ export default function HomeScreen() {
     return cleanup;
   }, [load]);
 
-  // Fetch calendar data when opened or month changes (cache + preload adjacent)
+  // Fetch calendar data when opened or month/year changes (cache + preload adjacent)
   useEffect(() => {
     if (!calendarOpen) return;
     let cancelled = false;
     const month = calMonth + 1;
+    const cacheKey = `${calYear}:${month}`;
 
-    // Restore from cache if available
-    const cached = calCache.current[month];
+    // Restore from cache if available (year+month must match)
+    const cached = calCache.current[cacheKey];
     if (cached) {
       setCalGames(cached.games);
       setCalScores(cached.scores);
@@ -400,12 +402,15 @@ export default function HomeScreen() {
       for (let i = 0; i < myDates.length; i++) {
         if (scoreResults[i]?.games) scoresRecord[myDates[i]] = scoreResults[i]!.games;
       }
-      calCache.current[month] = { games: gamesList, scores: scoresRecord };
-      setCalGames(gamesList);
-      setCalScores(scoresRecord);
-      // Preload adjacent months in background
+      calCache.current[cacheKey] = { games: gamesList, scores: scoresRecord };
+      if (!cancelled) {
+        setCalGames(gamesList);
+        setCalScores(scoresRecord);
+      }
+      // Preload adjacent months in background (same year)
       for (const adj of [month - 1, month + 1]) {
-        if (adj >= 1 && adj <= 12 && !calCache.current[adj]) {
+        const adjKey = `${calYear}:${adj}`;
+        if (adj >= 1 && adj <= 12 && !calCache.current[adjKey]) {
           cachedScheduleByMonth(adj, calYear).then(async (s) => {
             const gl = s?.games || [];
             const dts = [...new Set(gl.map((g) => g.date))];
@@ -414,13 +419,13 @@ export default function HomeScreen() {
             for (let i = 0; i < dts.length; i++) {
               if (srs[i]?.games) src[dts[i]] = srs[i]!.games;
             }
-            calCache.current[adj] = { games: gl, scores: src };
+            calCache.current[adjKey] = { games: gl, scores: src };
           }).catch(() => {});
         }
       }
     }).catch(() => {});
     return () => { cancelled = true; };
-  }, [calendarOpen, calMonth]);
+  }, [calendarOpen, calMonth, calYear]);
 
   const handlePageSwipe = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {

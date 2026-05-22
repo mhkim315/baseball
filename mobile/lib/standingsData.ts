@@ -1,22 +1,10 @@
 import type { StandingRow } from "./api";
 
-// Historical KBO regular season final standings (2020–2025)
+// Historical KBO regular season final standings (2021–2025)
 // Source: Wikipedia KBO League season pages (individual year articles)
 // Note: streak data is unavailable for past seasons; empty = unknown
 
 export const HISTORICAL_STANDINGS: Record<number, StandingRow[]> = {
-  2020: [
-    { rank: 1, teamName: "NC", winRate: 0.601, wlt: "83승55무6패", gamesBehind: 0, streak: "" },
-    { rank: 2, teamName: "KT", winRate: 0.566, wlt: "81승62무1패", gamesBehind: 4.5, streak: "" },
-    { rank: 3, teamName: "두산", winRate: 0.564, wlt: "79승61무4패", gamesBehind: 5, streak: "" },
-    { rank: 4, teamName: "LG", winRate: 0.564, wlt: "79승61무4패", gamesBehind: 5, streak: "" },
-    { rank: 5, teamName: "키움", winRate: 0.559, wlt: "80승63무1패", gamesBehind: 5.5, streak: "" },
-    { rank: 6, teamName: "KIA", winRate: 0.507, wlt: "73승71무0패", gamesBehind: 13, streak: "" },
-    { rank: 7, teamName: "롯데", winRate: 0.497, wlt: "71승72무1패", gamesBehind: 14.5, streak: "" },
-    { rank: 8, teamName: "삼성", winRate: 0.460, wlt: "64승75무5패", gamesBehind: 19.5, streak: "" },
-    { rank: 9, teamName: "SSG", winRate: 0.357, wlt: "51승92무1패", gamesBehind: 34.5, streak: "" },
-    { rank: 10, teamName: "한화", winRate: 0.326, wlt: "46승95무3패", gamesBehind: 38.5, streak: "" },
-  ],
   2021: [
     { rank: 1, teamName: "KT", winRate: 0.563, wlt: "76승59무9패", gamesBehind: 0, streak: "" },
     { rank: 2, teamName: "삼성", winRate: 0.563, wlt: "76승59무9패", gamesBehind: 0, streak: "" },

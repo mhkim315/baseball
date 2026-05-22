@@ -73,9 +73,14 @@ export function createApi(options: ApiClientOptions) {
       fetchedAt: string;
       rows: StandingRow[];
     } | null> =>
-      client.get<{ source: string; fetchedAt: string; rows: StandingRow[] }>(
-        "/standings/json"
-      ),
+      client.get<StandingRow[]>("/standings").then((rows) => {
+        if (!rows) return null;
+        return {
+          source: "api",
+          fetchedAt: new Date().toISOString(),
+          rows,
+        };
+      }),
 
     fetchDailyScores: (
       date: string

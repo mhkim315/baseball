@@ -39,25 +39,31 @@ export default function CalendarPage() {
     let cancelled = false;
     setLoading(true);
     setError(false);
+    // Clear stale data immediately to prevent showing previous year's data
+    setGames([]);
+    setScoresByDate({});
     cachedScheduleByMonth(month + 1, year).then(async (schedule) => {
       if (cancelled) return;
       const gamesList = schedule?.games || [];
-      setGames(gamesList);
-      // Bulk fetch all daily scores (1 HTTP call) — per-date cache gets populated
-      const allScores = await cachedAllDailyScores();
       if (cancelled) return;
+      setGames(gamesList);
+      const allScores = await cachedAllDailyScores(year);
+      if (cancelled || !allScores) {
+        if (!cancelled) setLoading(false);
+        return;
+      }
       const scores: Record<string, ScoreInfo[]> = {};
-      if (allScores) {
-        const allDates = [...new Set(gamesList.map((g) => g.date))];
-        for (const date of allDates) {
-          const games = allScores[date];
-          if (games) {
-            scores[date] = games;
-          }
+      const allDates = [...new Set(gamesList.map((g) => g.date))];
+      for (const date of allDates) {
+        const games = allScores[date];
+        if (games) {
+          scores[date] = games;
         }
       }
-      setScoresByDate(scores);
-      setLoading(false);
+      if (!cancelled) {
+        setScoresByDate(scores);
+        setLoading(false);
+      }
     }).catch(() => {
       if (!cancelled) {
         setError(true);
