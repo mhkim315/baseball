@@ -10,6 +10,7 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { cachedDailyScores, cachedScheduleByMonth } from "@/lib/gameCache";
 import DiaryEntryModal, { type GameOption } from "@/components/DiaryEntryModal";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
+import { resolveVenue } from "@/lib/stadiumData";
 
 const POSITION_LABELS: Record<string, string> = {
   "1": "1B", "2": "2B", "3": "3B",
@@ -170,7 +171,7 @@ export default function GameDetailScreen() {
       homeScore: detail.score?.home ?? null,
       awayScore: detail.score?.away ?? null,
       cancelled,
-      venue: detail.gameInfo?.venue || "",
+      venue: resolveVenue(detail.homeTeam, detail.gameInfo?.venue),
       time: detail.gameInfo?.time || "",
     };
     const datePrefix = gid.slice(0, 8);

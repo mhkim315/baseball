@@ -7,6 +7,7 @@ import { TEAM_COLORS } from "@/lib/teamColors";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorRetry } from "@/components/ErrorRetry";
 import { TEAM_NAME_TO_ID, TEAM_ID_TO_CODE } from "@shared/constants";
+import { resolveVenue } from "@/lib/stadiumData";
 
 // Reverse: teamId → shortName (Korean)
 function teamShortName(teamId: string): string {
@@ -101,7 +102,7 @@ export default function Home() {
               homeTeam: g.home.id,
               awayTeam: g.away.id,
               time: g.time || "18:30",
-              venue: g.venue || "",
+              venue: resolveVenue(g.home.id, g.venue),
               status: gameStatus,
               homeScore: g.score?.home ?? score?.homeScore,
               awayScore: g.score?.away ?? score?.awayScore,
@@ -199,7 +200,7 @@ export default function Home() {
             homeTeam: homeId,
             awayTeam: awayId,
             time: g.time || "18:30",
-            venue: g.venue || "",
+            venue: resolveVenue(homeId, g.venue),
             status: score && !isFuture ? "finished" : "scheduled",
             homeScore: score ? score.homeScore : undefined,
             awayScore: score ? score.awayScore : undefined,

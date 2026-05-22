@@ -20,6 +20,7 @@ import { addExpense, getExpensesByRecordId, deleteExpensesByRecordId, EXPENSE_CA
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { cachedScheduleByMonth } from "@/lib/gameCache";
 import { fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
+import { resolveVenue } from "@/lib/stadiumData";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -224,14 +225,16 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
       const gameOpts: GameOption[] = daySched.map((g: ScheduleGame) => {
         const score = scoreMap.get(`${g.away} vs ${g.home}`);
+        const homeTeamId = TEAM_LIST.find((t) => t.shortName === g.home)?.id || "";
+        const awayTeamId = TEAM_LIST.find((t) => t.shortName === g.away)?.id || "";
         return {
           gameId: "",
-          homeTeam: TEAM_LIST.find((t) => t.shortName === g.home)?.id || "",
-          awayTeam: TEAM_LIST.find((t) => t.shortName === g.away)?.id || "",
+          homeTeam: homeTeamId,
+          awayTeam: awayTeamId,
           homeScore: score?.outcome != null ? (score?.homeScore ?? null) : null,
           awayScore: score?.outcome != null ? (score?.awayScore ?? null) : null,
           cancelled: score?.cancelled ?? false,
-          venue: g.venue || "",
+          venue: resolveVenue(homeTeamId, g.venue),
           time: g.time || "",
         };
       });
@@ -435,6 +438,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           cheered_team: (cheeredTeam || userTeam || null) as string | null,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
+          stadium: selectedGame?.venue || editRecord.stadium || null,
         });
       } else {
         recordId = await addJikgwanRecord({

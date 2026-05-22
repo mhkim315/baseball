@@ -6,6 +6,7 @@ import { fetchGameDetail, fetchDailyScores, fetchStandingsJson, fetchAllDailySco
 import { TeamBadge } from "@/components/TeamBadge";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorRetry } from "@/components/ErrorRetry";
+import { resolveVenue } from "@/lib/stadiumData";
 import GameHeaderCard from "@/components/GameHeaderCard";
 import ScoreBoardTable from "@/components/ScoreBoardTable";
 import PreviewCard from "@/components/PreviewCard";
@@ -218,7 +219,7 @@ export default function GameDetailPage() {
           awayStarterName={detail.starters?.away?.name}
           homeStarterName={detail.starters?.home?.name}
           gameTime={detail.gameInfo?.time || "18:30"}
-          venue={detail.gameInfo?.venue || ""}
+          venue={resolveVenue(detail.homeTeam, detail.gameInfo?.venue)}
           gameScore={gameScore}
           isCancelled={isCancelled}
           isLive={isLive}

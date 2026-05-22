@@ -16,6 +16,24 @@ export const TEAM_STADIUM_MAP: Record<string, string> = {
   hanwha: "5", samsung: "6", kia: "7", lotte: "8", nc: "9",
 };
 
+// 팀 ID → short venue name (API /schedule과 동일한 값)
+export const TEAM_VENUE: Record<string, string> = {
+  doosan: "잠실", lg: "잠실",
+  kiwoom: "고척",
+  ssg: "문학",
+  kt: "수원",
+  hanwha: "대전",
+  samsung: "대구",
+  kia: "광주",
+  lotte: "사직",
+  nc: "창원",
+};
+
+export function resolveVenue(homeTeamId: string, venue?: string | null): string {
+  if (venue) return venue;
+  return TEAM_VENUE[homeTeamId] || "";
+}
+
 import type { StadiumBrief } from "@shared/types";
 
 export const STADIUM_BRIEFS: Record<string, StadiumBrief> = {
