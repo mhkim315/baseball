@@ -720,7 +720,7 @@ export default function GameDetailScreen() {
               </View>
             </View>
           </View>
-        ) : isExhibition ? null : (
+        ) : (isExhibition || isFinished) ? null : (
           <View style={[styles.card, styles.noLineupCard]}>
             <Text style={styles.noLineupText}>{isFuture ? "아직 라인업이 공개되지 않았어요" : "라인업 정보가 없어요"}</Text>
             <Text style={styles.noLineupSub}>{isFuture ? "경기 시작 전에 확정 후 업데이트돼요" : ""}</Text>
