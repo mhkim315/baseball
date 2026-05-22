@@ -63,7 +63,7 @@ export default function GameDetailScreen() {
       try {
         const exhibitionGames = await fetchExhibitionGames(parseInt(gid.slice(0, 4)));
         if (cancelled) return;
-        const eg = exhibitionGames.find((g: any) => g.gameId === gid);
+        const eg = exhibitionGames.find((g: any) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""));
         if (eg) {
           setIsExhibition(true);
           setDetail({
@@ -107,7 +107,7 @@ export default function GameDetailScreen() {
         setDetail(data);
         fetchExhibitionGames(parseInt(gid.slice(0, 4))).then((exhibitionGames) => {
           if (cancelled) return;
-          if (exhibitionGames.some((g: any) => g.gameId === gid)) {
+          if (exhibitionGames.some((g: any) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""))) {
             setIsExhibition(true);
           }
         });

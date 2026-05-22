@@ -390,7 +390,7 @@ export default function HomeScreen() {
           const dayExhGames = exhibitionGames.filter(g => g.date === exhDateKey);
           for (const g of dayExhGames) {
             enhanced.push({
-              id: g.gameId,
+              id: buildGameId(g.awayTeamId, g.homeTeamId, g.date, "0") || g.gameId,
               homeTeam: g.homeTeamId,
               awayTeam: g.awayTeamId,
               time: g.time || "13:00",
