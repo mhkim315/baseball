@@ -286,6 +286,9 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
   const [activeTab, setActiveTab] = useState<TabId>("info");
   const { width: screenWidth } = useWindowDimensions();
   const tabScrollRef = useRef<ScrollView>(null);
+  const activeTabRef = useRef(activeTab);
+  activeTabRef.current = activeTab;
+  const tabInnerScrollRefs = useRef<Record<string, ScrollView | null>>({});
 
   const handleTabPress = useCallback((tabId: TabId) => {
     setActiveTab(tabId);
@@ -295,7 +298,10 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
 
   const handleMomentumScrollEnd = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const idx = Math.round(e.nativeEvent.contentOffset.x / screenWidth);
-    if (idx >= 0 && idx < TABS.length) setActiveTab(TABS[idx].id);
+    if (idx >= 0 && idx < TABS.length) {
+      const newTabId = TABS[idx].id;
+      if (newTabId !== activeTabRef.current) setActiveTab(newTabId);
+    }
   }, [screenWidth]);
 
   // Sync internal state when parent changes the prop
@@ -376,6 +382,13 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
 
   useEffect(() => { setFocusedSpot(undefined); }, [activeTab]);
 
+  // Scroll inner tab content to top when a spot is focused
+  useEffect(() => {
+    if (focusedSpot) {
+      tabInnerScrollRefs.current[activeTab]?.scrollTo({ y: 0, animated: true });
+    }
+  }, [focusedSpot, activeTab]);
+
   // Reset scroll to first tab when team changes
   useEffect(() => {
     setActiveTab("info");
@@ -450,7 +463,9 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
           >
             {TABS.map((tab) => (
               <View key={tab.id} style={{ width: screenWidth }}>
-                <ScrollView>
+                <ScrollView
+                  ref={(el) => { tabInnerScrollRefs.current[tab.id] = el; }}
+                >
                   {tab.id === "info" && (
                     <InfoTab stadiumId={stadiumId} brief={stadium} teamColor={teamColor} selectedTeam={selectedTeam} />
                   )}
@@ -836,15 +851,13 @@ function ParkingTab({ brief, parkingSpots, focusedSpot, setFocusedSpot, surround
         </View>
       )}
       {parkingSpots.length > 0 && (
-        <View onStartShouldSetResponder={() => true}>
-          <StadiumMapView
-            spots={parkingSpots}
-            center={surroundingsCenter}
-            zoom={surroundingsZoom}
-            focusedSpotId={focusedSpot}
-            onPinClick={(spotId) => setFocusedSpot(spotId)}
-          />
-        </View>
+        <StadiumMapView
+          spots={parkingSpots}
+          center={surroundingsCenter}
+          zoom={surroundingsZoom}
+          focusedSpotId={focusedSpot}
+          onPinClick={(spotId) => setFocusedSpot(spotId)}
+        />
       )}
       {parkingSpots.length > 0 ? (
         parkingSpots.map((spot, i) => (
@@ -875,15 +888,13 @@ function TransportTab({ brief, transitSpots, focusedSpot, setFocusedSpot, surrou
   return (
     <View style={styles.tabContent}>
       {transitSpots.length > 0 && (
-        <View onStartShouldSetResponder={() => true}>
-          <StadiumMapView
-            spots={transitSpots}
-            center={surroundingsCenter}
-            zoom={surroundingsZoom}
-            focusedSpotId={focusedSpot}
-            onPinClick={(spotId) => setFocusedSpot(spotId)}
-          />
-        </View>
+        <StadiumMapView
+          spots={transitSpots}
+          center={surroundingsCenter}
+          zoom={surroundingsZoom}
+          focusedSpotId={focusedSpot}
+          onPinClick={(spotId) => setFocusedSpot(spotId)}
+        />
       )}
       {transitSpots.length > 0 ? (
         transitSpots.map((spot, i) => (
@@ -980,15 +991,13 @@ function NearbyTab({ nearby, stadiumSpot, focusedSpot, setFocusedSpot, eatsCente
             </ScrollView>
           )}
 
-          <View onStartShouldSetResponder={() => true}>
-            <StadiumMapView
-              spots={mapSpots}
-              center={eatsCenter}
-              zoom={13}
-              focusedSpotId={focusedSpot}
-              onPinClick={(spotId) => setFocusedSpot(spotId)}
-            />
-          </View>
+          <StadiumMapView
+            spots={mapSpots}
+            center={eatsCenter}
+            zoom={13}
+            focusedSpotId={focusedSpot}
+            onPinClick={(spotId) => setFocusedSpot(spotId)}
+          />
 
           {/* Grouped list */}
           {groups.map((group) => (

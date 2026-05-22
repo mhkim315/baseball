@@ -19,6 +19,8 @@ import {
 } from "@/lib/gameCache";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
+import { fetchExhibitionGames } from "@/lib/exhibitionData";
+import type { ExhibitionGame } from "@/lib/exhibitionData";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
@@ -51,6 +53,7 @@ interface EnhancedGame {
   cancelled?: boolean;
   liveInning?: number;
   isTop?: boolean;
+  isExhibition?: boolean;
 }
 
 export default function HomeScreen() {
@@ -221,12 +224,14 @@ export default function HomeScreen() {
     const scorePromises = dates.map((ds) => cachedDailyScores(ds).catch(() => null));
     const todayPromise = cachedTodayGames().catch(() => null);
     const todayStr = formatDateStr(new Date());
+    const exhibitionPromise = fetchExhibitionGames(selectedDate.getFullYear()).catch(() => [] as ExhibitionGame[]);
 
-    Promise.all([schedulePromise, ...scorePromises, todayPromise])
+    Promise.all([schedulePromise, ...scorePromises, todayPromise, exhibitionPromise])
       .then(([scheduleGames, ...rest]: [unknown, ...unknown[]]) => {
         if (cancelled) return;
         const scoresList = rest.slice(0, 3) as ({ games: ScoreEntry[] } | null)[];
         const todayData = rest[3] as { games: TodayGame[]; nextGames?: TodayGame[] } | null;
+        const exhibitionGames = (rest[4] || []) as ExhibitionGame[];
         const schedule = scheduleGames as ScheduleGame[];
 
         const result: Record<string, EnhancedGame[]> = {};
@@ -312,7 +317,7 @@ export default function HomeScreen() {
 
           // Fallback: fetch game-detail for live games and missing pitchers
           const gamesNeedingDetail = enhanced.filter(
-            (g) => !isFuture && (g.status === "live" || !g.homePitcher || !g.awayPitcher)
+            (g) => !isFuture && !g.isExhibition && (g.status === "live" || !g.homePitcher || !g.awayPitcher)
           );
           if (gamesNeedingDetail.length > 0) {
             Promise.all(
@@ -353,6 +358,28 @@ export default function HomeScreen() {
                 }),
               }));
             }).catch(() => {});
+          }
+
+          // Merge exhibition games
+          const exhDateKey = ds.replace(/-/g, "");
+          const dayExhGames = exhibitionGames.filter(g => g.date === exhDateKey);
+          for (const g of dayExhGames) {
+            enhanced.push({
+              id: g.gameId,
+              homeTeam: g.homeTeamId,
+              awayTeam: g.awayTeamId,
+              time: g.time || "13:00",
+              venue: g.venue,
+              status: g.cancelled ? "finished" : (g.awayScore != null ? "finished" : "scheduled"),
+              homeScore: g.homeScore ?? undefined,
+              awayScore: g.awayScore ?? undefined,
+              homePitcher: g.homeStarter || undefined,
+              awayPitcher: g.awayStarter || undefined,
+              winPitcher: g.winPitcher,
+              losePitcher: g.losePitcher,
+              cancelled: g.cancelled,
+              isExhibition: true,
+            });
           }
 
           result[ds] = enhanced;

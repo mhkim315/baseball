@@ -127,14 +127,9 @@ var map = new maplibregl.Map({
   center:[${center[0]},${center[1]}],
   zoom:${zoom},
   attributionControl:{compact:true},
-  dragPan:false,
-  scrollZoom:false,
-  boxZoom:false,
-  doubleClickZoom:false,
-  touchZoomRotate:false,
-  keyboard:false
+  touchZoomRotate:true
 });
-map.addControl(new maplibregl.NavigationControl({showCompass:true}),'top-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:true,showZoom:true}),'top-right');
 
 map.once('load',function(){
   var fills = ${JSON.stringify(KIND_FILL)};
