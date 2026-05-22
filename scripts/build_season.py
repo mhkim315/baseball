@@ -155,6 +155,8 @@ def main():
     parser = argparse.ArgumentParser(description="Build KBO season data files")
     parser.add_argument("--year", type=int, required=True, help="Season year (e.g. 2025)")
     parser.add_argument("--output-dir", type=str, default="./output", help="Output directory")
+    parser.add_argument("--start-date", type=str, default=None, help="Override regular season start date (YYYY-MM-DD)")
+    parser.add_argument("--end-date", type=str, default=None, help="Override regular season end date (YYYY-MM-DD)")
     args = parser.parse_args()
 
     year = args.year
@@ -166,9 +168,18 @@ def main():
     exhibition_start = date(year, 3, 1)
     exhibition_end = date(year, 3, 31)
 
-    # Regular season: ~Mar 22 to Oct 31 (actual games will be subset)
-    regular_start = date(year, 3, 22)
-    regular_end = date(year, 10, 31)
+    # Regular season: overrideable via --start-date / --end-date
+    if args.start_date:
+        regular_start = date.fromisoformat(args.start_date)
+        print(f"  Using overridden regular season start: {regular_start}")
+    else:
+        regular_start = date(year, 3, 22)
+
+    if args.end_date:
+        regular_end = date.fromisoformat(args.end_date)
+        print(f"  Using overridden regular season end: {regular_end}")
+    else:
+        regular_end = date(year, 10, 31)
 
     # --- Collect exhibition games (srId=1) ---
     exhibition_games = collect_games(
