@@ -189,6 +189,8 @@ export interface ScheduleGame {
 export interface ParkingSpot {
   name: string;
   description: string;
+  lng?: number;
+  lat?: number;
 }
 
 export interface NearbyRestaurant {
@@ -196,4 +198,6 @@ export interface NearbyRestaurant {
   category: string;
   address: string;
   phone: string;
+  lng?: number;
+  lat?: number;
 }

@@ -6,7 +6,7 @@ import { DEFAULT_TEAM_ID } from "@shared/constants";
 import { TeamBadge } from "@/components/TeamBadge";
 import StadiumMapView from "@/components/StadiumMapView";
 import type { StadiumBrief, FoodPlace, SurroundingSpot, EatsSpot } from "@/lib/api";
-import { STADIUM_BRIEFS, STADIUM_FOODS, STADIUM_PARKING, STADIUM_NEARBY, TEAM_STADIUM_MAP, FOOD_CATEGORIES } from "@/lib/stadiumData";
+import { STADIUM_BRIEFS, STADIUM_FOODS, STADIUM_PARKING, STADIUM_NEARBY, TEAM_STADIUM_MAP, FOOD_CATEGORIES, STADIUM_COORDINATES, TRANSIT_STOPS } from "@/lib/stadiumData";
 import { getTicketPolicy } from "@/lib/ticketPolicy";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
@@ -331,18 +331,38 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
     setFoods(STADIUM_FOODS[sid] || []);
 
     // Set local parking/nearby/transit data
+    const coords = STADIUM_COORDINATES[sid];
     const localParking: SurroundingSpot[] = (STADIUM_PARKING[sid] || []).map((p, i) => ({
       id: `parking-${i}`, name: p.name, description: p.description, kind: "parking",
-      lng: 0, lat: 0,
+      lng: p.lng ?? 0, lat: p.lat ?? 0,
     }));
     setParking(localParking);
 
     const localNearby: EatsSpot[] = (STADIUM_NEARBY[sid] || []).map((r) => ({
       name: r.name, cat: r.category, category: r.category,
       address: r.address, phone: r.phone || "",
-      lng: 0, lat: 0,
+      lng: r.lng ?? 0, lat: r.lat ?? 0,
     }));
     setNearby(localNearby);
+
+    // Transit spots (subway/bus stops near stadium)
+    setTransitSpots(TRANSIT_STOPS[sid] || []);
+
+    // Map centers
+    if (coords) {
+      setSurroundingsCenter([coords.lng, coords.lat]);
+      setEatsCenter([coords.lng, coords.lat]);
+      setSurroundingsZoom(14.5);
+      // Stadium reference pin for Nearby tab
+      setStadiumSpot({
+        id: "stadium",
+        name: STADIUM_BRIEFS[sid]?.name || "구장",
+        description: "",
+        kind: "stadium",
+        lng: coords.lng,
+        lat: coords.lat,
+      });
+    }
 
     // Only fetch food-layouts.json (static file, not API)
     fetch(`${IMAGE_BASE}/data/food-layouts.json`).then((r) => r.ok ? r.json() : null)
@@ -605,6 +625,24 @@ function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setF
 
   const foodMapSlug = FOOD_MAP_IMAGES[stadiumId] || "jamsil";
 
+  // Resolve pin position from foodLayouts fallback when leftPct/topPct missing
+  const resolvePos = (food: FoodPlace, idx: number) => {
+    if (food.leftPct != null && food.topPct != null) {
+      return { leftPct: food.leftPct, topPct: food.topPct, labelDirection: food.labelDirection, _i: food._i };
+    }
+    if (!foodLayouts) return null;
+    const floorKey = String(food.floor || "기타").trim();
+    const catKey = categoryKey(food);
+    const i = food._i ?? idx;
+    const bucket = foodLayouts.stadiums?.[stadiumId]?.floors?.[floorKey];
+    if (!bucket) return null;
+    const entry = bucket[catKey]?.[String(i)] || bucket.all?.[String(i)];
+    if (entry?.leftPct != null && entry?.topPct != null) {
+      return { leftPct: entry.leftPct, topPct: entry.topPct, labelDirection: entry.labelDirection, _i: i };
+    }
+    return null;
+  };
+
   return (
     <View style={styles.tabContent}>
       {foods.length > 0 ? (
@@ -654,9 +692,10 @@ function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setF
                 />
                 <Svg style={{ width: "100%", height: "100%", position: "absolute" }} viewBox="0 0 100 100" preserveAspectRatio="none">
                   {visible.map((food, i) => {
-                    if (food.leftPct == null || food.topPct == null) return null;
+                    const pos = resolvePos(food, i);
+                    if (!pos) return null;
                     const cat = categoryKey(food);
-                    const coords = getLabelCoords(food.leftPct, food.topPct, food.labelDirection, foodLayouts, stadiumId, currentFloor, cat, food._i);
+                    const coords = getLabelCoords(pos.leftPct, pos.topPct, pos.labelDirection, foodLayouts, stadiumId, currentFloor, cat, pos._i);
                     const catColor = FOOD_CATEGORIES[cat]?.color || "#6b7280";
                     return (
                       <Line
@@ -671,9 +710,10 @@ function FoodTab({ stadiumId, foods, foodFloor, setFoodFloor, foodCategory, setF
                   })}
                 </Svg>
                 {visible.map((food, i) => {
-                  if (food.leftPct == null || food.topPct == null) return null;
+                  const pos = resolvePos(food, i);
+                  if (!pos) return null;
                   const cat = categoryKey(food);
-                  const coords = getLabelCoords(food.leftPct, food.topPct, food.labelDirection, foodLayouts, stadiumId, currentFloor, cat, food._i);
+                  const coords = getLabelCoords(pos.leftPct, pos.topPct, pos.labelDirection, foodLayouts, stadiumId, currentFloor, cat, pos._i);
                   const catColor = FOOD_CATEGORIES[cat]?.color || "#6b7280";
                   const isSelected = selectedShop === food.shop;
                   return (
