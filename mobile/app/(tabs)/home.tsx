@@ -295,6 +295,8 @@ export default function HomeScreen() {
                   home: ng.home.starter?.name !== "미정" ? ng.home.starter?.name : undefined,
                 });
                 gameIdMap.set(key, ng.id);
+                if (ng.status) gameStatusMap.set(key, ng.status);
+                if (ng.time) gameTimeMap.set(key, ng.time);
               }
             }
           }
