@@ -17,8 +17,8 @@ import { useTeam } from "@/lib/TeamContext";
 import { addJikgwanRecord, updateJikgwanRecord, type JikgwanRecord } from "@/lib/db";
 import { addExpense, getExpensesByRecordId, deleteExpensesByRecordId, EXPENSE_CATEGORIES, type Expense, type ExpenseCategory } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
-import { cachedScheduleByMonth } from "@/lib/gameCache";
-import { fetchDailyScores, type ScheduleGame, type ScoreEntry } from "@/lib/api";
+import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
+import { type ScheduleGame, type ScoreEntry } from "@/lib/api";
 import { resolveVenue } from "@/lib/stadiumData";
 import YearSelector from "@/components/YearSelector";
 
@@ -211,7 +211,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       const apiDate = formatDateForApi(date);
       const [schedule, scores] = await Promise.all([
         cachedScheduleByMonth(month, date.getFullYear()),
-        fetchDailyScores(apiDate),
+        cachedDailyScores(apiDate),
       ]);
 
       const daySched = (schedule?.games ?? []).filter(

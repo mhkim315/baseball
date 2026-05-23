@@ -1,5 +1,4 @@
 import * as SQLite from "expo-sqlite";
-import { TEAM_COLORS } from "@shared/teamColors";
 
 const CACHE_VERSION = 3;
 

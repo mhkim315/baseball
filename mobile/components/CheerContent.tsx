@@ -2,8 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { View, Text, Pressable, StyleSheet, ActivityIndicator, Linking, Image } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
-import { cachedCheeringSongs, cachedCheeringPlayers } from "@/lib/gameCache";
-import { fetchTodayGames, fetchGameDetail, fetchDailyScores } from "@/lib/api";
+import { cachedCheeringSongs, cachedCheeringPlayers, cachedTodayGames, cachedGameDetail, cachedDailyScores } from "@/lib/gameCache";
 import type { CheerSection, PlayerCheer, TodayGame, ScoreEntry } from "@/lib/api";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 
@@ -59,13 +58,13 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
       if (playersData) setPlayers(playersData.players);
 
       const tryTodayLineup = () =>
-        fetchTodayGames().then((today) => {
+        cachedTodayGames().then((today) => {
           if (!today?.games) return null;
           const myGame = today.games.find(
             (g: TodayGame) => g.home?.id === teamId || g.away?.id === teamId
           );
           if (!myGame?.id) return null;
-          return fetchGameDetail(myGame.id).then((detail) => {
+          return cachedGameDetail(myGame.id).then((detail) => {
             if (!detail?.lineup) return null;
             const side = detail.homeTeam === teamId ? "home" : "away";
             const batters = detail.lineup[side] || [];
@@ -77,7 +76,7 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
         const yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         const yStr = formatDateStr(yesterday);
-        return fetchDailyScores(yStr).then((scores) => {
+        return cachedDailyScores(yStr).then((scores) => {
           if (!scores?.games) return null;
           const teamKr = TEAM_COLORS[teamId]?.shortName || "";
           const game = scores.games.find(
@@ -88,7 +87,7 @@ export default function CheerContent({ teamId, activeTab, expandedSection, onTog
           const homeId = TEAM_NAME_TO_ID[game.home] || "";
           const gameId = buildGameId(awayId, homeId, yStr.replace(/-/g, ""));
           if (!gameId) return null;
-          return fetchGameDetail(gameId).then((detail) => {
+          return cachedGameDetail(gameId).then((detail) => {
             if (!detail?.lineup) return null;
             const side = detail.homeTeam === teamId ? "home" : "away";
             const batters = detail.lineup[side] || [];

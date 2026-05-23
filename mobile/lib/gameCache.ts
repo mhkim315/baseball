@@ -172,7 +172,7 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
     // Populate per-date cache so individual cachedDailyScores calls hit instantly
     for (const [date, games] of Object.entries(dates)) {
       const key = cacheKey("scores", date);
-      await db.setCache(key, JSON.stringify({ date, games }));
+      await db.setCache(key, JSON.stringify({ games }));
     }
 
     // Also cache the full result briefly so rapid remounts skip the loop

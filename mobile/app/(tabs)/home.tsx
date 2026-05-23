@@ -137,6 +137,12 @@ export default function HomeScreen() {
   const [calYear, setCalYear] = useState(new Date().getFullYear());
   const [calMonth, setCalMonth] = useState(new Date().getMonth());
   const calCache = useRef<Record<string, { games: ScheduleGame[]; scores: Record<string, any[]> }>>({});
+  const MAX_CAL_CACHE_ENTRIES = 15;
+  const pruneCalCache = (cache: Record<string, { games: ScheduleGame[]; scores: Record<string, any[]> }>) => {
+    const keys = Object.keys(cache);
+    if (keys.length <= MAX_CAL_CACHE_ENTRIES) return;
+    keys.sort().splice(0, keys.length - MAX_CAL_CACHE_ENTRIES).forEach((k) => delete cache[k]);
+  };
   const { width: screenWidth } = useWindowDimensions();
   const pageScrollRef = useRef<ScrollView>(null);
   const hasEverLoaded = useRef(false);
@@ -194,6 +200,7 @@ export default function HomeScreen() {
           if (games) scoresRecord[date] = games;
         }
         calCache.current[`${cy}:${month}`] = { games: gamesList, scores: scoresRecord };
+        pruneCalCache(calCache.current);
         if (month === current) {
           setCalGames(gamesList);
           setCalScores(scoresRecord);
@@ -424,6 +431,7 @@ export default function HomeScreen() {
         if (scoreResults[i]?.games) scoresRecord[myDates[i]] = scoreResults[i]!.games;
       }
       calCache.current[cacheKey] = { games: gamesList, scores: scoresRecord };
+      pruneCalCache(calCache.current);
       if (!cancelled) {
         setCalGames(gamesList);
         setCalScores(scoresRecord);
@@ -441,6 +449,7 @@ export default function HomeScreen() {
               if (srs[i]?.games) src[dts[i]] = srs[i]!.games;
             }
             calCache.current[adjKey] = { games: gl, scores: src };
+            pruneCalCache(calCache.current);
           }).catch(() => {});
         }
       }

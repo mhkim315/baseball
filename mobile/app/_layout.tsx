@@ -53,9 +53,6 @@ function RootLayoutInner() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="game/[id]" options={{ presentation: "card" }} />
         <Stack.Screen name="onboarding" options={{ presentation: "modal" }} />
-        <Stack.Screen name="jikgwan" options={{ headerShown: false }} />
-        <Stack.Screen name="cheer" options={{ headerShown: false }} />
-        <Stack.Screen name="standings" options={{ headerShown: false }} />
       </Stack>
     </>
   );
