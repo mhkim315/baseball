@@ -123,12 +123,27 @@ export default function GameDetailScreen() {
             const n = parseInt(suffix, 10);
             return isNaN(n) ? 0 : n;
           })();
-          const match = scores.games.find(
+          const exactMatch = scores.games.find(
             (s: ScoreEntry) => s.home === homeName && s.away === awayName && (s.gameIdx ?? 0) === gameSeq
-          ) || scores.games.find(
+          );
+          const match = exactMatch || scores.games.find(
             (s: ScoreEntry) => s.home === homeName && s.away === awayName
           );
-          if (match) setScoreFallback(match);
+          if (match) {
+            setScoreFallback(match);
+            // For DH2+ games, override API detail with correct scores/pitchers from daily scores
+            if (gameSeq > 0 && exactMatch) {
+              setDetail({
+                ...data,
+                starters: { home: null, away: null },
+                score: { away: exactMatch.awayScore, home: exactMatch.homeScore },
+                pitchingResult: [
+                  ...(exactMatch.winPitcher ? [{ name: exactMatch.winPitcher, wls: "W" as const }] : []),
+                  ...(exactMatch.losePitcher ? [{ name: exactMatch.losePitcher, wls: "L" as const }] : []),
+                ],
+              });
+            }
+          }
         }
         setLoading(false);
       } else {
@@ -439,7 +454,7 @@ export default function GameDetailScreen() {
   const gameHasStarted = new Date() >= startTime;
 
   const isFinished = !isCancelled && !isFuture && gameHasStarted && (
-    detail.gameInfo?.status === "finished" || (isGameActive && !isToday)
+    detail.gameInfo?.status === "finished" || (isGameActive && !isToday) || isExhibition
   );
   const isLive = !isCancelled && !isFinished && gameHasStarted && (
     detail.gameInfo?.status === "live" || (isGameActive && isToday)
