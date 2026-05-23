@@ -387,7 +387,20 @@ export default function CalendarGrid({
                                 else if (s.outcome === "L") label = "패";
                                 else if (s.outcome === "T") label = "무";
                               }
-                              if (!label) return <View key={i} style={{ width: 16, height: 16 }} />;
+                              if (!label) {
+                                if (g.isExhibition && !isFuture) {
+                                  return (
+                                    <View key={i} style={{
+                                      backgroundColor: "#888",
+                                      width: 16, height: 16, borderRadius: 8,
+                                      alignItems: "center", justifyContent: "center",
+                                    }}>
+                                      <Text style={{ fontSize: 8, fontWeight: "700", color: "#fff" }}>종</Text>
+                                    </View>
+                                  );
+                                }
+                                return <View key={i} style={{ width: 16, height: 16 }} />;
+                              }
                               const bgColor = label === "승" ? "#3b82f6" : label === "패" ? "#ef4444" : label === "무" ? "#f59e0b" : "#888";
                               return (
                                 <View key={i} style={{
@@ -446,6 +459,8 @@ export default function CalendarGrid({
                                   {score.awayScore}:{score.homeScore}
                                 </Text>
                               </View>
+                            ) : g.isExhibition && !isFuture ? (
+                              <Text style={styles.calCancelled}>종료</Text>
                             ) : (
                               <Text style={styles.calVenue} numberOfLines={1}>{cleanVenue(g.venue) || g.time?.slice(0, 5) || ""}</Text>
                             )}

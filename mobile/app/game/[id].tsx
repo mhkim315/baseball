@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { View, Text, ScrollView, Pressable, StyleSheet, ActivityIndicator } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
+import { parseGameTeamIds } from "@shared/constants";
 import {
   fetchGameDetail, fetchStandingsJson,
   type GameDetail, type ScoreEntry, type LineupPlayer, type StandingRow,
@@ -11,7 +12,7 @@ import { cachedDailyScores, cachedScheduleByMonth } from "@/lib/gameCache";
 import DiaryEntryModal, { type GameOption } from "@/components/DiaryEntryModal";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { resolveVenue } from "@/lib/stadiumData";
-import { fetchExhibitionGames, type ExhibitionGame } from "@/lib/exhibitionData";
+
 
 const POSITION_LABELS: Record<string, string> = {
   "1": "1B", "2": "2B", "3": "3B",
@@ -61,35 +62,66 @@ export default function GameDetailScreen() {
     const tryExhibitionFallback = async () => {
       if (cancelled) return;
       try {
-        const exhibitionGames = await fetchExhibitionGames(parseInt(gid.slice(0, 4)));
+        setIsExhibition(true);
+        const dateStr = `${gid.slice(0, 4)}-${gid.slice(4, 6)}-${gid.slice(6, 8)}`;
+        const month = parseInt(gid.slice(4, 6), 10);
+        const year = parseInt(gid.slice(0, 4), 10);
+        const [scores, schedule] = await Promise.all([
+          cachedDailyScores(dateStr).catch(() => null),
+          cachedScheduleByMonth(month, year).catch(() => null),
+        ]);
         if (cancelled) return;
-        const eg = exhibitionGames.find((g: ExhibitionGame) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""));
-        if (eg) {
-          setIsExhibition(true);
+
+        const { awayId, homeId } = parseGameTeamIds(gid);
+        const awayShort = TEAM_COLORS[awayId]?.shortName;
+        const homeShort = TEAM_COLORS[homeId]?.shortName;
+        const scoreEntry = scores?.games?.find(
+          (s) => s.away === awayShort && s.home === homeShort
+        );
+        const scheduleEntry = schedule?.games?.find(
+          (g) => g.away === awayShort && g.home === homeShort
+        );
+
+        if (scoreEntry) {
+          const score: { away: number; home: number } = {
+            away: scoreEntry.awayScore ?? 0,
+            home: scoreEntry.homeScore ?? 0,
+          };
           setDetail({
-            gameId: eg.gameId,
-            date: `${eg.date.slice(0, 4)}-${eg.date.slice(4, 6)}-${eg.date.slice(6, 8)}`,
-            homeTeam: eg.homeTeamId,
-            awayTeam: eg.awayTeamId,
-            starters: {
-              home: eg.homeStarter ? { name: eg.homeStarter } : null,
-              away: eg.awayStarter ? { name: eg.awayStarter } : null,
-            },
+            gameId: gid,
+            date: dateStr,
+            homeTeam: homeId,
+            awayTeam: awayId,
+            starters: { home: null, away: null },
             lineup: { home: [], away: [] },
             gameInfo: {
-              time: eg.time,
-              venue: resolveVenue(eg.homeTeamId, eg.venue),
-              status: eg.cancelled ? "cancelled" : "finished",
+              time: scheduleEntry?.time || "13:00",
+              venue: resolveVenue(homeId, scheduleEntry?.venue || ""),
+              status: "finished",
             },
-            score: eg.awayScore != null
-              ? { away: eg.awayScore, home: eg.homeScore ?? 0 }
-              : undefined,
-            pitchingResult: eg.winPitcher || eg.losePitcher
+            score,
+            pitchingResult: scoreEntry.winPitcher || scoreEntry.losePitcher
               ? [
-                  ...(eg.winPitcher ? [{ name: eg.winPitcher, wls: "W" }] : []),
-                  ...(eg.losePitcher ? [{ name: eg.losePitcher, wls: "L" }] : []),
+                  ...(scoreEntry.winPitcher ? [{ name: scoreEntry.winPitcher, wls: "W" as const }] : []),
+                  ...(scoreEntry.losePitcher ? [{ name: scoreEntry.losePitcher, wls: "L" as const }] : []),
                 ]
               : undefined,
+          });
+          setLoading(false);
+        } else if (scheduleEntry) {
+          // Exhibition game without score data — show minimal game info
+          setDetail({
+            gameId: gid,
+            date: dateStr,
+            homeTeam: homeId,
+            awayTeam: awayId,
+            starters: { home: null, away: null },
+            lineup: { home: [], away: [] },
+            gameInfo: {
+              time: scheduleEntry.time || "13:00",
+              venue: resolveVenue(homeId, scheduleEntry.venue || ""),
+              status: "finished",
+            },
           });
           setLoading(false);
         } else {
@@ -106,12 +138,12 @@ export default function GameDetailScreen() {
       if (data) {
         setDetail(data);
         const dateStr = `${gid.slice(0, 4)}-${gid.slice(4, 6)}-${gid.slice(6, 8)}`;
-        const [exhibitionGames, scores] = await Promise.all([
-          fetchExhibitionGames(parseInt(gid.slice(0, 4))).catch(() => []),
+        const [schedule, scores] = await Promise.all([
+          cachedScheduleByMonth(parseInt(gid.slice(4, 6), 10), parseInt(gid.slice(0, 4), 10)).catch(() => null),
           cachedDailyScores(dateStr).catch(() => null),
         ]);
         if (cancelled) return;
-        if (exhibitionGames.some((g: ExhibitionGame) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""))) {
+        if (schedule?.games?.some((g) => g.isExhibition && g.date === dateStr)) {
           setIsExhibition(true);
         }
         if (scores?.games) {

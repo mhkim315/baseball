@@ -19,8 +19,7 @@ import {
 } from "@/lib/gameCache";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
-import { fetchExhibitionGames } from "@/lib/exhibitionData";
-import type { ExhibitionGame } from "@/lib/exhibitionData";
+
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
@@ -194,25 +193,6 @@ export default function HomeScreen() {
           const games = allScores?.[date];
           if (games) scoresRecord[date] = games;
         }
-        // Merge exhibition game scores (daily-scores API doesn't include them)
-        try {
-          const exh = await fetchExhibitionGames(cy);
-          for (const g of exh) {
-            if (g.awayScore == null) continue;
-            const dk = `${g.date.slice(0, 4)}-${g.date.slice(4, 6)}-${g.date.slice(6, 8)}`;
-            if (!scoresRecord[dk]) scoresRecord[dk] = [];
-            const sc = g.awayScore!;
-            const hc = g.homeScore!;
-            scoresRecord[dk].push({
-              away: g.away, home: g.home,
-              awayScore: sc, homeScore: hc,
-              outcome: sc > hc ? "W" : sc < hc ? "L" : "D",
-              cancelled: g.cancelled,
-              winPitcher: g.winPitcher, losePitcher: g.losePitcher,
-              gameIdx: 0,
-            });
-          }
-        } catch {}
         calCache.current[`${cy}:${month}`] = { games: gamesList, scores: scoresRecord };
         if (month === current) {
           setCalGames(gamesList);
@@ -243,26 +223,18 @@ export default function HomeScreen() {
     const scorePromises = dates.map((ds) => cachedDailyScores(ds).catch(() => null));
     const todayPromise = cachedTodayGames().catch(() => null);
     const todayStr = formatDateStr(new Date());
-    const exhibitionPromise = fetchExhibitionGames(selectedDate.getFullYear()).catch(() => [] as ExhibitionGame[]);
 
-    Promise.all([schedulePromise, ...scorePromises, todayPromise, exhibitionPromise])
+    Promise.all([schedulePromise, ...scorePromises, todayPromise])
       .then(([scheduleGames, ...rest]: [unknown, ...unknown[]]) => {
         if (cancelled) return;
         const scoresList = rest.slice(0, 3) as ({ games: ScoreEntry[] } | null)[];
         const todayData = rest[3] as { games: TodayGame[]; nextGames?: TodayGame[] } | null;
-        const exhibitionGames = (rest[4] || []) as ExhibitionGame[];
-        // Build lookup set for exhibition games (date format differs between schedule and exhibition API)
-        const exhSet = new Set<string>();
-        for (const eg of exhibitionGames) {
-          const d = `${eg.date.slice(0, 4)}-${eg.date.slice(4, 6)}-${eg.date.slice(6, 8)}`;
-          exhSet.add(`${d}|${eg.away}|${eg.home}`);
-        }
         const schedule = scheduleGames as ScheduleGame[];
 
         const result: Record<string, EnhancedGame[]> = {};
         for (let i = 0; i < 3; i++) {
           const ds = dates[i];
-          const dayGames = schedule.filter((g) => g.date === ds && !exhSet.has(`${g.date}|${g.away}|${g.home}`));
+          const dayGames = schedule.filter((g) => g.date === ds);
           const scoreEntries: ScoreEntry[] = scoresList[i]?.games || [];
           const isFuture = ds > todayStr;
           const isToday = ds === todayStr;
@@ -331,6 +303,11 @@ export default function HomeScreen() {
               if (new Date() >= startTime) status = "live";
             }
 
+            // Past exhibition games have no score data — mark as finished
+            if (status === "scheduled" && !isFuture && g.isExhibition) {
+              status = "finished";
+            }
+
             const gameDate = ds.replace(/-/g, "");
             return {
               id: apiGameId || buildGameId(awayId, homeId, gameDate, String(gi)),
@@ -346,6 +323,7 @@ export default function HomeScreen() {
               winPitcher: score?.winPitcher,
               losePitcher: score?.losePitcher,
               cancelled: score?.cancelled,
+              isExhibition: g.isExhibition,
             };
           });
 
@@ -394,27 +372,6 @@ export default function HomeScreen() {
             }).catch(() => {});
           }
 
-          // Merge exhibition games
-          const exhDateKey = ds.replace(/-/g, "");
-          const dayExhGames = exhibitionGames.filter(g => g.date === exhDateKey);
-          for (const g of dayExhGames) {
-            enhanced.push({
-              id: buildGameId(g.awayTeamId, g.homeTeamId, g.date, "0") || g.gameId,
-              homeTeam: g.homeTeamId,
-              awayTeam: g.awayTeamId,
-              time: g.time || "13:00",
-              venue: g.venue,
-              status: g.cancelled ? "finished" : (g.awayScore != null ? "finished" : "scheduled"),
-              homeScore: g.homeScore ?? undefined,
-              awayScore: g.awayScore ?? undefined,
-              homePitcher: g.homeStarter || undefined,
-              awayPitcher: g.awayStarter || undefined,
-              winPitcher: g.winPitcher,
-              losePitcher: g.losePitcher,
-              cancelled: g.cancelled,
-              isExhibition: true,
-            });
-          }
 
           result[ds] = enhanced;
         }
@@ -463,25 +420,6 @@ export default function HomeScreen() {
       for (let i = 0; i < myDates.length; i++) {
         if (scoreResults[i]?.games) scoresRecord[myDates[i]] = scoreResults[i]!.games;
       }
-      // Merge exhibition game scores
-      try {
-        const exh = await fetchExhibitionGames(calYear);
-        for (const g of exh) {
-          if (g.awayScore == null) continue;
-          const dk = `${g.date.slice(0, 4)}-${g.date.slice(4, 6)}-${g.date.slice(6, 8)}`;
-          if (!scoresRecord[dk]) scoresRecord[dk] = [];
-          const sc = g.awayScore!;
-          const hc = g.homeScore!;
-          scoresRecord[dk].push({
-            away: g.away, home: g.home,
-            awayScore: sc, homeScore: hc,
-            outcome: sc > hc ? "W" : sc < hc ? "L" : "D",
-            cancelled: g.cancelled,
-            winPitcher: g.winPitcher, losePitcher: g.losePitcher,
-            gameIdx: 0,
-          });
-        }
-      } catch {}
       calCache.current[cacheKey] = { games: gamesList, scores: scoresRecord };
       if (!cancelled) {
         setCalGames(gamesList);
@@ -499,24 +437,6 @@ export default function HomeScreen() {
             for (let i = 0; i < dts.length; i++) {
               if (srs[i]?.games) src[dts[i]] = srs[i]!.games;
             }
-            try {
-              const exh = await fetchExhibitionGames(calYear);
-              for (const g of exh) {
-                if (g.awayScore == null) continue;
-                const dk = `${g.date.slice(0, 4)}-${g.date.slice(4, 6)}-${g.date.slice(6, 8)}`;
-                if (!src[dk]) src[dk] = [];
-                const sc = g.awayScore!;
-                const hc = g.homeScore!;
-                src[dk].push({
-                  away: g.away, home: g.home,
-                  awayScore: sc, homeScore: hc,
-                  outcome: sc > hc ? "W" : sc < hc ? "L" : "D",
-                  cancelled: g.cancelled,
-                  winPitcher: g.winPitcher, losePitcher: g.losePitcher,
-                  gameIdx: 0,
-                });
-              }
-            } catch {}
             calCache.current[adjKey] = { games: gl, scores: src };
           }).catch(() => {});
         }

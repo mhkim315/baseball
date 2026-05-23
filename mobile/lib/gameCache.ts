@@ -123,10 +123,9 @@ export async function cachedDailyScores(date: string): Promise<{ games: ScoreEnt
   if (!isNaN(year) && year <= 2025) {
     const games = LOCAL_SCORES[date];
     if (games) return { games };
-    // No local scores (exhibition date) → try API
-    return fetchWithCache(cacheKey("scores", date), Infinity, () =>
-      apiDailyScores(date)
-    );
+    // Past date without local scores — exhibition or no-game date.
+    // API does not serve past exhibition scores; skip the call.
+    return { games: [] };
   }
   return fetchWithCache(cacheKey("scores", date), ttlForDate(date), () =>
     apiDailyScores(date)
