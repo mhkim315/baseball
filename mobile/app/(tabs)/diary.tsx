@@ -229,7 +229,7 @@ export default function DiaryScreen() {
       // Merge scores into records in-memory (no DB write needed)
       const merge = (records: JikgwanRecord[], scoresList: { away: string; home: string; awayScore: number; homeScore: number; cancelled: boolean }[]) => {
         for (const r of records) {
-          if (r.score_away != null && r.score_home != null) continue;
+          if (r.score_away != null && r.score_home != null && !(r.score_away === 0 && r.score_home === 0)) continue;
           const { awayId, homeId } = parseGameTeamIds(r.game_id);
           if (!awayId || !homeId) continue;
           const awayShort = TEAM_COLORS[awayId]?.shortName;
@@ -251,7 +251,7 @@ export default function DiaryScreen() {
       // Per-date score lookup: only fetch dates for records without scores
       const dateSet = new Set<string>();
       for (const r of data) {
-        if (r.score_away != null && r.score_home != null) continue;
+        if (r.score_away != null && r.score_home != null && !(r.score_away === 0 && r.score_home === 0)) continue;
         dateSet.add(r.date.split(".").join("-"));
       }
       const scoresResults = await Promise.all(
