@@ -9,13 +9,13 @@ import {
   type TodayGame,
   type ScoreEntry,
   type ScheduleGame,
+  fetchGameDetail,
 } from "@/lib/api";
 import {
   cachedScheduleByMonth,
   cachedDailyScores,
   cachedAllDailyScores,
   cachedTodayGames,
-  cachedGameDetail,
 } from "@/lib/gameCache";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { TEAM_NAME_TO_ID, buildGameId, formatDateForApi as formatDateStr } from "@shared/constants";
@@ -355,7 +355,7 @@ export default function HomeScreen() {
           );
           if (gamesNeedingDetail.length > 0) {
             Promise.all(
-              gamesNeedingDetail.map((g) => cachedGameDetail(g.id).catch(() => null))
+              gamesNeedingDetail.map((g) => fetchGameDetail(g.id).catch(() => null))
             ).then((results) => {
               if (cancelled) return;
               setGamesByDate((prev) => ({
