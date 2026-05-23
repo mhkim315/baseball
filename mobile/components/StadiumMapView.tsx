@@ -1,6 +1,6 @@
 import { useRef, useCallback, useEffect, useMemo } from "react";
 import { View, StyleSheet } from "react-native";
-import { WebView } from "react-native-webview";
+import { WebView, type WebViewMessageEvent } from "react-native-webview";
 import { useTheme } from "@/lib/ThemeContext";
 
 const OPENFREEMAP_STYLE = "https://tiles.openfreemap.org/styles/bright";
@@ -61,7 +61,7 @@ export default function StadiumMapView({ spots, center, zoom = 15, focusedSpotId
     webViewRef.current.injectJavaScript(`window.focusSpot("${focusedSpotId}"); true;`);
   }, [focusedSpotId]);
 
-  const handleMessage = useCallback((event: any) => {
+  const handleMessage = useCallback((event: WebViewMessageEvent) => {
     try {
       const data = JSON.parse(event.nativeEvent.data);
       if (data.type === "pinClick" && data.spotId) {

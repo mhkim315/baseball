@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
@@ -73,21 +73,6 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
   const activeStats = useMemo(() => computeDiaryStats(activeRecords, year), [activeRecords, year]);
   const opponentStats = useMemo(() => teamId ? computeOpponentStats(activeRecords, teamId, year) : [], [activeRecords, teamId, year]);
   const streakActive = useMemo(() => computeStreakStats(activeRecords, year), [activeRecords, year]);
-
-  // DEBUG: log record state for diagnosing SM-S901N stats bug
-  useEffect(() => {
-    const resolveResults = liveRecords.map((r) => resolveIsWin(r));
-    const winCount = resolveResults.filter((v) => v === 1).length;
-    const drawCount = resolveResults.filter((v) => v === 0).length;
-    const lossCount = resolveResults.filter((v) => v === -1).length;
-    const nullCount = resolveResults.filter((v) => v == null).length;
-    console.warn(
-      "[DEBUG DiaryStats]",
-      `records=${records.length}`, `liveRecords=${liveRecords.length}`,
-      `resolveIsWin → wins=${winCount}`, `draws=${drawCount}`, `losses=${lossCount}`, `null=${nullCount}`,
-      `liveStats.totalGames=${liveStats.totalGames}`
-    );
-  }, [records, liveRecords, liveStats]);
 
   const grayHex = isDark ? "#333" : "#e0e0e0";
   const streakColor = streakActive.currentType === "W" ? "#22c55e" : streakActive.currentType === "L" ? "#ef4444" : theme.mutedForeground;

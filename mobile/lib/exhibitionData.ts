@@ -1,5 +1,5 @@
 import { TEAM_NAME_TO_ID } from "@shared/constants";
-import { resolveVenue } from "./stadiumData";
+import { ApiClient } from "@shared/api-client";
 
 export interface ExhibitionGame {
   date: string;
@@ -25,16 +25,20 @@ interface ExhibitionResponse {
 }
 
 const cache = new Map<number, ExhibitionGame[]>();
+const client = new ApiClient({ baseUrl: "https://api.fullcount.kr", timeout: 8000 });
 
 export async function fetchExhibitionGames(year?: number): Promise<ExhibitionGame[]> {
   const y = year ?? new Date().getFullYear();
   if (cache.has(y)) return cache.get(y)!;
   try {
-    const url = year != null
-      ? `https://api.fullcount.kr/exhibition-games?year=${year}`
-      : "https://api.fullcount.kr/exhibition-games";
-    const resp = await fetch(url);
-    const data: ExhibitionResponse = await resp.json();
+    const path = year != null
+      ? `/exhibition-games?year=${year}`
+      : "/exhibition-games";
+    const data = await client.get<ExhibitionResponse>(path);
+    if (!data) {
+      cache.set(y, []);
+      return [];
+    }
     const games = (data.games || []).map((g) => ({
       ...g,
       awayTeamId: TEAM_NAME_TO_ID[g.away] || "",

@@ -268,23 +268,6 @@ export default function DiaryScreen() {
       }
       if (gen !== generationRef.current) return; // discard stale
 
-      // DEBUG: log record state for diagnosing SM-S901N stats bug
-      if (data.length > 0) {
-        const isLiveVals = data.map((r) => `is_live=${r.is_live}`);
-        const liveCount = data.filter((r) => Number(r.is_live) === 1).length;
-        const zeroCount = data.filter((r) => r.is_live === 0).length;
-        const nullCount = data.filter((r) => r.is_live == null).length;
-        const hasWin = data.filter((r) => r.is_win != null).length;
-        const hasScores = data.filter((r) => r.score_away != null || r.score_home != null).length;
-        const hasCheered = data.filter((r) => r.cheered_team != null).length;
-        const emptyGameId = data.filter((r) => !r.game_id).length;
-        console.warn(
-          "[DEBUG loadData]",
-          `records=${data.length}`, `is_live:1=${liveCount}`, `0=${zeroCount}`, `null=${nullCount}`,
-          `is_win=${hasWin}`, `scores=${hasScores}`, `cheered=${hasCheered}`, `emptyGameId=${emptyGameId}`
-        );
-      }
-
       setRecords(data);
       setExpenses(exps);
     } catch (e) {

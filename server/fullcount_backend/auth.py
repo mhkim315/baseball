@@ -50,6 +50,16 @@ class RegisterRequest(BaseModel):
     authorization_code: str = ""
     nickname: str
 
+    @field_validator("nickname")
+    @classmethod
+    def validate_nickname(cls, v: str) -> str:
+        stripped = v.strip()
+        if not stripped or len(stripped) > 20:
+            raise ValueError("Nickname must be 1-20 characters")
+        if re.search(r"<[^>]*>", stripped):
+            raise ValueError("Nickname cannot contain HTML tags")
+        return stripped
+
 
 class TokenResponse(BaseModel):
     token: str
@@ -75,7 +85,7 @@ MOBILE_REDIRECT_URI = os.getenv("MOBILE_REDIRECT_URI", "kr.fullcount.app://auth"
 
 async def exchange_kakao_code(authorization_code: str) -> str:
     """Exchange Kakao authorization code for access token."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         resp = await client.post(
             "https://kauth.kakao.com/oauth/token",
             data={
@@ -92,7 +102,7 @@ async def exchange_kakao_code(authorization_code: str) -> str:
 
 async def exchange_naver_code(authorization_code: str) -> str:
     """Exchange Naver authorization code for access token."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         resp = await client.post(
             "https://nid.naver.com/oauth2.0/token",
             data={
@@ -109,7 +119,7 @@ async def exchange_naver_code(authorization_code: str) -> str:
 
 async def verify_kakao(access_token: str) -> dict:
     """Verify Kakao access token and return user info."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         resp = await client.get(
             "https://kapi.kakao.com/v2/user/me",
             headers={"Authorization": f"Bearer {access_token}"},
@@ -123,7 +133,7 @@ async def verify_kakao(access_token: str) -> dict:
 
 async def verify_naver(access_token: str) -> dict:
     """Verify Naver access token and return user info."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         resp = await client.get(
             "https://openapi.naver.com/v1/nid/me",
             headers={"Authorization": f"Bearer {access_token}"},
@@ -138,7 +148,7 @@ async def verify_naver(access_token: str) -> dict:
 
 async def verify_google(access_token: str) -> dict:
     """Verify Google access token and return user info."""
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
         resp = await client.get(
             "https://www.googleapis.com/oauth2/v3/userinfo",
             headers={"Authorization": f"Bearer {access_token}"},
@@ -155,7 +165,7 @@ async def verify_apple(access_token: str) -> dict:
     # Apple returns an ID token (JWT) directly from the client
     try:
         # Apple's public keys
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
             keys_resp = await client.get("https://appleid.apple.com/auth/keys")
             keys = keys_resp.json()["keys"]
 
@@ -168,7 +178,7 @@ async def verify_apple(access_token: str) -> dict:
         return {"id": payload["sub"], "nickname": payload.get("email", "user")}
     except (JWTError, StopIteration) as e:
         logger.warning("Apple token verification failed: %s", e)
-        raise HTTPException(status_code=401, detail=f"Invalid Apple token: {e}")
+        raise HTTPException(status_code=401, detail="Invalid Apple token")
 
 
 async def verify_social_token(provider: str, token: str) -> dict:
@@ -218,7 +228,8 @@ def decode_jwt(token: str) -> dict:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
         return payload
     except JWTError as e:
-        raise HTTPException(status_code=401, detail=f"Invalid token: {e}")
+        logger.warning("JWT decode failed: %s", e)
+        raise HTTPException(status_code=401, detail="Invalid token")
 
 
 async def get_current_user(
@@ -281,9 +292,6 @@ async def register(request: Request, req: RegisterRequest, db: AsyncSession = De
     """Register with a social token and custom nickname."""
     social_info = await verify_social(req.provider, req.access_token, req.authorization_code)
     user_id = f"{req.provider}_{social_info['id']}"
-
-    if not req.nickname.strip() or len(req.nickname) > 20:
-        raise HTTPException(status_code=400, detail="Nickname must be 1-20 characters")
 
     result = await db.execute(select(CommunityUser).where(CommunityUser.user_id == user_id))
     existing = result.scalar_one_or_none()

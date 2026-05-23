@@ -22,7 +22,7 @@ class CommunityPost(Base):
     __tablename__ = "community_posts"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(String, nullable=True)  # NULL after account deletion
+    user_id = Column(String, nullable=True, index=True)  # NULL after account deletion
     title = Column(String, nullable=False)
     content = Column(Text, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
@@ -34,8 +34,8 @@ class CommunityComment(Base):
     __tablename__ = "community_comments"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    post_id = Column(Integer, nullable=False)
-    user_id = Column(String, nullable=True)  # NULL after account deletion
+    post_id = Column(Integer, nullable=False, index=True)
+    user_id = Column(String, nullable=True, index=True)  # NULL after account deletion
     content = Column(Text, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     deleted_at = Column(DateTime(timezone=True), nullable=True)

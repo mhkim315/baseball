@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useCallback } from "react";
 import {
   View, Text, Pressable, Image, StyleSheet,
-  Dimensions, GestureResponderEvent,
+  Dimensions, GestureResponderEvent, NativeSyntheticEvent, ImageLoadEventData,
 } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { captureRef } from "react-native-view-shot";
@@ -58,7 +58,7 @@ export default function PhotoCropper({ visible, imageUri, onCrop, onCancel }: Ph
     applyTransform();
   }, [getMaxOffset, applyTransform]);
 
-  const handleImageLoad = (e: any) => {
+  const handleImageLoad = (e: NativeSyntheticEvent<ImageLoadEventData>) => {
     const { width: imgW, height: imgH } = e.nativeEvent.source;
     const scale = Math.max(CROP_SIZE / imgW, CROP_SIZE / imgH);
     const dispW = imgW * scale;

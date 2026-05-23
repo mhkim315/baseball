@@ -162,9 +162,26 @@ async def list_posts(
         for row in await db.execute(cc_q):
             comment_counts[row.post_id] = row.cnt
 
+    # Batch-fetch user info for all post authors
+    user_ids = list({p.user_id for p in posts if p.user_id})
+    user_map: dict[str, tuple[str, bool, str, str | None]] = {}
+    if user_ids:
+        user_q = select(CommunityUser).where(CommunityUser.user_id.in_(user_ids))
+        user_rows = (await db.execute(user_q)).scalars().all()
+        for u in user_rows:
+            deleted = u.deleted_at is not None
+            user_map[u.user_id] = (u.nickname, deleted, u.profile_type or "character", u.profile_value)
+        # Fill in any missing IDs (deleted accounts whose user row may be gone)
+        for uid in user_ids:
+            if uid not in user_map:
+                user_map[uid] = ("탈퇴한 회원", True, "character", None)
+
     result = []
     for p in posts:
-        nickname, deleted, _, _ = await get_user_info(db, p.user_id)
+        if p.user_id and p.user_id in user_map:
+            nickname, deleted, _, _ = user_map[p.user_id]
+        else:
+            nickname, deleted, _, _ = "탈퇴한 회원", True, "character", None
         result.append(PostSummary(
             id=p.id,
             title=p.title,
@@ -221,9 +238,25 @@ async def get_post(post_id: int, db: AsyncSession = Depends(get_db)):
     )
     comments = c_result.scalars().all()
 
+    # Batch-fetch comment user info
+    c_user_ids = list({c.user_id for c in comments if c.user_id})
+    c_user_map: dict[str, tuple[str, bool, str, str | None]] = {}
+    if c_user_ids:
+        c_user_q = select(CommunityUser).where(CommunityUser.user_id.in_(c_user_ids))
+        c_user_rows = (await db.execute(c_user_q)).scalars().all()
+        for u in c_user_rows:
+            deleted = u.deleted_at is not None
+            c_user_map[u.user_id] = (u.nickname, deleted, u.profile_type or "character", u.profile_value)
+        for uid in c_user_ids:
+            if uid not in c_user_map:
+                c_user_map[uid] = ("탈퇴한 회원", True, "character", None)
+
     comment_list = []
     for c in comments:
-        c_nick, c_deleted, _, _ = await get_user_info(db, c.user_id)
+        if c.user_id and c.user_id in c_user_map:
+            c_nick, c_deleted, _, _ = c_user_map[c.user_id]
+        else:
+            c_nick, c_deleted, _, _ = "탈퇴한 회원", True, "character", None
         comment_list.append(CommentDetail(
             id=c.id,
             content=c.content,

@@ -1,6 +1,5 @@
 import * as FileSystem from "expo-file-system/legacy";
 import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
-import { File, Directory, Paths } from "expo-file-system";
 
 const PHOTO_DIR_NAME = "jikgwan";
 

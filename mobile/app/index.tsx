@@ -9,9 +9,13 @@ export default function IndexScreen() {
   const router = useRouter();
 
   useEffect(() => {
-    getMyTeam().then((team) => {
-      router.replace(team ? "/(tabs)/home" : "/onboarding");
-    });
+    getMyTeam()
+      .then((team) => {
+        router.replace(team ? "/(tabs)/home" : "/onboarding");
+      })
+      .catch(() => {
+        router.replace("/onboarding");
+      });
   }, [router]);
 
   const styles = useMemo(() => StyleSheet.create({

@@ -4,14 +4,14 @@ import { useRouter, useLocalSearchParams } from "expo-router";
 import { TEAM_COLORS } from "@shared/teamColors";
 import {
   fetchGameDetail, fetchStandingsJson,
-  type GameDetail, type ScoreEntry, type LineupPlayer,
+  type GameDetail, type ScoreEntry, type LineupPlayer, type StandingRow,
 } from "@/lib/api";
 import { TeamBadge } from "@/components/TeamBadge";
 import { cachedDailyScores, cachedScheduleByMonth } from "@/lib/gameCache";
 import DiaryEntryModal, { type GameOption } from "@/components/DiaryEntryModal";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { resolveVenue } from "@/lib/stadiumData";
-import { fetchExhibitionGames } from "@/lib/exhibitionData";
+import { fetchExhibitionGames, type ExhibitionGame } from "@/lib/exhibitionData";
 
 const POSITION_LABELS: Record<string, string> = {
   "1": "1B", "2": "2B", "3": "3B",
@@ -63,7 +63,7 @@ export default function GameDetailScreen() {
       try {
         const exhibitionGames = await fetchExhibitionGames(parseInt(gid.slice(0, 4)));
         if (cancelled) return;
-        const eg = exhibitionGames.find((g: any) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""));
+        const eg = exhibitionGames.find((g: ExhibitionGame) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""));
         if (eg) {
           setIsExhibition(true);
           setDetail({
@@ -101,22 +101,22 @@ export default function GameDetailScreen() {
       }
     };
 
-    fetchGameDetail(gid).then((data) => {
+    fetchGameDetail(gid).then(async (data) => {
       if (cancelled) return;
       if (data) {
         setDetail(data);
-        fetchExhibitionGames(parseInt(gid.slice(0, 4))).then((exhibitionGames) => {
-          if (cancelled) return;
-          if (exhibitionGames.some((g: any) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""))) {
-            setIsExhibition(true);
-          }
-        });
         const dateStr = `${gid.slice(0, 4)}-${gid.slice(4, 6)}-${gid.slice(6, 8)}`;
-        cachedDailyScores(dateStr).then((scores) => {
-          if (cancelled || !scores?.games) return;
+        const [exhibitionGames, scores] = await Promise.all([
+          fetchExhibitionGames(parseInt(gid.slice(0, 4))).catch(() => []),
+          cachedDailyScores(dateStr).catch(() => null),
+        ]);
+        if (cancelled) return;
+        if (exhibitionGames.some((g: ExhibitionGame) => g.gameId.replace(/-/g, "") === gid.replace(/-/g, ""))) {
+          setIsExhibition(true);
+        }
+        if (scores?.games) {
           const homeName = TEAM_COLORS[data.homeTeam]?.shortName || "";
           const awayName = TEAM_COLORS[data.awayTeam]?.shortName || "";
-          // Extract game sequence from gameId suffix (e.g. "20260917SKNC-0" → 0)
           const gameSeq = (() => {
             const parts = gid.split("-");
             const suffix = parts[parts.length - 1];
@@ -129,7 +129,7 @@ export default function GameDetailScreen() {
             (s: ScoreEntry) => s.home === homeName && s.away === awayName
           );
           if (match) setScoreFallback(match);
-        });
+        }
         setLoading(false);
       } else {
         tryExhibitionFallback();
@@ -158,8 +158,8 @@ export default function GameDetailScreen() {
 
     Promise.all([fetchStandingsJson()]).then(async ([standings]) => {
       if (cancelled || !standings?.rows) return;
-      const homeStanding = standings.rows.find((r: any) => r.teamName === homeName);
-      const awayStanding = standings.rows.find((r: any) => r.teamName === awayName);
+      const homeStanding = standings.rows.find((r: StandingRow) => r.teamName === homeName);
+      const awayStanding = standings.rows.find((r: StandingRow) => r.teamName === awayName);
       if (!homeStanding || !awayStanding) return;
 
       // Fetch recent game dates from schedules (current + past 2 months)

@@ -267,6 +267,12 @@ export async function getJikgwanRecordsByMonth(year: number, month: number): Pro
   );
 }
 
+const JIKGWAN_ALLOWED_COLUMNS = new Set([
+  "memo", "emotion", "three_line_1", "three_line_2", "three_line_3",
+  "frame_style", "is_win", "photos", "cheered_team", "is_live", "seat",
+  "score_away", "score_home", "stadium", "game_id",
+]);
+
 export async function updateJikgwanRecord(
   id: number,
   fields: Partial<Pick<JikgwanRecord, "memo" | "emotion" | "three_line_1" | "three_line_2" | "three_line_3" | "frame_style" | "is_win" | "photos" | "cheered_team" | "is_live" | "seat" | "score_away" | "score_home" | "stadium" | "game_id">>
@@ -275,6 +281,10 @@ export async function updateJikgwanRecord(
   const setClauses: string[] = [];
   const values: any[] = [];
   for (const [key, value] of Object.entries(fields)) {
+    if (!JIKGWAN_ALLOWED_COLUMNS.has(key)) {
+      console.warn(`updateJikgwanRecord: rejected unknown column "${key}"`);
+      continue;
+    }
     setClauses.push(`${key} = ?`);
     values.push(value ?? null);
   }
@@ -369,6 +379,8 @@ export async function getExpensesByRecordIds(recordIds: number[]): Promise<Expen
   );
 }
 
+const EXPENSE_ALLOWED_COLUMNS = new Set(["category", "amount", "memo"]);
+
 export async function updateExpense(
   id: number,
   fields: Partial<Pick<Expense, "category" | "amount" | "memo">>
@@ -377,6 +389,10 @@ export async function updateExpense(
   const setClauses: string[] = [];
   const values: any[] = [];
   for (const [key, value] of Object.entries(fields)) {
+    if (!EXPENSE_ALLOWED_COLUMNS.has(key)) {
+      console.warn(`updateExpense: rejected unknown column "${key}"`);
+      continue;
+    }
     setClauses.push(`${key} = ?`);
     values.push(value ?? null);
   }

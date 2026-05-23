@@ -64,22 +64,21 @@ function filterByYear(records: JikgwanRecord[], year?: number): JikgwanRecord[] 
 
 export function computeDiaryStats(records: JikgwanRecord[], year?: number): DiaryStats {
   const filtered = filterByYear(records, year);
-  const wins = filtered.filter((r) => resolveIsWin(r) === 1).length;
-  const draws = filtered.filter((r) => resolveIsWin(r) === 0).length;
-  const losses = filtered.filter((r) => resolveIsWin(r) === -1).length;
+  let wins = 0, draws = 0, losses = 0;
+  const stadiumSet = new Set<string>();
+  const emotionCounts: Record<string, number> = {};
+
+  for (const r of filtered) {
+    const iw = resolveIsWin(r);
+    if (iw === 1) wins++;
+    else if (iw === 0) draws++;
+    else if (iw === -1) losses++;
+    if (r.stadium) stadiumSet.add(r.stadium);
+    if (r.emotion) emotionCounts[r.emotion] = (emotionCounts[r.emotion] || 0) + 1;
+  }
+
   const totalGames = wins + draws + losses;
   const winRate = totalGames > 0 ? wins / totalGames : 0;
-
-  const stadiums = [
-    ...new Set(filtered.map((r) => r.stadium).filter(Boolean)),
-  ] as string[];
-
-  const emotionCounts: Record<string, number> = {};
-  for (const r of filtered) {
-    if (r.emotion) {
-      emotionCounts[r.emotion] = (emotionCounts[r.emotion] || 0) + 1;
-    }
-  }
 
   const dates = [
     ...new Set(filtered.map((r) => r.date)),
@@ -124,7 +123,7 @@ export function computeDiaryStats(records: JikgwanRecord[], year?: number): Diar
     winRate,
     currentStreak,
     longestStreak,
-    stadiums,
+    stadiums: [...stadiumSet],
     emotionCounts,
   };
 }
