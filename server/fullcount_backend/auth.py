@@ -175,6 +175,9 @@ async def verify_apple(access_token: str) -> dict:
         public_key = jwt.rsa_key_from_dict(key)
         payload = jwt.decode(access_token, public_key, algorithms=["RS256"],
                              audience=APPLE_SERVICE_ID)
+        if payload.get("iss") != "https://appleid.apple.com":
+            logger.warning("Apple token has unexpected issuer: %s", payload.get("iss"))
+            raise HTTPException(status_code=401, detail="Invalid Apple token issuer")
         return {"id": payload["sub"], "nickname": payload.get("email", "user")}
     except (JWTError, StopIteration) as e:
         logger.warning("Apple token verification failed: %s", e)

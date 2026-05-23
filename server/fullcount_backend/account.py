@@ -7,6 +7,7 @@ from sqlalchemy import update, select
 from database import get_db
 from models import CommunityUser, CommunityPost, CommunityComment
 from auth import get_current_user
+from community import DELETED_USER_NAME
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +24,7 @@ async def delete_account(
 
     # Mark user as deleted
     user.deleted_at = datetime.now(timezone.utc)
-    user.nickname = "탈퇴한 회원"
+    user.nickname = DELETED_USER_NAME
 
     # Anonymize posts (keep content, remove user_id reference)
     await db.execute(

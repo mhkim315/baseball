@@ -11,6 +11,8 @@ from auth import get_current_user
 
 logger = logging.getLogger(__name__)
 
+DELETED_USER_NAME = DELETED_USER_NAME
+
 router = APIRouter(prefix="/api/community", tags=["community"])
 
 
@@ -116,11 +118,11 @@ class PostListResponse(BaseModel):
 async def get_user_info(db: AsyncSession, user_id: str | None) -> tuple[str, bool, str, str | None]:
     """Get display info for a user, handling deleted accounts."""
     if user_id is None:
-        return "탈퇴한 회원", True, "character", None
+        return DELETED_USER_NAME, True, "character", None
     result = await db.execute(select(CommunityUser).where(CommunityUser.user_id == user_id))
     user = result.scalar_one_or_none()
     if not user or user.deleted_at:
-        return "탈퇴한 회원", True, "character", None
+        return DELETED_USER_NAME, True, "character", None
     return user.nickname, False, user.profile_type or "character", user.profile_value
 
 
@@ -174,14 +176,14 @@ async def list_posts(
         # Fill in any missing IDs (deleted accounts whose user row may be gone)
         for uid in user_ids:
             if uid not in user_map:
-                user_map[uid] = ("탈퇴한 회원", True, "character", None)
+                user_map[uid] = (DELETED_USER_NAME, True, "character", None)
 
     result = []
     for p in posts:
         if p.user_id and p.user_id in user_map:
             nickname, deleted, _, _ = user_map[p.user_id]
         else:
-            nickname, deleted, _, _ = "탈퇴한 회원", True, "character", None
+            nickname, deleted, _, _ = DELETED_USER_NAME, True, "character", None
         result.append(PostSummary(
             id=p.id,
             title=p.title,
@@ -249,14 +251,14 @@ async def get_post(post_id: int, db: AsyncSession = Depends(get_db)):
             c_user_map[u.user_id] = (u.nickname, deleted, u.profile_type or "character", u.profile_value)
         for uid in c_user_ids:
             if uid not in c_user_map:
-                c_user_map[uid] = ("탈퇴한 회원", True, "character", None)
+                c_user_map[uid] = (DELETED_USER_NAME, True, "character", None)
 
     comment_list = []
     for c in comments:
         if c.user_id and c.user_id in c_user_map:
             c_nick, c_deleted, _, _ = c_user_map[c.user_id]
         else:
-            c_nick, c_deleted, _, _ = "탈퇴한 회원", True, "character", None
+            c_nick, c_deleted, _, _ = DELETED_USER_NAME, True, "character", None
         comment_list.append(CommentDetail(
             id=c.id,
             content=c.content,
