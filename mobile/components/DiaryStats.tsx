@@ -43,8 +43,15 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
   const { theme, isDark } = useTheme();
   const teamColor = teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground;
 
-  // Filter records by selected year
-  const yearRecords = useMemo(() => records.filter((r) => r.date.startsWith(`${year}.`)), [records, year]);
+  // Filter records by selected year and optionally exclude exhibition games
+  const [includeExhibition, setIncludeExhibition] = useState(true);
+  const yearRecords = useMemo(() => {
+    let filtered = records.filter((r) => r.date.startsWith(`${year}.`));
+    if (!includeExhibition) {
+      filtered = filtered.filter((r) => (r.game_type ?? null) !== "exhibition");
+    }
+    return filtered;
+  }, [records, year, includeExhibition]);
 
   // Tier 1 — 직관 전용 (liveRecords), 토글 영향 없음
   const liveRecords = useMemo(() => yearRecords.filter((r) => Number(r.is_live) === 1), [yearRecords]);
@@ -344,6 +351,19 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
 
   return (
     <View style={styles.container}>
+      {/* 시범 제외 토글 — 모든 통계에 영향 */}
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-end" }}>
+        <Pressable
+          style={[styles.toggleTrack, !includeExhibition && { backgroundColor: teamColor }]}
+          onPress={() => setIncludeExhibition((v) => !v)}
+        >
+          <View style={[styles.toggleThumb, !includeExhibition && styles.toggleThumbActive]} />
+        </Pressable>
+        <Text style={[styles.toggleLabel, { color: !includeExhibition ? teamColor : theme.mutedForeground }]}>
+          {!includeExhibition ? "시범 제외" : "시범 포함"}
+        </Text>
+      </View>
+
       {/* Win Rate Rings — always both */}
       <View style={styles.card}>
         <View style={styles.dualRingRow}>
@@ -453,14 +473,7 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
         </View>
       </View>
 
-      {/* ── 집관 포함 비교 ── */}
-      <View style={styles.dividerSection}>
-        <View style={styles.dividerLine} />
-        <Text style={styles.dividerText}>집관 포함 비교</Text>
-        <View style={styles.dividerLine} />
-      </View>
-
-      {/* Toggle row */}
+      {/* 집관 포함 토글 */}
       <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-end" }}>
         <Pressable
           style={[styles.toggleTrack, includeJipgwan && { backgroundColor: teamColor }]}
@@ -469,7 +482,7 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
           <View style={[styles.toggleThumb, includeJipgwan && styles.toggleThumbActive]} />
         </Pressable>
         <Text style={[styles.toggleLabel, { color: includeJipgwan ? teamColor : theme.mutedForeground }]}>
-          집관 포함
+          {includeJipgwan ? "집관 포함" : "집관 제외"}
         </Text>
       </View>
 

@@ -1,5 +1,6 @@
 import { type Expense, type ExpenseCategory, EXPENSE_CATEGORIES, type JikgwanRecord } from "@/lib/db";
 import { parseGameTeamIds } from "@shared/constants";
+import { filterByGameType } from "@/lib/stats";
 
 export interface CategoryTotal {
   category: ExpenseCategory;
@@ -112,9 +113,10 @@ export interface HomeAwayExpenseStat {
   away: { total: number; gameCount: number; avgPerGame: number };
 }
 
-export function computeHomeAwayExpenses(expenses: Expense[], records: JikgwanRecord[]): HomeAwayExpenseStat | null {
+export function computeHomeAwayExpenses(expenses: Expense[], records: JikgwanRecord[], gameType?: string | null): HomeAwayExpenseStat | null {
+  const filteredRecords = filterByGameType(records, gameType);
   const recMap = new Map<number, JikgwanRecord>();
-  for (const r of records) recMap.set(r.id, r);
+  for (const r of filteredRecords) recMap.set(r.id, r);
   const homeTotal = { total: 0, games: new Set<number>() };
   const awayTotal = { total: 0, games: new Set<number>() };
   for (const e of expenses) {
@@ -142,9 +144,10 @@ export interface WinLossExpenseStat {
   draw: { total: number; gameCount: number; avgPerGame: number };
 }
 
-export function computeWinLossExpenses(expenses: Expense[], records: JikgwanRecord[]): WinLossExpenseStat | null {
+export function computeWinLossExpenses(expenses: Expense[], records: JikgwanRecord[], gameType?: string | null): WinLossExpenseStat | null {
+  const filteredRecords = filterByGameType(records, gameType);
   const recMap = new Map<number, JikgwanRecord>();
-  for (const r of records) recMap.set(r.id, r);
+  for (const r of filteredRecords) recMap.set(r.id, r);
   const w = { total: 0, games: new Set<number>() };
   const l = { total: 0, games: new Set<number>() };
   const d = { total: 0, games: new Set<number>() };
@@ -172,9 +175,10 @@ export interface StadiumExpenseStat {
   avgPerGame: number;
 }
 
-export function computeStadiumExpenses(expenses: Expense[], records: JikgwanRecord[]): StadiumExpenseStat[] | null {
+export function computeStadiumExpenses(expenses: Expense[], records: JikgwanRecord[], gameType?: string | null): StadiumExpenseStat[] | null {
+  const filteredRecords = filterByGameType(records, gameType);
   const recMap = new Map<number, JikgwanRecord>();
-  for (const r of records) recMap.set(r.id, r);
+  for (const r of filteredRecords) recMap.set(r.id, r);
   const m = new Map<string, { total: number; games: Set<number> }>();
   for (const e of expenses) {
     const rec = e.record_id != null ? recMap.get(e.record_id) : findRecordByDate(e.date, records);
@@ -220,9 +224,10 @@ export function resolveIsWin(rec: JikgwanRecord): number | null {
   return null;
 }
 
-export function computeResultCategoryExpenses(expenses: Expense[], records: JikgwanRecord[]): ResultCategoryData | null {
+export function computeResultCategoryExpenses(expenses: Expense[], records: JikgwanRecord[], gameType?: string | null): ResultCategoryData | null {
+  const filteredRecords = filterByGameType(records, gameType);
   const recMap = new Map<number, JikgwanRecord>();
-  for (const r of records) recMap.set(r.id, r);
+  for (const r of filteredRecords) recMap.set(r.id, r);
   const winMap = new Map<string, number>();
   const lossMap = new Map<string, number>();
   for (const e of expenses) {

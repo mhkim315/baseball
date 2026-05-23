@@ -84,6 +84,7 @@ export default function JikgwanWriteScreen() {
         cheered_team: null,
         is_live: 0,
         seat: null,
+        game_type: null,
       });
 
       if (recordId) {

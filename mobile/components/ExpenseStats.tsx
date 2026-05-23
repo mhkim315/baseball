@@ -115,6 +115,22 @@ export default function ExpenseStats({ expenses, records, teamId, year }: Expens
     dividerText: {
       fontSize: 12, color: theme.mutedForeground, fontWeight: "600",
     },
+    // Toggle (shared with DiaryStats pattern)
+    toggleTrack: {
+      width: 40, height: 22, borderRadius: 11,
+      backgroundColor: theme.muted,
+      justifyContent: "center", paddingHorizontal: 2,
+    },
+    toggleThumb: {
+      width: 18, height: 18, borderRadius: 9,
+      backgroundColor: theme.foreground,
+    },
+    toggleThumbActive: {
+      alignSelf: "flex-end", backgroundColor: "#fff",
+    },
+    toggleLabel: {
+      fontSize: 12, fontWeight: "600", marginLeft: 8,
+    },
   }), [theme]);
 
   if (expenses.length === 0) {
@@ -210,44 +226,23 @@ export default function ExpenseStats({ expenses, records, teamId, year }: Expens
         </View>
       )}
 
-      {/* ── 집관 포함 비교 ── */}
-      <View style={styles.dividerSection}>
-        <View style={styles.dividerLine} />
-        <Text style={styles.dividerText}>집관 포함 비교</Text>
-        <View style={styles.dividerLine} />
+      {/* 집관 포함 토글 */}
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-end" }}>
+        <Pressable
+          style={[styles.toggleTrack, includeBroadcast && { backgroundColor: teamColor }]}
+          onPress={() => setIncludeBroadcast((v) => !v)}
+        >
+          <View style={[styles.toggleThumb, includeBroadcast && styles.toggleThumbActive]} />
+        </Pressable>
+        <Text style={[styles.toggleLabel, { color: includeBroadcast ? teamColor : theme.mutedForeground }]}>
+          {includeBroadcast ? "집관 포함" : "집관 제외"}
+        </Text>
       </View>
 
       {/* Win vs Loss */}
       {wl && (
         <View style={styles.card}>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-            <Text style={styles.cardTitle}>승리 vs 패배 지출</Text>
-            <Pressable
-              onPress={() => setIncludeBroadcast((v) => !v)}
-              style={{
-                flexDirection: "row", alignItems: "center", gap: 6,
-                paddingVertical: 4, paddingHorizontal: 10,
-                borderRadius: 12,
-                backgroundColor: includeBroadcast ? teamColor : theme.muted,
-              }}
-            >
-              <View style={{
-                width: 14, height: 14, borderRadius: 7,
-                backgroundColor: includeBroadcast ? theme.background : theme.mutedForeground,
-                alignItems: "center", justifyContent: "center",
-              }}>
-                {includeBroadcast && (
-                  <Text style={{ fontSize: 10, color: teamColor, fontWeight: "700" }}>✓</Text>
-                )}
-              </View>
-              <Text style={{
-                fontSize: 12, fontWeight: "600",
-                color: includeBroadcast ? theme.background : theme.mutedForeground,
-              }}>
-                집관 포함
-              </Text>
-            </Pressable>
-          </View>
+          <Text style={styles.cardTitle}>승리 vs 패배 지출</Text>
           <View style={styles.duoRow}>
             {(["win", "loss"] as const).map((key) => {
               const d = wl[key];

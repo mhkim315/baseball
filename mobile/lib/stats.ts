@@ -62,8 +62,14 @@ function filterByYear(records: JikgwanRecord[], year?: number): JikgwanRecord[] 
   return year ? records.filter((r) => r.date.startsWith(`${year}.`)) : records;
 }
 
-export function computeDiaryStats(records: JikgwanRecord[], year?: number): DiaryStats {
-  const filtered = filterByYear(records, year);
+export function filterByGameType(records: JikgwanRecord[], gameType?: string | null): JikgwanRecord[] {
+  if (gameType === undefined) return records;
+  if (gameType === "regular") return records.filter((r) => (r.game_type ?? null) === null);
+  return records.filter((r) => r.game_type === gameType);
+}
+
+export function computeDiaryStats(records: JikgwanRecord[], year?: number, gameType?: string | null): DiaryStats {
+  const filtered = filterByGameType(filterByYear(records, year), gameType);
   let wins = 0, draws = 0, losses = 0;
   const stadiumSet = new Set<string>();
   const emotionCounts: Record<string, number> = {};
@@ -128,8 +134,8 @@ export function computeDiaryStats(records: JikgwanRecord[], year?: number): Diar
   };
 }
 
-export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: string, year?: number): OpponentStat[] {
-  const filtered = filterByYear(records, year);
+export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: string, year?: number, gameType?: string | null): OpponentStat[] {
+  const filtered = filterByGameType(filterByYear(records, year), gameType);
   const map = new Map<string, { wins: number; draws: number; losses: number }>();
   for (const r of filtered) {
     if (resolveIsWin(r) == null || !r.cheered_team) continue;
@@ -152,8 +158,8 @@ export function computeOpponentStats(records: JikgwanRecord[], cheeredTeam: stri
   return stats;
 }
 
-export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: string, year?: number): HomeAwayStat {
-  const filtered = filterByYear(records, year);
+export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: string, year?: number, gameType?: string | null): HomeAwayStat {
+  const filtered = filterByGameType(filterByYear(records, year), gameType);
   const home = { wins: 0, draws: 0, losses: 0, total: 0, winRate: 0 };
   const away = { wins: 0, draws: 0, losses: 0, total: 0, winRate: 0 };
   for (const r of filtered) {
@@ -173,8 +179,8 @@ export function computeHomeAwayStats(records: JikgwanRecord[], cheeredTeam: stri
   return { home, away };
 }
 
-export function computeDayOfWeekStats(records: JikgwanRecord[], year?: number): DayOfWeekStat[] {
-  const filtered = filterByYear(records, year);
+export function computeDayOfWeekStats(records: JikgwanRecord[], year?: number, gameType?: string | null): DayOfWeekStat[] {
+  const filtered = filterByGameType(filterByYear(records, year), gameType);
   const dayMap = new Map<number, { wins: number; draws: number; losses: number }>();
   for (let i = 0; i < 7; i++) dayMap.set(i, { wins: 0, draws: 0, losses: 0 });
   for (const r of filtered) {
@@ -195,8 +201,8 @@ export function computeDayOfWeekStats(records: JikgwanRecord[], year?: number): 
   });
 }
 
-export function computeStreakStats(records: JikgwanRecord[], year?: number): StreakStat {
-  const games = filterByYear(records, year)
+export function computeStreakStats(records: JikgwanRecord[], year?: number, gameType?: string | null): StreakStat {
+  const games = filterByGameType(filterByYear(records, year), gameType)
     .filter((r) => {
       const iw = resolveIsWin(r);
       return iw != null && iw !== 0;

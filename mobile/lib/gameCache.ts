@@ -102,8 +102,14 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
   const y = year ?? thisYear();
   // Past seasons (2021–2025): use local data, no API call
   if (y <= 2025) {
-    const games = LOCAL_SCHEDULE[`${y}:${month}`];
-    return games ? { games } : null;
+    const rawGames = LOCAL_SCHEDULE[`${y}:${month}`];
+    if (!rawGames) return null;
+    // Infer isExhibition: dates without LOCAL_SCORES are exhibition games
+    const games: ScheduleGame[] = rawGames.map(g => ({
+      ...g,
+      isExhibition: g.isExhibition ?? (LOCAL_SCORES[g.date] ? undefined : true),
+    }));
+    return { games };
   }
   return fetchWithCache(cacheKey("schedule", `${y}:${month}`), Infinity, () =>
     apiScheduleByMonth(month, y)
@@ -112,11 +118,15 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
 
 // Daily scores — TTL based on date
 export async function cachedDailyScores(date: string): Promise<{ games: ScoreEntry[] } | null> {
-  // Past seasons (2020–2025): use local data, no API call
+  // Past seasons: use local data, fall back to API for exhibition dates
   const year = parseInt(date.slice(0, 4), 10);
   if (!isNaN(year) && year <= 2025) {
     const games = LOCAL_SCORES[date];
-    return games ? { games } : null;
+    if (games) return { games };
+    // No local scores (exhibition date) → try API
+    return fetchWithCache(cacheKey("scores", date), Infinity, () =>
+      apiDailyScores(date)
+    );
   }
   return fetchWithCache(cacheKey("scores", date), ttlForDate(date), () =>
     apiDailyScores(date)
