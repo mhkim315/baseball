@@ -11,7 +11,7 @@ from auth import get_current_user
 
 logger = logging.getLogger(__name__)
 
-DELETED_USER_NAME = DELETED_USER_NAME
+DELETED_USER_NAME = "탈퇴한 사용자"
 
 router = APIRouter(prefix="/api/community", tags=["community"])
 

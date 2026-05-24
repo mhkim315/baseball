@@ -88,6 +88,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   const [photoUris, setPhotoUris] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const savingRef = useRef(false);
+  const expensesLoadedRef = useRef(false);
   const { myTeam: contextTeam } = useTeam();
   const userTeam = contextTeam || DEFAULT_TEAM_ID;
   const [cheeredTeam, setCheeredTeam] = useState<string | null>(null);
@@ -118,6 +119,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   const scrollRef = useRef<ScrollView>(null);
   const loadGamesRef = useRef<((date: Date) => Promise<void>) | null>(null);
+  const gamesGenRef = useRef(0);
   const dateStr = formatDate(selectedDate);
   const dateStrShort = `${String(selectedDate.getMonth() + 1)}월 ${selectedDate.getDate()}일`;
 
@@ -158,7 +160,11 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         // Load existing expenses
         getExpensesByRecordId(editRecord.id).then((exps) => {
           setPendingExpenses(exps.map((e) => ({ category: e.category as ExpenseCategory, amount: String(e.amount), memo: e.memo || "" })));
-        }).catch(() => {});
+          expensesLoadedRef.current = true;
+        }).catch(() => {
+          // If expenses fail to load, mark as not loaded so save handler won't delete them
+          expensesLoadedRef.current = false;
+        });
       } else if (presetGame) {
         setStep("write");
         setSelectedDate(presetDate || new Date());
@@ -205,6 +211,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   // Fetch games when date is selected
   const loadGames = useCallback(async (date: Date) => {
+    const gen = ++gamesGenRef.current;
     setGamesLoading(true);
     try {
       const month = date.getMonth() + 1;
@@ -213,6 +220,8 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
         cachedScheduleByMonth(month, date.getFullYear()),
         cachedDailyScores(apiDate),
       ]);
+
+      if (gen !== gamesGenRef.current) return; // stale response
 
       const daySched = (schedule?.games ?? []).filter(
         (g: ScheduleGame) => g.date === apiDate
@@ -426,11 +435,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
       let recordId: number;
       if (editRecord) {
         recordId = editRecord.id;
-        // Delete old expenses first, then save new ones
-        try {
-          await deleteExpensesByRecordId(recordId);
-        } catch (e) {
-          console.warn("Failed to delete old expenses (non-critical)", e);
+        // Delete old expenses first (only if we successfully loaded them), then save new ones
+        if (expensesLoadedRef.current) {
+          try {
+            await deleteExpensesByRecordId(recordId);
+          } catch (e) {
+            console.warn("Failed to delete old expenses (non-critical)", e);
+          }
         }
         await saveExpenses(recordId);
         // Update the jikgwan record

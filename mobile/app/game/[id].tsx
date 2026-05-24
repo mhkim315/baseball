@@ -502,7 +502,7 @@ export default function GameDetailScreen() {
   const gameHasStarted = new Date() >= startTime;
 
   const isFinished = !isCancelled && !isFuture && gameHasStarted && (
-    detail.gameInfo?.status === "finished" || (isGameActive && !isToday) || isExhibition
+    detail.gameInfo?.status === "finished" || (isGameActive && !isToday)
   );
   const isLive = !isCancelled && !isFinished && gameHasStarted && (
     detail.gameInfo?.status === "live" || (isGameActive && isToday)

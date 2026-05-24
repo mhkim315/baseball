@@ -227,16 +227,25 @@ export default function HomeScreen() {
           return gamesList;
         }).catch(() => [] as ScheduleGame[]);
 
+    // When the date window spans multiple months, fetch adjacent month schedule too
+    const dateMonths = new Set(dates.map((d) => parseInt(d.slice(5, 7), 10)));
+    const adjMonths = [...dateMonths].filter((m) => m !== month);
+    const adjSchedulePromise = adjMonths.length > 0
+      ? Promise.all(adjMonths.map((m) =>
+          cachedScheduleByMonth(m, selectedDate.getFullYear()).catch(() => null)
+        )).then((results) => results.flatMap((r) => r?.games || []))
+      : Promise.resolve([] as ScheduleGame[]);
+
     const scorePromises = dates.map((ds) => cachedDailyScores(ds).catch(() => null));
     const todayPromise = cachedTodayGames().catch(() => null);
     const todayStr = formatDateStr(new Date());
 
-    Promise.all([schedulePromise, ...scorePromises, todayPromise])
-      .then(([scheduleGames, ...rest]: [unknown, ...unknown[]]) => {
+    Promise.all([schedulePromise, adjSchedulePromise, ...scorePromises, todayPromise])
+      .then(([scheduleGames, adjGames, ...rest]: [unknown, unknown, ...unknown[]]) => {
         if (cancelled) return;
         const scoresList = rest.slice(0, 3) as ({ games: ScoreEntry[] } | null)[];
         const todayData = rest[3] as { games: TodayGame[]; nextGames?: TodayGame[] } | null;
-        const schedule = scheduleGames as ScheduleGame[];
+        const schedule = [...(scheduleGames as ScheduleGame[]), ...(adjGames as ScheduleGame[])];
 
         const result: Record<string, EnhancedGame[]> = {};
         for (let i = 0; i < 3; i++) {

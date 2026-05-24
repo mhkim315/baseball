@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { View, Text, Image, Pressable, ScrollView, StyleSheet, NativeSyntheticEvent, NativeScrollEvent, useWindowDimensions } from "react-native";
+import { View, Text, Image, Pressable, ScrollView, Alert, StyleSheet, NativeSyntheticEvent, NativeScrollEvent, useWindowDimensions } from "react-native";
 import { TeamBadge } from "@/components/TeamBadge";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TEAM_COLORS } from "@shared/teamColors";
@@ -343,7 +343,12 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
           <Text style={styles.actionText}>수정</Text>
         </Pressable>
         <View style={{ flex: 1 }} />
-        <Pressable onPress={() => onDelete?.(record)} style={styles.actionBtn}>
+        <Pressable onPress={() => {
+          Alert.alert("삭제", "이 직관기록을 삭제할까요?", [
+            { text: "취소", style: "cancel" },
+            { text: "삭제", style: "destructive", onPress: () => onDelete?.(record) },
+          ]);
+        }} style={styles.actionBtn}>
           <Text style={[styles.actionText, { color: "#ef4444" }]}>삭제</Text>
         </Pressable>
       </View>

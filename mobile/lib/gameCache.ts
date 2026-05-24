@@ -166,8 +166,8 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
     const data = await apiAllDailyScores();
     if (!data) return null;
 
-    // data is the raw dates map: { "2026-05-21": [...], ... }
-    const dates = data as unknown as Record<string, ScoreEntry[]>;
+    // data.dates is the raw dates map: { "2026-05-21": [...], ... }
+    const dates = data.dates;
 
     // Populate per-date cache so individual cachedDailyScores calls hit instantly
     for (const [date, games] of Object.entries(dates)) {
