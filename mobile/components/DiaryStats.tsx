@@ -5,7 +5,7 @@ import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { computeDiaryStats, computeOpponentStats, computeHomeAwayStats, computeDayOfWeekStats, computeStreakStats, computeAttendanceScoring, type DiaryStats as Stats } from "@/lib/stats";
-import { fetchScoreSummary, fetchAllDailyScores } from "@/lib/api";
+import { fetchScoreSummary } from "@/lib/api";
 import { HISTORICAL_SCORING, scoringTeamName } from "@/lib/scoringData";
 import { resolveIsWin } from "@/lib/expenseStats";
 import { fetchStandingsJson } from "@/lib/api";
@@ -85,32 +85,11 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
         if (entry) setTeamAvgRuns(entry.avgRuns);
       }
     } else {
-      let cancelled = false;
-      const computeFromDailyScores = () => {
-        fetchAllDailyScores().then((data) => {
-          if (cancelled || !data?.dates) return;
-          let totalRuns = 0, gameCount = 0;
-          const yearStr = String(year);
-          for (const [date, games] of Object.entries(data.dates)) {
-            if (!date.startsWith(yearStr)) continue;
-            for (const game of games) {
-              if (game.cancelled || game.outcome == null) continue;
-              if (game.away === teamName) { totalRuns += game.awayScore; gameCount++; }
-              else if (game.home === teamName) { totalRuns += game.homeScore; gameCount++; }
-            }
-          }
-          if (gameCount > 0) setTeamAvgRuns(totalRuns / gameCount);
-        }).catch(() => {});
-      };
       fetchScoreSummary(year).then((data) => {
-        if (cancelled) return;
-        if (data?.teams) {
-          const team = data.teams.find((t) => t.teamName === teamName);
-          if (team) { setTeamAvgRuns(team.avgRuns); return; }
-        }
-        computeFromDailyScores();
-      }).catch(() => computeFromDailyScores());
-      return () => { cancelled = true; };
+        if (!data?.teams) return;
+        const team = data.teams.find((t) => t.teamName === teamName);
+        if (team) setTeamAvgRuns(team.avgRuns);
+      }).catch(() => {});
     }
   }, [teamId, year]);
 
