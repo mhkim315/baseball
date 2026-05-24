@@ -28,6 +28,39 @@ export interface HomeAwayStat {
   away: { wins: number; draws: number; losses: number; total: number; winRate: number };
 }
 
+export interface AttendanceScoring {
+  ourAvgRuns: number;
+  opponentAvgRuns: number;
+  gameCount: number;
+}
+
+export function computeAttendanceScoring(
+  records: JikgwanRecord[],
+  cheeredTeam: string,
+  year?: number,
+  gameType?: string | null
+): AttendanceScoring | null {
+  const filtered = filterByGameType(filterByYear(records, year), gameType)
+    .filter((r) => r.cheered_team === cheeredTeam && r.score_home != null && r.score_away != null);
+  if (filtered.length < 5) return null;
+  let ourTotal = 0, opponentTotal = 0;
+  for (const r of filtered) {
+    const { homeId } = parseGameTeamIds(r.game_id);
+    if (homeId === cheeredTeam) {
+      ourTotal += r.score_home!;
+      opponentTotal += r.score_away!;
+    } else {
+      ourTotal += r.score_away!;
+      opponentTotal += r.score_home!;
+    }
+  }
+  return {
+    ourAvgRuns: ourTotal / filtered.length,
+    opponentAvgRuns: opponentTotal / filtered.length,
+    gameCount: filtered.length,
+  };
+}
+
 export interface DayOfWeekStat {
   day: string;
   wins: number;

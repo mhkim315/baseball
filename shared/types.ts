@@ -109,6 +109,13 @@ export interface StandingRow {
   streak: string;
 }
 
+export interface ScoreSummaryRow {
+  teamName: string;
+  avgRuns: number;
+  totalRuns: number;
+  totalGames: number;
+}
+
 export interface TodayGame {
   id: string;
   date: string;

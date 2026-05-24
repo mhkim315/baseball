@@ -20,6 +20,7 @@ export const {
   fetchTodayGames,
   fetchGameDetail,
   fetchSeasons,
+  fetchScoreSummary,
 } = createApi({
   baseUrl: API_BASE,
   timeout: 8000,
@@ -39,6 +40,7 @@ export type {
   CheerSection,
   PlayerCheer,
   StandingRow,
+  ScoreSummaryRow,
   TodayGame,
   GameDetail,
   ScheduleGame,

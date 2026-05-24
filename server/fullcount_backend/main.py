@@ -68,3 +68,36 @@ app.include_router(account_router)
 @app.get("/api/health")
 async def health():
     return {"status": "ok"}
+
+
+@app.get("/api/score-summary/{year}")
+async def get_score_summary(year: int):
+    import httpx
+    async with httpx.AsyncClient() as client:
+        resp = await client.get("https://api.fullcount.kr/daily-scores", timeout=30)
+        if resp.status_code != 200:
+            return JSONResponse(status_code=502, content={"error": "Data source unavailable"})
+        data = resp.json()
+    dates = data.get("dates", {})
+    team_runs: dict[str, int] = {}
+    team_games: dict[str, int] = {}
+    for date_str, games in dates.items():
+        if not date_str.startswith(str(year)):
+            continue
+        for game in games:
+            if game.get("cancelled") or game.get("outcome") is None:
+                continue
+            team_runs[game["away"]] = team_runs.get(game["away"], 0) + game["awayScore"]
+            team_games[game["away"]] = team_games.get(game["away"], 0) + 1
+            team_runs[game["home"]] = team_runs.get(game["home"], 0) + game["homeScore"]
+            team_games[game["home"]] = team_games.get(game["home"], 0) + 1
+    teams = []
+    for team in sorted(team_runs):
+        games = team_games.get(team, 0)
+        teams.append({
+            "teamName": team,
+            "avgRuns": round(team_runs[team] / games, 1) if games > 0 else 0,
+            "totalRuns": team_runs[team],
+            "totalGames": games,
+        })
+    return {"year": year, "teams": teams}

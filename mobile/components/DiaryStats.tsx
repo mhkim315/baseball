@@ -4,7 +4,9 @@ import { TEAM_COLORS } from "@shared/teamColors";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
-import { computeDiaryStats, computeOpponentStats, computeHomeAwayStats, computeDayOfWeekStats, computeStreakStats, type DiaryStats as Stats } from "@/lib/stats";
+import { computeDiaryStats, computeOpponentStats, computeHomeAwayStats, computeDayOfWeekStats, computeStreakStats, computeAttendanceScoring, type DiaryStats as Stats } from "@/lib/stats";
+import { fetchScoreSummary, fetchAllDailyScores } from "@/lib/api";
+import { HISTORICAL_SCORING, scoringTeamName } from "@/lib/scoringData";
 import { resolveIsWin } from "@/lib/expenseStats";
 import { fetchStandingsJson } from "@/lib/api";
 import { HISTORICAL_STANDINGS } from "@/lib/standingsData";
@@ -68,6 +70,50 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
     }
   }, [teamId, year]);
 
+  const [teamAvgRuns, setTeamAvgRuns] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!teamId) { setTeamAvgRuns(null); return; }
+    const teamName = TEAM_COLORS[teamId]?.shortName;
+    if (!teamName) { setTeamAvgRuns(null); return; }
+    setTeamAvgRuns(null);
+    if (year < 2026) {
+      const yearData = HISTORICAL_SCORING[year];
+      if (yearData) {
+        const key = scoringTeamName(teamName, year);
+        const entry = yearData[key];
+        if (entry) setTeamAvgRuns(entry.avgRuns);
+      }
+    } else {
+      let cancelled = false;
+      const computeFromDailyScores = () => {
+        fetchAllDailyScores().then((data) => {
+          if (cancelled || !data?.dates) return;
+          let totalRuns = 0, gameCount = 0;
+          const yearStr = String(year);
+          for (const [date, games] of Object.entries(data.dates)) {
+            if (!date.startsWith(yearStr)) continue;
+            for (const game of games) {
+              if (game.cancelled || game.outcome == null) continue;
+              if (game.away === teamName) { totalRuns += game.awayScore; gameCount++; }
+              else if (game.home === teamName) { totalRuns += game.homeScore; gameCount++; }
+            }
+          }
+          if (gameCount > 0) setTeamAvgRuns(totalRuns / gameCount);
+        }).catch(() => {});
+      };
+      fetchScoreSummary(year).then((data) => {
+        if (cancelled) return;
+        if (data?.teams) {
+          const team = data.teams.find((t) => t.teamName === teamName);
+          if (team) { setTeamAvgRuns(team.avgRuns); return; }
+        }
+        computeFromDailyScores();
+      }).catch(() => computeFromDailyScores());
+      return () => { cancelled = true; };
+    }
+  }, [teamId, year]);
+
   // Filter records by selected year and optionally exclude exhibition games
   const [includeExhibition, setIncludeExhibition] = useState(true);
   const yearRecords = useMemo(() => {
@@ -102,9 +148,11 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
   // Tier 2 — 토글 영향 받음 (하단 비교 섹션용)
   const [includeJipgwan, setIncludeJipgwan] = useState(false);
   const activeRecords = useMemo(() => includeJipgwan ? yearRecords : liveRecords, [includeJipgwan, yearRecords, liveRecords]);
-  const activeStats = useMemo(() => computeDiaryStats(activeRecords, year), [activeRecords, year]);
+  const teamRecords = useMemo(() => teamId ? activeRecords.filter((r) => r.cheered_team === teamId) : activeRecords, [activeRecords, teamId]);
+  const activeStats = useMemo(() => computeDiaryStats(teamRecords, year), [teamRecords, year]);
   const opponentStats = useMemo(() => teamId ? computeOpponentStats(activeRecords, teamId, year) : [], [activeRecords, teamId, year]);
   const streakActive = useMemo(() => computeStreakStats(activeRecords, year), [activeRecords, year]);
+  const activeScoring = useMemo(() => teamId ? computeAttendanceScoring(teamRecords, teamId, year) : null, [teamRecords, teamId, year]);
 
   const grayHex = isDark ? "#333" : "#e0e0e0";
   const streakColor = streakActive.currentType === "W" ? "#22c55e" : streakActive.currentType === "L" ? "#ef4444" : theme.mutedForeground;
@@ -527,12 +575,12 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
       </View>
 
       {/* Win rate contribution — 내 직관 승률 vs 팀 시즌 승률 */}
-      {teamId && teamWinRate != null && activeRecords.length >= 5 && (
+      {teamId && teamWinRate != null && teamRecords.length >= 5 && (
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>직관 승률 기여도</Text>
+          <Text style={styles.cardTitle}>승률 기여도</Text>
           <View style={styles.wrcRow}>
             <View style={styles.wrcCol}>
-              <Text style={styles.wrcLabel}>내 직관</Text>
+              <Text style={styles.wrcLabel}>내 승률</Text>
               <Text style={[styles.wrcValue, { color: teamColor }]}>
                 {formatPct(activeStats.winRate)}
               </Text>
@@ -553,12 +601,52 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
             return (
               <View style={[styles.wrcDiffRow, { backgroundColor: isPos ? "#22c55e20" : "#ef444420" }]}>
                 <Text style={[styles.wrcDiffLabel, { color: isPos ? "#22c55e" : "#ef4444" }]}>
-                  기여도 {isPos ? "+" : "-"}{formatPct(absDiff)}
+                  승률 기여도 {isPos ? "+" : "-"}{formatPct(absDiff)}
                 </Text>
                 <Text style={[styles.wrcDiffDesc, { color: isPos ? "#22c55e" : "#ef4444" }]}>
                   {isPos
                     ? (includeJipgwan ? "내가 함께 할 때 우리팀이 더 잘해요" : "내가 직관할 때 우리팀이 더 잘해요")
                     : (includeJipgwan ? "내가 함께 하면 우리팀이 못해요 😅" : "내가 직관할 때 우리팀이 못해요 😅")}
+                </Text>
+              </View>
+            );
+          })()}
+        </View>
+      )}
+
+      {/* Scoring contribution (toggle-affected) */}
+      {teamId && teamAvgRuns != null && activeScoring && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>득점 기여도</Text>
+          <View style={styles.wrcRow}>
+            <View style={styles.wrcCol}>
+              <Text style={styles.wrcLabel}>내 평균</Text>
+              <Text style={[styles.wrcValue, { color: teamColor }]}>
+                {activeScoring.ourAvgRuns.toFixed(1)}점
+              </Text>
+              <Text style={styles.wrcSub}>{activeScoring.gameCount}경기</Text>
+            </View>
+            <View style={styles.wrcCol}>
+              <Text style={styles.wrcLabel}>팀 시즌 평균</Text>
+              <Text style={styles.wrcValue}>
+                {teamAvgRuns.toFixed(1)}점
+              </Text>
+              <Text style={styles.wrcSub}>{year}시즌</Text>
+            </View>
+          </View>
+          {(() => {
+            const diff = activeScoring.ourAvgRuns - teamAvgRuns;
+            const absDiff = Math.abs(diff);
+            const isPos = diff >= 0;
+            return (
+              <View style={[styles.wrcDiffRow, { backgroundColor: isPos ? "#22c55e20" : "#ef444420" }]}>
+                <Text style={[styles.wrcDiffLabel, { color: isPos ? "#22c55e" : "#ef4444" }]}>
+                  득점 기여도 {isPos ? "+" : "-"}{absDiff.toFixed(1)}점
+                </Text>
+                <Text style={[styles.wrcDiffDesc, { color: isPos ? "#22c55e" : "#ef4444" }]}>
+                  {isPos
+                    ? (includeJipgwan ? "내가 함께 할 때 우리팀이 더 많은 점수를 내요" : "내가 직관할 때 우리팀이 더 많은 점수를 내요")
+                    : (includeJipgwan ? "내가 함께 하면 우리팀이 점수를 못 내요 😅" : "내가 직관할 때 우리팀이 점수를 못 내요 😅")}
                 </Text>
               </View>
             );
