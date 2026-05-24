@@ -7,6 +7,7 @@ import {
   TextInput,
   Modal,
   Switch,
+  Alert,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
@@ -316,7 +317,7 @@ export default function MyScreen() {
   const [nicknameInput, setNicknameInput] = useState("");
   const [showProfilePicker, setShowProfilePicker] = useState(false);
   const [showTeamPicker, setShowTeamPicker] = useState(false);
-const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
   const router = useRouter();
 
   const loadData = useCallback(async () => {
@@ -546,9 +547,13 @@ const [showResetConfirm, setShowResetConfirm] = useState(false);
                     await resetAllData();
                     const { deleteAllPhotos } = await import("@/lib/camera");
                     await deleteAllPhotos();
-                    loadData();
+                    setMyTeam(null);
+                    Alert.alert("완료", "모든 데이터가 초기화되었습니다.", [
+                      { text: "확인", onPress: () => router.replace("/onboarding") },
+                    ]);
                   } catch (e) {
                     console.warn("resetAllData failed", e);
+                    Alert.alert("오류", "데이터 초기화에 실패했습니다. 다시 시도해주세요.");
                   }
                 }}
               >
