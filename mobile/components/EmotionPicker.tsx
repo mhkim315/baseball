@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme } from "@/lib/ThemeContext";
 
@@ -58,7 +58,8 @@ export default function EmotionPicker({ value, onChange, teamId }: EmotionPicker
 
   return (
     <View style={styles.container}>
-      <View style={styles.row}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={styles.row}>
         {EMOTIONS.map((e) => (
           <Pressable
             key={e.id}
@@ -79,6 +80,7 @@ export default function EmotionPicker({ value, onChange, teamId }: EmotionPicker
           </Pressable>
         ))}
       </View>
+      </ScrollView>
     </View>
   );
 }

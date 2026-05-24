@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { TEAM_COLORS } from "@shared/teamColors";
@@ -20,17 +20,28 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
   const team = TEAM_COLORS[teamId];
   const { isDark } = useTheme();
   const [imgFailed, setImgFailed] = useState(false);
+  const retryRef = useRef(0);
 
   useEffect(() => {
+    retryRef.current = 0;
     setImgFailed(false);
   }, [teamId, variant, emotion]);
+
+  const handleError = useCallback(() => {
+    retryRef.current += 1;
+    setImgFailed(true);
+    if (retryRef.current < 3) {
+      setTimeout(() => setImgFailed(false), 3000);
+    }
+  }, []);
 
   if (!team) return null;
 
   const px = sizePx[size];
 
   if (variant === "character") {
-    const imgSrc = `${IMAGE_BASE}/team-characters/${teamId}_${emotion}.png`;
+    const baseImgSrc = `${IMAGE_BASE}/team-characters/${teamId}_${emotion}.png`;
+    const imgSrc = retryRef.current > 0 ? `${baseImgSrc}?r=${retryRef.current}` : baseImgSrc;
     const bgColor = hexToRgba(isDark && team.primaryLight ? team.primaryLight : team.primary, 0.35);
 
     return (
@@ -41,10 +52,11 @@ export function TeamBadge({ teamId, size = "md", emotion = "default", variant = 
           </Text>
         ) : (
           <Image
-            source={imgSrc}
+            key={imgSrc}
+            source={{ uri: imgSrc }}
             style={{ width: px, height: px, borderRadius: px / 2 }}
             contentFit="cover"
-            onError={() => setImgFailed(true)}
+            onError={handleError}
           />
         )}
       </View>

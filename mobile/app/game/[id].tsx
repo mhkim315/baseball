@@ -62,7 +62,6 @@ export default function GameDetailScreen() {
     const tryExhibitionFallback = async () => {
       if (cancelled) return;
       try {
-        setIsExhibition(true);
         const dateStr = `${gid.slice(0, 4)}-${gid.slice(4, 6)}-${gid.slice(6, 8)}`;
         const month = parseInt(gid.slice(4, 6), 10);
         const year = parseInt(gid.slice(0, 4), 10);
@@ -147,7 +146,13 @@ export default function GameDetailScreen() {
           cachedDailyScores(dateStr).catch(() => null),
         ]);
         if (cancelled) return;
-        if (schedule?.games?.some((g) => g.isExhibition && g.date === dateStr)) {
+        if (schedule?.games?.some((g) => {
+          if (!g.isExhibition || g.date !== dateStr) return false;
+          const { awayId, homeId } = parseGameTeamIds(gid);
+          const awayShort = TEAM_COLORS[awayId]?.shortName;
+          const homeShort = TEAM_COLORS[homeId]?.shortName;
+          return g.away === awayShort && g.home === homeShort;
+        })) {
           setIsExhibition(true);
         }
         if (scores?.games) {
