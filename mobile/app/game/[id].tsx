@@ -86,6 +86,23 @@ export default function GameDetailScreen() {
         );
 
         if (scoreEntry) {
+          if (scoreEntry.cancelled) {
+            setDetail({
+              gameId: gid,
+              date: dateStr,
+              homeTeam: homeId,
+              awayTeam: awayId,
+              starters: { home: null, away: null },
+              lineup: { home: [], away: [] },
+              gameInfo: {
+                time: scheduleEntry?.time || "13:00",
+                venue: resolveVenue(homeId, scheduleEntry?.venue || ""),
+                status: "cancelled",
+              },
+            });
+            setLoading(false);
+            return;
+          }
           const score: { away: number; home: number } = {
             away: scoreEntry.awayScore ?? 0,
             home: scoreEntry.homeScore ?? 0,
@@ -497,8 +514,8 @@ export default function GameDetailScreen() {
   const isGameActive = hasScoreData || hasFinishedSignals;
 
   const [gh, gm] = (detail.gameInfo?.time || "18:30").split(":").map(Number);
-  const startTime = new Date(detail.date);
-  startTime.setHours(gh, gm, 0, 0);
+  const [y, m, d] = detail.date.split("-").map(Number);
+  const startTime = new Date(y, m - 1, d, gh, gm, 0, 0);
   const gameHasStarted = new Date() >= startTime;
 
   const isFinished = !isCancelled && !isFuture && gameHasStarted && (

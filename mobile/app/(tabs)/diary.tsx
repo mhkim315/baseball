@@ -270,6 +270,7 @@ export default function DiaryScreen() {
 
       setRecords(data);
       setExpenses(exps);
+      setScrollTargetDate(null);
     } catch (e) {
       console.warn("diary.tsx loadData failed", e);
     }
@@ -514,7 +515,15 @@ export default function DiaryScreen() {
         >
           {/* Tab 1: Timeline */}
           <View style={{ width: screenWidth }}>
-            {timelineViewMode === "list" ? (
+            {filteredRecords.length === 0 ? (
+              <View style={{ paddingVertical: 60, alignItems: "center", paddingHorizontal: 32 }}>
+                <Text style={{ fontSize: 16, color: theme.mutedForeground, textAlign: "center", lineHeight: 24 }}>
+                  {records.length === 0
+                    ? "아직 직관 기록이 없어요"
+                    : (searchQuery ? "검색 결과가 없어요" : "해당 조건의 기록이 없어요")}
+                </Text>
+              </View>
+            ) : timelineViewMode === "list" ? (
               <DiaryTimeline
                 records={filteredRecords}
                 teamId={myTeam}

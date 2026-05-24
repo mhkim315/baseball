@@ -291,33 +291,47 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
   const tabInnerScrollRefs = useRef<Record<string, ScrollView | null>>({});
   const scrollLockUntilRef = useRef<number>(0);
   const outerScrollLockRef = useRef(0);
+  const scrollLockTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const releaseScroll = useCallback(() => {
+    outerScrollLockRef.current = 0;
+    tabScrollRef.current?.setNativeProps({ scrollEnabled: true });
+    if (scrollLockTimerRef.current) {
+      clearTimeout(scrollLockTimerRef.current);
+      scrollLockTimerRef.current = null;
+    }
+  }, []);
 
   const handleMapTouchStart = useCallback(() => {
     outerScrollLockRef.current += 1;
     tabScrollRef.current?.setNativeProps({ scrollEnabled: false });
-  }, []);
+    // Safety: auto-release after 3s to prevent permanent lock
+    if (scrollLockTimerRef.current) clearTimeout(scrollLockTimerRef.current);
+    scrollLockTimerRef.current = setTimeout(() => {
+      releaseScroll();
+    }, 3000);
+  }, [releaseScroll]);
   const handleMapTouchEnd = useCallback(() => {
     outerScrollLockRef.current = Math.max(0, outerScrollLockRef.current - 1);
-    if (outerScrollLockRef.current === 0) {
-      tabScrollRef.current?.setNativeProps({ scrollEnabled: true });
-    }
-  }, []);
+    if (outerScrollLockRef.current === 0) releaseScroll();
+  }, [releaseScroll]);
   const handleMapTouchCancel = useCallback(() => {
     outerScrollLockRef.current = Math.max(0, outerScrollLockRef.current - 1);
-    if (outerScrollLockRef.current === 0) {
-      tabScrollRef.current?.setNativeProps({ scrollEnabled: true });
-    }
-  }, []);
+    if (outerScrollLockRef.current === 0) releaseScroll();
+  }, [releaseScroll]);
   const handleInnerScrollBeginDrag = useCallback(() => {
     outerScrollLockRef.current += 1;
     tabScrollRef.current?.setNativeProps({ scrollEnabled: false });
-  }, []);
+    // Safety: auto-release after 3s to prevent permanent lock
+    if (scrollLockTimerRef.current) clearTimeout(scrollLockTimerRef.current);
+    scrollLockTimerRef.current = setTimeout(() => {
+      releaseScroll();
+    }, 3000);
+  }, [releaseScroll]);
   const handleInnerScrollEnd = useCallback(() => {
     outerScrollLockRef.current = Math.max(0, outerScrollLockRef.current - 1);
-    if (outerScrollLockRef.current === 0) {
-      tabScrollRef.current?.setNativeProps({ scrollEnabled: true });
-    }
-  }, []);
+    if (outerScrollLockRef.current === 0) releaseScroll();
+  }, [releaseScroll]);
   const handleSetFocusedSpot = useCallback((spotId: string | undefined) => {
     scrollLockUntilRef.current = Date.now() + 300;
     setFocusedSpot(spotId);
@@ -423,6 +437,13 @@ export default function StadiumPage({ teamId: propTeamId, accentColor }: { teamI
       tabInnerScrollRefs.current[activeTab]?.scrollTo({ y: 0, animated: true });
     }
   }, [focusedSpot, activeTab]);
+
+  // Cleanup scroll lock timer on unmount
+  useEffect(() => {
+    return () => {
+      if (scrollLockTimerRef.current) clearTimeout(scrollLockTimerRef.current);
+    };
+  }, []);
 
   // Reset scroll to first tab when team changes
   useEffect(() => {

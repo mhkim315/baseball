@@ -70,6 +70,9 @@ async function initSchema(database: SQLite.SQLiteDatabase): Promise<void> {
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (record_id) REFERENCES jikgwan_records(id) ON DELETE SET NULL
     );
+    CREATE INDEX IF NOT EXISTS idx_jikgwan_date ON jikgwan_records(date);
+    CREATE INDEX IF NOT EXISTS idx_expenses_record_id ON expenses(record_id);
+    CREATE INDEX IF NOT EXISTS idx_expenses_date ON expenses(date);
   `);
   await migrateJikgwanSchema(database);
   // Clean up cache entries older than 30 days on app start
