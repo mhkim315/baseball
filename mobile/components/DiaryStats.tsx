@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { EMOTION_CHARACTER } from "@/components/EmotionPicker";
@@ -6,6 +6,8 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { computeDiaryStats, computeOpponentStats, computeHomeAwayStats, computeDayOfWeekStats, computeStreakStats, type DiaryStats as Stats } from "@/lib/stats";
 import { resolveIsWin } from "@/lib/expenseStats";
+import { fetchStandingsJson } from "@/lib/api";
+import { HISTORICAL_STANDINGS } from "@/lib/standingsData";
 import type { JikgwanRecord } from "@/lib/db";
 
 interface DiaryStatsProps {
@@ -42,6 +44,29 @@ function interpolateColor(from: string, to: string, t: number): string {
 export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
   const { theme, isDark } = useTheme();
   const teamColor = teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground;
+  const [teamWinRate, setTeamWinRate] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!teamId) { setTeamWinRate(null); return; }
+    const teamName = TEAM_COLORS[teamId]?.shortName;
+    if (!teamName) { setTeamWinRate(null); return; }
+    setTeamWinRate(null);
+    if (year < 2026) {
+      const rows = HISTORICAL_STANDINGS[year];
+      if (rows) {
+        const team = rows.find((r) => r.teamName === teamName);
+        if (team) setTeamWinRate(team.winRate);
+      }
+    } else {
+      fetchStandingsJson()
+        .then((data) => {
+          if (!data?.rows) return;
+          const team = data.rows.find((r) => r.teamName === teamName);
+          if (team) setTeamWinRate(team.winRate);
+        })
+        .catch(() => {});
+    }
+  }, [teamId, year]);
 
   // Filter records by selected year and optionally exclude exhibition games
   const [includeExhibition, setIncludeExhibition] = useState(true);
@@ -300,6 +325,21 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
     toggleLabel: {
       fontSize: 12, fontWeight: "600", marginLeft: 8,
     },
+    // Win rate contribution
+    wrcRow: {
+      flexDirection: "row", justifyContent: "space-around",
+      marginBottom: 12,
+    },
+    wrcCol: { alignItems: "center", gap: 2 },
+    wrcLabel: { fontSize: 12, color: theme.mutedForeground, marginBottom: 4 },
+    wrcValue: { fontSize: 28, fontWeight: "800", color: theme.foreground },
+    wrcSub: { fontSize: 11, color: theme.mutedForeground },
+    wrcDiffRow: {
+      flexDirection: "column", alignItems: "center", gap: 2,
+      borderRadius: 12, paddingVertical: 10, paddingHorizontal: 16,
+    },
+    wrcDiffLabel: { fontSize: 18, fontWeight: "800" },
+    wrcDiffDesc: { fontSize: 12, fontWeight: "500" },
     // Home/Away
     haRow: { flexDirection: "row", gap: 12 },
     haCard: {
@@ -485,6 +525,46 @@ export default function DiaryStats({ records, teamId, year }: DiaryStatsProps) {
           {includeJipgwan ? "집관 포함" : "집관 제외"}
         </Text>
       </View>
+
+      {/* Win rate contribution — 내 직관 승률 vs 팀 시즌 승률 */}
+      {teamId && teamWinRate != null && activeRecords.length >= 5 && (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>직관 승률 기여도</Text>
+          <View style={styles.wrcRow}>
+            <View style={styles.wrcCol}>
+              <Text style={styles.wrcLabel}>내 직관</Text>
+              <Text style={[styles.wrcValue, { color: teamColor }]}>
+                {formatPct(activeStats.winRate)}
+              </Text>
+              <Text style={styles.wrcSub}>{activeStats.wins}승 {activeStats.draws}무 {activeStats.losses}패</Text>
+            </View>
+            <View style={styles.wrcCol}>
+              <Text style={styles.wrcLabel}>팀 시즌</Text>
+              <Text style={styles.wrcValue}>
+                {formatPct(teamWinRate)}
+              </Text>
+              <Text style={styles.wrcSub}>{year}시즌</Text>
+            </View>
+          </View>
+          {(() => {
+            const diff = activeStats.winRate - teamWinRate;
+            const absDiff = Math.abs(diff);
+            const isPos = diff >= 0;
+            return (
+              <View style={[styles.wrcDiffRow, { backgroundColor: isPos ? "#22c55e20" : "#ef444420" }]}>
+                <Text style={[styles.wrcDiffLabel, { color: isPos ? "#22c55e" : "#ef4444" }]}>
+                  기여도 {isPos ? "+" : "-"}{formatPct(absDiff)}
+                </Text>
+                <Text style={[styles.wrcDiffDesc, { color: isPos ? "#22c55e" : "#ef4444" }]}>
+                  {isPos
+                    ? "내가 직관할 때 우리팀이 더 잘해요"
+                    : "내가 보면 우리팀이 못해요 😅"}
+                </Text>
+              </View>
+            );
+          })()}
+        </View>
+      )}
 
       {teamId && (
         <>
