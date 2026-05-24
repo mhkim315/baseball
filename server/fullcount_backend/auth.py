@@ -37,6 +37,19 @@ NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "")
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "")
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 
+# Validate required provider credentials on startup
+_missing_keys = []
+if not KAKAO_REST_API_KEY:
+    _missing_keys.append("KAKAO_REST_API_KEY")
+if not NAVER_CLIENT_ID:
+    _missing_keys.append("NAVER_CLIENT_ID")
+if not NAVER_CLIENT_SECRET:
+    _missing_keys.append("NAVER_CLIENT_SECRET")
+if not GOOGLE_CLIENT_ID:
+    _missing_keys.append("GOOGLE_CLIENT_ID")
+if _missing_keys:
+    logger.warning("Missing social login credentials: %s. Social login will fail for these providers.", ", ".join(_missing_keys))
+
 
 class LoginRequest(BaseModel):
     provider: str  # kakao | naver | google | apple

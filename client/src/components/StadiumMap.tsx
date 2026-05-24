@@ -87,11 +87,19 @@ export default function StadiumMap({ spots, center, zoom = 15, className, style,
         el.firstElementChild?.setAttribute("aria-label", spot.name || label);
         el.style.cursor = "pointer";
 
-        const body = spot.description
-          ? `<h4 style="margin:0 0 4px;font-size:13px">${spot.name || ""}</h4><p style="margin:0;font-size:12px;color:#666">${spot.description}</p>`
-          : `<h4 style="margin:0;font-size:13px">${spot.name || label}</h4>`;
+        const popupBody = document.createElement("div");
+        const nameEl = document.createElement("h4");
+        nameEl.textContent = spot.name || label;
+        nameEl.style.cssText = "margin:0 0 4px;font-size:13px";
+        popupBody.appendChild(nameEl);
+        if (spot.description) {
+          const descEl = document.createElement("p");
+          descEl.textContent = spot.description;
+          descEl.style.cssText = "margin:0;font-size:12px;color:#666";
+          popupBody.appendChild(descEl);
+        }
 
-        const popup = new maplibregl.Popup({ offset: [0, -6], maxWidth: "280px" }).setHTML(body);
+        const popup = new maplibregl.Popup({ offset: [0, -6], maxWidth: "280px" }).setDOMContent(popupBody);
 
         const marker = new maplibregl.Marker({ element: el.firstElementChild as HTMLElement, anchor: "bottom" })
           .setLngLat([spot.lng, spot.lat])

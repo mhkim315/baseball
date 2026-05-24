@@ -1,4 +1,5 @@
 import logging
+import re
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, field_validator
 from sqlalchemy import select, func
@@ -8,6 +9,12 @@ from datetime import datetime, timezone
 from database import get_db
 from models import CommunityUser, CommunityPost, CommunityComment
 from auth import get_current_user
+
+_HTML_TAG_RE = re.compile(r"<[^>]*>")
+
+
+def _strip_html(v: str) -> str:
+    return _HTML_TAG_RE.sub("", v)
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +32,7 @@ class PostCreate(BaseModel):
     @field_validator("content")
     @classmethod
     def content_length(cls, v: str) -> str:
+        v = _strip_html(v)
         if len(v) > 5000:
             raise ValueError("Content must be 5000 characters or fewer")
         return v
@@ -32,6 +40,7 @@ class PostCreate(BaseModel):
     @field_validator("title")
     @classmethod
     def title_length(cls, v: str) -> str:
+        v = _strip_html(v)
         if len(v) > 100:
             raise ValueError("Title must be 100 characters or fewer")
         return v
@@ -44,15 +53,19 @@ class PostUpdate(BaseModel):
     @field_validator("content")
     @classmethod
     def content_length(cls, v: str | None) -> str | None:
-        if v is not None and len(v) > 5000:
-            raise ValueError("Content must be 5000 characters or fewer")
+        if v is not None:
+            v = _strip_html(v)
+            if len(v) > 5000:
+                raise ValueError("Content must be 5000 characters or fewer")
         return v
 
     @field_validator("title")
     @classmethod
     def title_length(cls, v: str | None) -> str | None:
-        if v is not None and len(v) > 100:
-            raise ValueError("Title must be 100 characters or fewer")
+        if v is not None:
+            v = _strip_html(v)
+            if len(v) > 100:
+                raise ValueError("Title must be 100 characters or fewer")
         return v
 
 
@@ -62,6 +75,7 @@ class CommentCreate(BaseModel):
     @field_validator("content")
     @classmethod
     def content_length(cls, v: str) -> str:
+        v = _strip_html(v)
         if len(v) > 1000:
             raise ValueError("Comment must be 1000 characters or fewer")
         return v

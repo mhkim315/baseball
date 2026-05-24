@@ -281,7 +281,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://168.107.59.177',
+        target: process.env.VITE_PROXY_TARGET || 'http://localhost:8000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

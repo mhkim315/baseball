@@ -102,7 +102,7 @@ export default function StadiumMapView({ spots, center, zoom = 15, focusedSpotId
         onTouchCancel={onTouchCancel}
         javaScriptEnabled
         domStorageEnabled
-        originWhitelist={["*"]}
+        originWhitelist={[]}
       />
     </View>
   );
@@ -158,10 +158,16 @@ map.once('load',function(){
     var firstChild=el.firstElementChild;
     if(firstChild)firstChild.setAttribute('aria-label',spot.name||label);
     el.style.cursor='pointer';
-    var body=spot.description
-      ?'<h4>'+(spot.name||'')+'</h4><p>'+(spot.description||'')+'</p>'
-      :'<h4>'+(spot.name||label)+'</h4>';
-    var popup=new maplibregl.Popup({offset:[0,-6],maxWidth:'280px'}).setHTML(body);
+    var popupBody=document.createElement('div');
+    var popupH4=document.createElement('h4');
+    popupH4.textContent=spot.name||label;
+    popupBody.appendChild(popupH4);
+    if(spot.description){
+      var popupP=document.createElement('p');
+      popupP.textContent=spot.description;
+      popupBody.appendChild(popupP);
+    }
+    var popup=new maplibregl.Popup({offset:[0,-6],maxWidth:'280px'}).setDOMContent(popupBody);
     var marker=new maplibregl.Marker({element:firstChild,anchor:'bottom'})
       .setLngLat([spot.lng,spot.lat]).setPopup(popup).addTo(map);
     var spotId=spot.id||String(i);

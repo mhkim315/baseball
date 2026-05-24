@@ -23,7 +23,7 @@ from auth import router as auth_router
 from community import router as community_router
 from account import router as account_router
 
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "https://fullcount.kr,https://www.fullcount.kr")
 origins = [o.strip() for o in ALLOWED_ORIGINS.split(",")] if ALLOWED_ORIGINS != "*" else ["*"]
 
 @asynccontextmanager
