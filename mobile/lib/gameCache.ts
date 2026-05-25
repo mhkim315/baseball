@@ -191,7 +191,15 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
     if (!data) return null;
 
     // data.dates is the raw dates map: { "2026-05-21": [...], ... }
-    const dates = data.dates;
+    const dates = { ...data.dates };
+
+    // Merge LOCAL_SCORES (March exhibition games, etc.) not covered by API
+    const targetYear = year ?? thisYear();
+    for (const [date, entries] of Object.entries(LOCAL_SCORES)) {
+      if (date.startsWith(String(targetYear)) && !dates[date]) {
+        dates[date] = entries;
+      }
+    }
 
     // Populate per-date cache so individual cachedDailyScores calls hit instantly
     for (const [date, games] of Object.entries(dates)) {
