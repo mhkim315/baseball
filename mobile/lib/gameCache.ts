@@ -12,6 +12,7 @@ import {
 } from "./api";
 import { CHEER_SONGS, CHEER_PLAYERS } from "./cheerData";
 import { LOCAL_SCHEDULE, LOCAL_SCORES } from "./scheduleData";
+import { EXHIBITION_SCORES } from "./exhibitionData";
 import type { CheerSection, PlayerCheer } from "./api";
 
 function cacheKey(name: string, id: string): string {
@@ -111,20 +112,37 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
     }));
     return { games };
   }
-  return fetchWithCache(cacheKey("schedule", `${y}:${month}`), Infinity, () =>
+  // 2026+: API for regular season, local for exhibition games
+  const apiResult = await fetchWithCache(cacheKey("schedule", `${y}:${month}`), Infinity, () =>
     apiScheduleByMonth(month, y)
   );
+  const localGames = LOCAL_SCHEDULE[`${y}:${month}`];
+  if (!localGames) return apiResult;
+  // Merge: local exhibition games + API regular season, dedup by date+away+home
+  const merged = [...(apiResult?.games ?? [])];
+  const seen = new Set(merged.map(g => `${g.date}|${g.away}|${g.home}`));
+  for (const g of localGames) {
+    const key = `${g.date}|${g.away}|${g.home}`;
+    if (!seen.has(key)) {
+      merged.push({ ...g, isExhibition: true });
+      seen.add(key);
+    }
+  }
+  merged.sort((a, b) => a.date.localeCompare(b.date) || (a.time || "00:00").localeCompare(b.time || "00:00"));
+  return { games: merged };
 }
 
 // Daily scores — TTL based on date
 export async function cachedDailyScores(date: string): Promise<{ games: ScoreEntry[] } | null> {
-  // Past seasons: use local data, fall back to API for exhibition dates
+  // Always check local data first (any year including 2026 exhibition)
+  const localScores = LOCAL_SCORES[date];
+  if (localScores) return { games: localScores };
+  // Check exhibition data for past years (2020-2025)
+  const exhibitionScores = EXHIBITION_SCORES[date];
+  if (exhibitionScores) return { games: exhibitionScores };
+  // No local data: past years have no API data, 2026+ try API
   const year = parseInt(date.slice(0, 4), 10);
   if (!isNaN(year) && year <= 2025) {
-    const games = LOCAL_SCORES[date];
-    if (games) return { games };
-    // Past date without local scores — exhibition or no-game date.
-    // API does not serve past exhibition scores; skip the call.
     return { games: [] };
   }
   return fetchWithCache(cacheKey("scores", date), ttlForDate(date), () =>
@@ -142,6 +160,12 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
     const filtered: Record<string, ScoreEntry[]> = {};
     const prefix = String(year);
     for (const [date, entries] of Object.entries(LOCAL_SCORES)) {
+      if (date.startsWith(prefix)) {
+        filtered[date] = entries;
+      }
+    }
+    // Include exhibition scores for past years
+    for (const [date, entries] of Object.entries(EXHIBITION_SCORES)) {
       if (date.startsWith(prefix)) {
         filtered[date] = entries;
       }
