@@ -426,12 +426,23 @@ def get_game_detail(game_id: str):
                     game_data = g
                     break
             if not game_data:
+                game_seq = int(m.group(4))
                 home_kr = TEAM_NAME_MAP.get(home_team)
                 away_kr = TEAM_NAME_MAP.get(away_team)
-                for g in scores["dates"][date_str]:
-                    if g.get("home") == home_kr and g.get("away") == away_kr:
-                        game_data = g
-                        break
+                day_games = scores["dates"][date_str]
+                matchup_games = [g for g in day_games if g.get("home") == home_kr and g.get("away") == away_kr]
+                if len(matchup_games) == 1:
+                    game_data = matchup_games[0]
+                elif len(matchup_games) > 1:
+                    # Try exact gameIdx match (suffix is relative index: 0, 1)
+                    game_data = next((g for g in matchup_games if g.get("gameIdx") == game_seq), None)
+                    if not game_data:
+                        # Suffix is global position: count same-matchup games before it
+                        relative_idx = sum(
+                            1 for i, g in enumerate(day_games)
+                            if g.get("home") == home_kr and g.get("away") == away_kr and i < game_seq
+                        )
+                        game_data = matchup_games[relative_idx] if relative_idx < len(matchup_games) else matchup_games[0]
 
     lineup = {"home": [], "away": []}
     starters = {"home": None, "away": None}
