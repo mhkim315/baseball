@@ -315,7 +315,7 @@ export default function HomeScreen() {
               status = "finished";
             } else if (score && !isFuture && score.outcome !== null) {
               status = "finished";
-            } else if (serverStatus === "live" && gameHasStarted) {
+            } else if (serverStatus === "live" && !isFuture && gameHasStarted) {
               status = "live";
             } else if (isToday && !score?.cancelled && gameHasStarted) {
               status = "live";

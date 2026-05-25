@@ -599,12 +599,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     noGamesBox: { alignItems: "center", paddingVertical: 40, gap: 12 },
     noGamesIcon: { fontSize: 40 },
     noGamesText: { fontSize: 14, color: theme.mutedForeground },
-    writeWithoutGame: {
-      paddingVertical: 10, paddingHorizontal: 20,
-      borderRadius: 12, backgroundColor: theme.muted,
-      alignSelf: "center", marginTop: 8,
-    },
-    writeWithoutGameText: { fontSize: 13, fontWeight: "600", color: theme.foreground },
     gameList: { gap: 10 },
     gameCard: {
       backgroundColor: theme.card, borderRadius: 14, borderWidth: 1,
@@ -1007,9 +1001,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                   <View style={styles.noGamesBox}>
                     <Text style={styles.noGamesIcon}>⚾</Text>
                     <Text style={styles.noGamesText}>{dateStrShort}에는 경기가 없어요</Text>
-                    <Pressable style={styles.writeWithoutGame} onPress={() => { setSelectedGame(null); setStep("write"); }}>
-                      <Text style={styles.writeWithoutGameText}>경기정보 없이 쓰기</Text>
-                    </Pressable>
                   </View>
                 ) : (
                   <>
@@ -1187,9 +1178,6 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                       </>
                     );
                   })()}
-                  <Pressable style={styles.writeWithoutGame} onPress={() => { setSelectedGame(null); setStep("write"); }}>
-                    <Text style={styles.writeWithoutGameText}>경기정보 없이 쓰기</Text>
-                  </Pressable>
                   </>
                 )}
               </View>
@@ -1389,12 +1377,23 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
             )}
           </ScrollView>
 
-          {/* Bottom button — only for non-write steps */}
+          {/* Bottom buttons — only for non-write steps */}
           {step !== "write" && (
             <View style={styles.bottomRow}>
-              <Pressable style={styles.cancelBtnFull} onPress={onClose}>
-                <Text style={styles.cancelText}>취소</Text>
-              </Pressable>
+              {step === "games" ? (
+                <>
+                  <Pressable style={styles.cancelBtn} onPress={onClose}>
+                    <Text style={styles.cancelText}>취소</Text>
+                  </Pressable>
+                  <Pressable style={styles.cancelBtn} onPress={() => { setSelectedGame(null); setStep("write"); }}>
+                    <Text style={styles.cancelText}>경기정보 없이 쓰기</Text>
+                  </Pressable>
+                </>
+              ) : (
+                <Pressable style={styles.cancelBtnFull} onPress={onClose}>
+                  <Text style={styles.cancelText}>취소</Text>
+                </Pressable>
+              )}
             </View>
           )}
       </BottomSheet>
