@@ -79,11 +79,23 @@ export default function GameDetailScreen() {
         const parts = gid.split("-");
         const suffix = parts[parts.length - 1];
         const gameSeq = parseInt(suffix, 10);
-        const gameIdx = isNaN(gameSeq) ? 0 : gameSeq;
+
+        // Calculate relative DH index within same-matchup games on this date
+        // (suffix is global index in the day, but score's gameIdx is per-matchup: 0, 1)
+        const allDaySchedule = schedule?.games?.filter(g => g.date === dateStr) || [];
+        let relativeIdx = 0, matchFound = false;
+        for (let i = 0, matchupCount = 0; i < allDaySchedule.length; i++) {
+          if (allDaySchedule[i].away === awayShort && allDaySchedule[i].home === homeShort) {
+            if (i === gameSeq) { relativeIdx = matchupCount; matchFound = true; break; }
+            matchupCount++;
+          }
+        }
+        const finalGameIdx = matchFound ? relativeIdx : (isNaN(gameSeq) ? 0 : gameSeq);
+
         const scoreEntry = scores?.games?.find(
-          (s) => s.away === awayShort && s.home === homeShort && (s.gameIdx ?? 0) === gameIdx
+          (s) => s.away === awayShort && s.home === homeShort && (s.gameIdx ?? 0) === finalGameIdx
         );
-        const scheduleEntry = schedule?.games?.find(
+        const scheduleEntry = allDaySchedule[gameSeq] || schedule?.games?.find(
           (g) => g.away === awayShort && g.home === homeShort
         );
 
