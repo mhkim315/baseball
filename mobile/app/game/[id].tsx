@@ -71,8 +71,6 @@ export default function GameDetailScreen() {
         ]);
         if (cancelled) return;
 
-        console.log("[DEBUG-GAME] gid:", gid, "date:", dateStr, "scoresCount:", scores?.games?.length, "scheduleCount:", schedule?.games?.length, "scores:", JSON.stringify(scores?.games?.map(s=>({away:s.away,home:s.home,awayScore:s.awayScore,homeScore:s.homeScore,outcome:s.outcome,gameIdx:s.gameIdx,cancelled:s.cancelled}))), "schedule:", JSON.stringify(schedule?.games?.map(g=>({away:g.away,home:g.home,time:g.time,gameIdx:g.gameIdx,isExhibition:g.isExhibition}))));
-
         const { awayId, homeId } = parseGameTeamIds(gid);
         const awayShort = TEAM_COLORS[awayId]?.shortName;
         const homeShort = TEAM_COLORS[homeId]?.shortName;
