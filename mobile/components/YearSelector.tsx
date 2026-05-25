@@ -12,7 +12,11 @@ async function getAvailableYears(): Promise<number[]> {
   _fetchPromise = (async () => {
     try {
       const res = await fetchSeasons();
-      _availableYears = (res?.years ?? [new Date().getFullYear()]).filter((y) => y !== 2020);
+      const currentYear = new Date().getFullYear();
+      const serverYears = res?.years ?? [];
+      _availableYears = [...new Set([...serverYears, currentYear])]
+        .filter((y) => y !== 2020)
+        .sort((a, b) => b - a);
     } catch {
       _availableYears = [new Date().getFullYear()];
     }
