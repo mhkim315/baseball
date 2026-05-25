@@ -573,7 +573,7 @@ export default function DiaryScreen() {
                   records={records}
                   teamId={myTeam}
                   onSelectDate={handleSelectDate}
-                  onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
+                  onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); setDiaryYear(y); }}
                 />
               ) : (
                 <ExpenseCalendar
@@ -582,7 +582,7 @@ export default function DiaryScreen() {
                   expenses={expenses}
                   records={records}
                   onSelectDate={handleSelectExpenseDate}
-                  onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); }}
+                  onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); setDiaryYear(y); }}
                 />
               )}
             </ScrollView>
