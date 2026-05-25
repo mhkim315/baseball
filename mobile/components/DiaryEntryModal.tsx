@@ -1385,7 +1385,9 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                   <Pressable style={styles.cancelBtn} onPress={onClose}>
                     <Text style={styles.cancelText}>취소</Text>
                   </Pressable>
-                  <Pressable style={styles.cancelBtn} onPress={() => { setSelectedGame(null); setStep("write"); }}>
+                  <Pressable style={styles.cancelBtn} onPress={() => {
+                    setSimpleAlert({ visible: true, title: "경기정보 없이 쓰기", message: "경기 정보를 선택하지 않으면 일기에 점수/결과가 표시되지 않습니다. 그래도 진행하시겠습니까?", onOk: () => { setSelectedGame(null); setStep("write"); } });
+                  }}>
                     <Text style={styles.cancelText}>경기정보 없이 쓰기</Text>
                   </Pressable>
                 </>
