@@ -4,6 +4,7 @@ import { useRouter } from "expo-router";
 import { getBadges, type Badge } from "@/lib/db";
 import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
 import { useTheme } from "@/lib/ThemeContext";
+import { setPendingDiaryDeepLink } from "@/app/(tabs)/diary";
 
 export default function AchievementWidget() {
   const { theme } = useTheme();
@@ -42,7 +43,7 @@ export default function AchievementWidget() {
 
   return (
     <Pressable
-      onPress={() => router.push({ pathname: "/(tabs)/diary", params: { tab: "achievement" } })}
+      onPress={() => { setPendingDiaryDeepLink("achievement"); router.push("/(tabs)/diary"); }}
       style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
     >
       {/* Level summary */}

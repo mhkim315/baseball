@@ -31,6 +31,7 @@ import {
   type Badge,
 } from "@/lib/db";
 import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
+import { setPendingDiaryDeepLink } from "@/app/(tabs)/diary";
 import YearInReview from "@/components/YearInReview";
 
 const PROFILE_CHARACTERS: { key: string; label: string }[] = [
@@ -65,7 +66,7 @@ function BadgeCollectionSection() {
     .filter(Boolean);
 
   return (
-    <Pressable style={[{ marginHorizontal: 16, marginBottom: 20, borderRadius: 14, borderWidth: 1, padding: 14 }, { backgroundColor: theme.card, borderColor: theme.border }]} onPress={() => router.push({ pathname: "/(tabs)/diary", params: { tab: "achievement" } })}>
+    <Pressable style={[{ marginHorizontal: 16, marginBottom: 20, borderRadius: 14, borderWidth: 1, padding: 14 }, { backgroundColor: theme.card, borderColor: theme.border }]} onPress={() => { setPendingDiaryDeepLink("achievement"); router.push("/(tabs)/diary"); }}>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
         <Text style={{ fontSize: 28 }}>{levelEmoji}</Text>
         <View style={{ flex: 1 }}>

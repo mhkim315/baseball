@@ -1,6 +1,6 @@
-import { useState, useCallback, useMemo, useRef, useEffect } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, Modal } from "react-native";
-import { useFocusEffect, useLocalSearchParams } from "expo-router";
+import { useFocusEffect } from "expo-router";
 import DiaryTimeline from "@/components/DiaryTimeline";
 import WebzineTimeline from "@/components/WebzineTimeline";
 import GridTimeline from "@/components/GridTimeline";
@@ -22,6 +22,13 @@ import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
+
+// Module-level deep-link target — set before navigating to a tab, read on focus.
+// Route params don't reliably propagate to already-mounted tab screens in Expo Router.
+let _pendingDeepLink: string | null = null;
+export function setPendingDiaryDeepLink(tab: string) {
+  _pendingDeepLink = tab;
+}
 
 type DiaryTab = "timeline" | "calendar" | "stats";
 type SubTab = "jikgwan" | "expense" | "achievement";
@@ -158,15 +165,18 @@ export default function DiaryScreen() {
   const [achievementBadges, setAchievementBadges] = useState<Badge[]>([]);
   const [toastBadges, setToastBadges] = useState<Badge[]>([]);
 
-  // Handle deep-link params (e.g. from AchievementWidget)
-  const params = useLocalSearchParams<{ tab?: string }>();
-  useEffect(() => {
-    if (params.tab === "achievement") {
-      setActiveTab("stats");
-      setSubTab("achievement");
-      tabScrollRef.current?.scrollTo({ x: screenWidth * 2, animated: false });
+  // Handle deep-link target set by setPendingDiaryDeepLink (e.g. from AchievementWidget)
+  useFocusEffect(useCallback(() => {
+    if (_pendingDeepLink) {
+      const target = _pendingDeepLink;
+      _pendingDeepLink = null;
+      if (target === "achievement") {
+        setActiveTab("stats");
+        setSubTab("achievement");
+        tabScrollRef.current?.scrollTo({ x: screenWidth * 2, animated: false });
+      }
     }
-  }, [params.tab]);
+  }, []));
 
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);
