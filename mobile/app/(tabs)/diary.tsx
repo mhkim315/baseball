@@ -1,6 +1,6 @@
-import { useState, useCallback, useMemo, useRef } from "react";
+import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet, RefreshControl, ScrollView, Alert, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, Modal } from "react-native";
-import { useFocusEffect } from "expo-router";
+import { useFocusEffect, useLocalSearchParams } from "expo-router";
 import DiaryTimeline from "@/components/DiaryTimeline";
 import WebzineTimeline from "@/components/WebzineTimeline";
 import GridTimeline from "@/components/GridTimeline";
@@ -157,6 +157,15 @@ export default function DiaryScreen() {
   const [achievementSheetDate, setAchievementSheetDate] = useState<Date | null>(null);
   const [achievementBadges, setAchievementBadges] = useState<Badge[]>([]);
   const [toastBadges, setToastBadges] = useState<Badge[]>([]);
+
+  // Handle deep-link params (e.g. from AchievementWidget)
+  const params = useLocalSearchParams<{ tab?: string }>();
+  useEffect(() => {
+    if (params.tab === "achievement") {
+      setActiveTab("stats");
+      setSubTab("achievement");
+    }
+  }, [params.tab]);
 
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);

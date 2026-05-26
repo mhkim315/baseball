@@ -42,7 +42,7 @@ export default function AchievementWidget() {
 
   return (
     <Pressable
-      onPress={() => router.push("/(tabs)/diary")}
+      onPress={() => router.push({ pathname: "/(tabs)/diary", params: { tab: "achievement" } })}
       style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
     >
       {/* Level summary */}
