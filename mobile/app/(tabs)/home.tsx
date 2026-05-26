@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useLayoutEffect, useCallback, useMemo } from "react";
-import { View, Text, Image, ScrollView, FlatList, StyleSheet, ActivityIndicator, Pressable, PanResponder, LayoutAnimation, Platform, UIManager, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { View, Text, Image, ScrollView, FlatList, StyleSheet, ActivityIndicator, Pressable, PanResponder, LayoutAnimation, Platform, UIManager, useWindowDimensions, NativeSyntheticEvent, NativeScrollEvent, AppState } from "react-native";
 
 import { useRouter } from "expo-router";
 import DateStrip from "@/components/DateStrip";
@@ -468,6 +468,14 @@ export default function HomeScreen() {
     }).catch((e) => { console.warn('calendar schedule fetch failed', e); });
     return () => { cancelled = true; };
   }, [calendarOpen, calMonth, calYear]);
+
+  // Refresh data when app returns to foreground
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') load();
+    });
+    return () => sub.remove();
+  }, [load]);
 
   const handlePageSwipe = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {

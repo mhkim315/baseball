@@ -26,6 +26,32 @@ const thisYear = () => now().getFullYear();
 
 const pendingFetches = new Map<string, Promise<unknown | null>>();
 
+// Background retry after API failure — exponential backoff: 5s, 15s, 45s
+const RETRY_DELAYS = [5_000, 15_000, 45_000];
+const retryCounts = new Map<string, number>();
+
+function scheduleRetry<T>(key: string, fetcher: () => Promise<T | null>) {
+  const done = retryCounts.get(key) ?? 0;
+  if (done >= RETRY_DELAYS.length) {
+    retryCounts.delete(key);
+    return;
+  }
+  retryCounts.set(key, done + 1);
+  setTimeout(async () => {
+    try {
+      const fresh = await fetcher();
+      if (fresh) {
+        await db.setCache(key, JSON.stringify(fresh));
+        retryCounts.delete(key);
+      } else {
+        scheduleRetry(key, fetcher);
+      }
+    } catch {
+      scheduleRetry(key, fetcher);
+    }
+  }, RETRY_DELAYS[done]);
+}
+
 function safeParse(json: string): unknown | null {
   try {
     return JSON.parse(json);
@@ -68,10 +94,13 @@ async function fetchWithCache<T>(
       await db.setCache(cacheKeyStr, JSON.stringify(fresh));
       return fresh;
     }
-    // API failed — return stale cache if available
+    // API failed — return stale cache if available, retry in background
     if (cached) {
       const parsed = safeParse(cached.data);
-      if (parsed) return parsed as T;
+      if (parsed) {
+        scheduleRetry(cacheKeyStr, fetcher);
+        return parsed as T;
+      }
     }
     return null;
   })();
@@ -203,10 +232,11 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
 
   // Check cache first (with TTL)
   const cached = await db.getCache(allScoresCacheKey);
+  let staleParsed: Record<string, ScoreEntry[]> | null = null;
   if (cached) {
-    const parsed = safeParse(cached.data) as Record<string, ScoreEntry[]> | null;
-    if (parsed && Date.now() - cached.updatedAt < ALL_SCORES_TTL) return parsed;
-    if (parsed) await db.deleteCache(allScoresCacheKey);
+    staleParsed = safeParse(cached.data) as Record<string, ScoreEntry[]> | null;
+    if (staleParsed && Date.now() - cached.updatedAt < ALL_SCORES_TTL) return staleParsed;
+    // TTL expired — keep staleParsed for fallback if API fails, don't delete cache
   }
 
   // Dedup concurrent calls
@@ -214,7 +244,11 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
 
   allScoresPromise = (async () => {
     const data = await apiAllDailyScores();
-    if (!data) return null;
+    if (!data) {
+      // API failed — return stale cache if available
+      if (staleParsed) return staleParsed;
+      return null;
+    }
 
     // data.dates is the raw dates map: { "2026-05-21": [...], ... }
     const dates = { ...data.dates };
