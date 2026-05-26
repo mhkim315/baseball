@@ -2,12 +2,13 @@ import { useState, useEffect, useCallback } from "react";
 import { View, Text, Pressable, Modal, ScrollView, StyleSheet } from "react-native";
 import { useFocusEffect } from "expo-router";
 import { getBadges, type Badge } from "@/lib/db";
-import { BADGE_DEFINITIONS, computeLevel, type LevelInfo } from "@/lib/achievements";
+import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel, type LevelInfo } from "@/lib/achievements";
 import { useTheme } from "@/lib/ThemeContext";
 
 interface BadgeCollectionModalProps {
   visible: boolean;
   onClose: () => void;
+  myTeam: string | null;
 }
 
 type FilterKey = "all" | "milestone" | "streak" | "attendance" | "exploration" | "secret";
@@ -91,7 +92,7 @@ const detailStyles = StyleSheet.create({
   closeBtnText: { fontSize: 14, fontWeight: "600" },
 });
 
-export default function BadgeCollectionModal({ visible, onClose }: BadgeCollectionModalProps) {
+export default function BadgeCollectionModal({ visible, onClose, myTeam }: BadgeCollectionModalProps) {
   const { theme, isDark } = useTheme();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
@@ -110,7 +111,9 @@ export default function BadgeCollectionModal({ visible, onClose }: BadgeCollecti
   const unlockedSet = new Set(badges.filter((b) => b.unlocked_date).map((b) => b.badge_key));
   const badgeMap = new Map(badges.map((b) => [b.badge_key, b]));
 
-  const filteredDefs = BADGE_DEFINITIONS.filter((def) => filter === "all" || def.category === filter);
+  const filteredDefs = getVisibleBadgeDefinitions(myTeam).filter((def) => filter === "all" || def.category === filter);
+  const visibleDefs = getVisibleBadgeDefinitions(myTeam);
+
 
   // Level-based visual accents
   const levelAccent = levelInfo.level >= 7 ? "#ffd700" : levelInfo.level >= 5 ? "#e07b3c" : undefined;
@@ -142,7 +145,7 @@ export default function BadgeCollectionModal({ visible, onClose }: BadgeCollecti
               <View style={[styles.xpFill, { width: `${Math.min(levelInfo.progress * 100, 100)}%`, backgroundColor: levelAccent || "#e07b3c" }]} />
             </View>
             <Text style={[styles.levelSub, { color: theme.mutedForeground }]}>
-              {badges.filter((b) => b.unlocked_date).length}/{BADGE_DEFINITIONS.length} 획득
+              {badges.filter((b) => b.unlocked_date).length}/{visibleDefs.length} 획득
             </Text>
           </View>
 

@@ -1074,3 +1074,43 @@ KBO 10개 구단의 팬덤 문화·밈·응원가를 반영한 시크릿 배지 
 - `cheered_team` 필드로 각 구단별 응원 기록 필터링
 - `resolveIsWin(r)` / `parseGameTeamIds(r.game_id)` / `r.stadium` 활용
 - `positive_rhythm`(두산)과 `im_happy`(한화)는 패배/연패 조건 — 아이러니 응원문화 반영
+
+**커밋 내역:**
+| 해시 | 설명 |
+|------|------|
+| `e7dcf48` | Add 10 team-specific secret badges (Phase 5) |
+
+### Phase 6 — 구단별 배지 확장 + myTeam 필터링 (2026-05-27)
+
+KBO 10개 구단 밈·응원가·팬덤 문화 추가 배지 12종 + 팀 전용 배지 myTeam 필터링 적용 (37개 → 49개).
+
+**신규 배지 12종:**
+
+| badgeKey | emoji | 타이틀 | 구단 | 조건 | XP |
+|---|---|---|---|---|---|
+| tiger_charge | 🐯 | 호랑이 군단 | KIA | 6점차 이상 승리 | 10 |
+| lapark_master | 🏟️ | 라팍의 주인 | 삼성 | 삼성 홈경기 승리 | 10 |
+| shinbaram | 🎺 | 신바람 야구 | LG | LG 8득점 이상 승리 | 10 |
+| jamsil_derby | ⚔️ | 잠실 더비 승자 | LG | LG beats Doosan | 10 |
+| jamsil_derby_doosan | ⚔️ | 잠실 더비 승자 | 두산 | 두산 beats LG | 10 |
+| for_victory | 🎸 | 승리를 위하여 | 두산 | 4점차 이상 승리 | 10 |
+| bazooka | 💥 | 바주카 발사 | SSG | 홈경기 3승 | 10 |
+| water_festival | 💦 | 워터 페스티벌 | KT | 6-8월 직관 | 10 |
+| tears_of_blood | 🩸 | 눈물의 피 | NC | NC beats Doosan 5+ | 10 |
+| busan_port | 🎤 | 돌아와요 부산항에 | 롯데 | 홈경기 승리 | 10 |
+| bodhisattva | 🪷 | 보살팬 | 한화 | 10+회 직관 | 10 |
+| small_giant | 🦸‍♂️ | 작은 거인 | 키움 | 원정 승리 | 10 |
+
+**myTeam 필터링:**
+- `BadgeDefinition.teamId?: string` 필드 추가
+- `getVisibleBadgeDefinitions(myTeam)` 공유 유틸리티로 일관된 필터링
+- 기존 Phase 5 배지 10종에도 `teamId` 부여
+- `myTeam` null 시 팀 배지 전체 숨김, 팀 전환 시 자동 반영
+- `evaluateBadges()`, `computeLevel()`, `AchievementToast`는 변경 없음
+
+**변경 파일:**
+- `mobile/lib/achievements.ts` — interface + 12종 배지 + 유틸리티
+- `mobile/components/BadgeCollectionModal.tsx` — myTeam prop, 필터링
+- `mobile/components/AchievementWidget.tsx` — useTeam + 필터링
+- `mobile/components/AchievementList.tsx` — useTeam + 필터링
+- `mobile/app/(tabs)/my.tsx` — BadgeCollectionSection + Modal myTeam 전달

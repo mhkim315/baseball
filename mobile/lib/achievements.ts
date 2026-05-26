@@ -18,6 +18,7 @@ export interface BadgeDefinition {
   xp: number;
   category: "milestone" | "streak" | "attendance" | "exploration" | "secret";
   progressTarget: number;
+  teamId?: string;
   check: (records: JikgwanRecord[], existingBadges: Badge[], attendanceStreak: number) => BadgeEvalResult;
 }
 
@@ -751,6 +752,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "kia",
     progressTarget: 5,
     check: (records) => {
       const wins = records.filter(r =>
@@ -774,6 +776,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "samsung",
     progressTarget: 1,
     check: (records) => {
       const match = records.find(r =>
@@ -798,6 +801,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "medium",
     xp: 15,
     category: "secret",
+    teamId: "lg",
     progressTarget: 3,
     check: (records) => {
       const lg = records
@@ -825,6 +829,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "doosan",
     progressTarget: 2,
     check: (records) => {
       const doosan = records
@@ -852,6 +857,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "ssg",
     progressTarget: 3,
     check: (records) => {
       const ssg = records
@@ -874,6 +880,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "kt",
     progressTarget: 1,
     check: (records) => {
       const match = records.find(r => {
@@ -898,6 +905,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "nc",
     progressTarget: 1,
     check: (records) => {
       const match = records.find(r => {
@@ -922,6 +930,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "lotte",
     progressTarget: 1,
     check: (records) => {
       const match = records.find(r =>
@@ -944,6 +953,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "hanwha",
     progressTarget: 5,
     check: (records) => {
       const losses = records.filter(r =>
@@ -967,6 +977,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     tier: "easy",
     xp: 10,
     category: "secret",
+    teamId: "kiwoom",
     progressTarget: 1,
     check: (records) => {
       const match = records.find(r =>
@@ -980,7 +991,322 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       };
     },
   },
+  // ── Phase 6: 구단별 배지 확장 (11종) ──
+  {
+  id: "tiger_charge",
+  badgeKey: "tiger_charge",
+  emoji: "🐯",
+  title: "호랑이 군단",
+  description: "KIA 타이거즈의 위엄 — 6점차 대승을 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "kia",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r =>
+      r.cheered_team === "kia" && resolveIsWin(r) === 1 &&
+      r.score_away != null && r.score_home != null &&
+      Math.abs(r.score_away! - r.score_home!) >= 6
+    );
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "lapark_master",
+  badgeKey: "lapark_master",
+  emoji: "🏟️",
+  title: "라팍의 주인",
+  description: "삼성 라이온즈 파크에서 홈 승리를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "samsung",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "samsung" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      return ids.homeId === "samsung";
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "shinbaram",
+  badgeKey: "shinbaram",
+  emoji: "🎺",
+  title: "신바람 야구",
+  description: "LG 8득점 이상 폭발 — 신나는 야구를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "lg",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "lg" || resolveIsWin(r) !== 1) return false;
+      if (r.score_away == null || r.score_home == null || !r.game_id) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      if (!ids) return false;
+      const isHome = ids.homeId === "lg";
+      const teamScore = isHome ? r.score_home! : r.score_away!;
+      return teamScore >= 8;
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "jamsil_derby",
+  badgeKey: "jamsil_derby",
+  emoji: "⚔️",
+  title: "잠실 더비 승자",
+  description: "LG가 두산을 꺾는 잠실 더비를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "lg",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "lg" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      const opponent = ids.homeId === "lg" ? ids.awayId : ids.homeId;
+      return opponent === "doosan";
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "jamsil_derby_doosan",
+  badgeKey: "jamsil_derby_doosan",
+  emoji: "⚔️",
+  title: "잠실 더비 승자",
+  description: "두산이 LG를 꺾는 잠실 더비를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "doosan",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "doosan" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      const opponent = ids.homeId === "doosan" ? ids.awayId : ids.homeId;
+      return opponent === "lg";
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "for_victory",
+  badgeKey: "for_victory",
+  emoji: "🎸",
+  title: "승리를 위하여",
+  description: "두산의 승전가처럼 — 4점차 이상 승리를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "doosan",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r =>
+      r.cheered_team === "doosan" && resolveIsWin(r) === 1 &&
+      r.score_away != null && r.score_home != null &&
+      Math.abs(r.score_away! - r.score_home!) >= 4
+    );
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "bazooka",
+  badgeKey: "bazooka",
+  emoji: "💥",
+  title: "바주카 발사",
+  description: "SSG 홈경기 3승을 직관했어요 — 레드웨이브의 주인공",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "ssg",
+  progressTarget: 3,
+  check: (records) => {
+    const homeWins = records.filter(r => {
+      if (r.cheered_team !== "ssg" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      return ids.homeId === "ssg";
+    });
+    const sorted = [...homeWins].sort((a, b) => a.date.localeCompare(b.date));
+    return {
+      unlocked: homeWins.length >= 3,
+      progressCurrent: Math.min(homeWins.length, 3),
+      progressTarget: 3,
+      qualifyingDate: homeWins.length >= 3 ? sorted[2]?.date : undefined,
+    };
+  },
+},
+{
+  id: "water_festival",
+  badgeKey: "water_festival",
+  emoji: "💦",
+  title: "워터 페스티벌",
+  description: "KT 여름 홈경기를 직관했어요 — 시원한 물대포와 함께",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "kt",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "kt") return false;
+      const parts = r.date.split(".");
+      if (parts.length < 2) return false;
+      const month = parseInt(parts[1], 10);
+      return month >= 6 && month <= 8;
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "tears_of_blood",
+  badgeKey: "tears_of_blood",
+  emoji: "🩸",
+  title: "눈물의 피",
+  description: "NC가 두산을 5점차로 꺾는 통쾌한 승리를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "nc",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "nc" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      if (r.score_away == null || r.score_home == null) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      const opponent = ids.homeId === "nc" ? ids.awayId : ids.homeId;
+      return opponent === "doosan" && Math.abs(r.score_away! - r.score_home!) >= 5;
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "busan_port",
+  badgeKey: "busan_port",
+  emoji: "🎤",
+  title: "돌아와요 부산항에",
+  description: "사직구장에서 롯데 홈 승리를 직관했어요",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "lotte",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "lotte" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      return ids.homeId === "lotte";
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
+{
+  id: "bodhisattva",
+  badgeKey: "bodhisattva",
+  emoji: "🪷",
+  title: "보살팬",
+  description: "한화 응원 10회 직관 — 인내와 사랑의 보살팬",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "hanwha",
+  progressTarget: 10,
+  check: (records) => {
+    const hanwha = records.filter(r => r.cheered_team === "hanwha");
+    return {
+      unlocked: hanwha.length >= 10,
+      progressCurrent: Math.min(hanwha.length, 10),
+      progressTarget: 10,
+      qualifyingDate: hanwha.length >= 10 ? hanwha[hanwha.length - 1]?.date : undefined,
+    };
+  },
+},
+{
+  id: "small_giant",
+  badgeKey: "small_giant",
+  emoji: "🦸‍♂️",
+  title: "작은 거인",
+  description: "키움의 원정 승리를 직관했어요 — 작지만 강한 영웅들",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  teamId: "kiwoom",
+  progressTarget: 1,
+  check: (records) => {
+    const match = records.find(r => {
+      if (r.cheered_team !== "kiwoom" || !r.game_id || resolveIsWin(r) !== 1) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      return ids.awayId === "kiwoom";
+    });
+    return {
+      unlocked: !!match,
+      progressCurrent: match ? 1 : 0,
+      progressTarget: 1,
+      qualifyingDate: match?.date,
+    };
+  },
+},
 ];
+
+export function getVisibleBadgeDefinitions(myTeam: string | null): BadgeDefinition[] {
+  return BADGE_DEFINITIONS.filter(def => {
+    if (!def.teamId) return true;
+    return def.teamId === myTeam;
+  });
+}
 
 // --- Season Summary ---
 

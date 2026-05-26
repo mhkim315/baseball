@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { getBadges, type Badge } from "@/lib/db";
-import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
+import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel } from "@/lib/achievements";
 import { useTheme } from "@/lib/ThemeContext";
+import { useTeam } from "@/lib/TeamContext";
 import { setPendingDiaryDeepLink } from "@/app/(tabs)/diary";
 
 export default function AchievementWidget() {
   const { theme } = useTheme();
+  const { myTeam } = useTeam();
   const router = useRouter();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +28,8 @@ export default function AchievementWidget() {
 
   // 가장 진척도 높은 미해금 배지 1개 찾기
   const unlockedSet = new Set(badges.filter((b) => b.unlocked_date).map((b) => b.badge_key));
-  const inProgress = BADGE_DEFINITIONS
+  const visibleDefs = getVisibleBadgeDefinitions(myTeam);
+  const inProgress = visibleDefs
     .filter((def) => !unlockedSet.has(def.badgeKey))
     .map((def) => {
       const badge = badges.find((b) => b.badge_key === def.badgeKey);

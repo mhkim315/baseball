@@ -2,7 +2,8 @@ import { useState, useMemo, useEffect } from "react";
 import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { useTheme } from "@/lib/ThemeContext";
 import { getBadges, type Badge, type JikgwanRecord } from "@/lib/db";
-import { BADGE_DEFINITIONS, computeLevel, type BadgeDefinition, type LevelInfo } from "@/lib/achievements";
+import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel, type BadgeDefinition, type LevelInfo } from "@/lib/achievements";
+import { useTeam } from "@/lib/TeamContext";
 
 interface AchievementListProps {
   records: JikgwanRecord[];
@@ -21,6 +22,7 @@ type CatKey = typeof CATEGORIES[number]["key"];
 
 export default function AchievementList({ records }: AchievementListProps) {
   const { theme, isDark } = useTheme();
+  const { myTeam } = useTeam();
 
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +44,7 @@ export default function AchievementList({ records }: AchievementListProps) {
     const unlockedMap = new Map(badges.filter((b) => b.unlocked_date).map((b) => [b.badge_key, b]));
     const progressMap = new Map(badges.filter((b) => !b.unlocked_date && b.progress_current > 0).map((b) => [b.badge_key, b]));
 
-    let list = BADGE_DEFINITIONS.filter((def) => {
+    let list = getVisibleBadgeDefinitions(myTeam).filter((def) => {
       if (catFilter === "all") return true;
       return def.category === catFilter;
     }).map((def) => ({

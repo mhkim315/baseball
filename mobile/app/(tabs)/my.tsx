@@ -30,7 +30,7 @@ import {
   resetAllData,
   type Badge,
 } from "@/lib/db";
-import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
+import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel } from "@/lib/achievements";
 import BadgeCollectionModal from "@/components/BadgeCollectionModal";
 import YearInReview from "@/components/YearInReview";
 
@@ -47,6 +47,7 @@ const PROFILE_CHARACTERS: { key: string; label: string }[] = [
 
 function BadgeCollectionSection({ onOpen }: { onOpen: () => void }) {
   const { theme } = useTheme();
+  const { myTeam } = useTeam();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -58,7 +59,9 @@ function BadgeCollectionSection({ onOpen }: { onOpen: () => void }) {
 
   const levelInfo = computeLevel(badges);
   const levelEmoji = levelInfo.level >= 7 ? "👑" : levelInfo.level >= 5 ? "🏆" : levelInfo.level >= 3 ? "🥇" : "🥚";
+  const visibleDefs = getVisibleBadgeDefinitions(myTeam);
   const unlockedCount = badges.filter((b) => b.unlocked_date).length;
+  const totalVisible = visibleDefs.length;
   const unlockedBadges = badges
     .filter((b) => b.unlocked_date)
     .map((b) => BADGE_DEFINITIONS.find((d) => d.badgeKey === b.badge_key))
@@ -73,7 +76,7 @@ function BadgeCollectionSection({ onOpen }: { onOpen: () => void }) {
             도전과제
           </Text>
           <Text style={{ fontSize: 12, color: theme.mutedForeground }}>
-            {unlockedCount}/{BADGE_DEFINITIONS.length} 획득 · LV.{levelInfo.level}
+            {unlockedCount}/{totalVisible} 획득 · LV.{levelInfo.level}
           </Text>
         </View>
         {unlockedBadges.slice(0, 5).map((def) => (
@@ -515,7 +518,7 @@ export default function MyScreen() {
       <BadgeCollectionSection onOpen={() => setShowBadgeCollection(true)} />
 
       {/* Badge Collection Modal */}
-      <BadgeCollectionModal visible={showBadgeCollection} onClose={() => setShowBadgeCollection(false)} />
+      <BadgeCollectionModal visible={showBadgeCollection} onClose={() => setShowBadgeCollection(false)} myTeam={myTeam} />
 
       {/* App Info */}
       <View style={styles.section}>
