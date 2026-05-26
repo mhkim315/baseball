@@ -18,7 +18,7 @@ def is_postseason_game(g):
     # Let's check if this looks like a postseason game based on teams
     return True
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "seasons")
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "seasons"))
 
 def process_year(year):
     games = schedule_games(f"{year}-10-01", f"{year}-11-15")
