@@ -53,6 +53,7 @@ interface EnhancedGame {
   liveInning?: number;
   isTop?: boolean;
   isExhibition?: boolean;
+  isPostseason?: boolean;
 }
 
 export default function HomeScreen() {

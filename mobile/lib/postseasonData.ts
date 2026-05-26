@@ -4,11 +4,83 @@ import type { ScoreEntry, ScheduleGame } from "./api";
 // KBO 포스트시즌 (가을야구) 경기 데이터
 // ============================================================
 // 포함: 와일드카드 결정전, 준플레이오프, 플레이오프, 한국시리즈
-// 연도별 데이터: 2024 (완료), 2025 (완료), 2023~2021 (TODO)
+// 연도별 데이터: 2021, 2022, 2023, 2024, 2025 (완료)
 // ============================================================
 
 // Schedule entries for postseason games (merged by gameCache into schedule data)
 export const POSTSEASON_SCHEDULE: Record<string, ScheduleGame[]> = {
+  // ==================== 2021 포스트시즌 ====================
+
+  // --- 와일드카드 결정전: 키움 vs 두산 (두산 2-0) ---
+  "2021:11": [
+    { date: "2021-11-01", month: 11, day: 1, venue: "잠실", away: "키움", home: "두산", time: "18:30", isPostseason: true },
+    { date: "2021-11-02", month: 11, day: 2, venue: "잠실", away: "키움", home: "두산", time: "18:30", isPostseason: true },
+    // --- 준플레이오프: 두산 vs LG (두산 3-0) ---
+    { date: "2021-11-04", month: 11, day: 4, venue: "잠실", away: "두산", home: "LG", time: "18:30", isPostseason: true },
+    { date: "2021-11-05", month: 11, day: 5, venue: "잠실", away: "LG", home: "두산", time: "18:30", isPostseason: true },
+    { date: "2021-11-07", month: 11, day: 7, venue: "잠실", away: "두산", home: "LG", time: "18:30", isPostseason: true },
+    // --- 플레이오프: 두산 vs 삼성 (두산 2-0, 시드 어드밴티지 포함 3-0) ---
+    { date: "2021-11-09", month: 11, day: 9, venue: "대구", away: "두산", home: "삼성", time: "18:30", isPostseason: true },
+    { date: "2021-11-10", month: 11, day: 10, venue: "잠실", away: "삼성", home: "두산", time: "18:30", isPostseason: true },
+    // --- 한국시리즈: 두산 vs KT (KT 4-0) ---
+    { date: "2021-11-14", month: 11, day: 14, venue: "고척", away: "두산", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2021-11-15", month: 11, day: 15, venue: "고척", away: "두산", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2021-11-17", month: 11, day: 17, venue: "고척", away: "KT", home: "두산", time: "18:30", isPostseason: true },
+    { date: "2021-11-18", month: 11, day: 18, venue: "고척", away: "KT", home: "두산", time: "18:30", isPostseason: true },
+  ],
+
+  // ==================== 2022 포스트시즌 ====================
+
+  // --- 와일드카드 결정전: KIA vs KT (KT 1-0) ---
+  "2022:10": [
+    { date: "2022-10-13", month: 10, day: 13, venue: "수원", away: "KIA", home: "KT", time: "18:30", isPostseason: true },
+    // --- 준플레이오프: KT vs 키움 (키움 3-2) ---
+    { date: "2022-10-16", month: 10, day: 16, venue: "고척", away: "KT", home: "키움", time: "18:30", isPostseason: true },
+    { date: "2022-10-17", month: 10, day: 17, venue: "고척", away: "KT", home: "키움", time: "18:30", isPostseason: true },
+    { date: "2022-10-19", month: 10, day: 19, venue: "수원", away: "키움", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2022-10-20", month: 10, day: 20, venue: "수원", away: "키움", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2022-10-22", month: 10, day: 22, venue: "고척", away: "KT", home: "키움", time: "18:30", isPostseason: true },
+    // --- 플레이오프: 키움 vs LG (키움 3-1) ---
+    { date: "2022-10-24", month: 10, day: 24, venue: "잠실", away: "키움", home: "LG", time: "18:30", isPostseason: true },
+    { date: "2022-10-25", month: 10, day: 25, venue: "잠실", away: "키움", home: "LG", time: "18:30", isPostseason: true },
+    { date: "2022-10-27", month: 10, day: 27, venue: "고척", away: "LG", home: "키움", time: "18:30", isPostseason: true },
+    { date: "2022-10-28", month: 10, day: 28, venue: "고척", away: "LG", home: "키움", time: "18:30", isPostseason: true },
+  ],
+  "2022:11": [
+    // --- 한국시리즈: 키움 vs SSG (SSG 4-2) ---
+    { date: "2022-11-01", month: 11, day: 1, venue: "문학", away: "키움", home: "SSG", time: "18:30", isPostseason: true },
+    { date: "2022-11-02", month: 11, day: 2, venue: "문학", away: "키움", home: "SSG", time: "18:30", isPostseason: true },
+    { date: "2022-11-04", month: 11, day: 4, venue: "고척", away: "SSG", home: "키움", time: "18:30", isPostseason: true },
+    { date: "2022-11-05", month: 11, day: 5, venue: "고척", away: "SSG", home: "키움", time: "18:30", isPostseason: true },
+    { date: "2022-11-07", month: 11, day: 7, venue: "문학", away: "키움", home: "SSG", time: "18:30", isPostseason: true },
+    { date: "2022-11-08", month: 11, day: 8, venue: "문학", away: "키움", home: "SSG", time: "18:30", isPostseason: true },
+  ],
+
+  // ==================== 2023 포스트시즌 ====================
+
+  // --- 와일드카드 결정전: 두산 vs NC (NC 1-0) ---
+  "2023:10": [
+    { date: "2023-10-19", month: 10, day: 19, venue: "창원", away: "두산", home: "NC", time: "18:30", isPostseason: true },
+    // --- 준플레이오프: NC vs SSG (NC 3-0) ---
+    { date: "2023-10-22", month: 10, day: 22, venue: "문학", away: "NC", home: "SSG", time: "18:30", isPostseason: true },
+    { date: "2023-10-23", month: 10, day: 23, venue: "문학", away: "NC", home: "SSG", time: "18:30", isPostseason: true },
+    { date: "2023-10-25", month: 10, day: 25, venue: "창원", away: "SSG", home: "NC", time: "18:30", isPostseason: true },
+    // --- 플레이오프: NC vs KT (NC 3-2) ---
+    { date: "2023-10-30", month: 10, day: 30, venue: "수원", away: "NC", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2023-10-31", month: 10, day: 31, venue: "수원", away: "NC", home: "KT", time: "18:30", isPostseason: true },
+  ],
+  "2023:11": [
+    { date: "2023-11-02", month: 11, day: 2, venue: "창원", away: "KT", home: "NC", time: "18:30", isPostseason: true },
+    { date: "2023-11-03", month: 11, day: 3, venue: "창원", away: "KT", home: "NC", time: "18:30", isPostseason: true },
+    { date: "2023-11-05", month: 11, day: 5, venue: "수원", away: "NC", home: "KT", time: "18:30", isPostseason: true },
+    // --- 한국시리즈: KT vs LG (LG 4-1) ---
+    { date: "2023-11-07", month: 11, day: 7, venue: "잠실", away: "KT", home: "LG", time: "18:30", isPostseason: true },
+    { date: "2023-11-08", month: 11, day: 8, venue: "잠실", away: "KT", home: "LG", time: "18:30", isPostseason: true },
+    { date: "2023-11-10", month: 11, day: 10, venue: "수원", away: "LG", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2023-11-11", month: 11, day: 11, venue: "수원", away: "LG", home: "KT", time: "18:30", isPostseason: true },
+    { date: "2023-11-13", month: 11, day: 13, venue: "잠실", away: "KT", home: "LG", time: "18:30", isPostseason: true },
+  ],
+
   // ==================== 2024 포스트시즌 ====================
 
   // --- 와일드카드 결정전: KT vs 두산 (KT 2-0) ---
@@ -73,6 +145,147 @@ export const POSTSEASON_SCHEDULE: Record<string, ScheduleGame[]> = {
 // Score entries for postseason games
 // outcome = non-null means game finished (calendar uses score comparison for W/L, not outcome value)
 export const POSTSEASON_SCORES: Record<string, ScoreEntry[]> = {
+  // ==================== 2021 ====================
+  // --- 와일드카드: 키움 vs 두산 (두산 2-0) ---
+  "2021-11-01": [
+    { away: "키움", home: "두산", awayScore: 7, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "조상우", losePitcher: "김강률", gameIdx: 0 },
+  ],
+  "2021-11-02": [
+    { away: "키움", home: "두산", awayScore: 8, homeScore: 16, outcome: "W", cancelled: false, winPitcher: "이영하", losePitcher: "정찬헌", gameIdx: 0 },
+  ],
+  // --- 준플레이오프: 두산 vs LG (두산 3-0) ---
+  "2021-11-04": [
+    { away: "두산", home: "LG", awayScore: 5, homeScore: 1, outcome: "W", cancelled: false, winPitcher: "최원준", losePitcher: "수아레즈", gameIdx: 0 },
+  ],
+  "2021-11-05": [
+    { away: "LG", home: "두산", awayScore: 9, homeScore: 3, outcome: "W", cancelled: false, winPitcher: "켈리", losePitcher: "곽빈", gameIdx: 0 },
+  ],
+  "2021-11-07": [
+    { away: "두산", home: "LG", awayScore: 10, homeScore: 3, outcome: "W", cancelled: false, winPitcher: "이영하", losePitcher: "임찬규", gameIdx: 0 },
+  ],
+  // --- 플레이오프: 두산 vs 삼성 (두산 2-0) ---
+  "2021-11-09": [
+    { away: "두산", home: "삼성", awayScore: 6, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "홍건희", losePitcher: "뷰캐넌", gameIdx: 0 },
+  ],
+  "2021-11-10": [
+    { away: "삼성", home: "두산", awayScore: 3, homeScore: 11, outcome: "W", cancelled: false, winPitcher: "이영하", losePitcher: "백정현", gameIdx: 0 },
+  ],
+  // --- 한국시리즈: 두산 vs KT (KT 4-0) ---
+  "2021-11-14": [
+    { away: "두산", home: "KT", awayScore: 2, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "쿠에바스", losePitcher: "이영하", gameIdx: 0 },
+  ],
+  "2021-11-15": [
+    { away: "두산", home: "KT", awayScore: 1, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "소형준", losePitcher: "최원준", gameIdx: 0 },
+  ],
+  "2021-11-17": [
+    { away: "KT", home: "두산", awayScore: 3, homeScore: 1, outcome: "W", cancelled: false, winPitcher: "데스파이네", losePitcher: "미란다", gameIdx: 0 },
+  ],
+  "2021-11-18": [
+    { away: "KT", home: "두산", awayScore: 8, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "배제성", losePitcher: "곽빈", gameIdx: 0 },
+  ],
+
+  // ==================== 2022 ====================
+  // --- 와일드카드: KIA vs KT (KT 1-0) ---
+  "2022-10-13": [
+    { away: "KIA", home: "KT", awayScore: 2, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "소형준", losePitcher: "놀린", gameIdx: 0 },
+  ],
+  // --- 준플레이오프: KT vs 키움 (키움 3-2) ---
+  "2022-10-16": [
+    { away: "KT", home: "키움", awayScore: 4, homeScore: 8, outcome: "W", cancelled: false, winPitcher: "양현", losePitcher: "김민수", gameIdx: 0 },
+  ],
+  "2022-10-17": [
+    { away: "KT", home: "키움", awayScore: 2, homeScore: 0, outcome: "W", cancelled: false, winPitcher: "벤자민", losePitcher: "요키시", gameIdx: 0 },
+  ],
+  "2022-10-19": [
+    { away: "키움", home: "KT", awayScore: 9, homeScore: 2, outcome: "W", cancelled: false, winPitcher: "애플러", losePitcher: "고영표", gameIdx: 0 },
+  ],
+  "2022-10-20": [
+    { away: "키움", home: "KT", awayScore: 6, homeScore: 9, outcome: "W", cancelled: false, winPitcher: "소형준", losePitcher: "한현희", gameIdx: 0 },
+  ],
+  "2022-10-22": [
+    { away: "KT", home: "키움", awayScore: 3, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "안우진", losePitcher: "벤자민", gameIdx: 0 },
+  ],
+  // --- 플레이오프: 키움 vs LG (키움 3-1) ---
+  "2022-10-24": [
+    { away: "키움", home: "LG", awayScore: 3, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "켈리", losePitcher: "애플러", gameIdx: 0 },
+  ],
+  "2022-10-25": [
+    { away: "키움", home: "LG", awayScore: 7, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "이영준", losePitcher: "플럿코", gameIdx: 0 },
+  ],
+  "2022-10-27": [
+    { away: "LG", home: "키움", awayScore: 4, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "김동혁", losePitcher: "이정용", gameIdx: 0 },
+  ],
+  "2022-10-28": [
+    { away: "LG", home: "키움", awayScore: 1, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "애플러", losePitcher: "켈리", gameIdx: 0 },
+  ],
+  // --- 한국시리즈: 키움 vs SSG (SSG 4-2) ---
+  "2022-11-01": [
+    { away: "키움", home: "SSG", awayScore: 7, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "김재웅", losePitcher: "모리만도", gameIdx: 0 },
+  ],
+  "2022-11-02": [
+    { away: "키움", home: "SSG", awayScore: 1, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "폰트", losePitcher: "애플러", gameIdx: 0 },
+  ],
+  "2022-11-04": [
+    { away: "SSG", home: "키움", awayScore: 8, homeScore: 2, outcome: "W", cancelled: false, winPitcher: "김택형", losePitcher: "김동혁", gameIdx: 0 },
+  ],
+  "2022-11-05": [
+    { away: "SSG", home: "키움", awayScore: 3, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "양현", losePitcher: "모리만도", gameIdx: 0 },
+  ],
+  "2022-11-07": [
+    { away: "키움", home: "SSG", awayScore: 4, homeScore: 5, outcome: "W", cancelled: false, winPitcher: "노경은", losePitcher: "최원태", gameIdx: 0 },
+  ],
+  "2022-11-08": [
+    { away: "키움", home: "SSG", awayScore: 3, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "폰트", losePitcher: "요키시", gameIdx: 0 },
+  ],
+
+  // ==================== 2023 ====================
+  // --- 와일드카드: 두산 vs NC (NC 1-0) ---
+  "2023-10-19": [
+    { away: "두산", home: "NC", awayScore: 9, homeScore: 14, outcome: "W", cancelled: false, winPitcher: "김영규", losePitcher: "이영하", gameIdx: 0 },
+  ],
+  // --- 준플레이오프: NC vs SSG (NC 3-0) ---
+  "2023-10-22": [
+    { away: "NC", home: "SSG", awayScore: 4, homeScore: 3, outcome: "W", cancelled: false, winPitcher: "김영규", losePitcher: "엘리아스", gameIdx: 0 },
+  ],
+  "2023-10-23": [
+    { away: "NC", home: "SSG", awayScore: 7, homeScore: 3, outcome: "W", cancelled: false, winPitcher: "최성영", losePitcher: "김광현", gameIdx: 0 },
+  ],
+  "2023-10-25": [
+    { away: "SSG", home: "NC", awayScore: 6, homeScore: 7, outcome: "W", cancelled: false, winPitcher: "이재학", losePitcher: "노경은", gameIdx: 0 },
+  ],
+  // --- 플레이오프: NC vs KT (NC 3-2) ---
+  "2023-10-30": [
+    { away: "NC", home: "KT", awayScore: 9, homeScore: 5, outcome: "W", cancelled: false, winPitcher: "페디", losePitcher: "쿠에바스", gameIdx: 0 },
+  ],
+  "2023-10-31": [
+    { away: "NC", home: "KT", awayScore: 3, homeScore: 2, outcome: "W", cancelled: false, winPitcher: "신민혁", losePitcher: "벤자민", gameIdx: 0 },
+  ],
+  "2023-11-02": [
+    { away: "KT", home: "NC", awayScore: 3, homeScore: 0, outcome: "W", cancelled: false, winPitcher: "고영표", losePitcher: "태너", gameIdx: 0 },
+  ],
+  "2023-11-03": [
+    { away: "KT", home: "NC", awayScore: 11, homeScore: 2, outcome: "W", cancelled: false, winPitcher: "쿠에바스", losePitcher: "송명기", gameIdx: 0 },
+  ],
+  "2023-11-05": [
+    { away: "NC", home: "KT", awayScore: 2, homeScore: 3, outcome: "W", cancelled: false, winPitcher: "손동현", losePitcher: "김영규", gameIdx: 0 },
+  ],
+  // --- 한국시리즈: KT vs LG (LG 4-1) ---
+  "2023-11-07": [
+    { away: "KT", home: "LG", awayScore: 3, homeScore: 2, outcome: "W", cancelled: false, winPitcher: "손동현", losePitcher: "고우석", gameIdx: 0 },
+  ],
+  "2023-11-08": [
+    { away: "KT", home: "LG", awayScore: 4, homeScore: 5, outcome: "W", cancelled: false, winPitcher: "함덕주", losePitcher: "박영현", gameIdx: 0 },
+  ],
+  "2023-11-10": [
+    { away: "LG", home: "KT", awayScore: 8, homeScore: 7, outcome: "W", cancelled: false, winPitcher: "고우석", losePitcher: "김재윤", gameIdx: 0 },
+  ],
+  "2023-11-11": [
+    { away: "LG", home: "KT", awayScore: 15, homeScore: 4, outcome: "W", cancelled: false, winPitcher: "김윤식", losePitcher: "엄상백", gameIdx: 0 },
+  ],
+  "2023-11-13": [
+    { away: "KT", home: "LG", awayScore: 2, homeScore: 6, outcome: "W", cancelled: false, winPitcher: "켈리", losePitcher: "고영표", gameIdx: 0 },
+  ],
+
   // ==================== 2024 ====================
   // --- 와일드카드: KT vs 두산 (KT 2-0) ---
   "2024-10-02": [

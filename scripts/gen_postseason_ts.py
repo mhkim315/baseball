@@ -1,5 +1,5 @@
 """Convert postseason JSON data to TypeScript for postseasonData.ts"""
-import json, sys
+import json, sys, os
 
 TEAM_SHORT = {
     "KT": "KT", "두산": "두산", "LG": "LG", "삼성": "삼성",
@@ -14,39 +14,9 @@ def read_json(path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
 
-def is_postseason_game(g):
-    """Determine if a game is postseason (not regular season, not unplayed)."""
-    dt = g["date"]
-    month = int(dt[5:7])
-    day = int(dt[8:10])
-    status = g.get("statusCode", "")
-    away = g["away"]
-    home = g["home"]
-
-    # Skip unplayed games
-    if status == "BEFORE":
-        return False
-
-    # 2024: Postseason starts Oct 2 (WC)
-    if "2024" in dt:
-        if month == 10 and day >= 2 and status == "RESULT":
-            # Oct 2+ with RESULT = postseason
-            return True
-
-    # 2025: Postseason starts Oct 1 is regular season
-    # Games from Oct 2+ are postseason
-    if "2025" in dt:
-        if month == 10 and day >= 2 and status == "RESULT":
-            return True
-        # Also include Oct 1 games if they have RESULT... wait, Oct 1 2025 has 3 games
-        # Let me check - the 2025 season ended Sep 30, so Oct 1 is postseason start
-        # Actually need to check the game ID prefix for 2025
-
-    return False
-
-def is_oct1_regular(g):
-    """Oct 1 games are regular season (last regular season day)."""
-    return g["date"].endswith("-10-01")
+def has_actual_result(g):
+    """Skip unplayed/cancelled games (BEFORE status)."""
+    return g.get("statusCode", "") != "BEFORE"
 
 def transform_to_score_entry(g):
     """Convert JSON game to ScoreEntry format."""
@@ -149,15 +119,15 @@ if __name__ == "__main__":
 
     data_by_year = []
     for path in json_paths:
-        year_match = re.search(r'(\d{4})', os.path.basename(path))
+        year_match = re.search(r'(\d{4})', path)
         if not year_match:
             print(f"Cannot determine year from {path}, skipping", file=sys.stderr)
             continue
         year = int(year_match.group(1))
         raw = read_json(path)
 
-        # Filter: exclude Oct 1 regular season games and BEFORE status games
-        postseason = [g for g in raw if is_postseason_game(g) and not is_oct1_regular(g)]
+        # Filter out cancelled/unplayed games (BEFORE status)
+        postseason = [g for g in raw if has_actual_result(g)]
 
         print(f"{year}: {len(postseason)} postseason games (filtered from {len(raw)})")
         for g in postseason:
