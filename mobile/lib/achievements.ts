@@ -741,6 +741,245 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       };
     },
   },
+  // ── Phase 5: 구단별 시크릿 배지 (10종) ──
+  {
+    id: "cant_live_without_kia",
+    badgeKey: "cant_live_without_kia",
+    emoji: "🎵",
+    title: "KIA 없인 못 살아",
+    description: "KIA 응원가처럼 — KIA 승리를 5회 직관했어요",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 5,
+    check: (records) => {
+      const wins = records.filter(r =>
+        r.cheered_team === "kia" && resolveIsWin(r) === 1
+      );
+      const sorted = [...wins].sort((a, b) => a.date.localeCompare(b.date));
+      return {
+        unlocked: wins.length >= 5,
+        progressCurrent: Math.min(wins.length, 5),
+        progressTarget: 5,
+        qualifyingDate: wins.length >= 5 ? sorted[4]?.date : undefined,
+      };
+    },
+  },
+  {
+    id: "jokka_line",
+    badgeKey: "jokka_line",
+    emoji: "🦾",
+    title: "JOKKA 라인",
+    description: "전설의 삼성 불펜처럼 — 1점차 접전 승리를 직관했어요",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find(r =>
+        r.cheered_team === "samsung" && resolveIsWin(r) === 1 &&
+        r.score_away != null && r.score_home != null &&
+        Math.abs(r.score_away! - r.score_home!) === 1
+      );
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "seungri_yojeong",
+    badgeKey: "seungri_yojeong",
+    emoji: "🧚",
+    title: "승리의 요정",
+    description: "LG 연속 3승을 직관했어요 — 승리의 요정이 왔나봐요",
+    tier: "medium",
+    xp: 15,
+    category: "secret",
+    progressTarget: 3,
+    check: (records) => {
+      const lg = records
+        .filter(r => r.cheered_team === "lg")
+        .sort((a, b) => a.date.localeCompare(b.date));
+      let streak = 0, best = 0, bestDate: string | undefined;
+      for (const r of lg) {
+        if (resolveIsWin(r) === 1) { streak++; if (streak > best) { best = streak; bestDate = r.date; } }
+        else { streak = 0; }
+      }
+      return {
+        unlocked: best >= 3,
+        progressCurrent: Math.min(best, 3),
+        progressTarget: 3,
+        qualifyingDate: bestDate,
+      };
+    },
+  },
+  {
+    id: "positive_rhythm",
+    badgeKey: "positive_rhythm",
+    emoji: "🐻",
+    title: "긍정리듬",
+    description: "두산 2연패 직관 — 괜찮아요, 긍정리듬이 있어요",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 2,
+    check: (records) => {
+      const doosan = records
+        .filter(r => r.cheered_team === "doosan")
+        .sort((a, b) => a.date.localeCompare(b.date));
+      let streak = 0, best = 0, bestDate: string | undefined;
+      for (const r of doosan) {
+        if (resolveIsWin(r) === -1) { streak++; if (streak > best) { best = streak; bestDate = r.date; } }
+        else { streak = 0; }
+      }
+      return {
+        unlocked: best >= 2,
+        progressCurrent: Math.min(best, 2),
+        progressTarget: 2,
+        qualifyingDate: best >= 2 ? bestDate : undefined,
+      };
+    },
+  },
+  {
+    id: "brand_god",
+    badgeKey: "brand_god",
+    emoji: "🏷️",
+    title: "브랜드의 가치",
+    description: "SSG 직관 3회 — 이게 바로 브랜드의 가치",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 3,
+    check: (records) => {
+      const ssg = records
+        .filter(r => r.cheered_team === "ssg")
+        .sort((a, b) => a.date.localeCompare(b.date));
+      return {
+        unlocked: ssg.length >= 3,
+        progressCurrent: Math.min(ssg.length, 3),
+        progressTarget: 3,
+        qualifyingDate: ssg.length >= 3 ? ssg[2]?.date : undefined,
+      };
+    },
+  },
+  {
+    id: "wiz_magic",
+    badgeKey: "wiz_magic",
+    emoji: "🪄",
+    title: "위즈 매직",
+    description: "KT 홈경기 승리를 직관했어요 — 수원의 마법",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find(r => {
+        if (r.cheered_team !== "kt" || !r.game_id || resolveIsWin(r) !== 1) return false;
+        const ids = parseGameTeamIds(r.game_id);
+        return ids.homeId === "kt";
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "kim_taekjin",
+    badgeKey: "kim_taekjin",
+    emoji: "💻",
+    title: "김택진입니다",
+    description: "NC 원정경기 승리를 직관했어요 — 구단주의 마음으로",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find(r => {
+        if (r.cheered_team !== "nc" || !r.game_id || resolveIsWin(r) !== 1) return false;
+        const ids = parseGameTeamIds(r.game_id);
+        return ids.awayId === "nc";
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "busan_galmaegi",
+    badgeKey: "busan_galmaegi",
+    emoji: "🌊",
+    title: "부산 갈매기",
+    description: "사직구장에서 롯데 직관 — 돛대도 아니 달고 삿대도 없이",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find(r =>
+        r.cheered_team === "lotte" && r.stadium != null && r.stadium.includes("사직")
+      );
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "im_happy",
+    badgeKey: "im_happy",
+    emoji: "😇",
+    title: "나는 행복합니다",
+    description: "한화 패배를 5회 직관 — 그래도 나는 행복합니다",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 5,
+    check: (records) => {
+      const losses = records.filter(r =>
+        r.cheered_team === "hanwha" && resolveIsWin(r) === -1
+      );
+      const sorted = [...losses].sort((a, b) => a.date.localeCompare(b.date));
+      return {
+        unlocked: losses.length >= 5,
+        progressCurrent: Math.min(losses.length, 5),
+        progressTarget: 5,
+        qualifyingDate: losses.length >= 5 ? sorted[4]?.date : undefined,
+      };
+    },
+  },
+  {
+    id: "heroes_way",
+    badgeKey: "heroes_way",
+    emoji: "🦸",
+    title: "영웅의 길",
+    description: "키움 응원 승리를 직관했어요 — 비재벌 구단의 자존심",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find(r =>
+        r.cheered_team === "kiwoom" && resolveIsWin(r) === 1
+      );
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
 ];
 
 // --- Season Summary ---

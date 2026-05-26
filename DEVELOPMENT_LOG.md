@@ -1,6 +1,6 @@
 # Fullcount.kr Mobile App — 개발 작업 문서
 
-> 마지막 업데이트: 2026-05-26
+> 마지막 업데이트: 2026-05-27
 > 
 > 이 문서는 이전 대화 컨텍스트가 만료되어도 작업을 이어갈 수 있도록 상세히 기록합니다.
 
@@ -1046,4 +1046,31 @@ sudo systemctl restart fullcount-api.service
 |------|------|
 | `67d1979` | Add 5 new KBO badges (Phase 4) |
 | `8bc0fe6` | Add ConfettiOverlay + diary unlock animation |
-| (pending) | Add BadgeCollectionModal grid view + level rewards |
+| `5262d44` | Add BadgeCollectionModal grid view + level rewards |
+| `03f1bc5` | Fix CalendarGrid team selector spacing |
+
+### Phase 5 — 구단별 시크릿 배지 10종 (2026-05-27)
+
+KBO 10개 구단의 팬덤 문화·밈·응원가를 반영한 시크릿 배지 추가 (27개 → 37개).
+
+| badgeKey | emoji | 타이틀 | 구단 | 조건 | XP |
+|---|---|---|---|---|---|
+| cant_live_without_kia | 🎵 | KIA 없인 못 살아 | KIA | KIA 응원 5승 | 10 |
+| jokka_line | 🦾 | JOKKA 라인 | 삼성 | 삼성 1점차 승리 | 10 |
+| seungri_yojeong | 🧚 | 승리의 요정 | LG | LG 3연승 | 15 |
+| positive_rhythm | 🐻 | 긍정리듬 | 두산 | 두산 2연패 (연속 패배) | 10 |
+| brand_god | 🏷️ | 브랜드의 가치 | SSG | SSG 3회 직관 | 10 |
+| wiz_magic | 🪄 | 위즈 매직 | KT | KT 홈 승리 | 10 |
+| kim_taekjin | 💻 | 김택진입니다 | NC | NC 원정 승리 | 10 |
+| busan_galmaegi | 🌊 | 부산 갈매기 | 롯데 | 사직구장 직관 | 10 |
+| im_happy | 😇 | 나는 행복합니다 | 한화 | 한화 5패 | 10 |
+| heroes_way | 🦸 | 영웅의 길 | 키움 | 키움 승리 | 10 |
+
+**변경 파일:**
+- `mobile/lib/achievements.ts` — BADGE_DEFINITIONS에 Phase 5 구단별 시크릿 배지 10종 추가
+
+**참고사항:**
+- 모든 배지는 `"secret"` 카테고리, `"easy"` 티어 (seungri_yojeong만 `"medium"` 15xp)
+- `cheered_team` 필드로 각 구단별 응원 기록 필터링
+- `resolveIsWin(r)` / `parseGameTeamIds(r.game_id)` / `r.stadium` 활용
+- `positive_rhythm`(두산)과 `im_happy`(한화)는 패배/연패 조건 — 아이러니 응원문화 반영
