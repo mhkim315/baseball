@@ -75,7 +75,7 @@ export default function AchievementWidget() {
           {inProgress.map((item) => (
             <View key={item.def.id} style={{ flex: 1 }}>
               <Text style={[styles.progressLabel, { color: theme.mutedForeground }]}>
-                {item.def.emoji} {item.def.title}
+                {item.def.emoji} {item.def.category === "secret" ? "???" : item.def.title}
               </Text>
               <View style={[styles.miniBar, { backgroundColor: theme.muted }]}>
                 <View style={[styles.miniFill, { width: `${Math.min(item.progress * 100, 100)}%` }]} />

@@ -41,7 +41,7 @@ function BadgeDetailPopup({ badge, def, levelTitle, onClose }: {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 32 }}>
       <View style={[detailStyles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
         <Text style={{ fontSize: 48, textAlign: "center", marginBottom: 8 }}>{def.emoji}</Text>
-        <Text style={[detailStyles.title, { color: theme.foreground }]}>{def.title}</Text>
+        <Text style={[detailStyles.title, { color: theme.foreground }]}>{def.category === "secret" && !badge?.unlocked_date ? "???" : def.title}</Text>
         <Text style={[detailStyles.desc, { color: theme.mutedForeground }]}>{def.category === "secret" && !badge?.unlocked_date ? "???" : def.description}</Text>
         <View style={detailStyles.row}>
           <Text style={[detailStyles.tag, { backgroundColor: theme.muted, color: theme.mutedForeground }]}>
@@ -184,7 +184,7 @@ export default function BadgeCollectionModal({ visible, onClose, myTeam }: Badge
                   >
                     <View style={[styles.gridInner, unlocked ? styles.gridUnlocked : styles.gridLocked]}>
                       <Text style={styles.gridEmoji}>{unlocked ? def.emoji : "🔒"}</Text>
-                      <Text style={[styles.gridTitle, { color: theme.foreground }]} numberOfLines={1}>{def.title}</Text>
+                      <Text style={[styles.gridTitle, { color: theme.foreground }]} numberOfLines={1}>{def.category === "secret" && !unlocked ? "???" : def.title}</Text>
                       {!unlocked && badge && badge.progress_current > 0 && (
                         <View style={[styles.gridProgress, { backgroundColor: theme.muted }]}>
                           <View style={[styles.gridProgressFill, { width: `${Math.min((badge.progress_current / Math.max(badge.progress_target, 1)) * 100, 100)}%` }]} />
