@@ -622,6 +622,125 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       progressTarget: 30,
     }),
   },
+  // ── Phase 4: KBO 특화 배지 ──
+  {
+    id: "blowout",
+    badgeKey: "blowout",
+    emoji: "💪",
+    title: "대승 직관",
+    description: "10점차 이상 대승 경기 직관",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find((r) => {
+        const win = resolveIsWin(r);
+        return win === 1 && r.score_away != null && r.score_home != null
+          && Math.abs(r.score_away! - r.score_home!) >= 10;
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "one_run_win",
+    badgeKey: "one_run_win",
+    emoji: "😱",
+    title: "한점차 승리",
+    description: "1점차 승리 경기 직관",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find((r) => {
+        const win = resolveIsWin(r);
+        return win === 1 && r.score_away != null && r.score_home != null
+          && Math.abs(r.score_away! - r.score_home!) === 1;
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "opening_day",
+    badgeKey: "opening_day",
+    emoji: "🎊",
+    title: "개막전 직관",
+    description: "개막 시즌 경기 직관",
+    tier: "easy",
+    xp: 10,
+    category: "milestone",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find((r) => {
+        const parts = r.date.split('.');
+        if (parts.length < 3) return false;
+        const month = parseInt(parts[1], 10);
+        const day = parseInt(parts[2], 10);
+        return month === 3 && day >= 20;
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "tie_game",
+    badgeKey: "tie_game",
+    emoji: "🤝",
+    title: "무승부 직관",
+    description: "무승부 경기 직관",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find((r) => resolveIsWin(r) === 0);
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
+  {
+    id: "shutout",
+    badgeKey: "shutout",
+    emoji: "🧤",
+    title: "완봉승 직관",
+    description: "상대팀 0점 승리 직관",
+    tier: "easy",
+    xp: 10,
+    category: "secret",
+    progressTarget: 1,
+    check: (records) => {
+      const match = records.find((r) => {
+        const win = resolveIsWin(r);
+        return win === 1 && r.score_away != null && r.score_home != null
+          && (r.score_home === 0 || r.score_away === 0);
+      });
+      return {
+        unlocked: !!match,
+        progressCurrent: match ? 1 : 0,
+        progressTarget: 1,
+        qualifyingDate: match?.date,
+      };
+    },
+  },
 ];
 
 // --- Season Summary ---
