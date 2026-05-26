@@ -108,14 +108,16 @@ export default function CalendarGrid({
 
     // Month nav
     monthRow: {
-      flexDirection: "row", alignItems: "center", justifyContent: "space-between",
-      paddingVertical: 6,
+      flexDirection: "row", alignItems: "center",
+      paddingVertical: 6, paddingHorizontal: 16, minHeight: 36,
     },
     monthNav: {
       flexDirection: "row", alignItems: "center", gap: 20,
+      marginRight: 80,
     },
     // Team selector
     teamSelector: {
+      position: "absolute", right: 16,
       flexDirection: "row", alignItems: "center",
       gap: 4, paddingVertical: 4, paddingHorizontal: 10,
       borderRadius: 10, backgroundColor: theme.secondary,
