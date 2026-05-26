@@ -1,4 +1,4 @@
-import { getJikgwanRecords, getBadges, upsertBadge, checkAttendance, type Badge, type JikgwanRecord } from "@/lib/db";
+import { getJikgwanRecords, getBadges, upsertBadge, checkAttendance, getMyTeam, type Badge, type JikgwanRecord } from "@/lib/db";
 import { computeStreakStats } from "@/lib/stats";
 import { resolveIsWin } from "@/lib/expenseStats";
 import { parseGameTeamIds } from "@shared/constants";
@@ -19,7 +19,7 @@ export interface BadgeDefinition {
   category: "milestone" | "streak" | "attendance" | "exploration" | "secret";
   progressTarget: number;
   teamId?: string;
-  check: (records: JikgwanRecord[], existingBadges: Badge[], attendanceStreak: number) => BadgeEvalResult;
+  check: (records: JikgwanRecord[], existingBadges: Badge[], attendanceStreak: number, myTeam?: string | null) => BadgeEvalResult;
 }
 
 export interface BadgeEvalResult {
@@ -1299,6 +1299,32 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     };
   },
 },
+{
+  id: "irresponsible_pleasure",
+  badgeKey: "irresponsible_pleasure",
+  emoji: "🍿",
+  title: "책임없는쾌락",
+  description: "내 팀이 아닌 경기를 순수하게 즐겼어요 — 타팀 VS 타팀 직관 3회",
+  tier: "easy",
+  xp: 10,
+  category: "secret",
+  progressTarget: 3,
+  check: (records, _existingBadges, _attendanceStreak, myTeam) => {
+    if (!myTeam) return { unlocked: false, progressCurrent: 0, progressTarget: 3 };
+    const otherGames = records.filter(r => {
+      if (!r.game_id) return false;
+      const ids = parseGameTeamIds(r.game_id);
+      return ids.homeId !== myTeam && ids.awayId !== myTeam;
+    });
+    const sorted = [...otherGames].sort((a, b) => a.date.localeCompare(b.date));
+    return {
+      unlocked: otherGames.length >= 3,
+      progressCurrent: Math.min(otherGames.length, 3),
+      progressTarget: 3,
+      qualifyingDate: otherGames.length >= 3 ? sorted[sorted.length - 1]?.date : undefined,
+    };
+  },
+},
 ];
 
 export function getVisibleBadgeDefinitions(myTeam: string | null): BadgeDefinition[] {
@@ -1461,10 +1487,11 @@ export function computeLevel(badges: Badge[]): LevelInfo {
 // --- Badge Evaluation Engine ---
 
 export async function evaluateBadges(): Promise<Badge[]> {
-  const [records, existingBadges, attendanceStreak] = await Promise.all([
+  const [records, existingBadges, attendanceStreak, myTeam] = await Promise.all([
     getJikgwanRecords(),
     getBadges(),
     checkAttendance(),
+    getMyTeam(),
   ]);
 
   const existingMap = new Map(existingBadges.map((b) => [b.badge_key, b]));
@@ -1476,7 +1503,7 @@ export async function evaluateBadges(): Promise<Badge[]> {
     const existing = existingMap.get(def.badgeKey);
     if (existing?.unlocked_date) continue;
 
-    const result = def.check(records, existingBadges, attendanceStreak);
+    const result = def.check(records, existingBadges, attendanceStreak, myTeam);
 
     if (result.unlocked) {
       await upsertBadge({
