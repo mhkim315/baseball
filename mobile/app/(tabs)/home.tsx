@@ -472,7 +472,10 @@ export default function HomeScreen() {
   // Refresh data when app returns to foreground
   useEffect(() => {
     const sub = AppState.addEventListener('change', (state) => {
-      if (state === 'active') load();
+      if (state === 'active') {
+        load();
+        import("@/lib/achievements").then(({ evaluateBadges }) => evaluateBadges().catch(() => {}));
+      }
     });
     return () => sub.remove();
   }, [load]);

@@ -8,10 +8,14 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
 import { type ScheduleGame, type ScoreEntry } from "@/lib/api";
-import type { JikgwanRecord } from "@/lib/db";
-import { resolveIsWin } from "@/lib/expenseStats";
+import type { JikgwanRecord, Expense } from "@/lib/db";
+import { getBadges } from "@/lib/db";
+import { BADGE_DEFINITIONS } from "@/lib/achievements";
+import { resolveIsWin, getDailyTotals, formatAmount } from "@/lib/expenseStats";
 
 const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+
+export type CalendarMode = "jikgwan" | "expense" | "achievement";
 
 interface DiaryCalendarProps {
   year: number;
@@ -20,6 +24,8 @@ interface DiaryCalendarProps {
   teamId: string | null;
   onSelectDate: (date: Date) => void;
   onMonthChange: (year: number, month: number) => void;
+  mode?: CalendarMode;
+  expenses?: Expense[];
 }
 
 export default function DiaryCalendar({
@@ -29,11 +35,34 @@ export default function DiaryCalendar({
   teamId,
   onSelectDate,
   onMonthChange,
+  mode = "jikgwan",
+  expenses,
 }: DiaryCalendarProps) {
   const { theme, isDark } = useTheme();
   const [games, setGames] = useState<ScheduleGame[]>([]);
   const [scoresByDate, setScoresByDate] = useState<Record<string, ScoreEntry[]>>({});
   const [loading, setLoading] = useState(false);
+  const [badgeMap, setBadgeMap] = useState<Map<string, string[]>>(new Map());
+
+  const isExpense = mode === "expense";
+  const isAchievement = mode === "achievement";
+
+  // Load badge data for achievement mode
+  useEffect(() => {
+    if (!isAchievement) { setBadgeMap(new Map()); return; }
+    const emojiByKey = new Map(BADGE_DEFINITIONS.map((d) => [d.badgeKey, d.emoji]));
+    getBadges().then((badges) => {
+      const map = new Map<string, string[]>();
+      for (const b of badges) {
+        if (!b.unlocked_date) continue;
+        const emoji = emojiByKey.get(b.badge_key) ?? "🏅";
+        const list = map.get(b.unlocked_date) ?? [];
+        list.push(emoji);
+        map.set(b.unlocked_date, list);
+      }
+      setBadgeMap(map);
+    }).catch(() => {});
+  }, [year, month, isAchievement]);
 
   const teamName = teamId ? TEAM_LIST.find((t) => t.id === teamId)?.shortName || "" : "";
 
@@ -46,7 +75,6 @@ export default function DiaryCalendar({
       if (cancelled) return;
       const gamesList = schedule?.games || [];
       setGames(gamesList);
-      // Per-date scores: only fetch dates where my team played
       const myDates = [...new Set(
         gamesList
           .filter((g) => teamName && (g.away === teamName || g.home === teamName))
@@ -69,7 +97,7 @@ export default function DiaryCalendar({
     return () => { cancelled = true; };
   }, [year, month, teamName]);
 
-  // Build a map of date string -> records (YYYY.MM.DD format)
+  // Record map (used by all modes)
   const recordMap = new Map<string, JikgwanRecord[]>();
   for (const r of records) {
     const existing = recordMap.get(r.date) ?? [];
@@ -77,7 +105,17 @@ export default function DiaryCalendar({
     recordMap.set(r.date, existing);
   }
 
-  // Filter games for user's team, grouped by date (YYYY-MM-DD format from schedule)
+  // Expense data (expense mode only)
+  const dailyTotals = useMemo(() => getDailyTotals(expenses ?? [], year, month), [expenses, year, month]);
+  const recordDates = useMemo(() => {
+    const set = new Set<string>();
+    for (const r of records) {
+      set.add(r.date);
+    }
+    return set;
+  }, [records]);
+
+  // Filter games for user's team, grouped by date
   const myGamesByDate = new Map<string, ScheduleGame[]>();
   for (const g of games) {
     if (teamName && (g.away === teamName || g.home === teamName)) {
@@ -188,11 +226,24 @@ export default function DiaryCalendar({
       paddingTop: 6,
       borderRadius: 8,
       gap: 2,
+      position: "relative",
     },
     dayNum: {
       fontSize: 13,
       color: theme.foreground,
       fontWeight: "500",
+    },
+    expenseAmt: {
+      fontSize: 10,
+      color: theme.mutedForeground,
+      fontWeight: "600",
+    },
+    dot: {
+      width: 5,
+      height: 5,
+      borderRadius: 3,
+      backgroundColor: theme.foreground,
+      marginTop: 1,
     },
     resultRow: {
       flexDirection: "row",
@@ -361,23 +412,44 @@ export default function DiaryCalendar({
           const showOpponent = diaryOpponent || gameOpponent;
           const showResult = diaryResultBadge || gameResult;
 
+          // Expense data
+          const total = isExpense ? (dailyTotals.get(cell.day) || 0) : 0;
+          const hasRecord = isExpense && recordDates.has(dateStr);
+          const amtStr = formatAmount(total);
+          const amtFontSize = amtStr.length > 6 ? 8 : amtStr.length > 4 ? 9 : 10;
+
+          // Today highlight: expense mode uses plain border, others use team color
+          const todayBorder = isToday
+            ? (isExpense || isAchievement ? theme.foreground : teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground)
+            : undefined;
+
           return (
             <Pressable
               key={`day-${cell.day}`}
               style={[
                 styles.cell,
-                cell.isToday && { borderWidth: 2, borderColor: teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground },
+                isToday && { borderWidth: 2, borderColor: todayBorder },
               ]}
               onPress={() => onSelectDate(new Date(year, month, cell.day))}
             >
-              <View style={[styles.cellInner, cellBg ? { backgroundColor: cellBg } : undefined]}>
+              <View style={[
+                styles.cellInner,
+                !isExpense && !isAchievement && cellBg ? { backgroundColor: cellBg } : undefined,
+              ]}>
                 <Text style={[
                   styles.dayNum,
-                  cell.isToday && { fontWeight: "700", color: teamId ? teamPrimaryColor(teamId, isDark) : theme.foreground },
+                  isToday && { fontWeight: "700", color: todayBorder },
                 ]}>
                   {cell.day}
                 </Text>
-                {showOpponent && showResult ? (
+                {/* Expense mode: show amount + dot */}
+                {isExpense && total > 0 && (
+                  <Text style={[styles.expenseAmt, { fontSize: amtFontSize }]} numberOfLines={1}>{amtStr}</Text>
+                )}
+                {isExpense && hasRecord && <View style={styles.dot} />}
+
+                {/* Jikgwan only: result row (opponent + 승/무/패 + DH) */}
+                {!isExpense && !isAchievement && showOpponent && showResult ? (
                   <View style={styles.resultRow}>
                     <Text style={styles.oppName} numberOfLines={1}>{showOpponent}</Text>
                     <View style={[styles.resultBadge, { backgroundColor: showResult.color }]}>
@@ -390,12 +462,21 @@ export default function DiaryCalendar({
                     ) : null)}
                   </View>
                 ) : null}
-                {emotionChar && dayRecords?.[0]?.cheered_team && (
+
+                {/* Jikgwan only: emotion team badge */}
+                {!isExpense && !isAchievement && emotionChar && dayRecords?.[0]?.cheered_team && (
                   <TeamBadge
                     teamId={dayRecords[0].cheered_team}
                     size="sm"
                     emotion={emotionChar as "joyful" | "determined" | "neutral" | "sad"}
                   />
+                )}
+
+                {/* Achievement only: badge emoji */}
+                {isAchievement && badgeMap.has(dateStr) && (
+                  <Text style={{ fontSize: 10, position: "absolute", bottom: 4, right: 4 }}>
+                    {badgeMap.get(dateStr)![0]}
+                  </Text>
                 )}
               </View>
             </Pressable>
@@ -428,4 +509,3 @@ export default function DiaryCalendar({
     </GestureDetector>
   );
 }
-

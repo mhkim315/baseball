@@ -9,12 +9,13 @@ import DiaryCalendar from "@/components/DiaryCalendar";
 import YearSelector from "@/components/YearSelector";
 import DiaryStats from "@/components/DiaryStats";
 import DiaryEntryModal from "@/components/DiaryEntryModal";
-import ExpenseCalendar from "@/components/ExpenseCalendar";
 import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
+import AchievementList from "@/components/AchievementList";
 import ExpenseModal from "@/components/ExpenseModal";
-import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense } from "@/lib/db";
+import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, getBadgesByDate, type JikgwanRecord, type Expense, type Badge } from "@/lib/db";
 import { cachedDailyScores } from "@/lib/gameCache";
+import { BADGE_DEFINITIONS } from "@/lib/achievements";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import SettingsButton from "@/components/SettingsButton";
@@ -22,7 +23,7 @@ import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
 
 type DiaryTab = "timeline" | "calendar" | "stats";
-type SubTab = "jikgwan" | "expense";
+type SubTab = "jikgwan" | "expense" | "achievement";
 type TimelineViewMode = "list" | "webzine" | "grid";
 
 const TABS: { key: DiaryTab; label: string }[] = [
@@ -34,6 +35,7 @@ const TABS: { key: DiaryTab; label: string }[] = [
 const SUB_TABS: { key: SubTab; label: string }[] = [
   { key: "jikgwan", label: "직관" },
   { key: "expense", label: "지출" },
+  { key: "achievement", label: "도전과제" },
 ];
 
 export default function DiaryScreen() {
@@ -151,6 +153,8 @@ export default function DiaryScreen() {
   const [showExpenseModal, setShowExpenseModal] = useState(false);
   const [expenseSheetDate, setExpenseSheetDate] = useState<Date | null>(null);
   const [sheetExpenses, setSheetExpenses] = useState<Expense[]>([]);
+  const [achievementSheetDate, setAchievementSheetDate] = useState<Date | null>(null);
+  const [achievementBadges, setAchievementBadges] = useState<Badge[]>([]);
 
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);
@@ -279,6 +283,7 @@ export default function DiaryScreen() {
   useFocusEffect(
     useCallback(() => {
       loadData();
+      import("@/lib/achievements").then(({ evaluateBadges }) => evaluateBadges().catch(() => {}));
     }, [loadData])
   );
 
@@ -299,6 +304,7 @@ export default function DiaryScreen() {
         } catch {}
       }
       loadData();
+      import("@/lib/achievements").then(({ evaluateBadges }) => evaluateBadges().catch(() => {}));
     } catch {
       Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
     }
@@ -326,6 +332,7 @@ export default function DiaryScreen() {
       } catch {}
     }
     loadData();
+    import("@/lib/achievements").then(({ evaluateBadges }) => evaluateBadges().catch(() => {}));
   };
 
   const handleExpenseSaved = async () => {
@@ -382,6 +389,17 @@ export default function DiaryScreen() {
     }
   };
 
+  const handleSelectAchievementDate = async (date: Date) => {
+    try {
+      const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+      const badges = await getBadgesByDate(dateStr);
+      setAchievementSheetDate(date);
+      setAchievementBadges(badges);
+    } catch (e) {
+      console.warn("diary.tsx handleSelectAchievementDate failed", e);
+    }
+  };
+
   const showSubTabs = activeTab === "calendar" || activeTab === "stats";
   const isExpenseFab = showSubTabs && subTab === "expense";
 
@@ -432,7 +450,7 @@ export default function DiaryScreen() {
                   onPress={() => {
                     setSubTab(st.key);
                     if (st.key === "jikgwan") { setCalYear(expCalYear); setCalMonth(expCalMonth); }
-                    else { setExpCalYear(calYear); setExpCalMonth(calMonth); }
+                    else if (st.key === "expense") { setExpCalYear(calYear); setExpCalMonth(calMonth); }
                   }}
                 >
                   <Text style={[styles.viewModeBtnText, subTab === st.key && styles.viewModeBtnTextActive]}>{st.label}</Text>
@@ -566,25 +584,20 @@ export default function DiaryScreen() {
                 <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={theme.mutedForeground} />
               }
             >
-              {subTab === "jikgwan" ? (
-                <DiaryCalendar
-                  year={calYear}
-                  month={calMonth}
-                  records={records}
-                  teamId={myTeam}
-                  onSelectDate={handleSelectDate}
-                  onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); setDiaryYear(y); }}
-                />
-              ) : (
-                <ExpenseCalendar
-                  year={expCalYear}
-                  month={expCalMonth}
-                  expenses={expenses}
-                  records={records}
-                  onSelectDate={handleSelectExpenseDate}
-                  onMonthChange={(y, m) => { setExpCalYear(y); setExpCalMonth(m); setDiaryYear(y); }}
-                />
-              )}
+              <DiaryCalendar
+                year={subTab === "expense" ? expCalYear : calYear}
+                month={subTab === "expense" ? expCalMonth : calMonth}
+                records={records}
+                teamId={myTeam}
+                onSelectDate={subTab === "expense" ? handleSelectExpenseDate : subTab === "achievement" ? handleSelectAchievementDate : handleSelectDate}
+                onMonthChange={(y, m) => {
+                  if (subTab === "expense") { setExpCalYear(y); setExpCalMonth(m); }
+                  else { setCalYear(y); setCalMonth(m); }
+                  setDiaryYear(y);
+                }}
+                mode={subTab}
+                expenses={subTab === "expense" ? expenses : undefined}
+              />
             </ScrollView>
             {subTab === "expense" && (
               <ExpenseBottomSheet
@@ -615,8 +628,10 @@ export default function DiaryScreen() {
                   teamId={myTeam}
                   year={diaryYear}
                 />
-              ) : (
+              ) : subTab === "expense" ? (
                 <ExpenseStats expenses={expenses} records={records} teamId={myTeam} year={diaryYear} />
+              ) : (
+                <AchievementList records={records} />
               )}
             </ScrollView>
           </View>
@@ -655,13 +670,15 @@ export default function DiaryScreen() {
         </View>
       </Modal>
 
-      {/* FAB — context-aware */}
-      <Pressable
-        style={[styles.fab, { backgroundColor: isExpenseFab ? "gray" : teamColor }]}
-        onPress={handleFabPress}
-      >
-        <Text style={styles.fabText}>+</Text>
-      </Pressable>
+      {/* FAB — context-aware (hidden in achievement tab) */}
+      {subTab !== "achievement" && (
+        <Pressable
+          style={[styles.fab, { backgroundColor: isExpenseFab ? "gray" : teamColor }]}
+          onPress={handleFabPress}
+        >
+          <Text style={styles.fabText}>+</Text>
+        </Pressable>
+      )}
 
       {/* Entry Modal */}
       <DiaryEntryModal
@@ -679,6 +696,50 @@ export default function DiaryScreen() {
         onSaved={handleExpenseSaved}
         presetDate={expensePresetDate}
       />
+
+      {/* Achievement date detail */}
+      <Modal
+        visible={!!achievementSheetDate}
+        animationType="slide"
+        transparent
+        onRequestClose={() => setAchievementSheetDate(null)}
+      >
+        <View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "rgba(0,0,0,0.4)" }}>
+          <View style={{ backgroundColor: theme.card, borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 24, maxHeight: "60%", borderTopWidth: 1, borderTopColor: theme.border }}>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+              <Text style={{ fontSize: 18, fontWeight: "700", color: theme.foreground }}>
+                {achievementSheetDate ? `${achievementSheetDate.getFullYear()}.${String(achievementSheetDate.getMonth() + 1).padStart(2, "0")}.${String(achievementSheetDate.getDate()).padStart(2, "0")}` : ""}
+              </Text>
+              <Pressable onPress={() => setAchievementSheetDate(null)} hitSlop={12}>
+                <Text style={{ fontSize: 16, color: theme.mutedForeground }}>닫기</Text>
+              </Pressable>
+            </View>
+            {achievementBadges.length === 0 ? (
+              <Text style={{ color: theme.mutedForeground, fontSize: 14, textAlign: "center", paddingVertical: 24 }}>
+                해금한 도전과제가 없습니다
+              </Text>
+            ) : (
+              <ScrollView style={{ maxHeight: 400 }}>
+                <View style={{ gap: 12 }}>
+                  {achievementBadges.map((b) => {
+                    const def = BADGE_DEFINITIONS.find((d) => d.badgeKey === b.badge_key);
+                    return (
+                      <View key={b.id} style={{ flexDirection: "row", alignItems: "center", gap: 12, backgroundColor: theme.muted, borderRadius: 12, padding: 14 }}>
+                        <Text style={{ fontSize: 28, width: 40, textAlign: "center" }}>{def?.emoji ?? "🏅"}</Text>
+                        <View style={{ flex: 1 }}>
+                          <Text style={{ fontSize: 15, fontWeight: "700", color: theme.foreground }}>{def?.title ?? b.badge_key}</Text>
+                          <Text style={{ fontSize: 12, color: theme.mutedForeground, marginTop: 1 }}>{def?.description ?? ""}</Text>
+                          {def && <Text style={{ fontSize: 11, color: theme.mutedForeground, marginTop: 4 }}>+{def.xp}XP</Text>}
+                        </View>
+                      </View>
+                    );
+                  })}
+                </View>
+              </ScrollView>
+            )}
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
