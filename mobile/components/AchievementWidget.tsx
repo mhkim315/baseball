@@ -5,7 +5,6 @@ import { getBadges, type Badge } from "@/lib/db";
 import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel } from "@/lib/achievements";
 import { useTheme } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
-import { setPendingDiaryDeepLink } from "@/app/(tabs)/diary";
 
 export default function AchievementWidget() {
   const { theme } = useTheme();
@@ -48,7 +47,7 @@ export default function AchievementWidget() {
 
   return (
     <Pressable
-      onPress={() => { setPendingDiaryDeepLink("achievement"); router.push("/(tabs)/diary"); }}
+      onPress={() => router.push("/(tabs)/my")}
       style={[styles.card, { backgroundColor: theme.card, borderColor: levelAccent || theme.border }]}
     >
       {/* Level summary */}

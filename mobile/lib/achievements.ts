@@ -1,4 +1,4 @@
-import { getJikgwanRecords, getBadges, upsertBadge, checkAttendance, getMyTeam, type Badge, type JikgwanRecord } from "@/lib/db";
+import { getJikgwanRecords, getBadges, upsertBadge, checkAttendance, getMyTeam, getInstallDate, type Badge, type JikgwanRecord } from "@/lib/db";
 import { computeStreakStats } from "@/lib/stats";
 import { resolveIsWin } from "@/lib/expenseStats";
 import { parseGameTeamIds } from "@shared/constants";
@@ -19,7 +19,7 @@ export interface BadgeDefinition {
   category: "milestone" | "streak" | "attendance" | "exploration" | "secret";
   progressTarget: number;
   teamId?: string;
-  check: (records: JikgwanRecord[], existingBadges: Badge[], attendanceStreak: number, myTeam?: string | null) => BadgeEvalResult;
+  check: (records: JikgwanRecord[], existingBadges: Badge[], attendanceStreak: number, myTeam?: string | null, installDate?: string) => BadgeEvalResult;
 }
 
 export interface BadgeEvalResult {
@@ -417,7 +417,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     description: "같은 날 2경기를 모두 직관했어요",
     tier: "medium",
     xp: 25,
-    category: "secret",
+    category: "exploration",
     progressTarget: 1,
     check: (records) => {
       const dateCount = new Map<string, number>();
@@ -632,7 +632,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     description: "10점차 이상 대승 경기 직관",
     tier: "easy",
     xp: 10,
-    category: "secret",
+    category: "exploration",
     progressTarget: 1,
     check: (records) => {
       const match = records.find((r) => {
@@ -656,7 +656,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     description: "1점차 승리 경기 직관",
     tier: "easy",
     xp: 10,
-    category: "secret",
+    category: "exploration",
     progressTarget: 1,
     check: (records) => {
       const match = records.find((r) => {
@@ -706,7 +706,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     description: "무승부 경기 직관",
     tier: "easy",
     xp: 10,
-    category: "secret",
+    category: "exploration",
     progressTarget: 1,
     check: (records) => {
       const match = records.find((r) => resolveIsWin(r) === 0);
@@ -726,7 +726,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     description: "상대팀 0점 승리 직관",
     tier: "easy",
     xp: 10,
-    category: "secret",
+    category: "exploration",
     progressTarget: 1,
     check: (records) => {
       const match = records.find((r) => {
@@ -1307,7 +1307,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
   description: "내 팀이 아닌 경기를 순수하게 즐겼어요 — 타팀 VS 타팀 직관 3회",
   tier: "easy",
   xp: 10,
-  category: "secret",
+  category: "exploration",
   progressTarget: 3,
   check: (records, _existingBadges, _attendanceStreak, myTeam) => {
     if (!myTeam) return { unlocked: false, progressCurrent: 0, progressTarget: 3 };
@@ -1322,6 +1322,106 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       progressCurrent: Math.min(otherGames.length, 3),
       progressTarget: 3,
       qualifyingDate: otherGames.length >= 3 ? sorted[sorted.length - 1]?.date : undefined,
+    };
+  },
+},
+{
+  id: "past_record_1",
+  badgeKey: "past_record_1",
+  emoji: "📜",
+  title: "추억의 시작",
+  description: "앱 설치 전 직관 기록을 1개 작성했어요",
+  tier: "easy",
+  xp: 10,
+  category: "exploration",
+  progressTarget: 1,
+  check: (records, _existingBadges, _attendanceStreak, _myTeam, installDate) => {
+    if (!installDate) return { unlocked: false, progressCurrent: 0, progressTarget: 1 };
+    const pastRecords = records.filter(r => r.date < installDate);
+    return {
+      unlocked: pastRecords.length >= 1,
+      progressCurrent: Math.min(pastRecords.length, 1),
+      progressTarget: 1,
+    };
+  },
+},
+{
+  id: "past_record_5",
+  badgeKey: "past_record_5",
+  emoji: "📖",
+  title: "추억 소환",
+  description: "앱 설치 전 직관 기록을 5개 작성했어요",
+  tier: "easy",
+  xp: 10,
+  category: "exploration",
+  progressTarget: 5,
+  check: (records, _existingBadges, _attendanceStreak, _myTeam, installDate) => {
+    if (!installDate) return { unlocked: false, progressCurrent: 0, progressTarget: 5 };
+    const pastRecords = records.filter(r => r.date < installDate);
+    return {
+      unlocked: pastRecords.length >= 5,
+      progressCurrent: Math.min(pastRecords.length, 5),
+      progressTarget: 5,
+    };
+  },
+},
+{
+  id: "past_record_10",
+  badgeKey: "past_record_10",
+  emoji: "📚",
+  title: "추억 수집가",
+  description: "앱 설치 전 직관 기록을 10개 작성했어요",
+  tier: "medium",
+  xp: 25,
+  category: "exploration",
+  progressTarget: 10,
+  check: (records, _existingBadges, _attendanceStreak, _myTeam, installDate) => {
+    if (!installDate) return { unlocked: false, progressCurrent: 0, progressTarget: 10 };
+    const pastRecords = records.filter(r => r.date < installDate);
+    return {
+      unlocked: pastRecords.length >= 10,
+      progressCurrent: Math.min(pastRecords.length, 10),
+      progressTarget: 10,
+    };
+  },
+},
+{
+  id: "past_record_20",
+  badgeKey: "past_record_20",
+  emoji: "⏳",
+  title: "과거 여행자",
+  description: "앱 설치 전 직관 기록을 20개 작성했어요",
+  tier: "medium",
+  xp: 25,
+  category: "exploration",
+  progressTarget: 20,
+  check: (records, _existingBadges, _attendanceStreak, _myTeam, installDate) => {
+    if (!installDate) return { unlocked: false, progressCurrent: 0, progressTarget: 20 };
+    const pastRecords = records.filter(r => r.date < installDate);
+    return {
+      unlocked: pastRecords.length >= 20,
+      progressCurrent: Math.min(pastRecords.length, 20),
+      progressTarget: 20,
+    };
+  },
+},
+{
+  id: "past_record_50",
+  badgeKey: "past_record_50",
+  emoji: "🕰️",
+  title: "타임슬립",
+  description: "앱 설치 전 직관 기록을 50개 작성했어요",
+  tier: "hard",
+  xp: 50,
+  category: "exploration",
+  progressTarget: 50,
+  check: (records, _existingBadges, _attendanceStreak, _myTeam, installDate) => {
+    if (!installDate) return { unlocked: false, progressCurrent: 0, progressTarget: 50 };
+    const pastRecords = records.filter(r => r.date < installDate);
+    return {
+      unlocked: pastRecords.length >= 50,
+      progressCurrent: Math.min(pastRecords.length, 50),
+      progressTarget: 50,
     };
   },
 },
@@ -1487,11 +1587,12 @@ export function computeLevel(badges: Badge[]): LevelInfo {
 // --- Badge Evaluation Engine ---
 
 export async function evaluateBadges(): Promise<Badge[]> {
-  const [records, existingBadges, attendanceStreak, myTeam] = await Promise.all([
+  const [records, existingBadges, attendanceStreak, myTeam, installDate] = await Promise.all([
     getJikgwanRecords(),
     getBadges(),
     checkAttendance(),
     getMyTeam(),
+    getInstallDate(),
   ]);
 
   const existingMap = new Map(existingBadges.map((b) => [b.badge_key, b]));
@@ -1503,7 +1604,7 @@ export async function evaluateBadges(): Promise<Badge[]> {
     const existing = existingMap.get(def.badgeKey);
     if (existing?.unlocked_date) continue;
 
-    const result = def.check(records, existingBadges, attendanceStreak, myTeam);
+    const result = def.check(records, existingBadges, attendanceStreak, myTeam, installDate);
 
     if (result.unlocked) {
       await upsertBadge({

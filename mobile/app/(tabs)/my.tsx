@@ -26,13 +26,11 @@ import {
   setNickname,
   getProfileImage,
   setProfileImage,
-  getBadges,
   resetAllData,
-  type Badge,
 } from "@/lib/db";
-import { BADGE_DEFINITIONS, getVisibleBadgeDefinitions, computeLevel } from "@/lib/achievements";
-import BadgeCollectionModal from "@/components/BadgeCollectionModal";
 import YearInReview from "@/components/YearInReview";
+import AchievementSection from "@/components/AchievementSection";
+import AchievementModal from "@/components/AchievementModal";
 
 const PROFILE_CHARACTERS: { key: string; label: string }[] = [
   { key: "default", label: "기본" },
@@ -44,49 +42,6 @@ const PROFILE_CHARACTERS: { key: string; label: string }[] = [
   { key: "shocked", label: "놀람" },
   { key: "determined", label: "불굴" },
 ];
-
-function BadgeCollectionSection({ onOpen }: { onOpen: () => void }) {
-  const { theme } = useTheme();
-  const { myTeam } = useTeam();
-  const [badges, setBadges] = useState<Badge[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useFocusEffect(useCallback(() => {
-    getBadges().then(setBadges).catch(() => {}).finally(() => setLoading(false));
-  }, []));
-
-  if (loading) return null;
-
-  const levelInfo = computeLevel(badges);
-  const levelEmoji = levelInfo.level >= 7 ? "👑" : levelInfo.level >= 5 ? "🏆" : levelInfo.level >= 3 ? "🥇" : "🥚";
-  const visibleDefs = getVisibleBadgeDefinitions(myTeam);
-  const unlockedCount = badges.filter((b) => b.unlocked_date).length;
-  const totalVisible = visibleDefs.length;
-  const unlockedBadges = badges
-    .filter((b) => b.unlocked_date)
-    .map((b) => BADGE_DEFINITIONS.find((d) => d.badgeKey === b.badge_key))
-    .filter(Boolean);
-
-  return (
-    <Pressable style={[{ marginHorizontal: 16, marginBottom: 20, borderRadius: 14, borderWidth: 1, padding: 14 }, { backgroundColor: theme.card, borderColor: theme.border }]} onPress={onOpen}>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
-        <Text style={{ fontSize: 28 }}>{levelEmoji}</Text>
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 14, fontWeight: "700", color: theme.foreground }}>
-            도전과제
-          </Text>
-          <Text style={{ fontSize: 12, color: theme.mutedForeground }}>
-            {unlockedCount}/{totalVisible} 획득 · LV.{levelInfo.level}
-          </Text>
-        </View>
-        {unlockedBadges.slice(0, 5).map((def) => (
-          <Text key={def!.badgeKey} style={{ fontSize: 20 }}>{def!.emoji}</Text>
-        ))}
-        <Text style={{ fontSize: 14, color: theme.mutedForeground }}>→</Text>
-      </View>
-    </Pressable>
-  );
-}
 
 export default function MyScreen() {
   const { theme, isDark, toggleTheme } = useTheme();
@@ -367,7 +322,8 @@ export default function MyScreen() {
   const [showTeamPicker, setShowTeamPicker] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [showYearInReview, setShowYearInReview] = useState(false);
-  const [showBadgeCollection, setShowBadgeCollection] = useState(false);
+  const [showAchievementModal, setShowAchievementModal] = useState(false);
+
   const reviewYear = new Date().getFullYear();
   const router = useRouter();
 
@@ -496,9 +452,9 @@ export default function MyScreen() {
 
       {/* Year in Review */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>시즌 리캡</Text>
+        <Text style={styles.sectionTitle}>모아보기</Text>
         <Pressable
-          style={[styles.myTeamRow, { gap: 12 }]}
+          style={[styles.myTeamRow, { gap: 12, marginBottom: 12 }]}
           onPress={() => setShowYearInReview(true)}
         >
           <Text style={{ fontSize: 28 }}>⚾</Text>
@@ -512,13 +468,9 @@ export default function MyScreen() {
           </View>
           <Text style={styles.myTeamArrow}>›</Text>
         </Pressable>
+
+        <AchievementSection onPress={() => setShowAchievementModal(true)} />
       </View>
-
-      {/* Badge Collection */}
-      <BadgeCollectionSection onOpen={() => setShowBadgeCollection(true)} />
-
-      {/* Badge Collection Modal */}
-      <BadgeCollectionModal visible={showBadgeCollection} onClose={() => setShowBadgeCollection(false)} myTeam={myTeam} />
 
       {/* App Info */}
       <View style={styles.section}>
@@ -676,6 +628,9 @@ export default function MyScreen() {
       <Modal visible={showYearInReview} animationType="slide">
         <YearInReview year={reviewYear} onClose={() => setShowYearInReview(false)} />
       </Modal>
+
+      {/* Achievement Modal */}
+      <AchievementModal visible={showAchievementModal} onClose={() => setShowAchievementModal(false)} />
     </ScrollView>
   );
 }

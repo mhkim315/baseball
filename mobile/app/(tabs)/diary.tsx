@@ -11,28 +11,23 @@ import DiaryStats from "@/components/DiaryStats";
 import DiaryEntryModal from "@/components/DiaryEntryModal";
 import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
-import AchievementList from "@/components/AchievementList";
+
 import AchievementToast from "@/components/AchievementToast";
 import ConfettiOverlay from "@/components/ConfettiOverlay";
 import ExpenseModal from "@/components/ExpenseModal";
-import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, getBadgesByDate, type JikgwanRecord, type Expense, type Badge } from "@/lib/db";
+import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense, type Badge } from "@/lib/db";
 import { cachedDailyScores } from "@/lib/gameCache";
-import { BADGE_DEFINITIONS } from "@/lib/achievements";
+
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
 import MyButton from "@/components/MyButton";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
 
-// Module-level deep-link target — set before navigating to a tab, read on focus.
-// Route params don't reliably propagate to already-mounted tab screens in Expo Router.
-let _pendingDeepLink: string | null = null;
-export function setPendingDiaryDeepLink(tab: string) {
-  _pendingDeepLink = tab;
-}
+
 
 type DiaryTab = "timeline" | "calendar" | "stats";
-type SubTab = "jikgwan" | "expense" | "achievement";
+type SubTab = "jikgwan" | "expense";
 type TimelineViewMode = "list" | "webzine" | "grid";
 
 const TABS: { key: DiaryTab; label: string }[] = [
@@ -44,7 +39,7 @@ const TABS: { key: DiaryTab; label: string }[] = [
 const SUB_TABS: { key: SubTab; label: string }[] = [
   { key: "jikgwan", label: "직관" },
   { key: "expense", label: "지출" },
-  { key: "achievement", label: "도전과제" },
+
 ];
 
 export default function DiaryScreen() {
@@ -162,23 +157,11 @@ export default function DiaryScreen() {
   const [showExpenseModal, setShowExpenseModal] = useState(false);
   const [expenseSheetDate, setExpenseSheetDate] = useState<Date | null>(null);
   const [sheetExpenses, setSheetExpenses] = useState<Expense[]>([]);
-  const [achievementSheetDate, setAchievementSheetDate] = useState<Date | null>(null);
-  const [achievementBadges, setAchievementBadges] = useState<Badge[]>([]);
+
   const [toastBadges, setToastBadges] = useState<Badge[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  // Handle deep-link target set by setPendingDiaryDeepLink (e.g. from AchievementWidget)
-  useFocusEffect(useCallback(() => {
-    if (_pendingDeepLink) {
-      const target = _pendingDeepLink;
-      _pendingDeepLink = null;
-      if (target === "achievement") {
-        setActiveTab("stats");
-        setSubTab("achievement");
-        tabScrollRef.current?.scrollTo({ x: screenWidth * 2, animated: false });
-      }
-    }
-  }, []));
+
 
   // Horizontal tab scroll
   const tabScrollRef = useRef<ScrollView>(null);
@@ -432,16 +415,7 @@ export default function DiaryScreen() {
     }
   };
 
-  const handleSelectAchievementDate = async (date: Date) => {
-    try {
-      const dateStr = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
-      const badges = await getBadgesByDate(dateStr);
-      setAchievementSheetDate(date);
-      setAchievementBadges(badges);
-    } catch (e) {
-      console.warn("diary.tsx handleSelectAchievementDate failed", e);
-    }
-  };
+
 
   const showSubTabs = activeTab === "calendar" || activeTab === "stats";
   const isExpenseFab = showSubTabs && subTab === "expense";
@@ -462,7 +436,7 @@ export default function DiaryScreen() {
       <AchievementToast
         badges={toastBadges}
         onDismiss={() => setToastBadges([])}
-        onPress={() => { setToastBadges([]); setActiveTab("stats"); setSubTab("achievement"); tabScrollRef.current?.scrollTo({ x: screenWidth * 2, animated: false }); }}
+        onPress={() => setToastBadges([])}
       />
 
       {/* Header */}
@@ -640,7 +614,7 @@ export default function DiaryScreen() {
                 month={subTab === "expense" ? expCalMonth : calMonth}
                 records={records}
                 teamId={myTeam}
-                onSelectDate={subTab === "expense" ? handleSelectExpenseDate : subTab === "achievement" ? handleSelectAchievementDate : handleSelectDate}
+                onSelectDate={subTab === "expense" ? handleSelectExpenseDate : handleSelectDate}
                 onMonthChange={(y, m) => {
                   if (subTab === "expense") { setExpCalYear(y); setExpCalMonth(m); }
                   else { setCalYear(y); setCalMonth(m); }
@@ -679,10 +653,8 @@ export default function DiaryScreen() {
                   teamId={myTeam}
                   year={diaryYear}
                 />
-              ) : subTab === "expense" ? (
-                <ExpenseStats expenses={expenses} records={records} teamId={myTeam} year={diaryYear} />
               ) : (
-                <AchievementList records={records} />
+                <ExpenseStats expenses={expenses} records={records} teamId={myTeam} year={diaryYear} />
               )}
             </ScrollView>
           </View>
@@ -721,15 +693,13 @@ export default function DiaryScreen() {
         </View>
       </Modal>
 
-      {/* FAB — context-aware (hidden in achievement tab) */}
-      {subTab !== "achievement" && (
-        <Pressable
-          style={[styles.fab, { backgroundColor: isExpenseFab ? "gray" : teamColor }]}
-          onPress={handleFabPress}
-        >
-          <Text style={styles.fabText}>+</Text>
-        </Pressable>
-      )}
+      {/* FAB */}
+      <Pressable
+        style={[styles.fab, { backgroundColor: isExpenseFab ? "gray" : teamColor }]}
+        onPress={handleFabPress}
+      >
+        <Text style={styles.fabText}>+</Text>
+      </Pressable>
 
       {/* Entry Modal */}
       <DiaryEntryModal
@@ -748,49 +718,6 @@ export default function DiaryScreen() {
         presetDate={expensePresetDate}
       />
 
-      {/* Achievement date detail */}
-      <Modal
-        visible={!!achievementSheetDate}
-        animationType="slide"
-        transparent
-        onRequestClose={() => setAchievementSheetDate(null)}
-      >
-        <View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "rgba(0,0,0,0.4)" }}>
-          <View style={{ backgroundColor: theme.card, borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 24, maxHeight: "60%", borderTopWidth: 1, borderTopColor: theme.border }}>
-            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-              <Text style={{ fontSize: 18, fontWeight: "700", color: theme.foreground }}>
-                {achievementSheetDate ? `${achievementSheetDate.getFullYear()}.${String(achievementSheetDate.getMonth() + 1).padStart(2, "0")}.${String(achievementSheetDate.getDate()).padStart(2, "0")}` : ""}
-              </Text>
-              <Pressable onPress={() => setAchievementSheetDate(null)} hitSlop={12}>
-                <Text style={{ fontSize: 16, color: theme.mutedForeground }}>닫기</Text>
-              </Pressable>
-            </View>
-            {achievementBadges.length === 0 ? (
-              <Text style={{ color: theme.mutedForeground, fontSize: 14, textAlign: "center", paddingVertical: 24 }}>
-                해금한 도전과제가 없습니다
-              </Text>
-            ) : (
-              <ScrollView style={{ maxHeight: 400 }}>
-                <View style={{ gap: 12 }}>
-                  {achievementBadges.map((b) => {
-                    const def = BADGE_DEFINITIONS.find((d) => d.badgeKey === b.badge_key);
-                    return (
-                      <View key={b.id} style={{ flexDirection: "row", alignItems: "center", gap: 12, backgroundColor: theme.muted, borderRadius: 12, padding: 14 }}>
-                        <Text style={{ fontSize: 28, width: 40, textAlign: "center" }}>{def?.emoji ?? "🏅"}</Text>
-                        <View style={{ flex: 1 }}>
-                          <Text style={{ fontSize: 15, fontWeight: "700", color: theme.foreground }}>{def?.title ?? b.badge_key}</Text>
-                          <Text style={{ fontSize: 12, color: theme.mutedForeground, marginTop: 1 }}>{def?.description ?? ""}</Text>
-                          {def && <Text style={{ fontSize: 11, color: theme.mutedForeground, marginTop: 4 }}>+{def.xp}XP</Text>}
-                        </View>
-                      </View>
-                    );
-                  })}
-                </View>
-              </ScrollView>
-            )}
-          </View>
-        </View>
-      </Modal>
     </View>
   );
 }

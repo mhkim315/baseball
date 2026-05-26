@@ -200,6 +200,15 @@ export async function setNickname(name: string): Promise<void> {
   await setSetting("nickname", name);
 }
 
+export async function getInstallDate(): Promise<string> {
+  const existing = await getSetting("install_date");
+  if (existing) return existing;
+  const now = new Date();
+  const dateStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}.${String(now.getDate()).padStart(2, "0")}`;
+  await setSetting("install_date", dateStr);
+  return dateStr;
+}
+
 export async function getProfileImage(): Promise<{ type: string; value: string } | null> {
   // Try single JSON key first
   const raw = await getSetting("profile_image");
