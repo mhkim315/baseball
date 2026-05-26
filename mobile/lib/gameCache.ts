@@ -150,15 +150,16 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
 
 // Daily scores — TTL based on date
 export async function cachedDailyScores(date: string): Promise<{ games: ScoreEntry[] } | null> {
-  // Always check local data first (any year including 2026 exhibition)
-  const localScores = LOCAL_SCORES[date];
-  if (localScores) return { games: localScores };
-  // Check exhibition data for past years (2020-2025)
-  const exhibitionScores = EXHIBITION_SCORES[date];
-  if (exhibitionScores) return { games: exhibitionScores };
-  // Check postseason data for past years
+  // Postseason scores take priority over regular season scores for overlapping dates
   const postseasonScores = POSTSEASON_SCORES[date];
   if (postseasonScores) return { games: postseasonScores };
+  // Regular season local scores (2021–2025) — may contain wrong data for postseason dates,
+  // but those are shadowed by the POSTSEASON_SCORES check above
+  const localScores = LOCAL_SCORES[date];
+  if (localScores) return { games: localScores };
+  // Exhibition data for past years (2020-2025)
+  const exhibitionScores = EXHIBITION_SCORES[date];
+  if (exhibitionScores) return { games: exhibitionScores };
   // No local data: past years have no API data, 2026+ try API
   const year = parseInt(date.slice(0, 4), 10);
   if (!isNaN(year) && year <= 2025) {
@@ -189,7 +190,7 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
         filtered[date] = entries;
       }
     }
-    // Include postseason scores for past years
+    // Include postseason scores for past years (last write wins, overriding LOCAL_SCORES for same dates)
     for (const [date, entries] of Object.entries(POSTSEASON_SCORES)) {
       if (date.startsWith(prefix)) {
         filtered[date] = entries;

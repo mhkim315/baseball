@@ -435,7 +435,7 @@ export default function HomeScreen() {
       const gamesList = schedule?.games || [];
       const myDates = [...new Set(gamesList.map((g) => g.date))];
       const scoreResults = await Promise.all(
-        myDates.map((d) => cachedDailyScores(d).catch(() => null))
+        myDates.map((d) => cachedDailyScores(d).catch((e) => { console.warn('cachedDailyScores failed for', d, e); return null; }))
       );
       if (cancelled) return;
       const scoresRecord: Record<string, any[]> = {};
@@ -455,17 +455,17 @@ export default function HomeScreen() {
           cachedScheduleByMonth(adj, calYear).then(async (s) => {
             const gl = s?.games || [];
             const dts = [...new Set(gl.map((g) => g.date))];
-            const srs = await Promise.all(dts.map((d) => cachedDailyScores(d).catch(() => null)));
+            const srs = await Promise.all(dts.map((d) => cachedDailyScores(d).catch((e) => { console.warn('cachedDailyScores preload failed for', d, e); return null; })));
             const src: Record<string, any[]> = {};
             for (let i = 0; i < dts.length; i++) {
               if (srs[i]?.games) src[dts[i]] = srs[i]!.games;
             }
             calCache.current[adjKey] = { games: gl, scores: src };
             pruneCalCache(calCache.current);
-          }).catch(() => {});
+          }).catch((e) => { console.warn('adjacent month preload failed', e); });
         }
       }
-    }).catch(() => {});
+    }).catch((e) => { console.warn('calendar schedule fetch failed', e); });
     return () => { cancelled = true; };
   }, [calendarOpen, calMonth, calYear]);
 
@@ -583,7 +583,7 @@ export default function HomeScreen() {
           month={calMonth}
           games={calGames}
           scores={calScores}
-          loading={false}
+          loading={loading}
           selectedTeam={displayTeam || myTeam}
           myTeam={myTeam}
           onSelectDate={(d) => { setSelectedDate(d); setCalendarOpen(false); }}
