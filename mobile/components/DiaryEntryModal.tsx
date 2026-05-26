@@ -56,6 +56,7 @@ export interface GameOption {
   venue: string;
   time: string;
   isExhibition?: boolean;
+  isPostseason?: boolean;
 }
 
 interface DiaryEntryModalProps {
@@ -251,6 +252,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           venue: resolveVenue(homeTeamId, g.venue),
           time: g.time || "",
           isExhibition: g.isExhibition,
+          isPostseason: g.isPostseason,
         };
       });
 
@@ -458,7 +460,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
           stadium: selectedGame?.venue || editRecord.stadium || null,
-          game_type: selectedGame?.isExhibition ? "exhibition" : (editRecord.game_type ?? null),
+          game_type: selectedGame?.isPostseason ? "postseason" : selectedGame?.isExhibition ? "exhibition" : (editRecord.game_type ?? null),
         });
       } else {
         recordId = await addJikgwanRecord({
@@ -479,7 +481,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
           cheered_team: (cheeredTeam || userTeam || null) as string | null,
           is_live: isLive ? 1 : 0,
           seat: seat.trim() || null,
-          game_type: selectedGame?.isExhibition ? "exhibition" : null,
+          game_type: selectedGame?.isPostseason ? "postseason" : selectedGame?.isExhibition ? "exhibition" : null,
         });
         // Save expenses for new record
         await saveExpenses(recordId);
@@ -1052,7 +1054,12 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                                   <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
                                     <Text style={styles.gameVs}>VS</Text>
                                     <Text style={styles.gameMeta}>{myGame.time}</Text>
-                                    {myGame.isExhibition && (
+                                    {myGame.isPostseason && (
+                                      <View style={[styles.exhibitionBadge, { backgroundColor: "#eab308" }]}>
+                                        <Text style={[styles.exhibitionBadgeText, { color: "#fff" }]}>PS</Text>
+                                      </View>
+                                    )}
+                                    {myGame.isExhibition && !myGame.isPostseason && (
                                       <View style={styles.exhibitionBadge}>
                                         <Text style={styles.exhibitionBadgeText}>시범</Text>
                                       </View>
@@ -1109,7 +1116,12 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                                     <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
                                         <Text style={styles.gameVs}>VS</Text>
                                         <Text style={styles.gameMeta}>{g.time}</Text>
-                                        {g.isExhibition && (
+                                        {g.isPostseason && (
+                                          <View style={[styles.exhibitionBadge, { backgroundColor: "#eab308" }]}>
+                                            <Text style={[styles.exhibitionBadgeText, { color: "#fff" }]}>PS</Text>
+                                          </View>
+                                        )}
+                                        {g.isExhibition && !g.isPostseason && (
                                           <View style={styles.exhibitionBadge}>
                                             <Text style={styles.exhibitionBadgeText}>시범</Text>
                                           </View>

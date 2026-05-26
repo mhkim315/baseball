@@ -13,6 +13,7 @@ import {
 import { CHEER_SONGS, CHEER_PLAYERS } from "./cheerData";
 import { LOCAL_SCHEDULE, LOCAL_SCORES } from "./scheduleData";
 import { EXHIBITION_SCORES } from "./exhibitionData";
+import { POSTSEASON_SCHEDULE, POSTSEASON_SCORES } from "./postseasonData";
 import type { CheerSection, PlayerCheer } from "./api";
 
 function cacheKey(name: string, id: string): string {
@@ -98,17 +99,26 @@ export async function cachedCheeringPlayers(teamId: string): Promise<{ players: 
   return players ? { players } : null;
 }
 
+// Ensure date is YYYY-MM-DD regardless of server response format
+function normalizeDate(d: string): string {
+  if (/^\d{8}$/.test(d)) return `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
+  return d;
+}
+
 // Schedule by month — never changes, cache forever (key includes year)
 export async function cachedScheduleByMonth(month: number, year?: number): Promise<{ games: ScheduleGame[] } | null> {
   const y = year ?? thisYear();
   // Past seasons (2021–2025): use local data, no API call
   if (y <= 2025) {
-    const rawGames = LOCAL_SCHEDULE[`${y}:${month}`];
-    if (!rawGames) return null;
-    // Infer isExhibition: dates without LOCAL_SCORES are exhibition games
-    const games: ScheduleGame[] = rawGames.map(g => ({
+    const rawGames = LOCAL_SCHEDULE[`${y}:${month}`] ?? [];
+    const postseasonGames = POSTSEASON_SCHEDULE[`${y}:${month}`] ?? [];
+    const allGames = [...rawGames, ...postseasonGames];
+    if (allGames.length === 0) return null;
+    // Infer isExhibition: dates without LOCAL_SCORES are exhibition games,
+    // postseason games are explicitly flagged and should not be treated as exhibition
+    const games: ScheduleGame[] = allGames.map(g => ({
       ...g,
-      isExhibition: g.isExhibition ?? (LOCAL_SCORES[g.date] ? undefined : true),
+      isExhibition: g.isExhibition ?? (g.isPostseason ? false : (LOCAL_SCORES[g.date] ? undefined : true)),
     }));
     return { games };
   }
@@ -116,6 +126,10 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
   const apiResult = await fetchWithCache(cacheKey("schedule", `${y}:${month}`), 86_400_000, () =>
     apiScheduleByMonth(month, y)
   );
+  // Normalize API dates (server might return YYYYMMDD or YYYY-MM-DD)
+  if (apiResult?.games) {
+    for (const g of apiResult.games) g.date = normalizeDate(g.date);
+  }
   const localGames = LOCAL_SCHEDULE[`${y}:${month}`];
   if (!localGames) return apiResult;
   // Merge: local exhibition games + API regular season, dedup by date+away+home+gameIdx
@@ -140,6 +154,9 @@ export async function cachedDailyScores(date: string): Promise<{ games: ScoreEnt
   // Check exhibition data for past years (2020-2025)
   const exhibitionScores = EXHIBITION_SCORES[date];
   if (exhibitionScores) return { games: exhibitionScores };
+  // Check postseason data for past years
+  const postseasonScores = POSTSEASON_SCORES[date];
+  if (postseasonScores) return { games: postseasonScores };
   // No local data: past years have no API data, 2026+ try API
   const year = parseInt(date.slice(0, 4), 10);
   if (!isNaN(year) && year <= 2025) {
@@ -166,6 +183,12 @@ export async function cachedAllDailyScores(year?: number): Promise<Record<string
     }
     // Include exhibition scores for past years
     for (const [date, entries] of Object.entries(EXHIBITION_SCORES)) {
+      if (date.startsWith(prefix)) {
+        filtered[date] = entries;
+      }
+    }
+    // Include postseason scores for past years
+    for (const [date, entries] of Object.entries(POSTSEASON_SCORES)) {
       if (date.startsWith(prefix)) {
         filtered[date] = entries;
       }

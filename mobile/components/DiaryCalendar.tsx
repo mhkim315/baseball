@@ -305,7 +305,8 @@ export default function DiaryCalendar({
                 const pairKey = `${g.away}|${g.home}`;
                 const pairIdx = pairCount.get(pairKey) ?? 0;
                 pairCount.set(pairKey, pairIdx + 1);
-                const score = dayScores.find((s) => s.away === g.away && s.home === g.home && (s.gameIdx ?? 0) === pairIdx + 1);
+                const matchingScores = dayScores.filter((s) => s.away === g.away && s.home === g.home);
+                const score = matchingScores.find((s) => (s.gameIdx ?? 0) === pairIdx + 1) || matchingScores[pairIdx];
                 if (score && !score.cancelled && score.outcome != null) {
                   const isHome = g.home === teamName;
                   const our = isHome ? score.homeScore : score.awayScore;

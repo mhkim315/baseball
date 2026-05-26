@@ -1,4 +1,4 @@
-import type { ScheduleGame, ScoreEntry } from "./api";
+import type { ScheduleGame } from "./api";
 
 // Key: "{year}:{month}"
 export const LOCAL_SCHEDULE: Record<string, ScheduleGame[]> = {

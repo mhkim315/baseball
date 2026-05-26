@@ -189,8 +189,9 @@ export interface ScheduleGame {
   home: string;
   time?: string;
   status?: string;
-  gubun?: string;  // "정규" | "시범" etc.
+  gubun?: string;  // "정규" | "시범" | "포스트시즌" etc.
   isExhibition?: boolean;
+  isPostseason?: boolean;
 }
 
 // Stadium-specific types (used only in stadiumData.ts)
