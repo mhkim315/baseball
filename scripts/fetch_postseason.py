@@ -18,6 +18,8 @@ def is_postseason_game(g):
     # Let's check if this looks like a postseason game based on teams
     return True
 
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "seasons")
+
 def process_year(year):
     games = schedule_games(f"{year}-10-01", f"{year}-11-15")
     results = []
@@ -38,7 +40,9 @@ def process_year(year):
             "venue": g.get("stadium", ""),
             "time": g.get("gameTime", ""),
         })
-    path = f"data/seasons/{year}/postseason-games.json"
+    out_dir = os.path.join(DATA_DIR, str(year))
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "postseason-games.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     print(f"{year}: {len(results)} games -> {path}")
@@ -46,5 +50,5 @@ def process_year(year):
         if r["awayScore"] is not None:
             print(f"  {r['date']} {r['away']} {r['awayScore']}-{r['homeScore']} {r['home']} WP:{r['winPitcher']}")
 
-for y in [2024, 2025]:
+for y in [2021, 2022, 2023, 2024, 2025]:
     process_year(y)

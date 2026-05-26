@@ -76,8 +76,8 @@ def transform_to_schedule_entry(year, g):
         "isPostseason": True,
     }
 
-def generate_ts(data_2024, data_2025):
-    """Generate TypeScript content."""
+def generate_ts(data_by_year):
+    """Generate TypeScript content. data_by_year: list of (year, games_list) tuples."""
     lines = []
     lines.append('import type { ScoreEntry, ScheduleGame } from "./api";')
     lines.append('')
@@ -91,7 +91,7 @@ def generate_ts(data_2024, data_2025):
     lines.append('export const POSTSEASON_SCHEDULE: Record<string, ScheduleGame[]> = {')
 
     # Group by year:month
-    for year, games in [(2024, data_2024), (2025, data_2025)]:
+    for year, games in data_by_year:
         by_month = {}
         for g in games:
             m = g["date"][5:7]
@@ -112,7 +112,7 @@ def generate_ts(data_2024, data_2025):
     lines.append('// Score entries for postseason games')
     lines.append('export const POSTSEASON_SCORES: Record<string, ScoreEntry[]> = {')
 
-    for year, games in [(2024, data_2024), (2025, data_2025)]:
+    for year, games in data_by_year:
         by_date = {}
         for g in games:
             d = g["date"]
@@ -126,7 +126,10 @@ def generate_ts(data_2024, data_2025):
             for e in entries:
                 wp = e["winPitcher"] or "null"
                 lp = e["losePitcher"] or "null"
-                lines.append(f'    {{ away: "{e["away"]}", home: "{e["home"]}", awayScore: {e["awayScore"]}, homeScore: {e["homeScore"]}, outcome: "W", cancelled: false, winPitcher: "{wp}", losePitcher: "{lp}", gameIdx: 0 }},')
+                if e["winPitcher"]:
+                    lines.append(f'    {{ away: "{e["away"]}", home: "{e["home"]}", awayScore: {e["awayScore"]}, homeScore: {e["homeScore"]}, outcome: "W", cancelled: false, winPitcher: "{wp}", losePitcher: "{lp}", gameIdx: 0 }},')
+                else:
+                    lines.append(f'    {{ away: "{e["away"]}", home: "{e["home"]}", awayScore: {e["awayScore"]}, homeScore: {e["homeScore"]}, outcome: "W", cancelled: false, winPitcher: null, losePitcher: null, gameIdx: 0 }},')
             lines.append('  ],')
 
     lines.append('};')
@@ -134,23 +137,34 @@ def generate_ts(data_2024, data_2025):
     return '\n'.join(lines)
 
 if __name__ == "__main__":
-    d2024 = read_json(sys.argv[1])
-    d2025 = read_json(sys.argv[2])
+    # Usage: python gen_postseason_ts.py <year.json>... [output.ts]
+    import re
+    json_paths = [a for a in sys.argv[1:] if a.endswith(".json")]
+    non_json = [a for a in sys.argv[1:] if not a.endswith(".json")]
+    out = non_json[0] if non_json else "postseason_output.ts"
 
-    # Filter: exclude Oct 1 regular season games and BEFORE status games
-    postseason_2024 = [g for g in d2024 if is_postseason_game(g) and not is_oct1_regular(g)]
-    postseason_2025 = [g for g in d2025 if is_postseason_game(g) and not is_oct1_regular(g)]
+    if not json_paths:
+        print("Usage: python gen_postseason_ts.py <year.json>... [output.ts]", file=sys.stderr)
+        sys.exit(1)
 
-    print(f"2024: {len(postseason_2024)} postseason games (filtered from {len(d2024)})")
-    for g in postseason_2024:
-        print(f"  {g['date']} {g['away']} {g['awayScore']}-{g['homeScore']} {g['home']} WP:{g['winPitcher']}")
+    data_by_year = []
+    for path in json_paths:
+        year_match = re.search(r'(\d{4})', os.path.basename(path))
+        if not year_match:
+            print(f"Cannot determine year from {path}, skipping", file=sys.stderr)
+            continue
+        year = int(year_match.group(1))
+        raw = read_json(path)
 
-    print(f"\n2025: {len(postseason_2025)} postseason games (filtered from {len(d2025)})")
-    for g in postseason_2025:
-        print(f"  {g['date']} {g['away']} {g['awayScore']}-{g['homeScore']} {g['home']} WP:{g['winPitcher']}")
+        # Filter: exclude Oct 1 regular season games and BEFORE status games
+        postseason = [g for g in raw if is_postseason_game(g) and not is_oct1_regular(g)]
 
-    ts = generate_ts(postseason_2024, postseason_2025)
-    out = sys.argv[3] if len(sys.argv) > 3 else "postseason_output.ts"
+        print(f"{year}: {len(postseason)} postseason games (filtered from {len(raw)})")
+        for g in postseason:
+            print(f"  {g['date']} {g['away']} {g['awayScore']}-{g['homeScore']} {g['home']} WP:{g['winPitcher']}")
+        data_by_year.append((year, postseason))
+
+    ts = generate_ts(data_by_year)
     with open(out, "w", encoding="utf-8") as f:
         f.write(ts)
     print(f"\nTypeScript written to {out}")
