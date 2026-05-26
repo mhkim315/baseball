@@ -170,6 +170,7 @@ export default function HomeScreen() {
           setCalendarOpen(false);
         } else if (gs.dy > 80 && !calendarOpenRef.current) {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setAchievementOpen(false);
           setCalendarOpen(true);
         }
       },
@@ -189,6 +190,7 @@ export default function HomeScreen() {
           setAchievementOpen(false);
         } else if (gs.dy > 80 && !achievementOpenRef.current) {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setCalendarOpen(false);
           setAchievementOpen(true);
         }
       },
@@ -619,6 +621,7 @@ export default function HomeScreen() {
       <View style={{ flexDirection: "row", paddingHorizontal: 20 }}>
         <Pressable style={{ flex: 1, paddingVertical: 6 }} onPress={() => {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setAchievementOpen(false);
           setCalendarOpen(!calendarOpen);
         }}>
           <Text style={styles.calToggleText}>
@@ -628,6 +631,7 @@ export default function HomeScreen() {
         <Text style={[styles.calToggleText, { paddingVertical: 6 }]}>|</Text>
         <Pressable style={{ flex: 1, paddingVertical: 6 }} onPress={() => {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setCalendarOpen(false);
           setAchievementOpen(!achievementOpen);
         }}>
           <Text style={[styles.calToggleText, { textAlign: "right" }]}>
