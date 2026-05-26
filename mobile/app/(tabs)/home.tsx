@@ -95,17 +95,14 @@ export default function HomeScreen() {
       fontSize: 12,
       color: theme.mutedForeground,
     },
-    calWrapper: {
+    toggleWrapper: {
       overflow: "hidden",
     },
-    calWrapperOpen: {
+    toggleOpen: {
       maxHeight: 500,
-      paddingHorizontal: 16,
-      paddingBottom: 8,
     },
-    calWrapperHidden: {
+    toggleHidden: {
       maxHeight: 0,
-      paddingBottom: 0,
     },
     listContent: {
       padding: 16,
@@ -133,6 +130,7 @@ export default function HomeScreen() {
   const [displayTeam, setDisplayTeam] = useState<string | null>(null);
   const { myTeam } = useTeam();
   const [calendarOpen, setCalendarOpen] = useState(false);
+  const [achievementOpen, setAchievementOpen] = useState(false);
   const [calGames, setCalGames] = useState<ScheduleGame[]>([]);
   const [calScores, setCalScores] = useState<Record<string, { away: string; home: string; awayScore: number; homeScore: number; outcome?: string | null; cancelled?: boolean }[]>>({});
   const scheduleCache = useRef<{ month: number; year: number; games: ScheduleGame[] } | null>(null);
@@ -589,7 +587,7 @@ export default function HomeScreen() {
           {calendarOpen ? "캘린더 접기 ▲" : "캘린더 보기 ▼"}
         </Text>
       </Pressable>
-      <View style={[styles.calWrapper, calendarOpen ? styles.calWrapperOpen : styles.calWrapperHidden]}>
+      <View style={[styles.toggleWrapper, calendarOpen ? styles.toggleOpen : styles.toggleHidden]}>
         <CalendarGrid
           year={calYear}
           month={calMonth}
@@ -606,8 +604,18 @@ export default function HomeScreen() {
       </View>
       </View>
 
-      {/* Achievement widget */}
-      <AchievementWidget />
+      {/* Achievement toggle */}
+      <Pressable style={styles.calToggle} onPress={() => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+        setAchievementOpen(!achievementOpen);
+      }}>
+        <Text style={styles.calToggleText}>
+          {achievementOpen ? "도전과제 접기 ▲" : "도전과제 보기 ▼"}
+        </Text>
+      </Pressable>
+      <View style={[styles.toggleWrapper, achievementOpen ? styles.toggleOpen : styles.toggleHidden]}>
+        <AchievementWidget />
+      </View>
 
       {/* Game list — horizontal paging scroll */}
       <View style={{ flex: 1 }}>
