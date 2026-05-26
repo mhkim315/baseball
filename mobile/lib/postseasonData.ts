@@ -347,7 +347,7 @@ export const POSTSEASON_SCORES: Record<string, ScoreEntry[]> = {
   // --- 준플레이오프: NC vs 삼성 (삼성 3-1) ---
   // 10-03: 한화 vs KT 무승부 (6-6) — 우천으로 다른 경기 취소, 유일하게 진행된 경기
   "2025-10-03": [
-    { away: "한화", home: "KT", awayScore: 6, homeScore: 6, outcome: "W", cancelled: false, winPitcher: null, losePitcher: null, gameIdx: 0 },
+    { away: "한화", home: "KT", awayScore: 6, homeScore: 6, outcome: null, cancelled: false, winPitcher: null, losePitcher: null, gameIdx: 0 },
   ],
   // 10-04 DH: SSG @ NC, 삼성 @ KIA
   "2025-10-04": [

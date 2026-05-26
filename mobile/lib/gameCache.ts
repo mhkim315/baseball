@@ -112,7 +112,9 @@ export async function cachedScheduleByMonth(month: number, year?: number): Promi
   if (y <= 2025) {
     const rawGames = LOCAL_SCHEDULE[`${y}:${month}`] ?? [];
     const postseasonGames = POSTSEASON_SCHEDULE[`${y}:${month}`] ?? [];
-    const allGames = [...rawGames, ...postseasonGames];
+    // Dedup: POSTSEASON_SCHEDULE entries take priority over LOCAL_SCHEDULE
+    const seen = new Set(postseasonGames.map(g => `${g.date}|${g.away}|${g.home}`));
+    const allGames = [...postseasonGames, ...rawGames.filter(g => !seen.has(`${g.date}|${g.away}|${g.home}`))];
     if (allGames.length === 0) return null;
     // Infer isExhibition: dates without LOCAL_SCORES are exhibition games,
     // postseason games are explicitly flagged and should not be treated as exhibition

@@ -774,3 +774,97 @@ git add .
 git commit -m "..."
 git push origin master
 ```
+
+---
+## Phase 7-9: 2026년 경기결과 미표시 + 서버 스크립트 백업 (2026-05-26)
+
+### 문제 보고
+- "26년 캘린더 일정은 있는데 경기결과가 전부 없어"
+- `GET /daily-scores/2026-05-25` → `{"error":"Data not found"}`
+
+### 원인 분석 (OCI 서버 진단)
+
+**핵심**: 서버에서 `daily-scores.json`이 사라짐. API 코드 자체에는 연도 필터링이 없고, 단순히 `daily-scores.json` 파일을 읽어서 반환하는 구조.
+
+서버 데이터 파이프라인 (APScheduler 3~5분 간격):
+```
+collector.py → update_hub_data.py → build_daily_scores.py → daily-scores.json
+```
+
+**서버 상태 진단 결과**:
+1. `daily-scores.json` 존재하지 않음 (collector 로그에는 "741 dates with scores"라고 기록되어 있었으나 파일이 사라짐)
+2. `update_hub_data.py` 존재하지 않음 — `collector.py`가 `subprocess.run(["python3", "scripts/update_hub_data.py"])`로 실행하는데 파일 자체가 없음
+3. `build_daily_scores.py` 존재하지 않음
+4. `build_today_games.py` 존재하지 않음
+5. `data/teams/index.json` 존재하지 않음
+6. `data/teams/*/live-results.json` (10개 팀) 전부 존재하지 않음
+7. `game-records/` 디렉토리는 정상 (최신 데이터 보존 중)
+8. `collector.log` 마지막 기록: `2026-05-25 08:22:53` — 이후 갱신 없음
+9. data_api (uvicorn) 프로세스: 정상 실행 중 (5/25 15:59:57 systemd 재시작)
+
+**원인 추정**: 서버에서 `git pull`(fetch_postseason.py 업데이트) 과정에서 git에 추적되지 않던 untracked 스크립트 및 데이터 파일들이 삭제됨.
+
+### 수정 작업 (로컬 백업 → 서버 복원)
+
+**복원할 파일 추출** (`server_backup/data_backup.tar.gz`):
+- 24개 Python 스크립트 (update_hub_data.py, build_daily_scores.py, build_today_games.py, fetch_kbo_game_results.py, fetch_kbo_standings.py, build_game_records.py 등)
+- `data/teams/index.json` (팀 인덱스)
+- `data/teams/*/live-results.json` (10개 팀별 경기 결과)
+- `data/daily-scores.json` (최종 점수 데이터)
+
+**SCP 복원**:
+```
+scp build_daily_scores.py → server:/repo/scripts/
+scp build_today_games.py → server:/repo/scripts/
+scp update_hub_data.py → server:/repo/scripts/
+scp index.json → server:/repo/data/teams/
+scp live-results.json (10개 팀) → server:/repo/data/teams/*/
+scp daily-scores.json → server:/repo/data/
+```
+
+**파이프라인 실행**:
+```bash
+cd /home/opc/fullcount_backend/repo
+python3 scripts/update_hub_data.py --skip-preview --skip-lineup
+```
+- `fetch_kbo_standings.py` — 2026 순위 갱신 ✅
+- `fetch_kbo_game_results.py` — live-results.json 재생성 (30일치) ✅
+- `build_game_records.py` — game-records 재생성 (10일치) ✅
+- `build_today_games.py` — `kbo_schedule_2026.json` 없어서 실패 → graceful fallback 패치
+- `build_daily_scores.py` — `daily-scores.json` 재생성 (729 dates) ✅
+
+**build_today_games.py 패치**:
+- `find_game_for_team()`와 `build_games()` 함수에서 `kbo_schedule_2026.json` FileNotFoundError를 try/except로 처리
+- 파일 없으면 `{"games": [], "noGames": True}` 반환 (전체 파이프라인 중단 방지)
+
+**API 서비스 재시작**:
+```bash
+sudo systemctl restart fullcount-api.service
+```
+
+### 검증
+- `GET /daily-scores/2026-05-24` → 5개 경기 전부 정상 점수 반환 (두산 2-5 한화, 키움 4-6 LG, SSG 2-3 KIA, NC 8-5 KT, 삼성 10-0 롯데)
+- `GET /daily-scores/2026-05-23` → 5개 경기 정상 (선발투수 정보 포함)
+- `GET /daily-scores/2026-05-01` → 5개 경기 정상
+- `https://api.fullcount.kr/daily-scores/2026-05-24` → 외부 API도 정상 응답
+- May 총 27일치 데이터 복원
+- collector 수동 실행 검증 완료 (전체 파이프라인 정상)
+
+### 서버 스크립트 백업 (로컬 git)
+
+**문제**: 서버 전용 스크립트들이 GitHub에 없어서 재발 가능성 존재
+
+**조치**:
+1. `server-scripts` 로컬 전용 브랜치 생성
+2. `server/scripts/`에 24개 서버 스크립트 커밋
+3. `.gitignore`에 `server/scripts/` 등록 (GitHub 푸시 방지)
+4. 커밋: `860e044`
+
+### 커밋
+- `e2ea073` — Bump version to 1.0.6 for release build
+- `860e044` — Add server/scripts/ to gitignore (local-only server scripts)
+
+### Lessons Learned
+1. **서버 git pull은 untracked 파일도 위험**: 서버 전용 스크립트가 git pull 후 사라질 수 있음
+2. **로컬 백업의 중요성**: `server_backup/`이 없었으면 서버 데이터 전부 복구 불가능
+3. **로컬 전용 브랜치로 서버 스크립트 관리**: `server-scripts` 브랜치로 이중 안전장치
