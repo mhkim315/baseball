@@ -31,7 +31,7 @@ import {
   type Badge,
 } from "@/lib/db";
 import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
-import { setPendingDiaryDeepLink } from "@/app/(tabs)/diary";
+import BadgeCollectionModal from "@/components/BadgeCollectionModal";
 import YearInReview from "@/components/YearInReview";
 
 const PROFILE_CHARACTERS: { key: string; label: string }[] = [
@@ -45,9 +45,8 @@ const PROFILE_CHARACTERS: { key: string; label: string }[] = [
   { key: "determined", label: "불굴" },
 ];
 
-function BadgeCollectionSection() {
+function BadgeCollectionSection({ onOpen }: { onOpen: () => void }) {
   const { theme } = useTheme();
-  const router = useRouter();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +65,7 @@ function BadgeCollectionSection() {
     .filter(Boolean);
 
   return (
-    <Pressable style={[{ marginHorizontal: 16, marginBottom: 20, borderRadius: 14, borderWidth: 1, padding: 14 }, { backgroundColor: theme.card, borderColor: theme.border }]} onPress={() => { setPendingDiaryDeepLink("achievement"); router.push("/(tabs)/diary"); }}>
+    <Pressable style={[{ marginHorizontal: 16, marginBottom: 20, borderRadius: 14, borderWidth: 1, padding: 14 }, { backgroundColor: theme.card, borderColor: theme.border }]} onPress={onOpen}>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
         <Text style={{ fontSize: 28 }}>{levelEmoji}</Text>
         <View style={{ flex: 1 }}>
@@ -365,6 +364,7 @@ export default function MyScreen() {
   const [showTeamPicker, setShowTeamPicker] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [showYearInReview, setShowYearInReview] = useState(false);
+  const [showBadgeCollection, setShowBadgeCollection] = useState(false);
   const reviewYear = new Date().getFullYear();
   const router = useRouter();
 
@@ -512,7 +512,10 @@ export default function MyScreen() {
       </View>
 
       {/* Badge Collection */}
-      <BadgeCollectionSection />
+      <BadgeCollectionSection onOpen={() => setShowBadgeCollection(true)} />
+
+      {/* Badge Collection Modal */}
+      <BadgeCollectionModal visible={showBadgeCollection} onClose={() => setShowBadgeCollection(false)} />
 
       {/* App Info */}
       <View style={styles.section}>

@@ -21,6 +21,8 @@ export default function AchievementWidget() {
 
   const levelInfo = computeLevel(badges);
   const levelEmoji = levelInfo.level >= 7 ? "👑" : levelInfo.level >= 5 ? "🏆" : levelInfo.level >= 3 ? "🥇" : "🥚";
+  const levelAccent = levelInfo.level >= 7 ? "#ffd700" : levelInfo.level >= 5 ? "#e07b3c" : undefined;
+  const levelStar = levelInfo.level >= 5 ? " ⭐" : "";
 
   // 가장 진척도 높은 미해금 배지 1개 찾기
   const unlockedSet = new Set(badges.filter((b) => b.unlocked_date).map((b) => b.badge_key));
@@ -44,7 +46,7 @@ export default function AchievementWidget() {
   return (
     <Pressable
       onPress={() => { setPendingDiaryDeepLink("achievement"); router.push("/(tabs)/diary"); }}
-      style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
+      style={[styles.card, { backgroundColor: theme.card, borderColor: levelAccent || theme.border }]}
     >
       {/* Level summary */}
       <View style={styles.levelRow}>
@@ -52,14 +54,14 @@ export default function AchievementWidget() {
         <View style={{ flex: 1 }}>
           <View style={{ flexDirection: "row", alignItems: "baseline", gap: 8 }}>
             <Text style={[styles.levelTitle, { color: theme.foreground }]}>
-              LV.{levelInfo.level} {levelInfo.title}
+              LV.{levelInfo.level} {levelInfo.title}{levelStar}
             </Text>
             <Text style={[styles.levelXp, { color: theme.mutedForeground }]}>
               {levelInfo.currentXP}/{levelInfo.requiredXP} XP
             </Text>
           </View>
           <View style={[styles.xpBar, { backgroundColor: theme.muted }]}>
-            <View style={[styles.xpFill, { width: `${Math.min(levelInfo.progress * 100, 100)}%` }]} />
+            <View style={[styles.xpFill, { width: `${Math.min(levelInfo.progress * 100, 100)}%`, backgroundColor: levelAccent || "#e07b3c" }]} />
           </View>
         </View>
       </View>

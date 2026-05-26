@@ -1,6 +1,6 @@
 # Fullcount.kr Mobile App — 개발 작업 문서
 
-> 마지막 업데이트: 2026-05-18
+> 마지막 업데이트: 2026-05-26
 > 
 > 이 문서는 이전 대화 컨텍스트가 만료되어도 작업을 이어갈 수 있도록 상세히 기록합니다.
 
@@ -868,3 +868,182 @@ sudo systemctl restart fullcount-api.service
 1. **서버 git pull은 untracked 파일도 위험**: 서버 전용 스크립트가 git pull 후 사라질 수 있음
 2. **로컬 백업의 중요성**: `server_backup/`이 없었으면 서버 데이터 전부 복구 불가능
 3. **로컬 전용 브랜치로 서버 스크립트 관리**: `server-scripts` 브랜치로 이중 안전장치
+
+---
+
+## Phase 7-10: 포스트시즌 데이터 수집 (2021-2023) + 데이터 정합성 (2026-05-26)
+
+### 포스트시즌 데이터 수집 (2021-2023)
+
+**Naver API**에서 역대 포스트시즌 데이터를 수집하여 `postseasonData.ts`에 추가.
+
+**수집 스크립트** (`scripts/fetch_postseason.py`):
+- `GET https://api-gw.sports.naver.com/schedule/games` with fields=all, fromDate/toDate, size=100, page
+- gameId prefix로 필터링: 4444(WC), 3333(준PO), 5555(PO), 7777(KS) + roundCode(kbo_ps_wd/sp/po/ks)
+- 2021-2023 연도별 10월~11월 범위 (toDate=11-30)
+- 44개 경기 정상 수집 확인: 2021(13), 2022(15), 2023(16)
+- `scripts/gen_postseason_ts.py` — JSON → TypeScript 변환, absolute path 버그 수정
+
+**데이터 출처**: Naver Sports API 수집 로컬 데이터
+
+### 포스트시즌 스코어 데이터 수집 (2024-2025)
+
+2024-2025 포스트시즌 스코어를 Naver API에서 수집하여 `postseasonData.ts`에 SCORES 추가.
+
+2025-10-03 한화 vs KT 6-6 무승부 경기: `outcome: "W"`로 잘못 기록 → `null`로 정정 (무승부는 승패 없음)
+
+### 캘린더 포스트시즌 통합 (schedule)
+
+`cachedScheduleByMonth` (y≤2025): LOCAL_SCHEDULE + POSTSEASON_SCHEDULE 병합
+- Dedup: POSTSEASON_SCHEDULE 우선 (같은 경기는 postseason 버전 사용)
+- `seen` Set으로 date+away+home 기반 중복 제거
+
+### 코드리뷰로 발견된 버그 수정
+
+**버그 1 - LOCAL_SCORES 점수 반전 (CRITICAL)**:
+- `scores_2025.ts`의 2025-10-02, 10-04 포스트시즌 경기 점수가 홈/원정 반전
+- 10-02: SSG 7-2 KIA → KIA 7-2 SSG
+- 10-04: SSG@NC 7-1 → NC 7-1 SSG, 삼성@KIA 9-8 → KIA 9-8 삼성
+- 10-03: stale `outcome: "T"` → `null`
+
+**버그 2 - cachedDailyScores 우선순위 (CRITICAL)**:
+- `cachedDailyScores`가 LOCAL_SCORES를 POSTSEASON_SCORES보다 먼저 체크
+- LOCAL에 잘못된 데이터가 있어도 POSTSEASON 데이터가 절대 반환되지 않음
+- 수정: POSTSEASON_SCORES를 LOCAL_SCORES보다 먼저 체크
+
+**버그 3 - CalendarGrid loading 하드코딩 (MEDIUM)**:
+- `loading={false}` → `loading={loading}`으로 복원
+
+**버그 4 - 침묵 에러 처리 (MEDIUM)**:
+- `.catch(() => null)` → `console.warn` 추가
+
+**커밋**:
+- `a7f25ee` — Fix score priority, wrong 2025 postseason scores, restore loading prop
+
+### 캐시 실패 시 자동 재시도 개선
+
+**문제**: API 첫 로드 실패 시 앱이 자동으로 재시도하지 않아 사용자가 수동 액션(탭/스와이프)해야만 복구됨.
+
+**수정 1 - scheduleRetry (gameCache.ts)**:
+- `fetchWithCache`가 stale cache를 반환할 때(API 실패), 백그라운드에서 지수 백오프 재시도 실행
+- 간격: 5s → 15s → 45s (최대 3회, 총 ~65초)
+- 성공 시 `db.setCache()`로 캐시 갱신, 실패 시 조용히 종료
+
+**수정 2 - cachedAllDailyScores stale fallback (gameCache.ts)**:
+- 기존: TTL 만료 시 `deleteCache`를 API 호출 전에 실행 → API 실패 시 fallback 불가
+- 수정: stale cache를 보존, API 실패 시 fallback으로 반환 (fetchWithCache와 동일한 패턴)
+
+**수정 3 - AppState foreground refresh (home.tsx)**:
+- 앱이 foreground로 돌아올 때 `load()` 호출
+- TTL이 자동으로 처리 (fresh cache면 재요청 없음)
+
+**커밋**:
+- `36fe5db` — Add background retry, fix cachedAllDailyScores stale fallback, add AppState refresh
+
+---
+
+## Phase 7-11: 도전과제 시스템 확장 — YearInReview + UI/UX 개선 (2026-05-26~27)
+
+### Phase 3 — YearInReview (연간 리캡)
+
+**신규 파일:**
+- `components/YearInReview.tsx` — 전체화면 시즌 리캡 컴포넌트
+  - 커버 (레벨 emoji + "2026, 당신의 야구")
+  - 통계 그리드 (경기 수, 승률, 방문 구장, 총 지출)
+  - 승/무/패 breakdown + 연승 행진 표시
+  - 방문 구장 칩, 상대 전적 (가장 많이 이긴/진 팀)
+  - 감정 분포 바 차트 + 상위 4개 감정
+  - 획득 배지 개수, 마무리 메시지
+  - 빈 상태: 5경기 미만 시 데이터 부족 안내
+
+**파일 수정:**
+- `lib/achievements.ts` — `computeSeasonSummary()` 추가
+- `app/(tabs)/my.tsx` — "시즌 리캡" 카드 추가, YearInReview 모달 연결
+
+### 버그 수정: 도전과제 네비게이션 (3회 수정)
+
+**문제 1 — 라우트 파라미터 미전달:**
+- `router.push({ pathname, params })`가 탭 내비게이터에서 이미 마운트된 화면에 파라미터를 전달하지 않음
+- 1차 수정: `useLocalSearchParams` → 실패
+- 2차 수정: `setPendingDiaryDeepLink()` 모듈 레벨 함수로 전환 (useFocusEffect에서 읽음)
+- `AchievementWidget`, `BadgeCollectionSection`, `AchievementToast` → setPendingDeepLink("achievement") + router.push
+
+**문제 2 — horizontal pager 미스크롤:**
+- `setActiveTab("stats")`만 호출하고 `tabScrollRef.scrollTo()` 누락 → segmented control은 통계로 바뀌나 실제 화면은 타임라인
+- 수정: 탭 변경 시 `tabScrollRef.current?.scrollTo({ x: screenWidth * 2 })` 추가 (3곳)
+
+### UI/UX 개선
+
+**AchievementToast 테마 대응:**
+- 1차: `isDark ? "#1a1a2e" : theme.foreground` (inverted) → 라이트에서 검정색으로 보임
+- 2차: `theme.card` + `theme.foreground` + `theme.border` — 자연스러운 테마 통일
+
+**홈 탭 위젯 접기:**
+- 캘린더처럼 "도전과제 보기 ▼ / 접기 ▲" toggle 버튼으로 변경
+- `LayoutAnimation`으로 접힘/펼침 애니메이션
+- PanResponder 스와이프 (아래로 열기, 위로 닫기)
+- 캘린더와 도전과제가 함께 열리지 않도록 상호 배타적 (한쪽 열면 다른 쪽 닫힘)
+- 두 toggle을 가로 한 줄에 배치: "캘린더 보기 ▼ | 도전과제 보기 ▼"
+
+### 커밋 내역
+
+| 해시 | 설명 |
+|------|------|
+| `687cc73` | Add Phase 3 YearInReview + computeSeasonSummary |
+| `a4422f4` | AchievementToast theme (inverted → card bg) |
+| `dfc8d27` | Route widget to diary via params (1차 시도) |
+| `9fdc801` | Fix pager scroll on tab switch |
+| `6990c87` | Final toast theme fix (theme.card) |
+| `7c14e60` | Route BadgeCollectionSection to achievement |
+| `751488f` | Module-level deep-link (params → setPendingDiaryDeepLink) |
+| `3c329cd` | Toast tap scroll fix |
+| `a92342d` | AchievementWidget collapsible toggle |
+| `84735ae` | Combined toggle row (calendar \| achievement) |
+| `61a8ac8` | Swipe gesture for achievement |
+| `4056f7f` | Mutual exclusive toggles |
+
+### Phase 4 — 도전과제 4종 확장 (2026-05-27)
+
+**Feature 1 — BadgeCollectionModal (컬렉션 뷰):**
+- `mobile/components/BadgeCollectionModal.tsx` — 전체 화면 배지 그리드 모달
+  - 레벨 카드 (emoji + LV.X + XP 프로그레스 바 + 획득 카운트)
+  - 6개 카테고리 필터 탭 (전체/마일스톤/연승/출석/탐험/시크릿)
+  - 3열 그리드: 해금 배지(불투명) / 잠긴 배지(opacity 0.35 + 🔒 + 진행률 미니바)
+  - 배지 탭 → 상세 팝업 (조건, 진행률, 획득일)
+  - 레벨 기반 시각적 강조 (LV.7 금색, LV.5 별)
+- `app/(tabs)/my.tsx`:
+  - BadgeCollectionSection onPress → BadgeCollectionModal 열림 (다이어리 이동 대체)
+
+**Feature 2 — 레벨 보상:**
+- `components/AchievementWidget.tsx` — 레벨별 시각적 차등 적용
+  - LV.5+: level title 옆 ⭐ 표시
+  - LV.5+: XP 바 주황색 악센트
+  - LV.7+: XP 바 + border 금색(#ffd700)
+- `components/BadgeCollectionModal.tsx` — 동일한 레벨 악센트 적용
+
+**Feature 3 — 배지 획득 confetti 애니메이션:**
+- `mobile/components/ConfettiOverlay.tsx` — 20개 Animated.View 파티클 confetti
+  - 컬러 사각형/원형, 1.2~2초 fall + rotate + fade out
+  - `useNativeDriver: true`로 성능 최적화
+- `app/(tabs)/diary.tsx`:
+  - 배지 해금 감지 → ConfettiOverlay 먼저 표시
+  - confetti 종료 후 AchievementToast 표시 (순차 전환)
+
+**Feature 4 — 신규 배지 5개 (KBO 특화):**
+- `mobile/lib/achievements.ts` — Phase 4 배지 5개 추가 (기존 22개 → 27개)
+
+| badgeKey | emoji | 타이틀 | 카테고리 | 조건 | XP |
+|---|---|---|---|---|---|
+| blowout | 💪 | 대승 직관 | secret | 10점차 이상 승리 | 10 |
+| one_run_win | 😱 | 한점차 승리 | secret | 1점차 승리 | 10 |
+| opening_day | 🎊 | 개막전 직관 | milestone | 3월 20일 이후 경기 | 10 |
+| tie_game | 🤝 | 무승부 직관 | secret | 무승부 경기 | 10 |
+| shutout | 🧤 | 완봉승 직관 | secret | 상대 0점 승리 | 10 |
+
+### 커밋 내역 (도전과제 확장)
+
+| 해시 | 설명 |
+|------|------|
+| `67d1979` | Add 5 new KBO badges (Phase 4) |
+| `8bc0fe6` | Add ConfettiOverlay + diary unlock animation |
+| (pending) | Add BadgeCollectionModal grid view + level rewards |
