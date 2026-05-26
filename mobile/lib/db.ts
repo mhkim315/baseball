@@ -560,6 +560,14 @@ export async function checkAttendance(): Promise<number> {
   return streak;
 }
 
+export async function getTotalAttendanceDays(): Promise<number> {
+  const database = await getDb();
+  const row = await database.getFirstAsync<{ count: number }>(
+    "SELECT COUNT(DISTINCT date) AS count FROM attendance"
+  );
+  return row?.count ?? 0;
+}
+
 export async function resetAllData(): Promise<void> {
   const database = await getDb();
   await database.execAsync(`
