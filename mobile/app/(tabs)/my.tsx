@@ -31,6 +31,7 @@ import {
   type Badge,
 } from "@/lib/db";
 import { BADGE_DEFINITIONS, computeLevel } from "@/lib/achievements";
+import YearInReview from "@/components/YearInReview";
 
 const PROFILE_CHARACTERS: { key: string; label: string }[] = [
   { key: "default", label: "기본" },
@@ -362,6 +363,8 @@ export default function MyScreen() {
   const [showProfilePicker, setShowProfilePicker] = useState(false);
   const [showTeamPicker, setShowTeamPicker] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [showYearInReview, setShowYearInReview] = useState(false);
+  const reviewYear = new Date().getFullYear();
   const router = useRouter();
 
   const loadData = useCallback(async () => {
@@ -485,6 +488,26 @@ export default function MyScreen() {
             />
           </View>
         </View>
+      </View>
+
+      {/* Year in Review */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>시즌 리캡</Text>
+        <Pressable
+          style={[styles.myTeamRow, { gap: 12 }]}
+          onPress={() => setShowYearInReview(true)}
+        >
+          <Text style={{ fontSize: 28 }}>⚾</Text>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 14, fontWeight: "700", color: theme.foreground }}>
+              {reviewYear} 시즌 리캡
+            </Text>
+            <Text style={{ fontSize: 12, color: theme.mutedForeground, marginTop: 2 }}>
+              나의 야구 시즌을 돌아보기
+            </Text>
+          </View>
+          <Text style={styles.myTeamArrow}>›</Text>
+        </Pressable>
       </View>
 
       {/* Badge Collection */}
@@ -640,6 +663,11 @@ export default function MyScreen() {
             </Pressable>
           </View>
         </View>
+      </Modal>
+
+      {/* Year in Review Modal */}
+      <Modal visible={showYearInReview} animationType="slide">
+        <YearInReview year={reviewYear} onClose={() => setShowYearInReview(false)} />
       </Modal>
     </ScrollView>
   );
