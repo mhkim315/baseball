@@ -606,7 +606,7 @@ export default function MyScreen() {
             <Text style={{ fontSize: 12, color: theme.mutedForeground, textAlign: "center", marginBottom: 12 }}>
               {unlockedEmotions.length}/{ALL_CHARACTERS.length} 캐릭터 보유 중
             </Text>
-            <View style={styles.charGrid}>
+            <ScrollView style={{ maxHeight: 360 }} contentContainerStyle={styles.charGrid}>
               {sortedProfileChars.map((c) => {
                 const isUnlocked = unlockedEmotions.includes(c.id);
                 return (
@@ -636,7 +636,7 @@ export default function MyScreen() {
                   </Pressable>
                 );
               })}
-            </View>
+            </ScrollView>
             <Pressable style={[styles.modalSave, { flex: 0, alignSelf: "center", paddingHorizontal: 40 }]} onPress={() => setShowProfilePicker(false)}>
               <Text style={styles.modalSaveText}>확인</Text>
             </Pressable>
