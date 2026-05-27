@@ -575,8 +575,8 @@ export async function getUnlockedEmotions(): Promise<string[]> {
   if (raw) {
     try { return JSON.parse(raw); } catch {}
   }
-  // First access: init with 5 basic characters
-  const basic = ["default", "neutral", "joyful", "sad", "angry"];
+  // First access: init with 3 basic characters
+  const basic = ["default", "sad", "joyful"];
   await setSetting("unlocked_emotions", JSON.stringify(basic));
   return basic;
 }

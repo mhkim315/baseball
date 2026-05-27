@@ -1433,7 +1433,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     badgeKey: "emotion_collector",
     emoji: "🎭",
     title: "감정 수집가",
-    description: "16가지 감정을 모두 기록했어요",
+    description: `${EMOTION_COUNT}가지 감정을 모두 기록했어요`,
     tier: "easy",
     xp: 10,
     category: "exploration",
