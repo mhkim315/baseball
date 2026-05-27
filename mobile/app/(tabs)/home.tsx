@@ -489,8 +489,9 @@ export default function HomeScreen() {
     return () => { cancelled = true; };
   }, [calendarOpen, calMonth, calYear]);
 
-  // Refresh data when app returns to foreground
+  // Evaluate badges on mount + refresh when app returns to foreground
   useEffect(() => {
+    import("@/lib/achievements").then(({ evaluateBadges }) => evaluateBadges().catch(() => {}));
     const sub = AppState.addEventListener('change', (state) => {
       if (state === 'active') {
         load();

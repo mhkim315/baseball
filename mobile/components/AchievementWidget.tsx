@@ -41,9 +41,6 @@ export default function AchievementWidget() {
     .slice(0, 2);
 
   if (loading) return null;
-  // 위젯 표시: 레벨만 있어도 보여줌 (배지 진행도 없으면 레벨 요약만)
-  const hasAnything = badges.some((b) => b.unlocked_date) || inProgress.length > 0;
-  if (!hasAnything) return null;
 
   return (
     <Pressable

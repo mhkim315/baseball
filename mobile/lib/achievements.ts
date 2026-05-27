@@ -370,8 +370,10 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     check: (records) => {
       const owlRecord = records.find((r) => {
         if (!r.created_at) return false;
-        const hour = new Date(r.created_at.replace(" ", "T")).getHours();
-        return hour >= 0 && hour < 6;
+        // created_at is UTC from SQLite CURRENT_TIMESTAMP; convert to KST (UTC+9)
+        const utcHour = parseInt(r.created_at.slice(11, 13), 10);
+        const kstHour = (utcHour + 9) % 24;
+        return kstHour >= 0 && kstHour < 6;
       });
       return {
         unlocked: !!owlRecord,
