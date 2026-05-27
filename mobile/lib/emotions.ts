@@ -22,7 +22,9 @@ export type CharacterEmotion =
   | "furious" | "shocked"
   | "annoyed" | "crying" | "curious" | "depressed"
   | "flustered" | "mocking" | "sleepy" | "tongue"
-  | "in_love" | "extream_shock";
+  | "in_love" | "extream_shock"
+  | "devastated" | "hot_summer" | "karen" | "out" | "praying"
+  | "rain_cancellation" | "resigned_disgust" | "thumbs_up" | "provocative";
 
 export interface CharacterDef {
   id: CharacterEmotion;
@@ -49,6 +51,15 @@ export const ALL_CHARACTERS: CharacterDef[] = [
   { id: "tongue", label: "메롱", basic: false },
   { id: "in_love", label: "사랑", basic: false },
   { id: "extream_shock", label: "개놀람", basic: false },
+  { id: "devastated", label: "멘붕", basic: false },
+  { id: "hot_summer", label: "폭염", basic: false },
+  { id: "karen", label: "까칠", basic: false },
+  { id: "out", label: "퇴장", basic: false },
+  { id: "praying", label: "기도", basic: false },
+  { id: "rain_cancellation", label: "우취", basic: false },
+  { id: "resigned_disgust", label: "체념", basic: false },
+  { id: "thumbs_up", label: "따봉", basic: false },
+  { id: "provocative", label: "도발", basic: false },
 ];
 
 export const CHARACTER_BASIC_SET: CharacterEmotion[] = ALL_CHARACTERS.filter(c => c.basic).map(c => c.id);

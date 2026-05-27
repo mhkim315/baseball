@@ -11,6 +11,8 @@ const EMOTIONS = [
   'annoyed', 'crying', 'curious', 'depressed',
   'flustered', 'mocking', 'sleepy', 'tongue',
   'in_love', 'extream_shock',
+  'devastated', 'hot_summer', 'karen', 'out', 'praying',
+  'rain_cancellation', 'resigned_disgust', 'thumbs_up', 'provocative',
 ];
 
 const teamMap = {
