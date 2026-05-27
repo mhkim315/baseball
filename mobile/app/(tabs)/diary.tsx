@@ -13,6 +13,7 @@ import ExpenseBottomSheet from "@/components/ExpenseBottomSheet";
 import ExpenseStats from "@/components/ExpenseStats";
 
 import AchievementToast from "@/components/AchievementToast";
+import AchievementModal from "@/components/AchievementModal";
 import ConfettiOverlay from "@/components/ConfettiOverlay";
 import ExpenseModal from "@/components/ExpenseModal";
 import { getJikgwanRecords, deleteJikgwanRecord, getAllExpenses, getExpensesByDate, type JikgwanRecord, type Expense, type Badge } from "@/lib/db";
@@ -161,6 +162,7 @@ export default function DiaryScreen() {
   const [toastBadges, setToastBadges] = useState<Badge[]>([]);
   const [toastRewards, setToastRewards] = useState<{ emotion: string; label: string }[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [showAchievementModal, setShowAchievementModal] = useState(false);
 
 
 
@@ -442,7 +444,7 @@ export default function DiaryScreen() {
         rewards={toastRewards}
         teamId={myTeam ?? undefined}
         onDismiss={() => { setToastBadges([]); setToastRewards([]); }}
-        onPress={() => { setToastBadges([]); setToastRewards([]); }}
+        onPress={() => { setToastBadges([]); setToastRewards([]); setShowAchievementModal(true); }}
       />
 
       {/* Header */}
@@ -722,6 +724,12 @@ export default function DiaryScreen() {
         onClose={() => { setShowExpenseModal(false); setExpensePresetDate(null); }}
         onSaved={handleExpenseSaved}
         presetDate={expensePresetDate}
+      />
+
+      {/* Achievement Modal (from toast press) */}
+      <AchievementModal
+        visible={showAchievementModal}
+        onClose={() => setShowAchievementModal(false)}
       />
 
     </View>

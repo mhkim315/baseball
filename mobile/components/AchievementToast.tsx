@@ -28,7 +28,7 @@ interface ItemAnimations {
 
 const STAGGER_DELAY = 400;
 const ENTER_DURATION = 400;
-const EXIT_DURATION = 250;
+const EXIT_DURATION = 350;
 const SHOW_DURATION = 4000;
 
 export default function AchievementToast({ badges, rewards, teamId, onDismiss, onPress }: AchievementToastProps) {
@@ -63,19 +63,26 @@ export default function AchievementToast({ badges, rewards, teamId, onDismiss, o
     const a = anims.current[id];
     if (!a) return;
 
-    // Fade out
-    Animated.timing(a.opacity, {
-      toValue: 0,
-      duration: EXIT_DURATION,
-      useNativeDriver: true,
-    }).start();
-
-    // Collapse gap simultaneously (LayoutAnimation captures before/after)
-    LayoutAnimation.configureNext({
-      duration: EXIT_DURATION,
-      update: { type: "easeInEaseOut" },
+    // Fade out + slide down simultaneously
+    Animated.parallel([
+      Animated.timing(a.opacity, {
+        toValue: 0,
+        duration: EXIT_DURATION,
+        useNativeDriver: true,
+      }),
+      Animated.timing(a.translateY, {
+        toValue: 80,
+        duration: EXIT_DURATION,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      // Collapse gap after item is invisible
+      LayoutAnimation.configureNext({
+        duration: 200,
+        update: { type: "easeInEaseOut" },
+      });
+      setItems((prev) => prev.filter((i) => i.id !== id));
     });
-    setItems((prev) => prev.filter((i) => i.id !== id));
   }, []);
 
   useEffect(() => {
