@@ -5,7 +5,13 @@ const path = require('path');
 const srcDir = 'C:/Users/user/Pictures/character';
 const dstDir = 'C:/Users/user/Documents/baseball_app/client/public/team-characters';
 const WIDTH = 200;
-const EMOTIONS = ['default', 'determined', 'sad', 'joyful', 'neutral'];
+const EMOTIONS = [
+  'default', 'determined', 'sad', 'joyful', 'neutral',
+  'angry', 'furious', 'shocked',
+  'annoyed', 'crying', 'curious', 'depressed',
+  'flustered', 'mocking', 'sleepy', 'tongue',
+  'in_love', 'extream_shock',
+];
 
 const teamMap = {
   DOOSAN: 'doosan', LG: 'lg', KT: 'kt', SSG: 'ssg', NC: 'nc',

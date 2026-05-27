@@ -2,18 +2,29 @@ import { useMemo } from "react";
 import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme } from "@/lib/ThemeContext";
-import { EMOTIONS, EMOTION_CHARACTER } from "@/lib/emotions";
-export type { EmotionId } from "@/lib/emotions";
-export { EMOTION_CHARACTER };
+import { ALL_CHARACTERS, EMOTION_CHARACTER } from "@/lib/emotions";
 
 interface EmotionPickerProps {
   value: string | null;
   onChange: (emotion: string) => void;
   teamId: string;
+  unlockedEmotions: string[];
 }
 
-export default function EmotionPicker({ value, onChange, teamId }: EmotionPickerProps) {
+export default function EmotionPicker({ value, onChange, teamId, unlockedEmotions }: EmotionPickerProps) {
   const { theme } = useTheme();
+  const unlockedSet = useMemo(() => new Set(unlockedEmotions), [unlockedEmotions]);
+
+  // Sort: basic (always unlocked) → unlocked non-basic → locked
+  const sortedCharacters = useMemo(() =>
+    [...ALL_CHARACTERS].sort((a, b) => {
+      const aGroup = a.basic ? 0 : unlockedSet.has(a.id) ? 1 : 2;
+      const bGroup = b.basic ? 0 : unlockedSet.has(b.id) ? 1 : 2;
+      return aGroup - bGroup;
+    }),
+    [unlockedSet],
+  );
+
   const styles = useMemo(() => StyleSheet.create({
     container: {
       alignItems: "center",
@@ -39,31 +50,65 @@ export default function EmotionPicker({ value, onChange, teamId }: EmotionPicker
     labelSelected: {
       color: theme.background,
     },
+    badgeWrap: {
+      position: "relative",
+    },
+    lockBadge: {
+      position: "absolute",
+      top: -2,
+      right: -2,
+      backgroundColor: "rgba(0,0,0,0.6)",
+      borderRadius: 8,
+      width: 16,
+      height: 16,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    lockIcon: {
+      color: "#fff",
+      fontSize: 10,
+      fontWeight: "700",
+    },
   }), [theme]);
 
   return (
     <View style={styles.container}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.row}>
-        {EMOTIONS.map((e) => (
-          <Pressable
-            key={e.id}
-            style={[
-              styles.item,
-              value === e.id && { backgroundColor: theme.foreground },
-            ]}
-            onPress={() => onChange(e.id)}
-          >
-            <TeamBadge
-              teamId={teamId}
-              size="sm"
-              emotion={e.character}
-            />
-            <Text style={[styles.label, value === e.id && styles.labelSelected]}>
-              {e.label}
-            </Text>
-          </Pressable>
-        ))}
+        {sortedCharacters.map((c) => {
+          const isUnlocked = unlockedSet.has(c.id);
+          const isSelected = value === c.id;
+          return (
+            <Pressable
+              key={c.id}
+              style={[
+                styles.item,
+                isSelected && isUnlocked && { backgroundColor: theme.foreground },
+                !isUnlocked && { opacity: 0.35 },
+              ]}
+              onPress={isUnlocked ? () => onChange(c.id) : undefined}
+            >
+              <View style={styles.badgeWrap}>
+                <TeamBadge
+                  teamId={teamId}
+                  size="sm"
+                  emotion={c.id}
+                />
+                {!isUnlocked && (
+                  <View style={styles.lockBadge}>
+                    <Text style={styles.lockIcon}>🔒</Text>
+                  </View>
+                )}
+              </View>
+              <Text style={[
+                styles.label,
+                isSelected && isUnlocked && styles.labelSelected,
+              ]}>
+                {c.label}
+              </Text>
+            </Pressable>
+          );
+        })}
       </View>
       </ScrollView>
     </View>

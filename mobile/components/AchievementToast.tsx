@@ -6,11 +6,12 @@ import type { Badge } from "@/lib/db";
 
 interface AchievementToastProps {
   badges: Badge[];
+  rewards?: { emotion: string; label: string }[];
   onDismiss: () => void;
   onPress?: () => void;
 }
 
-export default function AchievementToast({ badges, onDismiss, onPress }: AchievementToastProps) {
+export default function AchievementToast({ badges, rewards, onDismiss, onPress }: AchievementToastProps) {
   const { theme } = useTheme();
   const translateY = useRef(new Animated.Value(-120)).current;
   const [visible, setVisible] = useState(false);
@@ -65,6 +66,11 @@ export default function AchievementToast({ badges, onDismiss, onPress }: Achieve
         <Text style={[styles.title, dynamicStyles.title]}>{def?.title ?? badges[0].badge_key} 달성!</Text>
         {badges.length > 1 && (
           <Text style={[styles.more, dynamicStyles.more]}>외 {badges.length - 1}개</Text>
+        )}
+        {rewards && rewards.length > 0 && (
+          <Text style={[styles.more, dynamicStyles.more]}>
+            + 새 캐릭터 {rewards.length}종 획득!
+          </Text>
         )}
       </Pressable>
     </Animated.View>

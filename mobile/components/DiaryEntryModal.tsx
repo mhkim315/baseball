@@ -15,7 +15,7 @@ import BottomSheet from "@/components/BottomSheet";
 import ExpenseForm from "@/components/ExpenseForm";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { useTeam } from "@/lib/TeamContext";
-import { addJikgwanRecord, updateJikgwanRecord, type JikgwanRecord } from "@/lib/db";
+import { addJikgwanRecord, updateJikgwanRecord, getUnlockedEmotions, type JikgwanRecord } from "@/lib/db";
 import { addExpense, getExpensesByRecordId, deleteExpensesByRecordId, EXPENSE_CATEGORIES, type Expense, type ExpenseCategory } from "@/lib/db";
 import { savePhoto, resizePhoto, generatePhotoName } from "@/lib/camera";
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
@@ -86,6 +86,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
 
   // Write state
   const [emotion, setEmotion] = useState<string | null>(null);
+  const [unlockedEmotions, setUnlockedEmotions] = useState<string[]>([]);
   const [content, setContent] = useState("");
   const [photoUris, setPhotoUris] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
@@ -141,6 +142,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
   // Reset on open
   useEffect(() => {
     if (visible) {
+      getUnlockedEmotions().then(setUnlockedEmotions).catch(() => {});
       setCheeredTeam(null);
       setPendingExpenses([]);
       setShowExpenseInput(false);
@@ -1253,7 +1255,7 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                 {/* Emotion */}
                 <View style={styles.section}>
                   <Text style={styles.sectionTitle}>오늘의 기분</Text>
-                  <EmotionPicker value={emotion} onChange={setEmotion} teamId={cheeredTeam || userTeam} />
+                  <EmotionPicker value={emotion} onChange={setEmotion} teamId={cheeredTeam || userTeam} unlockedEmotions={unlockedEmotions} />
                 </View>
 
                 {/* 직관/집관 toggle */}

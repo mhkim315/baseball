@@ -568,6 +568,26 @@ export async function getTotalAttendanceDays(): Promise<number> {
   return row?.count ?? 0;
 }
 
+// ── Character Unlock System ──
+
+export async function getUnlockedEmotions(): Promise<string[]> {
+  const raw = await getSetting("unlocked_emotions");
+  if (raw) {
+    try { return JSON.parse(raw); } catch {}
+  }
+  // First access: init with 5 basic characters
+  const basic = ["default", "neutral", "joyful", "sad", "angry"];
+  await setSetting("unlocked_emotions", JSON.stringify(basic));
+  return basic;
+}
+
+export async function addUnlockedEmotion(emotion: string): Promise<void> {
+  const current = await getUnlockedEmotions();
+  if (current.includes(emotion)) return;
+  current.push(emotion);
+  await setSetting("unlocked_emotions", JSON.stringify(current));
+}
+
 export async function resetAllData(): Promise<void> {
   const database = await getDb();
   await database.execAsync(`

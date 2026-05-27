@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { View, Text, Image, Pressable, ScrollView, Alert, StyleSheet, NativeSyntheticEvent, NativeScrollEvent, useWindowDimensions } from "react-native";
 import { TeamBadge } from "@/components/TeamBadge";
-import { EMOTION_CHARACTER } from "@/lib/emotions";
+import { EMOTION_CHARACTER, type CharacterEmotion } from "@/lib/emotions";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge } from "@shared/constants";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
@@ -64,7 +64,7 @@ export default function DiaryCard({ record, teamId, onShare, onDelete, onEdit, e
   const profileTeamId = record.cheered_team || gt.awayId || gt.homeId || "";
   const liveTeamColor = profileTeamId ? teamPrimaryColor(profileTeamId, isDark) : "#3b82f6";
   const charKey = record.emotion ? (EMOTION_CHARACTER[record.emotion] || "neutral") : "neutral";
-  const emChar = charKey as "joyful" | "determined" | "neutral" | "sad" | "angry" | "furious" | "shocked";
+  const emChar = charKey as CharacterEmotion;
 
   // Caption text: memo first, fallback to three_line
   const caption = record.memo

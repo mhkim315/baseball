@@ -26,22 +26,14 @@ import {
   setNickname,
   getProfileImage,
   setProfileImage,
+  getUnlockedEmotions,
   resetAllData,
 } from "@/lib/db";
+import { ALL_CHARACTERS } from "@/lib/emotions";
+import type { CharacterEmotion } from "@/lib/emotions";
 import YearInReview from "@/components/YearInReview";
 import AchievementSection from "@/components/AchievementSection";
 import AchievementModal from "@/components/AchievementModal";
-
-const PROFILE_CHARACTERS: { key: string; label: string }[] = [
-  { key: "default", label: "기본" },
-  { key: "neutral", label: "보통" },
-  { key: "joyful", label: "기쁨" },
-  { key: "sad", label: "슬픔" },
-  { key: "angry", label: "화남" },
-  { key: "furious", label: "대노" },
-  { key: "shocked", label: "놀람" },
-  { key: "determined", label: "불굴" },
-];
 
 export default function MyScreen() {
   const { theme, isDark, toggleTheme } = useTheme();
@@ -323,6 +315,7 @@ export default function MyScreen() {
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [showYearInReview, setShowYearInReview] = useState(false);
   const [showAchievementModal, setShowAchievementModal] = useState(false);
+  const [unlockedEmotions, setUnlockedEmotions] = useState<string[]>([]);
 
   const reviewYear = new Date().getFullYear();
   const router = useRouter();
@@ -333,6 +326,8 @@ export default function MyScreen() {
       setNicknameState(nick ?? "");
       const profile = await getProfileImage();
       setProfileImageState(profile);
+      const unlocked = await getUnlockedEmotions();
+      setUnlockedEmotions(unlocked);
     } catch (e) {
       console.warn("my.tsx loadData failed", e);
     }
@@ -376,6 +371,16 @@ export default function MyScreen() {
 
   const myTeamColor = myTeam ? teamPrimaryColor(myTeam, isDark) : "#888";
 
+  // Sort: basic (always unlocked) → unlocked non-basic → locked
+  const sortedProfileChars = useMemo(() =>
+    [...ALL_CHARACTERS].sort((a, b) => {
+      const aGroup = a.basic ? 0 : unlockedEmotions.includes(a.id) ? 1 : 2;
+      const bGroup = b.basic ? 0 : unlockedEmotions.includes(b.id) ? 1 : 2;
+      return aGroup - bGroup;
+    }),
+    [unlockedEmotions],
+  );
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -413,7 +418,7 @@ export default function MyScreen() {
               <TeamBadge
                 teamId={myTeam}
                 size="lg"
-                emotion={(profileImage?.value as any) || "default"}
+                emotion={(profileImage?.value as CharacterEmotion) || "default"}
               />
               <Text style={styles.changeText}>변경</Text>
             </Pressable>
@@ -598,24 +603,38 @@ export default function MyScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>프로필 이미지 선택</Text>
+            <Text style={{ fontSize: 12, color: theme.mutedForeground, textAlign: "center", marginBottom: 12 }}>
+              {unlockedEmotions.length}/{ALL_CHARACTERS.length} 캐릭터 보유 중
+            </Text>
             <View style={styles.charGrid}>
-              {PROFILE_CHARACTERS.map((c) => (
-                <Pressable
-                  key={c.key}
-                  onPress={() => handleSelectProfileChar(c.key)}
-                  style={[
-                    styles.charItem,
-                    profileImage?.value === c.key && { borderColor: myTeamColor },
-                  ]}
-                >
-                  <TeamBadge
-                    teamId={myTeam || DEFAULT_TEAM_ID}
-                    size="md"
-                    emotion={c.key as any}
-                  />
-                  <Text style={styles.charName}>{c.label}</Text>
-                </Pressable>
-              ))}
+              {sortedProfileChars.map((c) => {
+                const isUnlocked = unlockedEmotions.includes(c.id);
+                return (
+                  <Pressable
+                    key={c.id}
+                    onPress={isUnlocked ? () => handleSelectProfileChar(c.id) : undefined}
+                    style={[
+                      styles.charItem,
+                      profileImage?.value === c.id && { borderColor: myTeamColor },
+                      !isUnlocked && { opacity: 0.35 },
+                    ]}
+                  >
+                    <View style={{ position: "relative" }}>
+                      <TeamBadge
+                        teamId={myTeam || DEFAULT_TEAM_ID}
+                        size="md"
+                        emotion={c.id}
+                      />
+                      {!isUnlocked && (
+                        <View style={{ position: "absolute", top: 0, right: 0, backgroundColor: "rgba(0,0,0,0.6)", borderRadius: 8, width: 16, height: 16, justifyContent: "center", alignItems: "center" }}>
+                          <Text style={{ color: "#fff", fontSize: 10, fontWeight: "700" }}>🔒</Text>
+                        </View>
+                      )}
+                    </View>
+                    <Text style={styles.charName}>{c.label}</Text>
+                  </Pressable>
+                );
+              })}
             </View>
             <Pressable style={[styles.modalSave, { flex: 0, alignSelf: "center", paddingHorizontal: 40 }]} onPress={() => setShowProfilePicker(false)}>
               <Text style={styles.modalSaveText}>확인</Text>

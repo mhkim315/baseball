@@ -15,10 +15,49 @@ export const EMOTIONS: EmotionDef[] = [
   { id: "shocked", character: "shocked", label: "놀람" },
 ];
 
-export const EMOTION_COUNT = EMOTIONS.length;
+// ── Character Icon System (16 types for profile/achievement rewards) ──
 
-// Lookup: emotion ID → character image name for TeamBadge
-export const EMOTION_CHARACTER: Record<string, EmotionId> = {};
-for (const e of EMOTIONS) {
-  EMOTION_CHARACTER[e.id] = e.character;
+export type CharacterEmotion =
+  | "default" | "determined" | "sad" | "joyful" | "neutral" | "angry"
+  | "furious" | "shocked"
+  | "annoyed" | "crying" | "curious" | "depressed"
+  | "flustered" | "mocking" | "sleepy" | "tongue"
+  | "in_love" | "extream_shock";
+
+export interface CharacterDef {
+  id: CharacterEmotion;
+  label: string;
+  basic: boolean;
+}
+
+export const ALL_CHARACTERS: CharacterDef[] = [
+  { id: "default", label: "기본", basic: true },
+  { id: "determined", label: "불굴", basic: false },
+  { id: "sad", label: "슬픔", basic: true },
+  { id: "joyful", label: "기쁨", basic: true },
+  { id: "neutral", label: "보통", basic: true },
+  { id: "angry", label: "화남", basic: true },
+  { id: "furious", label: "대노", basic: false },
+  { id: "shocked", label: "놀람", basic: false },
+  { id: "annoyed", label: "짜증", basic: false },
+  { id: "crying", label: "울음", basic: false },
+  { id: "curious", label: "호기심", basic: false },
+  { id: "depressed", label: "우울", basic: false },
+  { id: "flustered", label: "당황", basic: false },
+  { id: "mocking", label: "놀림", basic: false },
+  { id: "sleepy", label: "졸림", basic: false },
+  { id: "tongue", label: "메롱", basic: false },
+  { id: "in_love", label: "사랑", basic: false },
+  { id: "extream_shock", label: "개놀람", basic: false },
+];
+
+export const CHARACTER_BASIC_SET: CharacterEmotion[] = ALL_CHARACTERS.filter(c => c.basic).map(c => c.id);
+export const CHARACTER_LOCKABLE_SET: CharacterEmotion[] = ALL_CHARACTERS.filter(c => !c.basic).map(c => c.id);
+
+export const EMOTION_COUNT = ALL_CHARACTERS.length;
+
+// Lookup: emotion ID → character image name for TeamBadge (all 16 types)
+export const EMOTION_CHARACTER: Record<string, CharacterEmotion> = {};
+for (const c of ALL_CHARACTERS) {
+  EMOTION_CHARACTER[c.id] = c.id;
 }

@@ -3,13 +3,14 @@ import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { TEAM_COLORS } from "@shared/teamColors";
 import { useTheme } from "@/lib/ThemeContext";
+import type { CharacterEmotion } from "@/lib/emotions";
 
 const IMAGE_BASE = "https://fullcount.kr";
 
 interface TeamBadgeProps {
   teamId: string;
   size?: "sm" | "md" | "lg";
-  emotion?: "default" | "determined" | "sad" | "joyful" | "neutral" | "angry" | "furious" | "shocked";
+  emotion?: CharacterEmotion;
   variant?: "character" | "ball" | "bat";
 }
 

@@ -159,6 +159,7 @@ export default function DiaryScreen() {
   const [sheetExpenses, setSheetExpenses] = useState<Expense[]>([]);
 
   const [toastBadges, setToastBadges] = useState<Badge[]>([]);
+  const [toastRewards, setToastRewards] = useState<{ emotion: string; label: string }[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
 
 
@@ -168,12 +169,22 @@ export default function DiaryScreen() {
   const { width: screenWidth } = useWindowDimensions();
 
   const pendingToastBadges = useRef<Badge[]>([]);
+  const pendingRewards = useRef<{ emotion: string; label: string }[]>([]);
   const checkBadges = async () => {
     try {
-      const { evaluateBadges } = await import("@/lib/achievements");
+      const { evaluateBadges, grantRandomCharacter } = await import("@/lib/achievements");
       const newBadges = await evaluateBadges();
       if (newBadges.length > 0) {
         pendingToastBadges.current = newBadges;
+        // Grant random character reward for each new badge
+        const rewards: { emotion: string; label: string }[] = [];
+        for (let i = 0; i < newBadges.length; i++) {
+          const reward = await grantRandomCharacter();
+          if (reward) rewards.push(reward);
+        }
+        if (rewards.length > 0) {
+          pendingRewards.current = rewards;
+        }
         setShowConfetti(true);
       }
     } catch {}
@@ -183,6 +194,10 @@ export default function DiaryScreen() {
     if (pendingToastBadges.current.length > 0) {
       setToastBadges(pendingToastBadges.current);
       pendingToastBadges.current = [];
+    }
+    if (pendingRewards.current.length > 0) {
+      setToastRewards(pendingRewards.current);
+      pendingRewards.current = [];
     }
   }, []);
 
@@ -435,8 +450,9 @@ export default function DiaryScreen() {
       <ConfettiOverlay visible={showConfetti} onFinish={handleConfettiFinish} />
       <AchievementToast
         badges={toastBadges}
-        onDismiss={() => setToastBadges([])}
-        onPress={() => setToastBadges([])}
+        rewards={toastRewards}
+        onDismiss={() => { setToastBadges([]); setToastRewards([]); }}
+        onPress={() => { setToastBadges([]); setToastRewards([]); }}
       />
 
       {/* Header */}

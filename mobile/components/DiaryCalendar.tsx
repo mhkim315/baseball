@@ -3,7 +3,7 @@ import { View, Text, Pressable, StyleSheet, ActivityIndicator, Animated } from "
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { TEAM_COLORS, TEAM_LIST } from "@shared/teamColors";
 import { parseGameTeamIds, getWinBadge, getDaysInMonth, getFirstDayOfMonth } from "@shared/constants";
-import { EMOTION_CHARACTER } from "@/lib/emotions";
+import { EMOTION_CHARACTER, type CharacterEmotion } from "@/lib/emotions";
 import { TeamBadge } from "@/components/TeamBadge";
 import { useTheme, teamPrimaryColor } from "@/lib/ThemeContext";
 import { cachedScheduleByMonth, cachedDailyScores } from "@/lib/gameCache";
@@ -468,7 +468,7 @@ export default function DiaryCalendar({
                   <TeamBadge
                     teamId={dayRecords[0].cheered_team}
                     size="sm"
-                    emotion={emotionChar as "joyful" | "determined" | "neutral" | "sad"}
+                    emotion={emotionChar as CharacterEmotion}
                   />
                 )}
 

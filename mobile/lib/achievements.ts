@@ -3,7 +3,7 @@ import { computeStreakStats } from "@/lib/stats";
 import { resolveIsWin } from "@/lib/expenseStats";
 import { parseGameTeamIds } from "@shared/constants";
 import { TEAM_COLORS } from "@shared/teamColors";
-import { EMOTION_COUNT } from "@/lib/emotions";
+import { EMOTION_COUNT, CHARACTER_LOCKABLE_SET, ALL_CHARACTERS } from "@/lib/emotions";
 
 // --- Types ---
 
@@ -1431,7 +1431,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     badgeKey: "emotion_collector",
     emoji: "🎭",
     title: "감정 수집가",
-    description: "6가지 감정을 모두 기록했어요",
+    description: "16가지 감정을 모두 기록했어요",
     tier: "easy",
     xp: 10,
     category: "exploration",
@@ -1852,4 +1852,22 @@ export async function evaluateBadges(): Promise<Badge[]> {
   }
 
   return newlyUnlocked;
+}
+
+// ── Character Reward System ──
+
+export interface CharacterReward {
+  emotion: string;
+  label: string;
+}
+
+export async function grantRandomCharacter(): Promise<CharacterReward | null> {
+  const { getUnlockedEmotions, addUnlockedEmotion } = await import("@/lib/db");
+  const unlocked = await getUnlockedEmotions();
+  const lockable = CHARACTER_LOCKABLE_SET.filter(c => !unlocked.includes(c));
+  if (lockable.length === 0) return null;
+  const pick = lockable[Math.floor(Math.random() * lockable.length)];
+  await addUnlockedEmotion(pick);
+  const def = ALL_CHARACTERS.find(c => c.id === pick);
+  return { emotion: pick, label: def?.label ?? pick };
 }
