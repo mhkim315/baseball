@@ -335,8 +335,8 @@ export default function DiaryScreen() {
           setSheetExpenses(exps);
         } catch {}
       }
-      loadData();
-      checkBadges();
+      await loadData();
+      await checkBadges();
     } catch {
       Alert.alert("삭제 오류", "기록을 삭제하지 못했습니다");
     }
@@ -363,8 +363,8 @@ export default function DiaryScreen() {
         setSheetExpenses(exps);
       } catch {}
     }
-    loadData();
-    checkBadges();
+    await loadData();
+    await checkBadges();
   };
 
   const handleExpenseSaved = async () => {
@@ -377,7 +377,7 @@ export default function DiaryScreen() {
         setSheetExpenses(exps);
       } catch {}
     }
-    loadData();
+    await loadData();
   };
 
   const [expensePresetDate, setExpensePresetDate] = useState<Date | null>(null);

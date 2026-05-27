@@ -1034,9 +1034,9 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     teamId: "lotte",
     progressTarget: 3,
     check: (records) => {
-      const 사직방문 = records.filter(r =>
-        r.cheered_team === "lotte" && r.stadium != null && r.stadium.includes("사직")
-      );
+      const 사직방문 = records
+        .filter(r => r.cheered_team === "lotte" && r.stadium != null && r.stadium.includes("사직"))
+        .sort((a, b) => a.date.localeCompare(b.date));
       return {
         unlocked: 사직방문.length >= 3,
         progressCurrent: Math.min(사직방문.length, 3),
@@ -1366,12 +1366,14 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
   teamId: "hanwha",
   progressTarget: 10,
   check: (records) => {
-    const hanwha = records.filter(r => r.cheered_team === "hanwha");
+    const hanwha = records
+      .filter(r => r.cheered_team === "hanwha")
+      .sort((a, b) => a.date.localeCompare(b.date));
     return {
       unlocked: hanwha.length >= 10,
       progressCurrent: Math.min(hanwha.length, 10),
       progressTarget: 10,
-      qualifyingDate: hanwha.length >= 10 ? hanwha[hanwha.length - 1]?.date : undefined,
+      qualifyingDate: hanwha.length >= 10 ? hanwha[9].date : undefined,
     };
   },
 },
@@ -1422,7 +1424,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       unlocked: otherGames.length >= 3,
       progressCurrent: Math.min(otherGames.length, 3),
       progressTarget: 3,
-      qualifyingDate: otherGames.length >= 3 ? sorted[sorted.length - 1]?.date : undefined,
+      qualifyingDate: otherGames.length >= 3 ? sorted[2].date : undefined,
     };
   },
 },

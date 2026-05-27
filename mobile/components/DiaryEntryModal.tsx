@@ -344,10 +344,13 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
     let expensesToSave = pendingExpenses;
     if (showExpenseInput) {
       const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
-      if (amt && amt > 0) {
-        expensesToSave = [...pendingExpenses, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }];
-        setPendingExpenses(expensesToSave);
+      if (!amt || amt <= 0) {
+        savingRef.current = false;
+        setSimpleAlert({ visible: true, title: "알림", message: "올바른 금액을 입력해주세요" });
+        return;
       }
+      expensesToSave = [...pendingExpenses, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }];
+      setPendingExpenses(expensesToSave);
       setShowExpenseInput(false);
       setNewExpenseAmt("");
       setNewExpenseMemo("");
@@ -1367,7 +1370,10 @@ export default function DiaryEntryModal({ visible, onClose, onSaved, editRecord,
                       onMemoChange={setNewExpenseMemo}
                       onSave={() => {
                         const amt = parseInt(newExpenseAmt.replace(/,/g, ""));
-                        if (!amt || amt <= 0) return;
+                        if (!amt || amt <= 0) {
+                          setSimpleAlert({ visible: true, title: "알림", message: "올바른 금액을 입력해주세요" });
+                          return;
+                        }
                         setPendingExpenses((prev) => [...prev, { category: newExpenseCat, amount: String(amt), memo: newExpenseMemo }]);
                         setNewExpenseAmt("");
                         setNewExpenseMemo("");

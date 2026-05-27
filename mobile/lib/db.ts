@@ -582,10 +582,31 @@ export async function getUnlockedEmotions(): Promise<string[]> {
 }
 
 export async function addUnlockedEmotion(emotion: string): Promise<void> {
-  const current = await getUnlockedEmotions();
-  if (current.includes(emotion)) return;
-  current.push(emotion);
-  await setSetting("unlocked_emotions", JSON.stringify(current));
+  const database = await getDb();
+  // Serialize read-modify-write to prevent concurrent badge unlocks from overwriting each other
+  await database.runAsync("BEGIN IMMEDIATE");
+  try {
+    const row = await database.getFirstAsync<{ value: string }>(
+      "SELECT value FROM user_settings WHERE key = 'unlocked_emotions'"
+    );
+    let current: string[];
+    if (row?.value) {
+      try { current = JSON.parse(row.value); } catch { current = []; }
+    } else {
+      current = ["default", "sad", "joyful"];
+    }
+    if (!current.includes(emotion)) {
+      current.push(emotion);
+      await database.runAsync(
+        "INSERT OR REPLACE INTO user_settings (key, value) VALUES ('unlocked_emotions', ?)",
+        JSON.stringify(current)
+      );
+    }
+    await database.runAsync("COMMIT");
+  } catch (e) {
+    await database.runAsync("ROLLBACK");
+    throw e;
+  }
 }
 
 export async function resetAllData(): Promise<void> {
