@@ -142,7 +142,27 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
       };
     },
   },
-  // ── 집관 마일스톤 (4) ──
+  // ── 집관 마일스톤 (5) ──
+  {
+    id: "home_first",
+    badgeKey: "home_first",
+    emoji: "📺",
+    title: "첫 집관",
+    description: "TV로 첫 집관 기록을 작성했어요",
+    tier: "tutorial",
+    xp: 5,
+    category: "milestone",
+    progressTarget: 1,
+    check: (records) => {
+      const homeRecords = records.filter((r) => r.is_live === 0).sort((a, b) => a.date.localeCompare(b.date));
+      return {
+        unlocked: homeRecords.length >= 1,
+        progressCurrent: Math.min(homeRecords.length, 1),
+        progressTarget: 1,
+        qualifyingDate: homeRecords.length >= 1 ? homeRecords[0].date : undefined,
+      };
+    },
+  },
   {
     id: "home_10",
     badgeKey: "home_10",
