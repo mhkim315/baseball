@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260610HTHH02026",
+    "gameDate": "2026-06-10",
+    "lastUpdated": "2026-06-10T11:25:55+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "56724",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260610,
+    "aPCode": "54843",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.79",
+    "hra": "0.281",
+    "w": 30,
+    "wra": "0.517",
+    "name": "한화",
+    "rank": 5,
+    "hr": 65,
+    "l": 28,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 30,
+      "l": 28
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.01",
+    "hra": "0.265",
+    "w": 33,
+    "wra": "0.550",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 74,
+    "l": 27,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 33,
+      "l": 27
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "화이트"
+  },
+  "awayStarter": {
+    "name": "시라카와"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

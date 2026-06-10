@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-05-12",
-    "lastUpdated": "2026-05-11T00:07:39+09:00",
-    "gameId": "20260512OBHT02026",
-    "kboGameId": "20260512OBHT0",
-    "opponent": "KIA",
-    "venue": "광주",
+    "lineupDate": "2026-06-10",
+    "lastUpdated": "2026-06-10T11:25:43+09:00",
+    "gameId": "20260610OBLT02026",
+    "kboGameId": "20260610OBLT0",
+    "opponent": "롯데",
+    "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,107 +23,107 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KIA",
-    "teamName": "KIA"
+    "teamShort": "롯데",
+    "teamName": "롯데"
   },
   "batters": [
     {
       "order": 1,
-      "name": "박찬호",
-      "position": "유격수"
-    },
-    {
-      "order": 2,
-      "name": "박지훈",
-      "position": "3루수"
-    },
-    {
-      "order": 3,
-      "name": "박준순",
-      "position": "2루수"
-    },
-    {
-      "order": 4,
-      "name": "카메론",
-      "position": "우익수"
-    },
-    {
-      "order": 5,
-      "name": "김민석",
-      "position": "좌익수"
-    },
-    {
-      "order": 6,
-      "name": "홍성호",
-      "position": "지명타자"
-    },
-    {
-      "order": 7,
       "name": "정수빈",
       "position": "중견수"
     },
     {
+      "order": 2,
+      "name": "카메론",
+      "position": "우익수"
+    },
+    {
+      "order": 3,
+      "name": "김민석",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "양의지",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "안재석",
+      "position": "3루수"
+    },
+    {
+      "order": 6,
+      "name": "박찬호",
+      "position": "유격수"
+    },
+    {
+      "order": 7,
+      "name": "오명진",
+      "position": "2루수"
+    },
+    {
       "order": 8,
-      "name": "윤준호",
-      "position": "포수"
+      "name": "박지훈",
+      "position": "1루수"
     },
     {
       "order": 9,
-      "name": "오명진",
-      "position": "1루수"
+      "name": "김기연",
+      "position": "포수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박재현",
-      "position": "좌익수"
-    },
-    {
-      "order": 2,
-      "name": "박상준",
-      "position": "우익수"
-    },
-    {
-      "order": 3,
-      "name": "김선빈",
-      "position": "지명타자"
-    },
-    {
-      "order": 4,
-      "name": "김도영",
-      "position": "3루수"
-    },
-    {
-      "order": 5,
-      "name": "아데를린",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
-      "name": "김호령",
+      "name": "황성빈",
       "position": "중견수"
     },
     {
-      "order": 7,
-      "name": "데일",
+      "order": 2,
+      "name": "고승민",
       "position": "2루수"
     },
     {
+      "order": 3,
+      "name": "레이예스",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "나승엽",
+      "position": "1루수"
+    },
+    {
+      "order": 5,
+      "name": "전민재",
+      "position": "유격수"
+    },
+    {
+      "order": 6,
+      "name": "손호영",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
+      "name": "최항",
+      "position": "지명타자"
+    },
+    {
       "order": 8,
-      "name": "김태군",
-      "position": "포수"
+      "name": "조세진",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "김규성",
-      "position": "유격수"
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "잭로그"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "김진욱"
   }
 }
