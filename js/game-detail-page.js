@@ -236,8 +236,44 @@ async function main() {
     }
   }
 
-  // Default: today / future game
+  // Default: today / future game (including live games today)
   try {
+    // For today's games (including live), try to load game record for scoreboard
+    const isToday = !dateParam || dateParam === new Date().toISOString().slice(0, 10);
+    let record = null;
+
+    if (dateParam) {
+      try {
+        record = await loadGameRecord(team.id, dateParam);
+      } catch { /* record not available yet */ }
+    }
+
+    if (record) {
+      renderGameRecord(document.getElementById("game-preview"), record);
+      const gi = record.gameInfo || {};
+      const isHome =
+        team.teamShort === gi.hName ||
+        team.scheduleName === gi.hName ||
+        team.kboCode === gi.hCode;
+      const opp = isHome ? gi.aName : gi.hName;
+      const venue = gi.sName || gi.stadium || "";
+
+      const subtitle = document.getElementById("site-subtitle");
+      if (subtitle) {
+        subtitle.textContent = `${team.teamShort} vs ${opp || "상대"}${venue ? ` · ${venue}` : ""}`;
+      }
+      document.title = `fullcount.kr · ${team.teamShort} vs ${opp || "상대"}`;
+
+      const lineupData = recordToLineupData(record, team);
+      renderLineup(
+        document.getElementById("lineup-tbody"),
+        document.getElementById("lineup-title"),
+        lineupData,
+        { gameInfo: record.gameInfo },
+      );
+      return;
+    }
+
     const [lineup, preview] = await Promise.all([
       loadLineup(team.id),
       loadGamePreview(team.id),

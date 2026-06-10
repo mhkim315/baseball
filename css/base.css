@@ -2754,6 +2754,34 @@ img {
   text-align: center;
 }
 
+/* 상태 뱃지 */
+.game-card-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.game-card-badge--live {
+  color: #ef4444;
+  animation: game-card-blink 1.2s ease-in-out infinite;
+}
+.game-card-badge--finished {
+  color: #666;
+  background: rgba(0,0,0,0.06);
+}
+.game-card-badge--cancelled {
+  color: #888;
+  text-decoration: line-through;
+}
+@keyframes game-card-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.game-card--live {
+  border-color: #ef4444 !important;
+}
+
 .game-card-score {
   font-size: 1.15rem;
   font-weight: 600;

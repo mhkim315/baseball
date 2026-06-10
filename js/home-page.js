@@ -14,6 +14,23 @@ let state = {
   dailyScores: null,
 };
 
+let refreshTimer = null;
+
+function getGameStatus(game, scoreData) {
+  if (scoreData?.cancelled) return "cancelled";
+  if (scoreData && scoreData.outcome != null) return "finished";
+  if (game.status === "live" || game.status === "LIVE") return "live";
+  if (game.status === "finished") return "finished";
+  return "scheduled";
+}
+
+function statusBadge(status) {
+  if (status === "live") return '<span class="game-card-badge game-card-badge--live">● LIVE</span>';
+  if (status === "finished") return '<span class="game-card-badge game-card-badge--finished">종료</span>';
+  if (status === "cancelled") return '<span class="game-card-badge game-card-badge--cancelled">취소</span>';
+  return "";
+}
+
 // ── date helpers ──────────────────────────────────────────
 
 function getWeekRange(iso) {
@@ -145,9 +162,10 @@ function findScoreData(game) {
   return dateScores.find((s) => s.away === awayName && s.home === homeName) || null;
 }
 
-function renderGameCard(root, game, scoreData, starters) {
+function renderGameCard(root, game, scoreData, starters, status) {
   const card = document.createElement("article");
   card.className = "game-card panel";
+  if (status === "live") card.classList.add("game-card--live");
 
   const awayName = typeof game.away === "string" ? game.away : game.away?.name || "";
   const homeName = typeof game.home === "string" ? game.home : game.home?.name || "";
@@ -167,17 +185,16 @@ function renderGameCard(root, game, scoreData, starters) {
     card.style.borderLeft = `3px solid ${homeColor}`;
   }
 
-  const hasResult = scoreData && scoreData.outcome != null && !scoreData.cancelled;
+  const hasResult = status === "finished";
+  const isLive = status === "live";
 
   if (homeId) {
     card.addEventListener("click", () => {
       const opts = {};
-      if (hasResult) opts.date = game.date || state.selectedDate;
+      if (hasResult || isLive) opts.date = game.date || state.selectedDate;
       window.location.assign(pageUrl("game-detail", homeId, opts));
     });
   }
-
-  // matchup
   const matchup = document.createElement("div");
   matchup.className = "game-card-matchup";
   const homeWon = hasResult ? scoreData.homeScore > scoreData.awayScore : null;
@@ -187,7 +204,9 @@ function renderGameCard(root, game, scoreData, starters) {
   const homePitcher = hasResult && (scoreData.winPitcher || scoreData.losePitcher)
     ? (homeWon ? `승: ${escapeHtml(scoreData.winPitcher || "")}` : `패: ${escapeHtml(scoreData.losePitcher || "")}`)
     : "";
-  const vsText = hasResult ? `${escapeHtml(scoreData.awayScore)} : ${escapeHtml(scoreData.homeScore)}` : "VS";
+  const vsText = hasResult
+    ? `${escapeHtml(scoreData.awayScore)} : ${escapeHtml(scoreData.homeScore)}`
+    : isLive && scoreData ? `${escapeHtml(scoreData.awayScore || 0)} : ${escapeHtml(scoreData.homeScore || 0)}` : "VS";
   const vsColor = hasResult ? (homeWon ? homeColor : awayColor) : null;
   matchup.innerHTML = `
     <div class="game-card-team">
@@ -204,7 +223,17 @@ function renderGameCard(root, game, scoreData, starters) {
   `;
   card.appendChild(matchup);
 
-  if (!hasResult && starters) {
+  if (isLive && scoreData) {
+    // 라이브: 현재 스코어 + 선발투수
+    const scoreLine = document.createElement("div");
+    scoreLine.className = "game-card-pitchers";
+    scoreLine.innerHTML = `
+      <span class="game-card-pitcher">${escapeHtml(scoreData.awayScore ?? 0)}</span>
+      <span class="game-card-pitcher-label">${statusBadge("live")}</span>
+      <span class="game-card-pitcher">${escapeHtml(scoreData.homeScore ?? 0)}</span>
+    `;
+    card.appendChild(scoreLine);
+  } else if (!hasResult && starters) {
     // 경기 전: 선발투수
     const pitchers = document.createElement("div");
     pitchers.className = "game-card-pitchers";
@@ -219,13 +248,19 @@ function renderGameCard(root, game, scoreData, starters) {
   const meta = document.createElement("div");
   meta.className = "game-card-meta";
   const metaParts = [];
-  if (scoreData?.cancelled) {
-    metaParts.push("취소");
+  if (status === "cancelled") {
+    metaParts.push(statusBadge("cancelled"));
   } else {
     metaParts.push(game.venue || "경기장 미정");
-    if (!hasResult && game.time) metaParts.push(game.time);
+    if (isLive) {
+      metaParts.push(statusBadge("live"));
+    } else if (status === "finished") {
+      metaParts.push(statusBadge("finished"));
+    } else if (game.time) {
+      metaParts.push(game.time);
+    }
   }
-  meta.textContent = metaParts.join(" · ");
+  meta.innerHTML = metaParts.join(" · ");
   card.appendChild(meta);
 
   root.appendChild(card);
@@ -275,8 +310,31 @@ function renderDailyGames() {
       }
     }
 
-    renderGameCard(root, game, scoreData, starters);
+    const status = getGameStatus(game, scoreData);
+    renderGameCard(root, game, scoreData, starters, status);
   }
+}
+
+// ── auto-refresh (경기 시간: 18:00~01:00 KST) ────────────
+
+function startAutoRefresh() {
+  if (refreshTimer) return;
+  refreshTimer = setInterval(async () => {
+    const kst = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+    const h = kst.getHours();
+    if (h < 18 && h >= 1) return; // 01:00~17:59 = 갱신 불필요
+    try {
+      const [td, ds] = await Promise.all([
+        loadTodayGames().catch(() => null),
+        loadDailyScores().catch(() => null),
+      ]);
+      if (td) state.todayData = td;
+      if (ds) state.dailyScores = ds;
+      if (isToday(state.selectedDate) && document.getElementById("daily-games")) {
+        renderDailyGames();
+      }
+    } catch { /* 조용히 실패 */ }
+  }, 30000);
 }
 
 // ── init ──────────────────────────────────────────────────
@@ -299,6 +357,7 @@ async function main() {
 
     renderDateSlider();
     renderDailyGames();
+    startAutoRefresh();
 
     document.getElementById("prev-week")?.addEventListener("click", goToPrevWeek);
     document.getElementById("next-week")?.addEventListener("click", goToNextWeek);
