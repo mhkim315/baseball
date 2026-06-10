@@ -1,4 +1,4 @@
-name: Update KBO Data
+name: Refresh KBO Data
 
 on:
   schedule:
