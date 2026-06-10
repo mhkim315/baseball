@@ -24,6 +24,8 @@ PUBLIC_FILES = [
     "sitemap.xml",
     "robots.txt",
     "app.html",
+    "privacy.html",
+    "_redirects",
 ]
 
 PUBLIC_DIRS = [

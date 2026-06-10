@@ -2368,6 +2368,15 @@ img {
   font-size: 0.85rem;
 }
 
+.footer-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer-link:hover {
+  color: var(--color-text);
+}
+
 @media (max-width: 768px) {
   .wrap {
     padding: 10px;
