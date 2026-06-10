@@ -2434,57 +2434,145 @@ img {
 }
 
 /* ── 앱 다운로드 카드 (홈) ── */
-.app-card {
+/* ── 앱 프로모션 카드 (홈) ── */
+
+.app-promo {
+  position: relative;
   display: block;
-  margin-block: 0 4px;
+  margin-block: 0 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  box-shadow: 0 8px 32px rgba(15, 52, 96, 0.25);
 }
-.app-card-content {
+
+.app-promo-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 200px 120px at 10% 20%, rgba(255,255,255,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 150px 150px at 90% 80%, rgba(79, 172, 254, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.app-promo-body {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-radius: 24px;
-  padding: clamp(12px, 2vw, 20px) clamp(14px, 2.4vw, 24px);
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-pressed) 100%);
-  color: #ffffff;
-  box-shadow: rgba(79, 70, 229, 0.3) 0 4px 16px;
+  gap: 14px;
+  padding: clamp(16px, 2.5vw, 22px) clamp(16px, 3vw, 28px);
+  padding-bottom: 0;
 }
-.app-card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+
+.app-promo-icon {
+  flex-shrink: 0;
+  width: clamp(44px, 6vw, 56px);
+  height: clamp(44px, 6vw, 56px);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.35);
+}
+
+.app-promo-info {
+  flex: 1;
   min-width: 0;
 }
-.app-card-text strong {
+
+.app-promo-title {
+  display: block;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  color: #ffffff;
   letter-spacing: -0.02em;
+  margin-bottom: 2px;
 }
-.app-card-text span {
-  font-size: clamp(0.78rem, 2vw, 0.88rem);
-  opacity: 0.88;
+
+.app-promo-desc {
+  display: block;
+  font-size: clamp(0.75rem, 1.8vw, 0.82rem);
+  color: rgba(255,255,255,0.65);
 }
-.app-card-links {
+
+.app-promo-actions {
+  display: flex;
+  gap: 8px;
   flex-shrink: 0;
 }
-.app-card-btn {
+
+.app-promo-btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 8px 14px;
   border-radius: 999px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
   font-family: var(--font-display);
-  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-size: clamp(0.75rem, 1.6vw, 0.85rem);
   font-weight: 700;
   text-decoration: none;
-  transition: background 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+  transition: all 160ms ease;
+}
+
+.app-promo-btn--ios {
+  background: #ffffff;
+  color: #1a1a2e;
+}
+.app-promo-btn--ios:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.app-promo-btn--android {
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.app-promo-btn--android:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
+}
+
+.app-promo-btn-icon {
+  flex-shrink: 0;
+}
+
+.app-promo-features {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px clamp(16px, 3vw, 28px) clamp(14px, 2vw, 20px);
+}
+
+.app-promo-features span {
+  font-size: clamp(0.68rem, 1.5vw, 0.75rem);
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.06);
+  padding: 3px 10px;
+  border-radius: 999px;
   white-space: nowrap;
 }
-.app-card-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
+
+@media (max-width: 540px) {
+  .app-promo-body {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .app-promo-info {
+    flex-basis: calc(100% - 60px);
+  }
+  .app-promo-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .app-promo-btn {
+    flex: 1;
+    justify-content: center;
+  }
 }
 
 /* ── 앱 상세 페이지 (app.html) ── */
@@ -2607,21 +2695,6 @@ img {
   transform: scale(0.98);
 }
 
-@media (max-width: 640px) {
-  .app-card-content {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    border-radius: 18px;
-  }
-  .app-card-links {
-    text-align: center;
-  }
-  .app-card-btn {
-    justify-content: center;
-    width: 100%;
-  }
-}
 
 /* --- 응원 가이드 (cheering.html) --- */
 .cheering-main {
