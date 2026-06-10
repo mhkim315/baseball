@@ -25,13 +25,13 @@ PUBLIC_FILES = [
     "robots.txt",
     "app.html",
     "privacy.html",
-    "_redirects",
 ]
 
 PUBLIC_DIRS = [
     "css",
     "js",
     "data",
+    "privacy",
 ]
 
 # 변환 대상 이미지 디렉토리
