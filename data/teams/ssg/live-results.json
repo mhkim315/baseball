@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-10T19:45:01+09:00",
+  "fetchedAt": "2026-06-10T23:02:52+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1363,19 +1363,19 @@
           "away": "SSG",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 3,
-          "homeScore": 2,
-          "scoreLine": "3-2",
-          "ourScore": 3,
-          "oppScore": 2,
-          "ourScoreLine": "3-2",
-          "outcome": null,
+          "awayScore": 6,
+          "homeScore": 8,
+          "scoreLine": "6-8",
+          "ourScore": 6,
+          "oppScore": 8,
+          "ourScoreLine": "6-8",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260610SKLG02026",
           "awayStarter": "최민준",
           "homeStarter": "웰스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김영우",
+          "losePitcher": "이로운"
         }
       ]
     },

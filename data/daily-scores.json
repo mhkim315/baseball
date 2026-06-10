@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T19:46:23.711210+09:00",
+  "generatedAt": "2026-06-10T23:04:13.397330+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -3911,62 +3911,62 @@
       {
         "away": "두산",
         "home": "롯데",
-        "awayScore": 0,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 1,
+        "homeScore": 3,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "잭로그",
         "homeStarter": "김진욱",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이진하",
+        "losePitcher": "잭로그"
       },
       {
         "away": "SSG",
         "home": "LG",
-        "awayScore": 3,
-        "homeScore": 2,
-        "outcome": null,
+        "awayScore": 6,
+        "homeScore": 8,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "최민준",
         "homeStarter": "웰스",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김영우",
+        "losePitcher": "이로운"
       },
       {
         "away": "NC",
         "home": "키움",
-        "awayScore": 2,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 4,
+        "homeScore": 2,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "구창모",
         "homeStarter": "하영민",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "구창모",
+        "losePitcher": "하영민"
       },
       {
         "away": "삼성",
         "home": "KT",
-        "awayScore": 0,
-        "homeScore": 3,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 4,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "원태인",
         "homeStarter": "사우어",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "사우어",
+        "losePitcher": "원태인"
       },
       {
         "away": "KIA",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 3,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 4,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "시라카와",
         "homeStarter": "화이트",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "화이트",
+        "losePitcher": "시라카와"
       }
     ],
     "2026-06-11": [
