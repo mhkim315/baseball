@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260409HHSK02026",
+    "gameDate": "2026-04-09",
+    "lastUpdated": "2026-05-10T23:57:29+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "55855",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "Y",
+    "gdate": 20260409,
+    "aPCode": "56712",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.10",
+    "hra": "0.289",
+    "w": 7,
+    "wra": "0.700",
+    "name": "SSG",
+    "rank": 1,
+    "hr": 12,
+    "l": 3,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 7,
+      "l": 3
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "6.43",
+    "hra": "0.288",
+    "w": 6,
+    "wra": "0.600",
+    "name": "한화",
+    "rank": 3,
+    "hr": 10,
+    "l": 4,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 6,
+      "l": 4
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "화이트"
+  },
+  "awayStarter": {
+    "name": "에르난데스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

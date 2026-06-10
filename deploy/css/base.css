@@ -391,7 +391,7 @@ img {
 
 .subsection-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   margin-block: 12px;
 }
@@ -401,6 +401,9 @@ img {
   outline-offset: 2px;
 }
 
+.subsection-panel {
+  min-width: 0;
+}
 .subsection-panel[hidden] {
   display: none;
 }
@@ -1133,6 +1136,33 @@ img {
   color: #6d28d9;
 }
 
+.stadium-brief-rows {
+  margin: 0;
+  padding: 0;
+}
+
+.stadium-brief-rows div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 10px;
+  padding: 5px 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+}
+
+.stadium-brief-rows div:first-child {
+  border-top: 0;
+}
+
+.stadium-brief-rows dt {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.stadium-brief-rows dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
 .food-detail-rows {
   margin: 0;
   padding: 12px 16px 16px;
@@ -1664,8 +1694,9 @@ img {
 }
 
 .subsection-tabs button {
-  min-width: 96px;
+  min-width: 0;
   justify-content: center;
+  flex-shrink: 1;
 }
 
 .stadium-map-intro {
@@ -1989,6 +2020,8 @@ img {
   font-size: 0.85rem;
   line-height: 1.45;
   color: var(--color-muted);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .stadium-admin-layout {
@@ -2307,7 +2340,7 @@ img {
   }
 
   .subsection-tabs button {
-    min-width: 78px;
+    min-width: 0;
   }
 }
 
@@ -2611,6 +2644,14 @@ img {
   background: var(--color-text);
 }
 
+.bottom-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
 .bottom-tab-label {
   white-space: nowrap;
   font-weight: 500;
@@ -2666,10 +2707,17 @@ img {
 }
 
 .game-card-vs {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-muted);
   padding: 0 8px;
+}
+
+.game-card-pitcher-sub {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 .game-card-pitchers {
@@ -2719,6 +2767,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 8px;
   margin-bottom: 4px;
   padding: 0;
 }
@@ -2742,6 +2791,12 @@ img {
 
 .date-slider-arrow:active {
   background: rgba(28,28,28,0.04);
+}
+
+.date-slider-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
 }
 
 .date-slider-header {

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260507LTKT02026",
+    "gameDate": "2026-05-07",
+    "lastUpdated": "2026-05-11T00:02:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "64001",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "Y",
+    "gdate": 20260507,
+    "aPCode": "64021",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.02",
+    "hra": "0.274",
+    "w": 22,
+    "wra": "0.667",
+    "name": "KT",
+    "rank": 1,
+    "hr": 25,
+    "l": 11,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 22,
+      "l": 11
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.26",
+    "hra": "0.253",
+    "w": 13,
+    "wra": "0.419",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 23,
+    "l": 18,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 13,
+      "l": 18
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "고영표"
+  },
+  "awayStarter": {
+    "name": "박세웅"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

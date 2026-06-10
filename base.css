@@ -2433,6 +2433,196 @@ img {
   }
 }
 
+/* ── 앱 다운로드 카드 (홈) ── */
+.app-card {
+  display: block;
+  margin-block: 0 4px;
+}
+.app-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 24px;
+  padding: clamp(12px, 2vw, 20px) clamp(14px, 2.4vw, 24px);
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-pressed) 100%);
+  color: #ffffff;
+  box-shadow: rgba(79, 70, 229, 0.3) 0 4px 16px;
+}
+.app-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.app-card-text strong {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  letter-spacing: -0.02em;
+}
+.app-card-text span {
+  font-size: clamp(0.78rem, 2vw, 0.88rem);
+  opacity: 0.88;
+}
+.app-card-links {
+  flex-shrink: 0;
+}
+.app-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+.app-card-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ── 앱 상세 페이지 (app.html) ── */
+.app-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.app-page .panel {
+  padding: clamp(16px, 3vw, 28px);
+}
+.app-page h2 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  margin-bottom: 8px;
+}
+.app-page .app-desc {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.app-features {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.app-feature {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.app-feature-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.app-feature h3 {
+  font-size: 0.95rem;
+  margin: 0 0 2px;
+}
+.app-feature p {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+.app-store-link {
+  display: block;
+  border-radius: 16px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--color-blue) 10%, #ffffff 90%);
+  border: 1px solid color-mix(in srgb, var(--color-blue) 30%, transparent);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 160ms ease;
+  margin-bottom: 12px;
+}
+.app-store-link:hover {
+  transform: scale(0.98);
+}
+.app-store-link h3 {
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+  color: var(--color-text);
+}
+.app-store-link p {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+.app-store-link .app-store-cta {
+  color: var(--color-blue);
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+.app-android-card {
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--color-ring);
+  margin-bottom: 20px;
+}
+.app-android-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+}
+.app-android-card p {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0 0 10px;
+}
+.app-email-code {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  background: color-mix(in srgb, var(--color-blue) 10%, #ffffff 90%);
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+.app-back-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--color-blue);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+.app-back-btn:hover {
+  transform: scale(0.98);
+}
+
+@media (max-width: 640px) {
+  .app-card-content {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    border-radius: 18px;
+  }
+  .app-card-links {
+    text-align: center;
+  }
+  .app-card-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* --- 응원 가이드 (cheering.html) --- */
 .cheering-main {
   display: flex;

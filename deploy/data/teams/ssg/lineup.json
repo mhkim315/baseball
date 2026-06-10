@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-05-07",
-    "lastUpdated": "2026-05-07T01:04:19+09:00",
-    "gameId": "20260507NCSK02026",
-    "kboGameId": "20260507NCSK0",
-    "opponent": "NC",
-    "venue": "문학",
+    "lineupDate": "2026-05-12",
+    "lastUpdated": "2026-05-11T00:07:41+09:00",
+    "gameId": "20260512SKKT02026",
+    "kboGameId": "20260512SKKT0",
+    "opponent": "KT",
+    "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,13 +23,13 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "NC",
-    "teamName": "NC"
+    "teamShort": "KT",
+    "teamName": "KT"
   },
   "batters": [
     {
       "order": 1,
-      "name": "박성한",
+      "name": "안상현",
       "position": "유격수"
     },
     {
@@ -49,18 +49,18 @@
     },
     {
       "order": 5,
-      "name": "류효승",
-      "position": "지명타자"
-    },
-    {
-      "order": 6,
       "name": "오태곤",
       "position": "1루수"
     },
     {
-      "order": 7,
-      "name": "최준우",
+      "order": 6,
+      "name": "채현우",
       "position": "우익수"
+    },
+    {
+      "order": 7,
+      "name": "류효승",
+      "position": "지명타자"
     },
     {
       "order": 8,
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김주원",
-      "position": "유격수"
+      "name": "김민혁",
+      "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "한석현",
+      "name": "최원준",
       "position": "우익수"
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
-    },
-    {
-      "order": 4,
-      "name": "데이비슨",
+      "name": "김현수",
       "position": "1루수"
     },
     {
-      "order": 5,
-      "name": "박건우",
+      "order": 4,
+      "name": "장성우",
       "position": "지명타자"
     },
     {
+      "order": 5,
+      "name": "힐리어드",
+      "position": "중견수"
+    },
+    {
       "order": 6,
-      "name": "이우성",
-      "position": "좌익수"
+      "name": "김상수",
+      "position": "2루수"
     },
     {
       "order": 7,
-      "name": "김한별",
+      "name": "권동진",
       "position": "3루수"
     },
     {
       "order": 8,
-      "name": "김형준",
+      "name": "한승택",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "천재환",
-      "position": "중견수"
+      "name": "이강민",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {
-    "name": "타케다"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "테일러"
+    "name": "??"
   }
 }

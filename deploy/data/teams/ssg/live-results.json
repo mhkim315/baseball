@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-05-07T01:04:09+09:00",
+  "fetchedAt": "2026-05-11T00:07:31+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -725,15 +725,19 @@
           "away": "NC",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 10,
+          "homeScore": 5,
+          "scoreLine": "10-5",
+          "ourScore": 5,
+          "oppScore": 10,
+          "ourScoreLine": "5-10",
+          "outcome": "L",
           "cancelled": false,
-          "gameId": "20260507NCSK0"
+          "gameId": "20260507NCSK02026",
+          "awayStarter": "테일러",
+          "homeStarter": "타케다",
+          "winPitcher": "테일러",
+          "losePitcher": "타케다"
         }
       ]
     },
@@ -743,15 +747,19 @@
           "away": "SSG",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 4,
+          "homeScore": 1,
+          "scoreLine": "4-1",
+          "ourScore": 4,
+          "oppScore": 1,
+          "ourScoreLine": "4-1",
+          "outcome": "W",
           "cancelled": false,
-          "gameId": "20260508SKOB0"
+          "gameId": "20260508SKOB02026",
+          "awayStarter": "베니지아노",
+          "homeStarter": "벤자민",
+          "winPitcher": "베니지아노",
+          "losePitcher": "벤자민"
         }
       ]
     },
@@ -761,15 +769,19 @@
           "away": "SSG",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 4,
+          "homeScore": 9,
+          "scoreLine": "4-9",
+          "ourScore": 4,
+          "oppScore": 9,
+          "ourScoreLine": "4-9",
+          "outcome": "L",
           "cancelled": false,
-          "gameId": "20260509SKOB0"
+          "gameId": "20260509SKOB02026",
+          "awayStarter": "긴지로",
+          "homeStarter": "곽빈",
+          "winPitcher": "곽빈",
+          "losePitcher": "긴지로"
         }
       ]
     },
@@ -779,15 +791,19 @@
           "away": "SSG",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 1,
+          "homeScore": 3,
+          "scoreLine": "1-3",
+          "ourScore": 1,
+          "oppScore": 3,
+          "ourScoreLine": "1-3",
+          "outcome": "L",
           "cancelled": false,
-          "gameId": "20260510SKOB0"
+          "gameId": "20260510SKOB02026",
+          "awayStarter": "최민준",
+          "homeStarter": "잭로그",
+          "winPitcher": "잭로그",
+          "losePitcher": "최민준"
         }
       ]
     },

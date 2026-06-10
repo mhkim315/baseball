@@ -27,13 +27,29 @@
       <header class="site-header">
         <h1 id="site-title" class="brand-title">fullcount.kr</h1>
         <p class="lead">구단별 라인업, 구장 먹거리, 응원가까지 &mdash; 직관 준비는 여기서</p>
-        <div class="date-slider-header">
-          <span id="week-label" class="week-label"></span>
+        <div class="date-slider-wrap">
+          <button type="button" id="prev-week" class="date-slider-arrow" aria-label="이전 주">←</button>
+          <div class="date-slider-header">
+            <span id="week-label" class="week-label"></span>
+          </div>
+          <button type="button" id="next-week" class="date-slider-arrow" aria-label="다음 주">→</button>
         </div>
         <div id="date-slider" class="date-slider"></div>
       </header>
       <p id="load-error" class="error-banner" role="alert"></p>
       <main>
+        <section id="app-download" class="app-card" aria-label="앱 다운로드">
+          <div class="app-card-content">
+            <div class="app-card-text">
+              <strong>📱 풀카운트 앱</strong>
+              <span>iOS 정식 출시 · Android 비공개 테스터 모집</span>
+            </div>
+            <div class="app-card-links">
+              <a href="app.html" class="app-card-btn">자세히 보기 →</a>
+            </div>
+          </div>
+        </section>
+
         <section id="games-section" aria-label="경기">
           <p class="home-hint">카드를 누르면 라인업을 확인할 수 있습니다</p>
           <div id="daily-games" class="daily-games"></div>

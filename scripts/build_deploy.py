@@ -23,6 +23,7 @@ PUBLIC_FILES = [
     "package.json",
     "sitemap.xml",
     "robots.txt",
+    "app.html",
 ]
 
 PUBLIC_DIRS = [

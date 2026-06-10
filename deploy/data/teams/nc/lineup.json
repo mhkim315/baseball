@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-05-07",
-    "lastUpdated": "2026-05-07T01:04:21+09:00",
-    "gameId": "20260507NCSK02026",
-    "kboGameId": "20260507NCSK0",
-    "opponent": "SSG",
-    "venue": "문학",
+    "lineupDate": "2026-05-12",
+    "lastUpdated": "2026-05-11T00:07:43+09:00",
+    "gameId": "20260512NCLT02026",
+    "kboGameId": "20260512NCLT0",
+    "opponent": "롯데",
+    "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "SSG",
-    "teamName": "SSG"
+    "teamShort": "롯데",
+    "teamName": "롯데"
   },
   "batters": [
     {
@@ -34,96 +34,96 @@
     },
     {
       "order": 2,
-      "name": "한석현",
-      "position": "우익수"
+      "name": "오태양",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
+      "name": "권희동",
+      "position": "우익수"
     },
     {
       "order": 4,
-      "name": "데이비슨",
-      "position": "1루수"
-    },
-    {
-      "order": 5,
       "name": "박건우",
       "position": "지명타자"
     },
     {
-      "order": 6,
+      "order": 5,
       "name": "이우성",
       "position": "좌익수"
     },
     {
-      "order": 7,
-      "name": "김한별",
+      "order": 6,
+      "name": "서호철",
       "position": "3루수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "김형준",
       "position": "포수"
     },
     {
+      "order": 8,
+      "name": "도태훈",
+      "position": "1루수"
+    },
+    {
       "order": 9,
-      "name": "천재환",
-      "position": "중견수"
+      "name": "김한별",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박성한",
-      "position": "유격수"
+      "name": "황성빈",
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "정준재",
+      "name": "고승민",
       "position": "2루수"
     },
     {
       "order": 3,
-      "name": "최정",
-      "position": "3루수"
-    },
-    {
-      "order": 4,
-      "name": "에레디아",
+      "name": "레이예스",
       "position": "좌익수"
     },
     {
+      "order": 4,
+      "name": "나승엽",
+      "position": "1루수"
+    },
+    {
       "order": 5,
-      "name": "류효승",
+      "name": "전준우",
       "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "오태곤",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
-      "name": "최준우",
+      "name": "윤동희",
       "position": "우익수"
     },
     {
+      "order": 7,
+      "name": "전민재",
+      "position": "유격수"
+    },
+    {
       "order": 8,
-      "name": "조형우",
-      "position": "포수"
+      "name": "손호영",
+      "position": "3루수"
     },
     {
       "order": 9,
-      "name": "최지훈",
-      "position": "중견수"
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "테일러"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "타케다"
+    "name": "??"
   }
 }

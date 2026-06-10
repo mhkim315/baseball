@@ -96,6 +96,14 @@ function renderDateSlider() {
     }
     root.appendChild(btn);
   }
+
+  // update prev/next button disabled state
+  const hasBefore = state.allDates.some(d => d < weekDates[0]);
+  const hasAfter = state.allDates.some(d => d > weekDates[6]);
+  const prevBtn = document.getElementById("prev-week");
+  const nextBtn = document.getElementById("next-week");
+  if (prevBtn) prevBtn.disabled = !hasBefore;
+  if (nextBtn) nextBtn.disabled = !hasAfter;
 }
 
 function selectDate(date) {
@@ -105,6 +113,20 @@ function selectDate(date) {
   const url = new URL(window.location.href);
   url.searchParams.set("date", date);
   history.replaceState(null, "", `${url.pathname.split("/").pop()}${url.search}`);
+}
+
+function goToPrevWeek() {
+  const d = new Date(`${state.selectedDate}T00:00:00+09:00`);
+  d.setDate(d.getDate() - 7);
+  const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  selectDate(iso);
+}
+
+function goToNextWeek() {
+  const d = new Date(`${state.selectedDate}T00:00:00+09:00`);
+  d.setDate(d.getDate() + 7);
+  const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  selectDate(iso);
 }
 
 // ── daily games ───────────────────────────────────────────
@@ -158,41 +180,31 @@ function renderGameCard(root, game, scoreData, starters) {
   // matchup
   const matchup = document.createElement("div");
   matchup.className = "game-card-matchup";
+  const homeWon = hasResult ? scoreData.homeScore > scoreData.awayScore : null;
+  const awayPitcher = hasResult && (scoreData.winPitcher || scoreData.losePitcher)
+    ? (homeWon ? `패: ${escapeHtml(scoreData.losePitcher || "")}` : `승: ${escapeHtml(scoreData.winPitcher || "")}`)
+    : "";
+  const homePitcher = hasResult && (scoreData.winPitcher || scoreData.losePitcher)
+    ? (homeWon ? `승: ${escapeHtml(scoreData.winPitcher || "")}` : `패: ${escapeHtml(scoreData.losePitcher || "")}`)
+    : "";
+  const vsText = hasResult ? `${escapeHtml(scoreData.awayScore)} : ${escapeHtml(scoreData.homeScore)}` : "VS";
+  const vsColor = hasResult ? (homeWon ? homeColor : awayColor) : null;
   matchup.innerHTML = `
     <div class="game-card-team">
       <span class="game-card-role">원정</span>
       <span class="game-card-team-name" style="color:${awayColor || 'inherit'}">${escapeHtml(awayName)}</span>
+      ${awayPitcher ? `<span class="game-card-pitcher-sub">${awayPitcher}</span>` : ""}
     </div>
-    <div class="game-card-vs">VS</div>
+    <div class="game-card-vs"${vsColor ? ` style="color:${vsColor}"` : ""}>${vsText}</div>
     <div class="game-card-team game-card-team--home">
       <span class="game-card-role">홈</span>
       <span class="game-card-team-name" style="color:${homeColor || 'inherit'}">${escapeHtml(homeName)}</span>
+      ${homePitcher ? `<span class="game-card-pitcher-sub">${homePitcher}</span>` : ""}
     </div>
   `;
   card.appendChild(matchup);
 
-  if (hasResult) {
-    // 경기 종료: 점수 + 승패투수
-    const scoreEl = document.createElement("div");
-    scoreEl.className = "game-card-score";
-    scoreEl.textContent = `${scoreData.awayScore} : ${scoreData.homeScore}`;
-    // 승리팀 색상 강조 (실제 점수 기준)
-    const homeWon = scoreData.homeScore > scoreData.awayScore;
-    if (homeWon && homeColor) scoreEl.style.color = homeColor;
-    else if (!homeWon && awayColor) scoreEl.style.color = awayColor;
-    card.appendChild(scoreEl);
-
-    if (scoreData.winPitcher || scoreData.losePitcher) {
-      const pitchers = document.createElement("div");
-      pitchers.className = "game-card-pitchers";
-      pitchers.innerHTML = `
-        <span class="game-card-pitcher game-card-pitcher--small">승: ${escapeHtml(scoreData.winPitcher || "")}</span>
-        <span class="game-card-pitcher-label"></span>
-        <span class="game-card-pitcher game-card-pitcher--small">패: ${escapeHtml(scoreData.losePitcher || "")}</span>
-      `;
-      card.appendChild(pitchers);
-    }
-  } else if (starters) {
+  if (!hasResult && starters) {
     // 경기 전: 선발투수
     const pitchers = document.createElement("div");
     pitchers.className = "game-card-pitchers";
@@ -287,6 +299,9 @@ async function main() {
 
     renderDateSlider();
     renderDailyGames();
+
+    document.getElementById("prev-week")?.addEventListener("click", goToPrevWeek);
+    document.getElementById("next-week")?.addEventListener("click", goToNextWeek);
   } catch (error) {
     console.error(error);
     showError("경기 데이터를 불러오지 못했습니다.");

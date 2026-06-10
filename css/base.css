@@ -2644,6 +2644,14 @@ img {
   background: var(--color-text);
 }
 
+.bottom-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
 .bottom-tab-label {
   white-space: nowrap;
   font-weight: 500;
