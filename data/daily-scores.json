@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T20:06:32.966128+09:00",
+  "generatedAt": "2026-06-11T23:52:56.360626+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -3973,62 +3973,62 @@
       {
         "away": "두산",
         "home": "롯데",
-        "awayScore": 4,
-        "homeScore": 5,
-        "outcome": null,
+        "awayScore": 12,
+        "homeScore": 7,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "타카다",
         "homeStarter": "박세웅",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "최준호",
+        "losePitcher": "현도훈"
       },
       {
         "away": "SSG",
         "home": "LG",
         "awayScore": 1,
-        "homeScore": 9,
-        "outcome": null,
+        "homeScore": 15,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "김건우",
         "homeStarter": "김윤식",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "장현식",
+        "losePitcher": "김건우"
       },
       {
         "away": "NC",
         "home": "키움",
-        "awayScore": 1,
+        "awayScore": 3,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "라일리",
         "homeStarter": "박준현",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "최성영",
+        "losePitcher": "유토"
       },
       {
         "away": "삼성",
         "home": "KT",
-        "awayScore": 3,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 8,
+        "homeScore": 1,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "오러클린",
         "homeStarter": "스기모토",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "오러클린",
+        "losePitcher": "스기모토"
       },
       {
         "away": "KIA",
         "home": "한화",
         "awayScore": 1,
-        "homeScore": 4,
-        "outcome": null,
+        "homeScore": 5,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "올러",
         "homeStarter": "류현진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "류현진",
+        "losePitcher": "올러"
       }
     ],
     "2026-06-12": [
