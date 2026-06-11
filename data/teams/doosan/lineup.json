@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-06-11",
-    "lastUpdated": "2026-06-11T15:26:11+09:00",
+    "lastUpdated": "2026-06-11T20:06:12+09:00",
     "gameId": "20260611OBLT02026",
     "kboGameId": "20260611OBLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -39,7 +39,7 @@
     },
     {
       "order": 3,
-      "name": "손아섭",
+      "name": "김민석",
       "position": "좌익수"
     },
     {
@@ -49,22 +49,22 @@
     },
     {
       "order": 5,
+      "name": "오명진",
+      "position": "1루수"
+    },
+    {
+      "order": 6,
       "name": "안재석",
       "position": "3루수"
     },
     {
-      "order": 6,
-      "name": "박찬호",
+      "order": 7,
+      "name": "박지훈",
       "position": "유격수"
     },
     {
-      "order": 7,
-      "name": "박지훈",
-      "position": "1루수"
-    },
-    {
       "order": 8,
-      "name": "강승호",
+      "name": "이유찬",
       "position": "2루수"
     },
     {
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "손성빈",
-      "position": "포수"
-    },
-    {
-      "order": 8,
       "name": "조세진",
       "position": "우익수"
     },
     {
-      "order": 9,
+      "order": 8,
       "name": "김세민",
       "position": "3루수"
+    },
+    {
+      "order": 9,
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
