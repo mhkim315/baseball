@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-06-10",
-    "lastUpdated": "2026-06-10T23:03:49+09:00",
-    "gameId": "20260610SKLG02026",
-    "kboGameId": "20260610SKLG0",
+    "lineupDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:14+09:00",
+    "gameId": "20260611SKLG02026",
+    "kboGameId": "20260611SKLG0",
     "opponent": "SSG",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "웰스"
+    "name": "김윤식"
   },
   "opponentStartingPitcher": {
-    "name": "최민준"
+    "name": "김건우"
   }
 }

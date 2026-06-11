@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-06-10",
-    "lastUpdated": "2026-06-10T23:04:09+09:00",
-    "gameId": "20260610OBLT02026",
-    "kboGameId": "20260610OBLT0",
+    "lineupDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:28+09:00",
+    "gameId": "20260611OBLT02026",
+    "kboGameId": "20260611OBLT0",
     "opponent": "두산",
     "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김진욱"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "잭로그"
+    "name": "타카다"
   }
 }

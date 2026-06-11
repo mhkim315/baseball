@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260611SSKT02026",
+    "gameDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:38+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "56011",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260611,
+    "aPCode": "56464",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.53",
+    "hra": "0.285",
+    "w": 36,
+    "wra": "0.600",
+    "name": "KT",
+    "rank": 2,
+    "hr": 42,
+    "l": 24,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 36,
+      "l": 24
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.20",
+    "hra": "0.270",
+    "w": 33,
+    "wra": "0.559",
+    "name": "삼성",
+    "rank": 3,
+    "hr": 60,
+    "l": 26,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 33,
+      "l": 26
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "스기모토"
+  },
+  "awayStarter": {
+    "name": "오러클린"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

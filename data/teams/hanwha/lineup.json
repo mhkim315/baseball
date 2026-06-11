@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-06-10",
-    "lastUpdated": "2026-06-10T23:04:01+09:00",
-    "gameId": "20260610HTHH02026",
-    "kboGameId": "20260610HTHH0",
+    "lineupDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:22+09:00",
+    "gameId": "20260611HTHH02026",
+    "kboGameId": "20260611HTHH0",
     "opponent": "KIA",
     "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "화이트"
+    "name": "류현진"
   },
   "opponentStartingPitcher": {
-    "name": "시라카와"
+    "name": "올러"
   }
 }

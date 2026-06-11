@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260611SKLG02026",
+    "gameDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:35+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "50157",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260611,
+    "aPCode": "51867",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.37",
+    "hra": "0.268",
+    "w": 38,
+    "wra": "0.623",
+    "name": "LG",
+    "rank": 1,
+    "hr": 52,
+    "l": 23,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 38,
+      "l": 23
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "5.40",
+    "hra": "0.262",
+    "w": 26,
+    "wra": "0.433",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 65,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 34
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김윤식"
+  },
+  "awayStarter": {
+    "name": "김건우"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

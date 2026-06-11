@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-06-10",
-    "lastUpdated": "2026-06-10T23:04:12+09:00",
-    "gameId": "20260610NCWO02026",
-    "kboGameId": "20260610NCWO0",
+    "lineupDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:30+09:00",
+    "gameId": "20260611NCWO02026",
+    "kboGameId": "20260611NCWO0",
     "opponent": "키움",
     "venue": "고척",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "구창모"
+    "name": "라일리"
   },
   "opponentStartingPitcher": {
-    "name": "하영민"
+    "name": "박준현"
   }
 }

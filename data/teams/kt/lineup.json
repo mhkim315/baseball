@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-06-10",
-    "lastUpdated": "2026-06-10T23:03:58+09:00",
-    "gameId": "20260610SSKT02026",
-    "kboGameId": "20260610SSKT0",
+    "lineupDate": "2026-06-11",
+    "lastUpdated": "2026-06-11T15:26:20+09:00",
+    "gameId": "20260611SSKT02026",
+    "kboGameId": "20260611SSKT0",
     "opponent": "삼성",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "사우어"
+    "name": "스기모토"
   },
   "opponentStartingPitcher": {
-    "name": "원태인"
+    "name": "오러클린"
   }
 }
