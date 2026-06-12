@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-06-12",
-    "lastUpdated": "2026-06-12T16:10:09+09:00",
+    "lastUpdated": "2026-06-12T20:09:43+09:00",
     "gameId": "20260612SKSS02026",
     "kboGameId": "20260612SKSS0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,8 +34,8 @@
     },
     {
       "order": 2,
-      "name": "양우현",
-      "position": "2루수"
+      "name": "김상준",
+      "position": "유격수"
     },
     {
       "order": 3,
@@ -54,8 +54,8 @@
     },
     {
       "order": 6,
-      "name": "이재현",
-      "position": "유격수"
+      "name": "전병우",
+      "position": "3루수"
     },
     {
       "order": 7,
@@ -69,8 +69,8 @@
     },
     {
       "order": 9,
-      "name": "김상준",
-      "position": "3루수"
+      "name": "양우현",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
@@ -91,18 +91,18 @@
     },
     {
       "order": 4,
-      "name": "에레디아",
+      "name": "김재환",
       "position": "좌익수"
     },
     {
       "order": 5,
-      "name": "김성욱",
-      "position": "중견수"
+      "name": "에레디아",
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "오태곤",
-      "position": "우익수"
+      "name": "최지훈",
+      "position": "중견수"
     },
     {
       "order": 7,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "조형우",
-      "position": "포수"
+      "name": "홍대인",
+      "position": "3루수"
     },
     {
       "order": 9,
-      "name": "안상현",
-      "position": "3루수"
+      "name": "신범수",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
