@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260612SKSS02026",
+    "gameDate": "2026-06-12",
+    "lastUpdated": "2026-06-12T16:10:24+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "56460",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260612,
+    "aPCode": "56823",
+    "round": 6,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.15",
+    "hra": "0.271",
+    "w": 34,
+    "wra": "0.567",
+    "name": "삼성",
+    "rank": 3,
+    "hr": 60,
+    "l": 26,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 34,
+      "l": 26
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "5.57",
+    "hra": "0.261",
+    "w": 26,
+    "wra": "0.426",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 65,
+    "l": 35,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 35
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "장찬희"
+  },
+  "awayStarter": {
+    "name": "타케다"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
