@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T13:46:08.189270+09:00",
+  "generatedAt": "2026-06-13T17:05:54.904558+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4101,8 +4101,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "벤자민",
+        "homeStarter": "네일",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4113,8 +4113,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "이민석",
+        "homeStarter": "김진수",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4125,8 +4125,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "박준영",
+        "homeStarter": "알칸타라",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4137,8 +4137,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "베니지아노",
+        "homeStarter": "후라도",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4149,8 +4149,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "토다",
+        "homeStarter": "오원석",
         "winPitcher": null,
         "losePitcher": null
       }
