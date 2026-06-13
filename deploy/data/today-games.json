@@ -1,13 +1,13 @@
 {
   "date": "2026-06-13",
-  "generatedAt": "2026-06-13T21:12:50.304685+09:00",
+  "generatedAt": "2026-06-13T23:25:10.305391+09:00",
   "games": [
     {
       "id": "20260613-HHWO-0",
       "date": "2026-06-13",
       "venue": "고척",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "hanwha",
         "name": "한화",
@@ -36,7 +36,7 @@
       "date": "2026-06-13",
       "venue": "광주",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
@@ -65,7 +65,7 @@
       "date": "2026-06-13",
       "venue": "대구",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -94,7 +94,7 @@
       "date": "2026-06-13",
       "venue": "수원",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "nc",
         "name": "NC",
@@ -114,8 +114,8 @@
         "record": "37승1무25패"
       },
       "score": {
-        "away": 2,
-        "home": 7
+        "away": 9,
+        "home": 11
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-06-13",
       "venue": "잠실",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
