@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-06-12",
-    "lastUpdated": "2026-06-12T23:16:13+09:00",
-    "gameId": "20260612SKSS02026",
-    "kboGameId": "20260612SKSS0",
+    "lineupDate": "2026-06-13",
+    "lastUpdated": "2026-06-13T13:45:40+09:00",
+    "gameId": "20260613SKSS02026",
+    "kboGameId": "20260613SKSS0",
     "opponent": "삼성",
     "venue": "대구",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "타케다"
+    "name": "베니지아노"
   },
   "opponentStartingPitcher": {
-    "name": "장찬희"
+    "name": "후라도"
   }
 }

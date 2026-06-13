@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260613HHWO02026",
+    "gameDate": "2026-06-13",
+    "lastUpdated": "2026-06-13T13:45:59+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "69045",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260613,
+    "aPCode": "56709",
+    "round": 7,
+    "gtime": "17:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "5.02",
+    "hra": "0.234",
+    "w": 24,
+    "wra": "0.375",
+    "name": "키움",
+    "rank": 10,
+    "hr": 37,
+    "l": 40,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 24,
+      "l": 40
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.69",
+    "hra": "0.280",
+    "w": 32,
+    "wra": "0.525",
+    "name": "한화",
+    "rank": 4,
+    "hr": 68,
+    "l": 29,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 32,
+      "l": 29
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "알칸타라"
+  },
+  "awayStarter": {
+    "name": "박준영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

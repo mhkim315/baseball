@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-06-12",
-    "lastUpdated": "2026-06-12T23:16:32+09:00",
-    "gameId": "20260612NCKT02026",
-    "kboGameId": "20260612NCKT0",
+    "lineupDate": "2026-06-13",
+    "lastUpdated": "2026-06-13T13:45:55+09:00",
+    "gameId": "20260613NCKT02026",
+    "kboGameId": "20260613NCKT0",
     "opponent": "KT",
     "venue": "수원",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "테일러"
+    "name": "토다"
   },
   "opponentStartingPitcher": {
-    "name": "배제성"
+    "name": "오원석"
   }
 }

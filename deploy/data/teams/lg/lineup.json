@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-06-12",
-    "lastUpdated": "2026-06-12T23:16:06+09:00",
-    "gameId": "20260612LTLG02026",
-    "kboGameId": "20260612LTLG0",
+    "lineupDate": "2026-06-13",
+    "lastUpdated": "2026-06-13T13:45:34+09:00",
+    "gameId": "20260613LTLG02026",
+    "kboGameId": "20260613LTLG0",
     "opponent": "롯데",
     "venue": "잠실",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "김진수"
   },
   "opponentStartingPitcher": {
-    "name": "로드리게스"
+    "name": "이민석"
   }
 }

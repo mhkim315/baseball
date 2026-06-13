@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260613OBHT02026",
+    "gameDate": "2026-06-13",
+    "lastUpdated": "2026-06-13T13:45:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "54640",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260613,
+    "aPCode": "52043",
+    "round": 8,
+    "gtime": "17:00",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.02",
+    "hra": "0.262",
+    "w": 33,
+    "wra": "0.524",
+    "name": "KIA",
+    "rank": 5,
+    "hr": 76,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 33,
+      "l": 30
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.03",
+    "hra": "0.264",
+    "w": 32,
+    "wra": "0.516",
+    "name": "두산",
+    "rank": 6,
+    "hr": 51,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 32,
+      "l": 30
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "네일"
+  },
+  "awayStarter": {
+    "name": "벤자민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
