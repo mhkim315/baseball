@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T19:37:14.773357+09:00",
+  "generatedAt": "2026-06-13T21:12:50.344182+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4099,60 +4099,60 @@
         "home": "KIA",
         "awayScore": 1,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "벤자민",
         "homeStarter": "네일",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "네일",
+        "losePitcher": "벤자민"
       },
       {
         "away": "롯데",
         "home": "LG",
         "awayScore": 3,
         "homeScore": 5,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "이민석",
         "homeStarter": "김진수",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김진성",
+        "losePitcher": "이민석"
       },
       {
         "away": "한화",
         "home": "키움",
         "awayScore": 1,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "박준영",
         "homeStarter": "알칸타라",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "알칸타라",
+        "losePitcher": "박준영"
       },
       {
         "away": "SSG",
         "home": "삼성",
         "awayScore": 6,
         "homeScore": 7,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "베니지아노",
         "homeStarter": "후라도",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "최지광",
+        "losePitcher": "김민"
       },
       {
         "away": "NC",
         "home": "KT",
-        "awayScore": 2,
-        "homeScore": 7,
-        "outcome": null,
+        "awayScore": 9,
+        "homeScore": 11,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "토다",
         "homeStarter": "오원석",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "한승혁",
+        "losePitcher": "이용준"
       }
     ],
     "2026-06-14": [

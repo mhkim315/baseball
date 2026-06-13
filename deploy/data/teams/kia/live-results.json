@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-13T19:36:09+09:00",
+  "fetchedAt": "2026-06-13T21:11:17+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1435,13 +1435,13 @@
           "ourScore": 2,
           "oppScore": 1,
           "ourScoreLine": "2-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260613OBHT02026",
           "awayStarter": "벤자민",
           "homeStarter": "네일",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "네일",
+          "losePitcher": "벤자민"
         }
       ]
     },

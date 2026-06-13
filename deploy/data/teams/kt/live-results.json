@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-13T19:36:09+09:00",
+  "fetchedAt": "2026-06-13T21:11:17+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1429,19 +1429,19 @@
           "away": "NC",
           "home": "KT",
           "venue": "수원",
-          "awayScore": 2,
-          "homeScore": 7,
-          "scoreLine": "2-7",
-          "ourScore": 7,
-          "oppScore": 2,
-          "ourScoreLine": "7-2",
-          "outcome": null,
+          "awayScore": 9,
+          "homeScore": 11,
+          "scoreLine": "9-11",
+          "ourScore": 11,
+          "oppScore": 9,
+          "ourScoreLine": "11-9",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260613NCKT02026",
           "awayStarter": "토다",
           "homeStarter": "오원석",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "한승혁",
+          "losePitcher": "이용준"
         }
       ]
     },
