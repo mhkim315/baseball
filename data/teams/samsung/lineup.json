@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-06-14",
-    "lastUpdated": "2026-06-14T15:38:11+09:00",
+    "lastUpdated": "2026-06-14T19:07:30+09:00",
     "gameId": "20260614SKSS02026",
     "kboGameId": "20260614SKSS0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -59,30 +59,30 @@
     },
     {
       "order": 7,
-      "name": "김도환",
-      "position": "포수"
-    },
-    {
-      "order": 8,
       "name": "류지혁",
       "position": "2루수"
     },
     {
+      "order": 8,
+      "name": "장승현",
+      "position": "포수"
+    },
+    {
       "order": 9,
-      "name": "박계범",
+      "name": "김상준",
       "position": "유격수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박성한",
-      "position": "유격수"
+      "name": "정준재",
+      "position": "2루수"
     },
     {
       "order": 2,
-      "name": "정준재",
-      "position": "2루수"
+      "name": "안상현",
+      "position": "유격수"
     },
     {
       "order": 3,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "전의산",
+      "name": "오태곤",
       "position": "1루수"
     },
     {
       "order": 8,
-      "name": "안상현",
-      "position": "3루수"
+      "name": "조형우",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "조형우",
-      "position": "포수"
+      "name": "최윤석",
+      "position": "3루수"
     }
   ],
   "startingPitcher": {

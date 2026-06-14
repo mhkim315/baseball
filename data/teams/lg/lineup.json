@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-06-14",
-    "lastUpdated": "2026-06-14T15:37:55+09:00",
+    "lastUpdated": "2026-06-14T19:07:13+09:00",
     "gameId": "20260614LTLG02026",
     "kboGameId": "20260614LTLG0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -40,7 +40,7 @@
     {
       "order": 3,
       "name": "오스틴",
-      "position": "지명타자"
+      "position": "1루수"
     },
     {
       "order": 4,
@@ -59,8 +59,8 @@
     },
     {
       "order": 7,
-      "name": "문정빈",
-      "position": "1루수"
+      "name": "천성호",
+      "position": "지명타자"
     },
     {
       "order": 8,
@@ -111,7 +111,7 @@
     },
     {
       "order": 8,
-      "name": "유강남",
+      "name": "손성빈",
       "position": "포수"
     },
     {

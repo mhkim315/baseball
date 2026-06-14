@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-14T15:36:39+09:00",
+  "fetchedAt": "2026-06-14T19:05:54+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1452,18 +1452,18 @@
           "home": "키움",
           "venue": "고척",
           "awayScore": 2,
-          "homeScore": 2,
-          "scoreLine": "2-2",
+          "homeScore": 3,
+          "scoreLine": "2-3",
           "ourScore": 2,
-          "oppScore": 2,
-          "ourScoreLine": "2-2",
-          "outcome": null,
+          "oppScore": 3,
+          "ourScoreLine": "2-3",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260614HHWO02026",
           "awayStarter": "왕옌청",
           "homeStarter": "로젠버그",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "원종현",
+          "losePitcher": "이상규"
         }
       ]
     },

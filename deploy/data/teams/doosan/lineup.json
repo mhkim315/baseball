@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-06-14",
-    "lastUpdated": "2026-06-14T15:37:52+09:00",
+    "lastUpdated": "2026-06-14T19:07:11+09:00",
     "gameId": "20260614OBHT02026",
     "kboGameId": "20260614OBHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,28 +34,28 @@
     },
     {
       "order": 2,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "카메론",
+      "position": "우익수"
     },
     {
       "order": 3,
       "name": "손아섭",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "김민석",
-      "position": "좌익수"
+      "name": "오명진",
+      "position": "2루수"
     },
     {
       "order": 6,
-      "name": "오명진",
-      "position": "1루수"
+      "name": "박찬호",
+      "position": "유격수"
     },
     {
       "order": 7,
@@ -64,19 +64,19 @@
     },
     {
       "order": 8,
-      "name": "이유찬",
-      "position": "2루수"
+      "name": "윤준호",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "조수행",
-      "position": "우익수"
+      "name": "강승호",
+      "position": "1루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김민규",
+      "name": "박재현",
       "position": "좌익수"
     },
     {
@@ -102,12 +102,12 @@
     {
       "order": 6,
       "name": "변우혁",
-      "position": "3루수"
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "황대인",
-      "position": "1루수"
+      "name": "김규성",
+      "position": "유격수"
     },
     {
       "order": 8,
@@ -117,7 +117,7 @@
     {
       "order": 9,
       "name": "박민",
-      "position": "유격수"
+      "position": "3루수"
     }
   ],
   "startingPitcher": {
