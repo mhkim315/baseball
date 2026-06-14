@@ -1,13 +1,13 @@
 {
   "date": "2026-06-14",
-  "generatedAt": "2026-06-14T19:07:41.502464+09:00",
+  "generatedAt": "2026-06-14T21:10:31.083399+09:00",
   "games": [
     {
       "id": "20260614-HHWO-0",
       "date": "2026-06-14",
       "venue": "고척",
       "time": "14:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "hanwha",
         "name": "한화",
@@ -28,7 +28,7 @@
       },
       "score": {
         "away": 2,
-        "home": 2
+        "home": 3
       }
     },
     {
@@ -56,8 +56,8 @@
         "record": "34승1무30패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 5,
+        "home": 1
       }
     },
     {
@@ -85,8 +85,8 @@
         "record": "35승1무27패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 7,
+        "home": 5
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-06-14",
       "venue": "수원",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "nc",
         "name": "NC",
@@ -143,8 +143,8 @@
         "record": "40승0무24패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 1,
+        "home": 1
       }
     }
   ],

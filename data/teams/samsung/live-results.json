@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-14T19:05:54+09:00",
+  "fetchedAt": "2026-06-14T21:09:15+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1451,19 +1451,19 @@
           "away": "SSG",
           "home": "삼성",
           "venue": "대구",
-          "awayScore": 7,
-          "homeScore": 5,
-          "scoreLine": "7-5",
-          "ourScore": 5,
-          "oppScore": 7,
-          "ourScoreLine": "5-7",
-          "outcome": null,
+          "awayScore": 8,
+          "homeScore": 10,
+          "scoreLine": "8-10",
+          "ourScore": 10,
+          "oppScore": 8,
+          "ourScoreLine": "10-8",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260614SKSS02026",
           "awayStarter": "해치",
           "homeStarter": "양창섭",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "이승민",
+          "losePitcher": "이로운"
         }
       ]
     },
