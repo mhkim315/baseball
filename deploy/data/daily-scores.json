@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T23:25:10.340528+09:00",
+  "generatedAt": "2026-06-14T15:38:37.715450+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4183,12 +4183,12 @@
       {
         "away": "한화",
         "home": "키움",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "왕옌청",
+        "homeStarter": "로젠버그",
         "winPitcher": null,
         "losePitcher": null
       },

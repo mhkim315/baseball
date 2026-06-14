@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260614LTLG02026",
+    "gameDate": "2026-06-14",
+    "lastUpdated": "2026-06-14T15:38:25+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "61101",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260614,
+    "aPCode": "56523",
+    "round": 9,
+    "gtime": "17:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.47",
+    "hra": "0.271",
+    "w": 40,
+    "wra": "0.625",
+    "name": "LG",
+    "rank": 1,
+    "hr": 53,
+    "l": 24,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 40,
+      "l": 24
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.75",
+    "hra": "0.259",
+    "w": 24,
+    "wra": "0.387",
+    "name": "롯데",
+    "rank": 9,
+    "hr": 48,
+    "l": 38,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 24,
+      "l": 38
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "임찬규"
+  },
+  "awayStarter": {
+    "name": "비슬리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

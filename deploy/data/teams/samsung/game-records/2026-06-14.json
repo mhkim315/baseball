@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260614SKSS02026",
+    "gameDate": "2026-06-14",
+    "lastUpdated": "2026-06-14T15:38:33+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "68415",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260614,
+    "aPCode": "56855",
+    "round": 8,
+    "gtime": "17:00",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.16",
+    "hra": "0.273",
+    "w": 35,
+    "wra": "0.565",
+    "name": "삼성",
+    "rank": 3,
+    "hr": 61,
+    "l": 27,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 35,
+      "l": 27
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "5.54",
+    "hra": "0.260",
+    "w": 27,
+    "wra": "0.429",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 67,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 27,
+      "l": 36
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "양창섭"
+  },
+  "awayStarter": {
+    "name": "해치"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
