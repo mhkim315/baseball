@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260616KTOB02026",
+    "gameDate": "2026-06-16",
+    "lastUpdated": "2026-06-16T16:09:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "51264",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260616,
+    "aPCode": "64001",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "3.96",
+    "hra": "0.265",
+    "w": 33,
+    "wra": "0.516",
+    "name": "두산",
+    "rank": 5,
+    "hr": 52,
+    "l": 31,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 33,
+      "l": 31
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.62",
+    "hra": "0.284",
+    "w": 38,
+    "wra": "0.603",
+    "name": "KT",
+    "rank": 2,
+    "hr": 43,
+    "l": 25,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 38,
+      "l": 25
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최승용"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
