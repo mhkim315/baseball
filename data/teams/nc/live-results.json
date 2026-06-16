@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-16T16:08:48+09:00",
+  "fetchedAt": "2026-06-16T21:20:47+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1473,15 +1473,19 @@
           "away": "한화",
           "home": "NC",
           "venue": "창원",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 5,
+          "homeScore": 6,
+          "scoreLine": "5-6",
+          "ourScore": 6,
+          "oppScore": 5,
+          "ourScoreLine": "6-5",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260616HHNC0"
+          "gameId": "20260616HHNC02026",
+          "awayStarter": "화이트",
+          "homeStarter": "구창모",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T16:10:00.858733+09:00",
+  "generatedAt": "2026-06-16T21:22:08.722082+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4221,60 +4221,60 @@
       {
         "away": "KT",
         "home": "두산",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 6,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "고영표",
+        "homeStarter": "최승용",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "LG",
         "home": "KIA",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 8,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "웰스",
+        "homeStarter": "시라카와",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "키움",
         "home": "삼성",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 4,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "하영민",
+        "homeStarter": "원태인",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "롯데",
         "home": "SSG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 6,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "김진욱",
+        "homeStarter": "김민준",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "한화",
         "home": "NC",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 5,
+        "homeScore": 6,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "화이트",
+        "homeStarter": "구창모",
         "winPitcher": null,
         "losePitcher": null
       }
