@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-06-16",
-    "lastUpdated": "2026-06-16T21:21:54+09:00",
-    "gameId": "20260616KTOB02026",
-    "kboGameId": "20260616KTOB0",
+    "lineupDate": "2026-06-17",
+    "lastUpdated": "2026-06-17T16:27:21+09:00",
+    "gameId": "20260617KTOB02026",
+    "kboGameId": "20260617KTOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "고영표"
+    "name": "사우어"
   },
   "opponentStartingPitcher": {
-    "name": "최승용"
+    "name": "타카다"
   }
 }

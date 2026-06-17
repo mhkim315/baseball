@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260617KTOB02026",
+    "gameDate": "2026-06-17",
+    "lastUpdated": "2026-06-17T16:27:37+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "56212",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260617,
+    "aPCode": "56032",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "3.99",
+    "hra": "0.266",
+    "w": 33,
+    "wra": "0.508",
+    "name": "두산",
+    "rank": 5,
+    "hr": 52,
+    "l": 32,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 33,
+      "l": 32
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.57",
+    "hra": "0.284",
+    "w": 39,
+    "wra": "0.609",
+    "name": "KT",
+    "rank": 2,
+    "hr": 44,
+    "l": 25,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 39,
+      "l": 25
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "타카다"
+  },
+  "awayStarter": {
+    "name": "사우어"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

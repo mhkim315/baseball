@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260617HHNC02026",
+    "gameDate": "2026-06-17",
+    "lastUpdated": "2026-06-17T16:27:42+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "55903",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260617,
+    "aPCode": "76715",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.59",
+    "hra": "0.276",
+    "w": 29,
+    "wra": "0.460",
+    "name": "NC",
+    "rank": 7,
+    "hr": 59,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 29,
+      "l": 34
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.66",
+    "hra": "0.277",
+    "w": 32,
+    "wra": "0.500",
+    "name": "한화",
+    "rank": 6,
+    "hr": 70,
+    "l": 32,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 32,
+      "l": 32
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "라일리"
+  },
+  "awayStarter": {
+    "name": "류현진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

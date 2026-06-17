@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-06-16",
-    "lastUpdated": "2026-06-16T21:22:02+09:00",
-    "gameId": "20260616LGHT02026",
-    "kboGameId": "20260616LGHT0",
+    "lineupDate": "2026-06-17",
+    "lastUpdated": "2026-06-17T16:27:29+09:00",
+    "gameId": "20260617LGHT02026",
+    "kboGameId": "20260617LGHT0",
     "opponent": "LG",
     "venue": "광주",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "시라카와"
+    "name": "올러"
   },
   "opponentStartingPitcher": {
-    "name": "웰스"
+    "name": "장현식"
   }
 }
