@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-06-17",
-    "lastUpdated": "2026-06-17T16:27:21+09:00",
+    "lastUpdated": "2026-06-17T21:03:09+09:00",
     "gameId": "20260617KTOB02026",
     "kboGameId": "20260617KTOB0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,7 +30,7 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 2,
@@ -40,17 +40,17 @@
     {
       "order": 3,
       "name": "안현민",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
       "name": "힐리어드",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 5,
-      "name": "장성우",
-      "position": "지명타자"
+      "name": "김민혁",
+      "position": "좌익수"
     },
     {
       "order": 6,
@@ -82,12 +82,12 @@
     {
       "order": 2,
       "name": "카메론",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 3,
       "name": "김민석",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 4,
@@ -96,8 +96,8 @@
     },
     {
       "order": 5,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "오명진",
+      "position": "1루수"
     },
     {
       "order": 6,
@@ -106,13 +106,13 @@
     },
     {
       "order": 7,
-      "name": "박지훈",
-      "position": "1루수"
+      "name": "류승민",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "류승민",
-      "position": "좌익수"
+      "name": "안재석",
+      "position": "3루수"
     },
     {
       "order": 9,

@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-06-17",
-    "lastUpdated": "2026-06-17T16:27:18+09:00",
+    "lastUpdated": "2026-06-17T21:03:07+09:00",
     "gameId": "20260617LTSK02026",
     "kboGameId": "20260617LTSK0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -44,23 +44,23 @@
     },
     {
       "order": 4,
-      "name": "에레디아",
+      "name": "김재환",
       "position": "좌익수"
     },
     {
       "order": 5,
-      "name": "오태곤",
-      "position": "1루수"
+      "name": "에레디아",
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "최지훈",
-      "position": "중견수"
+      "name": "전의산",
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "김성욱",
-      "position": "우익수"
+      "name": "고명준",
+      "position": "3루수"
     },
     {
       "order": 8,
@@ -69,14 +69,14 @@
     },
     {
       "order": 9,
-      "name": "안상현",
-      "position": "3루수"
+      "name": "최지훈",
+      "position": "중견수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "황성빈",
+      "name": "윤동희",
       "position": "중견수"
     },
     {
@@ -106,8 +106,8 @@
     },
     {
       "order": 7,
-      "name": "박승욱",
-      "position": "3루수"
+      "name": "손호영",
+      "position": "우익수"
     },
     {
       "order": 8,
@@ -116,8 +116,8 @@
     },
     {
       "order": 9,
-      "name": "장두성",
-      "position": "우익수"
+      "name": "박승욱",
+      "position": "3루수"
     }
   ],
   "startingPitcher": {
