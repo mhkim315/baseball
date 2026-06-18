@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T21:03:25.609791+09:00",
+  "generatedAt": "2026-06-18T16:21:59.952891+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4285,60 +4285,60 @@
         "home": "두산",
         "awayScore": 8,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "사우어",
         "homeStarter": "타카다",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "사우어",
+        "losePitcher": "타카다"
       },
       {
         "away": "LG",
         "home": "KIA",
-        "awayScore": 2,
-        "homeScore": 3,
-        "outcome": null,
+        "awayScore": 4,
+        "homeScore": 5,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "장현식",
         "homeStarter": "올러",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "곽도규",
+        "losePitcher": "리오스"
       },
       {
         "away": "키움",
         "home": "삼성",
         "awayScore": 0,
-        "homeScore": 0,
-        "outcome": null,
+        "homeScore": 1,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "박준현",
         "homeStarter": "최원태",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김재윤",
+        "losePitcher": "박지성"
       },
       {
         "away": "롯데",
         "home": "SSG",
         "awayScore": 2,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "박세웅",
         "homeStarter": "김건우",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박세웅",
+        "losePitcher": "김건우"
       },
       {
         "away": "한화",
         "home": "NC",
         "awayScore": 4,
-        "homeScore": 4,
-        "outcome": null,
+        "homeScore": 5,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "류현진",
         "homeStarter": "라일리",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "임지민",
+        "losePitcher": "박상원"
       }
     ],
     "2026-06-18": [

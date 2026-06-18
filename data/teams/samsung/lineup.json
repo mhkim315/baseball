@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-06-17",
-    "lastUpdated": "2026-06-17T21:03:15+09:00",
-    "gameId": "20260617WOSS02026",
-    "kboGameId": "20260617WOSS0",
+    "lineupDate": "2026-06-18",
+    "lastUpdated": "2026-06-18T16:21:42+09:00",
+    "gameId": "20260618WOSS02026",
+    "kboGameId": "20260618WOSS0",
     "opponent": "키움",
     "venue": "대구",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최원태"
+    "name": "오러클린"
   },
   "opponentStartingPitcher": {
-    "name": "박준현"
+    "name": "안우진"
   }
 }

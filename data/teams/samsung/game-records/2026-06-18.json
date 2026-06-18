@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260618WOSS02026",
+    "gameDate": "2026-06-18",
+    "lastUpdated": "2026-06-18T16:21:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "56464",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260618,
+    "aPCode": "68341",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.09",
+    "hra": "0.273",
+    "w": 38,
+    "wra": "0.585",
+    "name": "삼성",
+    "rank": 3,
+    "hr": 62,
+    "l": 27,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 38,
+      "l": 27
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.86",
+    "hra": "0.233",
+    "w": 26,
+    "wra": "0.382",
+    "name": "키움",
+    "rank": 10,
+    "hr": 38,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 42
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "오러클린"
+  },
+  "awayStarter": {
+    "name": "안우진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

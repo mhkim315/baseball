@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-17T21:02:03+09:00",
+  "fetchedAt": "2026-06-18T16:20:47+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1496,18 +1496,18 @@
           "home": "NC",
           "venue": "창원",
           "awayScore": 4,
-          "homeScore": 4,
-          "scoreLine": "4-4",
+          "homeScore": 5,
+          "scoreLine": "4-5",
           "ourScore": 4,
-          "oppScore": 4,
-          "ourScoreLine": "4-4",
-          "outcome": null,
+          "oppScore": 5,
+          "ourScoreLine": "4-5",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260617HHNC02026",
           "awayStarter": "류현진",
           "homeStarter": "라일리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "임지민",
+          "losePitcher": "박상원"
         }
       ]
     },

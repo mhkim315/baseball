@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260618HHNC02026",
+    "gameDate": "2026-06-18",
+    "lastUpdated": "2026-06-18T16:21:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "56966",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260618,
+    "aPCode": "56712",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.58",
+    "hra": "0.278",
+    "w": 30,
+    "wra": "0.469",
+    "name": "NC",
+    "rank": 7,
+    "hr": 59,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 30,
+      "l": 34
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.66",
+    "hra": "0.276",
+    "w": 32,
+    "wra": "0.492",
+    "name": "한화",
+    "rank": 6,
+    "hr": 73,
+    "l": 33,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 32,
+      "l": 33
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "테일러"
+  },
+  "awayStarter": {
+    "name": "에르난데스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

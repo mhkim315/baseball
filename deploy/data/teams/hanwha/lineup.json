@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-06-17",
-    "lastUpdated": "2026-06-17T21:03:12+09:00",
-    "gameId": "20260617HHNC02026",
-    "kboGameId": "20260617HHNC0",
+    "lineupDate": "2026-06-18",
+    "lastUpdated": "2026-06-18T16:21:40+09:00",
+    "gameId": "20260618HHNC02026",
+    "kboGameId": "20260618HHNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "류현진"
+    "name": "에르난데스"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "테일러"
   }
 }

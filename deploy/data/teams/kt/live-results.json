@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-17T21:02:03+09:00",
+  "fetchedAt": "2026-06-18T16:20:47+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1501,13 +1501,13 @@
           "ourScore": 8,
           "oppScore": 1,
           "ourScoreLine": "8-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260617KTOB02026",
           "awayStarter": "사우어",
           "homeStarter": "타카다",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "사우어",
+          "losePitcher": "타카다"
         }
       ]
     },
