@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-06-18",
-    "lastUpdated": "2026-06-18T16:21:49+09:00",
+    "lastUpdated": "2026-06-18T20:33:49+09:00",
     "gameId": "20260618HHNC02026",
     "kboGameId": "20260618HHNC0",
     "opponent": "한화",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,8 +34,8 @@
     },
     {
       "order": 2,
-      "name": "이우성",
-      "position": "지명타자"
+      "name": "천재환",
+      "position": "우익수"
     },
     {
       "order": 3,
@@ -45,7 +45,7 @@
     {
       "order": 4,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "천재환",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
-      "name": "서호철",
+      "name": "김한별",
       "position": "3루수"
     },
     {
-      "order": 9,
-      "name": "김형준",
+      "order": 8,
+      "name": "안중열",
       "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "오태양",
+      "position": "중견수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "페라자",
-      "position": "우익수"
+      "name": "장규현",
+      "position": "1루수"
     },
     {
       "order": 3,
@@ -101,8 +101,8 @@
     },
     {
       "order": 6,
-      "name": "김태연",
-      "position": "1루수"
+      "name": "유민",
+      "position": "우익수"
     },
     {
       "order": 7,
@@ -111,7 +111,7 @@
     },
     {
       "order": 8,
-      "name": "최재훈",
+      "name": "허인서",
       "position": "포수"
     },
     {

@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-18T16:20:47+09:00",
+  "fetchedAt": "2026-06-18T20:32:44+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1517,15 +1517,19 @@
           "away": "롯데",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 2,
+          "homeScore": 2,
+          "scoreLine": "2-2",
+          "ourScore": 2,
+          "oppScore": 2,
+          "ourScoreLine": "2-2",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260618LTSK0"
+          "gameId": "20260618LTSK02026",
+          "awayStarter": "로드리게스",
+          "homeStarter": "타케다",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
