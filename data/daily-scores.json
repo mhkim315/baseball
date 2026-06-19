@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T16:42:59.707275+09:00",
+  "generatedAt": "2026-06-19T20:54:15.401921+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4407,60 +4407,60 @@
       {
         "away": "두산",
         "home": "LG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "벤자민",
+        "homeStarter": "이정용",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "롯데",
         "home": "키움",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "이민석",
+        "homeStarter": "알칸타라",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "SSG",
         "home": "NC",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 3,
+        "homeScore": 9,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "베니지아노",
+        "homeStarter": "토다",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "KIA",
         "home": "KT",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 7,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "네일",
+        "homeStarter": "오원석",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "삼성",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 3,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "후라도",
+        "homeStarter": "박준영",
         "winPitcher": null,
         "losePitcher": null
       }

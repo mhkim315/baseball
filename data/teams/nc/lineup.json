@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-06-19",
-    "lastUpdated": "2026-06-19T16:42:44+09:00",
+    "lastUpdated": "2026-06-19T20:54:14+09:00",
     "gameId": "20260619SKNC02026",
     "kboGameId": "20260619SKNC0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -35,17 +35,17 @@
     {
       "order": 2,
       "name": "천재환",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
+      "name": "이우성",
+      "position": "지명타자"
     },
     {
       "order": 4,
       "name": "박건우",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 5,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "김한별",
+      "name": "서호철",
       "position": "3루수"
     },
     {
       "order": 8,
-      "name": "안중열",
+      "name": "김형준",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "오태양",
-      "position": "중견수"
+      "name": "김한별",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
@@ -91,18 +91,18 @@
     },
     {
       "order": 4,
+      "name": "에레디아",
+      "position": "좌익수"
+    },
+    {
+      "order": 5,
       "name": "전의산",
       "position": "1루수"
     },
     {
-      "order": 5,
-      "name": "김재환",
-      "position": "좌익수"
-    },
-    {
       "order": 6,
-      "name": "에레디아",
-      "position": "우익수"
+      "name": "최지훈",
+      "position": "중견수"
     },
     {
       "order": 7,
@@ -111,12 +111,12 @@
     },
     {
       "order": 8,
-      "name": "최지훈",
-      "position": "중견수"
+      "name": "김성욱",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "신범수",
+      "name": "조형우",
       "position": "포수"
     }
   ],

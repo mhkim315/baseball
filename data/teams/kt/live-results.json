@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-19T16:41:11+09:00",
+  "fetchedAt": "2026-06-19T20:53:11+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1539,15 +1539,19 @@
           "away": "KIA",
           "home": "KT",
           "venue": "수원",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 7,
+          "homeScore": 2,
+          "scoreLine": "7-2",
+          "ourScore": 2,
+          "oppScore": 7,
+          "ourScoreLine": "2-7",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260619HTKT0"
+          "gameId": "20260619HTKT02026",
+          "awayStarter": "네일",
+          "homeStarter": "오원석",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
