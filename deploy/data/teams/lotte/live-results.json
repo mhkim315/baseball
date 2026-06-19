@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-19T20:53:11+09:00",
+  "fetchedAt": "2026-06-19T23:32:30+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1545,13 +1545,13 @@
           "ourScore": 2,
           "oppScore": 1,
           "ourScoreLine": "2-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260619LTWO02026",
           "awayStarter": "이민석",
           "homeStarter": "알칸타라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "이민석",
+          "losePitcher": "알칸타라"
         }
       ]
     },

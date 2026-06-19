@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-19T20:53:11+09:00",
+  "fetchedAt": "2026-06-19T23:32:30+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1545,13 +1545,13 @@
           "ourScore": 9,
           "oppScore": 3,
           "ourScoreLine": "9-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260619SKNC02026",
           "awayStarter": "베니지아노",
           "homeStarter": "토다",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "토다",
+          "losePitcher": "베니지아노"
         }
       ]
     },
