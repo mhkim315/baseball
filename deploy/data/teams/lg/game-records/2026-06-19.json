@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260619OBLG02026",
+    "gameDate": "2026-06-19",
+    "lastUpdated": "2026-06-19T16:42:48+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "69134",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260619,
+    "aPCode": "52043",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.39",
+    "hra": "0.271",
+    "w": 42,
+    "wra": "0.618",
+    "name": "LG",
+    "rank": 1,
+    "hr": 56,
+    "l": 26,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 42,
+      "l": 26
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.01",
+    "hra": "0.265",
+    "w": 34,
+    "wra": "0.507",
+    "name": "두산",
+    "rank": 5,
+    "hr": 52,
+    "l": 33,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 34,
+      "l": 33
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "이정용"
+  },
+  "awayStarter": {
+    "name": "벤자민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

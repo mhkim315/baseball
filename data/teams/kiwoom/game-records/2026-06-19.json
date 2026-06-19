@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260619LTWO02026",
+    "gameDate": "2026-06-19",
+    "lastUpdated": "2026-06-19T16:42:50+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "69045",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260619,
+    "aPCode": "52530",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.85",
+    "hra": "0.231",
+    "w": 26,
+    "wra": "0.377",
+    "name": "키움",
+    "rank": 10,
+    "hr": 39,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 43
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.68",
+    "hra": "0.259",
+    "w": 26,
+    "wra": "0.400",
+    "name": "롯데",
+    "rank": 9,
+    "hr": 53,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 26,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "알칸타라"
+  },
+  "awayStarter": {
+    "name": "이민석"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

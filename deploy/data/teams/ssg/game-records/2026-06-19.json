@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260619SKNC02026",
+    "gameDate": "2026-06-19",
+    "lastUpdated": "2026-06-19T16:42:51+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "56911",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260619,
+    "aPCode": "56841",
+    "round": 6,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.51",
+    "hra": "0.278",
+    "w": 31,
+    "wra": "0.477",
+    "name": "NC",
+    "rank": 7,
+    "hr": 60,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 31,
+      "l": 34
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "5.55",
+    "hra": "0.261",
+    "w": 27,
+    "wra": "0.409",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 72,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 27,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "토다"
+  },
+  "awayStarter": {
+    "name": "베니지아노"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
