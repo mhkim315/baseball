@@ -1,13 +1,13 @@
 {
   "date": "2026-06-20",
-  "generatedAt": "2026-06-20T20:31:57.768235+09:00",
+  "generatedAt": "2026-06-20T22:07:32.436200+09:00",
   "games": [
     {
       "id": "20260620-LTWO-0",
       "date": "2026-06-20",
       "venue": "고척",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
@@ -27,8 +27,8 @@
         "record": "26승1무44패"
       },
       "score": {
-        "away": 3,
-        "home": 0
+        "away": 7,
+        "home": 1
       }
     },
     {
@@ -56,8 +56,8 @@
         "record": "32승2무34패"
       },
       "score": {
-        "away": 3,
-        "home": 1
+        "away": 4,
+        "home": 10
       }
     },
     {
@@ -85,8 +85,8 @@
         "record": "40승1무27패"
       },
       "score": {
-        "away": 2,
-        "home": 1
+        "away": 9,
+        "home": 4
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-06-20",
       "venue": "잠실",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 2,
-        "home": 0
+        "home": 4
       }
     },
     {
@@ -143,8 +143,8 @@
         "record": "32승1무34패"
       },
       "score": {
-        "away": 7,
-        "home": 0
+        "away": 12,
+        "home": 3
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-20T20:30:52+09:00",
+  "fetchedAt": "2026-06-20T22:06:29+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1562,18 +1562,18 @@
           "home": "NC",
           "venue": "창원",
           "awayScore": 12,
-          "homeScore": 3,
-          "scoreLine": "12-3",
+          "homeScore": 5,
+          "scoreLine": "12-5",
           "ourScore": 12,
-          "oppScore": 3,
-          "ourScoreLine": "12-3",
-          "outcome": null,
+          "oppScore": 5,
+          "ourScoreLine": "12-5",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260620SKNC02026",
           "awayStarter": "해치",
           "homeStarter": "김준원",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "해치",
+          "losePitcher": "김준원"
         }
       ]
     },
