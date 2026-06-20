@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-06-19",
-    "lastUpdated": "2026-06-19T23:33:17+09:00",
-    "gameId": "20260619LTWO02026",
-    "kboGameId": "20260619LTWO0",
+    "lineupDate": "2026-06-20",
+    "lastUpdated": "2026-06-20T15:06:49+09:00",
+    "gameId": "20260620LTWO02026",
+    "kboGameId": "20260620LTWO0",
     "opponent": "롯데",
     "venue": "고척",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "알칸타라"
+    "name": "로젠버그"
   },
   "opponentStartingPitcher": {
-    "name": "이민석"
+    "name": "나균안"
   }
 }

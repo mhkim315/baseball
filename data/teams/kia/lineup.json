@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-06-19",
-    "lastUpdated": "2026-06-19T23:33:27+09:00",
-    "gameId": "20260619HTKT02026",
-    "kboGameId": "20260619HTKT0",
+    "lineupDate": "2026-06-20",
+    "lastUpdated": "2026-06-20T15:06:59+09:00",
+    "gameId": "20260620HTKT02026",
+    "kboGameId": "20260620HTKT0",
     "opponent": "KT",
     "venue": "수원",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "네일"
+    "name": "황동하"
   },
   "opponentStartingPitcher": {
-    "name": "오원석"
+    "name": "배제성"
   }
 }

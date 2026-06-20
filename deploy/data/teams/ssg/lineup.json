@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-06-19",
-    "lastUpdated": "2026-06-19T23:33:19+09:00",
-    "gameId": "20260619SKNC02026",
-    "kboGameId": "20260619SKNC0",
+    "lineupDate": "2026-06-20",
+    "lastUpdated": "2026-06-20T15:06:51+09:00",
+    "gameId": "20260620SKNC02026",
+    "kboGameId": "20260620SKNC0",
     "opponent": "NC",
     "venue": "창원",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "베니지아노"
+    "name": "해치"
   },
   "opponentStartingPitcher": {
-    "name": "토다"
+    "name": "김준원"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260620OBLG02026",
+    "gameDate": "2026-06-20",
+    "lastUpdated": "2026-06-20T15:07:05+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "61101",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260620,
+    "aPCode": "68220",
+    "round": 8,
+    "gtime": "17:00",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.36",
+    "hra": "0.270",
+    "w": 43,
+    "wra": "0.623",
+    "name": "LG",
+    "rank": 1,
+    "hr": 57,
+    "l": 26,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 43,
+      "l": 26
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.00",
+    "hra": "0.264",
+    "w": 34,
+    "wra": "0.500",
+    "name": "두산",
+    "rank": 5,
+    "hr": 52,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 34,
+      "l": 34
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "임찬규"
+  },
+  "awayStarter": {
+    "name": "곽빈"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

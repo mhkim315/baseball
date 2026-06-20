@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260620LTWO02026",
+    "gameDate": "2026-06-20",
+    "lastUpdated": "2026-06-20T15:07:13+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "55322",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260620,
+    "aPCode": "67539",
+    "round": 8,
+    "gtime": "17:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.81",
+    "hra": "0.231",
+    "w": 26,
+    "wra": "0.371",
+    "name": "키움",
+    "rank": 10,
+    "hr": 39,
+    "l": 44,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 44
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.63",
+    "hra": "0.257",
+    "w": 27,
+    "wra": "0.409",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 53,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 27,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "로젠버그"
+  },
+  "awayStarter": {
+    "name": "나균안"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
