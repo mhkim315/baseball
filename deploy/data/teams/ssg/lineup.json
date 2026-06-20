@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-06-20",
-    "lastUpdated": "2026-06-20T15:06:51+09:00",
+    "lastUpdated": "2026-06-20T18:34:49+09:00",
     "gameId": "20260620SKNC02026",
     "kboGameId": "20260620SKNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -39,13 +39,13 @@
     },
     {
       "order": 3,
-      "name": "최정",
-      "position": "지명타자"
+      "name": "에레디아",
+      "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "에레디아",
-      "position": "좌익수"
+      "name": "김재환",
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -77,7 +77,7 @@
     {
       "order": 1,
       "name": "김주원",
-      "position": "유격수"
+      "position": "지명타자"
     },
     {
       "order": 2,
@@ -86,18 +86,18 @@
     },
     {
       "order": 3,
-      "name": "이우성",
-      "position": "지명타자"
+      "name": "박민우",
+      "position": "2루수"
     },
     {
       "order": 4,
-      "name": "박건우",
-      "position": "우익수"
+      "name": "이우성",
+      "position": "좌익수"
     },
     {
       "order": 5,
       "name": "권희동",
-      "position": "좌익수"
+      "position": "우익수"
     },
     {
       "order": 6,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "김형준",
-      "position": "포수"
+      "name": "김한별",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "김한별",
-      "position": "2루수"
+      "name": "안중열",
+      "position": "포수"
     }
   ],
   "startingPitcher": {

@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-20T15:06:02+09:00",
+  "fetchedAt": "2026-06-20T18:33:36+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1561,15 +1561,19 @@
           "away": "롯데",
           "home": "키움",
           "venue": "고척",
-          "awayScore": 0,
+          "awayScore": 3,
           "homeScore": 0,
-          "scoreLine": "0-0",
+          "scoreLine": "3-0",
           "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "oppScore": 3,
+          "ourScoreLine": "0-3",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260620LTWO0"
+          "gameId": "20260620LTWO02026",
+          "awayStarter": "나균안",
+          "homeStarter": "로젠버그",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
