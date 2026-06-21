@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T14:23:14.982358+09:00",
+  "generatedAt": "2026-06-21T18:06:30.046207+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4531,60 +4531,60 @@
       {
         "away": "두산",
         "home": "LG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 4,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "잭로그",
+        "homeStarter": "웰스",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "롯데",
         "home": "키움",
-        "awayScore": 1,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 6,
+        "homeScore": 3,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "비슬리",
         "homeStarter": "배동현",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박정민",
+        "losePitcher": "배동현"
       },
       {
         "away": "SSG",
         "home": "NC",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최민준",
+        "homeStarter": "김태경",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "KIA",
         "home": "KT",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 4,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "김태형",
+        "homeStarter": "로건",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "삼성",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "양창섭",
+        "homeStarter": "화이트",
         "winPitcher": null,
         "losePitcher": null
       }

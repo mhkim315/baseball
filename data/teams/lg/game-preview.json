@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260621OBLG02026",
-    "fetchedAt": "2026-06-21T14:21:37+09:00"
+    "fetchedAt": "2026-06-21T18:05:27+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 0,
