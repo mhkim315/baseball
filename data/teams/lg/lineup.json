@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-06-20",
-    "lastUpdated": "2026-06-20T22:07:13+09:00",
-    "gameId": "20260620OBLG02026",
-    "kboGameId": "20260620OBLG0",
+    "lineupDate": "2026-06-21",
+    "lastUpdated": "2026-06-21T14:22:35+09:00",
+    "gameId": "20260621OBLG02026",
+    "kboGameId": "20260621OBLG0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "임찬규"
+    "name": "웰스"
   },
   "opponentStartingPitcher": {
-    "name": "곽빈"
+    "name": "잭로그"
   }
 }

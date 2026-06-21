@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-06-20",
-    "lastUpdated": "2026-06-20T22:07:29+09:00",
-    "gameId": "20260620LTWO02026",
-    "kboGameId": "20260620LTWO0",
+    "lineupDate": "2026-06-21",
+    "lastUpdated": "2026-06-21T14:22:56+09:00",
+    "gameId": "20260621LTWO02026",
+    "kboGameId": "20260621LTWO0",
     "opponent": "키움",
     "venue": "고척",
-    "gameTime": "17:00",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-confirmed",
@@ -45,7 +45,7 @@
     {
       "order": 4,
       "name": "한동희",
-      "position": "지명타자"
+      "position": "3루수"
     },
     {
       "order": 5,
@@ -64,8 +64,8 @@
     },
     {
       "order": 8,
-      "name": "손호영",
-      "position": "3루수"
+      "name": "김동현",
+      "position": "지명타자"
     },
     {
       "order": 9,
@@ -82,12 +82,12 @@
     {
       "order": 2,
       "name": "김웅빈",
-      "position": "지명타자"
+      "position": "3루수"
     },
     {
       "order": 3,
-      "name": "최주환",
-      "position": "1루수"
+      "name": "안치홍",
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -96,34 +96,34 @@
     },
     {
       "order": 5,
-      "name": "김건희",
-      "position": "포수"
-    },
-    {
-      "order": 6,
       "name": "추재현",
       "position": "중견수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "박찬혁",
       "position": "우익수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "어준서",
-      "position": "3루수"
+      "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "최주환",
+      "position": "1루수"
     },
     {
       "order": 9,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "김동헌",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "나균안"
+    "name": "비슬리"
   },
   "opponentStartingPitcher": {
-    "name": "로젠버그"
+    "name": "배동현"
   }
 }
