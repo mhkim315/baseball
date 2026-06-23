@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-23T20:26:33+09:00",
+  "fetchedAt": "2026-06-23T22:58:17+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1611,13 +1611,13 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260623SSLG02026",
           "awayStarter": "최원태",
           "homeStarter": "장현식",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "장현식",
+          "losePitcher": "최원태"
         }
       ]
     },
