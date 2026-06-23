@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T17:05:24+09:00",
+    "lastUpdated": "2026-06-23T20:27:25+09:00",
     "gameId": "20260623OBHH02026",
     "kboGameId": "20260623OBHH0",
     "opponent": "한화",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,13 +34,13 @@
     },
     {
       "order": 2,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "카메론",
+      "position": "우익수"
     },
     {
       "order": 3,
-      "name": "카메론",
-      "position": "우익수"
+      "name": "박준순",
+      "position": "2루수"
     },
     {
       "order": 4,
@@ -54,12 +54,12 @@
     },
     {
       "order": 6,
-      "name": "오명진",
-      "position": "2루수"
+      "name": "박찬호",
+      "position": "유격수"
     },
     {
       "order": 7,
-      "name": "양석환",
+      "name": "오명진",
       "position": "1루수"
     },
     {
@@ -101,23 +101,23 @@
     },
     {
       "order": 6,
-      "name": "허인서",
-      "position": "포수"
-    },
-    {
-      "order": 7,
-      "name": "이원석",
-      "position": "좌익수"
-    },
-    {
-      "order": 8,
-      "name": "박정현",
+      "name": "김태연",
       "position": "1루수"
     },
     {
-      "order": 9,
+      "order": 7,
       "name": "심우준",
       "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "최재훈",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "이원석",
+      "position": "좌익수"
     }
   ],
   "startingPitcher": {

@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T17:05:48+09:00",
+    "lastUpdated": "2026-06-23T20:27:51+09:00",
     "gameId": "20260623NCLT02026",
     "kboGameId": "20260623NCLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,33 +34,33 @@
     },
     {
       "order": 2,
-      "name": "권희동",
+      "name": "이우성",
       "position": "좌익수"
     },
     {
       "order": 3,
       "name": "박민우",
-      "position": "2루수"
-    },
-    {
-      "order": 4,
-      "name": "이우성",
       "position": "지명타자"
     },
     {
-      "order": 5,
+      "order": 4,
       "name": "박건우",
       "position": "우익수"
     },
     {
-      "order": 6,
+      "order": 5,
       "name": "데이비슨",
       "position": "1루수"
     },
     {
-      "order": 7,
-      "name": "천재환",
+      "order": 6,
+      "name": "오장한",
       "position": "중견수"
+    },
+    {
+      "order": 7,
+      "name": "서호철",
+      "position": "3루수"
     },
     {
       "order": 8,
@@ -69,8 +69,8 @@
     },
     {
       "order": 9,
-      "name": "서호철",
-      "position": "3루수"
+      "name": "김한별",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [

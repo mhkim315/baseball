@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T17:05:30+09:00",
+    "lastUpdated": "2026-06-23T20:27:31+09:00",
     "gameId": "20260623HTWO02026",
     "kboGameId": "20260623HTWO0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,38 +34,38 @@
     },
     {
       "order": 2,
-      "name": "김웅빈",
-      "position": "3루수"
-    },
-    {
-      "order": 3,
-      "name": "안치홍",
-      "position": "지명타자"
-    },
-    {
-      "order": 4,
       "name": "히우라",
       "position": "좌익수"
     },
     {
+      "order": 3,
+      "name": "김웅빈",
+      "position": "3루수"
+    },
+    {
+      "order": 4,
+      "name": "안치홍",
+      "position": "지명타자"
+    },
+    {
       "order": 5,
-      "name": "추재현",
-      "position": "중견수"
+      "name": "최주환",
+      "position": "1루수"
     },
     {
       "order": 6,
-      "name": "박찬혁",
-      "position": "우익수"
+      "name": "임병욱",
+      "position": "중견수"
     },
     {
       "order": 7,
-      "name": "어준서",
-      "position": "유격수"
+      "name": "추재현",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "최주환",
-      "position": "1루수"
+      "name": "어준서",
+      "position": "유격수"
     },
     {
       "order": 9,
@@ -76,18 +76,18 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김호령",
-      "position": "중견수"
-    },
-    {
-      "order": 2,
       "name": "박재현",
       "position": "좌익수"
     },
     {
+      "order": 2,
+      "name": "김호령",
+      "position": "중견수"
+    },
+    {
       "order": 3,
       "name": "김도영",
-      "position": "지명타자"
+      "position": "3루수"
     },
     {
       "order": 4,
@@ -97,7 +97,7 @@
     {
       "order": 5,
       "name": "카스트로",
-      "position": "1루수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -112,11 +112,11 @@
     {
       "order": 8,
       "name": "변우혁",
-      "position": "3루수"
+      "position": "1루수"
     },
     {
       "order": 9,
-      "name": "박민",
+      "name": "김규성",
       "position": "유격수"
     }
   ],
