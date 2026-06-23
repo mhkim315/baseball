@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260623NCLT02026",
+    "gameDate": "2026-06-23",
+    "lastUpdated": "2026-06-23T13:33:26+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "64021",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260623,
+    "aPCode": "55903",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.52",
+    "hra": "0.258",
+    "w": 29,
+    "wra": "0.426",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 54,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 29,
+      "l": 39
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.56",
+    "hra": "0.279",
+    "w": 32,
+    "wra": "0.471",
+    "name": "NC",
+    "rank": 7,
+    "hr": 63,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 32,
+      "l": 36
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박세웅"
+  },
+  "awayStarter": {
+    "name": "라일리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
