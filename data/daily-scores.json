@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T14:53:47.362512+09:00",
+  "generatedAt": "2026-06-24T17:47:45.225660+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4659,8 +4659,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최민석",
+        "homeStarter": "에르난데스",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4671,8 +4671,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "오러클린",
+        "homeStarter": "톨허스트",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4683,8 +4683,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "양현종",
+        "homeStarter": "안우진",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4695,8 +4695,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "김민준",
+        "homeStarter": "사우어",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -4707,8 +4707,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "테일러",
+        "homeStarter": "로드리게스",
         "winPitcher": null,
         "losePitcher": null
       }

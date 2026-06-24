@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260624NCLT02026",
-    "fetchedAt": "2026-06-24T14:52:28+09:00"
+    "fetchedAt": "2026-06-24T17:46:46+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 2,

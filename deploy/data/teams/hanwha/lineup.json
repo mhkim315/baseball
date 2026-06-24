@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-06-24",
-    "lastUpdated": "2026-06-24T14:53:19+09:00",
+    "lastUpdated": "2026-06-24T17:47:32+09:00",
     "gameId": "20260624OBHH02026",
     "kboGameId": "20260624OBHH0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "심우준",
-      "position": "유격수"
-    },
-    {
-      "order": 8,
-      "name": "최재훈",
+      "name": "허인서",
       "position": "포수"
     },
     {
-      "order": 9,
-      "name": "이원석",
+      "order": 8,
+      "name": "유민",
       "position": "좌익수"
+    },
+    {
+      "order": 9,
+      "name": "심우준",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "카메론",
+      "name": "류승민",
       "position": "우익수"
     },
     {
@@ -96,7 +96,7 @@
     },
     {
       "order": 5,
-      "name": "류승민",
+      "name": "김민석",
       "position": "좌익수"
     },
     {
