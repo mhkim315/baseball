@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-24T20:31:48+09:00",
+  "fetchedAt": "2026-06-24T22:38:37+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1627,19 +1627,19 @@
           "away": "두산",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 5,
-          "homeScore": 0,
-          "scoreLine": "5-0",
-          "ourScore": 0,
-          "oppScore": 5,
-          "ourScoreLine": "0-5",
-          "outcome": null,
+          "awayScore": 7,
+          "homeScore": 2,
+          "scoreLine": "7-2",
+          "ourScore": 2,
+          "oppScore": 7,
+          "ourScoreLine": "2-7",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260624OBHH02026",
           "awayStarter": "최민석",
           "homeStarter": "에르난데스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "최민석",
+          "losePitcher": "에르난데스"
         }
       ]
     },

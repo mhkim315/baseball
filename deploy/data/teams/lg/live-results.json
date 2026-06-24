@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-24T20:31:48+09:00",
+  "fetchedAt": "2026-06-24T22:38:37+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1633,13 +1633,13 @@
           "ourScore": 2,
           "oppScore": 0,
           "ourScoreLine": "2-0",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260624SSLG02026",
           "awayStarter": "오러클린",
           "homeStarter": "톨허스트",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "톨허스트",
+          "losePitcher": "오러클린"
         }
       ]
     },
