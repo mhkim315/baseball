@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T22:59:53+09:00",
-    "gameId": "20260623NCLT02026",
-    "kboGameId": "20260623NCLT0",
+    "lineupDate": "2026-06-24",
+    "lastUpdated": "2026-06-24T14:53:32+09:00",
+    "gameId": "20260624NCLT02026",
+    "kboGameId": "20260624NCLT0",
     "opponent": "롯데",
     "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "라일리"
+    "name": "테일러"
   },
   "opponentStartingPitcher": {
-    "name": "박세웅"
+    "name": "로드리게스"
   }
 }

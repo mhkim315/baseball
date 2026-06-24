@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T22:59:46+09:00",
-    "gameId": "20260623HTWO02026",
-    "kboGameId": "20260623HTWO0",
+    "lineupDate": "2026-06-24",
+    "lastUpdated": "2026-06-24T14:53:25+09:00",
+    "gameId": "20260624HTWO02026",
+    "kboGameId": "20260624HTWO0",
     "opponent": "키움",
     "venue": "고척",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "올러"
+    "name": "양현종"
   },
   "opponentStartingPitcher": {
-    "name": "박준현"
+    "name": "안우진"
   }
 }

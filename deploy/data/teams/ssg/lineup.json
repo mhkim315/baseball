@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T22:59:34+09:00",
-    "gameId": "20260623SKKT02026",
-    "kboGameId": "20260623SKKT0",
+    "lineupDate": "2026-06-24",
+    "lastUpdated": "2026-06-24T14:53:13+09:00",
+    "gameId": "20260624SKKT02026",
+    "kboGameId": "20260624SKKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김건우"
+    "name": "김민준"
   },
   "opponentStartingPitcher": {
-    "name": "고영표"
+    "name": "사우어"
   }
 }

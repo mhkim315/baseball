@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-06-23",
-    "lastUpdated": "2026-06-23T22:59:43+09:00",
-    "gameId": "20260623SSLG02026",
-    "kboGameId": "20260623SSLG0",
+    "lineupDate": "2026-06-24",
+    "lastUpdated": "2026-06-24T14:53:22+09:00",
+    "gameId": "20260624SSLG02026",
+    "kboGameId": "20260624SSLG0",
     "opponent": "LG",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최원태"
+    "name": "오러클린"
   },
   "opponentStartingPitcher": {
-    "name": "장현식"
+    "name": "톨허스트"
   }
 }
