@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-06-25",
-    "lastUpdated": "2026-06-25T14:49:28+09:00",
+    "lastUpdated": "2026-06-25T17:41:23+09:00",
     "gameId": "20260625NCLT02026",
     "kboGameId": "20260625NCLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "김휘집",
-      "position": "3루수"
-    },
-    {
-      "order": 8,
-      "name": "오장한",
+      "name": "천재환",
       "position": "중견수"
     },
     {
-      "order": 9,
-      "name": "안중열",
+      "order": 8,
+      "name": "김형준",
       "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "김휘집",
+      "position": "3루수"
     }
   ],
   "opponentBatters": [
@@ -92,7 +92,7 @@
     {
       "order": 4,
       "name": "한동희",
-      "position": "3루수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -111,8 +111,8 @@
     },
     {
       "order": 8,
-      "name": "김동현",
-      "position": "지명타자"
+      "name": "박승욱",
+      "position": "3루수"
     },
     {
       "order": 9,
