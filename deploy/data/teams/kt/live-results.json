@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-25T20:20:33+09:00",
+  "fetchedAt": "2026-06-25T22:29:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1649,19 +1649,19 @@
           "away": "SSG",
           "home": "KT",
           "venue": "수원",
-          "awayScore": 5,
-          "homeScore": 6,
-          "scoreLine": "5-6",
-          "ourScore": 6,
-          "oppScore": 5,
-          "ourScoreLine": "6-5",
-          "outcome": null,
+          "awayScore": 7,
+          "homeScore": 12,
+          "scoreLine": "7-12",
+          "ourScore": 12,
+          "oppScore": 7,
+          "ourScoreLine": "12-7",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260625SKKT02026",
           "awayStarter": "베니지아노",
           "homeStarter": "소형준",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박영현",
+          "losePitcher": "노경은"
         }
       ]
     },

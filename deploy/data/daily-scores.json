@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T20:21:39.910052+09:00",
+  "generatedAt": "2026-06-25T22:31:15.378205+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4717,62 +4717,62 @@
       {
         "away": "두산",
         "home": "한화",
-        "awayScore": 3,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 5,
+        "homeScore": 3,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "벤자민",
         "homeStarter": "박준영",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "벤자민",
+        "losePitcher": "박준영"
       },
       {
         "away": "삼성",
         "home": "LG",
-        "awayScore": 8,
-        "homeScore": 3,
-        "outcome": null,
+        "awayScore": 13,
+        "homeScore": 6,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "후라도",
         "homeStarter": "이정용",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "후라도",
+        "losePitcher": "이정용"
       },
       {
         "away": "KIA",
         "home": "키움",
-        "awayScore": 8,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 9,
+        "homeScore": 4,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "네일",
         "homeStarter": "알칸타라",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "네일",
+        "losePitcher": "알칸타라"
       },
       {
         "away": "SSG",
         "home": "KT",
-        "awayScore": 5,
-        "homeScore": 6,
-        "outcome": null,
+        "awayScore": 7,
+        "homeScore": 12,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "베니지아노",
         "homeStarter": "소형준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박영현",
+        "losePitcher": "노경은"
       },
       {
         "away": "NC",
         "home": "롯데",
         "awayScore": 8,
-        "homeScore": 1,
-        "outcome": null,
+        "homeScore": 2,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "토다",
         "homeStarter": "이민석",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "토다",
+        "losePitcher": "이민석"
       }
     ],
     "2026-06-26": [

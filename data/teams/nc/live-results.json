@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-25T20:20:33+09:00",
+  "fetchedAt": "2026-06-25T22:29:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1650,18 +1650,18 @@
           "home": "롯데",
           "venue": "사직",
           "awayScore": 8,
-          "homeScore": 1,
-          "scoreLine": "8-1",
+          "homeScore": 2,
+          "scoreLine": "8-2",
           "ourScore": 8,
-          "oppScore": 1,
-          "ourScoreLine": "8-1",
-          "outcome": null,
+          "oppScore": 2,
+          "ourScoreLine": "8-2",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260625NCLT02026",
           "awayStarter": "토다",
           "homeStarter": "이민석",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "토다",
+          "losePitcher": "이민석"
         }
       ]
     },

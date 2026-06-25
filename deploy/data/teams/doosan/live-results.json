@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-06-25T20:20:33+09:00",
+  "fetchedAt": "2026-06-25T22:29:41+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -1651,19 +1651,19 @@
           "away": "두산",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 3,
-          "homeScore": 0,
-          "scoreLine": "3-0",
-          "ourScore": 3,
-          "oppScore": 0,
-          "ourScoreLine": "3-0",
-          "outcome": null,
+          "awayScore": 5,
+          "homeScore": 3,
+          "scoreLine": "5-3",
+          "ourScore": 5,
+          "oppScore": 3,
+          "ourScoreLine": "5-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260625OBHH02026",
           "awayStarter": "벤자민",
           "homeStarter": "박준영",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "벤자민",
+          "losePitcher": "박준영"
         }
       ]
     },

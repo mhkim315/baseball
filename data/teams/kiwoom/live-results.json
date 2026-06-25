@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-25T20:20:33+09:00",
+  "fetchedAt": "2026-06-25T22:29:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1649,19 +1649,19 @@
           "away": "KIA",
           "home": "키움",
           "venue": "고척",
-          "awayScore": 8,
-          "homeScore": 0,
-          "scoreLine": "8-0",
-          "ourScore": 0,
-          "oppScore": 8,
-          "ourScoreLine": "0-8",
-          "outcome": null,
+          "awayScore": 9,
+          "homeScore": 4,
+          "scoreLine": "9-4",
+          "ourScore": 4,
+          "oppScore": 9,
+          "ourScoreLine": "4-9",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260625HTWO02026",
           "awayStarter": "네일",
           "homeStarter": "알칸타라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "네일",
+          "losePitcher": "알칸타라"
         }
       ]
     },
