@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260625OBHH02026",
+    "gameDate": "2026-06-25",
+    "lastUpdated": "2026-06-25T14:49:36+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "56709",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260625,
+    "aPCode": "52043",
+    "round": 12,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.59",
+    "hra": "0.272",
+    "w": 34,
+    "wra": "0.486",
+    "name": "한화",
+    "rank": 6,
+    "hr": 79,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 34,
+      "l": 36
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.00",
+    "hra": "0.268",
+    "w": 35,
+    "wra": "0.486",
+    "name": "두산",
+    "rank": 5,
+    "hr": 54,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 35,
+      "l": 37
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박준영"
+  },
+  "awayStarter": {
+    "name": "벤자민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

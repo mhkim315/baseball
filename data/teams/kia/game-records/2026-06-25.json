@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260625HTWO02026",
+    "gameDate": "2026-06-25",
+    "lastUpdated": "2026-06-25T14:49:38+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "69045",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260625,
+    "aPCode": "54640",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.94",
+    "hra": "0.232",
+    "w": 26,
+    "wra": "0.351",
+    "name": "키움",
+    "rank": 10,
+    "hr": 41,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 26,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.06",
+    "hra": "0.267",
+    "w": 40,
+    "wra": "0.548",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 87,
+    "l": 33,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 40,
+      "l": 33
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "알칸타라"
+  },
+  "awayStarter": {
+    "name": "네일"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

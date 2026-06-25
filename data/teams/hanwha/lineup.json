@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-06-24",
-    "lastUpdated": "2026-06-24T22:39:39+09:00",
-    "gameId": "20260624OBHH02026",
-    "kboGameId": "20260624OBHH0",
+    "lineupDate": "2026-06-25",
+    "lastUpdated": "2026-06-25T14:49:18+09:00",
+    "gameId": "20260625OBHH02026",
+    "kboGameId": "20260625OBHH0",
     "opponent": "두산",
     "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "에르난데스"
+    "name": "박준영"
   },
   "opponentStartingPitcher": {
-    "name": "최민석"
+    "name": "벤자민"
   }
 }

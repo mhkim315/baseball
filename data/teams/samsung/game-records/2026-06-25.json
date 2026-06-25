@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260625SSLG02026",
+    "gameDate": "2026-06-25",
+    "lastUpdated": "2026-06-25T14:49:37+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "69134",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260625,
+    "aPCode": "53375",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.21",
+    "hra": "0.269",
+    "w": 47,
+    "wra": "0.644",
+    "name": "LG",
+    "rank": 1,
+    "hr": 65,
+    "l": 26,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 47,
+      "l": 26
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.03",
+    "hra": "0.268",
+    "w": 40,
+    "wra": "0.571",
+    "name": "삼성",
+    "rank": 3,
+    "hr": 63,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 40,
+      "l": 30
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "이정용"
+  },
+  "awayStarter": {
+    "name": "후라도"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
