@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-26T20:30:59+09:00",
+  "fetchedAt": "2026-06-26T22:31:22+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1671,19 +1671,19 @@
           "away": "한화",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 4,
-          "homeScore": 1,
-          "scoreLine": "4-1",
-          "ourScore": 1,
-          "oppScore": 4,
-          "ourScoreLine": "1-4",
-          "outcome": null,
+          "awayScore": 9,
+          "homeScore": 2,
+          "scoreLine": "9-2",
+          "ourScore": 2,
+          "oppScore": 9,
+          "ourScoreLine": "2-9",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260626HHSK02026",
           "awayStarter": "왕옌청",
           "homeStarter": "해치",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "왕옌청",
+          "losePitcher": "해치"
         }
       ]
     },

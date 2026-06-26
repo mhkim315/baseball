@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-06-26T20:30:59+09:00",
+  "fetchedAt": "2026-06-26T22:31:22+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -1673,19 +1673,19 @@
           "away": "KIA",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 2,
-          "scoreLine": "0-2",
-          "ourScore": 2,
-          "oppScore": 0,
-          "ourScoreLine": "2-0",
-          "outcome": null,
+          "awayScore": 2,
+          "homeScore": 3,
+          "scoreLine": "2-3",
+          "ourScore": 3,
+          "oppScore": 2,
+          "ourScoreLine": "3-2",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260626HTOB02026",
           "awayStarter": "황동하",
           "homeStarter": "곽빈",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "곽빈",
+          "losePitcher": "황동하"
         }
       ]
     },
