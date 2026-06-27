@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-27T13:18:42+09:00",
+  "fetchedAt": "2026-06-27T16:29:26+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1701,7 +1701,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260627WONC0"
+          "gameId": "20260627WONC02026",
+          "awayStarter": "하영민",
+          "homeStarter": "구창모",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
