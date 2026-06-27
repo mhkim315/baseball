@@ -1,6 +1,6 @@
 {
   "date": "2026-06-27",
-  "generatedAt": "2026-06-27T21:19:38.878355+09:00",
+  "generatedAt": "2026-06-27T23:10:35.352905+09:00",
   "games": [
     {
       "id": "20260627-KTSS-0",
@@ -65,7 +65,7 @@
       "date": "2026-06-27",
       "venue": "사직",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lg",
         "name": "LG",
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 8,
-        "home": 6
+        "home": 7
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-06-27",
       "venue": "잠실",
       "time": "17:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
