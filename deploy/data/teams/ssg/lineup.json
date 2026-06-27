@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-06-26",
-    "lastUpdated": "2026-06-26T22:32:13+09:00",
-    "gameId": "20260626HHSK02026",
-    "kboGameId": "20260626HHSK0",
+    "lineupDate": "2026-06-27",
+    "lastUpdated": "2026-06-27T13:19:53+09:00",
+    "gameId": "20260627HHSK02026",
+    "kboGameId": "20260627HHSK0",
     "opponent": "한화",
     "venue": "문학",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "해치"
+    "name": "타케다"
   },
   "opponentStartingPitcher": {
-    "name": "왕옌청"
+    "name": "화이트"
   }
 }

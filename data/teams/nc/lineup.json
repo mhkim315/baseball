@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-06-26",
-    "lastUpdated": "2026-06-26T22:32:26+09:00",
-    "gameId": "20260626WONC02026",
-    "kboGameId": "20260626WONC0",
+    "lineupDate": "2026-06-27",
+    "lastUpdated": "2026-06-27T13:20:13+09:00",
+    "gameId": "20260627WONC02026",
+    "kboGameId": "20260627WONC0",
     "opponent": "키움",
     "venue": "창원",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김태경"
+    "name": "구창모"
   },
   "opponentStartingPitcher": {
-    "name": "배동현"
+    "name": "하영민"
   }
 }

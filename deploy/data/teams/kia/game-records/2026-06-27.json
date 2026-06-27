@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260627HTOB02026",
+    "gameDate": "2026-06-27",
+    "lastUpdated": "2026-06-27T13:20:26+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "55239",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260627,
+    "aPCode": "54843",
+    "round": 11,
+    "gtime": "17:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "3.96",
+    "hra": "0.268",
+    "w": 37,
+    "wra": "0.500",
+    "name": "두산",
+    "rank": 5,
+    "hr": 55,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 37,
+      "l": 37
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.05",
+    "hra": "0.267",
+    "w": 41,
+    "wra": "0.547",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 91,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 41,
+      "l": 34
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "잭로그"
+  },
+  "awayStarter": {
+    "name": "시라카와"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
