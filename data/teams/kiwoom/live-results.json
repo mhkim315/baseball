@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-27T18:37:29+09:00",
+  "fetchedAt": "2026-06-27T20:13:34+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1693,19 +1693,19 @@
           "away": "키움",
           "home": "NC",
           "venue": "창원",
-          "awayScore": 1,
+          "awayScore": 3,
           "homeScore": 1,
-          "scoreLine": "1-1",
-          "ourScore": 1,
+          "scoreLine": "3-1",
+          "ourScore": 3,
           "oppScore": 1,
-          "ourScoreLine": "1-1",
-          "outcome": null,
+          "ourScoreLine": "3-1",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260627WONC02026",
           "awayStarter": "하영민",
           "homeStarter": "구창모",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "하영민",
+          "losePitcher": "전사민"
         }
       ]
     },
