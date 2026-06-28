@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-28T19:34:45+09:00",
+  "fetchedAt": "2026-06-28T21:06:04+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1721,13 +1721,13 @@
           "ourScore": 2,
           "oppScore": 9,
           "ourScoreLine": "2-9",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260628WONC02026",
           "awayStarter": "와일스",
           "homeStarter": "라일리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "라일리",
+          "losePitcher": "와일스"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-28T19:34:45+09:00",
+  "fetchedAt": "2026-06-28T21:06:04+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1721,13 +1721,13 @@
           "ourScore": 7,
           "oppScore": 4,
           "ourScoreLine": "7-4",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260628KTSS02026",
           "awayStarter": "고영표",
           "homeStarter": "양창섭",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "양창섭",
+          "losePitcher": "고영표"
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T19:36:31.543091+09:00",
+  "generatedAt": "2026-06-28T21:07:49.768597+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -4903,62 +4903,62 @@
       {
         "away": "KIA",
         "home": "두산",
-        "awayScore": 9,
+        "awayScore": 12,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "김태형",
         "homeStarter": "최승용",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김태형",
+        "losePitcher": "최승용"
       },
       {
         "away": "LG",
         "home": "롯데",
-        "awayScore": 7,
-        "homeScore": 9,
-        "outcome": null,
+        "awayScore": 9,
+        "homeScore": 11,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "장현식",
         "homeStarter": "비슬리",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김강현",
+        "losePitcher": "장현식"
       },
       {
         "away": "키움",
         "home": "NC",
         "awayScore": 2,
         "homeScore": 9,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "와일스",
         "homeStarter": "라일리",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "라일리",
+        "losePitcher": "와일스"
       },
       {
         "away": "한화",
         "home": "SSG",
-        "awayScore": 3,
+        "awayScore": 6,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "류현진",
         "homeStarter": "최민준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이상규",
+        "losePitcher": "조병현"
       },
       {
         "away": "KT",
         "home": "삼성",
         "awayScore": 4,
         "homeScore": 7,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "고영표",
         "homeStarter": "양창섭",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "양창섭",
+        "losePitcher": "고영표"
       }
     ],
     "2026-06-30": [

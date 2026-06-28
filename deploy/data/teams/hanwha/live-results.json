@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-28T19:34:45+09:00",
+  "fetchedAt": "2026-06-28T21:06:04+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1715,19 +1715,19 @@
           "away": "한화",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 3,
+          "awayScore": 6,
           "homeScore": 3,
-          "scoreLine": "3-3",
-          "ourScore": 3,
+          "scoreLine": "6-3",
+          "ourScore": 6,
           "oppScore": 3,
-          "ourScoreLine": "3-3",
-          "outcome": null,
+          "ourScoreLine": "6-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260628HHSK02026",
           "awayStarter": "류현진",
           "homeStarter": "최민준",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "이상규",
+          "losePitcher": "조병현"
         }
       ]
     },
