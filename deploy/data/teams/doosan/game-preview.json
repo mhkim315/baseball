@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260628HTOB02026",
-    "fetchedAt": "2026-06-28T13:53:20+09:00"
+    "fetchedAt": "2026-06-28T17:14:27+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 2,
