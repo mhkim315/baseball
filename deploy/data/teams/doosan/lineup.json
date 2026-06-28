@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-06-27",
-    "lastUpdated": "2026-06-27T23:10:09+09:00",
-    "gameId": "20260627HTOB02026",
-    "kboGameId": "20260627HTOB0",
+    "lineupDate": "2026-06-28",
+    "lastUpdated": "2026-06-28T13:53:55+09:00",
+    "gameId": "20260628HTOB02026",
+    "kboGameId": "20260628HTOB0",
     "opponent": "KIA",
     "venue": "잠실",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "잭로그"
+    "name": "최승용"
   },
   "opponentStartingPitcher": {
-    "name": "시라카와"
+    "name": "김태형"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260628WONC02026",
+    "gameDate": "2026-06-28",
+    "lastUpdated": "2026-06-28T13:54:24+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "55903",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260628,
+    "aPCode": "56334",
+    "round": 12,
+    "gtime": "17:00",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.48",
+    "hra": "0.276",
+    "w": 34,
+    "wra": "0.466",
+    "name": "NC",
+    "rank": 7,
+    "hr": 65,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 34,
+      "l": 39
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.95",
+    "hra": "0.231",
+    "w": 27,
+    "wra": "0.351",
+    "name": "키움",
+    "rank": 10,
+    "hr": 45,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 27,
+      "l": 50
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "라일리"
+  },
+  "awayStarter": {
+    "name": "와일스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

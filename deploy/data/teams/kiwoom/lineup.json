@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-06-27",
-    "lastUpdated": "2026-06-27T23:10:14+09:00",
-    "gameId": "20260627WONC02026",
-    "kboGameId": "20260627WONC0",
+    "lineupDate": "2026-06-28",
+    "lastUpdated": "2026-06-28T13:53:59+09:00",
+    "gameId": "20260628WONC02026",
+    "kboGameId": "20260628WONC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "하영민"
+    "name": "와일스"
   },
   "opponentStartingPitcher": {
-    "name": "구창모"
+    "name": "라일리"
   }
 }

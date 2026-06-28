@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-06-27",
-    "lastUpdated": "2026-06-27T23:10:11+09:00",
-    "gameId": "20260627LGLT02026",
-    "kboGameId": "20260627LGLT0",
+    "lineupDate": "2026-06-28",
+    "lastUpdated": "2026-06-28T13:53:57+09:00",
+    "gameId": "20260628LGLT02026",
+    "kboGameId": "20260628LGLT0",
     "opponent": "롯데",
     "venue": "사직",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "웰스"
+    "name": "장현식"
   },
   "opponentStartingPitcher": {
-    "name": "김진욱"
+    "name": "비슬리"
   }
 }

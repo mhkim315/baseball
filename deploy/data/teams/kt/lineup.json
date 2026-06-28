@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-06-27",
-    "lastUpdated": "2026-06-27T23:10:20+09:00",
-    "gameId": "20260627KTSS02026",
-    "kboGameId": "20260627KTSS0",
+    "lineupDate": "2026-06-28",
+    "lastUpdated": "2026-06-28T13:54:03+09:00",
+    "gameId": "20260628KTSS02026",
+    "kboGameId": "20260628KTSS0",
     "opponent": "삼성",
     "venue": "대구",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "로건"
+    "name": "고영표"
   },
   "opponentStartingPitcher": {
-    "name": "원태인"
+    "name": "양창섭"
   }
 }
