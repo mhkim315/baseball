@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-06-28",
-    "lastUpdated": "2026-06-28T23:11:16+09:00",
-    "gameId": "20260628WONC02026",
-    "kboGameId": "20260628WONC0",
-    "opponent": "NC",
-    "venue": "창원",
-    "gameTime": "17:00",
+    "lineupDate": "2026-06-30",
+    "lastUpdated": "2026-06-29T15:21:23+09:00",
+    "gameId": "20260630LGWO02026",
+    "kboGameId": "20260630LGWO0",
+    "opponent": "LG",
+    "venue": "고척",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "NC",
-    "teamName": "NC"
+    "teamShort": "LG",
+    "teamName": "LG"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김주원",
-      "position": "지명타자"
+      "name": "송찬의",
+      "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "한석현",
+      "name": "박해민",
       "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
+      "name": "오스틴",
+      "position": "지명타자"
     },
     {
       "order": 4,
-      "name": "이우성",
-      "position": "좌익수"
-    },
-    {
-      "order": 5,
-      "name": "박건우",
-      "position": "우익수"
-    },
-    {
-      "order": 6,
-      "name": "김휘집",
+      "name": "문보경",
       "position": "3루수"
     },
     {
-      "order": 7,
-      "name": "김형준",
-      "position": "포수"
+      "order": 5,
+      "name": "문정빈",
+      "position": "1루수"
     },
     {
-      "order": 8,
-      "name": "김한별",
+      "order": 6,
+      "name": "오지환",
       "position": "유격수"
     },
     {
+      "order": 7,
+      "name": "홍창기",
+      "position": "우익수"
+    },
+    {
+      "order": 8,
+      "name": "이주헌",
+      "position": "포수"
+    },
+    {
       "order": 9,
-      "name": "신재인",
-      "position": "1루수"
+      "name": "신민재",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
-    "name": "와일스"
+    "name": "안우진"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "톨허스트"
   }
 }
