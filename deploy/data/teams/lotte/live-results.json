@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-06-30T17:08:20+09:00",
+  "fetchedAt": "2026-06-30T20:19:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1738,14 +1738,18 @@
           "home": "두산",
           "venue": "잠실",
           "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
+          "homeScore": 2,
+          "scoreLine": "0-2",
           "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "oppScore": 2,
+          "ourScoreLine": "0-2",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260630LTOB0"
+          "gameId": "20260630LTOB02026",
+          "awayStarter": "박세웅",
+          "homeStarter": "최민석",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

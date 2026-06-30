@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-06-30",
-    "lastUpdated": "2026-06-30T17:09:11+09:00",
+    "lastUpdated": "2026-06-30T20:20:34+09:00",
     "gameId": "20260630KTHH02026",
     "kboGameId": "20260630KTHH0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,18 +54,18 @@
     },
     {
       "order": 6,
+      "name": "허인서",
+      "position": "포수"
+    },
+    {
+      "order": 7,
       "name": "김태연",
       "position": "1루수"
     },
     {
-      "order": 7,
+      "order": 8,
       "name": "이도윤",
       "position": "2루수"
-    },
-    {
-      "order": 8,
-      "name": "최재훈",
-      "position": "포수"
     },
     {
       "order": 9,
@@ -77,17 +77,17 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "김현수",
-      "position": "1루수"
+      "name": "김민혁",
+      "position": "좌익수"
     },
     {
       "order": 3,
       "name": "안현민",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -96,18 +96,18 @@
     },
     {
       "order": 5,
+      "name": "김현수",
+      "position": "1루수"
+    },
+    {
+      "order": 6,
       "name": "김상수",
       "position": "2루수"
     },
     {
-      "order": 6,
-      "name": "류현인",
-      "position": "3루수"
-    },
-    {
       "order": 7,
-      "name": "장진혁",
-      "position": "좌익수"
+      "name": "허경민",
+      "position": "3루수"
     },
     {
       "order": 8,

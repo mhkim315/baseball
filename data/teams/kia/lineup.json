@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-06-30",
-    "lastUpdated": "2026-06-30T17:09:15+09:00",
+    "lastUpdated": "2026-06-30T20:20:39+09:00",
     "gameId": "20260630SKHT02026",
     "kboGameId": "20260630SKHT0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,8 +34,8 @@
     },
     {
       "order": 2,
-      "name": "김선빈",
-      "position": "2루수"
+      "name": "박재현",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -54,35 +54,35 @@
     },
     {
       "order": 6,
+      "name": "김선빈",
+      "position": "2루수"
+    },
+    {
+      "order": 7,
       "name": "한준수",
       "position": "포수"
     },
     {
-      "order": 7,
-      "name": "윤도현",
+      "order": 8,
+      "name": "변우혁",
       "position": "1루수"
     },
     {
-      "order": 8,
+      "order": 9,
       "name": "박민",
       "position": "유격수"
-    },
-    {
-      "order": 9,
-      "name": "박재현",
-      "position": "좌익수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박성한",
-      "position": "유격수"
+      "name": "정준재",
+      "position": "2루수"
     },
     {
       "order": 2,
-      "name": "에레디아",
-      "position": "우익수"
+      "name": "박성한",
+      "position": "유격수"
     },
     {
       "order": 3,
@@ -96,28 +96,28 @@
     },
     {
       "order": 5,
-      "name": "고명준",
-      "position": "3루수"
+      "name": "에레디아",
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "오태곤",
+      "name": "전의산",
       "position": "1루수"
     },
     {
       "order": 7,
+      "name": "고명준",
+      "position": "3루수"
+    },
+    {
+      "order": 8,
       "name": "최지훈",
       "position": "중견수"
     },
     {
-      "order": 8,
+      "order": 9,
       "name": "조형우",
       "position": "포수"
-    },
-    {
-      "order": 9,
-      "name": "정준재",
-      "position": "2루수"
     }
   ],
   "startingPitcher": {
