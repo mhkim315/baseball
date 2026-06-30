@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260630SSNC02026",
+    "gameDate": "2026-06-30",
+    "lastUpdated": "2026-06-30T13:38:23+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "56966",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260630,
+    "aPCode": "56464",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.45",
+    "hra": "0.277",
+    "w": 35,
+    "wra": "0.473",
+    "name": "NC",
+    "rank": 7,
+    "hr": 69,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 35,
+      "l": 39
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "3.99",
+    "hra": "0.271",
+    "w": 44,
+    "wra": "0.595",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 66,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 30
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "테일러"
+  },
+  "awayStarter": {
+    "name": "오러클린"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

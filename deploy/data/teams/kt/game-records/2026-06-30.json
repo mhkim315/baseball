@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260630KTHH02026",
+    "gameDate": "2026-06-30",
+    "lastUpdated": "2026-06-30T13:38:19+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "56712",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260630,
+    "aPCode": "56032",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.49",
+    "hra": "0.272",
+    "w": 37,
+    "wra": "0.500",
+    "name": "한화",
+    "rank": 5,
+    "hr": 87,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 37,
+      "l": 37
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.78",
+    "hra": "0.285",
+    "w": 43,
+    "wra": "0.573",
+    "name": "KT",
+    "rank": 3,
+    "hr": 54,
+    "l": 32,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 43,
+      "l": 32
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "에르난데스"
+  },
+  "awayStarter": {
+    "name": "사우어"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

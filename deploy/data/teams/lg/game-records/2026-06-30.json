@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260630LGWO02026",
+    "gameDate": "2026-06-30",
+    "lastUpdated": "2026-06-30T13:38:16+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "68341",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260630,
+    "aPCode": "55130",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "LG",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.98",
+    "hra": "0.231",
+    "w": 27,
+    "wra": "0.346",
+    "name": "키움",
+    "rank": 10,
+    "hr": 45,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 27,
+      "l": 51
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "4.43",
+    "hra": "0.271",
+    "w": 48,
+    "wra": "0.623",
+    "name": "LG",
+    "rank": 1,
+    "hr": 69,
+    "l": 29,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 48,
+      "l": 29
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "안우진"
+  },
+  "awayStarter": {
+    "name": "톨허스트"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
