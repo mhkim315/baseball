@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260701LGWO02026",
-    "fetchedAt": "2026-07-01T15:21:05+09:00"
+    "fetchedAt": "2026-07-01T19:26:38+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 1,

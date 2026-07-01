@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-07-01",
-    "lastUpdated": "2026-07-01T15:21:53+09:00",
+    "lastUpdated": "2026-07-01T19:27:53+09:00",
     "gameId": "20260701SSNC02026",
     "kboGameId": "20260701SSNC0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,23 +34,23 @@
     },
     {
       "order": 2,
-      "name": "권희동",
-      "position": "좌익수"
+      "name": "오장한",
+      "position": "우익수"
     },
     {
       "order": 3,
       "name": "박민우",
-      "position": "2루수"
+      "position": "1루수"
     },
     {
       "order": 4,
       "name": "이우성",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 5,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -64,19 +64,19 @@
     },
     {
       "order": 8,
-      "name": "안중열",
+      "name": "김형준",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "신재인",
-      "position": "1루수"
+      "name": "김한별",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김지찬",
+      "name": "박승규",
       "position": "중견수"
     },
     {
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "전병우",
-      "position": "3루수"
-    },
-    {
-      "order": 8,
-      "name": "김도환",
+      "name": "강민호",
       "position": "포수"
     },
     {
-      "order": 9,
-      "name": "심재훈",
+      "order": 8,
+      "name": "양우현",
       "position": "유격수"
+    },
+    {
+      "order": 9,
+      "name": "김상준",
+      "position": "3루수"
     }
   ],
   "startingPitcher": {
