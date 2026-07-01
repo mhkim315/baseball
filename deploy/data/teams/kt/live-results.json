@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-01T19:26:21+09:00",
+  "fetchedAt": "2026-07-01T22:15:24+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1759,19 +1759,19 @@
           "away": "KT",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 0,
-          "homeScore": 1,
-          "scoreLine": "0-1",
-          "ourScore": 0,
-          "oppScore": 1,
-          "ourScoreLine": "0-1",
-          "outcome": null,
+          "awayScore": 7,
+          "homeScore": 4,
+          "scoreLine": "7-4",
+          "ourScore": 7,
+          "oppScore": 4,
+          "ourScoreLine": "7-4",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260701KTHH02026",
           "awayStarter": "소형준",
           "homeStarter": "박준영",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박영현",
+          "losePitcher": "이민우"
         }
       ]
     },
