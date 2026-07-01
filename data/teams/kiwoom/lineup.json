@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-06-30",
-    "lastUpdated": "2026-06-30T22:18:56+09:00",
-    "gameId": "20260630LGWO02026",
-    "kboGameId": "20260630LGWO0",
+    "lineupDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:21:39+09:00",
+    "gameId": "20260701LGWO02026",
+    "kboGameId": "20260701LGWO0",
     "opponent": "LG",
     "venue": "고척",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "안우진"
+    "name": "알칸타라"
   },
   "opponentStartingPitcher": {
-    "name": "톨허스트"
+    "name": "함덕주"
   }
 }

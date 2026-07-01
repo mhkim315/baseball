@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260701LGWO02026",
+    "gameDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:21:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "69045",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260701,
+    "aPCode": "63248",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "LG",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.92",
+    "hra": "0.232",
+    "w": 28,
+    "wra": "0.354",
+    "name": "키움",
+    "rank": 10,
+    "hr": 47,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 28,
+      "l": 51
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "4.45",
+    "hra": "0.269",
+    "w": 48,
+    "wra": "0.615",
+    "name": "LG",
+    "rank": 1,
+    "hr": 69,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 48,
+      "l": 30
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "알칸타라"
+  },
+  "awayStarter": {
+    "name": "함덕주"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

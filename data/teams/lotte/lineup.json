@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-06-30",
-    "lastUpdated": "2026-06-30T22:19:09+09:00",
-    "gameId": "20260630LTOB02026",
-    "kboGameId": "20260630LTOB0",
+    "lineupDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:21:51+09:00",
+    "gameId": "20260701LTOB02026",
+    "kboGameId": "20260701LTOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "박세웅"
+    "name": "로드리게스"
   },
   "opponentStartingPitcher": {
-    "name": "최민석"
+    "name": "벤자민"
   }
 }

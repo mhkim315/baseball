@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-06-30",
-    "lastUpdated": "2026-06-30T22:19:04+09:00",
-    "gameId": "20260630SSNC02026",
-    "kboGameId": "20260630SSNC0",
+    "lineupDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:21:47+09:00",
+    "gameId": "20260701SSNC02026",
+    "kboGameId": "20260701SSNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "오러클린"
+    "name": "후라도"
   },
   "opponentStartingPitcher": {
-    "name": "테일러"
+    "name": "토다"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260701SKHT02026",
+    "gameDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:22:02+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "77637",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260701,
+    "aPCode": "56840",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.02",
+    "hra": "0.268",
+    "w": 43,
+    "wra": "0.551",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 95,
+    "l": 35,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 43,
+      "l": 35
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "5.78",
+    "hra": "0.261",
+    "w": 30,
+    "wra": "0.395",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 84,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 30,
+      "l": 46
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "양현종"
+  },
+  "awayStarter": {
+    "name": "김민준"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

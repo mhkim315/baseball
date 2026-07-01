@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260701LTOB02026",
+    "gameDate": "2026-07-01",
+    "lastUpdated": "2026-07-01T15:21:55+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "52043",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260701,
+    "aPCode": "56531",
+    "round": 11,
+    "gtime": "18:30",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "3.97",
+    "hra": "0.268",
+    "w": 39,
+    "wra": "0.506",
+    "name": "두산",
+    "rank": 5,
+    "hr": 57,
+    "l": 38,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 39,
+      "l": 38
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.55",
+    "hra": "0.257",
+    "w": 33,
+    "wra": "0.440",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 59,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 33,
+      "l": 42
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "벤자민"
+  },
+  "awayStarter": {
+    "name": "로드리게스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
