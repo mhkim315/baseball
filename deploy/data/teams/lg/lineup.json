@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-07-02",
-    "lastUpdated": "2026-07-02T17:34:33+09:00",
+    "lastUpdated": "2026-07-02T20:13:12+09:00",
     "gameId": "20260702LGWO02026",
     "kboGameId": "20260702LGWO0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,8 +29,8 @@
   "batters": [
     {
       "order": 1,
-      "name": "송찬의",
-      "position": "우익수"
+      "name": "천성호",
+      "position": "3루수"
     },
     {
       "order": 2,
@@ -49,8 +49,8 @@
     },
     {
       "order": 5,
-      "name": "문정빈",
-      "position": "3루수"
+      "name": "송찬의",
+      "position": "우익수"
     },
     {
       "order": 6,
@@ -77,47 +77,47 @@
     {
       "order": 1,
       "name": "서건창",
-      "position": "2루수"
+      "position": "지명타자"
     },
     {
       "order": 2,
-      "name": "추재현",
-      "position": "좌익수"
-    },
-    {
-      "order": 3,
       "name": "안치홍",
       "position": "1루수"
     },
     {
-      "order": 4,
+      "order": 3,
       "name": "히우라",
-      "position": "지명타자"
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "최주환",
+      "position": "2루수"
     },
     {
       "order": 5,
-      "name": "김건희",
-      "position": "포수"
-    },
-    {
-      "order": 6,
       "name": "박찬혁",
       "position": "우익수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "임병욱",
       "position": "중견수"
     },
     {
+      "order": 7,
+      "name": "여동욱",
+      "position": "3루수"
+    },
+    {
       "order": 8,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "김동헌",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "여동욱",
-      "position": "3루수"
+      "name": "권혁빈",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {

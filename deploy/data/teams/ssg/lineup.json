@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-07-02",
-    "lastUpdated": "2026-07-02T17:34:37+09:00",
+    "lastUpdated": "2026-07-02T20:13:18+09:00",
     "gameId": "20260702SKHT02026",
     "kboGameId": "20260702SKHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,18 +54,18 @@
     },
     {
       "order": 6,
-      "name": "오태곤",
+      "name": "전의산",
       "position": "1루수"
     },
     {
       "order": 7,
-      "name": "고명준",
-      "position": "3루수"
+      "name": "최지훈",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "김성욱",
-      "position": "중견수"
+      "name": "고명준",
+      "position": "3루수"
     },
     {
       "order": 9,
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "박재현",
-      "position": "좌익수"
+      "name": "김선빈",
+      "position": "2루수"
     },
     {
       "order": 3,
@@ -101,23 +101,23 @@
     },
     {
       "order": 6,
-      "name": "김선빈",
-      "position": "2루수"
-    },
-    {
-      "order": 7,
       "name": "한준수",
       "position": "포수"
     },
     {
-      "order": 8,
-      "name": "박상준",
+      "order": 7,
+      "name": "변우혁",
       "position": "1루수"
     },
     {
-      "order": 9,
-      "name": "김규성",
+      "order": 8,
+      "name": "박민",
       "position": "유격수"
+    },
+    {
+      "order": 9,
+      "name": "박재현",
+      "position": "좌익수"
     }
   ],
   "startingPitcher": {
