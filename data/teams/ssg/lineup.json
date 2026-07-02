@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-07-01",
-    "lastUpdated": "2026-07-01T22:16:35+09:00",
-    "gameId": "20260701SKHT02026",
-    "kboGameId": "20260701SKHT0",
+    "lineupDate": "2026-07-02",
+    "lastUpdated": "2026-07-02T14:45:29+09:00",
+    "gameId": "20260702SKHT02026",
+    "kboGameId": "20260702SKHT0",
     "opponent": "KIA",
     "venue": "광주",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김민준"
+    "name": "베니지아노"
   },
   "opponentStartingPitcher": {
-    "name": "양현종"
+    "name": "네일"
   }
 }

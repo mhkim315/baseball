@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-07-01T22:15:15+09:00",
+  "fetchedAt": "2026-07-02T14:44:36+09:00",
   "rows": [
     {
       "rank": 1,
@@ -30,7 +30,7 @@
       "rank": 4,
       "teamName": "KIA",
       "winRate": 0.551,
-      "wlt": "43승1무35패",
+      "wlt": "43승2무35패",
       "gamesBehind": 5.5,
       "streak": "2승"
     },
@@ -70,7 +70,7 @@
       "rank": 9,
       "teamName": "SSG",
       "winRate": 0.395,
-      "wlt": "30승2무46패",
+      "wlt": "30승3무46패",
       "gamesBehind": 17.5,
       "streak": "5패"
     },

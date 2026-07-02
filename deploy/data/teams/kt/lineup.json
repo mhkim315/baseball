@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-01",
-    "lastUpdated": "2026-07-01T22:16:38+09:00",
-    "gameId": "20260701KTHH02026",
-    "kboGameId": "20260701KTHH0",
+    "lineupDate": "2026-07-02",
+    "lastUpdated": "2026-07-02T14:45:31+09:00",
+    "gameId": "20260702KTHH02026",
+    "kboGameId": "20260702KTHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "소형준"
+    "name": "오원석"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "왕옌청"
   }
 }

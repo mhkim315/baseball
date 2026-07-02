@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T22:16:55.089906+09:00",
+  "generatedAt": "2026-07-02T14:45:51.816780+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5051,9 +5051,9 @@
       {
         "away": "SSG",
         "home": "KIA",
-        "awayScore": 4,
-        "homeScore": 4,
-        "outcome": null,
+        "awayScore": 6,
+        "homeScore": 6,
+        "outcome": "T",
         "cancelled": false,
         "awayStarter": "김민준",
         "homeStarter": "양현종",
