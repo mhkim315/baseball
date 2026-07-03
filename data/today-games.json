@@ -1,6 +1,6 @@
 {
   "date": "2026-07-03",
-  "generatedAt": "2026-07-03T21:29:40.958599+09:00",
+  "generatedAt": "2026-07-03T23:42:19.516233+09:00",
   "games": [
     {
       "id": "20260703-OBWO-0",
@@ -27,8 +27,8 @@
         "record": "28승1무53패"
       },
       "score": {
-        "away": 0,
-        "home": 1
+        "away": 5,
+        "home": 5
       }
     },
     {
@@ -56,8 +56,8 @@
         "record": "44승2무35패"
       },
       "score": {
-        "away": 3,
-        "home": 1
+        "away": 11,
+        "home": 3
       }
     },
     {
@@ -85,8 +85,8 @@
         "record": "30승3무47패"
       },
       "score": {
-        "away": 4,
-        "home": 0
+        "away": 6,
+        "home": 3
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-07-03",
       "venue": "수원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
@@ -114,7 +114,7 @@
         "record": "44승1무33패"
       },
       "score": {
-        "away": 2,
+        "away": 4,
         "home": 0
       }
     },
@@ -143,8 +143,8 @@
         "record": "50승0무30패"
       },
       "score": {
-        "away": 0,
-        "home": 0
+        "away": 8,
+        "home": 1
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-03T21:28:37+09:00",
+  "fetchedAt": "2026-07-03T23:40:44+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1809,13 +1809,13 @@
           "ourScore": 8,
           "oppScore": 1,
           "ourScoreLine": "8-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260703HHLG02026",
           "awayStarter": "화이트",
           "homeStarter": "웰스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "화이트",
+          "losePitcher": "웰스"
         }
       ]
     },
