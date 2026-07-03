@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-07-03",
-    "lastUpdated": "2026-07-03T17:00:07+09:00",
+    "lastUpdated": "2026-07-03T19:35:59+09:00",
     "gameId": "20260703SSSK02026",
     "kboGameId": "20260703SSSK0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,13 +29,13 @@
   "batters": [
     {
       "order": 1,
-      "name": "정준재",
-      "position": "2루수"
+      "name": "박성한",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "박성한",
-      "position": "유격수"
+      "name": "에레디아",
+      "position": "우익수"
     },
     {
       "order": 3,
@@ -49,28 +49,28 @@
     },
     {
       "order": 5,
-      "name": "에레디아",
-      "position": "우익수"
-    },
-    {
-      "order": 6,
-      "name": "전의산",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
-      "name": "최지훈",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
       "name": "고명준",
       "position": "3루수"
     },
     {
-      "order": 9,
+      "order": 6,
+      "name": "최지훈",
+      "position": "중견수"
+    },
+    {
+      "order": 7,
+      "name": "전의산",
+      "position": "1루수"
+    },
+    {
+      "order": 8,
       "name": "조형우",
       "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "정준재",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
@@ -106,7 +106,7 @@
     },
     {
       "order": 7,
-      "name": "김도환",
+      "name": "강민호",
       "position": "포수"
     },
     {
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "양우현",
+      "name": "김상준",
       "position": "유격수"
     }
   ],

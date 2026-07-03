@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-03T16:58:57+09:00",
+  "fetchedAt": "2026-07-03T19:34:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1811,7 +1811,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260703HHLG0"
+          "gameId": "20260703HHLG02026",
+          "awayStarter": "화이트",
+          "homeStarter": "웰스",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
