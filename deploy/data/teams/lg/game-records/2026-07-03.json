@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260703HHLG02026",
+    "gameDate": "2026-07-03",
+    "lastUpdated": "2026-07-03T13:58:33+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "55348",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260703,
+    "aPCode": "56724",
+    "round": 7,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.43",
+    "hra": "0.271",
+    "w": 50,
+    "wra": "0.625",
+    "name": "LG",
+    "rank": 1,
+    "hr": 73,
+    "l": 30,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 50,
+      "l": 30
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.50",
+    "hra": "0.275",
+    "w": 38,
+    "wra": "0.500",
+    "name": "한화",
+    "rank": 6,
+    "hr": 91,
+    "l": 38,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 38,
+      "l": 38
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "웰스"
+  },
+  "awayStarter": {
+    "name": "화이트"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-02",
-    "lastUpdated": "2026-07-02T22:07:14+09:00",
-    "gameId": "20260702KTHH02026",
-    "kboGameId": "20260702KTHH0",
-    "opponent": "한화",
-    "venue": "대전",
+    "lineupDate": "2026-07-03",
+    "lastUpdated": "2026-07-03T13:58:20+09:00",
+    "gameId": "20260703LTKT02026",
+    "kboGameId": "20260703LTKT0",
+    "opponent": "롯데",
+    "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "한화",
-    "teamName": "한화"
+    "teamShort": "롯데",
+    "teamName": "롯데"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "최인호",
-      "position": "좌익수"
-    },
-    {
-      "order": 2,
-      "name": "페라자",
-      "position": "우익수"
-    },
-    {
-      "order": 3,
-      "name": "문현빈",
+      "name": "황성빈",
       "position": "중견수"
     },
     {
+      "order": 2,
+      "name": "고승민",
+      "position": "2루수"
+    },
+    {
+      "order": 3,
+      "name": "레이예스",
+      "position": "좌익수"
+    },
+    {
       "order": 4,
-      "name": "강백호",
+      "name": "한동희",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "노시환",
-      "position": "3루수"
+      "name": "전민재",
+      "position": "유격수"
     },
     {
       "order": 6,
-      "name": "허인서",
-      "position": "포수"
-    },
-    {
-      "order": 7,
-      "name": "김태연",
+      "name": "나승엽",
       "position": "1루수"
     },
     {
+      "order": 7,
+      "name": "윤동희",
+      "position": "우익수"
+    },
+    {
       "order": 8,
-      "name": "이도윤",
-      "position": "2루수"
+      "name": "박찬형",
+      "position": "3루수"
     },
     {
       "order": 9,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "오원석"
+    "name": "로건"
   },
   "opponentStartingPitcher": {
-    "name": "왕옌청"
+    "name": "김진욱"
   }
 }

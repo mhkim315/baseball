@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-07-02T22:05:56+09:00",
+  "fetchedAt": "2026-07-03T13:57:31+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -1783,19 +1783,19 @@
           "away": "롯데",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 6,
-          "scoreLine": "0-6",
-          "ourScore": 6,
-          "oppScore": 0,
-          "ourScoreLine": "6-0",
-          "outcome": null,
+          "awayScore": 3,
+          "homeScore": 8,
+          "scoreLine": "3-8",
+          "ourScore": 8,
+          "oppScore": 3,
+          "ourScoreLine": "8-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260702LTOB02026",
           "awayStarter": "나균안",
           "homeStarter": "곽빈",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "곽빈",
+          "losePitcher": "나균안"
         }
       ]
     },

@@ -1,72 +1,158 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260702SSNC02026",
-    "fetchedAt": "2026-07-02T22:06:25+09:00"
+    "naverGameId": "20260703NCHT02026",
+    "fetchedAt": "2026-07-03T13:57:49+09:00"
   },
   "gameInfo": {
-    "aFullName": "삼성 라이온즈",
-    "hPCode": "50992",
-    "hCode": "NC",
-    "hName": "NC",
+    "aFullName": "NC 다이노스",
+    "hPCode": "52641",
+    "hCode": "HT",
+    "hName": "KIA",
     "cancelFlag": "N",
-    "gdate": 20260702,
-    "aPCode": "55420",
-    "round": 12,
+    "gdate": 20260703,
+    "aPCode": "65933",
+    "round": 7,
     "gtime": "18:30",
-    "aName": "삼성",
+    "aName": "NC",
     "gameFlag": "0",
-    "hFullName": "NC 다이노스",
-    "stadium": "창원",
-    "aCode": "SS",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "NC",
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
-    "d": 1,
-    "era": "4.56",
-    "hra": "0.279",
-    "w": 36,
-    "wra": "0.474",
-    "name": "NC",
-    "rank": 7,
-    "hr": 72,
-    "l": 40,
+    "d": 2,
+    "era": "4.07",
+    "hra": "0.270",
+    "w": 44,
+    "wra": "0.557",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 98,
+    "l": 35,
     "seriesOutcome": {
-      "d": 1,
-      "w": 36,
-      "l": 40
+      "d": 2,
+      "w": 44,
+      "l": 35
     }
   },
   "awayStandings": {
-    "d": 2,
-    "era": "4.11",
-    "hra": "0.272",
-    "w": 45,
-    "wra": "0.592",
-    "name": "삼성",
-    "rank": 2,
-    "hr": 68,
-    "l": 31,
+    "d": 1,
+    "era": "4.57",
+    "hra": "0.277",
+    "w": 36,
+    "wra": "0.468",
+    "name": "NC",
+    "rank": 7,
+    "hr": 73,
+    "l": 41,
     "seriesOutcome": {
-      "d": 2,
-      "w": 45,
-      "l": 31
+      "d": 1,
+      "w": 36,
+      "l": 41
     }
   },
   "seasonVsResult": {
     "ad": 0,
-    "hl": 8,
-    "aw": 8,
-    "aCode": "SS",
-    "al": 3,
-    "hCode": "NC",
+    "hl": 4,
+    "aw": 4,
+    "aCode": "NC",
+    "al": 2,
+    "hCode": "HT",
     "hd": 0,
-    "hw": 3
+    "hw": 2
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20260702SKHT02026",
+      "result": "승",
+      "hScore": 8,
+      "aName": "SSG",
+      "aScore": 7,
+      "gyear": 2026,
+      "gmkey": "20260702SKHT0",
+      "gweek": "목",
+      "aCode": "SK",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20260702
+    },
+    {
+      "gameId": "20260701SKHT02026",
+      "result": "무",
+      "hScore": 6,
+      "aName": "SSG",
+      "aScore": 6,
+      "gyear": 2026,
+      "gmkey": "20260701SKHT0",
+      "gweek": "수",
+      "aCode": "SK",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20260701
+    },
+    {
+      "gameId": "20260630SKHT02026",
+      "result": "승",
+      "hScore": 10,
+      "aName": "SSG",
+      "aScore": 3,
+      "gyear": 2026,
+      "gmkey": "20260630SKHT0",
+      "gweek": "화",
+      "aCode": "SK",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20260630
+    },
+    {
+      "gameId": "20260628HTOB02026",
+      "result": "승",
+      "hScore": 1,
+      "aName": "KIA",
+      "aScore": 12,
+      "gyear": 2026,
+      "gmkey": "20260628HTOB0",
+      "gweek": "일",
+      "aCode": "HT",
+      "hCode": "OB",
+      "hName": "두산",
+      "gdate": 20260628
+    },
+    {
+      "gameId": "20260627HTOB02026",
+      "result": "패",
+      "hScore": 8,
+      "aName": "KIA",
+      "aScore": 1,
+      "gyear": 2026,
+      "gmkey": "20260627HTOB0",
+      "gweek": "토",
+      "aCode": "HT",
+      "hCode": "OB",
+      "hName": "두산",
+      "gdate": 20260627
+    }
+  ],
+  "awayTeamPreviousGames": [
+    {
+      "gameId": "20260702SSNC02026",
+      "result": "패",
+      "hScore": 1,
+      "aName": "삼성",
+      "aScore": 6,
+      "gyear": 2026,
+      "gmkey": "20260702SSNC0",
+      "gweek": "목",
+      "aCode": "SS",
+      "hCode": "NC",
+      "hName": "NC",
+      "gdate": 20260702
+    },
     {
       "gameId": "20260701SSNC02026",
       "result": "승",
@@ -122,187 +208,124 @@
       "hCode": "NC",
       "hName": "NC",
       "gdate": 20260627
-    },
-    {
-      "gameId": "20260626WONC02026",
-      "result": "승",
-      "hScore": 11,
-      "aName": "키움",
-      "aScore": 4,
-      "gyear": 2026,
-      "gmkey": "20260626WONC0",
-      "gweek": "금",
-      "aCode": "WO",
-      "hCode": "NC",
-      "hName": "NC",
-      "gdate": 20260626
-    }
-  ],
-  "awayTeamPreviousGames": [
-    {
-      "gameId": "20260701SSNC02026",
-      "result": "패",
-      "hScore": 10,
-      "aName": "삼성",
-      "aScore": 5,
-      "gyear": 2026,
-      "gmkey": "20260701SSNC0",
-      "gweek": "수",
-      "aCode": "SS",
-      "hCode": "NC",
-      "hName": "NC",
-      "gdate": 20260701
-    },
-    {
-      "gameId": "20260630SSNC02026",
-      "result": "승",
-      "hScore": 7,
-      "aName": "삼성",
-      "aScore": 13,
-      "gyear": 2026,
-      "gmkey": "20260630SSNC0",
-      "gweek": "화",
-      "aCode": "SS",
-      "hCode": "NC",
-      "hName": "NC",
-      "gdate": 20260630
-    },
-    {
-      "gameId": "20260628KTSS02026",
-      "result": "승",
-      "hScore": 7,
-      "aName": "KT",
-      "aScore": 4,
-      "gyear": 2026,
-      "gmkey": "20260628KTSS0",
-      "gweek": "일",
-      "aCode": "KT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260628
-    },
-    {
-      "gameId": "20260627KTSS02026",
-      "result": "승",
-      "hScore": 4,
-      "aName": "KT",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260627KTSS0",
-      "gweek": "토",
-      "aCode": "KT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260627
-    },
-    {
-      "gameId": "20260626KTSS02026",
-      "result": "승",
-      "hScore": 9,
-      "aName": "KT",
-      "aScore": 1,
-      "gyear": 2026,
-      "gmkey": "20260626KTSS0",
-      "gweek": "금",
-      "aCode": "KT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260626
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 2,
-      "kk": 4,
-      "gameCount": 3,
+      "bb": 0,
+      "kk": 3,
+      "gameCount": 1,
       "s": 0,
-      "era": "6.00",
+      "era": "5.40",
       "w": 0,
-      "inn": "6.0",
+      "inn": "3.1",
       "l": 0,
-      "er": 4
+      "er": 2
     },
     "playerInfo": {
-      "backnum": "60",
+      "backnum": "41",
       "hitType": "우투우타",
-      "pCode": "50992",
-      "name": "김태경",
-      "birth": "20010407",
-      "weight": "95.0",
-      "height": "188.0"
+      "pCode": "52641",
+      "name": "황동하",
+      "birth": "20020730",
+      "weight": "96.0",
+      "height": "183.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 38.79999923706055,
+        "pit_rt": 38.29999923706055,
         "type": "FAST",
-        "speed": 142
+        "speed": 141
       },
       {
-        "pit_rt": 31.700000762939453,
+        "pit_rt": 32.400001525878906,
         "type": "SLID",
-        "speed": 131
+        "speed": 129
       },
       {
-        "pit_rt": 16.700000762939453,
+        "pit_rt": 21.899999618530273,
         "type": "FORK",
-        "speed": 128
+        "speed": 130
       }
     ],
     "currentSeasonStats": {
-      "teamName": "NC",
-      "bb": 16,
-      "kk": 25,
-      "gameCount": 12,
-      "gday": "20260701",
-      "inn": "29.0",
-      "hp": 1,
-      "teamCode": "NC",
-      "hr": 4,
-      "l": 0,
-      "er": 17,
-      "whip": "1.52",
-      "hit": 28,
-      "r": 17,
+      "teamName": "KIA",
+      "bb": 24,
+      "kk": 48,
+      "gameCount": 17,
+      "gday": "20260702",
+      "inn": "63.2",
+      "hp": 3,
+      "teamCode": "HT",
+      "hr": 10,
+      "l": 2,
+      "er": 29,
+      "whip": "1.37",
+      "hit": 63,
+      "r": 34,
       "s": 0,
-      "era": "5.28",
-      "w": 0,
-      "inn2": "29"
+      "era": "4.10",
+      "w": 6,
+      "inn2": "63 2/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 4,
+      "kk": 11,
+      "gameCount": 2,
+      "s": 0,
+      "era": "2.25",
+      "w": 1,
+      "inn": "12.0",
+      "l": 0,
+      "er": 3
     },
     "playerInfo": {
-      "backnum": "63",
-      "hitType": "우투우타",
-      "pCode": "55420",
-      "name": "김백산",
-      "birth": "20031013",
-      "weight": "86.0",
+      "backnum": "59",
+      "hitType": "좌투좌타",
+      "pCode": "65933",
+      "name": "구창모",
+      "birth": "19970217",
+      "weight": "85.0",
       "height": "183.0"
     },
-    "currentPitKindStats": [],
+    "currentPitKindStats": [
+      {
+        "pit_rt": 50.599998474121094,
+        "type": "FAST",
+        "speed": 141
+      },
+      {
+        "pit_rt": 28.100000381469727,
+        "type": "SLID",
+        "speed": 130
+      },
+      {
+        "pit_rt": 19.100000381469727,
+        "type": "FORK",
+        "speed": 130
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "NC",
+      "bb": 22,
+      "kk": 72,
+      "gameCount": 14,
+      "gday": "20260702",
+      "inn": "80.1",
+      "hp": 3,
+      "teamCode": "NC",
+      "hr": 9,
+      "l": 2,
+      "er": 30,
+      "whip": "1.16",
+      "hit": 71,
+      "r": 34,
+      "s": 0,
+      "era": "3.36",
+      "w": 7,
+      "inn2": "80 1/3"
     }
   }
 }

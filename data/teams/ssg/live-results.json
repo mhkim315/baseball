@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-02T22:05:56+09:00",
+  "fetchedAt": "2026-07-03T13:57:31+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1787,13 +1787,13 @@
           "ourScore": 7,
           "oppScore": 8,
           "ourScoreLine": "7-8",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260702SKHT02026",
           "awayStarter": "베니지아노",
           "homeStarter": "네일",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "전상현",
+          "losePitcher": "이건욱"
         }
       ]
     },
