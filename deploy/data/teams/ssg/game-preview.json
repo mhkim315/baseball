@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260704SSSK02026",
-    "fetchedAt": "2026-07-04T13:49:15+09:00"
+    "fetchedAt": "2026-07-04T16:31:55+09:00"
   },
   "gameInfo": {
     "aFullName": "삼성 라이온즈",
@@ -27,7 +27,7 @@
   "homeStandings": {
     "d": 3,
     "era": "5.79",
-    "hra": "0.262",
+    "hra": "0.263",
     "w": 30,
     "wra": "0.385",
     "name": "SSG",
