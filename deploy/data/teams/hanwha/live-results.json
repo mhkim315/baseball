@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-04T16:31:42+09:00",
+  "fetchedAt": "2026-07-04T18:38:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1826,14 +1826,18 @@
           "home": "LG",
           "venue": "잠실",
           "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
+          "homeScore": 4,
+          "scoreLine": "0-4",
           "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "oppScore": 4,
+          "ourScoreLine": "0-4",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260704HHLG0"
+          "gameId": "20260704HHLG02026",
+          "awayStarter": "에르난데스",
+          "homeStarter": "장현식",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
