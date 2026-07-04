@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-04T18:38:41+09:00",
+  "fetchedAt": "2026-07-04T20:09:07+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1825,12 +1825,12 @@
           "away": "삼성",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 2,
-          "homeScore": 5,
-          "scoreLine": "2-5",
-          "ourScore": 2,
-          "oppScore": 5,
-          "ourScoreLine": "2-5",
+          "awayScore": 13,
+          "homeScore": 6,
+          "scoreLine": "13-6",
+          "ourScore": 13,
+          "oppScore": 6,
+          "ourScoreLine": "13-6",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260704SSSK02026",
