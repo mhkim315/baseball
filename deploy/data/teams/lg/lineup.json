@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-07-03",
-    "lastUpdated": "2026-07-03T23:41:51+09:00",
-    "gameId": "20260703HHLG02026",
-    "kboGameId": "20260703HHLG0",
+    "lineupDate": "2026-07-04",
+    "lastUpdated": "2026-07-04T13:50:03+09:00",
+    "gameId": "20260704HHLG02026",
+    "kboGameId": "20260704HHLG0",
     "opponent": "한화",
     "venue": "잠실",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "웰스"
+    "name": "장현식"
   },
   "opponentStartingPitcher": {
-    "name": "화이트"
+    "name": "에르난데스"
   }
 }

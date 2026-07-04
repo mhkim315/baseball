@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260704HHLG02026",
+    "gameDate": "2026-07-04",
+    "lastUpdated": "2026-07-04T13:50:40+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "63950",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260704,
+    "aPCode": "56712",
+    "round": 8,
+    "gtime": "18:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.47",
+    "hra": "0.271",
+    "w": 50,
+    "wra": "0.617",
+    "name": "LG",
+    "rank": 1,
+    "hr": 73,
+    "l": 31,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 50,
+      "l": 31
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.46",
+    "hra": "0.274",
+    "w": 39,
+    "wra": "0.506",
+    "name": "한화",
+    "rank": 5,
+    "hr": 94,
+    "l": 38,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 39,
+      "l": 38
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "장현식"
+  },
+  "awayStarter": {
+    "name": "에르난데스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-07-03",
-    "lastUpdated": "2026-07-03T23:42:18+09:00",
-    "gameId": "20260703NCHT02026",
-    "kboGameId": "20260703NCHT0",
+    "lineupDate": "2026-07-04",
+    "lastUpdated": "2026-07-04T13:50:31+09:00",
+    "gameId": "20260704NCHT02026",
+    "kboGameId": "20260704NCHT0",
     "opponent": "KIA",
     "venue": "광주",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "구창모"
+    "name": "라일리"
   },
   "opponentStartingPitcher": {
-    "name": "황동하"
+    "name": "시라카와"
   }
 }
