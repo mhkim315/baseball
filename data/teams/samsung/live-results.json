@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-04T21:15:34+09:00",
+  "fetchedAt": "2026-07-04T22:59:32+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1826,18 +1826,18 @@
           "home": "SSG",
           "venue": "문학",
           "awayScore": 13,
-          "homeScore": 6,
-          "scoreLine": "13-6",
+          "homeScore": 7,
+          "scoreLine": "13-7",
           "ourScore": 13,
-          "oppScore": 6,
-          "ourScoreLine": "13-6",
-          "outcome": null,
+          "oppScore": 7,
+          "ourScoreLine": "13-7",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260704SSSK02026",
           "awayStarter": "최원태",
           "homeStarter": "타케다",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "최원태",
+          "losePitcher": "이건욱"
         }
       ]
     },
