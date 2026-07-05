@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260705HHLG02026",
-    "fetchedAt": "2026-07-05T21:58:39+09:00"
+    "fetchedAt": "2026-07-05T23:41:15+09:00"
   },
   "gameInfo": {
     "aFullName": "한화 이글스",
@@ -253,7 +253,7 @@
       "bb": 22,
       "kk": 71,
       "gameCount": 16,
-      "gday": "20260704",
+      "gday": "20260705",
       "inn": "87.1",
       "hp": 7,
       "teamCode": "LG",
@@ -312,7 +312,7 @@
       "bb": 11,
       "kk": 70,
       "gameCount": 15,
-      "gday": "20260704",
+      "gday": "20260705",
       "inn": "87.2",
       "hp": 2,
       "teamCode": "HH",

@@ -1,6 +1,6 @@
 {
   "date": "2026-07-05",
-  "generatedAt": "2026-07-05T21:59:32.704433+09:00",
+  "generatedAt": "2026-07-05T23:42:19.313422+09:00",
   "games": [
     {
       "id": "20260705-OBWO-0",
@@ -65,7 +65,7 @@
       "date": "2026-07-05",
       "venue": "문학",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -85,7 +85,7 @@
         "record": "30승3무49패"
       },
       "score": {
-        "away": 11,
+        "away": 13,
         "home": 3
       }
     },
@@ -94,7 +94,7 @@
       "date": "2026-07-05",
       "venue": "수원",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
