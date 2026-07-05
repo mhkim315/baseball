@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-05T14:09:19+09:00",
+  "fetchedAt": "2026-07-05T17:12:37+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1855,7 +1855,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260705HHLG0"
+          "gameId": "20260705HHLG02026",
+          "awayStarter": "류현진",
+          "homeStarter": "톨허스트",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

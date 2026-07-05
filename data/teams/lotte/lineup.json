@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-07-05",
-    "lastUpdated": "2026-07-05T14:10:56+09:00",
+    "lastUpdated": "2026-07-05T17:13:49+09:00",
     "gameId": "20260705LTKT02026",
     "kboGameId": "20260705LTKT0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,13 +54,13 @@
     },
     {
       "order": 6,
-      "name": "박찬형",
-      "position": "3루수"
+      "name": "윤동희",
+      "position": "우익수"
     },
     {
       "order": 7,
-      "name": "윤동희",
-      "position": "우익수"
+      "name": "박찬형",
+      "position": "3루수"
     },
     {
       "order": 8,
@@ -76,8 +76,8 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "류현인",
-      "position": "3루수"
+      "name": "최원준",
+      "position": "지명타자"
     },
     {
       "order": 2,
@@ -87,7 +87,7 @@
     {
       "order": 3,
       "name": "안현민",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 4,
@@ -96,18 +96,18 @@
     },
     {
       "order": 5,
-      "name": "김상수",
-      "position": "2루수"
-    },
-    {
-      "order": 6,
       "name": "김민혁",
       "position": "좌익수"
     },
     {
+      "order": 6,
+      "name": "김상수",
+      "position": "2루수"
+    },
+    {
       "order": 7,
-      "name": "장진혁",
-      "position": "우익수"
+      "name": "허경민",
+      "position": "3루수"
     },
     {
       "order": 8,
