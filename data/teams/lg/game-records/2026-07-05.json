@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260705HHLG02026",
+    "gameDate": "2026-07-05",
+    "lastUpdated": "2026-07-05T14:11:03+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "55130",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260705,
+    "aPCode": "76715",
+    "round": 9,
+    "gtime": "18:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.45",
+    "hra": "0.271",
+    "w": 51,
+    "wra": "0.622",
+    "name": "LG",
+    "rank": 1,
+    "hr": 73,
+    "l": 31,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 51,
+      "l": 31
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.47",
+    "hra": "0.273",
+    "w": 39,
+    "wra": "0.500",
+    "name": "한화",
+    "rank": 6,
+    "hr": 95,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 39,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "톨허스트"
+  },
+  "awayStarter": {
+    "name": "류현진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

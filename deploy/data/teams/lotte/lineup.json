@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-07-04",
-    "lastUpdated": "2026-07-04T23:01:01+09:00",
-    "gameId": "20260704LTKT02026",
-    "kboGameId": "20260704LTKT0",
+    "lineupDate": "2026-07-05",
+    "lastUpdated": "2026-07-05T14:10:56+09:00",
+    "gameId": "20260705LTKT02026",
+    "kboGameId": "20260705LTKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "비슬리"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "고영표"
+    "name": "사우어"
   }
 }

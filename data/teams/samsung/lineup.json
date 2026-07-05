@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-07-04",
-    "lastUpdated": "2026-07-04T23:00:54+09:00",
-    "gameId": "20260704SSSK02026",
-    "kboGameId": "20260704SSSK0",
+    "lineupDate": "2026-07-05",
+    "lastUpdated": "2026-07-05T14:10:50+09:00",
+    "gameId": "20260705SSSK02026",
+    "kboGameId": "20260705SSSK0",
     "opponent": "SSG",
     "venue": "문학",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최원태"
+    "name": "양창섭"
   },
   "opponentStartingPitcher": {
-    "name": "타케다"
+    "name": "김건우"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260705NCHT02026",
+    "gameDate": "2026-07-05",
+    "lastUpdated": "2026-07-05T14:11:14+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "55610",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260705,
+    "aPCode": "56966",
+    "round": 9,
+    "gtime": "18:00",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.17",
+    "hra": "0.270",
+    "w": 44,
+    "wra": "0.543",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 98,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 37
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.55",
+    "hra": "0.278",
+    "w": 38,
+    "wra": "0.481",
+    "name": "NC",
+    "rank": 7,
+    "hr": 77,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 38,
+      "l": 41
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김태형"
+  },
+  "awayStarter": {
+    "name": "테일러"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
