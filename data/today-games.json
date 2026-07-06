@@ -1,42 +1,44 @@
 {
-  "date": "2026-07-05",
-  "generatedAt": "2026-07-05T23:42:19.313422+09:00",
-  "games": [
+  "date": "2026-07-06",
+  "generatedAt": "2026-07-06T13:43:51.971327+09:00",
+  "games": [],
+  "noGames": true,
+  "nextGames": [
     {
-      "id": "20260705-OBWO-0",
-      "date": "2026-07-05",
-      "venue": "고척",
-      "time": "14:00",
-      "status": "finished",
+      "id": "20260707-LGSS-0",
+      "date": "2026-07-07",
+      "venue": "대구",
+      "time": "18:30",
+      "status": "scheduled",
       "away": {
-        "id": "doosan",
-        "name": "두산",
+        "id": "lg",
+        "name": "LG",
         "starter": {
-          "name": "최민석"
+          "name": "톨허스트"
         },
-        "rank": 5,
-        "record": "41승2무40패"
+        "rank": 1,
+        "record": "51승0무31패"
       },
       "home": {
-        "id": "kiwoom",
-        "name": "키움",
+        "id": "samsung",
+        "name": "삼성",
         "starter": {
-          "name": "김윤하"
+          "name": "후라도"
         },
-        "rank": 10,
-        "record": "29승1무54패"
+        "rank": 2,
+        "record": "49승2무31패"
       },
       "score": {
-        "away": 8,
-        "home": 1
+        "away": 0,
+        "home": 0
       }
     },
     {
-      "id": "20260705-NCHT-0",
-      "date": "2026-07-05",
-      "venue": "광주",
-      "time": "18:00",
-      "status": "cancelled",
+      "id": "20260707-NCHH-0",
+      "date": "2026-07-07",
+      "venue": "대전",
+      "time": "18:30",
+      "status": "scheduled",
       "away": {
         "id": "nc",
         "name": "NC",
@@ -47,6 +49,26 @@
         "record": "38승1무41패"
       },
       "home": {
+        "id": "hanwha",
+        "name": "한화",
+        "starter": {
+          "name": "박준영"
+        },
+        "rank": 6,
+        "record": "39승2무39패"
+      },
+      "score": {
+        "away": 0,
+        "home": 0
+      }
+    },
+    {
+      "id": "20260707-HTLT-0",
+      "date": "2026-07-07",
+      "venue": "사직",
+      "time": "18:30",
+      "status": "scheduled",
+      "away": {
         "id": "kia",
         "name": "KIA",
         "starter": {
@@ -55,99 +77,77 @@
         "rank": 4,
         "record": "44승2무37패"
       },
+      "home": {
+        "id": "lotte",
+        "name": "롯데",
+        "starter": {
+          "name": "로드리게스"
+        },
+        "rank": 8,
+        "record": "36승2무44패"
+      },
       "score": {
         "away": 0,
         "home": 0
       }
     },
     {
-      "id": "20260705-SSSK-0",
-      "date": "2026-07-05",
-      "venue": "문학",
-      "time": "18:00",
-      "status": "finished",
-      "away": {
-        "id": "samsung",
-        "name": "삼성",
-        "starter": {
-          "name": "양창섭"
-        },
-        "rank": 2,
-        "record": "48승2무31패"
-      },
-      "home": {
-        "id": "ssg",
-        "name": "SSG",
-        "starter": {
-          "name": "김건우"
-        },
-        "rank": 9,
-        "record": "30승3무49패"
-      },
-      "score": {
-        "away": 13,
-        "home": 3
-      }
-    },
-    {
-      "id": "20260705-LTKT-0",
-      "date": "2026-07-05",
+      "id": "20260707-WOKT-0",
+      "date": "2026-07-07",
       "venue": "수원",
-      "time": "18:00",
-      "status": "finished",
+      "time": "18:30",
+      "status": "scheduled",
       "away": {
-        "id": "lotte",
-        "name": "롯데",
+        "id": "kiwoom",
+        "name": "키움",
         "starter": {
-          "name": "박세웅"
+          "name": "안우진"
         },
-        "rank": 8,
-        "record": "36승2무43패"
+        "rank": 10,
+        "record": "29승1무55패"
       },
       "home": {
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "사우어"
+          "name": "소형준"
         },
         "rank": 3,
-        "record": "44승1무35패"
+        "record": "45승1무35패"
       },
       "score": {
-        "away": 2,
-        "home": 4
+        "away": 0,
+        "home": 0
       }
     },
     {
-      "id": "20260705-HHLG-0",
-      "date": "2026-07-05",
+      "id": "20260707-SKOB-0",
+      "date": "2026-07-07",
       "venue": "잠실",
-      "time": "18:00",
-      "status": "cancelled",
+      "time": "18:30",
+      "status": "scheduled",
       "away": {
-        "id": "hanwha",
-        "name": "한화",
+        "id": "ssg",
+        "name": "SSG",
         "starter": {
-          "name": "류현진"
+          "name": "김민준"
         },
-        "rank": 6,
-        "record": "39승2무39패"
+        "rank": 9,
+        "record": "30승3무50패"
       },
       "home": {
-        "id": "lg",
-        "name": "LG",
+        "id": "doosan",
+        "name": "두산",
         "starter": {
-          "name": "톨허스트"
+          "name": "벤자민"
         },
-        "rank": 1,
-        "record": "51승0무31패"
+        "rank": 5,
+        "record": "42승2무40패"
       },
       "score": {
         "away": 0,
         "home": 0
       }
     }
-  ],
-  "noGames": false,
-  "nextGames": []
+  ]
 }

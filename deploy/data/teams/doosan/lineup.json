@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-07-05",
-    "lastUpdated": "2026-07-05T23:41:54+09:00",
-    "gameId": "20260705OBWO02026",
-    "kboGameId": "20260705OBWO0",
-    "opponent": "키움",
-    "venue": "고척",
-    "gameTime": "14:00",
+    "lineupDate": "2026-07-07",
+    "lastUpdated": "2026-07-06T13:43:18+09:00",
+    "gameId": "20260707SKOB02026",
+    "kboGameId": "20260707SKOB0",
+    "opponent": "SSG",
+    "venue": "잠실",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "키움",
-    "teamName": "키움"
+    "teamShort": "SSG",
+    "teamName": "SSG"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "서건창",
-      "position": "2루수"
+      "name": "박성한",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "추재현",
-      "position": "중견수"
+      "name": "에레디아",
+      "position": "우익수"
     },
     {
       "order": 3,
-      "name": "데이비슨",
-      "position": "1루수"
+      "name": "최정",
+      "position": "지명타자"
     },
     {
       "order": 4,
-      "name": "히우라",
+      "name": "김재환",
       "position": "좌익수"
     },
     {
       "order": 5,
-      "name": "최주환",
-      "position": "지명타자"
+      "name": "고명준",
+      "position": "3루수"
     },
     {
       "order": 6,
-      "name": "임병욱",
-      "position": "우익수"
+      "name": "전의산",
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "김동헌",
-      "position": "포수"
+      "name": "최지훈",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "조형우",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "김웅빈",
-      "position": "3루수"
+      "name": "정준재",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
-    "name": "최민석"
+    "name": "벤자민"
   },
   "opponentStartingPitcher": {
-    "name": "김윤하"
+    "name": "김민준"
   }
 }

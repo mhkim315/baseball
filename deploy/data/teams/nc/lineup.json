@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-07-05",
-    "lastUpdated": "2026-07-05T23:42:17+09:00",
-    "gameId": "20260705NCHT02026",
-    "kboGameId": "20260705NCHT0",
-    "opponent": "KIA",
-    "venue": "광주",
-    "gameTime": "18:00",
+    "lineupDate": "2026-07-07",
+    "lastUpdated": "2026-07-06T13:43:50+09:00",
+    "gameId": "20260707NCHH02026",
+    "kboGameId": "20260707NCHH0",
+    "opponent": "한화",
+    "venue": "대전",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KIA",
-    "teamName": "KIA"
+    "teamShort": "한화",
+    "teamName": "한화"
   },
   "batters": [
     {
@@ -76,47 +76,47 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박재현",
+      "name": "오재원",
       "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "김도영",
-      "position": "3루수"
-    },
-    {
-      "order": 3,
-      "name": "카스트로",
-      "position": "지명타자"
-    },
-    {
-      "order": 4,
-      "name": "나성범",
+      "name": "페라자",
       "position": "우익수"
     },
     {
+      "order": 3,
+      "name": "문현빈",
+      "position": "중견수"
+    },
+    {
+      "order": 4,
+      "name": "강백호",
+      "position": "지명타자"
+    },
+    {
       "order": 5,
-      "name": "한준수",
-      "position": "포수"
+      "name": "노시환",
+      "position": "3루수"
     },
     {
       "order": 6,
-      "name": "박상준",
+      "name": "김태연",
       "position": "1루수"
     },
     {
       "order": 7,
-      "name": "김호령",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
-      "name": "김규성",
+      "name": "이도윤",
       "position": "2루수"
     },
     {
+      "order": 8,
+      "name": "최재훈",
+      "position": "포수"
+    },
+    {
       "order": 9,
-      "name": "정현창",
+      "name": "심우준",
       "position": "유격수"
     }
   ],
@@ -124,6 +124,6 @@
     "name": "테일러"
   },
   "opponentStartingPitcher": {
-    "name": "김태형"
+    "name": "박준영"
   }
 }
