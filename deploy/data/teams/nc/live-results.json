@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-07T14:29:08+09:00",
+  "fetchedAt": "2026-07-07T17:49:12+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1877,7 +1877,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260707NCHH0"
+          "gameId": "20260707NCHH02026",
+          "awayStarter": "테일러",
+          "homeStarter": "박준영",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

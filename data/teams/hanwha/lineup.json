@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-07-07",
-    "lastUpdated": "2026-07-07T14:30:18+09:00",
+    "lastUpdated": "2026-07-07T17:50:31+09:00",
     "gameId": "20260707NCHH02026",
     "kboGameId": "20260707NCHH0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,7 +29,7 @@
   "batters": [
     {
       "order": 1,
-      "name": "오재원",
+      "name": "최인호",
       "position": "좌익수"
     },
     {
@@ -54,18 +54,18 @@
     },
     {
       "order": 6,
+      "name": "허인서",
+      "position": "포수"
+    },
+    {
+      "order": 7,
       "name": "김태연",
       "position": "1루수"
     },
     {
-      "order": 7,
+      "order": 8,
       "name": "이도윤",
       "position": "2루수"
-    },
-    {
-      "order": 8,
-      "name": "최재훈",
-      "position": "포수"
     },
     {
       "order": 9,
@@ -81,13 +81,13 @@
     },
     {
       "order": 2,
-      "name": "권희동",
-      "position": "좌익수"
+      "name": "최정원",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박건우",
-      "position": "우익수"
+      "name": "박민우",
+      "position": "2루수"
     },
     {
       "order": 4,
@@ -96,28 +96,28 @@
     },
     {
       "order": 5,
+      "name": "박건우",
+      "position": "지명타자"
+    },
+    {
+      "order": 6,
       "name": "김휘집",
       "position": "3루수"
     },
     {
-      "order": 6,
-      "name": "김형준",
-      "position": "포수"
-    },
-    {
       "order": 7,
       "name": "천재환",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "고준휘",
-      "position": "지명타자"
+      "name": "안중열",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "김한별",
-      "position": "2루수"
+      "name": "고준휘",
+      "position": "좌익수"
     }
   ],
   "startingPitcher": {
