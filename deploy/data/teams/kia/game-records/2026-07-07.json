@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260707HTLT02026",
+    "gameDate": "2026-07-07",
+    "lastUpdated": "2026-07-07T14:30:39+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "56531",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260707,
+    "aPCode": "55610",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.45",
+    "hra": "0.256",
+    "w": 36,
+    "wra": "0.450",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 63,
+    "l": 44,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 36,
+      "l": 44
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.17",
+    "hra": "0.270",
+    "w": 44,
+    "wra": "0.543",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 98,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 37
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "로드리게스"
+  },
+  "awayStarter": {
+    "name": "김태형"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
