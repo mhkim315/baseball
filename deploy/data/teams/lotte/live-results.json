@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-07T20:32:48+09:00",
+  "fetchedAt": "2026-07-07T22:37:49+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1869,19 +1869,19 @@
           "away": "KIA",
           "home": "롯데",
           "venue": "사직",
-          "awayScore": 1,
-          "homeScore": 9,
-          "scoreLine": "1-9",
-          "ourScore": 9,
-          "oppScore": 1,
-          "ourScoreLine": "9-1",
-          "outcome": null,
+          "awayScore": 2,
+          "homeScore": 10,
+          "scoreLine": "2-10",
+          "ourScore": 10,
+          "oppScore": 2,
+          "ourScoreLine": "10-2",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260707HTLT02026",
           "awayStarter": "김태형",
           "homeStarter": "로드리게스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "로드리게스",
+          "losePitcher": "김태형"
         }
       ]
     },
