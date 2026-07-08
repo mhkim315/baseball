@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-07-08",
-    "lastUpdated": "2026-07-08T15:44:58+09:00",
+    "lastUpdated": "2026-07-08T18:15:25+09:00",
     "gameId": "20260708HTLT02026",
     "kboGameId": "20260708HTLT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -64,7 +64,7 @@
     },
     {
       "order": 8,
-      "name": "장두성",
+      "name": "손호영",
       "position": "우익수"
     },
     {
@@ -81,13 +81,13 @@
     },
     {
       "order": 2,
-      "name": "김도영",
-      "position": "3루수"
+      "name": "김호령",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "카스트로",
-      "position": "지명타자"
+      "name": "김도영",
+      "position": "3루수"
     },
     {
       "order": 4,
@@ -96,13 +96,13 @@
     },
     {
       "order": 5,
-      "name": "한준수",
-      "position": "포수"
+      "name": "카스트로",
+      "position": "1루수"
     },
     {
       "order": 6,
-      "name": "박상준",
-      "position": "1루수"
+      "name": "한준수",
+      "position": "지명타자"
     },
     {
       "order": 7,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "김규성",
-      "position": "유격수"
+      "name": "주효상",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "김규성",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {
