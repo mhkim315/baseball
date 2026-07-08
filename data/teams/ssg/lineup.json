@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-07-07",
-    "lastUpdated": "2026-07-07T22:38:37+09:00",
-    "gameId": "20260707SKOB02026",
-    "kboGameId": "20260707SKOB0",
+    "lineupDate": "2026-07-08",
+    "lastUpdated": "2026-07-08T13:27:01+09:00",
+    "gameId": "20260708SKOB02026",
+    "kboGameId": "20260708SKOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김민준"
+    "name": "전영준"
   },
   "opponentStartingPitcher": {
-    "name": "벤자민"
+    "name": "곽빈"
   }
 }

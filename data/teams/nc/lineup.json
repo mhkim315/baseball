@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-07-07",
-    "lastUpdated": "2026-07-07T22:38:50+09:00",
-    "gameId": "20260707NCHH02026",
-    "kboGameId": "20260707NCHH0",
+    "lineupDate": "2026-07-08",
+    "lastUpdated": "2026-07-08T13:27:20+09:00",
+    "gameId": "20260708NCHH02026",
+    "kboGameId": "20260708NCHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "테일러"
+    "name": "토다"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "왕옌청"
   }
 }

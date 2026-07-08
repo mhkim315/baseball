@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260708LGSS02026",
+    "gameDate": "2026-07-08",
+    "lastUpdated": "2026-07-08T13:27:24+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "56464",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260708,
+    "aPCode": "61101",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "LG",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.05",
+    "hra": "0.276",
+    "w": 50,
+    "wra": "0.617",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 73,
+    "l": 31,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 50,
+      "l": 31
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "4.50",
+    "hra": "0.271",
+    "w": 51,
+    "wra": "0.614",
+    "name": "LG",
+    "rank": 2,
+    "hr": 74,
+    "l": 32,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 51,
+      "l": 32
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "오러클린"
+  },
+  "awayStarter": {
+    "name": "임찬규"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

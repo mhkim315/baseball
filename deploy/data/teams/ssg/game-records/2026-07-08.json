@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260708SKOB02026",
+    "gameDate": "2026-07-08",
+    "lastUpdated": "2026-07-08T13:27:26+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "68220",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260708,
+    "aPCode": "52809",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "3.95",
+    "hra": "0.268",
+    "w": 42,
+    "wra": "0.506",
+    "name": "두산",
+    "rank": 5,
+    "hr": 61,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 42,
+      "l": 41
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.87",
+    "hra": "0.262",
+    "w": 31,
+    "wra": "0.383",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 92,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 31,
+      "l": 50
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "곽빈"
+  },
+  "awayStarter": {
+    "name": "전영준"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

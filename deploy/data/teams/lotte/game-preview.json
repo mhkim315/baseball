@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260707HTLT02026",
-    "fetchedAt": "2026-07-07T22:38:07+09:00"
+    "naverGameId": "20260708HTLT02026",
+    "fetchedAt": "2026-07-08T13:26:15+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
-    "hPCode": "56531",
+    "hPCode": "67539",
     "hCode": "LT",
     "hName": "롯데",
     "cancelFlag": "N",
-    "gdate": 20260707,
-    "aPCode": "55610",
-    "round": 10,
+    "gdate": 20260708,
+    "aPCode": "54640",
+    "round": 11,
     "gtime": "18:30",
     "aName": "KIA",
     "gameFlag": "0",
@@ -22,38 +22,38 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 2,
-    "era": "4.45",
-    "hra": "0.256",
-    "w": 36,
-    "wra": "0.450",
+    "era": "4.42",
+    "hra": "0.259",
+    "w": 37,
+    "wra": "0.457",
     "name": "롯데",
     "rank": 8,
     "hr": 63,
     "l": 44,
     "seriesOutcome": {
       "d": 2,
-      "w": 36,
+      "w": 37,
       "l": 44
     }
   },
   "awayStandings": {
     "d": 2,
-    "era": "4.17",
-    "hra": "0.270",
+    "era": "4.23",
+    "hra": "0.269",
     "w": 44,
-    "wra": "0.543",
+    "wra": "0.537",
     "name": "KIA",
     "rank": 4,
     "hr": 98,
-    "l": 37,
+    "l": 38,
     "seriesOutcome": {
       "d": 2,
       "w": 44,
-      "l": 37
+      "l": 38
     }
   },
   "seasonVsResult": {
@@ -61,12 +61,26 @@
     "hl": 6,
     "aw": 6,
     "aCode": "HT",
-    "al": 2,
+    "al": 3,
     "hCode": "LT",
     "hd": 1,
-    "hw": 2
+    "hw": 3
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20260707HTLT02026",
+      "result": "승",
+      "hScore": 10,
+      "aName": "KIA",
+      "aScore": 2,
+      "gyear": 2026,
+      "gmkey": "20260707HTLT0",
+      "gweek": "화",
+      "aCode": "HT",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20260707
+    },
     {
       "gameId": "20260705LTKT02026",
       "result": "패",
@@ -122,23 +136,23 @@
       "hCode": "OB",
       "hName": "두산",
       "gdate": 20260702
-    },
-    {
-      "gameId": "20260701LTOB02026",
-      "result": "승",
-      "hScore": 2,
-      "aName": "롯데",
-      "aScore": 5,
-      "gyear": 2026,
-      "gmkey": "20260701LTOB0",
-      "gweek": "수",
-      "aCode": "LT",
-      "hCode": "OB",
-      "hName": "두산",
-      "gdate": 20260701
     }
   ],
   "awayTeamPreviousGames": [
+    {
+      "gameId": "20260707HTLT02026",
+      "result": "패",
+      "hScore": 10,
+      "aName": "KIA",
+      "aScore": 2,
+      "gyear": 2026,
+      "gmkey": "20260707HTLT0",
+      "gweek": "화",
+      "aCode": "HT",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20260707
+    },
     {
       "gameId": "20260704NCHT02026",
       "result": "패",
@@ -194,138 +208,124 @@
       "hCode": "HT",
       "hName": "KIA",
       "gdate": 20260701
-    },
-    {
-      "gameId": "20260630SKHT02026",
-      "result": "승",
-      "hScore": 10,
-      "aName": "SSG",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260630SKHT0",
-      "gweek": "화",
-      "aCode": "SK",
-      "hCode": "HT",
-      "hName": "KIA",
-      "gdate": 20260630
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 4,
+      "kk": 11,
+      "gameCount": 3,
+      "s": 0,
+      "era": "3.86",
+      "w": 0,
+      "inn": "18.2",
+      "l": 1,
+      "er": 8
     },
     "playerInfo": {
-      "backnum": "31",
+      "backnum": "43",
       "hitType": "우투우타",
-      "pCode": "56531",
-      "name": "로드리게스",
-      "birth": "19980331",
-      "weight": "97.0",
+      "pCode": "67539",
+      "name": "나균안",
+      "birth": "19980316",
+      "weight": "109.0",
+      "height": "186.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 35.900001525878906,
+        "type": "FAST",
+        "speed": 143
+      },
+      {
+        "pit_rt": 27.799999237060547,
+        "type": "FORK",
+        "speed": 130
+      },
+      {
+        "pit_rt": 16.700000762939453,
+        "type": "CUTT",
+        "speed": 138
+      }
+    ],
+    "currentSeasonStats": {
+      "teamName": "롯데",
+      "bb": 26,
+      "kk": 73,
+      "gameCount": 15,
+      "gday": "20260707",
+      "inn": "86.2",
+      "hp": 2,
+      "teamCode": "LT",
+      "hr": 12,
+      "l": 7,
+      "er": 38,
+      "whip": "1.40",
+      "hit": 95,
+      "r": 43,
+      "s": 0,
+      "era": "3.95",
+      "w": 4,
+      "inn2": "86 2/3"
+    }
+  },
+  "awayStarter": {
+    "currentSeasonStatsOnOpponents": {
+      "bb": 2,
+      "kk": 8,
+      "gameCount": 2,
+      "s": 0,
+      "era": "0.75",
+      "w": 0,
+      "inn": "12.0",
+      "l": 0,
+      "er": 1
+    },
+    "playerInfo": {
+      "backnum": "40",
+      "hitType": "우투우타",
+      "pCode": "54640",
+      "name": "네일",
+      "birth": "19930208",
+      "weight": "83.0",
       "height": "193.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 42.599998474121094,
-        "type": "FAST",
-        "speed": 150
-      },
-      {
-        "pit_rt": 23.100000381469727,
+        "pit_rt": 31.799999237060547,
         "type": "SWEE",
-        "speed": 131
+        "speed": 130
       },
       {
-        "pit_rt": 19.100000381469727,
+        "pit_rt": 30.899999618530273,
+        "type": "TWOS",
+        "speed": 144
+      },
+      {
+        "pit_rt": 19.5,
         "type": "CUTT",
         "speed": 140
       }
     ],
     "currentSeasonStats": {
-      "teamName": "롯데",
-      "bb": 29,
-      "kk": 93,
-      "gameCount": 15,
-      "gday": "20260705",
-      "inn": "81.2",
-      "hp": 4,
-      "teamCode": "LT",
-      "hr": 13,
-      "l": 5,
-      "er": 41,
-      "whip": "1.35",
-      "hit": 81,
-      "r": 43,
-      "s": 0,
-      "era": "4.52",
-      "w": 4,
-      "inn2": "81 2/3"
-    }
-  },
-  "awayStarter": {
-    "currentSeasonStatsOnOpponents": {
-      "bb": 1,
-      "kk": 0,
-      "gameCount": 1,
-      "s": 0,
-      "era": "16.20",
-      "w": 0,
-      "inn": "1.2",
-      "l": 0,
-      "er": 3
-    },
-    "playerInfo": {
-      "backnum": "10",
-      "hitType": "우투우타",
-      "pCode": "55610",
-      "name": "김태형",
-      "birth": "20061215",
-      "weight": "95.0",
-      "height": "184.0"
-    },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 47.70000076293945,
-        "type": "FAST",
-        "speed": 146
-      },
-      {
-        "pit_rt": 20.299999237060547,
-        "type": "SLID",
-        "speed": 136
-      },
-      {
-        "pit_rt": 16.600000381469727,
-        "type": "SWEE",
-        "speed": 126
-      }
-    ],
-    "currentSeasonStats": {
       "teamName": "KIA",
-      "bb": 19,
-      "kk": 25,
-      "gameCount": 14,
-      "gday": "20260705",
-      "inn": "46.1",
-      "hp": 3,
+      "bb": 18,
+      "kk": 80,
+      "gameCount": 17,
+      "gday": "20260707",
+      "inn": "99.1",
+      "hp": 11,
       "teamCode": "HT",
-      "hr": 9,
-      "l": 2,
-      "er": 25,
-      "whip": "1.51",
-      "hit": 51,
-      "r": 30,
+      "hr": 5,
+      "l": 4,
+      "er": 38,
+      "whip": "1.09",
+      "hit": 90,
+      "r": 38,
       "s": 0,
-      "era": "4.86",
-      "w": 2,
-      "inn2": "46 1/3"
+      "era": "3.44",
+      "w": 5,
+      "inn2": "99 1/3"
     }
   }
 }
