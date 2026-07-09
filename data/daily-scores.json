@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T20:41:36.696003+09:00",
+  "generatedAt": "2026-07-09T23:12:08.495999+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5462,33 +5462,33 @@
         "away": "SSG",
         "home": "두산",
         "awayScore": 0,
-        "homeScore": 6,
-        "outcome": null,
+        "homeScore": 7,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "해치",
         "homeStarter": "잭로그",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "잭로그",
+        "losePitcher": "해치"
       },
       {
         "away": "LG",
         "home": "삼성",
-        "awayScore": 3,
-        "homeScore": 5,
-        "outcome": null,
+        "awayScore": 5,
+        "homeScore": 6,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "웰스",
         "homeStarter": "원태인",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이승민",
+        "losePitcher": "리오스"
       },
       {
         "away": "키움",
         "home": "KT",
         "awayScore": 0,
-        "homeScore": 3,
+        "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": "하영민",
         "homeStarter": "배제성",
         "winPitcher": null,
@@ -5497,26 +5497,26 @@
       {
         "away": "NC",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 2,
-        "outcome": null,
+        "awayScore": 4,
+        "homeScore": 6,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "구창모",
         "homeStarter": "화이트",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이상규",
+        "losePitcher": "토다"
       },
       {
         "away": "KIA",
         "home": "롯데",
         "awayScore": 5,
-        "homeScore": 1,
-        "outcome": null,
+        "homeScore": 2,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "양현종",
         "homeStarter": "김진욱",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "양현종",
+        "losePitcher": "김진욱"
       }
     ],
     "2026-07-16": [

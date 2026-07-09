@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260709WOKT02026",
-    "fetchedAt": "2026-07-09T20:40:19+09:00"
+    "fetchedAt": "2026-07-09T23:10:17+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
     "hPCode": "65516",
     "hCode": "KT",
     "hName": "KT",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260709,
     "aPCode": "64350",
-    "round": 12,
+    "round": 0,
     "gtime": "18:30",
     "aName": "키움",
     "gameFlag": "0",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 1,
@@ -253,7 +253,7 @@
       "bb": 19,
       "kk": 25,
       "gameCount": 7,
-      "gday": "20260708",
+      "gday": "20260709",
       "inn": "28.0",
       "hp": 1,
       "teamCode": "KT",
@@ -312,7 +312,7 @@
       "bb": 30,
       "kk": 58,
       "gameCount": 15,
-      "gday": "20260708",
+      "gday": "20260709",
       "inn": "67.0",
       "hp": 4,
       "teamCode": "WO",

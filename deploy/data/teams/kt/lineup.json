@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-07-09",
-    "lastUpdated": "2026-07-09T20:41:24+09:00",
+    "lastUpdated": "2026-07-09T23:11:51+09:00",
     "gameId": "20260709WOKT02026",
     "kboGameId": "20260709WOKT0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -81,13 +81,13 @@
     },
     {
       "order": 2,
-      "name": "추재현",
-      "position": "중견수"
+      "name": "안치홍",
+      "position": "지명타자"
     },
     {
       "order": 3,
       "name": "데이비슨",
-      "position": "지명타자"
+      "position": "1루수"
     },
     {
       "order": 4,
@@ -101,12 +101,12 @@
     },
     {
       "order": 6,
-      "name": "최주환",
-      "position": "1루수"
+      "name": "추재현",
+      "position": "중견수"
     },
     {
       "order": 7,
-      "name": "김동헌",
+      "name": "김건희",
       "position": "포수"
     },
     {

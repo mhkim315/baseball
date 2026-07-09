@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-09T20:39:39+09:00",
+  "fetchedAt": "2026-07-09T23:09:15+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1914,18 +1914,18 @@
           "home": "두산",
           "venue": "잠실",
           "awayScore": 0,
-          "homeScore": 6,
-          "scoreLine": "0-6",
+          "homeScore": 7,
+          "scoreLine": "0-7",
           "ourScore": 0,
-          "oppScore": 6,
-          "ourScoreLine": "0-6",
-          "outcome": null,
+          "oppScore": 7,
+          "ourScoreLine": "0-7",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260709SKOB02026",
           "awayStarter": "해치",
           "homeStarter": "잭로그",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "잭로그",
+          "losePitcher": "해치"
         }
       ]
     },
