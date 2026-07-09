@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T21:54:57.351175+09:00",
+  "generatedAt": "2026-07-09T14:15:11.754954+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5425,12 +5425,12 @@
         "home": "KT",
         "awayScore": 3,
         "homeScore": 7,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "배동현",
         "homeStarter": "로건",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "손동현",
+        "losePitcher": "배동현"
       },
       {
         "away": "NC",

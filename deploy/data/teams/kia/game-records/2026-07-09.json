@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260709HTLT02026",
+    "gameDate": "2026-07-09",
+    "lastUpdated": "2026-07-09T14:15:09+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "51516",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260709,
+    "aPCode": "77637",
+    "round": 12,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.40",
+    "hra": "0.261",
+    "w": 38,
+    "wra": "0.463",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 64,
+    "l": 44,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 38,
+      "l": 44
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.30",
+    "hra": "0.269",
+    "w": 44,
+    "wra": "0.530",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 98,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김진욱"
+  },
+  "awayStarter": {
+    "name": "양현종"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

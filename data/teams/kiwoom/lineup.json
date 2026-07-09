@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-07-08",
-    "lastUpdated": "2026-07-08T21:54:41+09:00",
-    "gameId": "20260708WOKT02026",
-    "kboGameId": "20260708WOKT0",
+    "lineupDate": "2026-07-09",
+    "lastUpdated": "2026-07-09T14:14:40+09:00",
+    "gameId": "20260709WOKT02026",
+    "kboGameId": "20260709WOKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "배동현"
+    "name": "하영민"
   },
   "opponentStartingPitcher": {
-    "name": "로건"
+    "name": "배제성"
   }
 }

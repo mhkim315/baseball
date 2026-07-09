@@ -1,155 +1,7 @@
 {
-  "date": "2026-07-08",
-  "generatedAt": "2026-07-08T21:54:57.314434+09:00",
+  "date": "2026-07-09",
+  "generatedAt": "2026-07-09T14:15:11.725573+09:00",
   "games": [
-    {
-      "id": "20260708-LGSS-0",
-      "date": "2026-07-08",
-      "venue": "대구",
-      "time": "18:30",
-      "status": "scheduled",
-      "away": {
-        "id": "lg",
-        "name": "LG",
-        "starter": {
-          "name": "임찬규"
-        },
-        "rank": 2,
-        "record": "51승0무32패"
-      },
-      "home": {
-        "id": "samsung",
-        "name": "삼성",
-        "starter": {
-          "name": "오러클린"
-        },
-        "rank": 1,
-        "record": "50승2무31패"
-      },
-      "score": {
-        "away": 5,
-        "home": 2
-      }
-    },
-    {
-      "id": "20260708-NCHH-0",
-      "date": "2026-07-08",
-      "venue": "대전",
-      "time": "18:30",
-      "status": "cancelled",
-      "away": {
-        "id": "nc",
-        "name": "NC",
-        "starter": {
-          "name": "토다"
-        },
-        "rank": 7,
-        "record": "39승1무41패"
-      },
-      "home": {
-        "id": "hanwha",
-        "name": "한화",
-        "starter": {
-          "name": "왕옌청"
-        },
-        "rank": 6,
-        "record": "39승2무40패"
-      },
-      "score": {
-        "away": 0,
-        "home": 0
-      }
-    },
-    {
-      "id": "20260708-HTLT-0",
-      "date": "2026-07-08",
-      "venue": "사직",
-      "time": "18:30",
-      "status": "scheduled",
-      "away": {
-        "id": "kia",
-        "name": "KIA",
-        "starter": {
-          "name": "네일"
-        },
-        "rank": 4,
-        "record": "44승2무38패"
-      },
-      "home": {
-        "id": "lotte",
-        "name": "롯데",
-        "starter": {
-          "name": "나균안"
-        },
-        "rank": 8,
-        "record": "37승2무44패"
-      },
-      "score": {
-        "away": 0,
-        "home": 9
-      }
-    },
-    {
-      "id": "20260708-WOKT-0",
-      "date": "2026-07-08",
-      "venue": "수원",
-      "time": "18:30",
-      "status": "scheduled",
-      "away": {
-        "id": "kiwoom",
-        "name": "키움",
-        "starter": {
-          "name": "배동현"
-        },
-        "rank": 10,
-        "record": "29승1무56패"
-      },
-      "home": {
-        "id": "kt",
-        "name": "KT",
-        "starter": {
-          "name": "로건"
-        },
-        "rank": 3,
-        "record": "46승1무35패"
-      },
-      "score": {
-        "away": 3,
-        "home": 4
-      }
-    },
-    {
-      "id": "20260708-SKOB-0",
-      "date": "2026-07-08",
-      "venue": "잠실",
-      "time": "18:30",
-      "status": "scheduled",
-      "away": {
-        "id": "ssg",
-        "name": "SSG",
-        "starter": {
-          "name": "전영준"
-        },
-        "rank": 9,
-        "record": "31승3무50패"
-      },
-      "home": {
-        "id": "doosan",
-        "name": "두산",
-        "starter": {
-          "name": "곽빈"
-        },
-        "rank": 5,
-        "record": "42승2무41패"
-      },
-      "score": {
-        "away": 1,
-        "home": 5
-      }
-    }
-  ],
-  "noGames": false,
-  "nextGames": [
     {
       "id": "20260709-LGSS-0",
       "date": "2026-07-09",
@@ -160,19 +12,19 @@
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "미정"
+          "name": "웰스"
         },
-        "rank": 2,
-        "record": "51승0무32패"
+        "rank": 1,
+        "record": "52승0무32패"
       },
       "home": {
         "id": "samsung",
         "name": "삼성",
         "starter": {
-          "name": "미정"
+          "name": "원태인"
         },
-        "rank": 1,
-        "record": "50승2무31패"
+        "rank": 2,
+        "record": "50승2무32패"
       },
       "score": {
         "away": 0,
@@ -189,7 +41,7 @@
         "id": "nc",
         "name": "NC",
         "starter": {
-          "name": "미정"
+          "name": "구창모"
         },
         "rank": 7,
         "record": "39승1무41패"
@@ -198,7 +50,7 @@
         "id": "hanwha",
         "name": "한화",
         "starter": {
-          "name": "미정"
+          "name": "화이트"
         },
         "rank": 6,
         "record": "39승2무40패"
@@ -218,19 +70,19 @@
         "id": "kia",
         "name": "KIA",
         "starter": {
-          "name": "미정"
+          "name": "양현종"
         },
         "rank": 4,
-        "record": "44승2무38패"
+        "record": "44승2무39패"
       },
       "home": {
         "id": "lotte",
         "name": "롯데",
         "starter": {
-          "name": "미정"
+          "name": "김진욱"
         },
         "rank": 8,
-        "record": "37승2무44패"
+        "record": "38승2무44패"
       },
       "score": {
         "away": 0,
@@ -247,19 +99,19 @@
         "id": "kiwoom",
         "name": "키움",
         "starter": {
-          "name": "미정"
+          "name": "하영민"
         },
         "rank": 10,
-        "record": "29승1무56패"
+        "record": "29승1무57패"
       },
       "home": {
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "미정"
+          "name": "배제성"
         },
         "rank": 3,
-        "record": "46승1무35패"
+        "record": "47승1무35패"
       },
       "score": {
         "away": 0,
@@ -276,24 +128,26 @@
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "미정"
+          "name": "해치"
         },
         "rank": 9,
-        "record": "31승3무50패"
+        "record": "31승3무51패"
       },
       "home": {
         "id": "doosan",
         "name": "두산",
         "starter": {
-          "name": "미정"
+          "name": "잭로그"
         },
         "rank": 5,
-        "record": "42승2무41패"
+        "record": "43승2무41패"
       },
       "score": {
         "away": 0,
         "home": 0
       }
     }
-  ]
+  ],
+  "noGames": false,
+  "nextGames": []
 }

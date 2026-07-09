@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-07-08",
-    "lastUpdated": "2026-07-08T21:54:56+09:00",
-    "gameId": "20260708NCHH02026",
-    "kboGameId": "20260708NCHH0",
+    "lineupDate": "2026-07-09",
+    "lastUpdated": "2026-07-09T14:14:58+09:00",
+    "gameId": "20260709NCHH02026",
+    "kboGameId": "20260709NCHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "18:30",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "토다"
+    "name": "구창모"
   },
   "opponentStartingPitcher": {
-    "name": "왕옌청"
+    "name": "화이트"
   }
 }
