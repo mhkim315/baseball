@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260716WOHH02026",
-    "fetchedAt": "2026-07-14T23:12:45+09:00"
+    "fetchedAt": "2026-07-15T12:19:49+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
-    "hPCode": "",
+    "hPCode": "56724",
     "hCode": "HH",
     "hName": "한화",
     "cancelFlag": "N",
     "gdate": 20260716,
-    "aPCode": "",
+    "aPCode": "69045",
     "round": 9,
     "gtime": "18:30",
     "aName": "키움",
@@ -222,48 +222,110 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "24",
+      "hitType": "우투우타",
+      "pCode": "56724",
+      "name": "화이트",
+      "birth": "19990809",
+      "weight": "90.0",
+      "height": "190.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 42.29999923706055,
+        "type": "FAST",
+        "speed": 147
+      },
+      {
+        "pit_rt": 20.100000381469727,
+        "type": "SWEE",
+        "speed": 129
+      },
+      {
+        "pit_rt": 11.800000190734863,
+        "type": "CUTT",
+        "speed": 138
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "한화",
+      "bb": 12,
+      "kk": 44,
+      "gameCount": 11,
+      "gday": "20260709",
+      "inn": "62.0",
+      "hp": 1,
+      "teamCode": "HH",
+      "hr": 3,
+      "l": 4,
+      "er": 18,
+      "whip": "1.11",
+      "hit": 57,
+      "r": 19,
+      "s": 0,
+      "era": "2.61",
+      "w": 5,
+      "inn2": "62"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 2,
+      "kk": 11,
+      "gameCount": 2,
+      "s": 0,
+      "era": "2.92",
+      "w": 1,
+      "inn": "12.1",
+      "l": 0,
+      "er": 4
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "54",
+      "hitType": "우투우타",
+      "pCode": "69045",
+      "name": "알칸타라",
+      "birth": "19921204",
+      "weight": "100.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 48.29999923706055,
+        "type": "FAST",
+        "speed": 149
+      },
+      {
+        "pit_rt": 34.900001525878906,
+        "type": "FORK",
+        "speed": 133
+      },
+      {
+        "pit_rt": 16.799999237060547,
+        "type": "SLID",
+        "speed": 136
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "키움",
+      "bb": 13,
+      "kk": 96,
+      "gameCount": 16,
+      "gday": "20260709",
+      "inn": "103.0",
+      "hp": 2,
+      "teamCode": "WO",
+      "hr": 15,
+      "l": 6,
+      "er": 38,
+      "whip": "1.11",
+      "hit": 101,
+      "r": 39,
+      "s": 0,
+      "era": "3.32",
+      "w": 7,
+      "inn2": "103"
     }
   }
 }

@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-14T23:13:40+09:00",
+    "lastUpdated": "2026-07-15T12:20:32+09:00",
     "gameId": "20260716WOHH02026",
     "kboGameId": "20260716WOHH0",
     "opponent": "한화",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "알칸타라"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "화이트"
   }
 }

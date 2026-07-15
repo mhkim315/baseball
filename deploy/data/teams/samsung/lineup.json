@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-14T23:13:55+09:00",
+    "lastUpdated": "2026-07-15T12:20:45+09:00",
     "gameId": "20260716LTSS02026",
     "kboGameId": "20260716LTSS0",
     "opponent": "롯데",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "양창섭"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "로드리게스"
   }
 }

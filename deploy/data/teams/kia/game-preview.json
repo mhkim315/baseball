@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260716HTSK02026",
-    "fetchedAt": "2026-07-14T23:12:50+09:00"
+    "fetchedAt": "2026-07-15T12:19:52+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
-    "hPCode": "",
+    "hPCode": "56801",
     "hCode": "SK",
     "hName": "SSG",
     "cancelFlag": "N",
     "gdate": 20260716,
-    "aPCode": "",
+    "aPCode": "55633",
     "round": 9,
     "gtime": "18:30",
     "aName": "KIA",
@@ -222,7 +222,15 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
+    "playerInfo": {
+      "backnum": "33",
+      "hitType": "우투우타",
+      "pCode": "56801",
+      "name": "아빌라",
+      "birth": "19970114",
+      "weight": "95.0",
+      "height": "180.0"
+    },
     "currentPitKindStats": [],
     "currentSeasonStats": {
       "kk": "0",
@@ -240,30 +248,61 @@
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
+      "bb": 4,
+      "kk": 19,
+      "gameCount": 2,
+      "s": 0,
       "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "w": 2,
+      "inn": "12.0",
+      "l": 0,
+      "er": 0
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "33",
+      "hitType": "우투우타",
+      "pCode": "55633",
+      "name": "올러",
+      "birth": "19941017",
+      "weight": "102.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 40.099998474121094,
+        "type": "FAST",
+        "speed": 148
+      },
+      {
+        "pit_rt": 31.399999618530273,
+        "type": "SLID",
+        "speed": 133
+      },
+      {
+        "pit_rt": 12.199999809265137,
+        "type": "CHUP",
+        "speed": 136
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 32,
+      "kk": 108,
+      "gameCount": 16,
+      "gday": "20260709",
+      "inn": "99.1",
+      "hp": 6,
+      "teamCode": "HT",
+      "hr": 8,
+      "l": 5,
+      "er": 26,
+      "whip": "0.98",
+      "hit": 65,
+      "r": 30,
+      "s": 0,
+      "era": "2.36",
+      "w": 9,
+      "inn2": "99 1/3"
     }
   }
 }
