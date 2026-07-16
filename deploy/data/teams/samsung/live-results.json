@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-16T21:04:33+09:00",
+  "fetchedAt": "2026-07-16T23:14:37+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1936,18 +1936,18 @@
           "home": "삼성",
           "venue": "대구",
           "awayScore": 1,
-          "homeScore": 3,
-          "scoreLine": "1-3",
-          "ourScore": 3,
+          "homeScore": 4,
+          "scoreLine": "1-4",
+          "ourScore": 4,
           "oppScore": 1,
-          "ourScoreLine": "3-1",
-          "outcome": null,
+          "ourScoreLine": "4-1",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260716LTSS02026",
           "awayStarter": "로드리게스",
           "homeStarter": "양창섭",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "양창섭",
+          "losePitcher": "로드리게스"
         }
       ]
     },
