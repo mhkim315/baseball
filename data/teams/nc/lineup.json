@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-16T15:30:52+09:00",
+    "lastUpdated": "2026-07-16T17:42:29+09:00",
     "gameId": "20260716OBNC02026",
     "kboGameId": "20260716OBNC0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,23 +54,23 @@
     },
     {
       "order": 6,
+      "name": "이우성",
+      "position": "지명타자"
+    },
+    {
+      "order": 7,
       "name": "김휘집",
       "position": "3루수"
     },
     {
-      "order": 7,
+      "order": 8,
       "name": "김형준",
       "position": "포수"
     },
     {
-      "order": 8,
-      "name": "천재환",
-      "position": "중견수"
-    },
-    {
       "order": 9,
       "name": "고준휘",
-      "position": "지명타자"
+      "position": "중견수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "정수빈",
-      "position": "중견수"
+      "name": "세베리노",
+      "position": "1루수"
     },
     {
       "order": 3,
@@ -92,7 +92,7 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "김인태",
-      "position": "지명타자"
+      "name": "정수빈",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "류승민",
-      "position": "우익수"
+      "name": "윤준호",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "강승호",
-      "position": "1루수"
+      "name": "류승민",
+      "position": "우익수"
     }
   ],
   "startingPitcher": {

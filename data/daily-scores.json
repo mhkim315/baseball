@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T15:30:54.015372+09:00",
+  "generatedAt": "2026-07-16T17:42:30.966916+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5539,8 +5539,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로건",
+        "homeStarter": "톨허스트",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5575,8 +5575,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로드리게스",
+        "homeStarter": "양창섭",
         "winPitcher": null,
         "losePitcher": null
       }

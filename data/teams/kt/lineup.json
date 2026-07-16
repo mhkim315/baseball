@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-16T15:30:38+09:00",
+    "lastUpdated": "2026-07-16T17:42:12+09:00",
     "gameId": "20260716KTLG02026",
     "kboGameId": "20260716KTLG0",
     "opponent": "LG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,7 +30,7 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 2,
@@ -40,7 +40,7 @@
     {
       "order": 3,
       "name": "안현민",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -87,7 +87,7 @@
     {
       "order": 3,
       "name": "오스틴",
-      "position": "지명타자"
+      "position": "1루수"
     },
     {
       "order": 4,
@@ -96,23 +96,23 @@
     },
     {
       "order": 5,
-      "name": "박동원",
-      "position": "포수"
-    },
-    {
-      "order": 6,
-      "name": "천성호",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
       "name": "문보경",
       "position": "3루수"
     },
     {
-      "order": 8,
+      "order": 6,
+      "name": "박동원",
+      "position": "포수"
+    },
+    {
+      "order": 7,
       "name": "오지환",
       "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "이재원",
+      "position": "지명타자"
     },
     {
       "order": 9,
