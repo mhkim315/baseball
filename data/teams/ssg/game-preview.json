@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260716HTSK02026",
-    "fetchedAt": "2026-07-16T13:10:22+09:00"
+    "fetchedAt": "2026-07-16T15:29:45+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
@@ -42,7 +42,7 @@
   },
   "awayStandings": {
     "d": 2,
-    "era": "4.28",
+    "era": "4.24",
     "hra": "0.269",
     "w": 45,
     "wra": "0.536",

@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260716WOHH02026",
-    "fetchedAt": "2026-07-16T13:10:24+09:00"
+    "fetchedAt": "2026-07-16T15:29:47+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
@@ -238,7 +238,7 @@
         "speed": 147
       },
       {
-        "pit_rt": 20.100000381469727,
+        "pit_rt": 20,
         "type": "SWEE",
         "speed": 129
       },
