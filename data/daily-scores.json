@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T21:47:44.744234+09:00",
+  "generatedAt": "2026-07-17T23:18:10.258061+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5587,12 +5587,12 @@
         "home": "NC",
         "awayScore": 4,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "최민석",
         "homeStarter": "테일러",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이영하",
+        "losePitcher": "전사민"
       },
       {
         "away": "KT",

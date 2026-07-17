@@ -1,6 +1,6 @@
 {
   "date": "2026-07-17",
-  "generatedAt": "2026-07-17T21:47:44.702803+09:00",
+  "generatedAt": "2026-07-17T23:18:10.221535+09:00",
   "games": [
     {
       "id": "20260717-LTSS-0",
@@ -36,7 +36,7 @@
       "date": "2026-07-17",
       "venue": "대전",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -65,7 +65,7 @@
       "date": "2026-07-17",
       "venue": "문학",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -85,7 +85,7 @@
         "record": "32승3무52패"
       },
       "score": {
-        "away": 5,
+        "away": 6,
         "home": 3
       }
     },
@@ -94,7 +94,7 @@
       "date": "2026-07-17",
       "venue": "잠실",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -143,8 +143,8 @@
         "record": "40승1무42패"
       },
       "score": {
-        "away": 2,
-        "home": 1
+        "away": 4,
+        "home": 2
       }
     }
   ],
