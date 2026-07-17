@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-17T20:39:36+09:00",
+  "fetchedAt": "2026-07-17T21:46:09+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1963,13 +1963,13 @@
           "ourScore": 1,
           "oppScore": 6,
           "ourScoreLine": "1-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260717KTLG02026",
           "awayStarter": "소형준",
           "homeStarter": "웰스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "소형준",
+          "losePitcher": "웰스"
         }
       ]
     },
