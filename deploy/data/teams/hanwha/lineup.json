@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-16T23:15:46+09:00",
-    "gameId": "20260716WOHH02026",
-    "kboGameId": "20260716WOHH0",
+    "lineupDate": "2026-07-17",
+    "lastUpdated": "2026-07-17T12:34:35+09:00",
+    "gameId": "20260717WOHH02026",
+    "kboGameId": "20260717WOHH0",
     "opponent": "키움",
     "venue": "대전",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "화이트"
+    "name": "왕옌청"
   },
   "opponentStartingPitcher": {
-    "name": "알칸타라"
+    "name": "하영민"
   }
 }

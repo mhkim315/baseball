@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260717OBNC02026",
+    "gameDate": "2026-07-17",
+    "lastUpdated": "2026-07-17T12:34:52+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "56966",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260717,
+    "aPCode": "55268",
+    "round": 6,
+    "gtime": "18:00",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.52",
+    "hra": "0.277",
+    "w": 40,
+    "wra": "0.488",
+    "name": "NC",
+    "rank": 7,
+    "hr": 83,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 40,
+      "l": 42
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "3.90",
+    "hra": "0.270",
+    "w": 44,
+    "wra": "0.512",
+    "name": "두산",
+    "rank": 5,
+    "hr": 65,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 42
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "테일러"
+  },
+  "awayStarter": {
+    "name": "최민석"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

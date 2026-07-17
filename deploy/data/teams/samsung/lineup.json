@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-07-16",
-    "lastUpdated": "2026-07-16T23:15:49+09:00",
-    "gameId": "20260716LTSS02026",
-    "kboGameId": "20260716LTSS0",
+    "lineupDate": "2026-07-17",
+    "lastUpdated": "2026-07-17T12:34:37+09:00",
+    "gameId": "20260717LTSS02026",
+    "kboGameId": "20260717LTSS0",
     "opponent": "롯데",
     "venue": "대구",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "양창섭"
+    "name": "원태인"
   },
   "opponentStartingPitcher": {
-    "name": "로드리게스"
+    "name": "나균안"
   }
 }
