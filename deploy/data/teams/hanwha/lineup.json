@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-07-17",
-    "lastUpdated": "2026-07-17T15:02:02+09:00",
+    "lastUpdated": "2026-07-17T17:17:03+09:00",
     "gameId": "20260717WOHH02026",
     "kboGameId": "20260717WOHH0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,18 +54,18 @@
     },
     {
       "order": 6,
-      "name": "김태연",
-      "position": "1루수"
+      "name": "장규현",
+      "position": "포수"
     },
     {
       "order": 7,
-      "name": "이도윤",
+      "name": "황영묵",
       "position": "2루수"
     },
     {
       "order": 8,
-      "name": "최재훈",
-      "position": "포수"
+      "name": "김태연",
+      "position": "1루수"
     },
     {
       "order": 9,
