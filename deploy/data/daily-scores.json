@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T19:13:25.396599+09:00",
+  "generatedAt": "2026-07-17T20:41:00.009105+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5586,7 +5586,7 @@
         "away": "두산",
         "home": "NC",
         "awayScore": 2,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "최민석",
@@ -5597,8 +5597,8 @@
       {
         "away": "KT",
         "home": "LG",
-        "awayScore": 4,
-        "homeScore": 0,
+        "awayScore": 6,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "소형준",
@@ -5609,8 +5609,8 @@
       {
         "away": "키움",
         "home": "한화",
-        "awayScore": 4,
-        "homeScore": 1,
+        "awayScore": 7,
+        "homeScore": 6,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "하영민",
