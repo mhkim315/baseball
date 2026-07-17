@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T17:17:13.350514+09:00",
+  "generatedAt": "2026-07-17T19:13:25.396599+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5585,7 +5585,7 @@
       {
         "away": "두산",
         "home": "NC",
-        "awayScore": 0,
+        "awayScore": 2,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -5597,7 +5597,7 @@
       {
         "away": "KT",
         "home": "LG",
-        "awayScore": 0,
+        "awayScore": 4,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -5609,8 +5609,8 @@
       {
         "away": "키움",
         "home": "한화",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 4,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "하영민",
@@ -5621,8 +5621,8 @@
       {
         "away": "KIA",
         "home": "SSG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 5,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "시라카와",
@@ -5636,7 +5636,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": "나균안",
         "homeStarter": "원태인",
         "winPitcher": null,

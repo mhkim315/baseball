@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260717LTSS02026",
-    "fetchedAt": "2026-07-17T17:16:29+09:00"
+    "fetchedAt": "2026-07-17T19:12:32+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
     "hPCode": "69446",
     "hCode": "SS",
     "hName": "삼성",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260717,
     "aPCode": "67539",
-    "round": 7,
+    "round": 0,
     "gtime": "18:00",
     "aName": "롯데",
     "gameFlag": "0",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 2,
