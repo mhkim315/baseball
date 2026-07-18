@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-07-17",
-    "lastUpdated": "2026-07-17T23:18:09+09:00",
-    "gameId": "20260717OBNC02026",
-    "kboGameId": "20260717OBNC0",
+    "lineupDate": "2026-07-18",
+    "lastUpdated": "2026-07-18T12:20:08+09:00",
+    "gameId": "20260718OBNC02026",
+    "kboGameId": "20260718OBNC0",
     "opponent": "두산",
     "venue": "창원",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "테일러"
+    "name": "구창모"
   },
   "opponentStartingPitcher": {
-    "name": "최민석"
+    "name": "잭로그"
   }
 }

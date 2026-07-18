@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260718HTSK02026",
+    "gameDate": "2026-07-18",
+    "lastUpdated": "2026-07-18T12:20:15+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "56855",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260718,
+    "aPCode": "54640",
+    "round": 11,
+    "gtime": "18:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.78",
+    "hra": "0.261",
+    "w": 32,
+    "wra": "0.376",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 96,
+    "l": 53,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 32,
+      "l": 53
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.25",
+    "hra": "0.267",
+    "w": 46,
+    "wra": "0.535",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 103,
+    "l": 40,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 46,
+      "l": 40
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "해치"
+  },
+  "awayStarter": {
+    "name": "네일"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

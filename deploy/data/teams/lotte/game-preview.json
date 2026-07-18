@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260717LTSS02026",
-    "fetchedAt": "2026-07-17T23:17:26+09:00"
+    "naverGameId": "20260718LTSS02026",
+    "fetchedAt": "2026-07-18T12:19:05+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
-    "hPCode": "69446",
+    "hPCode": "56459",
     "hCode": "SS",
     "hName": "삼성",
-    "cancelFlag": "Y",
-    "gdate": 20260717,
+    "cancelFlag": "N",
+    "gdate": 20260718,
     "aPCode": "67539",
-    "round": 0,
+    "round": 7,
     "gtime": "18:00",
     "aName": "롯데",
     "gameFlag": "0",
@@ -223,50 +223,27 @@
       "er": "0"
     },
     "playerInfo": {
-      "backnum": "18",
+      "backnum": "59",
       "hitType": "우투우타",
-      "pCode": "69446",
-      "name": "원태인",
-      "birth": "20000406",
-      "weight": "92.0",
-      "height": "183.0"
+      "pCode": "56459",
+      "name": "페덱",
+      "birth": "19960108",
+      "weight": "0.0",
+      "height": "0.0"
     },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 38.79999923706055,
-        "type": "FAST",
-        "speed": 143
-      },
-      {
-        "pit_rt": 24.299999237060547,
-        "type": "CHUP",
-        "speed": 129
-      },
-      {
-        "pit_rt": 16.899999618530273,
-        "type": "SLID",
-        "speed": 131
-      }
-    ],
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "삼성",
-      "bb": 17,
-      "kk": 70,
-      "gameCount": 14,
-      "gday": "20260717",
-      "inn": "78.0",
-      "hp": 6,
-      "teamCode": "SS",
-      "hr": 3,
-      "l": 5,
-      "er": 31,
-      "whip": "1.35",
-      "hit": 88,
-      "r": 33,
-      "s": 0,
-      "era": "3.58",
-      "w": 4,
-      "inn2": "78"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   },
   "awayStarter": {

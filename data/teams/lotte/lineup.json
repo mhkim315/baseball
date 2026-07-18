@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-07-17",
-    "lastUpdated": "2026-07-17T23:18:06+09:00",
-    "gameId": "20260717LTSS02026",
-    "kboGameId": "20260717LTSS0",
+    "lineupDate": "2026-07-18",
+    "lastUpdated": "2026-07-18T12:20:05+09:00",
+    "gameId": "20260718LTSS02026",
+    "kboGameId": "20260718LTSS0",
     "opponent": "삼성",
     "venue": "대구",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -124,6 +124,6 @@
     "name": "나균안"
   },
   "opponentStartingPitcher": {
-    "name": "원태인"
+    "name": "페덱"
   }
 }

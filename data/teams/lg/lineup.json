@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-07-17",
-    "lastUpdated": "2026-07-17T23:17:51+09:00",
-    "gameId": "20260717KTLG02026",
-    "kboGameId": "20260717KTLG0",
+    "lineupDate": "2026-07-18",
+    "lastUpdated": "2026-07-18T12:19:43+09:00",
+    "gameId": "20260718KTLG02026",
+    "kboGameId": "20260718KTLG0",
     "opponent": "KT",
     "venue": "잠실",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "웰스"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "소형준"
+    "name": "사우어"
   }
 }

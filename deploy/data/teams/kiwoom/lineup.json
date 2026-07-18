@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-07-17",
-    "lastUpdated": "2026-07-17T23:17:54+09:00",
-    "gameId": "20260717WOHH02026",
-    "kboGameId": "20260717WOHH0",
+    "lineupDate": "2026-07-18",
+    "lastUpdated": "2026-07-18T12:19:46+09:00",
+    "gameId": "20260718WOHH02026",
+    "kboGameId": "20260718WOHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "하영민"
+    "name": "안우진"
   },
   "opponentStartingPitcher": {
-    "name": "왕옌청"
+    "name": "에르난데스"
   }
 }
