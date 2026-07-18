@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-07-18",
-    "lastUpdated": "2026-07-18T16:16:00+09:00",
+    "lastUpdated": "2026-07-18T18:00:28+09:00",
     "gameId": "20260718HTSK02026",
     "kboGameId": "20260718HTSK0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,8 +54,8 @@
     },
     {
       "order": 6,
-      "name": "김성욱",
-      "position": "우익수"
+      "name": "오태곤",
+      "position": "좌익수"
     },
     {
       "order": 7,
@@ -64,25 +64,25 @@
     },
     {
       "order": 8,
-      "name": "최준우",
-      "position": "좌익수"
+      "name": "조형우",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "조형우",
-      "position": "포수"
+      "name": "최준우",
+      "position": "우익수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박재현",
-      "position": "우익수"
+      "name": "김호령",
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "카스트로",
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -92,31 +92,31 @@
     {
       "order": 4,
       "name": "나성범",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 5,
-      "name": "카스트로",
-      "position": "좌익수"
-    },
-    {
-      "order": 6,
       "name": "한준수",
       "position": "포수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "김선빈",
       "position": "2루수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "박상준",
       "position": "1루수"
     },
     {
+      "order": 8,
+      "name": "박정우",
+      "position": "좌익수"
+    },
+    {
       "order": 9,
-      "name": "김규성",
+      "name": "정현창",
       "position": "유격수"
     }
   ],

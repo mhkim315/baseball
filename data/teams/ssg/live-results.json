@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-18T16:15:13+09:00",
+  "fetchedAt": "2026-07-18T17:59:13+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1987,7 +1987,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260718HTSK0"
+          "gameId": "20260718HTSK02026",
+          "awayStarter": "네일",
+          "homeStarter": "해치",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

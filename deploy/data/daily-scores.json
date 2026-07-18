@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T16:16:13.438921+09:00",
+  "generatedAt": "2026-07-18T18:00:47.737851+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5651,8 +5651,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "잭로그",
+        "homeStarter": "구창모",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5663,8 +5663,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "사우어",
+        "homeStarter": "임찬규",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5675,8 +5675,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "안우진",
+        "homeStarter": "에르난데스",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5687,8 +5687,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "네일",
+        "homeStarter": "해치",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5699,8 +5699,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "나균안",
+        "homeStarter": "페덱",
         "winPitcher": null,
         "losePitcher": null
       }
