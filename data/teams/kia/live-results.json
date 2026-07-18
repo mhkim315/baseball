@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-18T20:25:29+09:00",
+  "fetchedAt": "2026-07-18T21:09:37+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -1979,12 +1979,12 @@
           "away": "KIA",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 7,
+          "awayScore": 12,
           "homeScore": 2,
-          "scoreLine": "7-2",
-          "ourScore": 7,
+          "scoreLine": "12-2",
+          "ourScore": 12,
           "oppScore": 2,
-          "ourScoreLine": "7-2",
+          "ourScoreLine": "12-2",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260718HTSK02026",
