@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-18",
-    "lastUpdated": "2026-07-18T23:39:54+09:00",
-    "gameId": "20260718KTLG02026",
-    "kboGameId": "20260718KTLG0",
+    "lineupDate": "2026-07-19",
+    "lastUpdated": "2026-07-19T14:40:42+09:00",
+    "gameId": "20260719KTLG02026",
+    "kboGameId": "20260719KTLG0",
     "opponent": "LG",
     "venue": "잠실",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "사우어"
+    "name": "고영표"
   },
   "opponentStartingPitcher": {
-    "name": "임찬규"
+    "name": "송승기"
   }
 }

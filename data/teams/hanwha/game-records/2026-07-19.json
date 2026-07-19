@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260719WOHH02026",
+    "gameDate": "2026-07-19",
+    "lastUpdated": "2026-07-19T14:41:08+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "76715",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260719,
+    "aPCode": "56318",
+    "round": 12,
+    "gtime": "18:00",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.59",
+    "hra": "0.274",
+    "w": 40,
+    "wra": "0.482",
+    "name": "한화",
+    "rank": 6,
+    "hr": 98,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 40,
+      "l": 43
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "5.01",
+    "hra": "0.238",
+    "w": 32,
+    "wra": "0.360",
+    "name": "키움",
+    "rank": 10,
+    "hr": 56,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 32,
+      "l": 57
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "류현진"
+  },
+  "awayStarter": {
+    "name": "박준현"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

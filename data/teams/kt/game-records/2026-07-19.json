@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260719KTLG02026",
+    "gameDate": "2026-07-19",
+    "lastUpdated": "2026-07-19T14:41:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "51111",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260719,
+    "aPCode": "64001",
+    "round": 12,
+    "gtime": "18:00",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.54",
+    "hra": "0.271",
+    "w": 52,
+    "wra": "0.591",
+    "name": "LG",
+    "rank": 2,
+    "hr": 78,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 52,
+      "l": 36
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.63",
+    "hra": "0.282",
+    "w": 50,
+    "wra": "0.588",
+    "name": "KT",
+    "rank": 3,
+    "hr": 60,
+    "l": 35,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 50,
+      "l": 35
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "송승기"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
