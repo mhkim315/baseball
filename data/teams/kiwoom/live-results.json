@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-19T20:46:56+09:00",
+  "fetchedAt": "2026-07-19T21:38:14+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2001,12 +2001,12 @@
           "away": "키움",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 4,
+          "awayScore": 9,
           "homeScore": 9,
-          "scoreLine": "4-9",
-          "ourScore": 4,
+          "scoreLine": "9-9",
+          "ourScore": 9,
           "oppScore": 9,
-          "ourScoreLine": "4-9",
+          "ourScoreLine": "9-9",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260719WOHH02026",
