@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260719WOHH02026",
-    "fetchedAt": "2026-07-19T16:48:10+09:00"
+    "fetchedAt": "2026-07-19T18:31:38+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 2,
