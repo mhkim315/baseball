@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-07-19",
-    "lastUpdated": "2026-07-19T23:10:02+09:00",
-    "gameId": "20260719LTSS02026",
-    "kboGameId": "20260719LTSS0",
-    "opponent": "삼성",
-    "venue": "대구",
-    "gameTime": "18:00",
+    "lineupDate": "2026-07-21",
+    "lastUpdated": "2026-07-20T12:56:23+09:00",
+    "gameId": "20260721SKLT02026",
+    "kboGameId": "20260721SKLT0",
+    "opponent": "SSG",
+    "venue": "사직",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "삼성",
-    "teamName": "삼성"
+    "teamShort": "SSG",
+    "teamName": "SSG"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김현준",
-      "position": "중견수"
+      "name": "정준재",
+      "position": "2루수"
     },
     {
       "order": 2,
-      "name": "김성윤",
-      "position": "우익수"
+      "name": "박성한",
+      "position": "유격수"
     },
     {
       "order": 3,
-      "name": "구자욱",
-      "position": "좌익수"
+      "name": "고명준",
+      "position": "3루수"
     },
     {
       "order": 4,
-      "name": "최형우",
+      "name": "류효승",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "디아즈",
+      "name": "전의산",
       "position": "1루수"
     },
     {
       "order": 6,
-      "name": "전병우",
-      "position": "3루수"
-    },
-    {
-      "order": 7,
-      "name": "류지혁",
-      "position": "2루수"
-    },
-    {
-      "order": 8,
-      "name": "김도환",
+      "name": "이지영",
       "position": "포수"
     },
     {
+      "order": 7,
+      "name": "채현우",
+      "position": "좌익수"
+    },
+    {
+      "order": 8,
+      "name": "최지훈",
+      "position": "중견수"
+    },
+    {
       "order": 9,
-      "name": "심재훈",
-      "position": "유격수"
+      "name": "임근우",
+      "position": "우익수"
     }
   ],
   "startingPitcher": {
-    "name": "김진욱"
+    "name": "비슬리"
   },
   "opponentStartingPitcher": {
-    "name": "원태인"
+    "name": "타케다"
   }
 }
