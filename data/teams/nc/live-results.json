@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-21T21:12:39+09:00",
+  "fetchedAt": "2026-07-21T23:20:03+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2029,13 +2029,13 @@
           "ourScore": 7,
           "oppScore": 5,
           "ourScoreLine": "7-5",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260721NCLG02026",
           "awayStarter": "원종해",
           "homeStarter": "장현식",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "전사민",
+          "losePitcher": "김윤식"
         }
       ]
     },

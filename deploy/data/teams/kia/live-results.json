@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-21T21:12:39+09:00",
+  "fetchedAt": "2026-07-21T23:20:03+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2023,19 +2023,19 @@
           "away": "한화",
           "home": "KIA",
           "venue": "광주",
-          "awayScore": 1,
-          "homeScore": 6,
-          "scoreLine": "1-6",
-          "ourScore": 6,
-          "oppScore": 1,
-          "ourScoreLine": "6-1",
-          "outcome": null,
+          "awayScore": 3,
+          "homeScore": 7,
+          "scoreLine": "3-7",
+          "ourScore": 7,
+          "oppScore": 3,
+          "ourScoreLine": "7-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260721HHHT02026",
           "awayStarter": "박준영",
           "homeStarter": "황동하",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "황동하",
+          "losePitcher": "박준영"
         }
       ]
     },

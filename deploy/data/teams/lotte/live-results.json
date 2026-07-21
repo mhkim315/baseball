@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-21T21:12:39+09:00",
+  "fetchedAt": "2026-07-21T23:20:03+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2029,13 +2029,13 @@
           "ourScore": 6,
           "oppScore": 2,
           "ourScoreLine": "6-2",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260721SKLT02026",
           "awayStarter": "타케다",
           "homeStarter": "비슬리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "비슬리",
+          "losePitcher": "타케다"
         }
       ]
     },
