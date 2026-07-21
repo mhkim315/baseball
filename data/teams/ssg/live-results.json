@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-21T15:14:09+09:00",
+  "fetchedAt": "2026-07-21T17:44:12+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2031,7 +2031,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260721SKLT0"
+          "gameId": "20260721SKLT02026",
+          "awayStarter": "타케다",
+          "homeStarter": "비슬리",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

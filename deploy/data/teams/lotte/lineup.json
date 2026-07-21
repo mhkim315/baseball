@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-07-21",
-    "lastUpdated": "2026-07-21T15:15:09+09:00",
+    "lastUpdated": "2026-07-21T17:45:13+09:00",
     "gameId": "20260721SKLT02026",
     "kboGameId": "20260721SKLT0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,8 +29,8 @@
   "batters": [
     {
       "order": 1,
-      "name": "황성빈",
-      "position": "중견수"
+      "name": "한태양",
+      "position": "3루수"
     },
     {
       "order": 2,
@@ -54,18 +54,18 @@
     },
     {
       "order": 6,
-      "name": "윤동희",
-      "position": "우익수"
+      "name": "전민재",
+      "position": "유격수"
     },
     {
       "order": 7,
-      "name": "한태양",
-      "position": "3루수"
+      "name": "윤동희",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "전민재",
-      "position": "유격수"
+      "name": "손호영",
+      "position": "우익수"
     },
     {
       "order": 9,
@@ -86,13 +86,13 @@
     },
     {
       "order": 3,
-      "name": "고명준",
-      "position": "3루수"
+      "name": "마드리스",
+      "position": "우익수"
     },
     {
       "order": 4,
-      "name": "류효승",
-      "position": "지명타자"
+      "name": "김재환",
+      "position": "좌익수"
     },
     {
       "order": 5,
@@ -101,23 +101,23 @@
     },
     {
       "order": 6,
-      "name": "이지영",
-      "position": "포수"
-    },
-    {
-      "order": 7,
-      "name": "채현우",
-      "position": "좌익수"
-    },
-    {
-      "order": 8,
       "name": "최지훈",
       "position": "중견수"
     },
     {
+      "order": 7,
+      "name": "류효승",
+      "position": "지명타자"
+    },
+    {
+      "order": 8,
+      "name": "조형우",
+      "position": "포수"
+    },
+    {
       "order": 9,
-      "name": "임근우",
-      "position": "우익수"
+      "name": "홍대인",
+      "position": "3루수"
     }
   ],
   "startingPitcher": {
