@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260721HHHT02026",
+    "gameDate": "2026-07-21",
+    "lastUpdated": "2026-07-21T12:38:08+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "52641",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260721,
+    "aPCode": "56709",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.24",
+    "hra": "0.269",
+    "w": 48,
+    "wra": "0.545",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 105,
+    "l": 40,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 48,
+      "l": 40
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.60",
+    "hra": "0.273",
+    "w": 40,
+    "wra": "0.482",
+    "name": "한화",
+    "rank": 6,
+    "hr": 100,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 40,
+      "l": 43
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "황동하"
+  },
+  "awayStarter": {
+    "name": "박준영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

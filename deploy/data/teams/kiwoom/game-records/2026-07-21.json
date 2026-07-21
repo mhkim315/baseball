@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260721SSWO02026",
+    "gameDate": "2026-07-21",
+    "lastUpdated": "2026-07-21T12:38:05+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "51761",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260721,
+    "aPCode": "65320",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "5.02",
+    "hra": "0.238",
+    "w": 32,
+    "wra": "0.360",
+    "name": "키움",
+    "rank": 10,
+    "hr": 56,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 32,
+      "l": 57
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.11",
+    "hra": "0.277",
+    "w": 53,
+    "wra": "0.616",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 79,
+    "l": 33,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 53,
+      "l": 33
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "배동현"
+  },
+  "awayStarter": {
+    "name": "최원태"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

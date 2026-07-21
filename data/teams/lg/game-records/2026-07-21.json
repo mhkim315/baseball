@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260721NCLG02026",
+    "gameDate": "2026-07-21",
+    "lastUpdated": "2026-07-21T12:38:04+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "63950",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260721,
+    "aPCode": "54906",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 0,
+    "era": "4.53",
+    "hra": "0.270",
+    "w": 52,
+    "wra": "0.584",
+    "name": "LG",
+    "rank": 3,
+    "hr": 79,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 52,
+      "l": 37
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.66",
+    "hra": "0.276",
+    "w": 40,
+    "wra": "0.471",
+    "name": "NC",
+    "rank": 7,
+    "hr": 86,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 40,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "장현식"
+  },
+  "awayStarter": {
+    "name": "원종해"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260721OBKT02026",
+    "gameDate": "2026-07-21",
+    "lastUpdated": "2026-07-21T12:38:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "50859",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260721,
+    "aPCode": "52043",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.59",
+    "hra": "0.282",
+    "w": 51,
+    "wra": "0.593",
+    "name": "KT",
+    "rank": 2,
+    "hr": 61,
+    "l": 35,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 51,
+      "l": 35
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "3.88",
+    "hra": "0.271",
+    "w": 47,
+    "wra": "0.528",
+    "name": "두산",
+    "rank": 5,
+    "hr": 72,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 47,
+      "l": 42
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "오원석"
+  },
+  "awayStarter": {
+    "name": "벤자민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
