@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-22T21:16:48+09:00",
+  "fetchedAt": "2026-07-22T23:25:09+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2047,13 +2047,13 @@
           "ourScore": 3,
           "oppScore": 1,
           "ourScoreLine": "3-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260722SSWO02026",
           "awayStarter": "김백산",
           "homeStarter": "알칸타라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박지성",
+          "losePitcher": "김백산"
         }
       ]
     },

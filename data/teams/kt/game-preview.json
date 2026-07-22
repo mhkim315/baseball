@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260722OBKT02026",
-    "fetchedAt": "2026-07-22T21:17:07+09:00"
+    "fetchedAt": "2026-07-22T23:25:25+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
@@ -253,7 +253,7 @@
       "bb": 8,
       "kk": 20,
       "gameCount": 5,
-      "gday": "20260721",
+      "gday": "20260722",
       "inn": "27.0",
       "hp": 0,
       "teamCode": "KT",
@@ -312,7 +312,7 @@
       "bb": 29,
       "kk": 120,
       "gameCount": 18,
-      "gday": "20260721",
+      "gday": "20260722",
       "inn": "103.0",
       "hp": 4,
       "teamCode": "OB",

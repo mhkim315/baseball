@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260722NCLG02026",
-    "fetchedAt": "2026-07-22T21:17:13+09:00"
+    "fetchedAt": "2026-07-22T23:25:30+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
@@ -253,7 +253,7 @@
       "bb": 27,
       "kk": 78,
       "gameCount": 18,
-      "gday": "20260721",
+      "gday": "20260722",
       "inn": "98.1",
       "hp": 8,
       "teamCode": "LG",
@@ -312,7 +312,7 @@
       "bb": 17,
       "kk": 89,
       "gameCount": 12,
-      "gday": "20260721",
+      "gday": "20260722",
       "inn": "69.2",
       "hp": 0,
       "teamCode": "NC",
