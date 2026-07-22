@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260722NCLG02026",
-    "fetchedAt": "2026-07-22T19:50:52+09:00"
+    "fetchedAt": "2026-07-22T21:17:13+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
     "hPCode": "55130",
     "hCode": "LG",
     "hName": "LG",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260722,
     "aPCode": "55903",
-    "round": 10,
+    "round": 0,
     "gtime": "18:30",
     "aName": "NC",
     "gameFlag": "0",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 0,
