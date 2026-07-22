@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-07-21",
-    "lastUpdated": "2026-07-21T23:21:29+09:00",
-    "gameId": "20260721SKLT02026",
-    "kboGameId": "20260721SKLT0",
+    "lineupDate": "2026-07-22",
+    "lastUpdated": "2026-07-22T12:33:36+09:00",
+    "gameId": "20260722SKLT02026",
+    "kboGameId": "20260722SKLT0",
     "opponent": "SSG",
     "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "비슬리"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "타케다"
+    "name": "아빌라"
   }
 }

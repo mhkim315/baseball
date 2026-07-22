@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260722SSWO02026",
+    "gameDate": "2026-07-22",
+    "lastUpdated": "2026-07-22T12:33:49+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "69045",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260722,
+    "aPCode": "55420",
+    "round": 11,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "5.04",
+    "hra": "0.238",
+    "w": 32,
+    "wra": "0.356",
+    "name": "키움",
+    "rank": 10,
+    "hr": 58,
+    "l": 58,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 32,
+      "l": 58
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.12",
+    "hra": "0.278",
+    "w": 54,
+    "wra": "0.621",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 80,
+    "l": 33,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 54,
+      "l": 33
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "알칸타라"
+  },
+  "awayStarter": {
+    "name": "김백산"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

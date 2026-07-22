@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-07-21",
-    "lastUpdated": "2026-07-21T23:21:05+09:00",
-    "gameId": "20260721OBKT02026",
-    "kboGameId": "20260721OBKT0",
+    "lineupDate": "2026-07-22",
+    "lastUpdated": "2026-07-22T12:33:12+09:00",
+    "gameId": "20260722OBKT02026",
+    "kboGameId": "20260722OBKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "벤자민"
+    "name": "곽빈"
   },
   "opponentStartingPitcher": {
-    "name": "오원석"
+    "name": "로건"
   }
 }

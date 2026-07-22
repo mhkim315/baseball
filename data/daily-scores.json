@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T23:21:34.559404+09:00",
+  "generatedAt": "2026-07-22T12:33:53.401950+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5773,7 +5773,7 @@
         "home": "KT",
         "awayScore": 2,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "T",
         "cancelled": false,
         "awayStarter": "벤자민",
         "homeStarter": "오원석",

@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-07-21T23:19:54+09:00",
+  "fetchedAt": "2026-07-22T12:32:00+09:00",
   "rows": [
     {
       "rank": 1,
@@ -14,7 +14,7 @@
       "rank": 2,
       "teamName": "KT",
       "winRate": 0.593,
-      "wlt": "51승1무35패",
+      "wlt": "51승2무35패",
       "gamesBehind": 2.5,
       "streak": "7승"
     },
@@ -38,7 +38,7 @@
       "rank": 5,
       "teamName": "두산",
       "winRate": 0.528,
-      "wlt": "47승2무42패",
+      "wlt": "47승3무42패",
       "gamesBehind": 8.0,
       "streak": "3승"
     },
