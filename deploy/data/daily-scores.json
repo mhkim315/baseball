@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T17:43:28.120934+09:00",
+  "generatedAt": "2026-07-22T19:51:55.997982+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5869,7 +5869,7 @@
       {
         "away": "SSG",
         "home": "롯데",
-        "awayScore": 0,
+        "awayScore": 5,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -5881,7 +5881,7 @@
       {
         "away": "한화",
         "home": "KIA",
-        "awayScore": 0,
+        "awayScore": 4,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
