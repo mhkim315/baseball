@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260722OBKT02026",
-    "fetchedAt": "2026-07-22T23:25:25+09:00"
+    "naverGameId": "20260723OBKT02026",
+    "fetchedAt": "2026-07-23T13:28:38+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
     "hPCode": "55912",
     "hCode": "KT",
     "hName": "KT",
-    "cancelFlag": "Y",
-    "gdate": 20260722,
+    "cancelFlag": "N",
+    "gdate": 20260723,
     "aPCode": "68220",
-    "round": 0,
+    "round": 11,
     "gtime": "18:30",
     "aName": "두산",
     "gameFlag": "0",

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260723SKLT02026",
+    "gameDate": "2026-07-23",
+    "lastUpdated": "2026-07-23T13:29:34+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "56531",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260723,
+    "aPCode": "56840",
+    "round": 12,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.46",
+    "hra": "0.259",
+    "w": 40,
+    "wra": "0.455",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 66,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 40,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.85",
+    "hra": "0.260",
+    "w": 33,
+    "wra": "0.371",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 102,
+    "l": 56,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 33,
+      "l": 56
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "로드리게스"
+  },
+  "awayStarter": {
+    "name": "김민준"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

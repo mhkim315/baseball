@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-07-22",
-    "lastUpdated": "2026-07-22T23:26:00+09:00",
-    "gameId": "20260722SKLT02026",
-    "kboGameId": "20260722SKLT0",
+    "lineupDate": "2026-07-23",
+    "lastUpdated": "2026-07-23T13:29:12+09:00",
+    "gameId": "20260723SKLT02026",
+    "kboGameId": "20260723SKLT0",
     "opponent": "롯데",
     "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "아빌라"
+    "name": "김민준"
   },
   "opponentStartingPitcher": {
-    "name": "박세웅"
+    "name": "로드리게스"
   }
 }

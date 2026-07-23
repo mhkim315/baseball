@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-07-22",
-    "lastUpdated": "2026-07-22T23:25:56+09:00",
-    "gameId": "20260722NCLG02026",
-    "kboGameId": "20260722NCLG0",
+    "lineupDate": "2026-07-23",
+    "lastUpdated": "2026-07-23T13:29:08+09:00",
+    "gameId": "20260723NCLG02026",
+    "kboGameId": "20260723NCLG0",
     "opponent": "NC",
     "venue": "잠실",
     "gameTime": "18:30",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "웰스"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "테일러"
   }
 }
