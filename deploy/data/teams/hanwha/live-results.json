@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-23T16:04:23+09:00",
+  "fetchedAt": "2026-07-23T18:30:17+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2075,7 +2075,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260723HHHT0"
+          "gameId": "20260723HHHT02026",
+          "awayStarter": "왕옌청",
+          "homeStarter": "시라카와",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

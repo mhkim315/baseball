@@ -2,24 +2,24 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260723OBKT02026",
-    "fetchedAt": "2026-07-23T16:04:45+09:00"
+    "fetchedAt": "2026-07-23T18:30:31+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
     "hPCode": "55912",
     "hCode": "KT",
     "hName": "KT",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260723,
     "aPCode": "68220",
-    "round": 11,
+    "round": 0,
     "gtime": "18:30",
     "aName": "두산",
     "gameFlag": "0",
     "hFullName": "kt wiz",
     "stadium": "수원",
     "aCode": "OB",
-    "optionFlag": 1,
+    "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"

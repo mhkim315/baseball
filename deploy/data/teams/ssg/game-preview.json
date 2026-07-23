@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260723SKLT02026",
-    "fetchedAt": "2026-07-23T16:04:43+09:00"
+    "fetchedAt": "2026-07-23T18:30:30+09:00"
   },
   "gameInfo": {
     "aFullName": "SSG 랜더스",
@@ -19,10 +19,10 @@
     "hFullName": "롯데 자이언츠",
     "stadium": "사직",
     "aCode": "SK",
-    "optionFlag": 1,
+    "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 2,
