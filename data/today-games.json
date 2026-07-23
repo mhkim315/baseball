@@ -1,6 +1,6 @@
 {
   "date": "2026-07-23",
-  "generatedAt": "2026-07-23T18:31:20.253330+09:00",
+  "generatedAt": "2026-07-23T20:26:30.313332+09:00",
   "games": [
     {
       "id": "20260723-SSWO-0",
@@ -94,7 +94,7 @@
       "date": "2026-07-23",
       "venue": "수원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "doosan",
         "name": "두산",
