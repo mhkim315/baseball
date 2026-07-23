@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-07-23T20:25:00+09:00",
+  "fetchedAt": "2026-07-23T21:54:02+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
