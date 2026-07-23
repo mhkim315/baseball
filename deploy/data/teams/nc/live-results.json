@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-23T21:54:02+09:00",
+  "fetchedAt": "2026-07-23T23:56:02+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2073,13 +2073,13 @@
           "ourScore": 7,
           "oppScore": 5,
           "ourScoreLine": "7-5",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260723NCLG02026",
           "awayStarter": "테일러",
           "homeStarter": "웰스",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "테일러",
+          "losePitcher": "웰스"
         }
       ]
     },
