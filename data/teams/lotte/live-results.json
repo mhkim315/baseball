@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-24T17:41:00+09:00",
+  "fetchedAt": "2026-07-24T19:37:07+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2089,12 +2089,12 @@
           "away": "KT",
           "home": "롯데",
           "venue": "사직",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 3,
+          "homeScore": 2,
+          "scoreLine": "3-2",
+          "ourScore": 2,
+          "oppScore": 3,
+          "ourScoreLine": "2-3",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260724KTLT02026",

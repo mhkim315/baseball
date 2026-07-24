@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-07-24",
-    "lastUpdated": "2026-07-24T17:42:16+09:00",
+    "lastUpdated": "2026-07-24T19:38:06+09:00",
     "gameId": "20260724NCSK02026",
     "kboGameId": "20260724NCSK0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "홍대인",
+      "name": "안상현",
       "position": "3루수"
     }
   ],
@@ -111,7 +111,7 @@
     },
     {
       "order": 8,
-      "name": "안중열",
+      "name": "김형준",
       "position": "포수"
     },
     {
