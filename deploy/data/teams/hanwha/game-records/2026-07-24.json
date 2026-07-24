@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260724LGHH02026",
+    "gameDate": "2026-07-24",
+    "lastUpdated": "2026-07-24T12:40:02+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "52731",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260724,
+    "aPCode": "61101",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "LG",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.59",
+    "hra": "0.275",
+    "w": 42,
+    "wra": "0.488",
+    "name": "한화",
+    "rank": 6,
+    "hr": 103,
+    "l": 44,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 42,
+      "l": 44
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "4.59",
+    "hra": "0.270",
+    "w": 52,
+    "wra": "0.571",
+    "name": "LG",
+    "rank": 3,
+    "hr": 79,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 52,
+      "l": 39
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박준영"
+  },
+  "awayStarter": {
+    "name": "임찬규"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

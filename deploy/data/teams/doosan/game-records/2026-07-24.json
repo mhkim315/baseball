@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260724SSOB02026",
+    "gameDate": "2026-07-24",
+    "lastUpdated": "2026-07-24T12:39:55+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "55268",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260724,
+    "aPCode": "56459",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "SS",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "3.84",
+    "hra": "0.270",
+    "w": 47,
+    "wra": "0.528",
+    "name": "두산",
+    "rank": 5,
+    "hr": 72,
+    "l": 42,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 47,
+      "l": 42
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.07",
+    "hra": "0.277",
+    "w": 55,
+    "wra": "0.618",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 80,
+    "l": 34,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 55,
+      "l": 34
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최민석"
+  },
+  "awayStarter": {
+    "name": "페덱"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

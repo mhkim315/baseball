@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260724NCSK02026",
+    "gameDate": "2026-07-24",
+    "lastUpdated": "2026-07-24T12:40:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "56855",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260724,
+    "aPCode": "65933",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "NC",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.81",
+    "hra": "0.260",
+    "w": 34,
+    "wra": "0.378",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 103,
+    "l": 56,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 34,
+      "l": 56
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.65",
+    "hra": "0.277",
+    "w": 42,
+    "wra": "0.483",
+    "name": "NC",
+    "rank": 7,
+    "hr": 88,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 42,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "해치"
+  },
+  "awayStarter": {
+    "name": "구창모"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

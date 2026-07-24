@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-23",
-    "lastUpdated": "2026-07-23T23:57:11+09:00",
-    "gameId": "20260723OBKT02026",
-    "kboGameId": "20260723OBKT0",
-    "opponent": "두산",
-    "venue": "수원",
+    "lineupDate": "2026-07-24",
+    "lastUpdated": "2026-07-24T12:39:36+09:00",
+    "gameId": "20260724KTLT02026",
+    "kboGameId": "20260724KTLT0",
+    "opponent": "롯데",
+    "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "두산",
-    "teamName": "두산"
+    "teamShort": "롯데",
+    "teamName": "롯데"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "황성빈",
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "김민석",
-      "position": "좌익수"
+      "name": "고승민",
+      "position": "2루수"
     },
     {
       "order": 3,
-      "name": "박준순",
-      "position": "지명타자"
+      "name": "레이예스",
+      "position": "우익수"
     },
     {
       "order": 4,
-      "name": "세베리노",
-      "position": "1루수"
+      "name": "한동희",
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "양의지",
-      "position": "포수"
+      "name": "나승엽",
+      "position": "1루수"
     },
     {
       "order": 6,
-      "name": "안재석",
+      "name": "한태양",
       "position": "3루수"
     },
     {
       "order": 7,
-      "name": "정수빈",
-      "position": "중견수"
+      "name": "전준우",
+      "position": "좌익수"
     },
     {
       "order": 8,
-      "name": "강승호",
-      "position": "2루수"
+      "name": "전민재",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "조수행",
-      "position": "우익수"
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
     "name": "로건"
   },
   "opponentStartingPitcher": {
-    "name": "곽빈"
+    "name": "나균안"
   }
 }
