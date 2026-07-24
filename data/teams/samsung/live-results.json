@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-24T21:05:14+09:00",
+  "fetchedAt": "2026-07-24T23:04:52+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2089,19 +2089,19 @@
           "away": "삼성",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 14,
-          "homeScore": 2,
-          "scoreLine": "14-2",
-          "ourScore": 14,
-          "oppScore": 2,
-          "ourScoreLine": "14-2",
-          "outcome": null,
+          "awayScore": 15,
+          "homeScore": 4,
+          "scoreLine": "15-4",
+          "ourScore": 15,
+          "oppScore": 4,
+          "ourScoreLine": "15-4",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260724SSOB02026",
           "awayStarter": "페덱",
           "homeStarter": "최민석",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "페덱",
+          "losePitcher": "최민석"
         }
       ]
     },

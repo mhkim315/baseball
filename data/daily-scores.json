@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T21:06:37.011725+09:00",
+  "generatedAt": "2026-07-24T23:06:29.500974+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5957,62 +5957,62 @@
       {
         "away": "삼성",
         "home": "두산",
-        "awayScore": 14,
-        "homeScore": 2,
-        "outcome": null,
+        "awayScore": 15,
+        "homeScore": 4,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "페덱",
         "homeStarter": "최민석",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "페덱",
+        "losePitcher": "최민석"
       },
       {
         "away": "LG",
         "home": "한화",
         "awayScore": 4,
         "homeScore": 8,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "임찬규",
         "homeStarter": "박준영",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "장유호",
+        "losePitcher": "임찬규"
       },
       {
         "away": "키움",
         "home": "KIA",
-        "awayScore": 4,
+        "awayScore": 8,
         "homeScore": 5,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "안우진",
         "homeStarter": "네일",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "정다훈",
+        "losePitcher": "조상우"
       },
       {
         "away": "NC",
         "home": "SSG",
-        "awayScore": 2,
-        "homeScore": 5,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 7,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "구창모",
         "homeStarter": "해치",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "해치",
+        "losePitcher": "구창모"
       },
       {
         "away": "KT",
         "home": "롯데",
         "awayScore": 5,
         "homeScore": 4,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "로건",
         "homeStarter": "나균안",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "로건",
+        "losePitcher": "나균안"
       }
     ],
     "2026-07-25": [

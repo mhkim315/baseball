@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-24T21:05:14+09:00",
+  "fetchedAt": "2026-07-24T23:04:52+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2089,19 +2089,19 @@
           "away": "NC",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 2,
-          "homeScore": 5,
-          "scoreLine": "2-5",
-          "ourScore": 5,
-          "oppScore": 2,
-          "ourScoreLine": "5-2",
-          "outcome": null,
+          "awayScore": 3,
+          "homeScore": 7,
+          "scoreLine": "3-7",
+          "ourScore": 7,
+          "oppScore": 3,
+          "ourScoreLine": "7-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260724NCSK02026",
           "awayStarter": "구창모",
           "homeStarter": "해치",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "해치",
+          "losePitcher": "구창모"
         }
       ]
     },
