@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T15:13:32.153750+09:00",
+  "generatedAt": "2026-07-24T17:42:36.455773+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -5961,8 +5961,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "페덱",
+        "homeStarter": "최민석",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -5985,8 +5985,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "안우진",
+        "homeStarter": "네일",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6009,8 +6009,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로건",
+        "homeStarter": "나균안",
         "winPitcher": null,
         "losePitcher": null
       }
