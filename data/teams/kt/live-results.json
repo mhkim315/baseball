@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-25T20:18:34+09:00",
+  "fetchedAt": "2026-07-25T21:11:11+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2111,19 +2111,19 @@
           "away": "KT",
           "home": "롯데",
           "venue": "사직",
-          "awayScore": 4,
+          "awayScore": 6,
           "homeScore": 1,
-          "scoreLine": "4-1",
-          "ourScore": 4,
+          "scoreLine": "6-1",
+          "ourScore": 6,
           "oppScore": 1,
-          "ourScoreLine": "4-1",
-          "outcome": null,
+          "ourScoreLine": "6-1",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260725KTLT02026",
           "awayStarter": "소형준",
           "homeStarter": "김진욱",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "소형준",
+          "losePitcher": "김진욱"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-25T20:18:34+09:00",
+  "fetchedAt": "2026-07-25T21:11:11+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2111,12 +2111,12 @@
           "away": "NC",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 2,
-          "homeScore": 6,
-          "scoreLine": "2-6",
-          "ourScore": 2,
-          "oppScore": 6,
-          "ourScoreLine": "2-6",
+          "awayScore": 4,
+          "homeScore": 10,
+          "scoreLine": "4-10",
+          "ourScore": 4,
+          "oppScore": 10,
+          "ourScoreLine": "4-10",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260725NCSK02026",
