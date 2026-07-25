@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-07-24",
-    "lastUpdated": "2026-07-24T23:06:04+09:00",
-    "gameId": "20260724WOHT02026",
-    "kboGameId": "20260724WOHT0",
+    "lineupDate": "2026-07-25",
+    "lastUpdated": "2026-07-25T12:41:33+09:00",
+    "gameId": "20260725WOHT02026",
+    "kboGameId": "20260725WOHT0",
     "opponent": "KIA",
     "venue": "광주",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "안우진"
+    "name": "박준현"
   },
   "opponentStartingPitcher": {
-    "name": "네일"
+    "name": "양현종"
   }
 }

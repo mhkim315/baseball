@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-07-24",
-    "lastUpdated": "2026-07-24T23:05:57+09:00",
-    "gameId": "20260724SSOB02026",
-    "kboGameId": "20260724SSOB0",
+    "lineupDate": "2026-07-25",
+    "lastUpdated": "2026-07-25T12:41:27+09:00",
+    "gameId": "20260725SSOB02026",
+    "kboGameId": "20260725SSOB0",
     "opponent": "삼성",
     "venue": "잠실",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최민석"
+    "name": "잭로그"
   },
   "opponentStartingPitcher": {
-    "name": "페덱"
+    "name": "원태인"
   }
 }

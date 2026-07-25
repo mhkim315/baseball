@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-24",
-    "lastUpdated": "2026-07-24T23:06:10+09:00",
-    "gameId": "20260724KTLT02026",
-    "kboGameId": "20260724KTLT0",
+    "lineupDate": "2026-07-25",
+    "lastUpdated": "2026-07-25T12:41:39+09:00",
+    "gameId": "20260725KTLT02026",
+    "kboGameId": "20260725KTLT0",
     "opponent": "롯데",
     "venue": "사직",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "로건"
+    "name": "소형준"
   },
   "opponentStartingPitcher": {
-    "name": "나균안"
+    "name": "김진욱"
   }
 }
