@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T21:12:12.197624+09:00",
+  "generatedAt": "2026-07-25T23:00:29.934834+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6032,13 +6032,13 @@
         "away": "LG",
         "home": "한화",
         "awayScore": 15,
-        "homeScore": 9,
-        "outcome": null,
+        "homeScore": 11,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "송승기",
         "homeStarter": "류현진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김진수",
+        "losePitcher": "박준영"
       },
       {
         "away": "키움",
@@ -6057,12 +6057,12 @@
         "home": "SSG",
         "awayScore": 4,
         "homeScore": 10,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "토다",
         "homeStarter": "김건우",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김건우",
+        "losePitcher": "토다"
       },
       {
         "away": "KT",
