@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-07-25",
-    "lastUpdated": "2026-07-25T15:06:01+09:00",
+    "lastUpdated": "2026-07-25T17:20:54+09:00",
     "gameId": "20260725SSOB02026",
     "kboGameId": "20260725SSOB0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -40,49 +40,49 @@
     {
       "order": 3,
       "name": "구자욱",
-      "position": "좌익수"
-    },
-    {
-      "order": 4,
-      "name": "최형우",
       "position": "지명타자"
     },
     {
-      "order": 5,
+      "order": 4,
       "name": "디아즈",
       "position": "1루수"
     },
     {
-      "order": 6,
-      "name": "류지혁",
-      "position": "2루수"
-    },
-    {
-      "order": 7,
+      "order": 5,
       "name": "이재현",
       "position": "유격수"
     },
     {
-      "order": 8,
+      "order": 6,
+      "name": "김헌곤",
+      "position": "좌익수"
+    },
+    {
+      "order": 7,
       "name": "김영웅",
       "position": "3루수"
     },
     {
-      "order": 9,
-      "name": "강민호",
+      "order": 8,
+      "name": "김도환",
       "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "심재훈",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "김민석",
+      "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "김민석",
-      "position": "좌익수"
+      "name": "손아섭",
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -102,7 +102,7 @@
     {
       "order": 6,
       "name": "세베리노",
-      "position": "지명타자"
+      "position": "1루수"
     },
     {
       "order": 7,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "강승호",
-      "position": "1루수"
+      "name": "김대한",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "조수행",
-      "position": "우익수"
+      "name": "이유찬",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {

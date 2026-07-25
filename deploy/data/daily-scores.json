@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-25T15:06:12.161952+09:00",
+  "generatedAt": "2026-07-25T17:21:01.652854+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6023,8 +6023,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "원태인",
+        "homeStarter": "잭로그",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6035,8 +6035,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "송승기",
+        "homeStarter": "류현진",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6047,8 +6047,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "박준현",
+        "homeStarter": "양현종",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6059,8 +6059,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "토다",
+        "homeStarter": "김건우",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6071,8 +6071,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "소형준",
+        "homeStarter": "김진욱",
         "winPitcher": null,
         "losePitcher": null
       }
