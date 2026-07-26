@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T15:27:21.993922+09:00",
+  "generatedAt": "2026-07-26T17:44:08.223747+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6085,8 +6085,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "보스",
+        "homeStarter": "곽빈",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6097,8 +6097,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "박시원",
+        "homeStarter": "짐머맨",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6109,8 +6109,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "김윤하",
+        "homeStarter": "황동하",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6121,8 +6121,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "라일리",
+        "homeStarter": "타케다",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6133,8 +6133,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "사우어",
+        "homeStarter": "비슬리",
         "winPitcher": null,
         "losePitcher": null
       }
