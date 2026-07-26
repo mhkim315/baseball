@@ -1,13 +1,13 @@
 {
   "date": "2026-07-26",
-  "generatedAt": "2026-07-26T21:44:49.727336+09:00",
+  "generatedAt": "2026-07-26T23:16:00.725534+09:00",
   "games": [
     {
       "id": "20260726-WOHT-0",
       "date": "2026-07-26",
       "venue": "광주",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -27,7 +27,7 @@
         "record": "50승2무43패"
       },
       "score": {
-        "away": 7,
+        "away": 8,
         "home": 3
       }
     },
@@ -56,8 +56,8 @@
         "record": "43승3무45패"
       },
       "score": {
-        "away": 2,
-        "home": 4
+        "away": 4,
+        "home": 14
       }
     },
     {
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 5,
-        "home": 2
+        "home": 5
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-07-26",
       "venue": "사직",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 1,
-        "home": 13
+        "home": 15
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-07-26",
       "venue": "잠실",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -144,7 +144,7 @@
       },
       "score": {
         "away": 0,
-        "home": 6
+        "home": 7
       }
     }
   ],

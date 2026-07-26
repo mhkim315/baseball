@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-26T21:43:04+09:00",
+  "fetchedAt": "2026-07-26T23:14:11+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2139,13 +2139,13 @@
           "ourScore": 4,
           "oppScore": 14,
           "ourScoreLine": "4-14",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260726LGHH02026",
           "awayStarter": "박시원",
           "homeStarter": "짐머맨",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박상원",
+          "losePitcher": "배재준"
         }
       ]
     },
