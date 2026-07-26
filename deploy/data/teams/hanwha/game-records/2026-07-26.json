@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260726LGHH02026",
+    "gameDate": "2026-07-26",
+    "lastUpdated": "2026-07-26T12:53:00+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "56799",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260726,
+    "aPCode": "55121",
+    "round": 11,
+    "gtime": "18:00",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "LG",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.70",
+    "hra": "0.276",
+    "w": 43,
+    "wra": "0.489",
+    "name": "한화",
+    "rank": 6,
+    "hr": 105,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 43,
+      "l": 45
+    }
+  },
+  "awayStandings": {
+    "d": 0,
+    "era": "4.68",
+    "hra": "0.271",
+    "w": 53,
+    "wra": "0.570",
+    "name": "LG",
+    "rank": 3,
+    "hr": 82,
+    "l": 40,
+    "seriesOutcome": {
+      "d": 0,
+      "w": 53,
+      "l": 40
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "짐머맨"
+  },
+  "awayStarter": {
+    "name": "박시원"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

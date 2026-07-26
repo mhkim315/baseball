@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-07-25",
-    "lastUpdated": "2026-07-25T23:00:10+09:00",
-    "gameId": "20260725LGHH02026",
-    "kboGameId": "20260725LGHH0",
+    "lineupDate": "2026-07-26",
+    "lastUpdated": "2026-07-26T12:52:26+09:00",
+    "gameId": "20260726LGHH02026",
+    "kboGameId": "20260726LGHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "송승기"
+    "name": "박시원"
   },
   "opponentStartingPitcher": {
-    "name": "류현진"
+    "name": "짐머맨"
   }
 }
