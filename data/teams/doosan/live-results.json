@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-07-26T20:40:04+09:00",
+  "fetchedAt": "2026-07-26T21:43:04+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2136,18 +2136,18 @@
           "home": "두산",
           "venue": "잠실",
           "awayScore": 0,
-          "homeScore": 6,
-          "scoreLine": "0-6",
-          "ourScore": 6,
+          "homeScore": 7,
+          "scoreLine": "0-7",
+          "ourScore": 7,
           "oppScore": 0,
-          "ourScoreLine": "6-0",
-          "outcome": null,
+          "ourScoreLine": "7-0",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260726SSOB02026",
           "awayStarter": "보스",
           "homeStarter": "곽빈",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "곽빈",
+          "losePitcher": "보스"
         }
       ]
     },
