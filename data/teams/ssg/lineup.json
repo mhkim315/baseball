@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-07-26",
-    "lastUpdated": "2026-07-26T23:15:39+09:00",
-    "gameId": "20260726NCSK02026",
-    "kboGameId": "20260726NCSK0",
-    "opponent": "NC",
+    "lineupDate": "2026-07-28",
+    "lastUpdated": "2026-07-27T13:50:49+09:00",
+    "gameId": "20260728OBSK02026",
+    "kboGameId": "20260728OBSK0",
+    "opponent": "두산",
     "venue": "문학",
-    "gameTime": "18:00",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "NC",
-    "teamName": "NC"
+    "teamShort": "두산",
+    "teamName": "두산"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김주원",
+      "name": "박찬호",
       "position": "유격수"
     },
     {
       "order": 2,
-      "name": "권희동",
-      "position": "좌익수"
+      "name": "세베리노",
+      "position": "1루수"
     },
     {
       "order": 3,
-      "name": "박민우",
+      "name": "박준순",
       "position": "2루수"
     },
     {
       "order": 4,
-      "name": "김휘집",
-      "position": "3루수"
-    },
-    {
-      "order": 5,
-      "name": "박건우",
+      "name": "양의지",
       "position": "지명타자"
     },
     {
+      "order": 5,
+      "name": "김민석",
+      "position": "좌익수"
+    },
+    {
       "order": 6,
-      "name": "블레인",
-      "position": "1루수"
+      "name": "안재석",
+      "position": "3루수"
     },
     {
       "order": 7,
-      "name": "김형준",
-      "position": "포수"
-    },
-    {
-      "order": 8,
-      "name": "오장한",
+      "name": "김대한",
       "position": "우익수"
     },
     {
-      "order": 9,
-      "name": "천재환",
+      "order": 8,
+      "name": "정수빈",
       "position": "중견수"
+    },
+    {
+      "order": 9,
+      "name": "윤준호",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "타케다"
+    "name": "아빌라"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "벤자민"
   }
 }
