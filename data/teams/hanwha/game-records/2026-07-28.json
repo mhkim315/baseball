@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260728LTHH02026",
+    "gameDate": "2026-07-28",
+    "lastUpdated": "2026-07-28T13:19:27+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "56724",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260728,
+    "aPCode": "64021",
+    "round": 8,
+    "gtime": "18:30",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "LT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.69",
+    "hra": "0.278",
+    "w": 44,
+    "wra": "0.494",
+    "name": "한화",
+    "rank": 6,
+    "hr": 108,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 44,
+      "l": 45
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.41",
+    "hra": "0.260",
+    "w": 41,
+    "wra": "0.446",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 69,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 41,
+      "l": 51
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "화이트"
+  },
+  "awayStarter": {
+    "name": "박세웅"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

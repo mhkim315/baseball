@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260728KTNC02026",
+    "gameDate": "2026-07-28",
+    "lastUpdated": "2026-07-28T13:19:32+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "54906",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260728,
+    "aPCode": "64001",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "KT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.73",
+    "hra": "0.276",
+    "w": 42,
+    "wra": "0.472",
+    "name": "NC",
+    "rank": 7,
+    "hr": 91,
+    "l": 47,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 42,
+      "l": 47
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.59",
+    "hra": "0.282",
+    "w": 53,
+    "wra": "0.596",
+    "name": "KT",
+    "rank": 2,
+    "hr": 65,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 53,
+      "l": 36
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "원종해"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
