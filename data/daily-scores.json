@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T20:33:20.341243+09:00",
+  "generatedAt": "2026-07-28T22:13:34.205564+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6143,14 +6143,14 @@
       {
         "away": "두산",
         "home": "SSG",
-        "awayScore": 1,
+        "awayScore": 2,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "벤자민",
         "homeStarter": "아빌라",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이영하",
+        "losePitcher": "문승원"
       },
       {
         "away": "키움",
@@ -6167,19 +6167,19 @@
       {
         "away": "KT",
         "home": "NC",
-        "awayScore": 5,
+        "awayScore": 10,
         "homeScore": 0,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "고영표",
         "homeStarter": "원종해",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "고영표",
+        "losePitcher": "원종해"
       },
       {
         "away": "롯데",
         "home": "한화",
-        "awayScore": 4,
+        "awayScore": 8,
         "homeScore": 3,
         "outcome": null,
         "cancelled": false,
@@ -6192,13 +6192,13 @@
         "away": "KIA",
         "home": "삼성",
         "awayScore": 5,
-        "homeScore": 9,
-        "outcome": null,
+        "homeScore": 12,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "올러",
         "homeStarter": "최원태",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이승현",
+        "losePitcher": "올러"
       }
     ],
     "2026-07-29": [

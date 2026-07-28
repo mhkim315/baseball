@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-28T20:31:32+09:00",
+  "fetchedAt": "2026-07-28T22:12:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2155,19 +2155,19 @@
           "away": "두산",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 1,
+          "awayScore": 2,
           "homeScore": 1,
-          "scoreLine": "1-1",
+          "scoreLine": "2-1",
           "ourScore": 1,
-          "oppScore": 1,
-          "ourScoreLine": "1-1",
-          "outcome": null,
+          "oppScore": 2,
+          "ourScoreLine": "1-2",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260728OBSK02026",
           "awayStarter": "벤자민",
           "homeStarter": "아빌라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "이영하",
+          "losePitcher": "문승원"
         }
       ]
     },
