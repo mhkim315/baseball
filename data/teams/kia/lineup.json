@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-07-28",
-    "lastUpdated": "2026-07-28T15:44:11+09:00",
+    "lastUpdated": "2026-07-28T18:24:51+09:00",
     "gameId": "20260728HTSS02026",
     "kboGameId": "20260728HTSS0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,7 +30,7 @@
     {
       "order": 1,
       "name": "박재현",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 2,
@@ -45,32 +45,32 @@
     {
       "order": 4,
       "name": "나성범",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 5,
-      "name": "김선빈",
-      "position": "2루수"
+      "name": "한준수",
+      "position": "포수"
     },
     {
       "order": 6,
+      "name": "김선빈",
+      "position": "지명타자"
+    },
+    {
+      "order": 7,
       "name": "박상준",
       "position": "1루수"
     },
     {
-      "order": 7,
-      "name": "하주석",
+      "order": 8,
+      "name": "김규성",
       "position": "유격수"
     },
     {
-      "order": 8,
-      "name": "주효상",
-      "position": "포수"
-    },
-    {
       "order": 9,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "하주석",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
@@ -101,22 +101,22 @@
     },
     {
       "order": 6,
-      "name": "류지혁",
-      "position": "2루수"
-    },
-    {
-      "order": 7,
       "name": "이재현",
       "position": "유격수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "김영웅",
       "position": "3루수"
     },
     {
+      "order": 8,
+      "name": "류지혁",
+      "position": "2루수"
+    },
+    {
       "order": 9,
-      "name": "강민호",
+      "name": "김도환",
       "position": "포수"
     }
   ],
