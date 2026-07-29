@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-29T15:14:45+09:00",
+  "fetchedAt": "2026-07-29T18:08:31+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2185,7 +2185,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260729KTNC0"
+          "gameId": "20260729KTNC02026",
+          "awayStarter": "오원석",
+          "homeStarter": "테일러",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

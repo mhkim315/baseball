@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T15:15:46.165594+09:00",
+  "generatedAt": "2026-07-29T18:09:49.667521+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6209,8 +6209,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최승용",
+        "homeStarter": "김민준",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6221,8 +6221,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "하영민",
+        "homeStarter": "웰스",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6233,8 +6233,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "오원석",
+        "homeStarter": "테일러",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6245,8 +6245,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로드리게스",
+        "homeStarter": "왕옌청",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6257,8 +6257,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "시라카와",
+        "homeStarter": "양창섭",
         "winPitcher": null,
         "losePitcher": null
       }
