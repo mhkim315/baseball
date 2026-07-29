@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260729HTSS02026",
+    "gameDate": "2026-07-29",
+    "lastUpdated": "2026-07-29T12:33:02+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "68415",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260729,
+    "aPCode": "54843",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "HT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.06",
+    "hra": "0.279",
+    "w": 58,
+    "wra": "0.624",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 83,
+    "l": 35,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 58,
+      "l": 35
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.45",
+    "hra": "0.268",
+    "w": 50,
+    "wra": "0.526",
+    "name": "KIA",
+    "rank": 5,
+    "hr": 122,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 50,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "양창섭"
+  },
+  "awayStarter": {
+    "name": "시라카와"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

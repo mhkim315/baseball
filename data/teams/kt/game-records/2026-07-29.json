@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260729KTNC02026",
+    "gameDate": "2026-07-29",
+    "lastUpdated": "2026-07-29T12:33:00+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "56966",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260729,
+    "aPCode": "50859",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "KT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.74",
+    "hra": "0.274",
+    "w": 42,
+    "wra": "0.467",
+    "name": "NC",
+    "rank": 7,
+    "hr": 91,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 42,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.54",
+    "hra": "0.282",
+    "w": 54,
+    "wra": "0.600",
+    "name": "KT",
+    "rank": 2,
+    "hr": 66,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 54,
+      "l": 36
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "테일러"
+  },
+  "awayStarter": {
+    "name": "오원석"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

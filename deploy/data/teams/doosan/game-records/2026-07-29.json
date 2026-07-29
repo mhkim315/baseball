@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260729OBSK02026",
+    "gameDate": "2026-07-29",
+    "lastUpdated": "2026-07-29T12:32:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "56840",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260729,
+    "aPCode": "51264",
+    "round": 11,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "OB",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.68",
+    "hra": "0.259",
+    "w": 36,
+    "wra": "0.387",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 107,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 36,
+      "l": 57
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "3.81",
+    "hra": "0.270",
+    "w": 49,
+    "wra": "0.527",
+    "name": "두산",
+    "rank": 4,
+    "hr": 73,
+    "l": 44,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 44
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김민준"
+  },
+  "awayStarter": {
+    "name": "최승용"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

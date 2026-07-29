@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-07-28",
-    "lastUpdated": "2026-07-28T22:12:54+09:00",
-    "gameId": "20260728WOLG02026",
-    "kboGameId": "20260728WOLG0",
+    "lineupDate": "2026-07-29",
+    "lastUpdated": "2026-07-29T12:32:38+09:00",
+    "gameId": "20260729WOLG02026",
+    "kboGameId": "20260729WOLG0",
     "opponent": "키움",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "웰스"
   },
   "opponentStartingPitcher": {
-    "name": "전준표"
+    "name": "하영민"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T22:13:34.205564+09:00",
+  "generatedAt": "2026-07-29T12:33:05.546228+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6179,14 +6179,14 @@
       {
         "away": "롯데",
         "home": "한화",
-        "awayScore": 8,
+        "awayScore": 9,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "박세웅",
         "homeStarter": "화이트",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "현도훈",
+        "losePitcher": "화이트"
       },
       {
         "away": "KIA",

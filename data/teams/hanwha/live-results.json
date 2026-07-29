@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-28T22:12:05+09:00",
+  "fetchedAt": "2026-07-29T12:31:56+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2155,19 +2155,19 @@
           "away": "롯데",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 8,
+          "awayScore": 9,
           "homeScore": 3,
-          "scoreLine": "8-3",
+          "scoreLine": "9-3",
           "ourScore": 3,
-          "oppScore": 8,
-          "ourScoreLine": "3-8",
-          "outcome": null,
+          "oppScore": 9,
+          "ourScoreLine": "3-9",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260728LTHH02026",
           "awayStarter": "박세웅",
           "homeStarter": "화이트",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "현도훈",
+          "losePitcher": "화이트"
         }
       ]
     },
