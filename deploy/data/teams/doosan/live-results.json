@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-07-29T20:31:49+09:00",
+  "fetchedAt": "2026-07-29T22:15:36+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2180,18 +2180,18 @@
           "home": "SSG",
           "venue": "문학",
           "awayScore": 2,
-          "homeScore": 4,
-          "scoreLine": "2-4",
+          "homeScore": 6,
+          "scoreLine": "2-6",
           "ourScore": 2,
-          "oppScore": 4,
-          "ourScoreLine": "2-4",
-          "outcome": null,
+          "oppScore": 6,
+          "ourScoreLine": "2-6",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260729OBSK02026",
           "awayStarter": "최승용",
           "homeStarter": "김민준",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김민준",
+          "losePitcher": "최승용"
         }
       ]
     },

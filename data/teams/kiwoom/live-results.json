@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-29T20:31:49+09:00",
+  "fetchedAt": "2026-07-29T22:15:36+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2173,12 +2173,12 @@
           "away": "키움",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 5,
-          "homeScore": 7,
-          "scoreLine": "5-7",
-          "ourScore": 5,
-          "oppScore": 7,
-          "ourScoreLine": "5-7",
+          "awayScore": 18,
+          "homeScore": 11,
+          "scoreLine": "18-11",
+          "ourScore": 18,
+          "oppScore": 11,
+          "ourScoreLine": "18-11",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260729WOLG02026",
