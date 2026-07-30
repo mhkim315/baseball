@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-07-29T22:15:28+09:00",
+  "fetchedAt": "2026-07-30T12:19:11+09:00",
   "rows": [
     {
       "rank": 1,
@@ -13,18 +13,18 @@
     {
       "rank": 2,
       "teamName": "KT",
-      "winRate": 0.6,
-      "wlt": "54승2무36패",
-      "gamesBehind": 2.0,
-      "streak": "1승"
+      "winRate": 0.604,
+      "wlt": "55승2무36패",
+      "gamesBehind": 1.5,
+      "streak": "2승"
     },
     {
       "rank": 3,
       "teamName": "LG",
-      "winRate": 0.568,
-      "wlt": "54승0무41패",
-      "gamesBehind": 4.5,
-      "streak": "1승"
+      "winRate": 0.563,
+      "wlt": "54승0무42패",
+      "gamesBehind": 5.0,
+      "streak": "1패"
     },
     {
       "rank": 4,
@@ -53,10 +53,10 @@
     {
       "rank": 7,
       "teamName": "NC",
-      "winRate": 0.467,
-      "wlt": "42승2무48패",
-      "gamesBehind": 14.0,
-      "streak": "3패"
+      "winRate": 0.462,
+      "wlt": "42승2무49패",
+      "gamesBehind": 14.5,
+      "streak": "4패"
     },
     {
       "rank": 8,
@@ -77,10 +77,10 @@
     {
       "rank": 10,
       "teamName": "키움",
-      "winRate": 0.365,
-      "wlt": "35승2무61패",
-      "gamesBehind": 24.0,
-      "streak": "1패"
+      "winRate": 0.371,
+      "wlt": "36승2무61패",
+      "gamesBehind": 23.5,
+      "streak": "1승"
     }
   ]
 }

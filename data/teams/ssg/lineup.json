@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-07-29",
-    "lastUpdated": "2026-07-29T20:32:38+09:00",
-    "gameId": "20260729OBSK02026",
-    "kboGameId": "20260729OBSK0",
+    "lineupDate": "2026-07-30",
+    "lastUpdated": "2026-07-30T12:20:06+09:00",
+    "gameId": "20260730OBSK02026",
+    "kboGameId": "20260730OBSK0",
     "opponent": "두산",
     "venue": "문학",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김민준"
+    "name": "해치"
   },
   "opponentStartingPitcher": {
-    "name": "최승용"
+    "name": "최민석"
   }
 }

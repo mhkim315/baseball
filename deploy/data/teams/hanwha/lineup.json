@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-07-29",
-    "lastUpdated": "2026-07-29T20:32:42+09:00",
-    "gameId": "20260729LTHH02026",
-    "kboGameId": "20260729LTHH0",
+    "lineupDate": "2026-07-30",
+    "lastUpdated": "2026-07-30T12:20:10+09:00",
+    "gameId": "20260730LTHH02026",
+    "kboGameId": "20260730LTHH0",
     "opponent": "롯데",
     "venue": "대전",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "왕옌청"
+    "name": "박준영"
   },
   "opponentStartingPitcher": {
-    "name": "로드리게스"
+    "name": "나균안"
   }
 }
