@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-30T21:16:35+09:00",
+  "fetchedAt": "2026-07-30T23:33:51+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2199,19 +2199,19 @@
           "away": "KIA",
           "home": "삼성",
           "venue": "대구",
-          "awayScore": 11,
+          "awayScore": 12,
           "homeScore": 3,
-          "scoreLine": "11-3",
+          "scoreLine": "12-3",
           "ourScore": 3,
-          "oppScore": 11,
-          "ourScoreLine": "3-11",
-          "outcome": null,
+          "oppScore": 12,
+          "ourScoreLine": "3-12",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260730HTSS02026",
           "awayStarter": "네일",
           "homeStarter": "페덱",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "네일",
+          "losePitcher": "페덱"
         }
       ]
     },

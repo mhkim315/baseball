@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-07-30T21:16:35+09:00",
+  "fetchedAt": "2026-07-30T23:33:51+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2200,18 +2200,18 @@
           "home": "NC",
           "venue": "창원",
           "awayScore": 10,
-          "homeScore": 1,
-          "scoreLine": "10-1",
-          "ourScore": 1,
+          "homeScore": 2,
+          "scoreLine": "10-2",
+          "ourScore": 2,
           "oppScore": 10,
-          "ourScoreLine": "1-10",
-          "outcome": null,
+          "ourScoreLine": "2-10",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260730KTNC02026",
           "awayStarter": "로건",
           "homeStarter": "구창모",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "로건",
+          "losePitcher": "구창모"
         }
       ]
     },

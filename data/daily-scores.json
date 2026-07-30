@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T21:17:44.796184+09:00",
+  "generatedAt": "2026-07-30T23:35:11.940483+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6267,62 +6267,62 @@
       {
         "away": "두산",
         "home": "SSG",
-        "awayScore": 3,
+        "awayScore": 5,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "최민석",
         "homeStarter": "해치",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김택연",
+        "losePitcher": "최민준"
       },
       {
         "away": "키움",
         "home": "LG",
         "awayScore": 3,
         "homeScore": 5,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "안우진",
         "homeStarter": "임찬규",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "임찬규",
+        "losePitcher": "안우진"
       },
       {
         "away": "KT",
         "home": "NC",
         "awayScore": 10,
-        "homeScore": 1,
-        "outcome": null,
+        "homeScore": 2,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "로건",
         "homeStarter": "구창모",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "로건",
+        "losePitcher": "구창모"
       },
       {
         "away": "롯데",
         "home": "한화",
         "awayScore": 2,
-        "homeScore": 1,
-        "outcome": null,
+        "homeScore": 3,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "나균안",
         "homeStarter": "박준영",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박상원",
+        "losePitcher": "김원중"
       },
       {
         "away": "KIA",
         "home": "삼성",
-        "awayScore": 11,
+        "awayScore": 12,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "네일",
         "homeStarter": "페덱",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "네일",
+        "losePitcher": "페덱"
       }
     ],
     "2026-07-31": [
