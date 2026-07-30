@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260730LTHH02026",
-    "fetchedAt": "2026-07-30T17:37:18+09:00"
+    "fetchedAt": "2026-07-30T19:49:16+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -22,7 +22,7 @@
     "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 3,
