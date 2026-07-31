@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T21:08:49.232466+09:00",
+  "generatedAt": "2026-07-31T23:30:51.954242+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6331,60 +6331,60 @@
         "home": "두산",
         "awayScore": 2,
         "homeScore": 4,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "송승기",
         "homeStarter": "잭로그",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "잭로그",
+        "losePitcher": "송승기"
       },
       {
         "away": "SSG",
         "home": "키움",
-        "awayScore": 5,
+        "awayScore": 7,
         "homeScore": 12,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "김건우",
         "homeStarter": "박준현",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "정현우",
+        "losePitcher": "김건우"
       },
       {
         "away": "한화",
         "home": "KT",
         "awayScore": 3,
         "homeScore": 5,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "류현진",
         "homeStarter": "소형준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "주권",
+        "losePitcher": "류현진"
       },
       {
         "away": "삼성",
         "home": "롯데",
         "awayScore": 9,
-        "homeScore": 4,
-        "outcome": null,
+        "homeScore": 7,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "원태인",
         "homeStarter": "김진욱",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "원태인",
+        "losePitcher": "이이무라"
       },
       {
         "away": "KIA",
         "home": "NC",
-        "awayScore": 3,
-        "homeScore": 9,
-        "outcome": null,
+        "awayScore": 4,
+        "homeScore": 10,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "양현종",
         "homeStarter": "토다",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "토다",
+        "losePitcher": "양현종"
       }
     ],
     "2026-08-01": [
