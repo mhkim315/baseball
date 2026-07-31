@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-07-31",
-    "lastUpdated": "2026-07-31T16:27:28+09:00",
+    "lastUpdated": "2026-07-31T19:04:22+09:00",
     "gameId": "20260731SSLT02026",
     "kboGameId": "20260731SSLT0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,29 +54,29 @@
     },
     {
       "order": 6,
-      "name": "노진혁",
-      "position": "3루수"
-    },
-    {
-      "order": 7,
       "name": "윤동희",
       "position": "우익수"
     },
     {
+      "order": 7,
+      "name": "노진혁",
+      "position": "3루수"
+    },
+    {
       "order": 8,
-      "name": "전민재",
-      "position": "유격수"
+      "name": "손성빈",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "손성빈",
-      "position": "포수"
+      "name": "박승욱",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김지찬",
+      "name": "김현준",
       "position": "중견수"
     },
     {
@@ -96,22 +96,22 @@
     },
     {
       "order": 5,
-      "name": "디아즈",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
       "name": "이재현",
       "position": "유격수"
     },
     {
+      "order": 6,
+      "name": "디아즈",
+      "position": "1루수"
+    },
+    {
       "order": 7,
-      "name": "김영웅",
+      "name": "전병우",
       "position": "3루수"
     },
     {
       "order": 8,
-      "name": "강민호",
+      "name": "김도환",
       "position": "포수"
     },
     {
