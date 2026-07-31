@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260731SSLT02026",
+    "gameDate": "2026-07-31",
+    "lastUpdated": "2026-07-31T13:37:02+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "51516",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260731,
+    "aPCode": "69446",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "SS",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.40",
+    "hra": "0.262",
+    "w": 42,
+    "wra": "0.442",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 71,
+    "l": 53,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 42,
+      "l": 53
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.14",
+    "hra": "0.278",
+    "w": 58,
+    "wra": "0.611",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 86,
+    "l": 37,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 58,
+      "l": 37
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김진욱"
+  },
+  "awayStarter": {
+    "name": "원태인"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

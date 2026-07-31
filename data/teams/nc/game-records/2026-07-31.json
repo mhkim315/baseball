@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260731HTNC02026",
+    "gameDate": "2026-07-31",
+    "lastUpdated": "2026-07-31T13:37:03+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "56911",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260731,
+    "aPCode": "77637",
+    "round": 9,
+    "gtime": "18:30",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "HT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.82",
+    "hra": "0.272",
+    "w": 42,
+    "wra": "0.457",
+    "name": "NC",
+    "rank": 7,
+    "hr": 91,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 42,
+      "l": 50
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.43",
+    "hra": "0.270",
+    "w": 52,
+    "wra": "0.536",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 126,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 52,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "토다"
+  },
+  "awayStarter": {
+    "name": "양현종"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
