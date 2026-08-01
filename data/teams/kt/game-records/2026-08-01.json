@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260801HHKT02026",
+    "gameDate": "2026-08-01",
+    "lastUpdated": "2026-08-01T13:31:58+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "65516",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260801,
+    "aPCode": "56799",
+    "round": 10,
+    "gtime": "18:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "HH",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.47",
+    "hra": "0.282",
+    "w": 57,
+    "wra": "0.613",
+    "name": "KT",
+    "rank": 2,
+    "hr": 72,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 57,
+      "l": 36
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.70",
+    "hra": "0.278",
+    "w": 46,
+    "wra": "0.495",
+    "name": "한화",
+    "rank": 6,
+    "hr": 111,
+    "l": 47,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 46,
+      "l": 47
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "배제성"
+  },
+  "awayStarter": {
+    "name": "짐머맨"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

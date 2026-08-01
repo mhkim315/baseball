@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-07-31",
-    "lastUpdated": "2026-07-31T23:30:37+09:00",
-    "gameId": "20260731HHKT02026",
-    "kboGameId": "20260731HHKT0",
+    "lineupDate": "2026-08-01",
+    "lastUpdated": "2026-08-01T13:31:35+09:00",
+    "gameId": "20260801HHKT02026",
+    "kboGameId": "20260801HHKT0",
     "opponent": "한화",
     "venue": "수원",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "소형준"
+    "name": "배제성"
   },
   "opponentStartingPitcher": {
-    "name": "류현진"
+    "name": "짐머맨"
   }
 }
