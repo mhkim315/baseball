@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T19:48:32.318352+09:00",
+  "generatedAt": "2026-08-01T20:49:27.048764+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6392,7 +6392,7 @@
         "away": "LG",
         "home": "두산",
         "awayScore": 2,
-        "homeScore": 0,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "카라스코",
@@ -6403,7 +6403,7 @@
       {
         "away": "SSG",
         "home": "키움",
-        "awayScore": 7,
+        "awayScore": 10,
         "homeScore": 2,
         "outcome": null,
         "cancelled": false,
