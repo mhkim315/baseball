@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260801SSLT02026",
-    "fetchedAt": "2026-08-01T13:30:46+09:00"
+    "fetchedAt": "2026-08-01T16:03:36+09:00"
   },
   "gameInfo": {
     "aFullName": "삼성 라이온즈",
     "hPCode": "56523",
     "hCode": "LT",
     "hName": "롯데",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260801,
     "aPCode": "56402",
-    "round": 10,
+    "round": 0,
     "gtime": "18:00",
     "aName": "삼성",
     "gameFlag": "0",

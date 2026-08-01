@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T13:32:05.564753+09:00",
+  "generatedAt": "2026-08-01T16:04:42.017406+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6430,9 +6430,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "보스",
+        "homeStarter": "비슬리",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6442,9 +6442,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "황동하",
+        "homeStarter": "라일리",
         "winPitcher": null,
         "losePitcher": null
       }
