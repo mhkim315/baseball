@@ -1,13 +1,13 @@
 {
   "date": "2026-08-01",
-  "generatedAt": "2026-08-01T21:42:48.307598+09:00",
+  "generatedAt": "2026-08-01T23:12:27.816181+09:00",
   "games": [
     {
       "id": "20260801-SKWO-0",
       "date": "2026-08-01",
       "venue": "고척",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -65,7 +65,7 @@
       "date": "2026-08-01",
       "venue": "수원",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "hanwha",
         "name": "한화",
@@ -94,7 +94,7 @@
       "date": "2026-08-01",
       "venue": "잠실",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lg",
         "name": "LG",
