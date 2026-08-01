@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-01T20:48:25+09:00",
+  "fetchedAt": "2026-08-01T21:41:29+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2249,13 +2249,13 @@
           "ourScore": 10,
           "oppScore": 2,
           "ourScoreLine": "10-2",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260801SKWO02026",
           "awayStarter": "타케다",
           "homeStarter": "김윤하",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "타케다",
+          "losePitcher": "김윤하"
         }
       ]
     },
