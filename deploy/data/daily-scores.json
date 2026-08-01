@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T16:04:42.017406+09:00",
+  "generatedAt": "2026-08-01T18:13:14.612928+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6395,8 +6395,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "카라스코",
+        "homeStarter": "곽빈",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6407,8 +6407,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "타케다",
+        "homeStarter": "김윤하",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6419,8 +6419,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "짐머맨",
+        "homeStarter": "배제성",
         "winPitcher": null,
         "losePitcher": null
       },
