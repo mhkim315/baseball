@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-08-02T20:36:57+09:00",
+  "fetchedAt": "2026-08-02T21:39:33+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2273,13 +2273,13 @@
           "ourScore": 8,
           "oppScore": 3,
           "ourScoreLine": "8-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260802LGOB02026",
           "awayStarter": "톨허스트",
           "homeStarter": "벤자민",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "벤자민",
+          "losePitcher": "톨허스트"
         }
       ]
     },
