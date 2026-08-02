@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-02T12:48:12+09:00",
+  "fetchedAt": "2026-08-02T15:21:56+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2272,8 +2272,12 @@
           "oppScore": 0,
           "ourScoreLine": "0-0",
           "outcome": null,
-          "cancelled": false,
-          "gameId": "20260802HTNC0"
+          "cancelled": true,
+          "gameId": "20260802HTNC02026",
+          "awayStarter": "황동하",
+          "homeStarter": "라일리",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

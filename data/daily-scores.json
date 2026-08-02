@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T12:49:53.022526+09:00",
+  "generatedAt": "2026-08-02T15:23:10.432640+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6465,12 +6465,12 @@
       {
         "away": "SSG",
         "home": "키움",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "아빌라",
+        "homeStarter": "전준표",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6504,9 +6504,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "황동하",
+        "homeStarter": "라일리",
         "winPitcher": null,
         "losePitcher": null
       }
