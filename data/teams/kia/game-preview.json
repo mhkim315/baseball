@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260801HTNC02026",
-    "fetchedAt": "2026-08-01T23:11:30+09:00"
+    "naverGameId": "20260802HTNC02026",
+    "fetchedAt": "2026-08-02T12:48:38+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
     "hPCode": "55903",
     "hCode": "NC",
     "hName": "NC",
-    "cancelFlag": "Y",
-    "gdate": 20260801,
+    "cancelFlag": "N",
+    "gdate": 20260802,
     "aPCode": "52641",
-    "round": 0,
+    "round": 10,
     "gtime": "18:00",
     "aName": "KIA",
     "gameFlag": "0",
