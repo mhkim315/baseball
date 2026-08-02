@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T21:40:50.996501+09:00",
+  "generatedAt": "2026-08-02T23:13:48.357464+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6491,12 +6491,12 @@
         "home": "롯데",
         "awayScore": 7,
         "homeScore": 10,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "보스",
         "homeStarter": "비슬리",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "비슬리",
+        "losePitcher": "보스"
       },
       {
         "away": "KIA",
