@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-02T15:21:50+09:00",
+  "fetchedAt": "2026-08-02T17:40:08+09:00",
   "rows": [
     {
       "rank": 1,
@@ -69,18 +69,18 @@
     {
       "rank": 9,
       "teamName": "SSG",
-      "winRate": 0.392,
-      "wlt": "38승4무59패",
-      "gamesBehind": 21.5,
-      "streak": "1승"
+      "winRate": 0.388,
+      "wlt": "38승4무60패",
+      "gamesBehind": 22.0,
+      "streak": "1패"
     },
     {
       "rank": 10,
       "teamName": "키움",
-      "winRate": 0.37,
-      "wlt": "37승2무63패",
-      "gamesBehind": 24.0,
-      "streak": "1패"
+      "winRate": 0.376,
+      "wlt": "38승2무63패",
+      "gamesBehind": 23.5,
+      "streak": "1승"
     }
   ]
 }

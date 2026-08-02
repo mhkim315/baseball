@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-08-02",
-    "lastUpdated": "2026-08-02T15:23:03+09:00",
+    "lastUpdated": "2026-08-02T17:41:51+09:00",
     "gameId": "20260802SSLT02026",
     "kboGameId": "20260802SSLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,7 +29,7 @@
   "batters": [
     {
       "order": 1,
-      "name": "김현준",
+      "name": "김지찬",
       "position": "중견수"
     },
     {
@@ -49,28 +49,28 @@
     },
     {
       "order": 5,
-      "name": "이재현",
-      "position": "유격수"
-    },
-    {
-      "order": 6,
       "name": "디아즈",
       "position": "1루수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "전병우",
       "position": "3루수"
     },
     {
+      "order": 7,
+      "name": "류지혁",
+      "position": "2루수"
+    },
+    {
       "order": 8,
-      "name": "김도환",
+      "name": "강민호",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "심재훈",
-      "position": "2루수"
+      "name": "이재현",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "고승민",
-      "position": "2루수"
+      "name": "나승엽",
+      "position": "1루수"
     },
     {
       "order": 3,
@@ -96,28 +96,28 @@
     },
     {
       "order": 5,
-      "name": "나승엽",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
       "name": "윤동희",
       "position": "우익수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "노진혁",
       "position": "3루수"
     },
     {
+      "order": 7,
+      "name": "한태양",
+      "position": "2루수"
+    },
+    {
       "order": 8,
-      "name": "손성빈",
-      "position": "포수"
+      "name": "전민재",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "박승욱",
-      "position": "유격수"
+      "name": "손성빈",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
