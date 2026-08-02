@@ -1,13 +1,13 @@
 {
   "date": "2026-08-02",
-  "generatedAt": "2026-08-02T17:42:02.022612+09:00",
+  "generatedAt": "2026-08-02T19:20:34.097106+09:00",
   "games": [
     {
       "id": "20260802-SKWO-0",
       "date": "2026-08-02",
       "venue": "고척",
       "time": "14:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -27,8 +27,8 @@
         "record": "37승2무63패"
       },
       "score": {
-        "away": 1,
-        "home": 3
+        "away": 3,
+        "home": 5
       }
     },
     {
