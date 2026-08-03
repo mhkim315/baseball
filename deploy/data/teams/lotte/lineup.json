@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-02",
-    "lastUpdated": "2026-08-02T23:13:44+09:00",
-    "gameId": "20260802SSLT02026",
-    "kboGameId": "20260802SSLT0",
-    "opponent": "삼성",
+    "lineupDate": "2026-08-04",
+    "lastUpdated": "2026-08-03T13:33:41+09:00",
+    "gameId": "20260804WOLT02026",
+    "kboGameId": "20260804WOLT0",
+    "opponent": "키움",
     "venue": "사직",
-    "gameTime": "18:00",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "삼성",
-    "teamName": "삼성"
+    "teamShort": "키움",
+    "teamName": "키움"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김지찬",
-      "position": "중견수"
+      "name": "서건창",
+      "position": "2루수"
     },
     {
       "order": 2,
-      "name": "김성윤",
-      "position": "우익수"
-    },
-    {
-      "order": 3,
-      "name": "구자욱",
+      "name": "추재현",
       "position": "좌익수"
     },
     {
+      "order": 3,
+      "name": "데이비슨",
+      "position": "1루수"
+    },
+    {
       "order": 4,
-      "name": "최형우",
+      "name": "안치홍",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "디아즈",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
-      "name": "전병우",
+      "name": "김웅빈",
       "position": "3루수"
     },
     {
+      "order": 6,
+      "name": "박찬혁",
+      "position": "우익수"
+    },
+    {
       "order": 7,
-      "name": "류지혁",
-      "position": "2루수"
+      "name": "임병욱",
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "강민호",
+      "name": "김건희",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "이재현",
+      "name": "오선진",
       "position": "유격수"
     }
   ],
   "startingPitcher": {
-    "name": "비슬리"
+    "name": "로드리게스"
   },
   "opponentStartingPitcher": {
-    "name": "보스"
+    "name": "하영민"
   }
 }
