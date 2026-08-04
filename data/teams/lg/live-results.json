@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-04T20:49:17+09:00",
+  "fetchedAt": "2026-08-04T22:26:03+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2287,12 +2287,12 @@
           "away": "LG",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 2,
-          "homeScore": 3,
-          "scoreLine": "2-3",
-          "ourScore": 2,
-          "oppScore": 3,
-          "ourScoreLine": "2-3",
+          "awayScore": 8,
+          "homeScore": 10,
+          "scoreLine": "8-10",
+          "ourScore": 8,
+          "oppScore": 10,
+          "ourScoreLine": "8-10",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260804LGSK02026",
