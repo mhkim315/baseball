@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260804KTHT02026",
-    "fetchedAt": "2026-08-03T22:56:12+09:00"
+    "fetchedAt": "2026-08-04T13:26:44+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
     "hPCode": "55633",
     "hCode": "HT",
     "hName": "KIA",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260804,
     "aPCode": "50859",
-    "round": 10,
+    "round": 0,
     "gtime": "18:30",
     "aName": "KT",
     "gameFlag": "0",

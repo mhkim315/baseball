@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260804NCOB02026",
+    "gameDate": "2026-08-04",
+    "lastUpdated": "2026-08-04T13:27:40+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "51264",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "Y",
+    "gdate": 20260804,
+    "aPCode": "55903",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "NC",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "3.76",
+    "hra": "0.269",
+    "w": 52,
+    "wra": "0.536",
+    "name": "두산",
+    "rank": 4,
+    "hr": 77,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 52,
+      "l": 45
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.80",
+    "hra": "0.273",
+    "w": 43,
+    "wra": "0.462",
+    "name": "NC",
+    "rank": 7,
+    "hr": 92,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 43,
+      "l": 50
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최승용"
+  },
+  "awayStarter": {
+    "name": "라일리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

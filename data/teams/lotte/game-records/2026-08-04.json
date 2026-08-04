@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260804WOLT02026",
+    "gameDate": "2026-08-04",
+    "lastUpdated": "2026-08-04T13:27:49+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "56531",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260804,
+    "aPCode": "64350",
+    "round": 10,
+    "gtime": "18:30",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "WO",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.46",
+    "hra": "0.264",
+    "w": 43,
+    "wra": "0.443",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 72,
+    "l": 54,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 43,
+      "l": 54
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "5.06",
+    "hra": "0.244",
+    "w": 38,
+    "wra": "0.376",
+    "name": "키움",
+    "rank": 10,
+    "hr": 72,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 38,
+      "l": 63
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "로드리게스"
+  },
+  "awayStarter": {
+    "name": "하영민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

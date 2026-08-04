@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-08-03T22:55:47+09:00",
+  "fetchedAt": "2026-08-04T13:26:28+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2296,8 +2296,12 @@
           "oppScore": 0,
           "ourScoreLine": "0-0",
           "outcome": null,
-          "cancelled": false,
-          "gameId": "20260804NCOB0"
+          "cancelled": true,
+          "gameId": "20260804NCOB02026",
+          "awayStarter": "라일리",
+          "homeStarter": "최승용",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
