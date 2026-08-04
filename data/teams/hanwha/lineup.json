@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-08-04",
-    "lastUpdated": "2026-08-04T16:09:06+09:00",
+    "lastUpdated": "2026-08-04T18:47:29+09:00",
     "gameId": "20260804HHSS02026",
     "kboGameId": "20260804HHSS0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -96,28 +96,28 @@
     },
     {
       "order": 5,
-      "name": "디아즈",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
       "name": "전병우",
       "position": "3루수"
     },
     {
+      "order": 6,
+      "name": "이재현",
+      "position": "유격수"
+    },
+    {
       "order": 7,
-      "name": "류지혁",
-      "position": "2루수"
+      "name": "디아즈",
+      "position": "1루수"
     },
     {
       "order": 8,
-      "name": "강민호",
+      "name": "김도환",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "이재현",
-      "position": "유격수"
+      "name": "류지혁",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T16:09:24.468662+09:00",
+  "generatedAt": "2026-08-04T18:47:44.140443+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6531,8 +6531,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "웰스",
+        "homeStarter": "김민준",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6567,8 +6567,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "왕옌청",
+        "homeStarter": "양창섭",
         "winPitcher": null,
         "losePitcher": null
       }

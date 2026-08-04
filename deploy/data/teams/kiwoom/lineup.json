@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-08-04",
-    "lastUpdated": "2026-08-04T16:08:58+09:00",
+    "lastUpdated": "2026-08-04T18:47:19+09:00",
     "gameId": "20260804WOLT02026",
     "kboGameId": "20260804WOLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -64,12 +64,12 @@
     },
     {
       "order": 8,
-      "name": "김건희",
+      "name": "김동헌",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "오선진",
+      "name": "권혁빈",
       "position": "유격수"
     }
   ],
@@ -96,18 +96,18 @@
     },
     {
       "order": 5,
+      "name": "고승민",
+      "position": "2루수"
+    },
+    {
+      "order": 6,
       "name": "윤동희",
       "position": "우익수"
     },
     {
-      "order": 6,
+      "order": 7,
       "name": "노진혁",
       "position": "3루수"
-    },
-    {
-      "order": 7,
-      "name": "한태양",
-      "position": "2루수"
     },
     {
       "order": 8,
