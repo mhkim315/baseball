@@ -1,16 +1,16 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260804NCOB02026",
-    "fetchedAt": "2026-08-04T22:26:21+09:00"
+    "naverGameId": "20260805NCOB02026",
+    "fetchedAt": "2026-08-05T13:18:24+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
-    "hPCode": "51264",
+    "hPCode": "55268",
     "hCode": "OB",
     "hName": "두산",
     "cancelFlag": "Y",
-    "gdate": 20260804,
+    "gdate": 20260805,
     "aPCode": "55903",
     "round": 0,
     "gtime": "18:30",
@@ -212,61 +212,61 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 1,
-      "kk": 3,
-      "gameCount": 1,
+      "bb": 3,
+      "kk": 13,
+      "gameCount": 2,
       "s": 0,
-      "era": "3.18",
+      "era": "0.00",
       "w": 1,
-      "inn": "5.2",
+      "inn": "13.0",
       "l": 0,
-      "er": 2
+      "er": 0
     },
     "playerInfo": {
-      "backnum": "28",
-      "hitType": "좌투좌타",
-      "pCode": "51264",
-      "name": "최승용",
-      "birth": "20010511",
-      "weight": "87.0",
-      "height": "190.0"
+      "backnum": "68",
+      "hitType": "우투우타",
+      "pCode": "55268",
+      "name": "최민석",
+      "birth": "20060702",
+      "weight": "84.0",
+      "height": "188.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 46,
-        "type": "FAST",
+        "pit_rt": 46.900001525878906,
+        "type": "TWOS",
         "speed": 142
       },
       {
-        "pit_rt": 17.600000381469727,
-        "type": "CURV",
-        "speed": 115
+        "pit_rt": 27.299999237060547,
+        "type": "CUTT",
+        "speed": 138
       },
       {
-        "pit_rt": 13.899999618530273,
-        "type": "SLID",
-        "speed": 132
+        "pit_rt": 12.100000381469727,
+        "type": "SWEE",
+        "speed": 126
       }
     ],
     "currentSeasonStats": {
       "teamName": "두산",
-      "bb": 30,
-      "kk": 55,
-      "gameCount": 17,
-      "gday": "20260802",
-      "inn": "83.0",
+      "bb": 47,
+      "kk": 97,
+      "gameCount": 19,
+      "gday": "20260804",
+      "inn": "105.2",
       "hp": 4,
       "teamCode": "OB",
-      "hr": 9,
-      "l": 8,
-      "er": 51,
-      "whip": "1.52",
-      "hit": 96,
-      "r": 55,
+      "hr": 4,
+      "l": 3,
+      "er": 31,
+      "whip": "1.30",
+      "hit": 90,
+      "r": 43,
       "s": 0,
-      "era": "5.53",
-      "w": 3,
-      "inn2": "83"
+      "era": "2.64",
+      "w": 9,
+      "inn2": "105 2/3"
     }
   },
   "awayStarter": {
@@ -312,7 +312,7 @@
       "bb": 18,
       "kk": 100,
       "gameCount": 13,
-      "gday": "20260802",
+      "gday": "20260804",
       "inn": "75.2",
       "hp": 0,
       "teamCode": "NC",

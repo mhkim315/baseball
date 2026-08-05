@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-04",
-    "lastUpdated": "2026-08-04T22:27:02+09:00",
-    "gameId": "20260804WOLT02026",
-    "kboGameId": "20260804WOLT0",
+    "lineupDate": "2026-08-05",
+    "lastUpdated": "2026-08-05T13:19:25+09:00",
+    "gameId": "20260805WOLT02026",
+    "kboGameId": "20260805WOLT0",
     "opponent": "키움",
     "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "로드리게스"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "하영민"
+    "name": "안우진"
   }
 }

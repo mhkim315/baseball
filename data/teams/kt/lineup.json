@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-08-04",
-    "lastUpdated": "2026-08-04T22:26:54+09:00",
-    "gameId": "20260804KTHT02026",
-    "kboGameId": "20260804KTHT0",
+    "lineupDate": "2026-08-05",
+    "lastUpdated": "2026-08-05T13:19:13+09:00",
+    "gameId": "20260805KTHT02026",
+    "kboGameId": "20260805KTHT0",
     "opponent": "KIA",
     "venue": "광주",
     "gameTime": "18:30",
@@ -121,7 +121,7 @@
     }
   ],
   "startingPitcher": {
-    "name": "오원석"
+    "name": "로건"
   },
   "opponentStartingPitcher": {
     "name": "올러"

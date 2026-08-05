@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260804KTHT02026",
-    "fetchedAt": "2026-08-04T22:26:17+09:00"
+    "naverGameId": "20260805KTHT02026",
+    "fetchedAt": "2026-08-05T13:18:18+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
@@ -10,8 +10,8 @@
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "Y",
-    "gdate": 20260804,
-    "aPCode": "50859",
+    "gdate": 20260805,
+    "aPCode": "55912",
     "round": 0,
     "gtime": "18:30",
     "aName": "KT",
@@ -253,7 +253,7 @@
       "bb": 41,
       "kk": 116,
       "gameCount": 19,
-      "gday": "20260802",
+      "gday": "20260804",
       "inn": "109.2",
       "hp": 6,
       "teamCode": "HT",
@@ -271,61 +271,61 @@
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 8,
-      "kk": 8,
-      "gameCount": 3,
+      "bb": 0,
+      "kk": 6,
+      "gameCount": 1,
       "s": 0,
-      "era": "7.71",
+      "era": "3.60",
       "w": 0,
-      "inn": "14.0",
-      "l": 2,
-      "er": 12
+      "inn": "5.0",
+      "l": 0,
+      "er": 2
     },
     "playerInfo": {
-      "backnum": "47",
-      "hitType": "좌투좌타",
-      "pCode": "50859",
-      "name": "오원석",
-      "birth": "20010423",
-      "weight": "80.0",
-      "height": "182.0"
+      "backnum": "43",
+      "hitType": "좌투우타",
+      "pCode": "55912",
+      "name": "로건",
+      "birth": "19970523",
+      "weight": "105.0",
+      "height": "186.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 50.79999923706055,
+        "pit_rt": 49.900001525878906,
         "type": "FAST",
-        "speed": 142
+        "speed": 147
       },
       {
-        "pit_rt": 28.700000762939453,
+        "pit_rt": 21.600000381469727,
+        "type": "SLID",
+        "speed": 131
+      },
+      {
+        "pit_rt": 13.800000190734863,
         "type": "CHUP",
-        "speed": 130
-      },
-      {
-        "pit_rt": 10.300000190734863,
-        "type": "CURV",
-        "speed": 116
+        "speed": 134
       }
     ],
     "currentSeasonStats": {
       "teamName": "KT",
-      "bb": 26,
-      "kk": 81,
-      "gameCount": 17,
-      "gday": "20260802",
-      "inn": "83.2",
+      "bb": 10,
+      "kk": 27,
+      "gameCount": 7,
+      "gday": "20260804",
+      "inn": "38.0",
       "hp": 1,
       "teamCode": "KT",
-      "hr": 8,
-      "l": 6,
-      "er": 52,
-      "whip": "1.49",
-      "hit": 99,
-      "r": 55,
+      "hr": 5,
+      "l": 1,
+      "er": 13,
+      "whip": "1.34",
+      "hit": 41,
+      "r": 13,
       "s": 0,
-      "era": "5.59",
-      "w": 5,
-      "inn2": "83 2/3"
+      "era": "3.08",
+      "w": 3,
+      "inn2": "38"
     }
   }
 }

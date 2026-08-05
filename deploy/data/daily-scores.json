@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T22:27:05.614936+09:00",
+  "generatedAt": "2026-08-05T13:19:43.473434+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6529,12 +6529,12 @@
         "home": "SSG",
         "awayScore": 8,
         "homeScore": 10,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "웰스",
         "homeStarter": "김민준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "전영준",
+        "losePitcher": "박시원"
       },
       {
         "away": "키움",
@@ -6580,9 +6580,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "라일리",
+        "homeStarter": "최민석",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6592,9 +6592,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "임찬규",
+        "homeStarter": "해치",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6604,9 +6604,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "안우진",
+        "homeStarter": "박세웅",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6616,9 +6616,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "로건",
+        "homeStarter": "올러",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6628,9 +6628,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "박준영",
+        "homeStarter": "페덱",
         "winPitcher": null,
         "losePitcher": null
       }
