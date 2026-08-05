@@ -1,13 +1,13 @@
 {
   "date": "2026-08-05",
-  "generatedAt": "2026-08-05T13:19:43.437208+09:00",
+  "generatedAt": "2026-08-05T15:45:31.095770+09:00",
   "games": [
     {
       "id": "20260805-KTHT-0",
       "date": "2026-08-05",
       "venue": "광주",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -36,7 +36,7 @@
       "date": "2026-08-05",
       "venue": "대구",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "hanwha",
         "name": "한화",
@@ -65,7 +65,7 @@
       "date": "2026-08-05",
       "venue": "문학",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "lg",
         "name": "LG",
@@ -94,7 +94,7 @@
       "date": "2026-08-05",
       "venue": "사직",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -123,7 +123,7 @@
       "date": "2026-08-05",
       "venue": "잠실",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "nc",
         "name": "NC",
