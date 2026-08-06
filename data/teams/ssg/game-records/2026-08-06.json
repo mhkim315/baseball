@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260806LGSK02026",
+    "gameDate": "2026-08-06",
+    "lastUpdated": "2026-08-06T12:39:54+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "Y",
+    "gdate": 20260806,
+    "aPCode": "",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "LG",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.63",
+    "hra": "0.261",
+    "w": 39,
+    "wra": "0.394",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 114,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 39,
+      "l": 60
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.90",
+    "hra": "0.270",
+    "w": 55,
+    "wra": "0.550",
+    "name": "LG",
+    "rank": 3,
+    "hr": 92,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 55,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "??"
+  },
+  "awayStarter": {
+    "name": "??"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

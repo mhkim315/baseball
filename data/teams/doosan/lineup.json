@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-05",
-    "lastUpdated": "2026-08-05T22:15:38+09:00",
-    "gameId": "20260805NCOB02026",
-    "kboGameId": "20260805NCOB0",
+    "lineupDate": "2026-08-06",
+    "lastUpdated": "2026-08-06T12:39:20+09:00",
+    "gameId": "20260806NCOB02026",
+    "kboGameId": "20260806NCOB0",
     "opponent": "NC",
     "venue": "잠실",
     "gameTime": "18:30",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최민석"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "??"
   }
 }

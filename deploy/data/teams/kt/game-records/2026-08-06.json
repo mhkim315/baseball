@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260806KTHT02026",
+    "gameDate": "2026-08-06",
+    "lastUpdated": "2026-08-06T12:39:56+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "Y",
+    "gdate": 20260806,
+    "aPCode": "",
+    "round": 0,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "KT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.49",
+    "hra": "0.271",
+    "w": 52,
+    "wra": "0.531",
+    "name": "KIA",
+    "rank": 5,
+    "hr": 128,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 52,
+      "l": 46
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.43",
+    "hra": "0.283",
+    "w": 59,
+    "wra": "0.621",
+    "name": "KT",
+    "rank": 1,
+    "hr": 75,
+    "l": 36,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 36
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "??"
+  },
+  "awayStarter": {
+    "name": "??"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

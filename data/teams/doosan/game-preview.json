@@ -1,17 +1,17 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260805NCOB02026",
-    "fetchedAt": "2026-08-05T22:15:06+09:00"
+    "naverGameId": "20260806NCOB02026",
+    "fetchedAt": "2026-08-06T12:38:35+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
-    "hPCode": "55268",
+    "hPCode": "",
     "hCode": "OB",
     "hName": "두산",
     "cancelFlag": "Y",
-    "gdate": 20260805,
-    "aPCode": "55903",
+    "gdate": 20260806,
+    "aPCode": "",
     "round": 0,
     "gtime": "18:30",
     "aName": "NC",
@@ -212,120 +212,58 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 3,
-      "kk": 13,
-      "gameCount": 2,
-      "s": 0,
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
       "era": "0.00",
-      "w": 1,
-      "inn": "13.0",
-      "l": 0,
-      "er": 0
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
-    "playerInfo": {
-      "backnum": "68",
-      "hitType": "우투우타",
-      "pCode": "55268",
-      "name": "최민석",
-      "birth": "20060702",
-      "weight": "84.0",
-      "height": "188.0"
-    },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 46.900001525878906,
-        "type": "TWOS",
-        "speed": 142
-      },
-      {
-        "pit_rt": 27.299999237060547,
-        "type": "CUTT",
-        "speed": 138
-      },
-      {
-        "pit_rt": 12.100000381469727,
-        "type": "SWEE",
-        "speed": 126
-      }
-    ],
+    "playerInfo": {},
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "두산",
-      "bb": 47,
-      "kk": 97,
-      "gameCount": 19,
-      "gday": "20260804",
-      "inn": "105.2",
-      "hp": 4,
-      "teamCode": "OB",
-      "hr": 4,
-      "l": 3,
-      "er": 31,
-      "whip": "1.30",
-      "hit": 90,
-      "r": 43,
-      "s": 0,
-      "era": "2.64",
-      "w": 9,
-      "inn2": "105 2/3"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 4,
-      "kk": 3,
-      "gameCount": 1,
-      "s": 0,
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
       "era": "0.00",
-      "w": 1,
-      "inn": "6.0",
-      "l": 0,
-      "er": 0
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
-    "playerInfo": {
-      "backnum": "3",
-      "hitType": "우투우타",
-      "pCode": "55903",
-      "name": "라일리",
-      "birth": "19960709",
-      "weight": "100.0",
-      "height": "190.0"
-    },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 38.29999923706055,
-        "type": "FAST",
-        "speed": 148
-      },
-      {
-        "pit_rt": 22.799999237060547,
-        "type": "FORK",
-        "speed": 133
-      },
-      {
-        "pit_rt": 20.399999618530273,
-        "type": "SLID",
-        "speed": 136
-      }
-    ],
+    "playerInfo": {},
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "NC",
-      "bb": 18,
-      "kk": 100,
-      "gameCount": 13,
-      "gday": "20260804",
-      "inn": "75.2",
-      "hp": 0,
-      "teamCode": "NC",
-      "hr": 11,
-      "l": 0,
-      "er": 26,
-      "whip": "1.11",
-      "hit": 66,
-      "r": 27,
-      "s": 0,
-      "era": "3.09",
-      "w": 5,
-      "inn2": "75 2/3"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   }
 }

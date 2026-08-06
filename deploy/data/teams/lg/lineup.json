@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-08-05",
-    "lastUpdated": "2026-08-05T22:15:41+09:00",
-    "gameId": "20260805LGSK02026",
-    "kboGameId": "20260805LGSK0",
+    "lineupDate": "2026-08-06",
+    "lastUpdated": "2026-08-06T12:39:23+09:00",
+    "gameId": "20260806LGSK02026",
+    "kboGameId": "20260806LGSK0",
     "opponent": "SSG",
     "venue": "문학",
     "gameTime": "18:30",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "임찬규"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "해치"
+    "name": "??"
   }
 }

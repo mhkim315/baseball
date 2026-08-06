@@ -1,17 +1,17 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260805HHSS02026",
-    "fetchedAt": "2026-08-05T22:15:10+09:00"
+    "naverGameId": "20260806HHSS02026",
+    "fetchedAt": "2026-08-06T12:38:41+09:00"
   },
   "gameInfo": {
     "aFullName": "한화 이글스",
-    "hPCode": "56459",
+    "hPCode": "",
     "hCode": "SS",
     "hName": "삼성",
     "cancelFlag": "Y",
-    "gdate": 20260805,
-    "aPCode": "52731",
+    "gdate": 20260806,
+    "aPCode": "",
     "round": 0,
     "gtime": "18:30",
     "aName": "한화",
@@ -222,110 +222,48 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {
-      "backnum": "59",
-      "hitType": "우투우타",
-      "pCode": "56459",
-      "name": "페덱",
-      "birth": "19960108",
-      "weight": "98.0",
-      "height": "196.0"
-    },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 32.20000076293945,
-        "type": "FAST",
-        "speed": 147
-      },
-      {
-        "pit_rt": 22.5,
-        "type": "CUTT",
-        "speed": 139
-      },
-      {
-        "pit_rt": 19.5,
-        "type": "CHUP",
-        "speed": 134
-      }
-    ],
+    "playerInfo": {},
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "삼성",
-      "bb": 1,
-      "kk": 17,
-      "gameCount": 3,
-      "gday": "20260804",
-      "inn": "17.0",
-      "hp": 1,
-      "teamCode": "SS",
-      "hr": 2,
-      "l": 1,
-      "er": 8,
-      "whip": "0.82",
-      "hit": 13,
-      "r": 8,
-      "s": 0,
-      "era": "4.24",
-      "w": 2,
-      "inn2": "17"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 2,
-      "kk": 2,
-      "gameCount": 1,
-      "s": 0,
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
       "era": "0.00",
-      "w": 0,
-      "inn": "1.0",
-      "l": 0,
-      "er": 0
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
-    "playerInfo": {
-      "backnum": "96",
-      "hitType": "우투우타",
-      "pCode": "52731",
-      "name": "박준영",
-      "birth": "20030302",
-      "weight": "103.0",
-      "height": "190.0"
-    },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 48.599998474121094,
-        "type": "FAST",
-        "speed": 144
-      },
-      {
-        "pit_rt": 32.70000076293945,
-        "type": "FORK",
-        "speed": 133
-      },
-      {
-        "pit_rt": 13.600000381469727,
-        "type": "SLID",
-        "speed": 132
-      }
-    ],
+    "playerInfo": {},
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "한화",
-      "bb": 28,
-      "kk": 42,
-      "gameCount": 31,
-      "gday": "20260804",
-      "inn": "48.2",
-      "hp": 4,
-      "teamCode": "HH",
-      "hr": 5,
-      "l": 0,
-      "er": 22,
-      "whip": "1.46",
-      "hit": 43,
-      "r": 23,
-      "s": 0,
-      "era": "4.07",
-      "w": 1,
-      "inn2": "48 2/3"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   }
 }
