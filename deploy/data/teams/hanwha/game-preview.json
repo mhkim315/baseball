@@ -1,46 +1,30 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260806HHSS02026",
-    "fetchedAt": "2026-08-06T22:10:23+09:00"
+    "naverGameId": "20260807WOHH02026",
+    "fetchedAt": "2026-08-07T12:25:55+09:00"
   },
   "gameInfo": {
-    "aFullName": "한화 이글스",
+    "aFullName": "키움 히어로즈",
     "hPCode": "",
-    "hCode": "SS",
-    "hName": "삼성",
+    "hCode": "HH",
+    "hName": "한화",
     "cancelFlag": "Y",
-    "gdate": 20260806,
+    "gdate": 20260807,
     "aPCode": "",
     "round": 0,
     "gtime": "18:30",
-    "aName": "한화",
+    "aName": "키움",
     "gameFlag": "0",
-    "hFullName": "삼성 라이온즈",
-    "stadium": "대구",
-    "aCode": "HH",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "WO",
     "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"
   },
   "homeStandings": {
-    "d": 2,
-    "era": "4.21",
-    "hra": "0.278",
-    "w": 59,
-    "wra": "0.602",
-    "name": "삼성",
-    "rank": 2,
-    "hr": 87,
-    "l": 39,
-    "seriesOutcome": {
-      "d": 2,
-      "w": 59,
-      "l": 39
-    }
-  },
-  "awayStandings": {
     "d": 3,
     "era": "4.74",
     "hra": "0.277",
@@ -56,89 +40,33 @@
       "l": 49
     }
   },
+  "awayStandings": {
+    "d": 2,
+    "era": "5.05",
+    "hra": "0.244",
+    "w": 38,
+    "wra": "0.373",
+    "name": "키움",
+    "rank": 10,
+    "hr": 72,
+    "l": 64,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 38,
+      "l": 64
+    }
+  },
   "seasonVsResult": {
     "ad": 1,
-    "hl": 3,
-    "aw": 3,
-    "aCode": "HH",
-    "al": 6,
-    "hCode": "SS",
+    "hl": 7,
+    "aw": 7,
+    "aCode": "WO",
+    "al": 4,
+    "hCode": "HH",
     "hd": 1,
-    "hw": 6
+    "hw": 4
   },
   "homeTeamPreviousGames": [
-    {
-      "gameId": "20260804HHSS02026",
-      "result": "패",
-      "hScore": 1,
-      "aName": "한화",
-      "aScore": 4,
-      "gyear": 2026,
-      "gmkey": "20260804HHSS0",
-      "gweek": "화",
-      "aCode": "HH",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260804
-    },
-    {
-      "gameId": "20260802SSLT02026",
-      "result": "패",
-      "hScore": 10,
-      "aName": "삼성",
-      "aScore": 7,
-      "gyear": 2026,
-      "gmkey": "20260802SSLT0",
-      "gweek": "일",
-      "aCode": "SS",
-      "hCode": "LT",
-      "hName": "롯데",
-      "gdate": 20260802
-    },
-    {
-      "gameId": "20260731SSLT02026",
-      "result": "승",
-      "hScore": 7,
-      "aName": "삼성",
-      "aScore": 9,
-      "gyear": 2026,
-      "gmkey": "20260731SSLT0",
-      "gweek": "금",
-      "aCode": "SS",
-      "hCode": "LT",
-      "hName": "롯데",
-      "gdate": 20260731
-    },
-    {
-      "gameId": "20260730HTSS02026",
-      "result": "패",
-      "hScore": 3,
-      "aName": "KIA",
-      "aScore": 12,
-      "gyear": 2026,
-      "gmkey": "20260730HTSS0",
-      "gweek": "목",
-      "aCode": "HT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260730
-    },
-    {
-      "gameId": "20260729HTSS02026",
-      "result": "패",
-      "hScore": 4,
-      "aName": "KIA",
-      "aScore": 9,
-      "gyear": 2026,
-      "gmkey": "20260729HTSS0",
-      "gweek": "수",
-      "aCode": "HT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260729
-    }
-  ],
-  "awayTeamPreviousGames": [
     {
       "gameId": "20260804HHSS02026",
       "result": "승",
@@ -207,6 +135,78 @@
       "aCode": "LT",
       "hCode": "HH",
       "hName": "한화",
+      "gdate": 20260730
+    }
+  ],
+  "awayTeamPreviousGames": [
+    {
+      "gameId": "20260804WOLT02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "키움",
+      "aScore": 2,
+      "gyear": 2026,
+      "gmkey": "20260804WOLT0",
+      "gweek": "화",
+      "aCode": "WO",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20260804
+    },
+    {
+      "gameId": "20260802SKWO02026",
+      "result": "승",
+      "hScore": 5,
+      "aName": "SSG",
+      "aScore": 3,
+      "gyear": 2026,
+      "gmkey": "20260802SKWO0",
+      "gweek": "일",
+      "aCode": "SK",
+      "hCode": "WO",
+      "hName": "키움",
+      "gdate": 20260802
+    },
+    {
+      "gameId": "20260801SKWO02026",
+      "result": "패",
+      "hScore": 2,
+      "aName": "SSG",
+      "aScore": 10,
+      "gyear": 2026,
+      "gmkey": "20260801SKWO0",
+      "gweek": "토",
+      "aCode": "SK",
+      "hCode": "WO",
+      "hName": "키움",
+      "gdate": 20260801
+    },
+    {
+      "gameId": "20260731SKWO02026",
+      "result": "승",
+      "hScore": 12,
+      "aName": "SSG",
+      "aScore": 7,
+      "gyear": 2026,
+      "gmkey": "20260731SKWO0",
+      "gweek": "금",
+      "aCode": "SK",
+      "hCode": "WO",
+      "hName": "키움",
+      "gdate": 20260731
+    },
+    {
+      "gameId": "20260730WOLG02026",
+      "result": "패",
+      "hScore": 5,
+      "aName": "키움",
+      "aScore": 3,
+      "gyear": 2026,
+      "gmkey": "20260730WOLG0",
+      "gweek": "목",
+      "aCode": "WO",
+      "hCode": "LG",
+      "hName": "LG",
       "gdate": 20260730
     }
   ],
