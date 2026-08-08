@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260807OBSS02026",
-    "fetchedAt": "2026-08-07T23:27:45+09:00"
+    "naverGameId": "20260808OBSS02026",
+    "fetchedAt": "2026-08-08T13:09:44+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
@@ -10,10 +10,10 @@
     "hCode": "SS",
     "hName": "삼성",
     "cancelFlag": "Y",
-    "gdate": 20260807,
+    "gdate": 20260808,
     "aPCode": "",
     "round": 0,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "두산",
     "gameFlag": "0",
     "hFullName": "삼성 라이온즈",

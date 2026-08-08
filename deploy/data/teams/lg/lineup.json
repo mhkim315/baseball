@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-08-07",
-    "lastUpdated": "2026-08-07T23:28:14+09:00",
-    "gameId": "20260807HTLG02026",
-    "kboGameId": "20260807HTLG0",
+    "lineupDate": "2026-08-08",
+    "lastUpdated": "2026-08-08T13:10:24+09:00",
+    "gameId": "20260808HTLG02026",
+    "kboGameId": "20260808HTLG0",
     "opponent": "KIA",
     "venue": "잠실",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",

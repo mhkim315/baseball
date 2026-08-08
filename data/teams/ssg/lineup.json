@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-08-07",
-    "lastUpdated": "2026-08-07T23:28:19+09:00",
-    "gameId": "20260807SKNC02026",
-    "kboGameId": "20260807SKNC0",
+    "lineupDate": "2026-08-08",
+    "lastUpdated": "2026-08-08T13:10:31+09:00",
+    "gameId": "20260808SKNC02026",
+    "kboGameId": "20260808SKNC0",
     "opponent": "NC",
     "venue": "창원",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",

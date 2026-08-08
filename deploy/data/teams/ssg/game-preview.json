@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260807SKNC02026",
-    "fetchedAt": "2026-08-07T23:27:43+09:00"
+    "naverGameId": "20260808SKNC02026",
+    "fetchedAt": "2026-08-08T13:09:40+09:00"
   },
   "gameInfo": {
     "aFullName": "SSG 랜더스",
@@ -10,10 +10,10 @@
     "hCode": "NC",
     "hName": "NC",
     "cancelFlag": "Y",
-    "gdate": 20260807,
+    "gdate": 20260808,
     "aPCode": "",
     "round": 0,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "SSG",
     "gameFlag": "0",
     "hFullName": "NC 다이노스",

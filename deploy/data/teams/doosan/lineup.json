@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-07",
-    "lastUpdated": "2026-08-07T23:28:12+09:00",
-    "gameId": "20260807OBSS02026",
-    "kboGameId": "20260807OBSS0",
+    "lineupDate": "2026-08-08",
+    "lastUpdated": "2026-08-08T13:10:21+09:00",
+    "gameId": "20260808OBSS02026",
+    "kboGameId": "20260808OBSS0",
     "opponent": "삼성",
     "venue": "대구",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",

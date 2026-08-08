@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-08-07",
-    "lastUpdated": "2026-08-07T23:28:21+09:00",
-    "gameId": "20260807LTKT02026",
-    "kboGameId": "20260807LTKT0",
+    "lineupDate": "2026-08-08",
+    "lastUpdated": "2026-08-08T13:10:34+09:00",
+    "gameId": "20260808LTKT02026",
+    "kboGameId": "20260808LTKT0",
     "opponent": "롯데",
     "venue": "수원",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",

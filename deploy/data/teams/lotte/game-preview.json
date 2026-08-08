@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260807LTKT02026",
-    "fetchedAt": "2026-08-07T23:27:47+09:00"
+    "naverGameId": "20260808LTKT02026",
+    "fetchedAt": "2026-08-08T13:09:47+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -10,10 +10,10 @@
     "hCode": "KT",
     "hName": "KT",
     "cancelFlag": "Y",
-    "gdate": 20260807,
+    "gdate": 20260808,
     "aPCode": "",
     "round": 0,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "롯데",
     "gameFlag": "0",
     "hFullName": "kt wiz",

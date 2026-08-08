@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260808HTLG02026",
+    "gameDate": "2026-08-08",
+    "lastUpdated": "2026-08-08T13:11:00+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "Y",
+    "gdate": 20260808,
+    "aPCode": "",
+    "round": 0,
+    "gtime": "18:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "HT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.90",
+    "hra": "0.270",
+    "w": 55,
+    "wra": "0.550",
+    "name": "LG",
+    "rank": 3,
+    "hr": 92,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 55,
+      "l": 45
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.49",
+    "hra": "0.271",
+    "w": 52,
+    "wra": "0.531",
+    "name": "KIA",
+    "rank": 5,
+    "hr": 128,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 52,
+      "l": 46
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "??"
+  },
+  "awayStarter": {
+    "name": "??"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
