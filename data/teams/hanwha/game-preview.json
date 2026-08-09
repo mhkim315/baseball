@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260808WOHH02026",
-    "fetchedAt": "2026-08-08T23:43:03+09:00"
+    "naverGameId": "20260809WOHH02026",
+    "fetchedAt": "2026-08-09T13:03:15+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
@@ -10,7 +10,7 @@
     "hCode": "HH",
     "hName": "한화",
     "cancelFlag": "Y",
-    "gdate": 20260808,
+    "gdate": 20260809,
     "aPCode": "",
     "round": 0,
     "gtime": "18:00",

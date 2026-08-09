@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T23:44:10.983930+09:00",
+  "generatedAt": "2026-08-09T13:04:15.647714+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6828,7 +6828,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": null,
         "homeStarter": null,
         "winPitcher": null,
@@ -6840,7 +6840,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": null,
         "homeStarter": null,
         "winPitcher": null,
@@ -6852,7 +6852,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": null,
         "homeStarter": null,
         "winPitcher": null,
@@ -6864,7 +6864,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": null,
         "homeStarter": null,
         "winPitcher": null,
@@ -6876,7 +6876,7 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
+        "cancelled": true,
         "awayStarter": null,
         "homeStarter": null,
         "winPitcher": null,
