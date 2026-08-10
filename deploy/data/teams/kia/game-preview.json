@@ -1,46 +1,30 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260809HTLG02026",
-    "fetchedAt": "2026-08-09T23:37:13+09:00"
+    "naverGameId": "20260811SSHT02026",
+    "fetchedAt": "2026-08-10T13:11:34+09:00"
   },
   "gameInfo": {
-    "aFullName": "KIA 타이거즈",
-    "hPCode": "",
-    "hCode": "LG",
-    "hName": "LG",
-    "cancelFlag": "Y",
-    "gdate": 20260809,
-    "aPCode": "",
-    "round": 0,
-    "gtime": "18:00",
-    "aName": "KIA",
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "55633",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260811,
+    "aPCode": "56459",
+    "round": 12,
+    "gtime": "19:00",
+    "aName": "삼성",
     "gameFlag": "0",
-    "hFullName": "LG 트윈스",
-    "stadium": "잠실",
-    "aCode": "HT",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "SS",
     "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"
   },
   "homeStandings": {
-    "d": 1,
-    "era": "4.90",
-    "hra": "0.270",
-    "w": 55,
-    "wra": "0.550",
-    "name": "LG",
-    "rank": 3,
-    "hr": 92,
-    "l": 45,
-    "seriesOutcome": {
-      "d": 1,
-      "w": 55,
-      "l": 45
-    }
-  },
-  "awayStandings": {
     "d": 2,
     "era": "4.49",
     "hra": "0.271",
@@ -56,89 +40,33 @@
       "l": 46
     }
   },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.21",
+    "hra": "0.278",
+    "w": 59,
+    "wra": "0.602",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 87,
+    "l": 39,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 39
+    }
+  },
   "seasonVsResult": {
     "ad": 0,
     "hl": 4,
     "aw": 4,
-    "aCode": "HT",
+    "aCode": "SS",
     "al": 7,
-    "hCode": "LG",
+    "hCode": "HT",
     "hd": 0,
     "hw": 7
   },
   "homeTeamPreviousGames": [
-    {
-      "gameId": "20260804LGSK02026",
-      "result": "패",
-      "hScore": 10,
-      "aName": "LG",
-      "aScore": 8,
-      "gyear": 2026,
-      "gmkey": "20260804LGSK0",
-      "gweek": "화",
-      "aCode": "LG",
-      "hCode": "SK",
-      "hName": "SSG",
-      "gdate": 20260804
-    },
-    {
-      "gameId": "20260802LGOB02026",
-      "result": "패",
-      "hScore": 8,
-      "aName": "LG",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260802LGOB0",
-      "gweek": "일",
-      "aCode": "LG",
-      "hCode": "OB",
-      "hName": "두산",
-      "gdate": 20260802
-    },
-    {
-      "gameId": "20260801LGOB02026",
-      "result": "무",
-      "hScore": 2,
-      "aName": "LG",
-      "aScore": 2,
-      "gyear": 2026,
-      "gmkey": "20260801LGOB0",
-      "gweek": "토",
-      "aCode": "LG",
-      "hCode": "OB",
-      "hName": "두산",
-      "gdate": 20260801
-    },
-    {
-      "gameId": "20260731LGOB02026",
-      "result": "패",
-      "hScore": 4,
-      "aName": "LG",
-      "aScore": 2,
-      "gyear": 2026,
-      "gmkey": "20260731LGOB0",
-      "gweek": "금",
-      "aCode": "LG",
-      "hCode": "OB",
-      "hName": "두산",
-      "gdate": 20260731
-    },
-    {
-      "gameId": "20260730WOLG02026",
-      "result": "승",
-      "hScore": 5,
-      "aName": "키움",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260730WOLG0",
-      "gweek": "목",
-      "aCode": "WO",
-      "hCode": "LG",
-      "hName": "LG",
-      "gdate": 20260730
-    }
-  ],
-  "awayTeamPreviousGames": [
     {
       "gameId": "20260731HTNC02026",
       "result": "패",
@@ -210,60 +138,194 @@
       "gdate": 20260726
     }
   ],
+  "awayTeamPreviousGames": [
+    {
+      "gameId": "20260804HHSS02026",
+      "result": "패",
+      "hScore": 1,
+      "aName": "한화",
+      "aScore": 4,
+      "gyear": 2026,
+      "gmkey": "20260804HHSS0",
+      "gweek": "화",
+      "aCode": "HH",
+      "hCode": "SS",
+      "hName": "삼성",
+      "gdate": 20260804
+    },
+    {
+      "gameId": "20260802SSLT02026",
+      "result": "패",
+      "hScore": 10,
+      "aName": "삼성",
+      "aScore": 7,
+      "gyear": 2026,
+      "gmkey": "20260802SSLT0",
+      "gweek": "일",
+      "aCode": "SS",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20260802
+    },
+    {
+      "gameId": "20260731SSLT02026",
+      "result": "승",
+      "hScore": 7,
+      "aName": "삼성",
+      "aScore": 9,
+      "gyear": 2026,
+      "gmkey": "20260731SSLT0",
+      "gweek": "금",
+      "aCode": "SS",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20260731
+    },
+    {
+      "gameId": "20260730HTSS02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "KIA",
+      "aScore": 12,
+      "gyear": 2026,
+      "gmkey": "20260730HTSS0",
+      "gweek": "목",
+      "aCode": "HT",
+      "hCode": "SS",
+      "hName": "삼성",
+      "gdate": 20260730
+    },
+    {
+      "gameId": "20260729HTSS02026",
+      "result": "패",
+      "hScore": 4,
+      "aName": "KIA",
+      "aScore": 9,
+      "gyear": 2026,
+      "gmkey": "20260729HTSS0",
+      "gweek": "수",
+      "aCode": "HT",
+      "hCode": "SS",
+      "hName": "삼성",
+      "gdate": 20260729
+    }
+  ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 5,
+      "kk": 10,
+      "gameCount": 2,
+      "s": 0,
+      "era": "9.00",
+      "w": 1,
+      "inn": "8.0",
+      "l": 1,
+      "er": 8
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "33",
+      "hitType": "우투우타",
+      "pCode": "55633",
+      "name": "올러",
+      "birth": "19941017",
+      "weight": "102.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 40.79999923706055,
+        "type": "FAST",
+        "speed": 148
+      },
+      {
+        "pit_rt": 30.899999618530273,
+        "type": "SLID",
+        "speed": 133
+      },
+      {
+        "pit_rt": 12.399999618530273,
+        "type": "CHUP",
+        "speed": 137
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 41,
+      "kk": 116,
+      "gameCount": 19,
+      "gday": "20260804",
+      "inn": "109.2",
+      "hp": 6,
+      "teamCode": "HT",
+      "hr": 11,
+      "l": 8,
+      "er": 41,
+      "whip": "1.14",
+      "hit": 84,
+      "r": 45,
+      "s": 0,
+      "era": "3.36",
+      "w": 9,
+      "inn2": "109 2/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 0,
+      "kk": 7,
+      "gameCount": 1,
+      "s": 0,
+      "era": "10.80",
+      "w": 0,
+      "inn": "5.0",
+      "l": 1,
+      "er": 6
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "59",
+      "hitType": "우투우타",
+      "pCode": "56459",
+      "name": "페덱",
+      "birth": "19960108",
+      "weight": "98.0",
+      "height": "196.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 32.20000076293945,
+        "type": "FAST",
+        "speed": 147
+      },
+      {
+        "pit_rt": 22.5,
+        "type": "CUTT",
+        "speed": 139
+      },
+      {
+        "pit_rt": 19.5,
+        "type": "CHUP",
+        "speed": 134
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "삼성",
+      "bb": 1,
+      "kk": 17,
+      "gameCount": 3,
+      "gday": "20260804",
+      "inn": "17.0",
+      "hp": 1,
+      "teamCode": "SS",
+      "hr": 2,
+      "l": 1,
+      "er": 8,
+      "whip": "0.82",
+      "hit": 13,
+      "r": 8,
+      "s": 0,
+      "era": "4.24",
+      "w": 2,
+      "inn2": "17"
     }
   }
 }
