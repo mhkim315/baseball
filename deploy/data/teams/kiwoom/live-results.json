@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-11T17:27:37+09:00",
+  "fetchedAt": "2026-08-11T18:29:51+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2427,7 +2427,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260811LGWO0"
+          "gameId": "20260811LGWO02026",
+          "awayStarter": "카라스코",
+          "homeStarter": "안우진",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-08-11",
-    "lastUpdated": "2026-08-11T17:28:59+09:00",
+    "lastUpdated": "2026-08-11T18:31:30+09:00",
     "gameId": "20260811SSHT02026",
     "kboGameId": "20260811SSHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -49,8 +49,8 @@
     },
     {
       "order": 5,
-      "name": "전병우",
-      "position": "3루수"
+      "name": "디아즈",
+      "position": "1루수"
     },
     {
       "order": 6,
@@ -59,29 +59,29 @@
     },
     {
       "order": 7,
-      "name": "디아즈",
-      "position": "1루수"
+      "name": "김영웅",
+      "position": "3루수"
     },
     {
       "order": 8,
-      "name": "김도환",
-      "position": "포수"
+      "name": "류지혁",
+      "position": "2루수"
     },
     {
       "order": 9,
-      "name": "류지혁",
-      "position": "2루수"
+      "name": "김도환",
+      "position": "포수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
       "name": "박재현",
-      "position": "우익수"
+      "position": "좌익수"
     },
     {
       "order": 2,
-      "name": "박상준",
+      "name": "카스트로",
       "position": "1루수"
     },
     {
@@ -91,27 +91,27 @@
     },
     {
       "order": 4,
-      "name": "카스트로",
-      "position": "좌익수"
+      "name": "나성범",
+      "position": "우익수"
     },
     {
       "order": 5,
-      "name": "나성범",
-      "position": "지명타자"
-    },
-    {
-      "order": 6,
       "name": "김선빈",
       "position": "2루수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "하주석",
       "position": "유격수"
     },
     {
+      "order": 7,
+      "name": "오선우",
+      "position": "지명타자"
+    },
+    {
       "order": 8,
-      "name": "한준수",
+      "name": "김태군",
       "position": "포수"
     },
     {

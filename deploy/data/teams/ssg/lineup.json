@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-08-11",
-    "lastUpdated": "2026-08-11T17:28:49+09:00",
+    "lastUpdated": "2026-08-11T18:31:24+09:00",
     "gameId": "20260811LTSK02026",
     "kboGameId": "20260811LTSK0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -49,28 +49,28 @@
     },
     {
       "order": 5,
-      "name": "오태곤",
+      "name": "마드리스",
       "position": "좌익수"
     },
     {
       "order": 6,
-      "name": "조형우",
-      "position": "포수"
-    },
-    {
-      "order": 7,
       "name": "최지훈",
       "position": "중견수"
     },
     {
+      "order": 7,
+      "name": "한유섬",
+      "position": "우익수"
+    },
+    {
       "order": 8,
-      "name": "안상현",
-      "position": "3루수"
+      "name": "조형우",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "임근우",
-      "position": "우익수"
+      "name": "안상현",
+      "position": "3루수"
     }
   ],
   "opponentBatters": [

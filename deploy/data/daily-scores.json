@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T17:29:12.034752+09:00",
+  "generatedAt": "2026-08-11T18:31:39.333031+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6891,8 +6891,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "왕옌청",
+        "homeStarter": "곽빈",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6903,8 +6903,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "카라스코",
+        "homeStarter": "안우진",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6915,8 +6915,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "비슬리",
+        "homeStarter": "아빌라",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6927,8 +6927,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로건",
+        "homeStarter": "라일리",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -6939,8 +6939,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "페덱",
+        "homeStarter": "올러",
         "winPitcher": null,
         "losePitcher": null
       }
