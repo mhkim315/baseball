@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-11T21:32:52+09:00",
+  "fetchedAt": "2026-08-11T22:59:22+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2425,13 +2425,13 @@
           "ourScore": 3,
           "oppScore": 6,
           "ourScoreLine": "3-6",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260811HHOB02026",
           "awayStarter": "왕옌청",
           "homeStarter": "곽빈",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김택연",
+          "losePitcher": "장유호"
         }
       ]
     },

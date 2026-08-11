@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T21:34:31.921272+09:00",
+  "generatedAt": "2026-08-11T23:00:58.631972+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6889,60 +6889,60 @@
         "home": "두산",
         "awayScore": 3,
         "homeScore": 6,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "왕옌청",
         "homeStarter": "곽빈",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김택연",
+        "losePitcher": "장유호"
       },
       {
         "away": "LG",
         "home": "키움",
-        "awayScore": 4,
+        "awayScore": 8,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "카라스코",
         "homeStarter": "안우진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "카라스코",
+        "losePitcher": "정현우"
       },
       {
         "away": "롯데",
         "home": "SSG",
         "awayScore": 4,
         "homeScore": 8,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "비슬리",
         "homeStarter": "아빌라",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "아빌라",
+        "losePitcher": "비슬리"
       },
       {
         "away": "KT",
         "home": "NC",
-        "awayScore": 1,
+        "awayScore": 7,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "로건",
         "homeStarter": "라일리",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "우규민",
+        "losePitcher": "임지민"
       },
       {
         "away": "삼성",
         "home": "KIA",
         "awayScore": 1,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "페덱",
         "homeStarter": "올러",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "올러",
+        "losePitcher": "페덱"
       }
     ],
     "2026-08-12": [
