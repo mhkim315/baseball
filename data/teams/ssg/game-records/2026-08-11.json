@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260811LTSK02026",
+    "gameDate": "2026-08-11",
+    "lastUpdated": "2026-08-11T13:08:11+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "56801",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260811,
+    "aPCode": "56523",
+    "round": 13,
+    "gtime": "19:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "LT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.63",
+    "hra": "0.261",
+    "w": 39,
+    "wra": "0.394",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 114,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 39,
+      "l": 60
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.40",
+    "hra": "0.264",
+    "w": 44,
+    "wra": "0.449",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 72,
+    "l": 54,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 54
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "아빌라"
+  },
+  "awayStarter": {
+    "name": "비슬리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
