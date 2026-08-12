@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-08-12T22:37:05+09:00",
+  "fetchedAt": "2026-08-12T23:39:34+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2449,13 +2449,13 @@
           "ourScore": 3,
           "oppScore": 4,
           "ourScoreLine": "3-4",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260812HHOB02026",
           "awayStarter": "화이트",
           "homeStarter": "벤자민",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박상원",
+          "losePitcher": "이영하"
         }
       ]
     },

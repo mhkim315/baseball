@@ -1,13 +1,13 @@
 {
   "date": "2026-08-12",
-  "generatedAt": "2026-08-12T22:38:06.143021+09:00",
+  "generatedAt": "2026-08-12T23:41:04.407172+09:00",
   "games": [
     {
       "id": "20260812-LGWO-0",
       "date": "2026-08-12",
       "venue": "고척",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lg",
         "name": "LG",
@@ -27,8 +27,8 @@
         "record": "38승2무65패"
       },
       "score": {
-        "away": 1,
-        "home": 1
+        "away": 3,
+        "home": 4
       }
     },
     {
@@ -36,7 +36,7 @@
       "date": "2026-08-12",
       "venue": "광주",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -57,7 +57,7 @@
       },
       "score": {
         "away": 2,
-        "home": 4
+        "home": 7
       }
     },
     {
@@ -65,7 +65,7 @@
       "date": "2026-08-12",
       "venue": "문학",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 1,
-        "home": 6
+        "home": 9
       }
     },
     {
@@ -114,8 +114,8 @@
         "record": "53승4무45패"
       },
       "score": {
-        "away": 1,
-        "home": 0
+        "away": 4,
+        "home": 3
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-12",
       "venue": "창원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -144,7 +144,7 @@
       },
       "score": {
         "away": 0,
-        "home": 1
+        "home": 3
       }
     }
   ],

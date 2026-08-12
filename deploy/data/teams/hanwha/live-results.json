@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-12T22:37:05+09:00",
+  "fetchedAt": "2026-08-12T23:39:34+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2447,13 +2447,13 @@
           "ourScore": 4,
           "oppScore": 3,
           "ourScoreLine": "4-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260812HHOB02026",
           "awayStarter": "화이트",
           "homeStarter": "벤자민",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박상원",
+          "losePitcher": "이영하"
         }
       ]
     },

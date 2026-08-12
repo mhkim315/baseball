@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T22:38:06.179762+09:00",
+  "generatedAt": "2026-08-12T23:41:04.446688+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6951,12 +6951,12 @@
         "home": "두산",
         "awayScore": 4,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "화이트",
         "homeStarter": "벤자민",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박상원",
+        "losePitcher": "이영하"
       },
       {
         "away": "LG",
