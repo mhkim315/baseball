@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-12T17:17:32+09:00",
+  "fetchedAt": "2026-08-12T18:33:06+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2449,7 +2449,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260812LTSK0"
+          "gameId": "20260812LTSK02026",
+          "awayStarter": "김한결",
+          "homeStarter": "김민준",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
