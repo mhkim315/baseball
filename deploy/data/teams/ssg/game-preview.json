@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260812LTSK02026",
-    "fetchedAt": "2026-08-12T16:00:01+09:00"
+    "fetchedAt": "2026-08-12T17:17:44+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -11,7 +11,7 @@
     "hName": "SSG",
     "cancelFlag": "N",
     "gdate": 20260812,
-    "aPCode": "67539",
+    "aPCode": "56540",
     "round": 14,
     "gtime": "19:00",
     "aName": "롯데",
@@ -271,61 +271,38 @@
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 1,
-      "kk": 7,
-      "gameCount": 1,
-      "s": 0,
-      "era": "2.57",
-      "w": 1,
-      "inn": "7.0",
-      "l": 0,
-      "er": 2
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
     "playerInfo": {
-      "backnum": "43",
+      "backnum": "62",
       "hitType": "우투우타",
-      "pCode": "67539",
-      "name": "나균안",
-      "birth": "19980316",
-      "weight": "109.0",
-      "height": "186.0"
+      "pCode": "56540",
+      "name": "김한결",
+      "birth": "20060724",
+      "weight": "93.0",
+      "height": "193.0"
     },
-    "currentPitKindStats": [
-      {
-        "pit_rt": 34.400001525878906,
-        "type": "FAST",
-        "speed": 143
-      },
-      {
-        "pit_rt": 29.799999237060547,
-        "type": "FORK",
-        "speed": 131
-      },
-      {
-        "pit_rt": 16.100000381469727,
-        "type": "CUTT",
-        "speed": 138
-      }
-    ],
+    "currentPitKindStats": [],
     "currentSeasonStats": {
-      "teamName": "롯데",
-      "bb": 32,
-      "kk": 97,
-      "gameCount": 19,
-      "gday": "20260811",
-      "inn": "108.2",
-      "hp": 2,
-      "teamCode": "LT",
-      "hr": 17,
-      "l": 9,
-      "er": 50,
-      "whip": "1.43",
-      "hit": 123,
-      "r": 55,
-      "s": 0,
-      "era": "4.14",
-      "w": 5,
-      "inn2": "108 2/3"
+      "kk": "0",
+      "bb": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "inn2": "0",
+      "l": "0",
+      "er": "0",
+      "whip": "0.00"
     }
   }
 }
