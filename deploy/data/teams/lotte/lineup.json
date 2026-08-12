@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-11",
-    "lastUpdated": "2026-08-11T23:57:57+09:00",
-    "gameId": "20260811LTSK02026",
-    "kboGameId": "20260811LTSK0",
+    "lineupDate": "2026-08-12",
+    "lastUpdated": "2026-08-12T13:26:02+09:00",
+    "gameId": "20260812LTSK02026",
+    "kboGameId": "20260812LTSK0",
     "opponent": "SSG",
     "venue": "문학",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "비슬리"
+    "name": "나균안"
   },
   "opponentStartingPitcher": {
-    "name": "아빌라"
+    "name": "김민준"
   }
 }

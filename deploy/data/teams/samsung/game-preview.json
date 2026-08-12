@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260811SSHT02026",
-    "fetchedAt": "2026-08-11T23:56:52+09:00"
+    "naverGameId": "20260812SSHT02026",
+    "fetchedAt": "2026-08-12T13:25:21+09:00"
   },
   "gameInfo": {
     "aFullName": "삼성 라이온즈",
-    "hPCode": "55633",
+    "hPCode": "54640",
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "N",
-    "gdate": 20260811,
-    "aPCode": "56459",
-    "round": 12,
+    "gdate": 20260812,
+    "aPCode": "56402",
+    "round": 13,
     "gtime": "19:00",
     "aName": "삼성",
     "gameFlag": "0",
@@ -22,38 +22,38 @@
     "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 2,
-    "era": "4.49",
-    "hra": "0.271",
-    "w": 52,
-    "wra": "0.531",
+    "era": "4.45",
+    "hra": "0.270",
+    "w": 53,
+    "wra": "0.535",
     "name": "KIA",
     "rank": 5,
     "hr": 128,
     "l": 46,
     "seriesOutcome": {
       "d": 2,
-      "w": 52,
+      "w": 53,
       "l": 46
     }
   },
   "awayStandings": {
     "d": 2,
-    "era": "4.21",
-    "hra": "0.278",
+    "era": "4.20",
+    "hra": "0.277",
     "w": 59,
-    "wra": "0.602",
+    "wra": "0.596",
     "name": "삼성",
     "rank": 2,
     "hr": 87,
-    "l": 39,
+    "l": 40,
     "seriesOutcome": {
       "d": 2,
       "w": 59,
-      "l": 39
+      "l": 40
     }
   },
   "seasonVsResult": {
@@ -61,12 +61,26 @@
     "hl": 4,
     "aw": 4,
     "aCode": "SS",
-    "al": 7,
+    "al": 8,
     "hCode": "HT",
     "hd": 0,
-    "hw": 7
+    "hw": 8
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20260811SSHT02026",
+      "result": "승",
+      "hScore": 3,
+      "aName": "삼성",
+      "aScore": 1,
+      "gyear": 2026,
+      "gmkey": "20260811SSHT0",
+      "gweek": "화",
+      "aCode": "SS",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20260811
+    },
     {
       "gameId": "20260731HTNC02026",
       "result": "패",
@@ -122,23 +136,23 @@
       "hCode": "SS",
       "hName": "삼성",
       "gdate": 20260728
-    },
-    {
-      "gameId": "20260726WOHT02026",
-      "result": "패",
-      "hScore": 3,
-      "aName": "키움",
-      "aScore": 8,
-      "gyear": 2026,
-      "gmkey": "20260726WOHT0",
-      "gweek": "일",
-      "aCode": "WO",
-      "hCode": "HT",
-      "hName": "KIA",
-      "gdate": 20260726
     }
   ],
   "awayTeamPreviousGames": [
+    {
+      "gameId": "20260811SSHT02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "삼성",
+      "aScore": 1,
+      "gyear": 2026,
+      "gmkey": "20260811SSHT0",
+      "gweek": "화",
+      "aCode": "SS",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20260811
+    },
     {
       "gameId": "20260804HHSS02026",
       "result": "패",
@@ -194,138 +208,124 @@
       "hCode": "SS",
       "hName": "삼성",
       "gdate": 20260730
-    },
-    {
-      "gameId": "20260729HTSS02026",
-      "result": "패",
-      "hScore": 4,
-      "aName": "KIA",
-      "aScore": 9,
-      "gyear": 2026,
-      "gmkey": "20260729HTSS0",
-      "gweek": "수",
-      "aCode": "HT",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20260729
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
       "bb": 5,
-      "kk": 10,
-      "gameCount": 2,
+      "kk": 12,
+      "gameCount": 3,
       "s": 0,
-      "era": "9.00",
+      "era": "3.50",
       "w": 1,
-      "inn": "8.0",
-      "l": 1,
-      "er": 8
+      "inn": "18.0",
+      "l": 0,
+      "er": 7
     },
     "playerInfo": {
-      "backnum": "33",
+      "backnum": "40",
       "hitType": "우투우타",
-      "pCode": "55633",
-      "name": "올러",
-      "birth": "19941017",
-      "weight": "102.0",
+      "pCode": "54640",
+      "name": "네일",
+      "birth": "19930208",
+      "weight": "83.0",
       "height": "193.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 40.79999923706055,
-        "type": "FAST",
-        "speed": 148
+        "pit_rt": 32.400001525878906,
+        "type": "TWOS",
+        "speed": 145
       },
       {
-        "pit_rt": 30.899999618530273,
-        "type": "SLID",
-        "speed": 133
+        "pit_rt": 32.20000076293945,
+        "type": "SWEE",
+        "speed": 131
       },
       {
-        "pit_rt": 12.399999618530273,
-        "type": "CHUP",
-        "speed": 137
+        "pit_rt": 19.200000762939453,
+        "type": "CUTT",
+        "speed": 140
       }
     ],
     "currentSeasonStats": {
       "teamName": "KIA",
-      "bb": 41,
-      "kk": 116,
-      "gameCount": 19,
-      "gday": "20260804",
-      "inn": "109.2",
-      "hp": 6,
+      "bb": 25,
+      "kk": 99,
+      "gameCount": 21,
+      "gday": "20260811",
+      "inn": "121.2",
+      "hp": 12,
       "teamCode": "HT",
-      "hr": 11,
-      "l": 8,
-      "er": 41,
-      "whip": "1.14",
-      "hit": 84,
-      "r": 45,
+      "hr": 8,
+      "l": 5,
+      "er": 52,
+      "whip": "1.18",
+      "hit": 119,
+      "r": 52,
       "s": 0,
-      "era": "3.36",
-      "w": 9,
-      "inn2": "109 2/3"
+      "era": "3.85",
+      "w": 7,
+      "inn2": "121 2/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 0,
-      "kk": 7,
-      "gameCount": 1,
-      "s": 0,
-      "era": "10.80",
-      "w": 0,
-      "inn": "5.0",
-      "l": 1,
-      "er": 6
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
     "playerInfo": {
-      "backnum": "59",
+      "backnum": "43",
       "hitType": "우투우타",
-      "pCode": "56459",
-      "name": "페덱",
-      "birth": "19960108",
-      "weight": "98.0",
-      "height": "196.0"
+      "pCode": "56402",
+      "name": "보스",
+      "birth": "19920626",
+      "weight": "97.0",
+      "height": "188.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 32.20000076293945,
+        "pit_rt": 33.099998474121094,
+        "type": "SWEE",
+        "speed": 127
+      },
+      {
+        "pit_rt": 18.899999618530273,
         "type": "FAST",
-        "speed": 147
+        "speed": 148
       },
       {
-        "pit_rt": 22.5,
+        "pit_rt": 17.600000381469727,
         "type": "CUTT",
-        "speed": 139
-      },
-      {
-        "pit_rt": 19.5,
-        "type": "CHUP",
-        "speed": 134
+        "speed": 141
       }
     ],
     "currentSeasonStats": {
       "teamName": "삼성",
-      "bb": 1,
-      "kk": 17,
-      "gameCount": 3,
-      "gday": "20260804",
-      "inn": "17.0",
+      "bb": 2,
+      "kk": 6,
+      "gameCount": 2,
+      "gday": "20260811",
+      "inn": "8.0",
       "hp": 1,
       "teamCode": "SS",
-      "hr": 2,
-      "l": 1,
+      "hr": 0,
+      "l": 2,
       "er": 8,
-      "whip": "0.82",
-      "hit": 13,
-      "r": 8,
+      "whip": "2.00",
+      "hit": 14,
+      "r": 9,
       "s": 0,
-      "era": "4.24",
-      "w": 2,
-      "inn2": "17"
+      "era": "9.00",
+      "w": 0,
+      "inn2": "8"
     }
   }
 }
