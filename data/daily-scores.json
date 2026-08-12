@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T21:06:30.257677+09:00",
+  "generatedAt": "2026-08-12T22:38:06.179762+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -6949,8 +6949,8 @@
       {
         "away": "한화",
         "home": "두산",
-        "awayScore": 1,
-        "homeScore": 0,
+        "awayScore": 4,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "화이트",
@@ -6961,50 +6961,50 @@
       {
         "away": "LG",
         "home": "키움",
-        "awayScore": 1,
-        "homeScore": 1,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 4,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "임찬규",
         "homeStarter": "전준표",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "박진형",
+        "losePitcher": "김진수"
       },
       {
         "away": "롯데",
         "home": "SSG",
         "awayScore": 1,
-        "homeScore": 6,
-        "outcome": null,
+        "homeScore": 9,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "김한결",
         "homeStarter": "김민준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김민준",
+        "losePitcher": "김한결"
       },
       {
         "away": "KT",
         "home": "NC",
         "awayScore": 0,
-        "homeScore": 1,
-        "outcome": null,
+        "homeScore": 3,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "소형준",
         "homeStarter": "구창모",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "구창모",
+        "losePitcher": "소형준"
       },
       {
         "away": "삼성",
         "home": "KIA",
         "awayScore": 2,
-        "homeScore": 4,
-        "outcome": null,
+        "homeScore": 7,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "보스",
         "homeStarter": "네일",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "네일",
+        "losePitcher": "보스"
       }
     ],
     "2026-08-13": [

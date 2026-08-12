@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-12T21:05:28+09:00",
+  "fetchedAt": "2026-08-12T22:37:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2442,18 +2442,18 @@
           "home": "SSG",
           "venue": "문학",
           "awayScore": 1,
-          "homeScore": 6,
-          "scoreLine": "1-6",
+          "homeScore": 9,
+          "scoreLine": "1-9",
           "ourScore": 1,
-          "oppScore": 6,
-          "ourScoreLine": "1-6",
-          "outcome": null,
+          "oppScore": 9,
+          "ourScoreLine": "1-9",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260812LTSK02026",
           "awayStarter": "김한결",
           "homeStarter": "김민준",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김민준",
+          "losePitcher": "김한결"
         }
       ]
     },

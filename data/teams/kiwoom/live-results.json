@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-12T21:05:28+09:00",
+  "fetchedAt": "2026-08-12T22:37:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2441,19 +2441,19 @@
           "away": "LG",
           "home": "키움",
           "venue": "고척",
-          "awayScore": 1,
-          "homeScore": 1,
-          "scoreLine": "1-1",
-          "ourScore": 1,
-          "oppScore": 1,
-          "ourScoreLine": "1-1",
-          "outcome": null,
+          "awayScore": 3,
+          "homeScore": 4,
+          "scoreLine": "3-4",
+          "ourScore": 4,
+          "oppScore": 3,
+          "ourScoreLine": "4-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260812LGWO02026",
           "awayStarter": "임찬규",
           "homeStarter": "전준표",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "박진형",
+          "losePitcher": "김진수"
         }
       ]
     },
