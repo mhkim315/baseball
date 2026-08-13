@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-13T17:04:05+09:00",
+  "fetchedAt": "2026-08-13T18:20:22+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2471,7 +2471,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260813HHOB0"
+          "gameId": "20260813HHOB02026",
+          "awayStarter": "류현진",
+          "homeStarter": "최민석",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

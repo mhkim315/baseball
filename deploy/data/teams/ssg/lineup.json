@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-08-13",
-    "lastUpdated": "2026-08-13T17:04:52+09:00",
+    "lastUpdated": "2026-08-13T18:21:34+09:00",
     "gameId": "20260813LTSK02026",
     "kboGameId": "20260813LTSK0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,12 +30,12 @@
     {
       "order": 1,
       "name": "정준재",
-      "position": "유격수"
+      "position": "2루수"
     },
     {
       "order": 2,
       "name": "박성한",
-      "position": "2루수"
+      "position": "유격수"
     },
     {
       "order": 3,
@@ -49,7 +49,7 @@
     },
     {
       "order": 5,
-      "name": "오태곤",
+      "name": "한유섬",
       "position": "우익수"
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "order": 7,
-      "name": "손호영",
+      "name": "한태양",
       "position": "3루수"
     },
     {
