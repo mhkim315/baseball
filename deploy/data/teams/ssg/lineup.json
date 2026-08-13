@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-08-12",
-    "lastUpdated": "2026-08-12T23:40:45+09:00",
-    "gameId": "20260812LTSK02026",
-    "kboGameId": "20260812LTSK0",
+    "lineupDate": "2026-08-13",
+    "lastUpdated": "2026-08-13T12:19:51+09:00",
+    "gameId": "20260813LTSK02026",
+    "kboGameId": "20260813LTSK0",
     "opponent": "롯데",
     "venue": "문학",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김민준"
+    "name": "타케다"
   },
   "opponentStartingPitcher": {
-    "name": "김한결"
+    "name": "로드리게스"
   }
 }

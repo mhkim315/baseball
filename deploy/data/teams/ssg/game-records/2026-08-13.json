@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260813LTSK02026",
+    "gameDate": "2026-08-13",
+    "lastUpdated": "2026-08-13T12:20:11+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "56823",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260813,
+    "aPCode": "56531",
+    "round": 15,
+    "gtime": "19:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "LT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.54",
+    "hra": "0.262",
+    "w": 41,
+    "wra": "0.406",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 115,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 41,
+      "l": 60
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.49",
+    "hra": "0.262",
+    "w": 44,
+    "wra": "0.440",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 74,
+    "l": 56,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 44,
+      "l": 56
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "타케다"
+  },
+  "awayStarter": {
+    "name": "로드리게스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

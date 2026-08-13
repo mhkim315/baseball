@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260813HHOB02026",
+    "gameDate": "2026-08-13",
+    "lastUpdated": "2026-08-13T12:20:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "55268",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260813,
+    "aPCode": "76715",
+    "round": 15,
+    "gtime": "19:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "HH",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "3.75",
+    "hra": "0.269",
+    "w": 53,
+    "wra": "0.535",
+    "name": "두산",
+    "rank": 5,
+    "hr": 79,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 53,
+      "l": 46
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.72",
+    "hra": "0.275",
+    "w": 48,
+    "wra": "0.490",
+    "name": "한화",
+    "rank": 6,
+    "hr": 117,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 48,
+      "l": 50
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최민석"
+  },
+  "awayStarter": {
+    "name": "류현진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
