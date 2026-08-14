@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-14T22:24:49+09:00",
+  "fetchedAt": "2026-08-14T23:28:43+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2491,13 +2491,13 @@
           "ourScore": 8,
           "oppScore": 3,
           "ourScoreLine": "8-3",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260814WOKT02026",
           "awayStarter": "박준현",
           "homeStarter": "고영표",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "전용주",
+          "losePitcher": "배동현"
         }
       ]
     },

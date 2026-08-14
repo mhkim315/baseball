@@ -1,6 +1,6 @@
 {
   "date": "2026-08-14",
-  "generatedAt": "2026-08-14T22:26:07.971780+09:00",
+  "generatedAt": "2026-08-14T23:29:48.584783+09:00",
   "games": [
     {
       "id": "20260814-OBHT-0",
@@ -27,8 +27,8 @@
         "record": "54승2무47패"
       },
       "score": {
-        "away": 4,
-        "home": 1
+        "away": 7,
+        "home": 2
       }
     },
     {
@@ -56,8 +56,8 @@
         "record": "60승2무41패"
       },
       "score": {
-        "away": 1,
-        "home": 4
+        "away": 5,
+        "home": 8
       }
     },
     {
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 6,
-        "home": 2
+        "home": 6
       }
     },
     {
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 3,
-        "home": 2
+        "home": 8
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-14",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -143,8 +143,8 @@
         "record": "57승1무46패"
       },
       "score": {
-        "away": 2,
-        "home": 2
+        "away": 5,
+        "home": 3
       }
     }
   ],
