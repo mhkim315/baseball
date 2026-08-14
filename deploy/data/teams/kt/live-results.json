@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-14T21:03:57+09:00",
+  "fetchedAt": "2026-08-14T22:24:49+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2486,11 +2486,11 @@
           "home": "KT",
           "venue": "수원",
           "awayScore": 3,
-          "homeScore": 2,
-          "scoreLine": "3-2",
-          "ourScore": 2,
+          "homeScore": 8,
+          "scoreLine": "3-8",
+          "ourScore": 8,
           "oppScore": 3,
-          "ourScoreLine": "2-3",
+          "ourScoreLine": "8-3",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260814WOKT02026",

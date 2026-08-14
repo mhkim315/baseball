@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-14T21:03:50+09:00",
+  "fetchedAt": "2026-08-14T22:24:41+09:00",
   "rows": [
     {
       "rank": 1,
@@ -21,10 +21,10 @@
     {
       "rank": 3,
       "teamName": "LG",
-      "winRate": 0.553,
-      "wlt": "57승1무46패",
-      "gamesBehind": 5.5,
-      "streak": "1승"
+      "winRate": 0.548,
+      "wlt": "57승1무47패",
+      "gamesBehind": 6.0,
+      "streak": "1패"
     },
     {
       "rank": 4,
@@ -69,10 +69,10 @@
     {
       "rank": 9,
       "teamName": "SSG",
-      "winRate": 0.402,
-      "wlt": "41승4무61패",
-      "gamesBehind": 21.0,
-      "streak": "1패"
+      "winRate": 0.408,
+      "wlt": "42승4무61패",
+      "gamesBehind": 20.5,
+      "streak": "1승"
     },
     {
       "rank": 10,
