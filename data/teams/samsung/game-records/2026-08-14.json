@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260814HHSS02026",
+    "gameDate": "2026-08-14",
+    "lastUpdated": "2026-08-14T12:13:59+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "65320",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260814,
+    "aPCode": "56799",
+    "round": 11,
+    "gtime": "19:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "HH",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.26",
+    "hra": "0.276",
+    "w": 60,
+    "wra": "0.594",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 89,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 60,
+      "l": 41
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.76",
+    "hra": "0.275",
+    "w": 48,
+    "wra": "0.485",
+    "name": "한화",
+    "rank": 6,
+    "hr": 119,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 48,
+      "l": 51
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최원태"
+  },
+  "awayStarter": {
+    "name": "짐머맨"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
