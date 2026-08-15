@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-15T20:55:33+09:00",
+  "fetchedAt": "2026-08-15T21:16:59+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2507,12 +2507,12 @@
           "away": "한화",
           "home": "삼성",
           "venue": "대구",
-          "awayScore": 2,
+          "awayScore": 4,
           "homeScore": 5,
-          "scoreLine": "2-5",
-          "ourScore": 2,
+          "scoreLine": "4-5",
+          "ourScore": 4,
           "oppScore": 5,
-          "ourScoreLine": "2-5",
+          "ourScoreLine": "4-5",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260815HHSS02026",
