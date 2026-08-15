@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-08-15",
-    "lastUpdated": "2026-08-15T18:04:51+09:00",
+    "lastUpdated": "2026-08-15T18:35:06+09:00",
     "gameId": "20260815OBHT02026",
     "kboGameId": "20260815OBHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -45,7 +45,7 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "지명타자"
+      "position": "포수"
     },
     {
       "order": 5,
@@ -60,7 +60,7 @@
     {
       "order": 7,
       "name": "박찬호",
-      "position": "유격수"
+      "position": "지명타자"
     },
     {
       "order": 8,
@@ -69,8 +69,8 @@
     },
     {
       "order": 9,
-      "name": "윤준호",
-      "position": "포수"
+      "name": "이유찬",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "윤도현",
-      "position": "2루수"
+      "name": "하주석",
+      "position": "유격수"
     },
     {
       "order": 8,
-      "name": "김태군",
+      "name": "한준수",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "정현창",
-      "position": "유격수"
+      "name": "이호연",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {

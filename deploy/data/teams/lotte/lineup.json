@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-08-15",
-    "lastUpdated": "2026-08-15T18:05:15+09:00",
+    "lastUpdated": "2026-08-15T18:35:30+09:00",
     "gameId": "20260815NCLT02026",
     "kboGameId": "20260815NCLT0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "최정원",
-      "position": "중견수"
+      "name": "권희동",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "권희동",
-      "position": "좌익수"
+      "name": "박시원",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "김형준",
+      "name": "안중열",
       "position": "포수"
     },
     {
       "order": 9,
       "name": "천재환",
-      "position": "우익수"
+      "position": "중견수"
     }
   ],
   "startingPitcher": {

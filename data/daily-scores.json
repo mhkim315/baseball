@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T18:05:21.470907+09:00",
+  "generatedAt": "2026-08-15T18:35:35.784275+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7139,8 +7139,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최승용",
+        "homeStarter": "양현종",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7151,8 +7151,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "김건우",
+        "homeStarter": "박시원",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7163,8 +7163,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "하영민",
+        "homeStarter": "오원석",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7175,8 +7175,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "박준영",
+        "homeStarter": "양창섭",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7187,8 +7187,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "원종해",
+        "homeStarter": "박세웅",
         "winPitcher": null,
         "losePitcher": null
       }
