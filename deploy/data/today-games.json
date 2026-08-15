@@ -1,13 +1,13 @@
 {
   "date": "2026-08-15",
-  "generatedAt": "2026-08-15T22:33:41.777301+09:00",
+  "generatedAt": "2026-08-15T22:55:08.613466+09:00",
   "games": [
     {
       "id": "20260815-OBHT-0",
       "date": "2026-08-15",
       "venue": "광주",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
@@ -57,7 +57,7 @@
       },
       "score": {
         "away": 6,
-        "home": 8
+        "home": 11
       }
     },
     {
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 5,
-        "home": 6
+        "home": 8
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-08-15",
       "venue": "수원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 10,
-        "home": 4
+        "home": 5
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-15",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",

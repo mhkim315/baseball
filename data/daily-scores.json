@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T22:33:41.812146+09:00",
+  "generatedAt": "2026-08-15T22:55:08.648594+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7173,24 +7173,24 @@
         "home": "삼성",
         "awayScore": 6,
         "homeScore": 11,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "박준영",
         "homeStarter": "양창섭",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "배찬승",
+        "losePitcher": "이상규"
       },
       {
         "away": "NC",
         "home": "롯데",
         "awayScore": 5,
         "homeScore": 8,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "원종해",
         "homeStarter": "박세웅",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이이무라",
+        "losePitcher": "김진호"
       }
     ],
     "2026-08-16": [
