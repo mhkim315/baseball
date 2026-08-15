@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-08-14",
-    "lastUpdated": "2026-08-14T23:29:34+09:00",
-    "gameId": "20260814SKLG02026",
-    "kboGameId": "20260814SKLG0",
+    "lineupDate": "2026-08-15",
+    "lastUpdated": "2026-08-15T12:22:05+09:00",
+    "gameId": "20260815SKLG02026",
+    "kboGameId": "20260815SKLG0",
     "opponent": "LG",
     "venue": "잠실",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최민준"
+    "name": "김건우"
   },
   "opponentStartingPitcher": {
-    "name": "송승기"
+    "name": "박시원"
   }
 }

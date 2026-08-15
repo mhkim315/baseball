@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260815HHSS02026",
+    "gameDate": "2026-08-15",
+    "lastUpdated": "2026-08-15T12:22:30+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "68415",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260815,
+    "aPCode": "52731",
+    "round": 12,
+    "gtime": "19:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "HH",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.27",
+    "hra": "0.278",
+    "w": 61,
+    "wra": "0.598",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 93,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 61,
+      "l": 41
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.80",
+    "hra": "0.275",
+    "w": 48,
+    "wra": "0.480",
+    "name": "한화",
+    "rank": 6,
+    "hr": 122,
+    "l": 52,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 48,
+      "l": 52
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "양창섭"
+  },
+  "awayStarter": {
+    "name": "박준영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

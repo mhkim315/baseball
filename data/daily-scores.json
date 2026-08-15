@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T23:29:48.614726+09:00",
+  "generatedAt": "2026-08-15T12:22:34.214147+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7075,12 +7075,12 @@
         "home": "KIA",
         "awayScore": 10,
         "homeScore": 4,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "잭로그",
         "homeStarter": "황동하",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "잭로그",
+        "losePitcher": "황동하"
       },
       {
         "away": "SSG",
