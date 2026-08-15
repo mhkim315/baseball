@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-15T21:16:59+09:00",
+  "fetchedAt": "2026-08-15T22:00:36+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2507,12 +2507,12 @@
           "away": "키움",
           "home": "KT",
           "venue": "수원",
-          "awayScore": 9,
+          "awayScore": 10,
           "homeScore": 4,
-          "scoreLine": "9-4",
-          "ourScore": 9,
+          "scoreLine": "10-4",
+          "ourScore": 10,
           "oppScore": 4,
-          "ourScoreLine": "9-4",
+          "ourScoreLine": "10-4",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260815WOKT02026",
