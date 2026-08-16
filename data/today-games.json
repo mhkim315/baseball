@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "generatedAt": "2026-08-16T16:19:00.377262+09:00",
+  "generatedAt": "2026-08-16T16:48:05.207103+09:00",
   "games": [
     {
       "id": "20260816-OBHT-0",
@@ -65,7 +65,7 @@
       "date": "2026-08-16",
       "venue": "사직",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "nc",
         "name": "NC",
