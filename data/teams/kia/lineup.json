@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-08-16",
-    "lastUpdated": "2026-08-16T18:01:10+09:00",
+    "lastUpdated": "2026-08-16T18:28:51+09:00",
     "gameId": "20260816OBHT02026",
     "kboGameId": "20260816OBHT0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -35,7 +35,7 @@
     {
       "order": 2,
       "name": "김선빈",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 3,
@@ -50,27 +50,27 @@
     {
       "order": 5,
       "name": "나성범",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "김호령",
-      "position": "중견수"
-    },
-    {
-      "order": 7,
       "name": "하주석",
       "position": "유격수"
     },
     {
+      "order": 7,
+      "name": "김호령",
+      "position": "중견수"
+    },
+    {
       "order": 8,
-      "name": "한준수",
+      "name": "김태군",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "이호연",
-      "position": "2루수"
+      "name": "박정우",
+      "position": "우익수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "정수빈",
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -91,33 +91,33 @@
     },
     {
       "order": 4,
-      "name": "양의지",
-      "position": "포수"
+      "name": "안재석",
+      "position": "3루수"
     },
     {
       "order": 5,
       "name": "김민석",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
+      "name": "박찬호",
+      "position": "유격수"
+    },
+    {
+      "order": 7,
+      "name": "조수행",
+      "position": "좌익수"
+    },
+    {
+      "order": 8,
       "name": "박지훈",
       "position": "1루수"
     },
     {
-      "order": 7,
-      "name": "박찬호",
-      "position": "지명타자"
-    },
-    {
-      "order": 8,
-      "name": "정수빈",
-      "position": "중견수"
-    },
-    {
       "order": 9,
-      "name": "이유찬",
-      "position": "유격수"
+      "name": "윤준호",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
