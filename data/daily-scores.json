@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T22:06:48.086653+09:00",
+  "generatedAt": "2026-08-16T22:40:11.524637+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7211,24 +7211,24 @@
         "home": "LG",
         "awayScore": 6,
         "homeScore": 0,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "아빌라",
         "homeStarter": "카라스코",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "아빌라",
+        "losePitcher": "카라스코"
       },
       {
         "away": "키움",
         "home": "KT",
         "awayScore": 2,
-        "homeScore": 5,
-        "outcome": null,
+        "homeScore": 6,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "김윤하",
         "homeStarter": "로건",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "로건",
+        "losePitcher": "김성민"
       },
       {
         "away": "한화",

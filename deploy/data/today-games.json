@@ -1,13 +1,13 @@
 {
   "date": "2026-08-16",
-  "generatedAt": "2026-08-16T22:06:48.050115+09:00",
+  "generatedAt": "2026-08-16T22:40:11.486817+09:00",
   "games": [
     {
       "id": "20260816-OBHT-0",
       "date": "2026-08-16",
       "venue": "광주",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 2,
-        "home": 3
+        "home": 5
       }
     },
     {
