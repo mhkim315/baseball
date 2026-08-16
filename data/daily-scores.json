@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T20:57:50.450758+09:00",
+  "generatedAt": "2026-08-16T21:25:02.866330+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7209,7 +7209,7 @@
       {
         "away": "SSG",
         "home": "LG",
-        "awayScore": 5,
+        "awayScore": 6,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -7222,7 +7222,7 @@
         "away": "키움",
         "home": "KT",
         "awayScore": 2,
-        "homeScore": 1,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "김윤하",
