@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-16T21:23:47+09:00",
+  "fetchedAt": "2026-08-16T22:05:31+09:00",
   "rows": [
     {
       "rank": 1,
@@ -28,19 +28,19 @@
     },
     {
       "rank": 4,
-      "teamName": "두산",
-      "winRate": 0.539,
-      "wlt": "55승4무47패",
+      "teamName": "KIA",
+      "winRate": 0.538,
+      "wlt": "56승2무48패",
       "gamesBehind": 7.0,
-      "streak": "1패"
+      "streak": "2승"
     },
     {
       "rank": 5,
-      "teamName": "KIA",
+      "teamName": "두산",
       "winRate": 0.534,
-      "wlt": "55승2무48패",
+      "wlt": "55승4무48패",
       "gamesBehind": 7.5,
-      "streak": "1승"
+      "streak": "2패"
     },
     {
       "rank": 6,
