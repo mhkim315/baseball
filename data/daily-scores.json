@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T16:48:05.243833+09:00",
+  "generatedAt": "2026-08-16T17:03:36.856947+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7236,9 +7236,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "왕옌청",
+        "homeStarter": "페덱",
         "winPitcher": null,
         "losePitcher": null
       },
