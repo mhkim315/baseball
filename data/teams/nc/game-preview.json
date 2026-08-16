@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260816NCLT02026",
-    "fetchedAt": "2026-08-16T15:42:15+09:00"
+    "fetchedAt": "2026-08-16T16:18:01+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
     "hPCode": "56523",
     "hCode": "LT",
     "hName": "롯데",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260816,
     "aPCode": "55903",
-    "round": 15,
+    "round": 0,
     "gtime": "19:00",
     "aName": "NC",
     "gameFlag": "0",

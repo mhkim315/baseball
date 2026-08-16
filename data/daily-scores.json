@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T15:43:11.872689+09:00",
+  "generatedAt": "2026-08-16T16:19:00.415353+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7248,9 +7248,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "라일리",
+        "homeStarter": "비슬리",
         "winPitcher": null,
         "losePitcher": null
       }
