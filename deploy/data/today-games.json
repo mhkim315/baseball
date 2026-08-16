@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "generatedAt": "2026-08-16T17:03:36.816602+09:00",
+  "generatedAt": "2026-08-16T17:39:00.849075+09:00",
   "games": [
     {
       "id": "20260816-OBHT-0",
@@ -36,7 +36,7 @@
       "date": "2026-08-16",
       "venue": "대구",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "hanwha",
         "name": "한화",
