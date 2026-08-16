@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260816OBHT02026",
+    "gameDate": "2026-08-16",
+    "lastUpdated": "2026-08-16T12:30:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "55633",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260816,
+    "aPCode": "68220",
+    "round": 15,
+    "gtime": "19:00",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "OB",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.45",
+    "hra": "0.271",
+    "w": 55,
+    "wra": "0.534",
+    "name": "KIA",
+    "rank": 5,
+    "hr": 134,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 55,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "3.76",
+    "hra": "0.270",
+    "w": 55,
+    "wra": "0.539",
+    "name": "두산",
+    "rank": 4,
+    "hr": 80,
+    "l": 47,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 55,
+      "l": 47
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "올러"
+  },
+  "awayStarter": {
+    "name": "곽빈"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

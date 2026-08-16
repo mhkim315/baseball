@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-15",
-    "lastUpdated": "2026-08-15T23:54:17+09:00",
-    "gameId": "20260815NCLT02026",
-    "kboGameId": "20260815NCLT0",
+    "lineupDate": "2026-08-16",
+    "lastUpdated": "2026-08-16T12:30:48+09:00",
+    "gameId": "20260816NCLT02026",
+    "kboGameId": "20260816NCLT0",
     "opponent": "NC",
     "venue": "사직",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "박세웅"
+    "name": "비슬리"
   },
   "opponentStartingPitcher": {
-    "name": "원종해"
+    "name": "라일리"
   }
 }

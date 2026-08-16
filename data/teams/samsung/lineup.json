@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-08-15",
-    "lastUpdated": "2026-08-15T23:54:13+09:00",
-    "gameId": "20260815HHSS02026",
-    "kboGameId": "20260815HHSS0",
+    "lineupDate": "2026-08-16",
+    "lastUpdated": "2026-08-16T12:30:44+09:00",
+    "gameId": "20260816HHSS02026",
+    "kboGameId": "20260816HHSS0",
     "opponent": "한화",
     "venue": "대구",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "양창섭"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "왕옌청"
   }
 }
