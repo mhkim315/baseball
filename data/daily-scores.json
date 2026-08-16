@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T19:33:56.383663+09:00",
+  "generatedAt": "2026-08-16T19:52:37.686754+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7198,7 +7198,7 @@
         "away": "두산",
         "home": "KIA",
         "awayScore": 1,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "곽빈",
