@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "generatedAt": "2026-08-16T22:40:11.486817+09:00",
+  "generatedAt": "2026-08-16T22:58:41.177584+09:00",
   "games": [
     {
       "id": "20260816-OBHT-0",
@@ -94,7 +94,7 @@
       "date": "2026-08-16",
       "venue": "수원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 2,
-        "home": 5
+        "home": 6
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-16",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",

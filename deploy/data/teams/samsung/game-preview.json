@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260816HHSS02026",
-    "fetchedAt": "2026-08-16T22:39:20+09:00"
+    "fetchedAt": "2026-08-16T22:57:18+09:00"
   },
   "gameInfo": {
     "aFullName": "한화 이글스",
@@ -253,7 +253,7 @@
       "bb": 4,
       "kk": 26,
       "gameCount": 4,
-      "gday": "20260815",
+      "gday": "20260816",
       "inn": "24.0",
       "hp": 1,
       "teamCode": "SS",
@@ -312,7 +312,7 @@
       "bb": 46,
       "kk": 92,
       "gameCount": 22,
-      "gday": "20260815",
+      "gday": "20260816",
       "inn": "115.1",
       "hp": 6,
       "teamCode": "HH",
