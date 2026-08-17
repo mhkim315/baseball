@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-16",
-    "lastUpdated": "2026-08-16T23:57:48+09:00",
-    "gameId": "20260816OBHT02026",
-    "kboGameId": "20260816OBHT0",
-    "opponent": "KIA",
-    "venue": "광주",
+    "lineupDate": "2026-08-18",
+    "lastUpdated": "2026-08-17T12:09:04+09:00",
+    "gameId": "20260818OBNC02026",
+    "kboGameId": "20260818OBNC0",
+    "opponent": "NC",
+    "venue": "창원",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KIA",
-    "teamName": "KIA"
+    "teamShort": "NC",
+    "teamName": "NC"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박재현",
-      "position": "좌익수"
+      "name": "김주원",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "김선빈",
-      "position": "2루수"
+      "name": "권희동",
+      "position": "좌익수"
     },
     {
       "order": 3,
-      "name": "김도영",
-      "position": "3루수"
+      "name": "박민우",
+      "position": "2루수"
     },
     {
       "order": 4,
-      "name": "카스트로",
-      "position": "1루수"
+      "name": "김휘집",
+      "position": "3루수"
     },
     {
       "order": 5,
-      "name": "나성범",
+      "name": "박건우",
       "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "하주석",
-      "position": "유격수"
+      "name": "블레인",
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "박시원",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "김태군",
+      "name": "안중열",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "박정우",
-      "position": "우익수"
+      "name": "천재환",
+      "position": "중견수"
     }
   ],
   "startingPitcher": {
-    "name": "곽빈"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "올러"
+    "name": "??"
   }
 }

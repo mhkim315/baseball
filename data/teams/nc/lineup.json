@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-08-16",
-    "lastUpdated": "2026-08-16T23:58:07+09:00",
-    "gameId": "20260816NCLT02026",
-    "kboGameId": "20260816NCLT0",
-    "opponent": "롯데",
-    "venue": "사직",
+    "lineupDate": "2026-08-18",
+    "lastUpdated": "2026-08-17T12:09:33+09:00",
+    "gameId": "20260818OBNC02026",
+    "kboGameId": "20260818OBNC0",
+    "opponent": "두산",
+    "venue": "창원",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "롯데",
-    "teamName": "롯데"
+    "teamShort": "두산",
+    "teamName": "두산"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "황성빈",
-      "position": "중견수"
-    },
-    {
-      "order": 2,
-      "name": "나승엽",
-      "position": "1루수"
-    },
-    {
-      "order": 3,
-      "name": "레이예스",
-      "position": "좌익수"
-    },
-    {
-      "order": 4,
-      "name": "한동희",
-      "position": "지명타자"
-    },
-    {
-      "order": 5,
-      "name": "고승민",
-      "position": "2루수"
-    },
-    {
-      "order": 6,
-      "name": "윤동희",
+      "name": "김대한",
       "position": "우익수"
     },
     {
-      "order": 7,
-      "name": "한태양",
+      "order": 2,
+      "name": "정수빈",
+      "position": "중견수"
+    },
+    {
+      "order": 3,
+      "name": "박준순",
+      "position": "2루수"
+    },
+    {
+      "order": 4,
+      "name": "안재석",
       "position": "3루수"
     },
     {
-      "order": 8,
-      "name": "전민재",
+      "order": 5,
+      "name": "김민석",
+      "position": "지명타자"
+    },
+    {
+      "order": 6,
+      "name": "박찬호",
       "position": "유격수"
     },
     {
+      "order": 7,
+      "name": "조수행",
+      "position": "좌익수"
+    },
+    {
+      "order": 8,
+      "name": "박지훈",
+      "position": "1루수"
+    },
+    {
       "order": 9,
-      "name": "손성빈",
+      "name": "윤준호",
       "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "라일리"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "비슬리"
+    "name": "??"
   }
 }
