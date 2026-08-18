@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-08-18T22:09:02+09:00",
+  "fetchedAt": "2026-08-18T22:53:34+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -2554,18 +2554,18 @@
           "home": "NC",
           "venue": "창원",
           "awayScore": 6,
-          "homeScore": 3,
-          "scoreLine": "6-3",
+          "homeScore": 4,
+          "scoreLine": "6-4",
           "ourScore": 6,
-          "oppScore": 3,
-          "ourScoreLine": "6-3",
-          "outcome": null,
+          "oppScore": 4,
+          "ourScoreLine": "6-4",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260818OBNC02026",
           "awayStarter": "벤자민",
           "homeStarter": "라일리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김택연",
+          "losePitcher": "손주환"
         }
       ]
     },
