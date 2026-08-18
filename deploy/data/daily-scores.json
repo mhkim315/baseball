@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T20:55:15.117129+09:00",
+  "generatedAt": "2026-08-18T21:17:17.915957+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7307,7 +7307,7 @@
       {
         "away": "KIA",
         "home": "한화",
-        "awayScore": 3,
+        "awayScore": 4,
         "homeScore": 2,
         "outcome": null,
         "cancelled": false,
