@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-08-18",
-    "lastUpdated": "2026-08-18T17:54:43+09:00",
+    "lastUpdated": "2026-08-18T18:18:44+09:00",
     "gameId": "20260818WOLT02026",
     "kboGameId": "20260818WOLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,12 +30,12 @@
     {
       "order": 1,
       "name": "서건창",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 2,
-      "name": "박찬혁",
-      "position": "우익수"
+      "name": "추재현",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -45,39 +45,39 @@
     {
       "order": 4,
       "name": "안치홍",
-      "position": "2루수"
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "추재현",
-      "position": "좌익수"
+      "name": "김웅빈",
+      "position": "3루수"
     },
     {
       "order": 6,
+      "name": "박찬혁",
+      "position": "우익수"
+    },
+    {
+      "order": 7,
       "name": "김건희",
       "position": "포수"
     },
     {
-      "order": 7,
-      "name": "권혁빈",
-      "position": "유격수"
-    },
-    {
       "order": 8,
-      "name": "여동욱",
-      "position": "3루수"
+      "name": "원성준",
+      "position": "중견수"
     },
     {
       "order": 9,
-      "name": "박채울",
-      "position": "중견수"
+      "name": "권혁빈",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
       "name": "황성빈",
-      "position": "중견수"
+      "position": "좌익수"
     },
     {
       "order": 2,
@@ -87,12 +87,12 @@
     {
       "order": 3,
       "name": "레이예스",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
       "name": "한동희",
-      "position": "지명타자"
+      "position": "3루수"
     },
     {
       "order": 5,
@@ -106,13 +106,13 @@
     },
     {
       "order": 7,
-      "name": "한태양",
-      "position": "3루수"
+      "name": "전민재",
+      "position": "유격수"
     },
     {
       "order": 8,
-      "name": "전민재",
-      "position": "유격수"
+      "name": "장두성",
+      "position": "중견수"
     },
     {
       "order": 9,

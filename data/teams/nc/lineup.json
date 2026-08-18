@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-08-18",
-    "lastUpdated": "2026-08-18T17:54:58+09:00",
+    "lastUpdated": "2026-08-18T18:19:02+09:00",
     "gameId": "20260818OBNC02026",
     "kboGameId": "20260818OBNC0",
     "opponent": "두산",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -35,7 +35,7 @@
     {
       "order": 2,
       "name": "권희동",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -50,21 +50,21 @@
     {
       "order": 5,
       "name": "박건우",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 6,
+      "name": "이우성",
+      "position": "좌익수"
+    },
+    {
+      "order": 7,
       "name": "블레인",
       "position": "1루수"
     },
     {
-      "order": 7,
-      "name": "박시원",
-      "position": "우익수"
-    },
-    {
       "order": 8,
-      "name": "안중열",
+      "name": "김형준",
       "position": "포수"
     },
     {
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "정수빈",
+      "name": "조수행",
       "position": "중견수"
     },
     {
@@ -91,27 +91,27 @@
     },
     {
       "order": 4,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "양의지",
+      "position": "지명타자"
     },
     {
       "order": 5,
       "name": "김민석",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 6,
+      "name": "안재석",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
       "name": "박찬호",
       "position": "유격수"
     },
     {
-      "order": 7,
-      "name": "조수행",
-      "position": "좌익수"
-    },
-    {
       "order": 8,
-      "name": "박지훈",
+      "name": "강승호",
       "position": "1루수"
     },
     {

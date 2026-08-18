@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-18T17:53:57+09:00",
+  "fetchedAt": "2026-08-18T18:17:50+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2559,7 +2559,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260818WOLT0"
+          "gameId": "20260818WOLT02026",
+          "awayStarter": "전준표",
+          "homeStarter": "비슬리",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

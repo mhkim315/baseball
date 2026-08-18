@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-08-18",
-    "lastUpdated": "2026-08-18T17:54:49+09:00",
+    "lastUpdated": "2026-08-18T18:18:52+09:00",
     "gameId": "20260818HTHH02026",
     "kboGameId": "20260818HTHH0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,7 +29,7 @@
   "batters": [
     {
       "order": 1,
-      "name": "이원석",
+      "name": "최인호",
       "position": "중견수"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "박정현",
+      "name": "심우준",
       "position": "유격수"
     }
   ],
@@ -82,7 +82,7 @@
     {
       "order": 2,
       "name": "김선빈",
-      "position": "2루수"
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -97,17 +97,17 @@
     {
       "order": 5,
       "name": "나성범",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "하주석",
-      "position": "유격수"
+      "name": "김호령",
+      "position": "중견수"
     },
     {
       "order": 7,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "하주석",
+      "position": "유격수"
     },
     {
       "order": 8,
@@ -116,8 +116,8 @@
     },
     {
       "order": 9,
-      "name": "박정우",
-      "position": "우익수"
+      "name": "윤도현",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
