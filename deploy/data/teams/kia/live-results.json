@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-19T22:09:33+09:00",
+  "fetchedAt": "2026-08-19T22:54:16+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2574,18 +2574,18 @@
           "home": "한화",
           "venue": "대전",
           "awayScore": 6,
-          "homeScore": 2,
-          "scoreLine": "6-2",
+          "homeScore": 3,
+          "scoreLine": "6-3",
           "ourScore": 6,
-          "oppScore": 2,
-          "ourScoreLine": "6-2",
-          "outcome": null,
+          "oppScore": 3,
+          "ourScoreLine": "6-3",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260819HTHH02026",
           "awayStarter": "시라카와",
           "homeStarter": "화이트",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "성영탁",
+          "losePitcher": "박상원"
         }
       ]
     },
