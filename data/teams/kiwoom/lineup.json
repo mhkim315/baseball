@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-08-18",
-    "lastUpdated": "2026-08-18T23:56:01+09:00",
-    "gameId": "20260818WOLT02026",
-    "kboGameId": "20260818WOLT0",
+    "lineupDate": "2026-08-19",
+    "lastUpdated": "2026-08-19T12:29:15+09:00",
+    "gameId": "20260819WOLT02026",
+    "kboGameId": "20260819WOLT0",
     "opponent": "롯데",
     "venue": "사직",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "전준표"
+    "name": "알칸타라"
   },
   "opponentStartingPitcher": {
-    "name": "비슬리"
+    "name": "로드리게스"
   }
 }
