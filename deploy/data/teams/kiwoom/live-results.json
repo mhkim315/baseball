@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-19T21:15:33+09:00",
+  "fetchedAt": "2026-08-19T22:09:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2573,12 +2573,12 @@
           "away": "키움",
           "home": "롯데",
           "venue": "사직",
-          "awayScore": 2,
+          "awayScore": 4,
           "homeScore": 3,
-          "scoreLine": "2-3",
-          "ourScore": 2,
+          "scoreLine": "4-3",
+          "ourScore": 4,
           "oppScore": 3,
-          "ourScoreLine": "2-3",
+          "ourScoreLine": "4-3",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260819WOLT02026",
