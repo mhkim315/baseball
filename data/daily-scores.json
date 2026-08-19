@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T20:03:56.607022+09:00",
+  "generatedAt": "2026-08-19T20:33:48.858351+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7321,7 +7321,7 @@
       {
         "away": "두산",
         "home": "NC",
-        "awayScore": 6,
+        "awayScore": 7,
         "homeScore": 1,
         "outcome": null,
         "cancelled": false,
@@ -7357,8 +7357,8 @@
       {
         "away": "SSG",
         "home": "삼성",
-        "awayScore": 0,
-        "homeScore": 6,
+        "awayScore": 2,
+        "homeScore": 7,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "타케다",
