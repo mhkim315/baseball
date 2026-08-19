@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-19T17:50:07+09:00",
+  "fetchedAt": "2026-08-19T18:17:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2581,7 +2581,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260819KTLG0"
+          "gameId": "20260819KTLG02026",
+          "awayStarter": "대니엘",
+          "homeStarter": "톨허스트",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

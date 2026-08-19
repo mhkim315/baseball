@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-08-19",
-    "lastUpdated": "2026-08-19T17:51:09+09:00",
+    "lastUpdated": "2026-08-19T18:18:15+09:00",
     "gameId": "20260819OBNC02026",
     "kboGameId": "20260819OBNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -35,7 +35,7 @@
     {
       "order": 2,
       "name": "조수행",
-      "position": "중견수"
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -45,12 +45,12 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "지명타자"
+      "position": "포수"
     },
     {
       "order": 5,
       "name": "김민석",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -64,13 +64,13 @@
     },
     {
       "order": 8,
-      "name": "강승호",
-      "position": "1루수"
+      "name": "정수빈",
+      "position": "중견수"
     },
     {
       "order": 9,
-      "name": "윤준호",
-      "position": "포수"
+      "name": "박지훈",
+      "position": "1루수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "권희동",
-      "position": "지명타자"
+      "name": "최정원",
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -97,7 +97,7 @@
     {
       "order": 5,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "김형준",
+      "name": "안중열",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "천재환",
-      "position": "중견수"
+      "name": "박시원",
+      "position": "우익수"
     }
   ],
   "startingPitcher": {
