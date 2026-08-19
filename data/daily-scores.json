@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T19:45:37.135114+09:00",
+  "generatedAt": "2026-08-19T20:03:56.607022+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7321,7 +7321,7 @@
       {
         "away": "두산",
         "home": "NC",
-        "awayScore": 2,
+        "awayScore": 6,
         "homeScore": 1,
         "outcome": null,
         "cancelled": false,
