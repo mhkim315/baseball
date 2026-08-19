@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T18:52:35.138850+09:00",
+  "generatedAt": "2026-08-19T19:14:25.305213+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7346,7 +7346,7 @@
         "away": "키움",
         "home": "롯데",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "알칸타라",
