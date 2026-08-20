@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T18:01:02.249048+09:00",
+  "generatedAt": "2026-08-20T18:36:24.547300+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7387,8 +7387,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "잭로그",
+        "homeStarter": "구창모",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7399,8 +7399,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "고영표",
+        "homeStarter": "박시원",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7411,8 +7411,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "박준현",
+        "homeStarter": "나균안",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7423,8 +7423,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최민준",
+        "homeStarter": "최원태",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7435,8 +7435,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "황동하",
+        "homeStarter": "류현진",
         "winPitcher": null,
         "losePitcher": null
       }
