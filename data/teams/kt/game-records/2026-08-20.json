@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260820KTLG02026",
+    "gameDate": "2026-08-20",
+    "lastUpdated": "2026-08-20T12:35:32+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "55121",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260820,
+    "aPCode": "64001",
+    "round": 15,
+    "gtime": "19:00",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "KT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.75",
+    "hra": "0.268",
+    "w": 60,
+    "wra": "0.556",
+    "name": "LG",
+    "rank": 3,
+    "hr": 100,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 60,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.45",
+    "hra": "0.279",
+    "w": 62,
+    "wra": "0.602",
+    "name": "KT",
+    "rank": 1,
+    "hr": 80,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 62,
+      "l": 41
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박시원"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

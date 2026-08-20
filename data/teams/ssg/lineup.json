@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-08-19",
-    "lastUpdated": "2026-08-19T23:56:58+09:00",
-    "gameId": "20260819SKSS02026",
-    "kboGameId": "20260819SKSS0",
+    "lineupDate": "2026-08-20",
+    "lastUpdated": "2026-08-20T12:35:11+09:00",
+    "gameId": "20260820SKSS02026",
+    "kboGameId": "20260820SKSS0",
     "opponent": "삼성",
     "venue": "대구",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "타케다"
+    "name": "최민준"
   },
   "opponentStartingPitcher": {
-    "name": "보스"
+    "name": "최원태"
   }
 }

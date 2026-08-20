@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-19",
-    "lastUpdated": "2026-08-19T23:56:51+09:00",
-    "gameId": "20260819OBNC02026",
-    "kboGameId": "20260819OBNC0",
+    "lineupDate": "2026-08-20",
+    "lastUpdated": "2026-08-20T12:35:04+09:00",
+    "gameId": "20260820OBNC02026",
+    "kboGameId": "20260820OBNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최민석"
+    "name": "잭로그"
   },
   "opponentStartingPitcher": {
-    "name": "테일러"
+    "name": "구창모"
   }
 }

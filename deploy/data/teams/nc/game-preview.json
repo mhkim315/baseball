@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260819OBNC02026",
-    "fetchedAt": "2026-08-19T23:56:27+09:00"
+    "naverGameId": "20260820OBNC02026",
+    "fetchedAt": "2026-08-20T12:34:36+09:00"
   },
   "gameInfo": {
     "aFullName": "두산 베어스",
-    "hPCode": "56966",
+    "hPCode": "65933",
     "hCode": "NC",
     "hName": "NC",
     "cancelFlag": "N",
-    "gdate": 20260819,
-    "aPCode": "55268",
-    "round": 10,
+    "gdate": 20260820,
+    "aPCode": "55239",
+    "round": 11,
     "gtime": "19:00",
     "aName": "두산",
     "gameFlag": "0",
@@ -22,44 +22,44 @@
     "optionFlag": 0,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "1"
+    "statusCode": "0"
   },
   "homeStandings": {
     "d": 2,
-    "era": "4.80",
+    "era": "4.83",
     "hra": "0.273",
     "w": 46,
-    "wra": "0.465",
+    "wra": "0.460",
     "name": "NC",
     "rank": 7,
-    "hr": 98,
-    "l": 53,
+    "hr": 99,
+    "l": 54,
     "seriesOutcome": {
       "d": 2,
       "w": 46,
-      "l": 53
+      "l": 54
     }
   },
   "awayStandings": {
     "d": 4,
-    "era": "3.73",
-    "hra": "0.269",
-    "w": 56,
-    "wra": "0.538",
+    "era": "3.71",
+    "hra": "0.271",
+    "w": 57,
+    "wra": "0.543",
     "name": "두산",
     "rank": 5,
-    "hr": 82,
+    "hr": 84,
     "l": 48,
     "seriesOutcome": {
       "d": 4,
-      "w": 56,
+      "w": 57,
       "l": 48
     }
   },
   "seasonVsResult": {
     "ad": 0,
-    "hl": 7,
-    "aw": 7,
+    "hl": 8,
+    "aw": 8,
     "aCode": "OB",
     "al": 2,
     "hCode": "NC",
@@ -67,6 +67,20 @@
     "hw": 2
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20260819OBNC02026",
+      "result": "패",
+      "hScore": 2,
+      "aName": "두산",
+      "aScore": 8,
+      "gyear": 2026,
+      "gmkey": "20260819OBNC0",
+      "gweek": "수",
+      "aCode": "OB",
+      "hCode": "NC",
+      "hName": "NC",
+      "gdate": 20260819
+    },
     {
       "gameId": "20260818OBNC02026",
       "result": "패",
@@ -122,23 +136,23 @@
       "hCode": "NC",
       "hName": "NC",
       "gdate": 20260813
-    },
-    {
-      "gameId": "20260812KTNC02026",
-      "result": "승",
-      "hScore": 3,
-      "aName": "KT",
-      "aScore": 0,
-      "gyear": 2026,
-      "gmkey": "20260812KTNC0",
-      "gweek": "수",
-      "aCode": "KT",
-      "hCode": "NC",
-      "hName": "NC",
-      "gdate": 20260812
     }
   ],
   "awayTeamPreviousGames": [
+    {
+      "gameId": "20260819OBNC02026",
+      "result": "승",
+      "hScore": 2,
+      "aName": "두산",
+      "aScore": 8,
+      "gyear": 2026,
+      "gmkey": "20260819OBNC0",
+      "gweek": "수",
+      "aCode": "OB",
+      "hCode": "NC",
+      "hName": "NC",
+      "gdate": 20260819
+    },
     {
       "gameId": "20260818OBNC02026",
       "result": "승",
@@ -194,138 +208,124 @@
       "hCode": "HT",
       "hName": "KIA",
       "gdate": 20260814
-    },
-    {
-      "gameId": "20260813HHOB02026",
-      "result": "승",
-      "hScore": 9,
-      "aName": "한화",
-      "aScore": 6,
-      "gyear": 2026,
-      "gmkey": "20260813HHOB0",
-      "gweek": "목",
-      "aCode": "HH",
-      "hCode": "OB",
-      "hName": "두산",
-      "gdate": 20260813
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 6,
-      "kk": 16,
-      "gameCount": 3,
+      "bb": 5,
+      "kk": 6,
+      "gameCount": 2,
       "s": 0,
-      "era": "3.71",
-      "w": 0,
-      "inn": "17.0",
-      "l": 1,
-      "er": 7
+      "era": "4.09",
+      "w": 1,
+      "inn": "11.0",
+      "l": 0,
+      "er": 5
     },
     "playerInfo": {
-      "backnum": "66",
-      "hitType": "우투우타",
-      "pCode": "56966",
-      "name": "테일러",
-      "birth": "19950725",
-      "weight": "106.0",
-      "height": "198.0"
+      "backnum": "59",
+      "hitType": "좌투좌타",
+      "pCode": "65933",
+      "name": "구창모",
+      "birth": "19970217",
+      "weight": "85.0",
+      "height": "183.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 25.799999237060547,
+        "pit_rt": 48.79999923706055,
         "type": "FAST",
-        "speed": 147
+        "speed": 141
       },
       {
-        "pit_rt": 24.399999618530273,
-        "type": "SWEE",
-        "speed": 133
+        "pit_rt": 30.100000381469727,
+        "type": "SLID",
+        "speed": 130
       },
       {
-        "pit_rt": 18,
-        "type": "TWOS",
-        "speed": 146
+        "pit_rt": 17.700000762939453,
+        "type": "FORK",
+        "speed": 131
       }
     ],
     "currentSeasonStats": {
       "teamName": "NC",
-      "bb": 42,
-      "kk": 82,
+      "bb": 33,
+      "kk": 99,
       "gameCount": 20,
-      "gday": "20260818",
-      "inn": "109.1",
-      "hp": 13,
+      "gday": "20260819",
+      "inn": "114.1",
+      "hp": 4,
       "teamCode": "NC",
-      "hr": 8,
-      "l": 5,
-      "er": 54,
-      "whip": "1.30",
-      "hit": 100,
-      "r": 59,
+      "hr": 14,
+      "l": 4,
+      "er": 50,
+      "whip": "1.26",
+      "hit": 111,
+      "r": 57,
       "s": 0,
-      "era": "4.45",
-      "w": 7,
-      "inn2": "109 1/3"
+      "era": "3.94",
+      "w": 9,
+      "inn2": "114 1/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 3,
-      "kk": 13,
-      "gameCount": 2,
+      "bb": 1,
+      "kk": 3,
+      "gameCount": 1,
       "s": 0,
-      "era": "0.00",
-      "w": 1,
-      "inn": "13.0",
+      "era": "9.00",
+      "w": 0,
+      "inn": "3.0",
       "l": 0,
-      "er": 0
+      "er": 3
     },
     "playerInfo": {
-      "backnum": "68",
-      "hitType": "우투우타",
-      "pCode": "55268",
-      "name": "최민석",
-      "birth": "20060702",
+      "backnum": "39",
+      "hitType": "좌투좌타",
+      "pCode": "55239",
+      "name": "잭로그",
+      "birth": "19960423",
       "weight": "84.0",
-      "height": "188.0"
+      "height": "183.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 47,
-        "type": "TWOS",
+        "pit_rt": 36.29999923706055,
+        "type": "FAST",
         "speed": 142
       },
       {
-        "pit_rt": 27.600000381469727,
-        "type": "CUTT",
-        "speed": 139
+        "pit_rt": 27.299999237060547,
+        "type": "SWEE",
+        "speed": 122
       },
       {
-        "pit_rt": 12,
-        "type": "SWEE",
-        "speed": 126
+        "pit_rt": 19,
+        "type": "CUTT",
+        "speed": 136
       }
     ],
     "currentSeasonStats": {
       "teamName": "두산",
-      "bb": 48,
-      "kk": 100,
-      "gameCount": 20,
-      "gday": "20260818",
-      "inn": "110.2",
-      "hp": 5,
+      "bb": 22,
+      "kk": 99,
+      "gameCount": 21,
+      "gday": "20260819",
+      "inn": "113.1",
+      "hp": 8,
       "teamCode": "OB",
-      "hr": 4,
-      "l": 3,
-      "er": 33,
-      "whip": "1.30",
-      "hit": 96,
-      "r": 45,
+      "hr": 13,
+      "l": 6,
+      "er": 50,
+      "whip": "1.32",
+      "hit": 128,
+      "r": 58,
       "s": 0,
-      "era": "2.68",
-      "w": 10,
-      "inn2": "110 2/3"
+      "era": "3.97",
+      "w": 6,
+      "inn2": "113 1/3"
     }
   }
 }

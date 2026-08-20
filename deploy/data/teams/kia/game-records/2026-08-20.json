@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260820HTHH02026",
+    "gameDate": "2026-08-20",
+    "lastUpdated": "2026-08-20T12:35:35+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "76715",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260820,
+    "aPCode": "52641",
+    "round": 15,
+    "gtime": "19:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "HT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.84",
+    "hra": "0.275",
+    "w": 48,
+    "wra": "0.466",
+    "name": "한화",
+    "rank": 6,
+    "hr": 128,
+    "l": 55,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 48,
+      "l": 55
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.39",
+    "hra": "0.271",
+    "w": 58,
+    "wra": "0.547",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 138,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 58,
+      "l": 48
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "류현진"
+  },
+  "awayStarter": {
+    "name": "황동하"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
