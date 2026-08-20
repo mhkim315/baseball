@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "generatedAt": "2026-08-20T22:15:41.293823+09:00",
+  "generatedAt": "2026-08-20T23:00:42.794227+09:00",
   "games": [
     {
       "id": "20260820-SKSS-0",
@@ -27,7 +27,7 @@
         "record": "63승2무42패"
       },
       "score": {
-        "away": 2,
+        "away": 3,
         "home": 4
       }
     },
@@ -56,8 +56,8 @@
         "record": "48승3무55패"
       },
       "score": {
-        "away": 4,
-        "home": 4
+        "away": 9,
+        "home": 6
       }
     },
     {
@@ -65,7 +65,7 @@
       "date": "2026-08-20",
       "venue": "사직",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kiwoom",
         "name": "키움",
@@ -86,7 +86,7 @@
       },
       "score": {
         "away": 1,
-        "home": 6
+        "home": 7
       }
     },
     {
@@ -114,7 +114,7 @@
         "record": "60승1무48패"
       },
       "score": {
-        "away": 1,
+        "away": 14,
         "home": 3
       }
     },
@@ -143,8 +143,8 @@
         "record": "46승2무54패"
       },
       "score": {
-        "away": 2,
-        "home": 3
+        "away": 4,
+        "home": 5
       }
     }
   ],
