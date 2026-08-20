@@ -1,13 +1,13 @@
 {
   "date": "2026-08-20",
-  "generatedAt": "2026-08-20T23:00:42.794227+09:00",
+  "generatedAt": "2026-08-20T23:37:01.940767+09:00",
   "games": [
     {
       "id": "20260820-SKSS-0",
       "date": "2026-08-20",
       "venue": "대구",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "ssg",
         "name": "SSG",
@@ -27,7 +27,7 @@
         "record": "63승2무42패"
       },
       "score": {
-        "away": 3,
+        "away": 6,
         "home": 4
       }
     },
@@ -36,7 +36,7 @@
       "date": "2026-08-20",
       "venue": "대전",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -56,7 +56,7 @@
         "record": "48승3무55패"
       },
       "score": {
-        "away": 9,
+        "away": 10,
         "home": 6
       }
     },
@@ -94,7 +94,7 @@
       "date": "2026-08-20",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kt",
         "name": "KT",
@@ -114,8 +114,8 @@
         "record": "60승1무48패"
       },
       "score": {
-        "away": 14,
-        "home": 3
+        "away": 16,
+        "home": 4
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-20",
       "venue": "창원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
