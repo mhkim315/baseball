@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-20T20:01:01+09:00",
+  "fetchedAt": "2026-08-20T20:30:39+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2596,11 +2596,11 @@
           "home": "삼성",
           "venue": "대구",
           "awayScore": 1,
-          "homeScore": 0,
-          "scoreLine": "1-0",
-          "ourScore": 0,
+          "homeScore": 2,
+          "scoreLine": "1-2",
+          "ourScore": 2,
           "oppScore": 1,
-          "ourScoreLine": "0-1",
+          "ourScoreLine": "2-1",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260820SKSS02026",
