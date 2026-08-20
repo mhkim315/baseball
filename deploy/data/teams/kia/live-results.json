@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-20T20:54:25+09:00",
+  "fetchedAt": "2026-08-20T21:18:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2596,11 +2596,11 @@
           "home": "한화",
           "venue": "대전",
           "awayScore": 4,
-          "homeScore": 2,
-          "scoreLine": "4-2",
+          "homeScore": 4,
+          "scoreLine": "4-4",
           "ourScore": 4,
-          "oppScore": 2,
-          "ourScoreLine": "4-2",
+          "oppScore": 4,
+          "ourScoreLine": "4-4",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260820HTHH02026",
