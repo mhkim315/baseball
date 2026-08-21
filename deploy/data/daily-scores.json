@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T19:06:20.154817+09:00",
+  "generatedAt": "2026-08-21T19:40:32.436586+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7445,8 +7445,8 @@
       {
         "away": "롯데",
         "home": "두산",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "김진욱",
@@ -7457,7 +7457,7 @@
       {
         "away": "LG",
         "home": "한화",
-        "awayScore": 0,
+        "awayScore": 7,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -7469,7 +7469,7 @@
       {
         "away": "KIA",
         "home": "키움",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -7482,7 +7482,7 @@
         "away": "KT",
         "home": "SSG",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "배제성",
@@ -7494,7 +7494,7 @@
         "away": "삼성",
         "home": "NC",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "원태인",
