@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260821LTOB02026",
+    "gameDate": "2026-08-21",
+    "lastUpdated": "2026-08-21T12:13:35+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "51264",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260821,
+    "aPCode": "51516",
+    "round": 13,
+    "gtime": "19:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "LT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "3.70",
+    "hra": "0.271",
+    "w": 57,
+    "wra": "0.538",
+    "name": "두산",
+    "rank": 5,
+    "hr": 84,
+    "l": 49,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 57,
+      "l": 49
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.48",
+    "hra": "0.267",
+    "w": 49,
+    "wra": "0.462",
+    "name": "롯데",
+    "rank": 7,
+    "hr": 84,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 49,
+      "l": 57
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최승용"
+  },
+  "awayStarter": {
+    "name": "김진욱"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

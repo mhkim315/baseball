@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260821SSNC02026",
+    "gameDate": "2026-08-21",
+    "lastUpdated": "2026-08-21T12:13:41+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "56911",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260821,
+    "aPCode": "69446",
+    "round": 13,
+    "gtime": "19:00",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "SS",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.80",
+    "hra": "0.273",
+    "w": 47,
+    "wra": "0.465",
+    "name": "NC",
+    "rank": 6,
+    "hr": 99,
+    "l": 54,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 47,
+      "l": 54
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.29",
+    "hra": "0.280",
+    "w": 63,
+    "wra": "0.594",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 102,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 63,
+      "l": 43
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "토다"
+  },
+  "awayStarter": {
+    "name": "원태인"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

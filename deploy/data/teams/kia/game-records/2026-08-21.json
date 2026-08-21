@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260821HTWO02026",
+    "gameDate": "2026-08-21",
+    "lastUpdated": "2026-08-21T12:13:42+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "64350",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260821,
+    "aPCode": "77637",
+    "round": 13,
+    "gtime": "19:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "HT",
+    "optionFlag": 0,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "5.19",
+    "hra": "0.246",
+    "w": 40,
+    "wra": "0.360",
+    "name": "키움",
+    "rank": 10,
+    "hr": 83,
+    "l": 71,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 40,
+      "l": 71
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.40",
+    "hra": "0.271",
+    "w": 59,
+    "wra": "0.551",
+    "name": "KIA",
+    "rank": 3,
+    "hr": 139,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 48
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "하영민"
+  },
+  "awayStarter": {
+    "name": "양현종"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
