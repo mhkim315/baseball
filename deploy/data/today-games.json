@@ -1,13 +1,13 @@
 {
   "date": "2026-08-21",
-  "generatedAt": "2026-08-21T22:14:13.522415+09:00",
+  "generatedAt": "2026-08-21T22:58:58.086572+09:00",
   "games": [
     {
       "id": "20260821-HTWO-0",
       "date": "2026-08-21",
       "venue": "고척",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -27,7 +27,7 @@
         "record": "40승2무71패"
       },
       "score": {
-        "away": 8,
+        "away": 11,
         "home": 1
       }
     },
@@ -56,8 +56,8 @@
         "record": "48승3무56패"
       },
       "score": {
-        "away": 10,
-        "home": 5
+        "away": 11,
+        "home": 8
       }
     },
     {
@@ -85,8 +85,8 @@
         "record": "45승4무63패"
       },
       "score": {
-        "away": 1,
-        "home": 2
+        "away": 3,
+        "home": 3
       }
     },
     {
@@ -114,8 +114,8 @@
         "record": "57승4무49패"
       },
       "score": {
-        "away": 3,
-        "home": 1
+        "away": 9,
+        "home": 3
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-21",
       "venue": "창원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
