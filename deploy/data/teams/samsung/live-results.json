@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-21T21:17:35+09:00",
+  "fetchedAt": "2026-08-21T22:13:08+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2623,13 +2623,13 @@
           "ourScore": 2,
           "oppScore": 3,
           "ourScoreLine": "2-3",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260821SSNC02026",
           "awayStarter": "원태인",
           "homeStarter": "토다",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "토다",
+          "losePitcher": "원태인"
         }
       ]
     },
