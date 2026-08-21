@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-21T18:01:11+09:00",
+  "fetchedAt": "2026-08-21T18:41:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2625,7 +2625,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260821KTSK0"
+          "gameId": "20260821KTSK02026",
+          "awayStarter": "배제성",
+          "homeStarter": "김건우",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

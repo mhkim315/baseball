@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-21T18:01:11+09:00",
+  "fetchedAt": "2026-08-21T18:41:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2625,7 +2625,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260821HTWO0"
+          "gameId": "20260821HTWO02026",
+          "awayStarter": "양현종",
+          "homeStarter": "하영민",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
