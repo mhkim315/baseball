@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T19:40:32.436586+09:00",
+  "generatedAt": "2026-08-21T20:02:03.997442+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7481,7 +7481,7 @@
       {
         "away": "KT",
         "home": "SSG",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 1,
         "outcome": null,
         "cancelled": false,
@@ -7494,7 +7494,7 @@
         "away": "삼성",
         "home": "NC",
         "awayScore": 0,
-        "homeScore": 1,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "원태인",
