@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "generatedAt": "2026-08-21T22:58:58.086572+09:00",
+  "generatedAt": "2026-08-21T23:30:10.714462+09:00",
   "games": [
     {
       "id": "20260821-HTWO-0",
@@ -57,7 +57,7 @@
       },
       "score": {
         "away": 11,
-        "home": 8
+        "home": 14
       }
     },
     {
@@ -94,7 +94,7 @@
       "date": "2026-08-21",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
@@ -114,8 +114,8 @@
         "record": "57승4무49패"
       },
       "score": {
-        "away": 9,
-        "home": 3
+        "away": 11,
+        "home": 4
       }
     },
     {
