@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260821LGHH02026",
-    "fetchedAt": "2026-08-21T17:19:41+09:00"
+    "fetchedAt": "2026-08-21T18:01:22+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
@@ -19,7 +19,7 @@
     "hFullName": "한화 이글스",
     "stadium": "대전",
     "aCode": "LG",
-    "optionFlag": 0,
+    "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"

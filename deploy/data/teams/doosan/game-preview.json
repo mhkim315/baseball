@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260821LTOB02026",
-    "fetchedAt": "2026-08-21T17:19:40+09:00"
+    "fetchedAt": "2026-08-21T18:01:21+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -19,7 +19,7 @@
     "hFullName": "두산 베어스",
     "stadium": "잠실",
     "aCode": "LT",
-    "optionFlag": 0,
+    "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"

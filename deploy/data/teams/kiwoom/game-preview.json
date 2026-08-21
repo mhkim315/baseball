@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260821HTWO02026",
-    "fetchedAt": "2026-08-21T17:19:42+09:00"
+    "fetchedAt": "2026-08-21T18:01:23+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
@@ -19,7 +19,7 @@
     "hFullName": "키움 히어로즈",
     "stadium": "고척",
     "aCode": "HT",
-    "optionFlag": 0,
+    "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
     "statusCode": "0"
