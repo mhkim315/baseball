@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-21T20:01:00+09:00",
+  "fetchedAt": "2026-08-21T20:30:55+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2617,12 +2617,12 @@
           "away": "LG",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 7,
+          "awayScore": 9,
           "homeScore": 0,
-          "scoreLine": "7-0",
+          "scoreLine": "9-0",
           "ourScore": 0,
-          "oppScore": 7,
-          "ourScoreLine": "0-7",
+          "oppScore": 9,
+          "ourScoreLine": "0-9",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260821LGHH02026",
