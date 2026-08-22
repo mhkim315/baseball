@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T22:47:48.988079+09:00",
+  "generatedAt": "2026-08-22T23:01:09.312634+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7557,12 +7557,12 @@
         "home": "NC",
         "awayScore": 8,
         "homeScore": 6,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "이승현",
         "homeStarter": "원종해",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이승민",
+        "losePitcher": "배재환"
       }
     ],
     "2026-08-23": [
