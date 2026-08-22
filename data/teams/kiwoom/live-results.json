@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-22T21:00:27+09:00",
+  "fetchedAt": "2026-08-22T21:43:42+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2645,13 +2645,13 @@
           "ourScore": 3,
           "oppScore": 1,
           "ourScoreLine": "3-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260822HTWO02026",
           "awayStarter": "올러",
           "homeStarter": "안우진",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "안우진",
+          "losePitcher": "올러"
         }
       ]
     },

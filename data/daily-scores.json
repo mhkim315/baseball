@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T21:02:05.287039+09:00",
+  "generatedAt": "2026-08-22T21:45:05.356830+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7533,12 +7533,12 @@
         "home": "키움",
         "awayScore": 1,
         "homeScore": 3,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "올러",
         "homeStarter": "안우진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "안우진",
+        "losePitcher": "올러"
       },
       {
         "away": "KT",
