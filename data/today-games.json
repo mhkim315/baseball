@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "generatedAt": "2026-08-22T17:03:35.005496+09:00",
+  "generatedAt": "2026-08-22T17:40:12.139339+09:00",
   "games": [
     {
       "id": "20260822-HTWO-0",
@@ -36,7 +36,7 @@
       "date": "2026-08-22",
       "venue": "대전",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "lg",
         "name": "LG",
