@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T16:19:29.383356+09:00",
+  "generatedAt": "2026-08-22T16:49:05.930635+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7510,9 +7510,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "박세웅",
+        "homeStarter": "곽빈",
         "winPitcher": null,
         "losePitcher": null
       },
