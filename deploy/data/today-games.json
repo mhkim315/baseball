@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "generatedAt": "2026-08-22T23:01:09.269903+09:00",
+  "generatedAt": "2026-08-22T23:22:18.549034+09:00",
   "games": [
     {
       "id": "20260822-HTWO-0",
@@ -123,7 +123,7 @@
       "date": "2026-08-22",
       "venue": "창원",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",

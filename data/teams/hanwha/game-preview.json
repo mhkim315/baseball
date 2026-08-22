@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260822LGHH02026",
-    "fetchedAt": "2026-08-22T22:59:58+09:00"
+    "fetchedAt": "2026-08-22T23:21:19+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
@@ -253,7 +253,7 @@
       "bb": 29,
       "kk": 49,
       "gameCount": 32,
-      "gday": "20260821",
+      "gday": "20260822",
       "inn": "54.0",
       "hp": 4,
       "teamCode": "HH",
@@ -312,7 +312,7 @@
       "bb": 1,
       "kk": 15,
       "gameCount": 3,
-      "gday": "20260821",
+      "gday": "20260822",
       "inn": "18.1",
       "hp": 1,
       "teamCode": "LG",
