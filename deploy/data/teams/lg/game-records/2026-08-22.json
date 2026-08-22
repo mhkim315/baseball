@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260822LGHH02026",
+    "gameDate": "2026-08-22",
+    "lastUpdated": "2026-08-22T12:08:35+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "52731",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260822,
+    "aPCode": "56103",
+    "round": 13,
+    "gtime": "19:00",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "LG",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.92",
+    "hra": "0.277",
+    "w": 49,
+    "wra": "0.467",
+    "name": "한화",
+    "rank": 8,
+    "hr": 132,
+    "l": 56,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 56
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.95",
+    "hra": "0.268",
+    "w": 60,
+    "wra": "0.545",
+    "name": "LG",
+    "rank": 4,
+    "hr": 103,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 60,
+      "l": 50
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박준영"
+  },
+  "awayStarter": {
+    "name": "카라스코"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
