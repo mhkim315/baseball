@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-22T18:01:13+09:00",
+  "fetchedAt": "2026-08-22T18:31:47+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2647,7 +2647,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260822SSNC0"
+          "gameId": "20260822SSNC02026",
+          "awayStarter": "이승현",
+          "homeStarter": "원종해",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

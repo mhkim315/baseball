@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "nc",
     "lineupDate": "2026-08-22",
-    "lastUpdated": "2026-08-22T18:02:12+09:00",
+    "lastUpdated": "2026-08-22T18:33:00+09:00",
     "gameId": "20260822SSNC02026",
     "kboGameId": "20260822SSNC0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -81,38 +81,38 @@
     },
     {
       "order": 2,
-      "name": "김성윤",
-      "position": "우익수"
-    },
-    {
-      "order": 3,
       "name": "구자욱",
       "position": "좌익수"
     },
     {
-      "order": 4,
+      "order": 3,
       "name": "최형우",
       "position": "지명타자"
     },
     {
-      "order": 5,
+      "order": 4,
       "name": "디아즈",
       "position": "1루수"
     },
     {
-      "order": 6,
+      "order": 5,
       "name": "류지혁",
       "position": "2루수"
     },
     {
+      "order": 6,
+      "name": "전병우",
+      "position": "3루수"
+    },
+    {
       "order": 7,
-      "name": "강민호",
-      "position": "포수"
+      "name": "김태훈",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "전병우",
-      "position": "3루수"
+      "name": "강민호",
+      "position": "포수"
     },
     {
       "order": 9,

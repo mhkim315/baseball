@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T18:02:13.322673+09:00",
+  "generatedAt": "2026-08-22T18:33:01.498710+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7559,8 +7559,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "이승현",
+        "homeStarter": "원종해",
         "winPitcher": null,
         "losePitcher": null
       }
