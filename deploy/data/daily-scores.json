@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T19:37:40.928825+09:00",
+  "generatedAt": "2026-08-22T19:55:47.764802+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7555,8 +7555,8 @@
       {
         "away": "삼성",
         "home": "NC",
-        "awayScore": 1,
-        "homeScore": 2,
+        "awayScore": 2,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "이승현",
