@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260822LGHH02026",
-    "fetchedAt": "2026-08-22T16:48:05+09:00"
+    "fetchedAt": "2026-08-22T17:02:42+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
     "hPCode": "52731",
     "hCode": "HH",
     "hName": "한화",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260822,
     "aPCode": "56103",
-    "round": 13,
+    "round": 0,
     "gtime": "19:00",
     "aName": "LG",
     "gameFlag": "0",

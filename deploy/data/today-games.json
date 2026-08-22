@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "generatedAt": "2026-08-22T16:49:05.897935+09:00",
+  "generatedAt": "2026-08-22T17:03:35.005496+09:00",
   "games": [
     {
       "id": "20260822-HTWO-0",
@@ -94,7 +94,7 @@
       "date": "2026-08-22",
       "venue": "잠실",
       "time": "19:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "lotte",
         "name": "롯데",
