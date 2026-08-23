@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-23T21:13:12+09:00",
+  "fetchedAt": "2026-08-23T22:00:57+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2667,13 +2667,13 @@
           "ourScore": 1,
           "oppScore": 2,
           "ourScoreLine": "1-2",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260823SSNC02026",
           "awayStarter": "페덱",
           "homeStarter": "라일리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "페덱",
+          "losePitcher": "라일리"
         }
       ]
     },
