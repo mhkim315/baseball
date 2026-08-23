@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260822KTSK02026",
-    "fetchedAt": "2026-08-22T23:57:59+09:00"
+    "naverGameId": "20260823KTSK02026",
+    "fetchedAt": "2026-08-23T12:32:54+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
     "hPCode": "56801",
     "hCode": "SK",
     "hName": "SSG",
-    "cancelFlag": "Y",
-    "gdate": 20260822,
+    "cancelFlag": "N",
+    "gdate": 20260823,
     "aPCode": "55912",
-    "round": 0,
+    "round": 14,
     "gtime": "19:00",
     "aName": "KT",
     "gameFlag": "0",

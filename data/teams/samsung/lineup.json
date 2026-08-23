@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-08-22",
-    "lastUpdated": "2026-08-22T23:58:38+09:00",
-    "gameId": "20260822SSNC02026",
-    "kboGameId": "20260822SSNC0",
+    "lineupDate": "2026-08-23",
+    "lastUpdated": "2026-08-23T12:33:39+09:00",
+    "gameId": "20260823SSNC02026",
+    "kboGameId": "20260823SSNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "19:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "이승현"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "원종해"
+    "name": "라일리"
   }
 }

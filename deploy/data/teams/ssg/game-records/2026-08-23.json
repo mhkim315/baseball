@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260823KTSK02026",
+    "gameDate": "2026-08-23",
+    "lastUpdated": "2026-08-23T12:33:51+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "56801",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260823,
+    "aPCode": "55912",
+    "round": 14,
+    "gtime": "19:00",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 5,
+    "era": "5.56",
+    "hra": "0.262",
+    "w": 45,
+    "wra": "0.417",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 121,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 45,
+      "l": 63
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.41",
+    "hra": "0.279",
+    "w": 63,
+    "wra": "0.606",
+    "name": "KT",
+    "rank": 1,
+    "hr": 82,
+    "l": 41,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 63,
+      "l": 41
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "아빌라"
+  },
+  "awayStarter": {
+    "name": "로건"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

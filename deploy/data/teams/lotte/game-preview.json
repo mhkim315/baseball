@@ -1,18 +1,18 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260822LTOB02026",
-    "fetchedAt": "2026-08-22T23:58:03+09:00"
+    "naverGameId": "20260823LTOB02026",
+    "fetchedAt": "2026-08-23T12:32:58+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
     "hPCode": "68220",
     "hCode": "OB",
     "hName": "두산",
-    "cancelFlag": "Y",
-    "gdate": 20260822,
+    "cancelFlag": "N",
+    "gdate": 20260823,
     "aPCode": "64021",
-    "round": 0,
+    "round": 14,
     "gtime": "19:00",
     "aName": "롯데",
     "gameFlag": "0",
@@ -47,7 +47,7 @@
     "w": 50,
     "wra": "0.467",
     "name": "롯데",
-    "rank": 7,
+    "rank": 6,
     "hr": 86,
     "l": 57,
     "seriesOutcome": {
