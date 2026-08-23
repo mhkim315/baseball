@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T19:18:40.082981+09:00",
+  "generatedAt": "2026-08-23T19:45:05.502268+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7581,7 +7581,7 @@
       {
         "away": "LG",
         "home": "한화",
-        "awayScore": 4,
+        "awayScore": 8,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -7605,7 +7605,7 @@
       {
         "away": "KT",
         "home": "SSG",
-        "awayScore": 2,
+        "awayScore": 3,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,

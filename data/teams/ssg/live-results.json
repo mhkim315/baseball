@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-23T19:17:30+09:00",
+  "fetchedAt": "2026-08-23T19:43:21+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2661,12 +2661,12 @@
           "away": "KT",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 2,
+          "awayScore": 3,
           "homeScore": 0,
-          "scoreLine": "2-0",
+          "scoreLine": "3-0",
           "ourScore": 0,
-          "oppScore": 2,
-          "ourScoreLine": "0-2",
+          "oppScore": 3,
+          "ourScoreLine": "0-3",
           "outcome": null,
           "cancelled": false,
           "gameId": "20260823KTSK02026",
