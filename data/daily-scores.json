@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T12:33:57.043566+09:00",
+  "generatedAt": "2026-08-23T13:12:05.953859+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7597,8 +7597,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "네일",
+        "homeStarter": "전준표",
         "winPitcher": null,
         "losePitcher": null
       },
