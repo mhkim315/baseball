@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T18:12:37.162698+09:00",
+  "generatedAt": "2026-08-23T18:41:45.746840+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7609,8 +7609,8 @@
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "로건",
+        "homeStarter": "아빌라",
         "winPitcher": null,
         "losePitcher": null
       },
