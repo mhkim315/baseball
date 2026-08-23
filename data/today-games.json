@@ -1,13 +1,13 @@
 {
   "date": "2026-08-23",
-  "generatedAt": "2026-08-23T17:49:09.605794+09:00",
+  "generatedAt": "2026-08-23T18:12:37.129829+09:00",
   "games": [
     {
       "id": "20260823-HTWO-0",
       "date": "2026-08-23",
       "venue": "고척",
       "time": "14:00",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "kia",
         "name": "KIA",
@@ -28,7 +28,7 @@
       },
       "score": {
         "away": 7,
-        "home": 2
+        "home": 8
       }
     },
     {
