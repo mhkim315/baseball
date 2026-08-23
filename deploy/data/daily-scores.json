@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T14:16:45.777803+09:00",
+  "generatedAt": "2026-08-23T14:47:39.607175+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7593,7 +7593,7 @@
       {
         "away": "KIA",
         "home": "키움",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
