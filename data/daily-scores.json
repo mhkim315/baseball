@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:14:02.934640+09:00",
+  "generatedAt": "2026-08-23T17:49:09.644873+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7594,13 +7594,13 @@
         "away": "KIA",
         "home": "키움",
         "awayScore": 7,
-        "homeScore": 2,
-        "outcome": null,
+        "homeScore": 8,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "네일",
         "homeStarter": "전준표",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "이강준",
+        "losePitcher": "이의리"
       },
       {
         "away": "KT",
