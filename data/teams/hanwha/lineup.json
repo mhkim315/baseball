@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-24T12:13:05+09:00",
+    "lastUpdated": "2026-08-24T13:04:18+09:00",
     "gameId": "20260825HHSK02026",
     "kboGameId": "20260825HHSK0",
     "opponent": "SSG",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "화이트"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "김민준"
   }
 }

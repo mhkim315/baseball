@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "generatedAt": "2026-08-24T12:13:18.763591+09:00",
+  "generatedAt": "2026-08-24T13:04:31.982598+09:00",
   "games": [],
   "noGames": true,
   "nextGames": [
@@ -14,7 +14,7 @@
         "id": "samsung",
         "name": "삼성",
         "starter": {
-          "name": "미정"
+          "name": "보스"
         },
         "rank": 2,
         "record": "65승2무44패"
@@ -23,7 +23,7 @@
         "id": "kiwoom",
         "name": "키움",
         "starter": {
-          "name": "미정"
+          "name": "알칸타라"
         },
         "rank": 10,
         "record": "42승2무72패"
@@ -43,7 +43,7 @@
         "id": "lotte",
         "name": "롯데",
         "starter": {
-          "name": "미정"
+          "name": "비슬리"
         },
         "rank": 6,
         "record": "50승2무58패"
@@ -52,7 +52,7 @@
         "id": "kia",
         "name": "KIA",
         "starter": {
-          "name": "미정"
+          "name": "시라카와"
         },
         "rank": 4,
         "record": "60승2무50패"
@@ -72,7 +72,7 @@
         "id": "hanwha",
         "name": "한화",
         "starter": {
-          "name": "미정"
+          "name": "화이트"
         },
         "rank": 7,
         "record": "49승3무57패"
@@ -81,7 +81,7 @@
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "미정"
+          "name": "김민준"
         },
         "rank": 9,
         "record": "45승5무64패"
@@ -101,7 +101,7 @@
         "id": "doosan",
         "name": "두산",
         "starter": {
-          "name": "미정"
+          "name": "최민석"
         },
         "rank": 5,
         "record": "58승4무50패"
@@ -110,7 +110,7 @@
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "미정"
+          "name": "소형준"
         },
         "rank": 1,
         "record": "64승3무41패"
@@ -130,7 +130,7 @@
         "id": "nc",
         "name": "NC",
         "starter": {
-          "name": "미정"
+          "name": "테일러"
         },
         "rank": 8,
         "record": "48승2무56패"
@@ -139,7 +139,7 @@
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "미정"
+          "name": "톨허스트"
         },
         "rank": 3,
         "record": "61승1무50패"

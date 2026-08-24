@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-24T12:13:01+09:00",
+    "lastUpdated": "2026-08-24T13:04:15+09:00",
     "gameId": "20260825OBKT02026",
     "kboGameId": "20260825OBKT0",
     "opponent": "두산",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "소형준"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "최민석"
   }
 }

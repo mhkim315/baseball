@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-24T12:12:52+09:00",
+    "lastUpdated": "2026-08-24T13:04:05+09:00",
     "gameId": "20260825NCLG02026",
     "kboGameId": "20260825NCLG0",
     "opponent": "NC",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "톨허스트"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "테일러"
   }
 }
