@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260825NCLG02026",
+    "gameDate": "2026-08-25",
+    "lastUpdated": "2026-08-25T12:32:29+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "55130",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260825,
+    "aPCode": "56966",
+    "round": 11,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.93",
+    "hra": "0.268",
+    "w": 61,
+    "wra": "0.550",
+    "name": "LG",
+    "rank": 3,
+    "hr": 105,
+    "l": 50,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 61,
+      "l": 50
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.79",
+    "hra": "0.273",
+    "w": 48,
+    "wra": "0.462",
+    "name": "NC",
+    "rank": 8,
+    "hr": 100,
+    "l": 56,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 48,
+      "l": 56
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "톨허스트"
+  },
+  "awayStarter": {
+    "name": "테일러"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
