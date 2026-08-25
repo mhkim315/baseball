@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-25T21:56:41+09:00",
+  "fetchedAt": "2026-08-25T22:42:15+09:00",
   "rows": [
     {
       "rank": 1,
@@ -14,25 +14,25 @@
       "rank": 2,
       "teamName": "삼성",
       "winRate": 0.596,
-      "wlt": "65승2무44패",
+      "wlt": "65승3무44패",
       "gamesBehind": 0.5,
       "streak": "2승"
     },
     {
       "rank": 3,
       "teamName": "LG",
-      "winRate": 0.55,
-      "wlt": "61승1무50패",
-      "gamesBehind": 5.5,
-      "streak": "1승"
+      "winRate": 0.554,
+      "wlt": "62승1무50패",
+      "gamesBehind": 5.0,
+      "streak": "2승"
     },
     {
       "rank": 4,
       "teamName": "KIA",
-      "winRate": 0.545,
-      "wlt": "60승2무50패",
-      "gamesBehind": 6.0,
-      "streak": "2패"
+      "winRate": 0.55,
+      "wlt": "61승2무50패",
+      "gamesBehind": 5.5,
+      "streak": "1승"
     },
     {
       "rank": 5,
@@ -45,26 +45,26 @@
     {
       "rank": 6,
       "teamName": "롯데",
-      "winRate": 0.463,
-      "wlt": "50승2무58패",
-      "gamesBehind": 15.0,
-      "streak": "1패"
-    },
-    {
-      "rank": 7,
-      "teamName": "NC",
-      "winRate": 0.462,
-      "wlt": "48승2무56패",
-      "gamesBehind": 15.0,
+      "winRate": 0.459,
+      "wlt": "50승2무59패",
+      "gamesBehind": 15.5,
       "streak": "2패"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "teamName": "한화",
       "winRate": 0.458,
       "wlt": "49승3무58패",
       "gamesBehind": 15.5,
       "streak": "2패"
+    },
+    {
+      "rank": 8,
+      "teamName": "NC",
+      "winRate": 0.457,
+      "wlt": "48승2무57패",
+      "gamesBehind": 15.5,
+      "streak": "3패"
     },
     {
       "rank": 9,
@@ -78,7 +78,7 @@
       "rank": 10,
       "teamName": "키움",
       "winRate": 0.368,
-      "wlt": "42승2무72패",
+      "wlt": "42승3무72패",
       "gamesBehind": 26.0,
       "streak": "2승"
     }
