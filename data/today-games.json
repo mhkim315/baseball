@@ -1,13 +1,13 @@
 {
   "date": "2026-08-25",
-  "generatedAt": "2026-08-25T22:43:26.402151+09:00",
+  "generatedAt": "2026-08-25T23:28:24.797576+09:00",
   "games": [
     {
       "id": "20260825-SSWO-0",
       "date": "2026-08-25",
       "venue": "고척",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -36,7 +36,7 @@
       "date": "2026-08-25",
       "venue": "광주",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "lotte",
         "name": "롯데",
@@ -123,7 +123,7 @@
       "date": "2026-08-25",
       "venue": "잠실",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "nc",
         "name": "NC",
@@ -143,8 +143,8 @@
         "record": "61승1무50패"
       },
       "score": {
-        "away": 3,
-        "home": 3
+        "away": 4,
+        "home": 5
       }
     }
   ],
