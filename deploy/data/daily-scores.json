@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T18:50:25.415299+09:00",
+  "generatedAt": "2026-08-25T19:16:49.683189+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7643,7 +7643,7 @@
       {
         "away": "NC",
         "home": "LG",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
@@ -7656,7 +7656,7 @@
         "away": "삼성",
         "home": "키움",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "보스",
@@ -7668,7 +7668,7 @@
         "away": "한화",
         "home": "SSG",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 1,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "화이트",
