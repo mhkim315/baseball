@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T21:02:58.366965+09:00",
+  "generatedAt": "2026-08-25T21:58:25.135371+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7633,18 +7633,18 @@
         "home": "KT",
         "awayScore": 3,
         "homeScore": 1,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "최민석",
         "homeStarter": "소형준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "최민석",
+        "losePitcher": "소형준"
       },
       {
         "away": "NC",
         "home": "LG",
-        "awayScore": 2,
-        "homeScore": 0,
+        "awayScore": 3,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "테일러",
@@ -7669,18 +7669,18 @@
         "home": "SSG",
         "awayScore": 1,
         "homeScore": 7,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "화이트",
         "homeStarter": "김민준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김민",
+        "losePitcher": "화이트"
       },
       {
         "away": "롯데",
         "home": "KIA",
         "awayScore": 5,
-        "homeScore": 4,
+        "homeScore": 8,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "비슬리",
