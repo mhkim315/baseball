@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-25T17:32:25+09:00",
+  "fetchedAt": "2026-08-25T18:10:06+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2691,7 +2691,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260825NCLG0"
+          "gameId": "20260825NCLG02026",
+          "awayStarter": "테일러",
+          "homeStarter": "톨허스트",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
