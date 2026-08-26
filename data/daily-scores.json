@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T19:22:42.858060+09:00",
+  "generatedAt": "2026-08-26T19:55:57.843546+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7693,8 +7693,8 @@
       {
         "away": "두산",
         "home": "KT",
-        "awayScore": 1,
-        "homeScore": 0,
+        "awayScore": 2,
+        "homeScore": 3,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "잭로그",
@@ -7742,7 +7742,7 @@
         "away": "롯데",
         "home": "KIA",
         "awayScore": 3,
-        "homeScore": 3,
+        "homeScore": 5,
         "outcome": null,
         "cancelled": false,
         "awayStarter": "로드리게스",
