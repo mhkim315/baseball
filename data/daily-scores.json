@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T22:20:03.307630+09:00",
+  "generatedAt": "2026-08-26T23:08:32.354642+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7743,12 +7743,12 @@
         "home": "KIA",
         "awayScore": 11,
         "homeScore": 16,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "로드리게스",
         "homeStarter": "황동하",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김태형",
+        "losePitcher": "로드리게스"
       }
     ],
     "2026-08-27": [

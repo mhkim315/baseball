@@ -1,13 +1,13 @@
 {
   "date": "2026-08-26",
-  "generatedAt": "2026-08-26T22:20:03.267733+09:00",
+  "generatedAt": "2026-08-26T23:08:32.313751+09:00",
   "games": [
     {
       "id": "20260826-SSWO-0",
       "date": "2026-08-26",
       "venue": "고척",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "samsung",
         "name": "삼성",
@@ -27,7 +27,7 @@
         "record": "42승3무72패"
       },
       "score": {
-        "away": 10,
+        "away": 12,
         "home": 2
       }
     },
@@ -56,8 +56,8 @@
         "record": "61승2무50패"
       },
       "score": {
-        "away": 5,
-        "home": 11
+        "away": 11,
+        "home": 16
       }
     },
     {
@@ -65,7 +65,7 @@
       "date": "2026-08-26",
       "venue": "문학",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "hanwha",
         "name": "한화",
@@ -94,7 +94,7 @@
       "date": "2026-08-26",
       "venue": "수원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "doosan",
         "name": "두산",
@@ -115,7 +115,7 @@
       },
       "score": {
         "away": 4,
-        "home": 3
+        "home": 5
       }
     },
     {
@@ -123,7 +123,7 @@
       "date": "2026-08-26",
       "venue": "잠실",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "finished",
       "away": {
         "id": "nc",
         "name": "NC",

@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-26T22:18:37+09:00",
+  "fetchedAt": "2026-08-26T23:06:50+09:00",
   "rows": [
     {
       "rank": 1,
@@ -29,10 +29,10 @@
     {
       "rank": 4,
       "teamName": "KIA",
-      "winRate": 0.55,
-      "wlt": "61승2무50패",
-      "gamesBehind": 6.0,
-      "streak": "1승"
+      "winRate": 0.554,
+      "wlt": "62승2무50패",
+      "gamesBehind": 5.5,
+      "streak": "2승"
     },
     {
       "rank": 5,
@@ -45,10 +45,10 @@
     {
       "rank": 6,
       "teamName": "롯데",
-      "winRate": 0.459,
-      "wlt": "50승2무59패",
-      "gamesBehind": 16.0,
-      "streak": "2패"
+      "winRate": 0.455,
+      "wlt": "50승2무60패",
+      "gamesBehind": 16.5,
+      "streak": "3패"
     },
     {
       "rank": 7,
