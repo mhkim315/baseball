@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-25T23:27:58+09:00",
-    "gameId": "20260825NCLG02026",
-    "kboGameId": "20260825NCLG0",
+    "lineupDate": "2026-08-26",
+    "lastUpdated": "2026-08-26T12:41:46+09:00",
+    "gameId": "20260826NCLG02026",
+    "kboGameId": "20260826NCLG0",
     "opponent": "NC",
     "venue": "잠실",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "테일러"
+    "name": "구창모"
   }
 }

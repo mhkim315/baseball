@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-25T23:28:07+09:00",
-    "gameId": "20260825OBKT02026",
-    "kboGameId": "20260825OBKT0",
+    "lineupDate": "2026-08-26",
+    "lastUpdated": "2026-08-26T12:41:53+09:00",
+    "gameId": "20260826OBKT02026",
+    "kboGameId": "20260826OBKT0",
     "opponent": "두산",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "소형준"
+    "name": "대니엘"
   },
   "opponentStartingPitcher": {
-    "name": "최민석"
+    "name": "잭로그"
   }
 }

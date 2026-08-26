@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260826HHSK02026",
+    "gameDate": "2026-08-26",
+    "lastUpdated": "2026-08-26T12:42:14+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "68856",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260826,
+    "aPCode": "76715",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 5,
+    "era": "5.50",
+    "hra": "0.262",
+    "w": 46,
+    "wra": "0.418",
+    "name": "SSG",
+    "rank": 9,
+    "hr": 122,
+    "l": 64,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 46,
+      "l": 64
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.01",
+    "hra": "0.276",
+    "w": 49,
+    "wra": "0.458",
+    "name": "한화",
+    "rank": 7,
+    "hr": 133,
+    "l": 58,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 58
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "최민준"
+  },
+  "awayStarter": {
+    "name": "류현진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

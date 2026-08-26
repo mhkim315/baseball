@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-08-25",
-    "lastUpdated": "2026-08-25T23:28:17+09:00",
-    "gameId": "20260825LTHT02026",
-    "kboGameId": "20260825LTHT0",
+    "lineupDate": "2026-08-26",
+    "lastUpdated": "2026-08-26T12:42:01+09:00",
+    "gameId": "20260826LTHT02026",
+    "kboGameId": "20260826LTHT0",
     "opponent": "롯데",
     "venue": "광주",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "시라카와"
+    "name": "황동하"
   },
   "opponentStartingPitcher": {
-    "name": "비슬리"
+    "name": "로드리게스"
   }
 }
