@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-08-26",
-    "lastUpdated": "2026-08-26T17:26:00+09:00",
+    "lastUpdated": "2026-08-26T18:08:45+09:00",
     "gameId": "20260826OBKT02026",
     "kboGameId": "20260826OBKT0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,13 +34,13 @@
     },
     {
       "order": 2,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "정수빈",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박준순",
-      "position": "2루수"
+      "name": "안재석",
+      "position": "3루수"
     },
     {
       "order": 4,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
+      "name": "오명진",
+      "position": "2루수"
+    },
+    {
+      "order": 8,
       "name": "김대한",
       "position": "우익수"
     },
     {
-      "order": 8,
-      "name": "류승민",
-      "position": "좌익수"
-    },
-    {
       "order": 9,
-      "name": "정수빈",
-      "position": "중견수"
+      "name": "조수행",
+      "position": "좌익수"
     }
   ],
   "opponentBatters": [
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "김상수",
-      "position": "2루수"
+      "name": "김현수",
+      "position": "1루수"
     },
     {
       "order": 3,
@@ -92,17 +92,17 @@
     {
       "order": 4,
       "name": "힐리어드",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 5,
-      "name": "김현수",
-      "position": "1루수"
+      "name": "장성우",
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "권동진",
-      "position": "유격수"
+      "name": "김상수",
+      "position": "2루수"
     },
     {
       "order": 7,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "유준규",
-      "position": "좌익수"
+      "name": "한승택",
+      "position": "포수"
     },
     {
       "order": 9,
-      "name": "조대현",
-      "position": "포수"
+      "name": "권동진",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {
