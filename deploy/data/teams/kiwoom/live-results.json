@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-26T21:17:42+09:00",
+  "fetchedAt": "2026-08-26T22:18:45+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2705,19 +2705,19 @@
           "away": "삼성",
           "home": "키움",
           "venue": "고척",
-          "awayScore": 10,
+          "awayScore": 12,
           "homeScore": 2,
-          "scoreLine": "10-2",
+          "scoreLine": "12-2",
           "ourScore": 2,
-          "oppScore": 10,
-          "ourScoreLine": "2-10",
-          "outcome": null,
+          "oppScore": 12,
+          "ourScoreLine": "2-12",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260826SSWO02026",
           "awayStarter": "최원태",
           "homeStarter": "박준현",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "최원태",
+          "losePitcher": "박준현"
         }
       ]
     },
