@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-08-26",
-    "lastUpdated": "2026-08-26T23:58:14+09:00",
-    "gameId": "20260826SSWO02026",
-    "kboGameId": "20260826SSWO0",
+    "lineupDate": "2026-08-27",
+    "lastUpdated": "2026-08-27T19:51:06+09:00",
+    "gameId": "20260827SSWO02026",
+    "kboGameId": "20260827SSWO0",
     "opponent": "삼성",
     "venue": "고척",
     "gameTime": "18:30",
@@ -54,29 +54,29 @@
     },
     {
       "order": 6,
-      "name": "박찬혁",
-      "position": "우익수"
+      "name": "이형종",
+      "position": "좌익수"
     },
     {
       "order": 7,
       "name": "원성준",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 8,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "박찬혁",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "박채울",
-      "position": "중견수"
+      "name": "최재영",
+      "position": "유격수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박승규",
+      "name": "김지찬",
       "position": "중견수"
     },
     {
@@ -116,14 +116,14 @@
     },
     {
       "order": 9,
-      "name": "박세혁",
+      "name": "강민호",
       "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "박준현"
+    "name": "하영민"
   },
   "opponentStartingPitcher": {
-    "name": "최원태"
+    "name": "원태인"
   }
 }

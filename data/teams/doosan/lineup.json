@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-26",
-    "lastUpdated": "2026-08-26T23:58:07+09:00",
-    "gameId": "20260826OBKT02026",
-    "kboGameId": "20260826OBKT0",
+    "lineupDate": "2026-08-27",
+    "lastUpdated": "2026-08-27T19:51:00+09:00",
+    "gameId": "20260827OBKT02026",
+    "kboGameId": "20260827OBKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:30",
@@ -29,28 +29,28 @@
   "batters": [
     {
       "order": 1,
-      "name": "박찬호",
-      "position": "유격수"
-    },
-    {
-      "order": 2,
       "name": "정수빈",
       "position": "중견수"
     },
     {
-      "order": 3,
+      "order": 2,
       "name": "안재석",
       "position": "3루수"
     },
     {
+      "order": 3,
+      "name": "박준순",
+      "position": "2루수"
+    },
+    {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
       "name": "김민석",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 6,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "오명진",
-      "position": "2루수"
+      "name": "박찬호",
+      "position": "유격수"
     },
     {
       "order": 8,
-      "name": "김대한",
+      "name": "조수행",
       "position": "우익수"
     },
     {
       "order": 9,
-      "name": "조수행",
-      "position": "좌익수"
+      "name": "윤준호",
+      "position": "포수"
     }
   ],
   "opponentBatters": [
@@ -91,23 +91,23 @@
     },
     {
       "order": 4,
-      "name": "힐리어드",
-      "position": "좌익수"
-    },
-    {
-      "order": 5,
       "name": "장성우",
       "position": "지명타자"
     },
     {
-      "order": 6,
+      "order": 5,
       "name": "김상수",
       "position": "2루수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "허경민",
       "position": "3루수"
+    },
+    {
+      "order": 7,
+      "name": "장진혁",
+      "position": "좌익수"
     },
     {
       "order": 8,
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "잭로그"
+    "name": "최승용"
   },
   "opponentStartingPitcher": {
-    "name": "대니엘"
+    "name": "고영표"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T23:58:38.863069+09:00",
+  "generatedAt": "2026-08-27T19:51:41.639900+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7755,48 +7755,48 @@
       {
         "away": "두산",
         "home": "KT",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "최승용",
+        "homeStarter": "고영표",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "NC",
         "home": "LG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 9,
+        "homeScore": 2,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "토다",
+        "homeStarter": "박시원",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "삼성",
         "home": "키움",
-        "awayScore": 0,
+        "awayScore": 4,
         "homeScore": 0,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "원태인",
+        "homeStarter": "하영민",
         "winPitcher": null,
         "losePitcher": null
       },
       {
         "away": "한화",
         "home": "SSG",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 4,
+        "homeScore": 5,
         "outcome": null,
         "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "awayStarter": "짐머맨",
+        "homeStarter": "김건우",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7806,9 +7806,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "나균안",
+        "homeStarter": "양현종",
         "winPitcher": null,
         "losePitcher": null
       }
