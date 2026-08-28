@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-08-27",
-    "lastUpdated": "2026-08-27T19:51:11+09:00",
-    "gameId": "20260827OBKT02026",
-    "kboGameId": "20260827OBKT0",
-    "opponent": "두산",
-    "venue": "수원",
+    "lineupDate": "2026-08-28",
+    "lastUpdated": "2026-08-28T13:32:54+09:00",
+    "gameId": "20260828KTSS02026",
+    "kboGameId": "20260828KTSS0",
+    "opponent": "삼성",
+    "venue": "대구",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "두산",
-    "teamName": "두산"
+    "teamShort": "삼성",
+    "teamName": "삼성"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "정수빈",
+      "name": "김지찬",
       "position": "중견수"
     },
     {
       "order": 2,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "김성윤",
+      "position": "우익수"
     },
     {
       "order": 3,
-      "name": "박준순",
-      "position": "2루수"
+      "name": "구자욱",
+      "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "양의지",
+      "name": "최형우",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "김민석",
-      "position": "좌익수"
-    },
-    {
-      "order": 6,
-      "name": "세베리노",
+      "name": "디아즈",
       "position": "1루수"
     },
     {
+      "order": 6,
+      "name": "류지혁",
+      "position": "2루수"
+    },
+    {
       "order": 7,
-      "name": "박찬호",
-      "position": "유격수"
+      "name": "김영웅",
+      "position": "3루수"
     },
     {
       "order": 8,
-      "name": "조수행",
-      "position": "우익수"
+      "name": "이재현",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "윤준호",
+      "name": "강민호",
       "position": "포수"
     }
   ],
   "startingPitcher": {
-    "name": "고영표"
+    "name": "오원석"
   },
   "opponentStartingPitcher": {
-    "name": "최승용"
+    "name": "김백산"
   }
 }

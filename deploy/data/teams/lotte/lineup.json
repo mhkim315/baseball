@@ -1,12 +1,12 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-27",
-    "lastUpdated": "2026-08-27T19:51:23+09:00",
-    "gameId": "20260827LTHT02026",
-    "kboGameId": "20260827LTHT0",
-    "opponent": "KIA",
-    "venue": "광주",
+    "lineupDate": "2026-08-28",
+    "lastUpdated": "2026-08-28T13:33:03+09:00",
+    "gameId": "20260828LGLT02026",
+    "kboGameId": "20260828LGLT0",
+    "opponent": "LG",
+    "venue": "사직",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KIA",
-    "teamName": "KIA"
+    "teamShort": "LG",
+    "teamName": "LG"
   },
   "batters": [
     {
@@ -76,47 +76,47 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "이호연",
+      "name": "신민재",
       "position": "2루수"
     },
     {
       "order": 2,
-      "name": "박상준",
-      "position": "1루수"
+      "name": "박해민",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "김도영",
-      "position": "3루수"
+      "name": "오스틴",
+      "position": "지명타자"
     },
     {
       "order": 4,
-      "name": "카스트로",
+      "name": "송찬의",
       "position": "좌익수"
     },
     {
       "order": 5,
-      "name": "나성범",
-      "position": "지명타자"
+      "name": "문보경",
+      "position": "3루수"
     },
     {
       "order": 6,
-      "name": "하주석",
-      "position": "유격수"
+      "name": "문정빈",
+      "position": "1루수"
     },
     {
       "order": 7,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "오지환",
+      "position": "유격수"
     },
     {
       "order": 8,
-      "name": "김태군",
+      "name": "박동원",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "박정우",
+      "name": "홍창기",
       "position": "우익수"
     }
   ],
@@ -124,6 +124,6 @@
     "name": "나균안"
   },
   "opponentStartingPitcher": {
-    "name": "양현종"
+    "name": "김윤식"
   }
 }
