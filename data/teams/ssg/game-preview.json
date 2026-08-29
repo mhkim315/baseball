@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260828SKHT02026",
-    "fetchedAt": "2026-08-28T13:32:09+09:00"
+    "naverGameId": "20260829SKHT02026",
+    "fetchedAt": "2026-08-29T16:25:33+09:00"
   },
   "gameInfo": {
     "aFullName": "SSG 랜더스",
@@ -10,10 +10,10 @@
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "N",
-    "gdate": 20260828,
-    "aPCode": "51702",
+    "gdate": 20260829,
+    "aPCode": "56801",
     "round": 13,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "SSG",
     "gameFlag": "0",
     "hFullName": "KIA 타이거즈",
@@ -271,61 +271,61 @@
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
+      "bb": 1,
+      "kk": 8,
+      "gameCount": 1,
+      "s": 0,
       "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "w": 1,
+      "inn": "6.0",
+      "l": 0,
+      "er": 0
     },
     "playerInfo": {
-      "backnum": "90",
+      "backnum": "33",
       "hitType": "우투우타",
-      "pCode": "51702",
-      "name": "이준기",
-      "birth": "20020519",
-      "weight": "86.0",
+      "pCode": "56801",
+      "name": "아빌라",
+      "birth": "19970114",
+      "weight": "95.0",
       "height": "180.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 47.099998474121094,
+        "pit_rt": 34.70000076293945,
+        "type": "TWOS",
+        "speed": 152
+      },
+      {
+        "pit_rt": 24.100000381469727,
+        "type": "CUTT",
+        "speed": 147
+      },
+      {
+        "pit_rt": 15.699999809265137,
         "type": "FAST",
-        "speed": 139
-      },
-      {
-        "pit_rt": 25,
-        "type": "SLID",
-        "speed": 130
-      },
-      {
-        "pit_rt": 20.600000381469727,
-        "type": "CURV",
-        "speed": 112
+        "speed": 152
       }
     ],
     "currentSeasonStats": {
       "teamName": "SSG",
-      "bb": 2,
-      "kk": 1,
-      "gameCount": 2,
+      "bb": 16,
+      "kk": 47,
+      "gameCount": 7,
       "gday": "20260827",
-      "inn": "3.0",
-      "hp": 0,
+      "inn": "42.0",
+      "hp": 1,
       "teamCode": "SK",
       "hr": 0,
-      "l": 0,
-      "er": 2,
-      "whip": "2.00",
-      "hit": 4,
-      "r": 2,
+      "l": 1,
+      "er": 9,
+      "whip": "1.21",
+      "hit": 35,
+      "r": 12,
       "s": 0,
-      "era": "6.00",
-      "w": 0,
-      "inn2": "3"
+      "era": "1.93",
+      "w": 4,
+      "inn2": "42"
     }
   }
 }

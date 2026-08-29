@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-08-28",
-    "lastUpdated": "2026-08-28T13:33:03+09:00",
-    "gameId": "20260828LGLT02026",
-    "kboGameId": "20260828LGLT0",
+    "lineupDate": "2026-08-29",
+    "lastUpdated": "2026-08-29T16:26:41+09:00",
+    "gameId": "20260829LGLT02026",
+    "kboGameId": "20260829LGLT0",
     "opponent": "LG",
     "venue": "사직",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "나균안"
+    "name": "김진욱"
   },
   "opponentStartingPitcher": {
-    "name": "김윤식"
+    "name": "카라스코"
   }
 }

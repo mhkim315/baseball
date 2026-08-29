@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-08-28",
-    "lastUpdated": "2026-08-28T13:32:56+09:00",
-    "gameId": "20260828NCHH02026",
-    "kboGameId": "20260828NCHH0",
+    "lineupDate": "2026-08-29",
+    "lastUpdated": "2026-08-29T16:26:30+09:00",
+    "gameId": "20260829NCHH02026",
+    "kboGameId": "20260829NCHH0",
     "opponent": "NC",
     "venue": "대전",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -124,6 +124,6 @@
     "name": "박준영"
   },
   "opponentStartingPitcher": {
-    "name": "이재학"
+    "name": "라일리"
   }
 }

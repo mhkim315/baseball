@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-08-28",
-    "lastUpdated": "2026-08-28T13:32:43+09:00",
-    "gameId": "20260828WOOB02026",
-    "kboGameId": "20260828WOOB0",
+    "lineupDate": "2026-08-29",
+    "lastUpdated": "2026-08-29T16:26:15+09:00",
+    "gameId": "20260829WOOB02026",
+    "kboGameId": "20260829WOOB0",
     "opponent": "키움",
     "venue": "잠실",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -121,7 +121,7 @@
     }
   ],
   "startingPitcher": {
-    "name": "박신지"
+    "name": "곽빈"
   },
   "opponentStartingPitcher": {
     "name": "안우진"

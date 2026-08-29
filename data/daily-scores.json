@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T13:33:19.848817+09:00",
+  "generatedAt": "2026-08-29T16:27:03.608214+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7820,9 +7820,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "안우진",
+        "homeStarter": "박신지",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7832,9 +7832,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "김윤식",
+        "homeStarter": "나균안",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7844,9 +7844,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "이준기",
+        "homeStarter": "올러",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7856,9 +7856,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "오원석",
+        "homeStarter": "김백산",
         "winPitcher": null,
         "losePitcher": null
       },
@@ -7868,9 +7868,9 @@
         "awayScore": 0,
         "homeScore": 0,
         "outcome": null,
-        "cancelled": false,
-        "awayStarter": null,
-        "homeStarter": null,
+        "cancelled": true,
+        "awayStarter": "이재학",
+        "homeStarter": "박준영",
         "winPitcher": null,
         "losePitcher": null
       }

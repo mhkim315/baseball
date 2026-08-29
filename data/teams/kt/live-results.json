@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-28T13:31:52+09:00",
+  "fetchedAt": "2026-08-29T16:25:14+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2756,8 +2756,12 @@
           "oppScore": 0,
           "ourScoreLine": "0-0",
           "outcome": null,
-          "cancelled": false,
-          "gameId": "20260828KTSS0"
+          "cancelled": true,
+          "gameId": "20260828KTSS02026",
+          "awayStarter": "오원석",
+          "homeStarter": "김백산",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

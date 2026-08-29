@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-08-28",
-    "lastUpdated": "2026-08-28T13:32:58+09:00",
-    "gameId": "20260828KTSS02026",
-    "kboGameId": "20260828KTSS0",
+    "lineupDate": "2026-08-29",
+    "lastUpdated": "2026-08-29T16:26:33+09:00",
+    "gameId": "20260829KTSS02026",
+    "kboGameId": "20260829KTSS0",
     "opponent": "KT",
     "venue": "대구",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김백산"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "오원석"
+    "name": "로건"
   }
 }

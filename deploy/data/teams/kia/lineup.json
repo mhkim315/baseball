@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-08-28",
-    "lastUpdated": "2026-08-28T13:33:01+09:00",
-    "gameId": "20260828SKHT02026",
-    "kboGameId": "20260828SKHT0",
+    "lineupDate": "2026-08-29",
+    "lastUpdated": "2026-08-29T16:26:37+09:00",
+    "gameId": "20260829SKHT02026",
+    "kboGameId": "20260829SKHT0",
     "opponent": "SSG",
     "venue": "광주",
-    "gameTime": "18:30",
+    "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -124,6 +124,6 @@
     "name": "올러"
   },
   "opponentStartingPitcher": {
-    "name": "이준기"
+    "name": "아빌라"
   }
 }

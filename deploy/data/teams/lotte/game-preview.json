@@ -1,19 +1,19 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260828LGLT02026",
-    "fetchedAt": "2026-08-28T13:32:14+09:00"
+    "naverGameId": "20260829LGLT02026",
+    "fetchedAt": "2026-08-29T16:25:40+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
-    "hPCode": "67539",
+    "hPCode": "51516",
     "hCode": "LT",
     "hName": "롯데",
     "cancelFlag": "N",
-    "gdate": 20260828,
-    "aPCode": "50157",
+    "gdate": 20260829,
+    "aPCode": "56103",
     "round": 13,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "LG",
     "gameFlag": "0",
     "hFullName": "롯데 자이언츠",
@@ -212,120 +212,120 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 8,
-      "kk": 13,
+      "bb": 5,
+      "kk": 15,
       "gameCount": 3,
       "s": 0,
-      "era": "4.74",
+      "era": "2.37",
       "w": 1,
       "inn": "19.0",
-      "l": 1,
-      "er": 10
+      "l": 0,
+      "er": 5
     },
     "playerInfo": {
-      "backnum": "43",
-      "hitType": "우투우타",
-      "pCode": "67539",
-      "name": "나균안",
-      "birth": "19980316",
-      "weight": "109.0",
-      "height": "186.0"
+      "backnum": "15",
+      "hitType": "좌투좌타",
+      "pCode": "51516",
+      "name": "김진욱",
+      "birth": "20020705",
+      "weight": "90.0",
+      "height": "185.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 34.400001525878906,
+        "pit_rt": 49.29999923706055,
         "type": "FAST",
-        "speed": 143
+        "speed": 145
       },
       {
-        "pit_rt": 30.200000762939453,
-        "type": "FORK",
-        "speed": 131
+        "pit_rt": 29.5,
+        "type": "SLID",
+        "speed": 133
       },
       {
-        "pit_rt": 15.800000190734863,
-        "type": "CUTT",
-        "speed": 138
+        "pit_rt": 13.100000381469727,
+        "type": "CURV",
+        "speed": 125
       }
     ],
     "currentSeasonStats": {
       "teamName": "롯데",
-      "bb": 36,
-      "kk": 101,
-      "gameCount": 20,
+      "bb": 41,
+      "kk": 105,
+      "gameCount": 21,
       "gday": "20260827",
-      "inn": "114.2",
-      "hp": 2,
+      "inn": "120.1",
+      "hp": 7,
       "teamCode": "LT",
-      "hr": 17,
-      "l": 9,
-      "er": 51,
-      "whip": "1.43",
-      "hit": 128,
+      "hr": 16,
+      "l": 5,
+      "er": 45,
+      "whip": "1.25",
+      "hit": 109,
       "r": 56,
       "s": 0,
-      "era": "4.00",
+      "era": "3.37",
       "w": 6,
-      "inn2": "114 2/3"
+      "inn2": "120 1/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 4,
-      "kk": 1,
-      "gameCount": 4,
-      "s": 0,
-      "era": "5.40",
-      "w": 0,
-      "inn": "3.1",
-      "l": 0,
-      "er": 2
+      "bb": "0",
+      "kk": "0",
+      "gameCount": "0",
+      "s": "0",
+      "era": "0.00",
+      "w": "0",
+      "inn": "0",
+      "l": "0",
+      "er": "0"
     },
     "playerInfo": {
-      "backnum": "47",
-      "hitType": "좌투좌타",
-      "pCode": "50157",
-      "name": "김윤식",
-      "birth": "20000403",
-      "weight": "83.0",
-      "height": "181.0"
+      "backnum": "59",
+      "hitType": "우투우타",
+      "pCode": "56103",
+      "name": "카라스코",
+      "birth": "19870321",
+      "weight": "102.0",
+      "height": "193.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 48.29999923706055,
-        "type": "FAST",
-        "speed": 142
+        "pit_rt": 24.100000381469727,
+        "type": "CUTT",
+        "speed": 141
       },
       {
-        "pit_rt": 20.200000762939453,
-        "type": "SLID",
-        "speed": 127
+        "pit_rt": 19.899999618530273,
+        "type": "TWOS",
+        "speed": 144
       },
       {
-        "pit_rt": 17.899999618530273,
-        "type": "CHUP",
-        "speed": 119
+        "pit_rt": 15.199999809265137,
+        "type": "FORK",
+        "speed": 136
       }
     ],
     "currentSeasonStats": {
       "teamName": "LG",
-      "bb": 21,
-      "kk": 17,
-      "gameCount": 27,
+      "bb": 1,
+      "kk": 18,
+      "gameCount": 4,
       "gday": "20260827",
-      "inn": "29.0",
-      "hp": 3,
+      "inn": "24.1",
+      "hp": 4,
       "teamCode": "LG",
       "hr": 2,
       "l": 1,
-      "er": 16,
-      "whip": "1.59",
-      "hit": 25,
-      "r": 16,
+      "er": 9,
+      "whip": "0.78",
+      "hit": 18,
+      "r": 10,
       "s": 0,
-      "era": "4.97",
-      "w": 0,
-      "inn2": "29"
+      "era": "3.33",
+      "w": 2,
+      "inn2": "24 1/3"
     }
   }
 }

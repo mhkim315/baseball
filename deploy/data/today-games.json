@@ -1,18 +1,18 @@
 {
-  "date": "2026-08-28",
-  "generatedAt": "2026-08-28T13:33:19.815366+09:00",
+  "date": "2026-08-29",
+  "generatedAt": "2026-08-29T16:27:03.577347+09:00",
   "games": [
     {
-      "id": "20260828-SKHT-0",
-      "date": "2026-08-28",
+      "id": "20260829-SKHT-0",
+      "date": "2026-08-29",
       "venue": "광주",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "이준기"
+          "name": "아빌라"
         },
         "rank": 9,
         "record": "48승5무64패"
@@ -32,16 +32,16 @@
       }
     },
     {
-      "id": "20260828-KTSS-0",
-      "date": "2026-08-28",
+      "id": "20260829-KTSS-0",
+      "date": "2026-08-29",
       "venue": "대구",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "kt",
         "name": "KT",
         "starter": {
-          "name": "오원석"
+          "name": "로건"
         },
         "rank": 1,
         "record": "66승3무42패"
@@ -50,7 +50,7 @@
         "id": "samsung",
         "name": "삼성",
         "starter": {
-          "name": "김백산"
+          "name": "페덱"
         },
         "rank": 2,
         "record": "67승3무44패"
@@ -61,16 +61,16 @@
       }
     },
     {
-      "id": "20260828-NCHH-0",
-      "date": "2026-08-28",
+      "id": "20260829-NCHH-0",
+      "date": "2026-08-29",
       "venue": "대전",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "nc",
         "name": "NC",
         "starter": {
-          "name": "이재학"
+          "name": "라일리"
         },
         "rank": 6,
         "record": "49승2무58패"
@@ -90,16 +90,16 @@
       }
     },
     {
-      "id": "20260828-LGLT-0",
-      "date": "2026-08-28",
+      "id": "20260829-LGLT-0",
+      "date": "2026-08-29",
       "venue": "사직",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "김윤식"
+          "name": "카라스코"
         },
         "rank": 4,
         "record": "63승1무51패"
@@ -108,7 +108,7 @@
         "id": "lotte",
         "name": "롯데",
         "starter": {
-          "name": "나균안"
+          "name": "김진욱"
         },
         "rank": 7,
         "record": "50승2무60패"
@@ -119,10 +119,10 @@
       }
     },
     {
-      "id": "20260828-WOOB-0",
-      "date": "2026-08-28",
+      "id": "20260829-WOOB-0",
+      "date": "2026-08-29",
       "venue": "잠실",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "kiwoom",
@@ -137,7 +137,7 @@
         "id": "doosan",
         "name": "두산",
         "starter": {
-          "name": "박신지"
+          "name": "곽빈"
         },
         "rank": 5,
         "record": "59승4무52패"
@@ -151,10 +151,10 @@
   "noGames": false,
   "nextGames": [
     {
-      "id": "20260829-SKHT-0",
-      "date": "2026-08-29",
+      "id": "20260830-SKHT-0",
+      "date": "2026-08-30",
       "venue": "광주",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "ssg",
@@ -180,10 +180,10 @@
       }
     },
     {
-      "id": "20260829-KTSS-0",
-      "date": "2026-08-29",
+      "id": "20260830-KTSS-0",
+      "date": "2026-08-30",
       "venue": "대구",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "kt",
@@ -209,10 +209,10 @@
       }
     },
     {
-      "id": "20260829-NCHH-0",
-      "date": "2026-08-29",
+      "id": "20260830-NCHH-0",
+      "date": "2026-08-30",
       "venue": "대전",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "nc",
@@ -238,10 +238,10 @@
       }
     },
     {
-      "id": "20260829-LGLT-0",
-      "date": "2026-08-29",
+      "id": "20260830-LGLT-0",
+      "date": "2026-08-30",
       "venue": "사직",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "lg",
@@ -267,10 +267,10 @@
       }
     },
     {
-      "id": "20260829-WOOB-0",
-      "date": "2026-08-29",
+      "id": "20260830-WOOB-0",
+      "date": "2026-08-30",
       "venue": "잠실",
-      "time": "18:30",
+      "time": "18:00",
       "status": "scheduled",
       "away": {
         "id": "kiwoom",

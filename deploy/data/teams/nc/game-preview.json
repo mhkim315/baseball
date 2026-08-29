@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260828NCHH02026",
-    "fetchedAt": "2026-08-28T13:32:15+09:00"
+    "naverGameId": "20260829NCHH02026",
+    "fetchedAt": "2026-08-29T16:25:42+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
@@ -10,10 +10,10 @@
     "hCode": "HH",
     "hName": "한화",
     "cancelFlag": "N",
-    "gdate": 20260828,
-    "aPCode": "60263",
+    "gdate": 20260829,
+    "aPCode": "55903",
     "round": 11,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "NC",
     "gameFlag": "0",
     "hFullName": "한화 이글스",
@@ -271,38 +271,61 @@
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 2,
+      "kk": 7,
+      "gameCount": 1,
+      "s": 0,
+      "era": "6.00",
+      "w": 0,
+      "inn": "6.0",
+      "l": 0,
+      "er": 4
     },
     "playerInfo": {
-      "backnum": "51",
-      "hitType": "우언우타",
-      "pCode": "60263",
-      "name": "이재학",
-      "birth": "19901004",
-      "weight": "84.0",
-      "height": "181.0"
+      "backnum": "3",
+      "hitType": "우투우타",
+      "pCode": "55903",
+      "name": "라일리",
+      "birth": "19960709",
+      "weight": "100.0",
+      "height": "190.0"
     },
-    "currentPitKindStats": [],
+    "currentPitKindStats": [
+      {
+        "pit_rt": 37.5,
+        "type": "FAST",
+        "speed": 148
+      },
+      {
+        "pit_rt": 22.700000762939453,
+        "type": "FORK",
+        "speed": 133
+      },
+      {
+        "pit_rt": 21.5,
+        "type": "SLID",
+        "speed": 137
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "NC",
+      "bb": 23,
+      "kk": 128,
+      "gameCount": 16,
+      "gday": "20260827",
+      "inn": "95.2",
+      "hp": 0,
+      "teamCode": "NC",
+      "hr": 15,
+      "l": 1,
+      "er": 31,
+      "whip": "1.05",
+      "hit": 77,
+      "r": 32,
+      "s": 0,
+      "era": "2.92",
+      "w": 5,
+      "inn2": "95 2/3"
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "20260828WOOB02026",
-    "fetchedAt": "2026-08-28T13:32:08+09:00"
+    "naverGameId": "20260829WOOB02026",
+    "fetchedAt": "2026-08-29T16:25:32+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
-    "hPCode": "68249",
+    "hPCode": "68220",
     "hCode": "OB",
     "hName": "두산",
     "cancelFlag": "N",
-    "gdate": 20260828,
+    "gdate": 20260829,
     "aPCode": "68341",
     "round": 12,
-    "gtime": "18:30",
+    "gtime": "18:00",
     "aName": "키움",
     "gameFlag": "0",
     "hFullName": "두산 베어스",
@@ -212,61 +212,61 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": 0,
-      "kk": 3,
-      "gameCount": 3,
+      "bb": 1,
+      "kk": 9,
+      "gameCount": 1,
       "s": 0,
-      "era": "8.10",
-      "w": 0,
-      "inn": "3.1",
+      "era": "3.00",
+      "w": 1,
+      "inn": "6.0",
       "l": 0,
-      "er": 3
+      "er": 2
     },
     "playerInfo": {
-      "backnum": "49",
+      "backnum": "47",
       "hitType": "우투우타",
-      "pCode": "68249",
-      "name": "박신지",
-      "birth": "19990716",
-      "weight": "75.0",
-      "height": "185.0"
+      "pCode": "68220",
+      "name": "곽빈",
+      "birth": "19990528",
+      "weight": "95.0",
+      "height": "187.0"
     },
     "currentPitKindStats": [
       {
-        "pit_rt": 45.20000076293945,
+        "pit_rt": 42.400001525878906,
         "type": "FAST",
-        "speed": 145
+        "speed": 152
       },
       {
-        "pit_rt": 30.799999237060547,
+        "pit_rt": 19.100000381469727,
+        "type": "CUTT",
+        "speed": 146
+      },
+      {
+        "pit_rt": 14.100000381469727,
         "type": "SLID",
-        "speed": 132
-      },
-      {
-        "pit_rt": 15.5,
-        "type": "CHUP",
-        "speed": 127
+        "speed": 136
       }
     ],
     "currentSeasonStats": {
       "teamName": "두산",
-      "bb": 14,
-      "kk": 23,
-      "gameCount": 18,
+      "bb": 33,
+      "kk": 161,
+      "gameCount": 23,
       "gday": "20260827",
-      "inn": "29.0",
-      "hp": 2,
+      "inn": "135.0",
+      "hp": 5,
       "teamCode": "OB",
-      "hr": 3,
-      "l": 0,
-      "er": 19,
-      "whip": "1.52",
-      "hit": 30,
-      "r": 20,
+      "hr": 9,
+      "l": 5,
+      "er": 35,
+      "whip": "1.07",
+      "hit": 112,
+      "r": 40,
       "s": 0,
-      "era": "5.90",
-      "w": 0,
-      "inn2": "29"
+      "era": "2.33",
+      "w": 10,
+      "inn2": "135"
     }
   },
   "awayStarter": {
