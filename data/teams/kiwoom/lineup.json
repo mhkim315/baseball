@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-08-29",
-    "lastUpdated": "2026-08-29T22:15:08+09:00",
-    "gameId": "20260829WOOB02026",
-    "kboGameId": "20260829WOOB0",
+    "lineupDate": "2026-08-30",
+    "lastUpdated": "2026-08-30T16:27:43+09:00",
+    "gameId": "20260830WOOB02026",
+    "kboGameId": "20260830WOOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "안우진"
+    "name": "전준표"
   },
   "opponentStartingPitcher": {
-    "name": "곽빈"
+    "name": "최민석"
   }
 }
