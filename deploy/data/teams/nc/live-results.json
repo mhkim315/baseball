@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-08-30T16:26:48+09:00",
+  "fetchedAt": "2026-08-30T22:04:23+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2793,15 +2793,19 @@
           "away": "NC",
           "home": "한화",
           "venue": "대전",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 10,
+          "homeScore": 7,
+          "scoreLine": "10-7",
+          "ourScore": 10,
+          "oppScore": 7,
+          "ourScoreLine": "10-7",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260830NCHH0"
+          "gameId": "20260830NCHH02026",
+          "awayStarter": "테일러",
+          "homeStarter": "황준서",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },

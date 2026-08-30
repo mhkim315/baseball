@@ -1,13 +1,13 @@
 {
   "date": "2026-08-30",
-  "generatedAt": "2026-08-30T16:28:09.769394+09:00",
+  "generatedAt": "2026-08-30T22:05:56.529605+09:00",
   "games": [
     {
       "id": "20260830-SKHT-0",
       "date": "2026-08-30",
       "venue": "광주",
       "time": "18:00",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "ssg",
         "name": "SSG",

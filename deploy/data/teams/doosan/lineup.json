@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-08-30",
-    "lastUpdated": "2026-08-30T16:27:39+09:00",
+    "lastUpdated": "2026-08-30T22:05:30+09:00",
     "gameId": "20260830WOOB02026",
     "kboGameId": "20260830WOOB0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "18:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -45,12 +45,12 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "지명타자"
+      "position": "포수"
     },
     {
       "order": 5,
       "name": "김민석",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -59,18 +59,18 @@
     },
     {
       "order": 7,
-      "name": "정수빈",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
       "name": "김대한",
       "position": "우익수"
     },
     {
+      "order": 8,
+      "name": "조수행",
+      "position": "좌익수"
+    },
+    {
       "order": 9,
-      "name": "윤준호",
-      "position": "포수"
+      "name": "정수빈",
+      "position": "중견수"
     }
   ],
   "opponentBatters": [
@@ -87,7 +87,7 @@
     {
       "order": 3,
       "name": "데이비슨",
-      "position": "1루수"
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -96,13 +96,13 @@
     },
     {
       "order": 5,
-      "name": "김웅빈",
-      "position": "3루수"
+      "name": "최주환",
+      "position": "1루수"
     },
     {
       "order": 6,
-      "name": "안치홍",
-      "position": "지명타자"
+      "name": "김웅빈",
+      "position": "3루수"
     },
     {
       "order": 7,
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "원성준",
-      "position": "우익수"
+      "name": "권혁빈",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "권혁빈",
-      "position": "유격수"
+      "name": "이형종",
+      "position": "우익수"
     }
   ],
   "startingPitcher": {
