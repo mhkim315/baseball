@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-08-30",
-    "lastUpdated": "2026-08-30T22:05:33+09:00",
-    "gameId": "20260830LGLT02026",
-    "kboGameId": "20260830LGLT0",
-    "opponent": "롯데",
-    "venue": "사직",
-    "gameTime": "18:00",
+    "lineupDate": "2026-09-01",
+    "lastUpdated": "2026-08-31T14:58:02+09:00",
+    "gameId": "20260901LGOB02026",
+    "kboGameId": "20260901LGOB0",
+    "opponent": "두산",
+    "venue": "잠실",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
         "source": "kbo-expected",
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "롯데",
-    "teamName": "롯데"
+    "teamShort": "두산",
+    "teamName": "두산"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "황성빈",
-      "position": "중견수"
-    },
-    {
-      "order": 2,
-      "name": "나승엽",
-      "position": "지명타자"
-    },
-    {
-      "order": 3,
-      "name": "레이예스",
-      "position": "좌익수"
-    },
-    {
-      "order": 4,
-      "name": "한동희",
-      "position": "3루수"
-    },
-    {
-      "order": 5,
-      "name": "고승민",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
-      "name": "전민재",
+      "name": "박찬호",
       "position": "유격수"
     },
     {
+      "order": 2,
+      "name": "안재석",
+      "position": "3루수"
+    },
+    {
+      "order": 3,
+      "name": "박준순",
+      "position": "2루수"
+    },
+    {
+      "order": 4,
+      "name": "양의지",
+      "position": "포수"
+    },
+    {
+      "order": 5,
+      "name": "김민석",
+      "position": "지명타자"
+    },
+    {
+      "order": 6,
+      "name": "세베리노",
+      "position": "1루수"
+    },
+    {
       "order": 7,
-      "name": "윤동희",
+      "name": "김대한",
       "position": "우익수"
     },
     {
       "order": 8,
-      "name": "손성빈",
-      "position": "포수"
+      "name": "조수행",
+      "position": "좌익수"
     },
     {
       "order": 9,
-      "name": "한태양",
-      "position": "2루수"
+      "name": "정수빈",
+      "position": "중견수"
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "나균안"
+    "name": "잭로그"
   }
 }

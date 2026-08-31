@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T22:05:56.568610+09:00",
+  "generatedAt": "2026-08-31T14:58:32.708288+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -7991,12 +7991,12 @@
         "home": "한화",
         "awayScore": 10,
         "homeScore": 7,
-        "outcome": null,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "테일러",
         "homeStarter": "황준서",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "전사민",
+        "losePitcher": "김서현"
       }
     ],
     "2026-09-01": [

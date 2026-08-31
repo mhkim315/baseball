@@ -1,6 +1,6 @@
 {
   "source": "Naver API / statistics/categories/kbo/seasons/2026/teams",
-  "fetchedAt": "2026-08-30T22:04:15+09:00",
+  "fetchedAt": "2026-08-31T14:56:40+09:00",
   "rows": [
     {
       "rank": 1,
@@ -45,10 +45,10 @@
     {
       "rank": 6,
       "teamName": "NC",
-      "winRate": 0.463,
-      "wlt": "50승2무58패",
-      "gamesBehind": 16.0,
-      "streak": "2승"
+      "winRate": 0.468,
+      "wlt": "51승2무58패",
+      "gamesBehind": 15.5,
+      "streak": "3승"
     },
     {
       "rank": 7,
@@ -61,10 +61,10 @@
     {
       "rank": 8,
       "teamName": "한화",
-      "winRate": 0.445,
-      "wlt": "49승3무61패",
-      "gamesBehind": 18.0,
-      "streak": "5패"
+      "winRate": 0.441,
+      "wlt": "49승3무62패",
+      "gamesBehind": 18.5,
+      "streak": "6패"
     },
     {
       "rank": 9,

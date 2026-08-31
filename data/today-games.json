@@ -1,30 +1,32 @@
 {
-  "date": "2026-08-30",
-  "generatedAt": "2026-08-30T22:05:56.529605+09:00",
-  "games": [
+  "date": "2026-08-31",
+  "generatedAt": "2026-08-31T14:58:32.672178+09:00",
+  "games": [],
+  "noGames": true,
+  "nextGames": [
     {
-      "id": "20260830-SKHT-0",
-      "date": "2026-08-30",
-      "venue": "광주",
-      "time": "18:00",
-      "status": "cancelled",
+      "id": "20260901-SKWO-0",
+      "date": "2026-09-01",
+      "venue": "고척",
+      "time": "18:30",
+      "status": "scheduled",
       "away": {
         "id": "ssg",
         "name": "SSG",
         "starter": {
-          "name": "이준기"
+          "name": "최민준"
         },
         "rank": 9,
         "record": "48승5무65패"
       },
       "home": {
-        "id": "kia",
-        "name": "KIA",
+        "id": "kiwoom",
+        "name": "키움",
         "starter": {
-          "name": "네일"
+          "name": "알칸타라"
         },
-        "rank": 3,
-        "record": "63승2무50패"
+        "rank": 10,
+        "record": "42승3무76패"
       },
       "score": {
         "away": 0,
@@ -32,19 +34,19 @@
       }
     },
     {
-      "id": "20260830-KTSS-0",
-      "date": "2026-08-30",
+      "id": "20260901-LTSS-0",
+      "date": "2026-09-01",
       "venue": "대구",
-      "time": "18:00",
+      "time": "18:30",
       "status": "scheduled",
       "away": {
-        "id": "kt",
-        "name": "KT",
+        "id": "lotte",
+        "name": "롯데",
         "starter": {
-          "name": "오원석"
+          "name": "로드리게스"
         },
-        "rank": 2,
-        "record": "66승3무43패"
+        "rank": 7,
+        "record": "50승2무61패"
       },
       "home": {
         "id": "samsung",
@@ -61,28 +63,28 @@
       }
     },
     {
-      "id": "20260830-NCHH-0",
-      "date": "2026-08-30",
-      "venue": "대전",
-      "time": "18:00",
+      "id": "20260901-HHKT-0",
+      "date": "2026-09-01",
+      "venue": "수원",
+      "time": "18:30",
       "status": "scheduled",
       "away": {
-        "id": "nc",
-        "name": "NC",
-        "starter": {
-          "name": "테일러"
-        },
-        "rank": 6,
-        "record": "50승2무58패"
-      },
-      "home": {
         "id": "hanwha",
         "name": "한화",
         "starter": {
-          "name": "황준서"
+          "name": "화이트"
         },
         "rank": 8,
-        "record": "49승3무61패"
+        "record": "49승3무62패"
+      },
+      "home": {
+        "id": "kt",
+        "name": "KT",
+        "starter": {
+          "name": "대니엘"
+        },
+        "rank": 2,
+        "record": "66승3무43패"
       },
       "score": {
         "away": 0,
@@ -90,28 +92,28 @@
       }
     },
     {
-      "id": "20260830-LGLT-0",
-      "date": "2026-08-30",
-      "venue": "사직",
-      "time": "18:00",
+      "id": "20260901-LGOB-0",
+      "date": "2026-09-01",
+      "venue": "잠실",
+      "time": "18:30",
       "status": "scheduled",
       "away": {
         "id": "lg",
         "name": "LG",
         "starter": {
-          "name": "톨허스트"
+          "name": "임찬규"
         },
         "rank": 4,
         "record": "64승1무51패"
       },
       "home": {
-        "id": "lotte",
-        "name": "롯데",
+        "id": "doosan",
+        "name": "두산",
         "starter": {
-          "name": "나균안"
+          "name": "잭로그"
         },
-        "rank": 7,
-        "record": "50승2무61패"
+        "rank": 5,
+        "record": "61승4무52패"
       },
       "score": {
         "away": 0,
@@ -119,35 +121,33 @@
       }
     },
     {
-      "id": "20260830-WOOB-0",
-      "date": "2026-08-30",
-      "venue": "잠실",
-      "time": "18:00",
+      "id": "20260901-HTNC-0",
+      "date": "2026-09-01",
+      "venue": "창원",
+      "time": "18:30",
       "status": "scheduled",
       "away": {
-        "id": "kiwoom",
-        "name": "키움",
+        "id": "kia",
+        "name": "KIA",
         "starter": {
-          "name": "전준표"
+          "name": "네일"
         },
-        "rank": 10,
-        "record": "42승3무75패"
+        "rank": 3,
+        "record": "63승2무50패"
       },
       "home": {
-        "id": "doosan",
-        "name": "두산",
+        "id": "nc",
+        "name": "NC",
         "starter": {
-          "name": "최민석"
+          "name": "구창모"
         },
-        "rank": 5,
-        "record": "60승4무52패"
+        "rank": 6,
+        "record": "51승2무58패"
       },
       "score": {
         "away": 0,
         "home": 0
       }
     }
-  ],
-  "noGames": false,
-  "nextGames": []
+  ]
 }
