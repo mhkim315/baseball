@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260901HHKT02026",
+    "gameDate": "2026-09-01",
+    "lastUpdated": "2026-09-01T15:48:42+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "56002",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260901,
+    "aPCode": "56724",
+    "round": 12,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.35",
+    "hra": "0.278",
+    "w": 66,
+    "wra": "0.606",
+    "name": "KT",
+    "rank": 2,
+    "hr": 85,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 66,
+      "l": 43
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.12",
+    "hra": "0.272",
+    "w": 49,
+    "wra": "0.441",
+    "name": "한화",
+    "rank": 8,
+    "hr": 141,
+    "l": 62,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 62
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "대니엘"
+  },
+  "awayStarter": {
+    "name": "화이트"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
