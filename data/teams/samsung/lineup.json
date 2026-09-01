@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-01",
-    "lastUpdated": "2026-09-01T15:48:30+09:00",
+    "lastUpdated": "2026-09-01T21:05:39+09:00",
     "gameId": "20260901LTSS02026",
     "kboGameId": "20260901LTSS0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "박계범",
+      "name": "이재현",
       "position": "유격수"
     }
   ],
