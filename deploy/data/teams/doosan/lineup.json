@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-09-02",
-    "lastUpdated": "2026-09-02T14:57:11+09:00",
+    "lastUpdated": "2026-09-02T19:16:21+09:00",
     "gameId": "20260902LGOB02026",
     "kboGameId": "20260902LGOB0",
     "opponent": "LG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,8 +34,8 @@
     },
     {
       "order": 2,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "조수행",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -45,12 +45,12 @@
     {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "김민석",
-      "position": "지명타자"
+      "name": "안재석",
+      "position": "3루수"
     },
     {
       "order": 6,
@@ -59,13 +59,13 @@
     },
     {
       "order": 7,
-      "name": "조수행",
-      "position": "좌익수"
+      "name": "김대한",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "김대한",
-      "position": "우익수"
+      "name": "윤준호",
+      "position": "포수"
     },
     {
       "order": 9,
@@ -106,7 +106,7 @@
     },
     {
       "order": 7,
-      "name": "오지환",
+      "name": "구본혁",
       "position": "유격수"
     },
     {

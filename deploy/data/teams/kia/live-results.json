@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-02T14:56:13+09:00",
+  "fetchedAt": "2026-09-02T19:15:20+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2837,15 +2837,19 @@
           "away": "KIA",
           "home": "NC",
           "venue": "창원",
-          "awayScore": 0,
+          "awayScore": 1,
           "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
+          "scoreLine": "1-0",
+          "ourScore": 1,
           "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "ourScoreLine": "1-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260902HTNC0"
+          "gameId": "20260902HTNC02026",
+          "awayStarter": "시라카와",
+          "homeStarter": "토다",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
