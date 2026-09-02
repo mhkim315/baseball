@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lotte",
-    "lineupDate": "2026-09-01",
-    "lastUpdated": "2026-09-01T21:05:45+09:00",
-    "gameId": "20260901LTSS02026",
-    "kboGameId": "20260901LTSS0",
+    "lineupDate": "2026-09-02",
+    "lastUpdated": "2026-09-02T14:57:34+09:00",
+    "gameId": "20260902LTSS02026",
+    "kboGameId": "20260902LTSS0",
     "opponent": "삼성",
     "venue": "대구",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "로드리게스"
+    "name": "박세웅"
   },
   "opponentStartingPitcher": {
-    "name": "보스"
+    "name": "최원태"
   }
 }

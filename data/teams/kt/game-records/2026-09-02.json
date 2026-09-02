@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260902HHKT02026",
+    "gameDate": "2026-09-02",
+    "lastUpdated": "2026-09-02T14:57:45+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "50030",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260902,
+    "aPCode": "76715",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.32",
+    "hra": "0.278",
+    "w": 67,
+    "wra": "0.609",
+    "name": "KT",
+    "rank": 2,
+    "hr": 86,
+    "l": 43,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 67,
+      "l": 43
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.13",
+    "hra": "0.272",
+    "w": 49,
+    "wra": "0.438",
+    "name": "한화",
+    "rank": 8,
+    "hr": 141,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 63
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "소형준"
+  },
+  "awayStarter": {
+    "name": "류현진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
