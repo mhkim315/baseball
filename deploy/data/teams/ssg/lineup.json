@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-09-02",
-    "lastUpdated": "2026-09-02T23:31:17+09:00",
-    "gameId": "20260902SKWO02026",
-    "kboGameId": "20260902SKWO0",
+    "lineupDate": "2026-09-03",
+    "lastUpdated": "2026-09-03T14:07:04+09:00",
+    "gameId": "20260903SKWO02026",
+    "kboGameId": "20260903SKWO0",
     "opponent": "키움",
     "venue": "고척",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "김건우"
+    "name": "이로운"
   },
   "opponentStartingPitcher": {
-    "name": "하영민"
+    "name": "박준현"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260903SKWO02026",
+    "gameDate": "2026-09-03",
+    "lastUpdated": "2026-09-03T14:07:29+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "56318",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260903,
+    "aPCode": "53892",
+    "round": 15,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.40",
+    "hra": "0.243",
+    "w": 42,
+    "wra": "0.350",
+    "name": "키움",
+    "rank": 10,
+    "hr": 90,
+    "l": 78,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 42,
+      "l": 78
+    }
+  },
+  "awayStandings": {
+    "d": 5,
+    "era": "5.38",
+    "hra": "0.263",
+    "w": 50,
+    "wra": "0.435",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 125,
+    "l": 65,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 50,
+      "l": 65
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박준현"
+  },
+  "awayStarter": {
+    "name": "이로운"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

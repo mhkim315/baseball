@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-09-02",
-    "lastUpdated": "2026-09-02T23:31:22+09:00",
-    "gameId": "20260902HHKT02026",
-    "kboGameId": "20260902HHKT0",
+    "lineupDate": "2026-09-03",
+    "lastUpdated": "2026-09-03T14:07:11+09:00",
+    "gameId": "20260903HHKT02026",
+    "kboGameId": "20260903HHKT0",
     "opponent": "KT",
     "venue": "수원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "류현진"
+    "name": "왕옌청"
   },
   "opponentStartingPitcher": {
-    "name": "소형준"
+    "name": "고영표"
   }
 }
