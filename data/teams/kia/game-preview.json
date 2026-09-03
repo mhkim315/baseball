@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260903HTNC02026",
-    "fetchedAt": "2026-09-03T18:39:55+09:00"
+    "fetchedAt": "2026-09-03T22:51:22+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
@@ -289,7 +289,7 @@
       "bb": 52,
       "kk": 68,
       "gameCount": 21,
-      "gday": "20260902",
+      "gday": "20260903",
       "inn": "101.0",
       "hp": 3,
       "teamCode": "HT",

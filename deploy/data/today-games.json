@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "generatedAt": "2026-09-03T18:40:56.423139+09:00",
+  "generatedAt": "2026-09-03T22:52:12.086540+09:00",
   "games": [
     {
       "id": "20260903-SKWO-0",
@@ -85,7 +85,7 @@
         "record": "68승3무43패"
       },
       "score": {
-        "away": 0,
+        "away": 1,
         "home": 0
       }
     },
@@ -123,7 +123,7 @@
       "date": "2026-09-03",
       "venue": "창원",
       "time": "18:30",
-      "status": "scheduled",
+      "status": "cancelled",
       "away": {
         "id": "kia",
         "name": "KIA",
