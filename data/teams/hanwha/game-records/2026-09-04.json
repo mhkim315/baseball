@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260904HHLT02026",
+    "gameDate": "2026-09-04",
+    "lastUpdated": "2026-09-04T15:02:11+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "51516",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260904,
+    "aPCode": "52731",
+    "round": 11,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.64",
+    "hra": "0.269",
+    "w": 51,
+    "wra": "0.447",
+    "name": "롯데",
+    "rank": 7,
+    "hr": 92,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 51,
+      "l": 63
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.21",
+    "hra": "0.273",
+    "w": 49,
+    "wra": "0.430",
+    "name": "한화",
+    "rank": 9,
+    "hr": 146,
+    "l": 65,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 49,
+      "l": 65
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김진욱"
+  },
+  "awayStarter": {
+    "name": "박준영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260904SSLG02026",
+    "gameDate": "2026-09-04",
+    "lastUpdated": "2026-09-04T15:02:12+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "56103",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260904,
+    "aPCode": "56459",
+    "round": 12,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.81",
+    "hra": "0.267",
+    "w": 67,
+    "wra": "0.568",
+    "name": "LG",
+    "rank": 3,
+    "hr": 112,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 67,
+      "l": 51
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.14",
+    "hra": "0.280",
+    "w": 70,
+    "wra": "0.609",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 110,
+    "l": 45,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 70,
+      "l": 45
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "카라스코"
+  },
+  "awayStarter": {
+    "name": "페덱"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

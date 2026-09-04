@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260904OBSK02026",
+    "gameDate": "2026-09-04",
+    "lastUpdated": "2026-09-04T15:02:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "56801",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260904,
+    "aPCode": "68249",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 5,
+    "era": "5.37",
+    "hra": "0.263",
+    "w": 50,
+    "wra": "0.431",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 125,
+    "l": 66,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 50,
+      "l": 66
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "3.63",
+    "hra": "0.269",
+    "w": 61,
+    "wra": "0.526",
+    "name": "두산",
+    "rank": 5,
+    "hr": 93,
+    "l": 55,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 61,
+      "l": 55
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "아빌라"
+  },
+  "awayStarter": {
+    "name": "박신지"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
