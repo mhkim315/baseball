@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260904KTHT02026",
-    "fetchedAt": "2026-09-04T15:01:22+09:00"
+    "fetchedAt": "2026-09-04T19:57:54+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
@@ -22,7 +22,7 @@
     "optionFlag": 1,
     "ptsFlag": "Y",
     "isPostSeason": false,
-    "statusCode": "0"
+    "statusCode": "1"
   },
   "homeStandings": {
     "d": 2,
