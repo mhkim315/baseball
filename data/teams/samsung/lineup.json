@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-05",
-    "lastUpdated": "2026-09-05T14:44:23+09:00",
+    "lastUpdated": "2026-09-05T18:23:20+09:00",
     "gameId": "20260905SSLG02026",
     "kboGameId": "20260905SSLG0",
     "opponent": "LG",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -40,17 +40,17 @@
     {
       "order": 3,
       "name": "구자욱",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "디아즈",
-      "position": "1루수"
+      "name": "최형우",
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "박승규",
-      "position": "좌익수"
+      "name": "디아즈",
+      "position": "1루수"
     },
     {
       "order": 6,
@@ -59,8 +59,8 @@
     },
     {
       "order": 7,
-      "name": "강민호",
-      "position": "포수"
+      "name": "이재현",
+      "position": "유격수"
     },
     {
       "order": 8,
@@ -69,8 +69,8 @@
     },
     {
       "order": 9,
-      "name": "이재현",
-      "position": "유격수"
+      "name": "박세혁",
+      "position": "포수"
     }
   ],
   "opponentBatters": [

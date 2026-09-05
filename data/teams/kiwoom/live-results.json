@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-05T14:43:29+09:00",
+  "fetchedAt": "2026-09-05T18:22:18+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2903,15 +2903,19 @@
           "away": "NC",
           "home": "키움",
           "venue": "고척",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
+          "awayScore": 2,
+          "homeScore": 1,
+          "scoreLine": "2-1",
+          "ourScore": 1,
+          "oppScore": 2,
+          "ourScoreLine": "1-2",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260905NCWO0"
+          "gameId": "20260905NCWO02026",
+          "awayStarter": "이재학",
+          "homeStarter": "전준표",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     },
