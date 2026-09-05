@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-09-04",
-    "lastUpdated": "2026-09-04T23:44:23+09:00",
-    "gameId": "20260904NCWO02026",
-    "kboGameId": "20260904NCWO0",
+    "lineupDate": "2026-09-05",
+    "lastUpdated": "2026-09-05T14:44:15+09:00",
+    "gameId": "20260905NCWO02026",
+    "kboGameId": "20260905NCWO0",
     "opponent": "NC",
     "venue": "고척",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "안우진"
+    "name": "전준표"
   },
   "opponentStartingPitcher": {
-    "name": "라일리"
+    "name": "이재학"
   }
 }

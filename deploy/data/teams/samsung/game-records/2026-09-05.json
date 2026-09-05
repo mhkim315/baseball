@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260905SSLG02026",
+    "gameDate": "2026-09-05",
+    "lastUpdated": "2026-09-05T14:44:38+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "55130",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260905,
+    "aPCode": "51454",
+    "round": 13,
+    "gtime": "17:00",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.79",
+    "hra": "0.267",
+    "w": 68,
+    "wra": "0.571",
+    "name": "LG",
+    "rank": 3,
+    "hr": 112,
+    "l": 51,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 68,
+      "l": 51
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.14",
+    "hra": "0.280",
+    "w": 70,
+    "wra": "0.603",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 110,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 70,
+      "l": 46
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "톨허스트"
+  },
+  "awayStarter": {
+    "name": "이승현"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

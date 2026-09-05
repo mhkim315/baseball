@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260905NCWO02026",
+    "gameDate": "2026-09-05",
+    "lastUpdated": "2026-09-05T14:44:40+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "54362",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260905,
+    "aPCode": "60263",
+    "round": 14,
+    "gtime": "17:00",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.38",
+    "hra": "0.243",
+    "w": 43,
+    "wra": "0.352",
+    "name": "키움",
+    "rank": 10,
+    "hr": 90,
+    "l": 79,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 43,
+      "l": 79
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.71",
+    "hra": "0.274",
+    "w": 54,
+    "wra": "0.482",
+    "name": "NC",
+    "rank": 6,
+    "hr": 107,
+    "l": 58,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 54,
+      "l": 58
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "전준표"
+  },
+  "awayStarter": {
+    "name": "이재학"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

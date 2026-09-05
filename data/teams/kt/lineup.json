@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-09-04",
-    "lastUpdated": "2026-09-04T23:44:29+09:00",
-    "gameId": "20260904KTHT02026",
-    "kboGameId": "20260904KTHT0",
+    "lineupDate": "2026-09-05",
+    "lastUpdated": "2026-09-05T14:44:19+09:00",
+    "gameId": "20260905KTHT02026",
+    "kboGameId": "20260905KTHT0",
     "opponent": "KIA",
     "venue": "광주",
-    "gameTime": "18:30",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "배제성"
+    "name": "로건"
   },
   "opponentStartingPitcher": {
-    "name": "올러"
+    "name": "양현종"
   }
 }
