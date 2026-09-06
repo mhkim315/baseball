@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-06",
-    "lastUpdated": "2026-09-06T14:06:11+09:00",
+    "lastUpdated": "2026-09-06T18:19:51+09:00",
     "gameId": "20260906HHLT02026",
     "kboGameId": "20260906HHLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "황영묵",
+      "name": "이도윤",
       "position": "2루수"
     }
   ],
@@ -87,12 +87,12 @@
     {
       "order": 3,
       "name": "레이예스",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 4,
       "name": "한동희",
-      "position": "3루수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "손성빈",
-      "position": "포수"
+      "name": "노진혁",
+      "position": "3루수"
     },
     {
       "order": 8,
-      "name": "손호영",
+      "name": "조세진",
       "position": "우익수"
     },
     {
       "order": 9,
-      "name": "조세진",
-      "position": "좌익수"
+      "name": "박재엽",
+      "position": "포수"
     }
   ],
   "startingPitcher": {

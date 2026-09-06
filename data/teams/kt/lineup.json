@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-09-06",
-    "lastUpdated": "2026-09-06T14:06:09+09:00",
+    "lastUpdated": "2026-09-06T18:19:49+09:00",
     "gameId": "20260906KTHT02026",
     "kboGameId": "20260906KTHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -34,8 +34,8 @@
     },
     {
       "order": 2,
-      "name": "김현수",
-      "position": "1루수"
+      "name": "김민혁",
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -49,8 +49,8 @@
     },
     {
       "order": 5,
-      "name": "김민혁",
-      "position": "지명타자"
+      "name": "김현수",
+      "position": "1루수"
     },
     {
       "order": 6,
@@ -69,25 +69,25 @@
     },
     {
       "order": 9,
-      "name": "손민석",
+      "name": "권동진",
       "position": "유격수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
+      "name": "이호연",
+      "position": "2루수"
+    },
+    {
+      "order": 2,
       "name": "박재현",
       "position": "좌익수"
     },
     {
-      "order": 2,
-      "name": "김선빈",
-      "position": "2루수"
-    },
-    {
       "order": 3,
       "name": "김도영",
-      "position": "지명타자"
+      "position": "3루수"
     },
     {
       "order": 4,
@@ -101,8 +101,8 @@
     },
     {
       "order": 6,
-      "name": "한준수",
-      "position": "포수"
+      "name": "김선빈",
+      "position": "지명타자"
     },
     {
       "order": 7,
@@ -111,8 +111,8 @@
     },
     {
       "order": 8,
-      "name": "변우혁",
-      "position": "3루수"
+      "name": "김태군",
+      "position": "포수"
     },
     {
       "order": 9,
