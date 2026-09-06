@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-05T21:49:47+09:00",
+  "fetchedAt": "2026-09-06T14:04:53+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2933,7 +2933,11 @@
           "ourScoreLine": "0-0",
           "outcome": null,
           "cancelled": false,
-          "gameId": "20260906NCWO0"
+          "gameId": "20260906NCWO02026",
+          "awayStarter": "구창모",
+          "homeStarter": "알칸타라",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

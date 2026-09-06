@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "doosan",
-    "lineupDate": "2026-09-05",
-    "lastUpdated": "2026-09-05T21:50:50+09:00",
-    "gameId": "20260905OBSK02026",
-    "kboGameId": "20260905OBSK0",
+    "lineupDate": "2026-09-06",
+    "lastUpdated": "2026-09-06T14:05:58+09:00",
+    "gameId": "20260906OBSK02026",
+    "kboGameId": "20260906OBSK0",
     "opponent": "SSG",
     "venue": "문학",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "최민석"
+    "name": "잭로그"
   },
   "opponentStartingPitcher": {
-    "name": "김민준"
+    "name": "최민준"
   }
 }
