@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-06T18:18:46+09:00",
+  "fetchedAt": "2026-09-06T21:54:54+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2925,19 +2925,19 @@
           "away": "삼성",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 4,
+          "awayScore": 10,
           "homeScore": 4,
-          "scoreLine": "4-4",
-          "ourScore": 4,
+          "scoreLine": "10-4",
+          "ourScore": 10,
           "oppScore": 4,
-          "ourScoreLine": "4-4",
-          "outcome": null,
+          "ourScoreLine": "10-4",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260906SSLG02026",
           "awayStarter": "후라도",
           "homeStarter": "임찬규",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "후라도",
+          "losePitcher": "임찬규"
         }
       ]
     }
