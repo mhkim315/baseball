@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-09-06",
-    "lastUpdated": "2026-09-06T21:56:01+09:00",
-    "gameId": "20260906KTHT02026",
-    "kboGameId": "20260906KTHT0",
-    "opponent": "KT",
-    "venue": "광주",
-    "gameTime": "17:00",
+    "lineupDate": "2026-09-08",
+    "lastUpdated": "2026-09-07T14:25:32+09:00",
+    "gameId": "20260908HTSS02026",
+    "kboGameId": "20260908HTSS0",
+    "opponent": "삼성",
+    "venue": "대구",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KT",
-    "teamName": "KT"
+    "teamShort": "삼성",
+    "teamName": "삼성"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "최원준",
+      "name": "김지찬",
       "position": "중견수"
     },
     {
       "order": 2,
-      "name": "김민혁",
-      "position": "지명타자"
-    },
-    {
-      "order": 3,
-      "name": "안현민",
+      "name": "박승규",
       "position": "우익수"
     },
     {
-      "order": 4,
-      "name": "힐리어드",
+      "order": 3,
+      "name": "구자욱",
       "position": "좌익수"
     },
     {
+      "order": 4,
+      "name": "최형우",
+      "position": "지명타자"
+    },
+    {
       "order": 5,
-      "name": "김현수",
+      "name": "디아즈",
       "position": "1루수"
     },
     {
       "order": 6,
-      "name": "허경민",
-      "position": "3루수"
-    },
-    {
-      "order": 7,
-      "name": "김상수",
+      "name": "류지혁",
       "position": "2루수"
     },
     {
-      "order": 8,
-      "name": "한승택",
+      "order": 7,
+      "name": "강민호",
       "position": "포수"
     },
     {
+      "order": 8,
+      "name": "전병우",
+      "position": "3루수"
+    },
+    {
       "order": 9,
-      "name": "권동진",
+      "name": "이재현",
       "position": "유격수"
     }
   ],
   "startingPitcher": {
-    "name": "네일"
+    "name": "시라카와"
   },
   "opponentStartingPitcher": {
-    "name": "대니엘"
+    "name": "최원태"
   }
 }
