@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260908WOLG02026",
+    "gameDate": "2026-09-08",
+    "lastUpdated": "2026-09-08T13:56:05+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "55121",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260908,
+    "aPCode": "64350",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.82",
+    "hra": "0.266",
+    "w": 68,
+    "wra": "0.562",
+    "name": "LG",
+    "rank": 3,
+    "hr": 112,
+    "l": 53,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 68,
+      "l": 53
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.31",
+    "hra": "0.243",
+    "w": 44,
+    "wra": "0.355",
+    "name": "키움",
+    "rank": 10,
+    "hr": 91,
+    "l": 80,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 44,
+      "l": 80
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박시원"
+  },
+  "awayStarter": {
+    "name": "하영민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

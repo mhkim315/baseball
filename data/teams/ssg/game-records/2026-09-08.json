@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260908SKKT02026",
+    "gameDate": "2026-09-08",
+    "lastUpdated": "2026-09-08T13:56:07+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "SSG 랜더스",
+    "hPCode": "50030",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260908,
+    "aPCode": "51867",
+    "round": 15,
+    "gtime": "18:30",
+    "aName": "SSG",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "SK",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.40",
+    "hra": "0.279",
+    "w": 69,
+    "wra": "0.600",
+    "name": "KT",
+    "rank": 2,
+    "hr": 90,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 69,
+      "l": 46
+    }
+  },
+  "awayStandings": {
+    "d": 5,
+    "era": "5.38",
+    "hra": "0.261",
+    "w": 52,
+    "wra": "0.437",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 130,
+    "l": 67,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 52,
+      "l": 67
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "소형준"
+  },
+  "awayStarter": {
+    "name": "김건우"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
