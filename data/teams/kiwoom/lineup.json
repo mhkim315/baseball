@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-09-10",
-    "lastUpdated": "2026-09-09T13:55:22+09:00",
+    "lastUpdated": "2026-09-09T18:16:46+09:00",
     "gameId": "20260910WOOB02026",
     "kboGameId": "20260910WOOB0",
     "opponent": "두산",
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "박지훈",
+      "name": "안재석",
       "position": "3루수"
     },
     {
@@ -111,13 +111,13 @@
     },
     {
       "order": 8,
-      "name": "김기연",
-      "position": "포수"
+      "name": "조수행",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "김대한",
-      "position": "우익수"
+      "name": "윤준호",
+      "position": "포수"
     }
   ],
   "startingPitcher": {
