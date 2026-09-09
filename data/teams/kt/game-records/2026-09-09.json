@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260909KTSS02026",
+    "gameDate": "2026-09-09",
+    "lastUpdated": "2026-09-09T13:55:46+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "69446",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260909,
+    "aPCode": "64001",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.12",
+    "hra": "0.279",
+    "w": 73,
+    "wra": "0.613",
+    "name": "삼성",
+    "rank": 1,
+    "hr": 112,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 73,
+      "l": 46
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.37",
+    "hra": "0.280",
+    "w": 70,
+    "wra": "0.603",
+    "name": "KT",
+    "rank": 2,
+    "hr": 90,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 70,
+      "l": 46
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "원태인"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
