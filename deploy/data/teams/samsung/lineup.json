@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-11",
-    "lastUpdated": "2026-09-10T15:32:51+09:00",
+    "lastUpdated": "2026-09-10T20:44:38+09:00",
     "gameId": "20260911WOSS02026",
     "kboGameId": "20260911WOSS0",
     "opponent": "키움",
@@ -77,12 +77,12 @@
     {
       "order": 1,
       "name": "서건창",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 2,
       "name": "추재현",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -92,27 +92,27 @@
     {
       "order": 4,
       "name": "히우라",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "김웅빈",
-      "position": "3루수"
+      "name": "박찬혁",
+      "position": "우익수"
     },
     {
       "order": 6,
-      "name": "김동헌",
-      "position": "포수"
+      "name": "이형종",
+      "position": "좌익수"
     },
     {
       "order": 7,
-      "name": "염승원",
-      "position": "2루수"
+      "name": "김건희",
+      "position": "포수"
     },
     {
       "order": 8,
-      "name": "박주홍",
-      "position": "중견수"
+      "name": "여동욱",
+      "position": "3루수"
     },
     {
       "order": 9,
