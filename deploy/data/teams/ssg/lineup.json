@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "ssg",
-    "lineupDate": "2026-09-09",
-    "lastUpdated": "2026-09-09T22:45:30+09:00",
-    "gameId": "20260909SKOB02026",
-    "kboGameId": "20260909SKOB0",
-    "opponent": "두산",
-    "venue": "잠실",
+    "lineupDate": "2026-09-10",
+    "lastUpdated": "2026-09-10T15:32:43+09:00",
+    "gameId": "20260910HHSK02026",
+    "kboGameId": "20260910HHSK0",
+    "opponent": "한화",
+    "venue": "문학",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "두산",
-    "teamName": "두산"
+    "teamShort": "한화",
+    "teamName": "한화"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "박찬호",
+      "name": "심우준",
       "position": "유격수"
     },
     {
       "order": 2,
-      "name": "안재석",
-      "position": "3루수"
+      "name": "최인호",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "박준순",
-      "position": "2루수"
+      "name": "문현빈",
+      "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "양의지",
+      "name": "강백호",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "김민석",
-      "position": "좌익수"
+      "name": "노시환",
+      "position": "3루수"
     },
     {
       "order": 6,
-      "name": "강승호",
-      "position": "1루수"
-    },
-    {
-      "order": 7,
-      "name": "정수빈",
-      "position": "중견수"
-    },
-    {
-      "order": 8,
-      "name": "조수행",
+      "name": "페라자",
       "position": "우익수"
     },
     {
-      "order": 9,
-      "name": "윤준호",
+      "order": 7,
+      "name": "허인서",
       "position": "포수"
+    },
+    {
+      "order": 8,
+      "name": "김태연",
+      "position": "1루수"
+    },
+    {
+      "order": 9,
+      "name": "황영묵",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
-    "name": "이로운"
+    "name": "아빌라"
   },
   "opponentStartingPitcher": {
-    "name": "곽빈"
+    "name": "박준영"
   }
 }

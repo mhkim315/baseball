@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260910NCHT02026",
+    "gameDate": "2026-09-10",
+    "lastUpdated": "2026-09-10T15:33:09+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "55633",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260910,
+    "aPCode": "55903",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.40",
+    "hra": "0.272",
+    "w": 66,
+    "wra": "0.550",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 155,
+    "l": 54,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 66,
+      "l": 54
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.66",
+    "hra": "0.272",
+    "w": 56,
+    "wra": "0.483",
+    "name": "NC",
+    "rank": 6,
+    "hr": 110,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 56,
+      "l": 60
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "올러"
+  },
+  "awayStarter": {
+    "name": "라일리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
