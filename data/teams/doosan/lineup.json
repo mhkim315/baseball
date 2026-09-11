@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-09-12",
-    "lastUpdated": "2026-09-11T14:18:26+09:00",
+    "lastUpdated": "2026-09-11T18:47:47+09:00",
     "gameId": "20260912NCOB02026",
     "kboGameId": "20260912NCOB0",
     "opponent": "NC",
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "최정원",
-      "position": "중견수"
+      "name": "권희동",
+      "position": "좌익수"
     },
     {
       "order": 3,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "권희동",
-      "position": "좌익수"
-    },
-    {
-      "order": 8,
       "name": "김형준",
       "position": "포수"
     },
     {
-      "order": 9,
+      "order": 8,
       "name": "천재환",
       "position": "우익수"
+    },
+    {
+      "order": 9,
+      "name": "오태양",
+      "position": "중견수"
     }
   ],
   "startingPitcher": {
