@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-09-12",
-    "lastUpdated": "2026-09-11T18:47:47+09:00",
+    "lastUpdated": "2026-09-11T22:52:03+09:00",
     "gameId": "20260912NCOB02026",
     "kboGameId": "20260912NCOB0",
     "opponent": "NC",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "잭로그"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "구창모"
   }
 }
