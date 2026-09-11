@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260911NCHH02026",
+    "gameDate": "2026-09-11",
+    "lastUpdated": "2026-09-11T14:18:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "54729",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260911,
+    "aPCode": "60263",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.10",
+    "hra": "0.277",
+    "w": 54,
+    "wra": "0.450",
+    "name": "한화",
+    "rank": 7,
+    "hr": 156,
+    "l": 66,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 54,
+      "l": 66
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.62",
+    "hra": "0.271",
+    "w": 57,
+    "wra": "0.487",
+    "name": "NC",
+    "rank": 6,
+    "hr": 111,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 57,
+      "l": 60
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "황준서"
+  },
+  "awayStarter": {
+    "name": "이재학"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

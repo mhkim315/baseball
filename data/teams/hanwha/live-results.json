@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-10T20:43:08+09:00",
+  "fetchedAt": "2026-09-11T14:17:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -2997,13 +2997,13 @@
           "ourScore": 3,
           "oppScore": 4,
           "ourScoreLine": "3-4",
-          "outcome": null,
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260910HHSK02026",
           "awayStarter": "박준영",
           "homeStarter": "아빌라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "아빌라",
+          "losePitcher": "박준영"
         }
       ]
     }

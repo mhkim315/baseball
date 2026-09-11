@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-11",
-    "lastUpdated": "2026-09-10T20:44:38+09:00",
+    "lastUpdated": "2026-09-11T14:18:40+09:00",
     "gameId": "20260911WOSS02026",
     "kboGameId": "20260911WOSS0",
     "opponent": "키움",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "전준표"
   }
 }
