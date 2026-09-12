@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-09-11",
-    "lastUpdated": "2026-09-11T22:52:30+09:00",
-    "gameId": "20260911NCHH02026",
-    "kboGameId": "20260911NCHH0",
-    "opponent": "한화",
-    "venue": "대전",
-    "gameTime": "18:30",
+    "lineupDate": "2026-09-12",
+    "lastUpdated": "2026-09-12T16:21:11+09:00",
+    "gameId": "20260912NCOB02026",
+    "kboGameId": "20260912NCOB0",
+    "opponent": "두산",
+    "venue": "잠실",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-confirmed",
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "한화",
-    "teamName": "한화"
+    "teamShort": "두산",
+    "teamName": "두산"
   },
   "batters": [
     {
@@ -39,22 +39,22 @@
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
-    },
-    {
-      "order": 4,
       "name": "블레인",
       "position": "1루수"
     },
     {
-      "order": 5,
+      "order": 4,
       "name": "김휘집",
       "position": "3루수"
     },
     {
-      "order": 6,
+      "order": 5,
       "name": "박건우",
+      "position": "우익수"
+    },
+    {
+      "order": 6,
+      "name": "이우성",
       "position": "지명타자"
     },
     {
@@ -65,65 +65,65 @@
     {
       "order": 8,
       "name": "천재환",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 9,
-      "name": "오태양",
-      "position": "중견수"
+      "name": "김한별",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
-      "name": "심우준",
+      "name": "박찬호",
       "position": "유격수"
     },
     {
       "order": 2,
-      "name": "최인호",
-      "position": "중견수"
-    },
-    {
-      "order": 3,
-      "name": "문현빈",
-      "position": "좌익수"
-    },
-    {
-      "order": 4,
-      "name": "강백호",
-      "position": "지명타자"
-    },
-    {
-      "order": 5,
-      "name": "노시환",
+      "name": "안재석",
       "position": "3루수"
     },
     {
-      "order": 6,
-      "name": "페라자",
-      "position": "우익수"
+      "order": 3,
+      "name": "박준순",
+      "position": "2루수"
     },
     {
-      "order": 7,
-      "name": "허인서",
+      "order": 4,
+      "name": "양의지",
       "position": "포수"
     },
     {
-      "order": 8,
-      "name": "김태연",
+      "order": 5,
+      "name": "김민석",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "세베리노",
+      "position": "지명타자"
+    },
+    {
+      "order": 7,
+      "name": "양석환",
       "position": "1루수"
     },
     {
+      "order": 8,
+      "name": "조수행",
+      "position": "중견수"
+    },
+    {
       "order": 9,
-      "name": "이도윤",
-      "position": "2루수"
+      "name": "김대한",
+      "position": "우익수"
     }
   ],
   "startingPitcher": {
-    "name": "이재학"
+    "name": "구창모"
   },
   "opponentStartingPitcher": {
-    "name": "황준서"
+    "name": "잭로그"
   }
 }

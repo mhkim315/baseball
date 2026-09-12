@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "naverGameId": "20260912HTKT02026",
+    "gameDate": "2026-09-12",
+    "lastUpdated": "2026-09-12T16:21:17+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "KIA 타이거즈",
+    "hPCode": "56002",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260912,
+    "aPCode": "54640",
+    "round": 13,
+    "gtime": "17:00",
+    "aName": "KIA",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "HT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "1"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.30",
+    "hra": "0.280",
+    "w": 73,
+    "wra": "0.613",
+    "name": "KT",
+    "rank": 1,
+    "hr": 92,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 73,
+      "l": 46
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.34",
+    "hra": "0.271",
+    "w": 67,
+    "wra": "0.549",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 156,
+    "l": 55,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 67,
+      "l": 55
+    }
+  },
+  "homeLineup": [
+    {
+      "order": 1,
+      "name": "최원준",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "김민혁",
+      "position": "지명타자"
+    },
+    {
+      "order": 3,
+      "name": "안현민",
+      "position": "우익수"
+    },
+    {
+      "order": 4,
+      "name": "힐리어드",
+      "position": "좌익수"
+    },
+    {
+      "order": 5,
+      "name": "김현수",
+      "position": "1루수"
+    },
+    {
+      "order": 6,
+      "name": "허경민",
+      "position": "3루수"
+    },
+    {
+      "order": 7,
+      "name": "류현인",
+      "position": "2루수"
+    },
+    {
+      "order": 8,
+      "name": "한승택",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "권동진",
+      "position": "유격수"
+    }
+  ],
+  "awayLineup": [
+    {
+      "order": 1,
+      "name": "박정우",
+      "position": "우익수"
+    },
+    {
+      "order": 2,
+      "name": "박재현",
+      "position": "좌익수"
+    },
+    {
+      "order": 3,
+      "name": "카스트로",
+      "position": "1루수"
+    },
+    {
+      "order": 4,
+      "name": "나성범",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "김선빈",
+      "position": "2루수"
+    },
+    {
+      "order": 6,
+      "name": "하주석",
+      "position": "유격수"
+    },
+    {
+      "order": 7,
+      "name": "김호령",
+      "position": "중견수"
+    },
+    {
+      "order": 8,
+      "name": "김태군",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "김규성",
+      "position": "3루수"
+    }
+  ],
+  "homeStarter": {
+    "name": "대니엘"
+  },
+  "awayStarter": {
+    "name": "네일"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
