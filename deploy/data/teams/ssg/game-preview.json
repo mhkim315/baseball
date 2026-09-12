@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260915HTSK02026",
-    "fetchedAt": "2026-09-12T20:38:55+09:00"
+    "fetchedAt": "2026-09-12T23:21:08+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
@@ -42,18 +42,18 @@
   },
   "awayStandings": {
     "d": 2,
-    "era": "4.34",
+    "era": "4.35",
     "hra": "0.271",
     "w": 67,
-    "wra": "0.549",
+    "wra": "0.545",
     "name": "KIA",
     "rank": 4,
     "hr": 156,
-    "l": 55,
+    "l": 56,
     "seriesOutcome": {
       "d": 2,
       "w": 67,
-      "l": 55
+      "l": 56
     }
   },
   "seasonVsResult": {
@@ -140,6 +140,20 @@
   ],
   "awayTeamPreviousGames": [
     {
+      "gameId": "20260912HTKT02026",
+      "result": "패",
+      "hScore": 6,
+      "aName": "KIA",
+      "aScore": 2,
+      "gyear": 2026,
+      "gmkey": "20260912HTKT0",
+      "gweek": "토",
+      "aCode": "HT",
+      "hCode": "KT",
+      "hName": "KT",
+      "gdate": 20260912
+    },
+    {
       "gameId": "20260911SKHT02026",
       "result": "승",
       "hScore": 5,
@@ -194,20 +208,6 @@
       "hCode": "SS",
       "hName": "삼성",
       "gdate": 20260908
-    },
-    {
-      "gameId": "20260906KTHT02026",
-      "result": "승",
-      "hScore": 8,
-      "aName": "KT",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260906KTHT0",
-      "gweek": "일",
-      "aCode": "KT",
-      "hCode": "HT",
-      "hName": "KIA",
-      "gdate": 20260906
     }
   ],
   "homeStarter": {
