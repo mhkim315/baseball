@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-13T14:35:03+09:00",
+  "fetchedAt": "2026-09-13T19:34:39+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3048,6 +3048,28 @@
           "homeStarter": "잭로그",
           "winPitcher": "구창모",
           "losePitcher": "김정우"
+        }
+      ]
+    },
+    "2026-09-13": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 2,
+          "homeScore": 8,
+          "scoreLine": "2-8",
+          "ourScore": 2,
+          "oppScore": 8,
+          "ourScoreLine": "2-8",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260913NCOB02026",
+          "awayStarter": "토다",
+          "homeStarter": "최민석",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

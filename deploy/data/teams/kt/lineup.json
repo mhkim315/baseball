@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-09-13",
-    "lastUpdated": "2026-09-13T14:36:25+09:00",
+    "lastUpdated": "2026-09-13T19:35:50+09:00",
     "gameId": "20260913LTKT02026",
     "kboGameId": "20260913LTKT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -54,17 +54,17 @@
     },
     {
       "order": 6,
+      "name": "김상수",
+      "position": "2루수"
+    },
+    {
+      "order": 7,
       "name": "허경민",
       "position": "3루수"
     },
     {
-      "order": 7,
-      "name": "류현인",
-      "position": "2루수"
-    },
-    {
       "order": 8,
-      "name": "한승택",
+      "name": "조대현",
       "position": "포수"
     },
     {
@@ -87,7 +87,7 @@
     {
       "order": 3,
       "name": "고승민",
-      "position": "1루수"
+      "position": "2루수"
     },
     {
       "order": 4,
@@ -106,18 +106,18 @@
     },
     {
       "order": 7,
-      "name": "박찬형",
-      "position": "2루수"
+      "name": "나승엽",
+      "position": "1루수"
     },
     {
       "order": 8,
-      "name": "박건우",
-      "position": "포수"
+      "name": "장두성",
+      "position": "우익수"
     },
     {
       "order": 9,
-      "name": "장두성",
-      "position": "우익수"
+      "name": "박건우",
+      "position": "포수"
     }
   ],
   "startingPitcher": {

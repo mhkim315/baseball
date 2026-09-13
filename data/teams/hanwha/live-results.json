@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-13T14:35:03+09:00",
+  "fetchedAt": "2026-09-13T19:34:39+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3026,6 +3026,28 @@
           "homeStarter": "황준서",
           "winPitcher": "류진욱",
           "losePitcher": "강재민"
+        }
+      ]
+    },
+    "2026-09-13": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 2,
+          "homeScore": 6,
+          "scoreLine": "2-6",
+          "ourScore": 2,
+          "oppScore": 6,
+          "ourScoreLine": "2-6",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260913HHHT02026",
+          "awayStarter": "화이트",
+          "homeStarter": "시라카와",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
