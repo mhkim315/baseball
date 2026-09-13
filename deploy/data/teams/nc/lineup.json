@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-09-12",
-    "lastUpdated": "2026-09-12T23:22:03+09:00",
-    "gameId": "20260912NCOB02026",
-    "kboGameId": "20260912NCOB0",
+    "lineupDate": "2026-09-13",
+    "lastUpdated": "2026-09-13T14:36:37+09:00",
+    "gameId": "20260913NCOB02026",
+    "kboGameId": "20260913NCOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "구창모"
+    "name": "토다"
   },
   "opponentStartingPitcher": {
-    "name": "잭로그"
+    "name": "최민석"
   }
 }
