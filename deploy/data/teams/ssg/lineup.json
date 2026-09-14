@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-09-15",
-    "lastUpdated": "2026-09-13T23:39:09+09:00",
+    "lastUpdated": "2026-09-14T15:42:58+09:00",
     "gameId": "20260915HTSK02026",
     "kboGameId": "20260915HTSK0",
     "opponent": "KIA",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "김민준"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "김태형"
   }
 }

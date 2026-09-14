@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260915HTSK02026",
-    "fetchedAt": "2026-09-13T23:38:11+09:00"
+    "fetchedAt": "2026-09-14T15:42:05+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
-    "hPCode": "",
+    "hPCode": "56840",
     "hCode": "SK",
     "hName": "SSG",
     "cancelFlag": "N",
     "gdate": 20260915,
-    "aPCode": "",
+    "aPCode": "55610",
     "round": 15,
     "gtime": "18:30",
     "aName": "KIA",
@@ -212,30 +212,61 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 4,
+      "kk": 7,
+      "gameCount": 2,
+      "s": 0,
+      "era": "10.80",
+      "w": 0,
+      "inn": "6.2",
+      "l": 1,
+      "er": 8
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "40",
+      "hitType": "우투우타",
+      "pCode": "56840",
+      "name": "김민준",
+      "birth": "20060408",
+      "weight": "100.0",
+      "height": "183.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 53.400001525878906,
+        "type": "FAST",
+        "speed": 144
+      },
+      {
+        "pit_rt": 23.799999237060547,
+        "type": "FORK",
+        "speed": 130
+      },
+      {
+        "pit_rt": 14.100000381469727,
+        "type": "SLID",
+        "speed": 132
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "SSG",
+      "bb": 29,
+      "kk": 49,
+      "gameCount": 13,
+      "gday": "20260913",
+      "inn": "66.2",
+      "hp": 3,
+      "teamCode": "SK",
+      "hr": 5,
+      "l": 2,
+      "er": 25,
+      "whip": "1.20",
+      "hit": 51,
+      "r": 25,
+      "s": 0,
+      "era": "3.38",
+      "w": 6,
+      "inn2": "66 2/3"
     }
   },
   "awayStarter": {
@@ -250,20 +281,51 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "10",
+      "hitType": "우투우타",
+      "pCode": "55610",
+      "name": "김태형",
+      "birth": "20061215",
+      "weight": "95.0",
+      "height": "184.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 47.29999923706055,
+        "type": "FAST",
+        "speed": 146
+      },
+      {
+        "pit_rt": 21.5,
+        "type": "SLID",
+        "speed": 137
+      },
+      {
+        "pit_rt": 16.700000762939453,
+        "type": "SWEE",
+        "speed": 127
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 28,
+      "kk": 42,
+      "gameCount": 21,
+      "gday": "20260913",
+      "inn": "66.0",
+      "hp": 4,
+      "teamCode": "HT",
+      "hr": 11,
+      "l": 3,
+      "er": 39,
+      "whip": "1.59",
+      "hit": 77,
+      "r": 46,
+      "s": 0,
+      "era": "5.32",
+      "w": 3,
+      "inn2": "66"
     }
   }
 }
