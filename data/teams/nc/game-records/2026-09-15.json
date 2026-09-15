@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260915LGNC02026",
+    "gameDate": "2026-09-15",
+    "lastUpdated": "2026-09-15T14:08:55+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "LG 트윈스",
+    "hPCode": "69962",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260915,
+    "aPCode": "56103",
+    "round": 14,
+    "gtime": "18:30",
+    "aName": "LG",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "LG",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.66",
+    "hra": "0.272",
+    "w": 59,
+    "wra": "0.492",
+    "name": "NC",
+    "rank": 6,
+    "hr": 115,
+    "l": 61,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 61
+    }
+  },
+  "awayStandings": {
+    "d": 1,
+    "era": "4.94",
+    "hra": "0.267",
+    "w": 70,
+    "wra": "0.560",
+    "name": "LG",
+    "rank": 3,
+    "hr": 117,
+    "l": 55,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 70,
+      "l": 55
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "송명기"
+  },
+  "awayStarter": {
+    "name": "카라스코"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

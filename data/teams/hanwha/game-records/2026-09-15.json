@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260915KTHH02026",
+    "gameDate": "2026-09-15",
+    "lastUpdated": "2026-09-15T14:08:50+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "56719",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260915,
+    "aPCode": "64001",
+    "round": 15,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "5.16",
+    "hra": "0.277",
+    "w": 54,
+    "wra": "0.443",
+    "name": "한화",
+    "rank": 7,
+    "hr": 159,
+    "l": 68,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 54,
+      "l": 68
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.26",
+    "hra": "0.281",
+    "w": 75,
+    "wra": "0.620",
+    "name": "KT",
+    "rank": 1,
+    "hr": 93,
+    "l": 46,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 75,
+      "l": 46
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "왕옌청"
+  },
+  "awayStarter": {
+    "name": "고영표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
