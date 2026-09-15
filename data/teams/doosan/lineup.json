@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-09-16",
-    "lastUpdated": "2026-09-15T19:00:52+09:00",
+    "lastUpdated": "2026-09-15T23:41:59+09:00",
     "gameId": "20260916SSOB02026",
     "kboGameId": "20260916SSOB0",
     "opponent": "삼성",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "벤자민"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "페덱"
   }
 }
