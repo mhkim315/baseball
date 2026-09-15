@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-15T14:07:13+09:00",
+  "fetchedAt": "2026-09-15T19:00:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3048,6 +3048,28 @@
           "homeStarter": "최원태",
           "winPitcher": "임찬규",
           "losePitcher": "최원태"
+        }
+      ]
+    },
+    "2026-09-15": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 1,
+          "scoreLine": "0-1",
+          "ourScore": 1,
+          "oppScore": 0,
+          "ourScoreLine": "1-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260915LTSS02026",
+          "awayStarter": "박세웅",
+          "homeStarter": "원태인",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

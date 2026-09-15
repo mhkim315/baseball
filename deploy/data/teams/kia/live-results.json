@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-15T14:07:13+09:00",
+  "fetchedAt": "2026-09-15T19:00:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3070,6 +3070,28 @@
           "homeStarter": "시라카와",
           "winPitcher": "시라카와",
           "losePitcher": "화이트"
+        }
+      ]
+    },
+    "2026-09-15": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 1,
+          "homeScore": 0,
+          "scoreLine": "1-0",
+          "ourScore": 1,
+          "oppScore": 0,
+          "ourScoreLine": "1-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260915HTSK02026",
+          "awayStarter": "김태형",
+          "homeStarter": "김민준",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

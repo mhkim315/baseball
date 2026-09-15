@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-15T14:07:13+09:00",
+  "fetchedAt": "2026-09-15T19:00:05+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3048,6 +3048,28 @@
           "homeStarter": "시라카와",
           "winPitcher": "시라카와",
           "losePitcher": "화이트"
+        }
+      ]
+    },
+    "2026-09-15": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 2,
+          "homeScore": 0,
+          "scoreLine": "2-0",
+          "ourScore": 0,
+          "oppScore": 2,
+          "ourScoreLine": "0-2",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260915KTHH02026",
+          "awayStarter": "고영표",
+          "homeStarter": "왕옌청",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
