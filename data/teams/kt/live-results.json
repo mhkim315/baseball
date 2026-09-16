@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-16T15:41:13+09:00",
+  "fetchedAt": "2026-09-16T21:01:55+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3092,6 +3092,28 @@
           "homeStarter": "왕옌청",
           "winPitcher": "고영표",
           "losePitcher": "왕옌청"
+        }
+      ]
+    },
+    "2026-09-16": {
+      "games": [
+        {
+          "away": "KT",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 3,
+          "homeScore": 2,
+          "scoreLine": "3-2",
+          "ourScore": 3,
+          "oppScore": 2,
+          "ourScoreLine": "3-2",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260916KTHH02026",
+          "awayStarter": "배제성",
+          "homeStarter": "류현진",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

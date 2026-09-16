@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-16",
-    "lastUpdated": "2026-09-16T15:42:33+09:00",
+    "lastUpdated": "2026-09-16T21:03:24+09:00",
     "gameId": "20260916KTHH02026",
     "kboGameId": "20260916KTHH0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -40,7 +40,7 @@
     {
       "order": 3,
       "name": "페라자",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 4,
@@ -59,8 +59,8 @@
     },
     {
       "order": 7,
-      "name": "유민",
-      "position": "우익수"
+      "name": "장규현",
+      "position": "지명타자"
     },
     {
       "order": 8,
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "황영묵",
+      "name": "이도윤",
       "position": "2루수"
     }
   ],
@@ -77,22 +77,22 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 2,
       "name": "김민혁",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 3,
       "name": "안현민",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
       "name": "힐리어드",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 5,

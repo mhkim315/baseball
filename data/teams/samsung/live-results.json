@@ -1,7 +1,7 @@
 {
   "team": "삼성",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-16T15:41:13+09:00",
+  "fetchedAt": "2026-09-16T21:01:55+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3070,6 +3070,28 @@
           "homeStarter": "원태인",
           "winPitcher": "사토시",
           "losePitcher": "박정민"
+        }
+      ]
+    },
+    "2026-09-16": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 1,
+          "homeScore": 3,
+          "scoreLine": "1-3",
+          "ourScore": 1,
+          "oppScore": 3,
+          "ourScoreLine": "1-3",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260916SSOB02026",
+          "awayStarter": "페덱",
+          "homeStarter": "벤자민",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
