@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-09-15",
-    "lastUpdated": "2026-09-15T23:42:02+09:00",
-    "gameId": "20260915LGNC02026",
-    "kboGameId": "20260915LGNC0",
+    "lineupDate": "2026-09-16",
+    "lastUpdated": "2026-09-16T15:42:20+09:00",
+    "gameId": "20260916LGNC02026",
+    "kboGameId": "20260916LGNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "카라스코"
+    "name": "박시원"
   },
   "opponentStartingPitcher": {
-    "name": "송명기"
+    "name": "클레빈저"
   }
 }

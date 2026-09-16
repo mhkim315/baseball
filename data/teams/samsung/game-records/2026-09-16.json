@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260916SSOB02026",
+    "gameDate": "2026-09-16",
+    "lastUpdated": "2026-09-16T15:42:53+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "52043",
+    "hCode": "OB",
+    "hName": "두산",
+    "cancelFlag": "N",
+    "gdate": 20260916,
+    "aPCode": "56459",
+    "round": 13,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "두산 베어스",
+    "stadium": "잠실",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "3.68",
+    "hra": "0.265",
+    "w": 64,
+    "wra": "0.516",
+    "name": "두산",
+    "rank": 5,
+    "hr": 100,
+    "l": 60,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 64,
+      "l": 60
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.17",
+    "hra": "0.279",
+    "w": 75,
+    "wra": "0.605",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 117,
+    "l": 49,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 75,
+      "l": 49
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "벤자민"
+  },
+  "awayStarter": {
+    "name": "페덱"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
