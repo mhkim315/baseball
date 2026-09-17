@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260918NCLT02026",
-    "fetchedAt": "2026-09-17T19:02:45+09:00"
+    "fetchedAt": "2026-09-17T23:50:59+09:00"
   },
   "gameInfo": {
     "aFullName": "NC 다이노스",
-    "hPCode": "",
+    "hPCode": "56531",
     "hCode": "LT",
     "hName": "롯데",
     "cancelFlag": "N",
     "gdate": 20260918,
-    "aPCode": "",
+    "aPCode": "60263",
     "round": 16,
     "gtime": "18:30",
     "aName": "NC",
@@ -42,18 +42,18 @@
   },
   "awayStandings": {
     "d": 2,
-    "era": "4.68",
-    "hra": "0.272",
+    "era": "4.66",
+    "hra": "0.271",
     "w": 59,
-    "wra": "0.484",
+    "wra": "0.480",
     "name": "NC",
     "rank": 6,
     "hr": 117,
-    "l": 63,
+    "l": 64,
     "seriesOutcome": {
       "d": 2,
       "w": 59,
-      "l": 63
+      "l": 64
     }
   },
   "seasonVsResult": {
@@ -140,6 +140,20 @@
   ],
   "awayTeamPreviousGames": [
     {
+      "gameId": "20260917SKNC02026",
+      "result": "패",
+      "hScore": 1,
+      "aName": "SSG",
+      "aScore": 2,
+      "gyear": 2026,
+      "gmkey": "20260917SKNC0",
+      "gweek": "목",
+      "aCode": "SK",
+      "hCode": "NC",
+      "hName": "NC",
+      "gdate": 20260917
+    },
+    {
       "gameId": "20260916LGNC02026",
       "result": "패",
       "hScore": 2,
@@ -194,48 +208,65 @@
       "hCode": "OB",
       "hName": "두산",
       "gdate": 20260912
-    },
-    {
-      "gameId": "20260911NCHH02026",
-      "result": "승",
-      "hScore": 7,
-      "aName": "NC",
-      "aScore": 9,
-      "gyear": 2026,
-      "gmkey": "20260911NCHH0",
-      "gweek": "금",
-      "aCode": "NC",
-      "hCode": "HH",
-      "hName": "한화",
-      "gdate": 20260911
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 7,
+      "kk": 16,
+      "gameCount": 2,
+      "s": 0,
+      "era": "6.52",
+      "w": 0,
+      "inn": "9.2",
+      "l": 1,
+      "er": 7
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "31",
+      "hitType": "우투우타",
+      "pCode": "56531",
+      "name": "로드리게스",
+      "birth": "19980331",
+      "weight": "97.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 43.400001525878906,
+        "type": "FAST",
+        "speed": 151
+      },
+      {
+        "pit_rt": 21.5,
+        "type": "SWEE",
+        "speed": 133
+      },
+      {
+        "pit_rt": 16.899999618530273,
+        "type": "CUTT",
+        "speed": 142
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "롯데",
+      "bb": 54,
+      "kk": 162,
+      "gameCount": 26,
+      "gday": "20260917",
+      "inn": "143.2",
+      "hp": 8,
+      "teamCode": "LT",
+      "hr": 21,
+      "l": 11,
+      "er": 67,
+      "whip": "1.37",
+      "hit": 143,
+      "r": 72,
+      "s": 0,
+      "era": "4.20",
+      "w": 8,
+      "inn2": "143 2/3"
     }
   },
   "awayStarter": {
@@ -250,20 +281,51 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "51",
+      "hitType": "우언우타",
+      "pCode": "60263",
+      "name": "이재학",
+      "birth": "19901004",
+      "weight": "84.0",
+      "height": "181.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 50.29999923706055,
+        "type": "FAST",
+        "speed": 139
+      },
+      {
+        "pit_rt": 41.79999923706055,
+        "type": "CHUP",
+        "speed": 122
+      },
+      {
+        "pit_rt": 7.900000095367432,
+        "type": "CUTT",
+        "speed": 126
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "NC",
+      "bb": 5,
+      "kk": 8,
+      "gameCount": 2,
+      "gday": "20260917",
+      "inn": "9.0",
+      "hp": 1,
+      "teamCode": "NC",
+      "hr": 2,
+      "l": 0,
+      "er": 5,
+      "whip": "1.33",
+      "hit": 7,
+      "r": 7,
+      "s": 0,
+      "era": "5.00",
+      "w": 0,
+      "inn2": "9"
     }
   }
 }

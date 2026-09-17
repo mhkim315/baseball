@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-17T19:03:15+09:00",
+    "lastUpdated": "2026-09-17T23:51:33+09:00",
     "gameId": "20260918LGKT02026",
     "kboGameId": "20260918LGKT0",
     "opponent": "KT",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "톨허스트"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "로건"
   }
 }

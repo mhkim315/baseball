@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-17T19:03:32+09:00",
+    "lastUpdated": "2026-09-17T23:51:53+09:00",
     "gameId": "20260918NCLT02026",
     "kboGameId": "20260918NCLT0",
     "opponent": "NC",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "로드리게스"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "이재학"
   }
 }
