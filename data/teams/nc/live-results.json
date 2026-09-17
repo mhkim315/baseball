@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-16T21:01:55+09:00",
+  "fetchedAt": "2026-09-17T14:17:19+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3101,19 +3101,19 @@
           "away": "LG",
           "home": "NC",
           "venue": "창원",
-          "awayScore": 5,
+          "awayScore": 9,
           "homeScore": 2,
-          "scoreLine": "5-2",
+          "scoreLine": "9-2",
           "ourScore": 2,
-          "oppScore": 5,
-          "ourScoreLine": "2-5",
-          "outcome": null,
+          "oppScore": 9,
+          "ourScoreLine": "2-9",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260916LGNC02026",
           "awayStarter": "박시원",
           "homeStarter": "클레빈저",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "고우석",
+          "losePitcher": "김진호"
         }
       ]
     }

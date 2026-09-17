@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-16T21:01:55+09:00",
+  "fetchedAt": "2026-09-17T14:17:19+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3063,13 +3063,13 @@
           "ourScore": 4,
           "oppScore": 1,
           "ourScoreLine": "4-1",
-          "outcome": null,
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260916SKLT02026",
           "awayStarter": "아빌라",
           "homeStarter": "비슬리",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "아빌라",
+          "losePitcher": "비슬리"
         }
       ]
     }

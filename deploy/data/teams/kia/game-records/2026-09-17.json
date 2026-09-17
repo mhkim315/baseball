@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260917WOHT02026",
+    "gameDate": "2026-09-17",
+    "lastUpdated": "2026-09-17T14:18:33+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "55633",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20260917,
+    "aPCode": "68341",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.34",
+    "hra": "0.272",
+    "w": 68,
+    "wra": "0.544",
+    "name": "KIA",
+    "rank": 4,
+    "hr": 157,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 68,
+      "l": 57
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "5.31",
+    "hra": "0.242",
+    "w": 45,
+    "wra": "0.352",
+    "name": "키움",
+    "rank": 10,
+    "hr": 93,
+    "l": 83,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 45,
+      "l": 83
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "올러"
+  },
+  "awayStarter": {
+    "name": "안우진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

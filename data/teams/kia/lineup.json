@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-09-17",
-    "lastUpdated": "2026-09-16T21:03:30+09:00",
+    "lastUpdated": "2026-09-17T14:18:24+09:00",
     "gameId": "20260917WOHT02026",
     "kboGameId": "20260917WOHT0",
     "opponent": "키움",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "올러"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "안우진"
   }
 }
