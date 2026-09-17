@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-09-17",
-    "lastUpdated": "2026-09-17T14:18:12+09:00",
+    "lastUpdated": "2026-09-17T19:03:17+09:00",
     "gameId": "20260917WOHT02026",
     "kboGameId": "20260917WOHT0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,12 +30,12 @@
     {
       "order": 1,
       "name": "서건창",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 2,
       "name": "추재현",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 3,
@@ -50,22 +50,22 @@
     {
       "order": 5,
       "name": "김웅빈",
-      "position": "3루수"
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "박찬혁",
-      "position": "우익수"
+      "name": "박주홍",
+      "position": "중견수"
     },
     {
       "order": 7,
-      "name": "김건희",
-      "position": "포수"
+      "name": "어준서",
+      "position": "3루수"
     },
     {
       "order": 8,
-      "name": "염승원",
-      "position": "2루수"
+      "name": "김재현",
+      "position": "포수"
     },
     {
       "order": 9,
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "이호연",
-      "position": "3루수"
+      "name": "한준수",
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -101,13 +101,13 @@
     },
     {
       "order": 6,
-      "name": "한준수",
-      "position": "지명타자"
+      "name": "하주석",
+      "position": "유격수"
     },
     {
       "order": 7,
-      "name": "하주석",
-      "position": "유격수"
+      "name": "김호령",
+      "position": "중견수"
     },
     {
       "order": 8,
@@ -116,8 +116,8 @@
     },
     {
       "order": 9,
-      "name": "김호령",
-      "position": "중견수"
+      "name": "변우혁",
+      "position": "3루수"
     }
   ],
   "startingPitcher": {

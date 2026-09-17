@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-09-17",
-    "lastUpdated": "2026-09-17T14:18:14+09:00",
+    "lastUpdated": "2026-09-17T19:03:19+09:00",
     "gameId": "20260917SKNC02026",
     "kboGameId": "20260917SKNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -59,13 +59,13 @@
     },
     {
       "order": 7,
-      "name": "이지영",
-      "position": "포수"
+      "name": "한유섬",
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "오시후",
-      "position": "우익수"
+      "name": "이지영",
+      "position": "포수"
     },
     {
       "order": 9,
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "권희동",
+      "name": "이우성",
       "position": "좌익수"
     },
     {
@@ -97,22 +97,22 @@
     {
       "order": 5,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "이우성",
-      "position": "지명타자"
+      "name": "김형준",
+      "position": "포수"
     },
     {
       "order": 7,
       "name": "천재환",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "김형준",
-      "position": "포수"
+      "name": "오태양",
+      "position": "중견수"
     },
     {
       "order": 9,

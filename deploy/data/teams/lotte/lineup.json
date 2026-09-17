@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-17T14:18:27+09:00",
+    "lastUpdated": "2026-09-17T19:03:32+09:00",
     "gameId": "20260918NCLT02026",
     "kboGameId": "20260918NCLT0",
     "opponent": "NC",
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "권희동",
+      "name": "이우성",
       "position": "좌익수"
     },
     {
@@ -97,22 +97,22 @@
     {
       "order": 5,
       "name": "박건우",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "이우성",
-      "position": "지명타자"
+      "name": "김형준",
+      "position": "포수"
     },
     {
       "order": 7,
       "name": "천재환",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 8,
-      "name": "김형준",
-      "position": "포수"
+      "name": "오태양",
+      "position": "중견수"
     },
     {
       "order": 9,
