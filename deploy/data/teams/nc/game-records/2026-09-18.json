@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260918NCLT02026",
+    "gameDate": "2026-09-18",
+    "lastUpdated": "2026-09-18T15:18:12+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "56531",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260918,
+    "aPCode": "60263",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.83",
+    "hra": "0.268",
+    "w": 53,
+    "wra": "0.427",
+    "name": "롯데",
+    "rank": 9,
+    "hr": 98,
+    "l": 71,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 53,
+      "l": 71
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.66",
+    "hra": "0.271",
+    "w": 59,
+    "wra": "0.480",
+    "name": "NC",
+    "rank": 6,
+    "hr": 117,
+    "l": 64,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 64
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "로드리게스"
+  },
+  "awayStarter": {
+    "name": "이재학"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
