@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-18T15:17:52+09:00",
+    "lastUpdated": "2026-09-18T20:21:36+09:00",
     "gameId": "20260918SSHH02026",
     "kboGameId": "20260918SSHH0",
     "opponent": "삼성",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -39,8 +39,8 @@
     },
     {
       "order": 3,
-      "name": "페라자",
-      "position": "우익수"
+      "name": "한지윤",
+      "position": "좌익수"
     },
     {
       "order": 4,
@@ -50,26 +50,26 @@
     {
       "order": 5,
       "name": "허인서",
-      "position": "포수"
-    },
-    {
-      "order": 6,
-      "name": "한지윤",
-      "position": "좌익수"
-    },
-    {
-      "order": 7,
-      "name": "장규현",
       "position": "지명타자"
     },
     {
-      "order": 8,
+      "order": 6,
       "name": "박정현",
       "position": "3루수"
     },
     {
+      "order": 7,
+      "name": "유민",
+      "position": "우익수"
+    },
+    {
+      "order": 8,
+      "name": "장규현",
+      "position": "포수"
+    },
+    {
       "order": 9,
-      "name": "이도윤",
+      "name": "정은원",
       "position": "2루수"
     }
   ],
@@ -96,18 +96,18 @@
     },
     {
       "order": 5,
-      "name": "이창용",
+      "name": "최형우",
       "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "전병우",
-      "position": "3루수"
+      "name": "류지혁",
+      "position": "2루수"
     },
     {
       "order": 7,
-      "name": "류지혁",
-      "position": "2루수"
+      "name": "전병우",
+      "position": "3루수"
     },
     {
       "order": 8,
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "심재훈",
+      "name": "김상준",
       "position": "유격수"
     }
   ],

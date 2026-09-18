@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-18T15:17:40+09:00",
+    "lastUpdated": "2026-09-18T20:21:22+09:00",
     "gameId": "20260918LGKT02026",
     "kboGameId": "20260918LGKT0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -64,7 +64,7 @@
     },
     {
       "order": 8,
-      "name": "박동원",
+      "name": "이주헌",
       "position": "포수"
     },
     {
@@ -77,22 +77,22 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 2,
       "name": "김민혁",
-      "position": "좌익수"
+      "position": "지명타자"
     },
     {
       "order": 3,
       "name": "안현민",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 4,
       "name": "힐리어드",
-      "position": "중견수"
+      "position": "좌익수"
     },
     {
       "order": 5,
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "장준원",
+      "name": "권동진",
       "position": "유격수"
     }
   ],

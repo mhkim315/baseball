@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-18T15:16:38+09:00",
+  "fetchedAt": "2026-09-18T20:20:12+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3136,6 +3136,28 @@
           "homeStarter": "라일리",
           "winPitcher": "이로운",
           "losePitcher": "손주환"
+        }
+      ]
+    },
+    "2026-09-18": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 1,
+          "homeScore": 7,
+          "scoreLine": "1-7",
+          "ourScore": 1,
+          "oppScore": 7,
+          "ourScoreLine": "1-7",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260918NCLT02026",
+          "awayStarter": "이재학",
+          "homeStarter": "로드리게스",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

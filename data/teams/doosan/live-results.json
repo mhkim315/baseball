@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-09-18T15:16:38+09:00",
+  "fetchedAt": "2026-09-18T20:20:12+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -3081,6 +3081,28 @@
           "homeStarter": "벤자민",
           "winPitcher": "벤자민",
           "losePitcher": "페덱"
+        }
+      ]
+    },
+    "2026-09-18": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 3,
+          "homeScore": 3,
+          "scoreLine": "3-3",
+          "ourScore": 3,
+          "oppScore": 3,
+          "ourScoreLine": "3-3",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260918WOOB02026",
+          "awayStarter": "알칸타라",
+          "homeStarter": "잭로그",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
