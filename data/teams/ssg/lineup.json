@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-09-20",
-    "lastUpdated": "2026-09-19T18:27:38+09:00",
+    "lastUpdated": "2026-09-19T22:16:15+09:00",
     "gameId": "20260920WOSK02026",
     "kboGameId": "20260920WOSK0",
     "opponent": "키움",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "김건우"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "하영민"
   }
 }
