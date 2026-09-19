@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-19T14:09:32+09:00",
+  "fetchedAt": "2026-09-19T18:26:36+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3114,6 +3114,28 @@
           "homeStarter": "로드리게스",
           "winPitcher": "로드리게스",
           "losePitcher": "이재학"
+        }
+      ]
+    },
+    "2026-09-19": {
+      "games": [
+        {
+          "away": "삼성",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 1,
+          "homeScore": 0,
+          "scoreLine": "1-0",
+          "ourScore": 0,
+          "oppScore": 1,
+          "ourScoreLine": "0-1",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260919SSLT02026",
+          "awayStarter": "최원태",
+          "homeStarter": "나균안",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-09-19",
-    "lastUpdated": "2026-09-19T14:10:19+09:00",
+    "lastUpdated": "2026-09-19T18:27:32+09:00",
     "gameId": "20260919HHLG02026",
     "kboGameId": "20260919HHLG0",
     "opponent": "한화",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,8 +29,8 @@
   "batters": [
     {
       "order": 1,
-      "name": "홍창기",
-      "position": "우익수"
+      "name": "신민재",
+      "position": "2루수"
     },
     {
       "order": 2,
@@ -64,13 +64,13 @@
     },
     {
       "order": 8,
-      "name": "이주헌",
+      "name": "박동원",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "신민재",
-      "position": "2루수"
+      "name": "이재원",
+      "position": "우익수"
     }
   ],
   "opponentBatters": [
@@ -92,27 +92,27 @@
     {
       "order": 4,
       "name": "강백호",
-      "position": "1루수"
+      "position": "지명타자"
     },
     {
       "order": 5,
       "name": "허인서",
-      "position": "지명타자"
+      "position": "포수"
     },
     {
       "order": 6,
+      "name": "김태연",
+      "position": "1루수"
+    },
+    {
+      "order": 7,
       "name": "박정현",
       "position": "3루수"
     },
     {
-      "order": 7,
+      "order": 8,
       "name": "유민",
       "position": "우익수"
-    },
-    {
-      "order": 8,
-      "name": "장규현",
-      "position": "포수"
     },
     {
       "order": 9,

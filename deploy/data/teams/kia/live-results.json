@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-19T14:09:32+09:00",
+  "fetchedAt": "2026-09-19T18:26:36+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3114,6 +3114,28 @@
           "homeStarter": "올러",
           "winPitcher": "곽도규",
           "losePitcher": "박준현"
+        }
+      ]
+    },
+    "2026-09-19": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 4,
+          "homeScore": 0,
+          "scoreLine": "4-0",
+          "ourScore": 4,
+          "oppScore": 0,
+          "ourScoreLine": "4-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260919HTNC02026",
+          "awayStarter": "네일",
+          "homeStarter": "구창모",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
