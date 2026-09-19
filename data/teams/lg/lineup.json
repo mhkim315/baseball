@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-09-18",
-    "lastUpdated": "2026-09-18T20:21:22+09:00",
-    "gameId": "20260918LGKT02026",
-    "kboGameId": "20260918LGKT0",
-    "opponent": "KT",
-    "venue": "수원",
-    "gameTime": "18:30",
+    "lineupDate": "2026-09-19",
+    "lastUpdated": "2026-09-19T14:10:19+09:00",
+    "gameId": "20260919HHLG02026",
+    "kboGameId": "20260919HHLG0",
+    "opponent": "한화",
+    "venue": "잠실",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "KT",
-    "teamName": "KT"
+    "teamShort": "한화",
+    "teamName": "한화"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "최원준",
-      "position": "중견수"
+      "name": "심우준",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "김민혁",
-      "position": "지명타자"
+      "name": "최인호",
+      "position": "중견수"
     },
     {
       "order": 3,
-      "name": "안현민",
-      "position": "우익수"
-    },
-    {
-      "order": 4,
-      "name": "힐리어드",
+      "name": "한지윤",
       "position": "좌익수"
     },
     {
-      "order": 5,
-      "name": "김현수",
+      "order": 4,
+      "name": "강백호",
       "position": "1루수"
     },
     {
-      "order": 6,
-      "name": "김상수",
-      "position": "2루수"
+      "order": 5,
+      "name": "허인서",
+      "position": "지명타자"
     },
     {
-      "order": 7,
-      "name": "허경민",
+      "order": 6,
+      "name": "박정현",
       "position": "3루수"
     },
     {
+      "order": 7,
+      "name": "유민",
+      "position": "우익수"
+    },
+    {
       "order": 8,
-      "name": "한승택",
+      "name": "장규현",
       "position": "포수"
     },
     {
       "order": 9,
-      "name": "권동진",
-      "position": "유격수"
+      "name": "정은원",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "로건"
+    "name": "화이트"
   }
 }

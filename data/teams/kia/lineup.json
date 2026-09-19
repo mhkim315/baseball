@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-09-19",
-    "lastUpdated": "2026-09-18T20:21:43+09:00",
+    "lastUpdated": "2026-09-19T14:10:32+09:00",
     "gameId": "20260919HTNC02026",
     "kboGameId": "20260919HTNC0",
     "opponent": "NC",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "네일"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "구창모"
   }
 }
