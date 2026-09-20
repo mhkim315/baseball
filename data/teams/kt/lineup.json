@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "kt",
-    "lineupDate": "2026-09-19",
-    "lastUpdated": "2026-09-19T22:16:17+09:00",
-    "gameId": "20260919OBKT02026",
-    "kboGameId": "20260919OBKT0",
+    "lineupDate": "2026-09-20",
+    "lastUpdated": "2026-09-20T14:08:20+09:00",
+    "gameId": "20260920OBKT02026",
+    "kboGameId": "20260920OBKT0",
     "opponent": "두산",
     "venue": "수원",
-    "gameTime": "17:00",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
         "source": "kbo-confirmed",
@@ -91,12 +91,12 @@
     },
     {
       "order": 4,
-      "name": "세베리노",
+      "name": "양의지",
       "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "양석환",
+      "name": "세베리노",
       "position": "1루수"
     },
     {
@@ -111,7 +111,7 @@
     },
     {
       "order": 8,
-      "name": "김대한",
+      "name": "조수행",
       "position": "우익수"
     },
     {
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "대니엘"
+    "name": "고영표"
   },
   "opponentStartingPitcher": {
-    "name": "최승용"
+    "name": "박신지"
   }
 }
