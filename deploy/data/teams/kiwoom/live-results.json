@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-20T14:07:05+09:00",
+  "fetchedAt": "2026-09-20T18:44:42+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3079,19 +3079,19 @@
           "away": "키움",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 1,
-          "homeScore": 0,
-          "scoreLine": "1-0",
-          "ourScore": 1,
-          "oppScore": 0,
-          "ourScoreLine": "1-0",
-          "outcome": null,
+          "awayScore": 5,
+          "homeScore": 10,
+          "scoreLine": "5-10",
+          "ourScore": 5,
+          "oppScore": 10,
+          "ourScoreLine": "5-10",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260920WOSK02026",
           "awayStarter": "하영민",
           "homeStarter": "김건우",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "김건우",
+          "losePitcher": "하영민"
         }
       ]
     }
