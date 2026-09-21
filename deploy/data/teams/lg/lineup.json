@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-09-20",
-    "lastUpdated": "2026-09-20T22:43:39+09:00",
-    "gameId": "20260920HHLG02026",
-    "kboGameId": "20260920HHLG0",
-    "opponent": "한화",
+    "lineupDate": "2026-09-24",
+    "lastUpdated": "2026-09-21T15:31:18+09:00",
+    "gameId": "20260924LTLG02026",
+    "kboGameId": "20260924LTLG0",
+    "opponent": "롯데",
     "venue": "잠실",
-    "gameTime": "14:00",
+    "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "한화",
-    "teamName": "한화"
+    "teamShort": "롯데",
+    "teamName": "롯데"
   },
   "batters": [
     {
@@ -76,54 +76,54 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "최인호",
+      "name": "황성빈",
       "position": "중견수"
     },
     {
       "order": 2,
-      "name": "박정현",
-      "position": "3루수"
+      "name": "나승엽",
+      "position": "지명타자"
     },
     {
       "order": 3,
-      "name": "한지윤",
+      "name": "레이예스",
       "position": "좌익수"
     },
     {
       "order": 4,
-      "name": "강백호",
-      "position": "지명타자"
+      "name": "한동희",
+      "position": "3루수"
     },
     {
       "order": 5,
-      "name": "허인서",
-      "position": "포수"
-    },
-    {
-      "order": 6,
-      "name": "김태연",
+      "name": "고승민",
       "position": "1루수"
     },
     {
+      "order": 6,
+      "name": "전민재",
+      "position": "유격수"
+    },
+    {
       "order": 7,
-      "name": "정은원",
-      "position": "2루수"
+      "name": "손성빈",
+      "position": "포수"
     },
     {
       "order": 8,
-      "name": "유민",
+      "name": "장두성",
       "position": "우익수"
     },
     {
       "order": 9,
-      "name": "이도윤",
-      "position": "유격수"
+      "name": "한태양",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
-    "name": "카라스코"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "황준서"
+    "name": "??"
   }
 }
