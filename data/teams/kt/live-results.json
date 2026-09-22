@@ -1,7 +1,7 @@
 {
   "team": "KT",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-22T19:09:53+09:00",
+  "fetchedAt": "2026-09-22T23:48:24+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3189,19 +3189,19 @@
           "away": "KT",
           "home": "SSG",
           "venue": "문학",
-          "awayScore": 1,
-          "homeScore": 0,
-          "scoreLine": "1-0",
-          "ourScore": 1,
-          "oppScore": 0,
-          "ourScoreLine": "1-0",
-          "outcome": null,
+          "awayScore": 8,
+          "homeScore": 2,
+          "scoreLine": "8-2",
+          "ourScore": 8,
+          "oppScore": 2,
+          "ourScoreLine": "8-2",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20260922KTSK02026",
           "awayStarter": "배제성",
           "homeStarter": "아빌라",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "전용주",
+          "losePitcher": "아빌라"
         }
       ]
     }
