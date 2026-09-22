@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260922NCSS02026",
+    "gameDate": "2026-09-22",
+    "lastUpdated": "2026-09-22T14:28:41+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "56459",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20260922,
+    "aPCode": "56939",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.23",
+    "hra": "0.276",
+    "w": 76,
+    "wra": "0.594",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 122,
+    "l": 52,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 76,
+      "l": 52
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.71",
+    "hra": "0.270",
+    "w": 59,
+    "wra": "0.468",
+    "name": "NC",
+    "rank": 6,
+    "hr": 121,
+    "l": 67,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 67
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "페덱"
+  },
+  "awayStarter": {
+    "name": "클레빈저"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

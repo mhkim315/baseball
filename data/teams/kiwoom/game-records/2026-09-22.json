@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260922OBWO02026",
+    "gameDate": "2026-09-22",
+    "lastUpdated": "2026-09-22T14:28:35+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "54362",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20260922,
+    "aPCode": "52043",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.33",
+    "hra": "0.242",
+    "w": 45,
+    "wra": "0.346",
+    "name": "키움",
+    "rank": 10,
+    "hr": 98,
+    "l": 85,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 45,
+      "l": 85
+    }
+  },
+  "awayStandings": {
+    "d": 5,
+    "era": "3.78",
+    "hra": "0.264",
+    "w": 65,
+    "wra": "0.512",
+    "name": "두산",
+    "rank": 5,
+    "hr": 105,
+    "l": 62,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 65,
+      "l": 62
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "전준표"
+  },
+  "awayStarter": {
+    "name": "벤자민"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

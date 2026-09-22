@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260922LTHH02026",
+    "gameDate": "2026-09-22",
+    "lastUpdated": "2026-09-22T14:28:40+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "76715",
+    "hCode": "HH",
+    "hName": "한화",
+    "cancelFlag": "N",
+    "gdate": 20260922,
+    "aPCode": "56523",
+    "round": 14,
+    "gtime": "18:30",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "한화 이글스",
+    "stadium": "대전",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.22",
+    "hra": "0.275",
+    "w": 54,
+    "wra": "0.429",
+    "name": "한화",
+    "rank": 9,
+    "hr": 162,
+    "l": 72,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 54,
+      "l": 72
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.83",
+    "hra": "0.271",
+    "w": 56,
+    "wra": "0.441",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 100,
+    "l": 71,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 56,
+      "l": 71
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "류현진"
+  },
+  "awayStarter": {
+    "name": "비슬리"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
