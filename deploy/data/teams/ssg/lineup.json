@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-09-22",
-    "lastUpdated": "2026-09-22T14:28:17+09:00",
+    "lastUpdated": "2026-09-22T19:10:56+09:00",
     "gameId": "20260922KTSK02026",
     "kboGameId": "20260922KTSK0",
     "opponent": "KT",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -101,7 +101,7 @@
     },
     {
       "order": 6,
-      "name": "김상수",
+      "name": "류현인",
       "position": "2루수"
     },
     {
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "장준원",
+      "name": "권동진",
       "position": "유격수"
     }
   ],
