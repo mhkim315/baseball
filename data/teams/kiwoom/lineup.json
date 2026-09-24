@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-09-26",
-    "lastUpdated": "2026-09-24T14:28:39+09:00",
+    "lastUpdated": "2026-09-24T19:20:47+09:00",
     "gameId": "20260926WOKT02026",
     "kboGameId": "20260926WOKT0",
     "opponent": "KT",
@@ -77,22 +77,22 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 2,
       "name": "김민혁",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 3,
       "name": "안현민",
-      "position": "우익수"
+      "position": "지명타자"
     },
     {
       "order": 4,
       "name": "힐리어드",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 5,
@@ -102,12 +102,12 @@
     {
       "order": 6,
       "name": "류현인",
-      "position": "2루수"
+      "position": "3루수"
     },
     {
       "order": 7,
-      "name": "허경민",
-      "position": "3루수"
+      "name": "김상수",
+      "position": "2루수"
     },
     {
       "order": 8,
