@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260926WOKT02026",
-    "fetchedAt": "2026-09-23T21:13:03+09:00"
+    "fetchedAt": "2026-09-24T14:28:03+09:00"
   },
   "gameInfo": {
     "aFullName": "키움 히어로즈",
@@ -26,18 +26,18 @@
   },
   "homeStandings": {
     "d": 4,
-    "era": "4.21",
+    "era": "4.25",
     "hra": "0.282",
     "w": 79,
-    "wra": "0.627",
+    "wra": "0.622",
     "name": "KT",
     "rank": 1,
     "hr": 104,
-    "l": 47,
+    "l": 48,
     "seriesOutcome": {
       "d": 4,
       "w": 79,
-      "l": 47
+      "l": 48
     }
   },
   "awayStandings": {
@@ -67,6 +67,20 @@
     "hw": 10
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20260923NCKT02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "NC",
+      "aScore": 10,
+      "gyear": 2026,
+      "gmkey": "20260923NCKT0",
+      "gweek": "수",
+      "aCode": "NC",
+      "hCode": "KT",
+      "hName": "KT",
+      "gdate": 20260923
+    },
     {
       "gameId": "20260922KTSK02026",
       "result": "승",
@@ -122,20 +136,6 @@
       "hCode": "KT",
       "hName": "KT",
       "gdate": 20260918
-    },
-    {
-      "gameId": "20260916KTHH02026",
-      "result": "무",
-      "hScore": 4,
-      "aName": "KT",
-      "aScore": 4,
-      "gyear": 2026,
-      "gmkey": "20260916KTHH0",
-      "gweek": "수",
-      "aCode": "KT",
-      "hCode": "HH",
-      "hName": "한화",
-      "gdate": 20260916
     }
   ],
   "awayTeamPreviousGames": [

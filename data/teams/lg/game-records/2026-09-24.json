@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260924LTLG02026",
+    "gameDate": "2026-09-24",
+    "lastUpdated": "2026-09-24T14:28:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "롯데 자이언츠",
+    "hPCode": "55130",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20260924,
+    "aPCode": "56531",
+    "round": 14,
+    "gtime": "17:00",
+    "aName": "롯데",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "LT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.81",
+    "hra": "0.267",
+    "w": 75,
+    "wra": "0.577",
+    "name": "LG",
+    "rank": 3,
+    "hr": 123,
+    "l": 55,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 75,
+      "l": 55
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.80",
+    "hra": "0.272",
+    "w": 58,
+    "wra": "0.450",
+    "name": "롯데",
+    "rank": 8,
+    "hr": 104,
+    "l": 71,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 58,
+      "l": 71
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "톨허스트"
+  },
+  "awayStarter": {
+    "name": "로드리게스"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

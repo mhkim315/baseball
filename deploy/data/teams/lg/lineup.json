@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-09-24",
-    "lastUpdated": "2026-09-23T21:13:56+09:00",
+    "lastUpdated": "2026-09-24T14:28:36+09:00",
     "gameId": "20260924LTLG02026",
     "kboGameId": "20260924LTLG0",
     "opponent": "롯데",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "톨허스트"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "로드리게스"
   }
 }

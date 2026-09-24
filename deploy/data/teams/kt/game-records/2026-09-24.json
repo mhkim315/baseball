@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260924NCKT02026",
+    "gameDate": "2026-09-24",
+    "lastUpdated": "2026-09-24T14:28:59+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "56002",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260924,
+    "aPCode": "69962",
+    "round": 16,
+    "gtime": "17:00",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "4.25",
+    "hra": "0.282",
+    "w": 79,
+    "wra": "0.622",
+    "name": "KT",
+    "rank": 1,
+    "hr": 104,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 79,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.71",
+    "hra": "0.271",
+    "w": 60,
+    "wra": "0.469",
+    "name": "NC",
+    "rank": 6,
+    "hr": 125,
+    "l": 68,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 60,
+      "l": 68
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "대니엘"
+  },
+  "awayStarter": {
+    "name": "송명기"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

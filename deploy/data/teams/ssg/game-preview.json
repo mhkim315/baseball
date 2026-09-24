@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260924SSSK02026",
-    "fetchedAt": "2026-09-23T21:13:05+09:00"
+    "fetchedAt": "2026-09-24T14:28:04+09:00"
   },
   "gameInfo": {
     "aFullName": "삼성 라이온즈",
-    "hPCode": "",
+    "hPCode": "56840",
     "hCode": "SK",
     "hName": "SSG",
     "cancelFlag": "N",
     "gdate": 20260924,
-    "aPCode": "",
+    "aPCode": "53375",
     "round": 15,
     "gtime": "17:00",
     "aName": "삼성",
@@ -212,58 +212,120 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 2,
+      "kk": 2,
+      "gameCount": 1,
+      "s": 0,
+      "era": "1.50",
+      "w": 0,
+      "inn": "6.0",
+      "l": 0,
+      "er": 1
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "40",
+      "hitType": "우투우타",
+      "pCode": "56840",
+      "name": "김민준",
+      "birth": "20060408",
+      "weight": "100.0",
+      "height": "183.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 53.5,
+        "type": "FAST",
+        "speed": 144
+      },
+      {
+        "pit_rt": 24,
+        "type": "FORK",
+        "speed": 130
+      },
+      {
+        "pit_rt": 14.199999809265137,
+        "type": "SLID",
+        "speed": 132
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "SSG",
+      "bb": 32,
+      "kk": 57,
+      "gameCount": 14,
+      "gday": "20260923",
+      "inn": "72.2",
+      "hp": 3,
+      "teamCode": "SK",
+      "hr": 5,
+      "l": 2,
+      "er": 28,
+      "whip": "1.21",
+      "hit": 56,
+      "r": 28,
+      "s": 0,
+      "era": "3.47",
+      "w": 7,
+      "inn2": "72 2/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 5,
+      "kk": 13,
+      "gameCount": 3,
+      "s": 0,
+      "era": "2.70",
+      "w": 1,
+      "inn": "20.0",
+      "l": 0,
+      "er": 6
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "75",
+      "hitType": "우투우타",
+      "pCode": "53375",
+      "name": "후라도",
+      "birth": "19960130",
+      "weight": "109.0",
+      "height": "188.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 24.5,
+        "type": "TWOS",
+        "speed": 143
+      },
+      {
+        "pit_rt": 21.700000762939453,
+        "type": "CHUP",
+        "speed": 134
+      },
+      {
+        "pit_rt": 18.799999237060547,
+        "type": "FAST",
+        "speed": 144
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "삼성",
+      "bb": 25,
+      "kk": 84,
+      "gameCount": 20,
+      "gday": "20260923",
+      "inn": "125.2",
+      "hp": 4,
+      "teamCode": "SS",
+      "hr": 12,
+      "l": 1,
+      "er": 44,
+      "whip": "1.26",
+      "hit": 133,
+      "r": 54,
+      "s": 0,
+      "era": "3.15",
+      "w": 7,
+      "inn2": "125 2/3"
     }
   }
 }
