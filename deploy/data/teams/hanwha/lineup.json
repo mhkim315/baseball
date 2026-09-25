@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-25",
-    "lastUpdated": "2026-09-25T14:19:46+09:00",
+    "lastUpdated": "2026-09-25T19:16:47+09:00",
     "gameId": "20260925HHNC02026",
     "kboGameId": "20260925HHNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,13 +29,13 @@
   "batters": [
     {
       "order": 1,
-      "name": "페라자",
-      "position": "지명타자"
+      "name": "심우준",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "최인호",
-      "position": "중견수"
+      "name": "페라자",
+      "position": "지명타자"
     },
     {
       "order": 3,
@@ -49,75 +49,75 @@
     },
     {
       "order": 5,
-      "name": "김태연",
-      "position": "우익수"
-    },
-    {
-      "order": 6,
       "name": "허인서",
       "position": "포수"
     },
     {
-      "order": 7,
-      "name": "이도윤",
-      "position": "2루수"
+      "order": 6,
+      "name": "김태연",
+      "position": "우익수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "박정현",
       "position": "3루수"
     },
     {
+      "order": 8,
+      "name": "최인호",
+      "position": "중견수"
+    },
+    {
       "order": 9,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "이도윤",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
     {
       "order": 1,
       "name": "천재환",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "홍종표",
-      "position": "2루수"
+      "name": "고준휘",
+      "position": "좌익수"
     },
     {
       "order": 3,
       "name": "박민우",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 4,
-      "name": "김휘집",
-      "position": "유격수"
+      "name": "블레인",
+      "position": "지명타자"
     },
     {
       "order": 5,
-      "name": "한재환",
-      "position": "1루수"
-    },
-    {
-      "order": 6,
-      "name": "신재인",
+      "name": "김휘집",
       "position": "3루수"
     },
     {
+      "order": 6,
+      "name": "권희동",
+      "position": "우익수"
+    },
+    {
       "order": 7,
-      "name": "안중열",
+      "name": "김형준",
       "position": "포수"
     },
     {
       "order": 8,
-      "name": "윤준혁",
-      "position": "우익수"
+      "name": "한재환",
+      "position": "1루수"
     },
     {
       "order": 9,
-      "name": "오태양",
-      "position": "중견수"
+      "name": "김한별",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {

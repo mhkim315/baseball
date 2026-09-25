@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-25T14:18:41+09:00",
+  "fetchedAt": "2026-09-25T19:15:38+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3268,6 +3268,28 @@
           "homeStarter": "대니엘",
           "winPitcher": "대니엘",
           "losePitcher": "송명기"
+        }
+      ]
+    },
+    "2026-09-25": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "NC",
+          "venue": "창원",
+          "awayScore": 3,
+          "homeScore": 8,
+          "scoreLine": "3-8",
+          "ourScore": 8,
+          "oppScore": 3,
+          "ourScoreLine": "8-3",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260925HHNC02026",
+          "awayStarter": "화이트",
+          "homeStarter": "구창모",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
