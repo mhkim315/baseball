@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260925HHNC02026",
+    "gameDate": "2026-09-25",
+    "lastUpdated": "2026-09-25T14:20:02+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "65933",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260925,
+    "aPCode": "56724",
+    "round": 14,
+    "gtime": "17:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.70",
+    "hra": "0.270",
+    "w": 60,
+    "wra": "0.465",
+    "name": "NC",
+    "rank": 6,
+    "hr": 125,
+    "l": 69,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 60,
+      "l": 69
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "5.25",
+    "hra": "0.274",
+    "w": 54,
+    "wra": "0.422",
+    "name": "한화",
+    "rank": 9,
+    "hr": 164,
+    "l": 74,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 54,
+      "l": 74
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "구창모"
+  },
+  "awayStarter": {
+    "name": "화이트"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

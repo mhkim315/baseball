@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-25",
-    "lastUpdated": "2026-09-24T19:20:57+09:00",
+    "lastUpdated": "2026-09-25T14:19:46+09:00",
     "gameId": "20260925HHNC02026",
     "kboGameId": "20260925HHNC0",
     "opponent": "NC",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "화이트"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "구창모"
   }
 }

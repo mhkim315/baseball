@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260926LGHT02026",
-    "fetchedAt": "2026-09-24T19:20:06+09:00"
+    "fetchedAt": "2026-09-25T14:19:03+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
@@ -42,18 +42,18 @@
   },
   "awayStandings": {
     "d": 1,
-    "era": "4.81",
+    "era": "4.82",
     "hra": "0.267",
     "w": 75,
-    "wra": "0.577",
+    "wra": "0.573",
     "name": "LG",
     "rank": 3,
     "hr": 123,
-    "l": 55,
+    "l": 56,
     "seriesOutcome": {
       "d": 1,
       "w": 75,
-      "l": 55
+      "l": 56
     }
   },
   "seasonVsResult": {
@@ -140,6 +140,20 @@
   ],
   "awayTeamPreviousGames": [
     {
+      "gameId": "20260924LTLG02026",
+      "result": "패",
+      "hScore": 4,
+      "aName": "롯데",
+      "aScore": 6,
+      "gyear": 2026,
+      "gmkey": "20260924LTLG0",
+      "gweek": "목",
+      "aCode": "LT",
+      "hCode": "LG",
+      "hName": "LG",
+      "gdate": 20260924
+    },
+    {
       "gameId": "20260920HHLG02026",
       "result": "승",
       "hScore": 4,
@@ -194,20 +208,6 @@
       "hCode": "NC",
       "hName": "NC",
       "gdate": 20260916
-    },
-    {
-      "gameId": "20260915LGNC02026",
-      "result": "승",
-      "hScore": 2,
-      "aName": "LG",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260915LGNC0",
-      "gweek": "화",
-      "aCode": "LG",
-      "hCode": "NC",
-      "hName": "NC",
-      "gdate": 20260915
     }
   ],
   "homeStarter": {

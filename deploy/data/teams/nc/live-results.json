@@ -1,7 +1,7 @@
 {
   "team": "NC",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-24T19:19:39+09:00",
+  "fetchedAt": "2026-09-25T14:18:41+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3255,19 +3255,19 @@
           "away": "NC",
           "home": "KT",
           "venue": "수원",
-          "awayScore": 0,
+          "awayScore": 2,
           "homeScore": 3,
-          "scoreLine": "0-3",
-          "ourScore": 0,
+          "scoreLine": "2-3",
+          "ourScore": 2,
           "oppScore": 3,
-          "ourScoreLine": "0-3",
-          "outcome": null,
+          "ourScoreLine": "2-3",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260924NCKT02026",
           "awayStarter": "송명기",
           "homeStarter": "대니엘",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "대니엘",
+          "losePitcher": "송명기"
         }
       ]
     }

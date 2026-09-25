@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260925SSSK02026",
+    "gameDate": "2026-09-25",
+    "lastUpdated": "2026-09-25T14:19:58+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "53892",
+    "hCode": "SK",
+    "hName": "SSG",
+    "cancelFlag": "N",
+    "gdate": 20260925,
+    "aPCode": "55420",
+    "round": 16,
+    "gtime": "17:00",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "SSG 랜더스",
+    "stadium": "문학",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 5,
+    "era": "5.20",
+    "hra": "0.258",
+    "w": 58,
+    "wra": "0.450",
+    "name": "SSG",
+    "rank": 8,
+    "hr": 136,
+    "l": 71,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 58,
+      "l": 71
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.22",
+    "hra": "0.277",
+    "w": 78,
+    "wra": "0.600",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 126,
+    "l": 52,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 78,
+      "l": 52
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "이로운"
+  },
+  "awayStarter": {
+    "name": "김백산"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
