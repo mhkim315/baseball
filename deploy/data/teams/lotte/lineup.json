@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lotte",
     "lineupDate": "2026-09-27",
-    "lastUpdated": "2026-09-26T14:29:48+09:00",
+    "lastUpdated": "2026-09-26T19:05:02+09:00",
     "gameId": "20260927HHLT02026",
     "kboGameId": "20260927HHLT0",
     "opponent": "한화",
@@ -76,13 +76,13 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "김태연",
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "페라자",
-      "position": "지명타자"
+      "name": "권광민",
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -96,28 +96,28 @@
     },
     {
       "order": 5,
-      "name": "허인서",
-      "position": "포수"
+      "name": "페라자",
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "김태연",
-      "position": "우익수"
+      "name": "장규현",
+      "position": "포수"
     },
     {
       "order": 7,
+      "name": "황영묵",
+      "position": "2루수"
+    },
+    {
+      "order": 8,
       "name": "박정현",
       "position": "3루수"
     },
     {
-      "order": 8,
-      "name": "최인호",
-      "position": "중견수"
-    },
-    {
       "order": 9,
-      "name": "이도윤",
-      "position": "2루수"
+      "name": "심우준",
+      "position": "유격수"
     }
   ],
   "startingPitcher": {
