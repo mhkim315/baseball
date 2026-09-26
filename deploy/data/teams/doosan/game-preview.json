@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260927KTOB02026",
-    "fetchedAt": "2026-09-26T19:04:00+09:00"
+    "fetchedAt": "2026-09-26T23:21:00+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
-    "hPCode": "",
+    "hPCode": "51264",
     "hCode": "OB",
     "hName": "두산",
     "cancelFlag": "N",
     "gdate": 20260927,
-    "aPCode": "",
+    "aPCode": "65516",
     "round": 16,
     "gtime": "17:00",
     "aName": "KT",
@@ -42,18 +42,18 @@
   },
   "awayStandings": {
     "d": 4,
-    "era": "4.24",
+    "era": "4.28",
     "hra": "0.281",
     "w": 80,
-    "wra": "0.625",
+    "wra": "0.620",
     "name": "KT",
     "rank": 1,
     "hr": 105,
-    "l": 48,
+    "l": 49,
     "seriesOutcome": {
       "d": 4,
       "w": 80,
-      "l": 48
+      "l": 49
     }
   },
   "seasonVsResult": {
@@ -140,6 +140,20 @@
   ],
   "awayTeamPreviousGames": [
     {
+      "gameId": "20260926WOKT02026",
+      "result": "패",
+      "hScore": 1,
+      "aName": "키움",
+      "aScore": 10,
+      "gyear": 2026,
+      "gmkey": "20260926WOKT0",
+      "gweek": "토",
+      "aCode": "WO",
+      "hCode": "KT",
+      "hName": "KT",
+      "gdate": 20260926
+    },
+    {
       "gameId": "20260924NCKT02026",
       "result": "승",
       "hScore": 3,
@@ -194,48 +208,65 @@
       "hCode": "KT",
       "hName": "KT",
       "gdate": 20260920
-    },
-    {
-      "gameId": "20260919OBKT02026",
-      "result": "승",
-      "hScore": 15,
-      "aName": "두산",
-      "aScore": 3,
-      "gyear": 2026,
-      "gmkey": "20260919OBKT0",
-      "gweek": "토",
-      "aCode": "OB",
-      "hCode": "KT",
-      "hName": "KT",
-      "gdate": 20260919
     }
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 6,
+      "kk": 12,
+      "gameCount": 4,
+      "s": 0,
+      "era": "7.45",
+      "w": 0,
+      "inn": "19.1",
+      "l": 2,
+      "er": 16
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "28",
+      "hitType": "좌투좌타",
+      "pCode": "51264",
+      "name": "최승용",
+      "birth": "20010511",
+      "weight": "87.0",
+      "height": "190.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 44.79999923706055,
+        "type": "FAST",
+        "speed": 142
+      },
+      {
+        "pit_rt": 17.399999618530273,
+        "type": "CURV",
+        "speed": 115
+      },
+      {
+        "pit_rt": 15.300000190734863,
+        "type": "SLID",
+        "speed": 132
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "두산",
+      "bb": 41,
+      "kk": 79,
+      "gameCount": 23,
+      "gday": "20260926",
+      "inn": "108.0",
+      "hp": 5,
+      "teamCode": "OB",
+      "hr": 13,
+      "l": 12,
+      "er": 71,
+      "whip": "1.56",
+      "hit": 127,
+      "r": 76,
+      "s": 0,
+      "era": "5.92",
+      "w": 3,
+      "inn2": "108"
     }
   },
   "awayStarter": {
@@ -250,20 +281,51 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "19",
+      "hitType": "우투좌타",
+      "pCode": "65516",
+      "name": "배제성",
+      "birth": "19960929",
+      "weight": "85.0",
+      "height": "189.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 52.70000076293945,
+        "type": "FAST",
+        "speed": 145
+      },
+      {
+        "pit_rt": 38.29999923706055,
+        "type": "SLID",
+        "speed": 132
+      },
+      {
+        "pit_rt": 6.300000190734863,
+        "type": "FORK",
+        "speed": 134
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KT",
+      "bb": 36,
+      "kk": 59,
+      "gameCount": 18,
+      "gday": "20260926",
+      "inn": "63.2",
+      "hp": 2,
+      "teamCode": "KT",
+      "hr": 3,
+      "l": 2,
+      "er": 22,
+      "whip": "1.48",
+      "hit": 58,
+      "r": 26,
+      "s": 0,
+      "era": "3.11",
+      "w": 2,
+      "inn2": "63 2/3"
     }
   }
 }
