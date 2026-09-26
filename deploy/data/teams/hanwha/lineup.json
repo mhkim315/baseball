@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "hanwha",
-    "lineupDate": "2026-09-25",
-    "lastUpdated": "2026-09-25T19:16:47+09:00",
-    "gameId": "20260925HHNC02026",
-    "kboGameId": "20260925HHNC0",
+    "lineupDate": "2026-09-26",
+    "lastUpdated": "2026-09-26T14:29:40+09:00",
+    "gameId": "20260926HHNC02026",
+    "kboGameId": "20260926HHNC0",
     "opponent": "NC",
     "venue": "창원",
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "화이트"
+    "name": "황준서"
   },
   "opponentStartingPitcher": {
-    "name": "구창모"
+    "name": "토다"
   }
 }

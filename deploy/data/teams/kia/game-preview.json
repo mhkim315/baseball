@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260926LGHT02026",
-    "fetchedAt": "2026-09-25T19:16:02+09:00"
+    "fetchedAt": "2026-09-26T14:28:59+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
-    "hPCode": "",
+    "hPCode": "54640",
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "N",
     "gdate": 20260926,
-    "aPCode": "",
+    "aPCode": "61101",
     "round": 12,
     "gtime": "17:00",
     "aName": "LG",
@@ -212,30 +212,61 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 2,
+      "kk": 4,
+      "gameCount": 1,
+      "s": 0,
+      "era": "8.44",
+      "w": 0,
+      "inn": "5.1",
+      "l": 1,
+      "er": 5
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "40",
+      "hitType": "우투우타",
+      "pCode": "54640",
+      "name": "네일",
+      "birth": "19930208",
+      "weight": "83.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 33.29999923706055,
+        "type": "TWOS",
+        "speed": 145
+      },
+      {
+        "pit_rt": 30.600000381469727,
+        "type": "SWEE",
+        "speed": 131
+      },
+      {
+        "pit_rt": 19.700000762939453,
+        "type": "CUTT",
+        "speed": 140
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 35,
+      "kk": 137,
+      "gameCount": 28,
+      "gday": "20260925",
+      "inn": "163.2",
+      "hp": 15,
+      "teamCode": "HT",
+      "hr": 12,
+      "l": 7,
+      "er": 65,
+      "whip": "1.18",
+      "hit": 158,
+      "r": 67,
+      "s": 0,
+      "era": "3.57",
+      "w": 11,
+      "inn2": "163 2/3"
     }
   },
   "awayStarter": {
@@ -250,20 +281,51 @@
       "l": "0",
       "er": "0"
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "1",
+      "hitType": "우투우타",
+      "pCode": "61101",
+      "name": "임찬규",
+      "birth": "19921120",
+      "weight": "80.0",
+      "height": "185.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 31.100000381469727,
+        "type": "CHUP",
+        "speed": 123
+      },
+      {
+        "pit_rt": 29.200000762939453,
+        "type": "FAST",
+        "speed": 139
+      },
+      {
+        "pit_rt": 27.799999237060547,
+        "type": "CURV",
+        "speed": 111
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "LG",
+      "bb": 40,
+      "kk": 91,
+      "gameCount": 27,
+      "gday": "20260925",
+      "inn": "153.0",
+      "hp": 9,
+      "teamCode": "LG",
+      "hr": 10,
+      "l": 5,
+      "er": 69,
+      "whip": "1.33",
+      "hit": 164,
+      "r": 71,
+      "s": 0,
+      "era": "4.06",
+      "w": 14,
+      "inn2": "153"
     }
   }
 }

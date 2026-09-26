@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260926HHNC02026",
+    "gameDate": "2026-09-26",
+    "lastUpdated": "2026-09-26T14:29:57+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "56911",
+    "hCode": "NC",
+    "hName": "NC",
+    "cancelFlag": "N",
+    "gdate": 20260926,
+    "aPCode": "54729",
+    "round": 15,
+    "gtime": "17:00",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "NC 다이노스",
+    "stadium": "창원",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.70",
+    "hra": "0.270",
+    "w": 61,
+    "wra": "0.469",
+    "name": "NC",
+    "rank": 6,
+    "hr": 125,
+    "l": 69,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 61,
+      "l": 69
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "5.27",
+    "hra": "0.274",
+    "w": 54,
+    "wra": "0.419",
+    "name": "한화",
+    "rank": 9,
+    "hr": 166,
+    "l": 75,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 54,
+      "l": 75
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "토다"
+  },
+  "awayStarter": {
+    "name": "황준서"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20260926WOKT02026",
+    "gameDate": "2026-09-26",
+    "lastUpdated": "2026-09-26T14:29:53+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "64001",
+    "hCode": "KT",
+    "hName": "KT",
+    "cancelFlag": "N",
+    "gdate": 20260926,
+    "aPCode": "68341",
+    "round": 15,
+    "gtime": "17:00",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "kt wiz",
+    "stadium": "수원",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "4.24",
+    "hra": "0.281",
+    "w": 80,
+    "wra": "0.625",
+    "name": "KT",
+    "rank": 1,
+    "hr": 105,
+    "l": 48,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 80,
+      "l": 48
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "5.33",
+    "hra": "0.242",
+    "w": 45,
+    "wra": "0.344",
+    "name": "키움",
+    "rank": 10,
+    "hr": 99,
+    "l": 86,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 45,
+      "l": 86
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "고영표"
+  },
+  "awayStarter": {
+    "name": "안우진"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
