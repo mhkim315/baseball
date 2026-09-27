@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-27T14:54:23+09:00",
+  "fetchedAt": "2026-09-27T19:53:19+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3246,6 +3246,28 @@
           "homeStarter": "토다",
           "winPitcher": "토다",
           "losePitcher": "황준서"
+        }
+      ]
+    },
+    "2026-09-27": {
+      "games": [
+        {
+          "away": "한화",
+          "home": "롯데",
+          "venue": "사직",
+          "awayScore": 5,
+          "homeScore": 2,
+          "scoreLine": "5-2",
+          "ourScore": 5,
+          "oppScore": 2,
+          "ourScoreLine": "5-2",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20260927HHLT02026",
+          "awayStarter": "이상규",
+          "homeStarter": "나균안",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

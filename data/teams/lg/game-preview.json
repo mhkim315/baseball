@@ -2,17 +2,17 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20260927LGHT02026",
-    "fetchedAt": "2026-09-27T14:54:46+09:00"
+    "fetchedAt": "2026-09-27T19:53:35+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
     "hPCode": "54843",
     "hCode": "HT",
     "hName": "KIA",
-    "cancelFlag": "N",
+    "cancelFlag": "Y",
     "gdate": 20260927,
     "aPCode": "56103",
-    "round": 13,
+    "round": 0,
     "gtime": "17:00",
     "aName": "LG",
     "gameFlag": "0",

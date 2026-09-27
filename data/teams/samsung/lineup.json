@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-27T14:56:10+09:00",
+    "lastUpdated": "2026-09-27T19:54:28+09:00",
     "gameId": "20260929HHSS02026",
     "kboGameId": "20260929HHSS0",
     "opponent": "한화",
@@ -76,13 +76,13 @@
   "opponentBatters": [
     {
       "order": 1,
-      "name": "김태연",
-      "position": "우익수"
+      "name": "심우준",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "권광민",
-      "position": "중견수"
+      "name": "최인호",
+      "position": "우익수"
     },
     {
       "order": 3,
@@ -101,13 +101,13 @@
     },
     {
       "order": 6,
-      "name": "장규현",
+      "name": "허인서",
       "position": "포수"
     },
     {
       "order": 7,
-      "name": "황영묵",
-      "position": "2루수"
+      "name": "권광민",
+      "position": "중견수"
     },
     {
       "order": 8,
@@ -116,8 +116,8 @@
     },
     {
       "order": 9,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "황영묵",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {

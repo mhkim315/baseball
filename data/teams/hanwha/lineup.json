@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-09-27",
-    "lastUpdated": "2026-09-27T14:56:01+09:00",
+    "lastUpdated": "2026-09-27T19:54:26+09:00",
     "gameId": "20260927HHLT02026",
     "kboGameId": "20260927HHLT0",
     "opponent": "롯데",
@@ -10,12 +10,12 @@
     "gameTime": "17:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,13 +29,13 @@
   "batters": [
     {
       "order": 1,
-      "name": "김태연",
-      "position": "우익수"
+      "name": "심우준",
+      "position": "유격수"
     },
     {
       "order": 2,
-      "name": "권광민",
-      "position": "중견수"
+      "name": "최인호",
+      "position": "우익수"
     },
     {
       "order": 3,
@@ -54,13 +54,13 @@
     },
     {
       "order": 6,
-      "name": "장규현",
+      "name": "허인서",
       "position": "포수"
     },
     {
       "order": 7,
-      "name": "황영묵",
-      "position": "2루수"
+      "name": "권광민",
+      "position": "중견수"
     },
     {
       "order": 8,
@@ -69,8 +69,8 @@
     },
     {
       "order": 9,
-      "name": "심우준",
-      "position": "유격수"
+      "name": "황영묵",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
