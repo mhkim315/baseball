@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T19:54:36.491322+09:00",
+  "generatedAt": "2026-09-28T14:39:05.453905+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9213,14 +9213,14 @@
       {
         "away": "한화",
         "home": "롯데",
-        "awayScore": 5,
+        "awayScore": 6,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "이상규",
         "homeStarter": "나균안",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "주현상",
+        "losePitcher": "나균안"
       }
     ]
   }

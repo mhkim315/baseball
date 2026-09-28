@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-27T19:54:22+09:00",
+    "lastUpdated": "2026-09-28T14:38:48+09:00",
     "gameId": "20260929LGSK02026",
     "kboGameId": "20260929LGSK0",
     "opponent": "LG",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "아빌라"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "톨허스트"
   }
 }

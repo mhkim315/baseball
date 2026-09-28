@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-27T19:53:19+09:00",
+  "fetchedAt": "2026-09-28T14:37:48+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3255,19 +3255,19 @@
           "away": "한화",
           "home": "롯데",
           "venue": "사직",
-          "awayScore": 5,
+          "awayScore": 6,
           "homeScore": 2,
-          "scoreLine": "5-2",
+          "scoreLine": "6-2",
           "ourScore": 2,
-          "oppScore": 5,
-          "ourScoreLine": "2-5",
-          "outcome": null,
+          "oppScore": 6,
+          "ourScoreLine": "2-6",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20260927HHLT02026",
           "awayStarter": "이상규",
           "homeStarter": "나균안",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "주현상",
+          "losePitcher": "나균안"
         }
       ]
     }

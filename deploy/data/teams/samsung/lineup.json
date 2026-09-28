@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-27T19:54:28+09:00",
+    "lastUpdated": "2026-09-28T14:38:56+09:00",
     "gameId": "20260929HHSS02026",
     "kboGameId": "20260929HHSS0",
     "opponent": "한화",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "박준영"
   }
 }
