@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "naverGameId": "20260929WOLT02026",
+    "gameDate": "2026-09-29",
+    "lastUpdated": "2026-09-29T18:05:52+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "키움 히어로즈",
+    "hPCode": "64021",
+    "hCode": "LT",
+    "hName": "롯데",
+    "cancelFlag": "N",
+    "gdate": 20260929,
+    "aPCode": "54362",
+    "round": 15,
+    "gtime": "18:30",
+    "aName": "키움",
+    "gameFlag": "0",
+    "hFullName": "롯데 자이언츠",
+    "stadium": "사직",
+    "aCode": "WO",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "1"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.79",
+    "hra": "0.272",
+    "w": 59,
+    "wra": "0.450",
+    "name": "롯데",
+    "rank": 7,
+    "hr": 104,
+    "l": 72,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 59,
+      "l": 72
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "5.29",
+    "hra": "0.244",
+    "w": 47,
+    "wra": "0.353",
+    "name": "키움",
+    "rank": 10,
+    "hr": 104,
+    "l": 86,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 47,
+      "l": 86
+    }
+  },
+  "homeLineup": [
+    {
+      "order": 1,
+      "name": "황성빈",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "나승엽",
+      "position": "1루수"
+    },
+    {
+      "order": 3,
+      "name": "레이예스",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "한동희",
+      "position": "3루수"
+    },
+    {
+      "order": 5,
+      "name": "고승민",
+      "position": "2루수"
+    },
+    {
+      "order": 6,
+      "name": "전민재",
+      "position": "유격수"
+    },
+    {
+      "order": 7,
+      "name": "윤동희",
+      "position": "우익수"
+    },
+    {
+      "order": 8,
+      "name": "전준우",
+      "position": "지명타자"
+    },
+    {
+      "order": 9,
+      "name": "손성빈",
+      "position": "포수"
+    }
+  ],
+  "awayLineup": [
+    {
+      "order": 1,
+      "name": "추재현",
+      "position": "좌익수"
+    },
+    {
+      "order": 2,
+      "name": "데이비슨",
+      "position": "1루수"
+    },
+    {
+      "order": 3,
+      "name": "히우라",
+      "position": "지명타자"
+    },
+    {
+      "order": 4,
+      "name": "김웅빈",
+      "position": "3루수"
+    },
+    {
+      "order": 5,
+      "name": "박찬혁",
+      "position": "우익수"
+    },
+    {
+      "order": 6,
+      "name": "임병욱",
+      "position": "중견수"
+    },
+    {
+      "order": 7,
+      "name": "김동헌",
+      "position": "포수"
+    },
+    {
+      "order": 8,
+      "name": "염승원",
+      "position": "2루수"
+    },
+    {
+      "order": 9,
+      "name": "권혁빈",
+      "position": "유격수"
+    }
+  ],
+  "homeStarter": {
+    "name": "박세웅"
+  },
+  "awayStarter": {
+    "name": "전준표"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
