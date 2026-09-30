@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-29T18:05:31+09:00",
-    "gameId": "20260929WOLT02026",
-    "kboGameId": "20260929WOLT0",
+    "lineupDate": "2026-09-30",
+    "lastUpdated": "2026-09-30T17:45:24+09:00",
+    "gameId": "20260930WOLT02026",
+    "kboGameId": "20260930WOLT0",
     "opponent": "롯데",
     "venue": "사직",
     "gameTime": "18:30",
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "권혁빈",
+      "name": "최재영",
       "position": "유격수"
     }
   ],
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "전준표"
+    "name": "김성진"
   },
   "opponentStartingPitcher": {
-    "name": "박세웅"
+    "name": "로드리게스"
   }
 }

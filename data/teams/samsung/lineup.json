@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-29T18:05:41+09:00",
-    "gameId": "20260929HHSS02026",
-    "kboGameId": "20260929HHSS0",
+    "lineupDate": "2026-09-30",
+    "lastUpdated": "2026-09-30T17:45:34+09:00",
+    "gameId": "20260930HHSS02026",
+    "kboGameId": "20260930HHSS0",
     "opponent": "한화",
     "venue": "대구",
     "gameTime": "18:30",
@@ -64,13 +64,13 @@
     },
     {
       "order": 8,
-      "name": "류지혁",
-      "position": "2루수"
+      "name": "이재현",
+      "position": "유격수"
     },
     {
       "order": 9,
-      "name": "이재현",
-      "position": "유격수"
+      "name": "류지혁",
+      "position": "2루수"
     }
   ],
   "opponentBatters": [
@@ -111,7 +111,7 @@
     },
     {
       "order": 8,
-      "name": "이도윤",
+      "name": "정은원",
       "position": "2루수"
     },
     {
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "페덱"
+    "name": "후라도"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "화이트"
   }
 }

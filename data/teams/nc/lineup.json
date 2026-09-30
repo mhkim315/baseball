@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-09-29",
-    "lastUpdated": "2026-09-29T18:05:48+09:00",
-    "gameId": "20260929NCOB02026",
-    "kboGameId": "20260929NCOB0",
+    "lineupDate": "2026-09-30",
+    "lastUpdated": "2026-09-30T17:45:42+09:00",
+    "gameId": "20260930NCOB02026",
+    "kboGameId": "20260930NCOB0",
     "opponent": "두산",
     "venue": "잠실",
     "gameTime": "18:30",
@@ -39,8 +39,8 @@
     },
     {
       "order": 3,
-      "name": "박민우",
-      "position": "2루수"
+      "name": "블레인",
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -49,23 +49,23 @@
     },
     {
       "order": 5,
-      "name": "블레인",
-      "position": "지명타자"
-    },
-    {
-      "order": 6,
       "name": "김형준",
       "position": "포수"
     },
     {
-      "order": 7,
+      "order": 6,
       "name": "권희동",
       "position": "좌익수"
     },
     {
-      "order": 8,
-      "name": "신재인",
+      "order": 7,
+      "name": "한재환",
       "position": "1루수"
+    },
+    {
+      "order": 8,
+      "name": "김한별",
+      "position": "2루수"
     },
     {
       "order": 9,
@@ -87,12 +87,12 @@
     {
       "order": 3,
       "name": "박준순",
-      "position": "지명타자"
+      "position": "2루수"
     },
     {
       "order": 4,
       "name": "양의지",
-      "position": "포수"
+      "position": "지명타자"
     },
     {
       "order": 5,
@@ -101,18 +101,18 @@
     },
     {
       "order": 6,
-      "name": "강승호",
-      "position": "2루수"
-    },
-    {
-      "order": 7,
-      "name": "양석환",
+      "name": "세베리노",
       "position": "1루수"
     },
     {
-      "order": 8,
+      "order": 7,
       "name": "조수행",
       "position": "우익수"
+    },
+    {
+      "order": 8,
+      "name": "윤준호",
+      "position": "포수"
     },
     {
       "order": 9,
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "이재학"
+    "name": "라일리"
   },
   "opponentStartingPitcher": {
-    "name": "벤자민"
+    "name": "잭로그"
   }
 }
