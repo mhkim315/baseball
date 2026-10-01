@@ -1,7 +1,7 @@
 {
   "team": "SSG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-09-30T17:44:27+09:00",
+  "fetchedAt": "2026-10-01T18:10:14+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3200,6 +3200,50 @@
           "gameId": "20260930LGSK02026",
           "awayStarter": "박시원",
           "homeStarter": "김건우",
+          "winPitcher": null,
+          "losePitcher": null
+        }
+      ]
+    },
+    "2026-09-29": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 1,
+          "homeScore": 7,
+          "scoreLine": "1-7",
+          "ourScore": 7,
+          "oppScore": 1,
+          "ourScoreLine": "7-1",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20260929LGSK02026",
+          "awayStarter": "톨허스트",
+          "homeStarter": "아빌라",
+          "winPitcher": "아빌라",
+          "losePitcher": "톨허스트"
+        }
+      ]
+    },
+    "2026-10-01": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "SSG",
+          "venue": "문학",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20261001LGSK02026",
+          "awayStarter": "임찬규",
+          "homeStarter": "김민준",
           "winPitcher": null,
           "losePitcher": null
         }

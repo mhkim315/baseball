@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-09-30",
-    "lastUpdated": "2026-09-30T17:45:34+09:00",
-    "gameId": "20260930HHSS02026",
-    "kboGameId": "20260930HHSS0",
+    "lineupDate": "2026-10-01",
+    "lastUpdated": "2026-10-01T18:11:51+09:00",
+    "gameId": "20261001HHSS02026",
+    "kboGameId": "20261001HHSS0",
     "opponent": "한화",
     "venue": "대구",
     "gameTime": "18:30",
@@ -39,8 +39,8 @@
     },
     {
       "order": 3,
-      "name": "구자욱",
-      "position": "좌익수"
+      "name": "이재현",
+      "position": "유격수"
     },
     {
       "order": 4,
@@ -64,8 +64,8 @@
     },
     {
       "order": 8,
-      "name": "이재현",
-      "position": "유격수"
+      "name": "김헌곤",
+      "position": "좌익수"
     },
     {
       "order": 9,
@@ -77,17 +77,17 @@
     {
       "order": 1,
       "name": "최인호",
-      "position": "중견수"
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "페라자",
-      "position": "우익수"
+      "name": "정은원",
+      "position": "2루수"
     },
     {
       "order": 3,
       "name": "문현빈",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 4,
@@ -111,19 +111,19 @@
     },
     {
       "order": 8,
-      "name": "정은원",
-      "position": "2루수"
+      "name": "한지윤",
+      "position": "좌익수"
     },
     {
       "order": 9,
-      "name": "심우준",
+      "name": "박정현",
       "position": "유격수"
     }
   ],
   "startingPitcher": {
-    "name": "후라도"
+    "name": "원태인"
   },
   "opponentStartingPitcher": {
-    "name": "화이트"
+    "name": "황준서"
   }
 }
