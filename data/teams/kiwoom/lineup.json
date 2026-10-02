@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kiwoom",
     "lineupDate": "2026-10-03",
-    "lastUpdated": "2026-10-01T18:11:39+09:00",
+    "lastUpdated": "2026-10-02T15:13:16+09:00",
     "gameId": "20261003WOHH02026",
     "kboGameId": "20261003WOHH0",
     "opponent": "한화",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "하영민"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "이상규"
   }
 }
