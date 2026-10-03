@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-10-02T21:30:17+09:00",
+  "fetchedAt": "2026-10-03T14:46:48+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -3288,17 +3288,39 @@
           "away": "NC",
           "home": "두산",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 7,
+          "homeScore": 9,
+          "scoreLine": "7-9",
+          "ourScore": 9,
+          "oppScore": 7,
+          "ourScoreLine": "9-7",
+          "outcome": "W",
           "cancelled": false,
           "gameId": "20261001NCOB02026",
           "awayStarter": "송명기",
           "homeStarter": "최민석",
+          "winPitcher": "타카다",
+          "losePitcher": "배재환"
+        }
+      ]
+    },
+    "2026-10-03": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 4,
+          "scoreLine": "0-4",
+          "ourScore": 0,
+          "oppScore": 4,
+          "ourScoreLine": "0-4",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20261003OBSS02026",
+          "awayStarter": "최승용",
+          "homeStarter": "최원태",
           "winPitcher": null,
           "losePitcher": null
         }
