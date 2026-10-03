@@ -1,7 +1,7 @@
 {
   "team": "롯데",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-03T14:46:48+09:00",
+  "fetchedAt": "2026-10-03T19:39:30+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3322,18 +3322,18 @@
           "home": "KT",
           "venue": "수원",
           "awayScore": 0,
-          "homeScore": 1,
-          "scoreLine": "0-1",
+          "homeScore": 5,
+          "scoreLine": "0-5",
           "ourScore": 0,
-          "oppScore": 1,
-          "ourScoreLine": "0-1",
-          "outcome": null,
+          "oppScore": 5,
+          "ourScoreLine": "0-5",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20261003LTKT02026",
           "awayStarter": "비슬리",
           "homeStarter": "고영표",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "고영표",
+          "losePitcher": "비슬리"
         }
       ]
     }
