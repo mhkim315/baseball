@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T23:55:36.559106+09:00",
+  "generatedAt": "2026-10-04T13:10:13.417754+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9421,6 +9421,30 @@
         "homeStarter": "카라스코",
         "winPitcher": "전상현",
         "losePitcher": "손주영"
+      },
+      {
+        "away": "키움",
+        "home": "한화",
+        "awayScore": 7,
+        "homeScore": 2,
+        "outcome": "W",
+        "cancelled": false,
+        "awayStarter": "하영민",
+        "homeStarter": "이상규",
+        "winPitcher": "하영민",
+        "losePitcher": "이상규"
+      },
+      {
+        "away": "SSG",
+        "home": "NC",
+        "awayScore": 1,
+        "homeScore": 13,
+        "outcome": "L",
+        "cancelled": false,
+        "awayStarter": "이로운",
+        "homeStarter": "구창모",
+        "winPitcher": "구창모",
+        "losePitcher": "이로운"
       },
       {
         "away": "롯데",

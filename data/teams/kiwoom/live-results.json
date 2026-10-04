@@ -1,7 +1,7 @@
 {
   "team": "키움",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-03T23:53:58+09:00",
+  "fetchedAt": "2026-10-04T13:09:04+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3202,6 +3202,28 @@
           "homeStarter": "박세웅",
           "winPitcher": "박정민",
           "losePitcher": "전준표"
+        }
+      ]
+    },
+    "2026-10-03": {
+      "games": [
+        {
+          "away": "키움",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 7,
+          "homeScore": 2,
+          "scoreLine": "7-2",
+          "ourScore": 7,
+          "oppScore": 2,
+          "ourScoreLine": "7-2",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20261003WOHH02026",
+          "awayStarter": "하영민",
+          "homeStarter": "이상규",
+          "winPitcher": "하영민",
+          "losePitcher": "이상규"
         }
       ]
     }

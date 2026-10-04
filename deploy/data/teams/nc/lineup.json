@@ -1,21 +1,21 @@
 {
   "meta": {
     "teamId": "nc",
-    "lineupDate": "2026-10-03",
-    "lastUpdated": "2026-10-03T23:55:35+09:00",
-    "gameId": "20261003SKNC02026",
-    "kboGameId": "20261003SKNC0",
+    "lineupDate": "2026-10-04",
+    "lastUpdated": "2026-10-04T13:10:02+09:00",
+    "gameId": "20261004SKNC02026",
+    "kboGameId": "20261004SKNC0",
     "opponent": "SSG",
     "venue": "창원",
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-confirmed",
-        "confirmed": true
+        "source": "kbo-expected",
+        "confirmed": false
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": true
+        "confirmed": false
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "구창모"
+    "name": "클레빈저"
   },
   "opponentStartingPitcher": {
-    "name": "이로운"
+    "name": "최민준"
   }
 }
