@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-10-04",
-    "lastUpdated": "2026-10-04T13:09:46+09:00",
+    "lastUpdated": "2026-10-04T19:33:11+09:00",
     "gameId": "20261004HTLG02026",
     "kboGameId": "20261004HTLG0",
     "opponent": "KIA",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -29,13 +29,13 @@
   "batters": [
     {
       "order": 1,
-      "name": "박해민",
-      "position": "중견수"
+      "name": "홍창기",
+      "position": "우익수"
     },
     {
       "order": 2,
-      "name": "오지환",
-      "position": "유격수"
+      "name": "박해민",
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -54,13 +54,13 @@
     },
     {
       "order": 6,
-      "name": "송찬의",
-      "position": "좌익수"
+      "name": "오지환",
+      "position": "유격수"
     },
     {
       "order": 7,
       "name": "이재원",
-      "position": "우익수"
+      "position": "좌익수"
     },
     {
       "order": 8,
@@ -92,7 +92,7 @@
     {
       "order": 4,
       "name": "나성범",
-      "position": "지명타자"
+      "position": "우익수"
     },
     {
       "order": 5,
@@ -101,8 +101,8 @@
     },
     {
       "order": 6,
-      "name": "박정우",
-      "position": "우익수"
+      "name": "한준수",
+      "position": "지명타자"
     },
     {
       "order": 7,
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "김규성",
+      "name": "박민",
       "position": "유격수"
     }
   ],

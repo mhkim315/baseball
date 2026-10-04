@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-10-04T13:09:04+09:00",
+  "fetchedAt": "2026-10-04T19:32:16+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -3323,6 +3323,28 @@
           "homeStarter": "최원태",
           "winPitcher": "백정현",
           "losePitcher": "최승용"
+        }
+      ]
+    },
+    "2026-10-04": {
+      "games": [
+        {
+          "away": "두산",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 12,
+          "homeScore": 0,
+          "scoreLine": "12-0",
+          "ourScore": 12,
+          "oppScore": 0,
+          "ourScoreLine": "12-0",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20261004OBSS02026",
+          "awayStarter": "벤자민",
+          "homeStarter": "이승현",
+          "winPitcher": "벤자민",
+          "losePitcher": "이승현"
         }
       ]
     }

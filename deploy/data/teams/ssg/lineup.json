@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "ssg",
     "lineupDate": "2026-10-04",
-    "lastUpdated": "2026-10-04T13:09:50+09:00",
+    "lastUpdated": "2026-10-04T19:33:17+09:00",
     "gameId": "20261004SKNC02026",
     "kboGameId": "20261004SKNC0",
     "opponent": "NC",
@@ -10,12 +10,12 @@
     "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -69,7 +69,7 @@
     },
     {
       "order": 9,
-      "name": "임근우",
+      "name": "김정민",
       "position": "우익수"
     }
   ],
@@ -87,7 +87,7 @@
     {
       "order": 3,
       "name": "박민우",
-      "position": "2루수"
+      "position": "지명타자"
     },
     {
       "order": 4,
@@ -102,7 +102,7 @@
     {
       "order": 6,
       "name": "이우성",
-      "position": "지명타자"
+      "position": "좌익수"
     },
     {
       "order": 7,
@@ -116,8 +116,8 @@
     },
     {
       "order": 9,
-      "name": "오태양",
-      "position": "좌익수"
+      "name": "한재환",
+      "position": "2루수"
     }
   ],
   "startingPitcher": {
