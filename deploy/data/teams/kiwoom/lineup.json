@@ -1,10 +1,10 @@
 {
   "meta": {
     "teamId": "kiwoom",
-    "lineupDate": "2026-10-04",
-    "lastUpdated": "2026-10-04T19:33:14+09:00",
-    "gameId": "20261004WOHH02026",
-    "kboGameId": "20261004WOHH0",
+    "lineupDate": "2026-10-05",
+    "lastUpdated": "2026-10-05T14:54:47+09:00",
+    "gameId": "20261005WOHH02026",
+    "kboGameId": "20261005WOHH0",
     "opponent": "한화",
     "venue": "대전",
     "gameTime": "14:00",
@@ -30,7 +30,7 @@
     {
       "order": 1,
       "name": "추재현",
-      "position": "좌익수"
+      "position": "중견수"
     },
     {
       "order": 2,
@@ -39,8 +39,8 @@
     },
     {
       "order": 3,
-      "name": "김웅빈",
-      "position": "지명타자"
+      "name": "히우라",
+      "position": "좌익수"
     },
     {
       "order": 4,
@@ -49,12 +49,12 @@
     },
     {
       "order": 5,
-      "name": "임병욱",
-      "position": "중견수"
+      "name": "김건희",
+      "position": "지명타자"
     },
     {
       "order": 6,
-      "name": "어준서",
+      "name": "여동욱",
       "position": "3루수"
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       "order": 8,
-      "name": "염승원",
+      "name": "최재영",
       "position": "2루수"
     },
     {
@@ -77,17 +77,17 @@
     {
       "order": 1,
       "name": "최인호",
-      "position": "우익수"
+      "position": "중견수"
     },
     {
       "order": 2,
-      "name": "정은원",
+      "name": "이도윤",
       "position": "2루수"
     },
     {
       "order": 3,
       "name": "문현빈",
-      "position": "중견수"
+      "position": "좌익수"
     },
     {
       "order": 4,
@@ -111,8 +111,8 @@
     },
     {
       "order": 8,
-      "name": "한지윤",
-      "position": "좌익수"
+      "name": "유민",
+      "position": "우익수"
     },
     {
       "order": 9,
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "안우진"
+    "name": "전준표"
   },
   "opponentStartingPitcher": {
-    "name": "박준영"
+    "name": "강건우"
   }
 }
