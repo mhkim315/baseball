@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-10-06",
-    "lastUpdated": "2026-10-06T17:00:04+09:00",
+    "lastUpdated": "2026-10-06T23:47:16+09:00",
     "gameId": "20261006KTWO02026",
     "kboGameId": "20261006KTWO0",
     "opponent": "키움",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -30,41 +30,41 @@
     {
       "order": 1,
       "name": "최원준",
-      "position": "중견수"
-    },
-    {
-      "order": 2,
-      "name": "김현수",
-      "position": "1루수"
-    },
-    {
-      "order": 3,
-      "name": "안현민",
       "position": "우익수"
     },
     {
-      "order": 4,
+      "order": 2,
+      "name": "류현인",
+      "position": "2루수"
+    },
+    {
+      "order": 3,
       "name": "힐리어드",
       "position": "좌익수"
     },
     {
-      "order": 5,
+      "order": 4,
       "name": "장성우",
       "position": "지명타자"
     },
     {
-      "order": 6,
-      "name": "김상수",
-      "position": "2루수"
-    },
-    {
-      "order": 7,
+      "order": 5,
       "name": "허경민",
       "position": "3루수"
     },
     {
+      "order": 6,
+      "name": "오윤석",
+      "position": "1루수"
+    },
+    {
+      "order": 7,
+      "name": "배정대",
+      "position": "중견수"
+    },
+    {
       "order": 8,
-      "name": "한승택",
+      "name": "강현우",
       "position": "포수"
     },
     {
@@ -77,7 +77,7 @@
     {
       "order": 1,
       "name": "추재현",
-      "position": "중견수"
+      "position": "지명타자"
     },
     {
       "order": 2,
@@ -91,32 +91,32 @@
     },
     {
       "order": 4,
+      "name": "김웅빈",
+      "position": "3루수"
+    },
+    {
+      "order": 5,
       "name": "박찬혁",
       "position": "우익수"
     },
     {
-      "order": 5,
-      "name": "김건희",
-      "position": "지명타자"
-    },
-    {
       "order": 6,
-      "name": "여동욱",
-      "position": "3루수"
+      "name": "임병욱",
+      "position": "중견수"
     },
     {
       "order": 7,
-      "name": "김재현",
+      "name": "김동헌",
       "position": "포수"
     },
     {
       "order": 8,
-      "name": "최재영",
+      "name": "염승원",
       "position": "2루수"
     },
     {
       "order": 9,
-      "name": "권혁빈",
+      "name": "최재영",
       "position": "유격수"
     }
   ],

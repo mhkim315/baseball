@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-10-06",
-    "lastUpdated": "2026-10-06T17:00:06+09:00",
+    "lastUpdated": "2026-10-06T23:47:18+09:00",
     "gameId": "20261006SKHH02026",
     "kboGameId": "20261006SKHH0",
     "opponent": "SSG",
@@ -10,12 +10,12 @@
     "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
-        "source": "kbo-expected",
-        "confirmed": false
+        "source": "kbo-confirmed",
+        "confirmed": true
       },
       "opponent": {
         "source": "kbo-opponent",
-        "confirmed": false
+        "confirmed": true
       },
       "startingPitcher": {
         "source": "naver-preview"
@@ -81,8 +81,8 @@
     },
     {
       "order": 2,
-      "name": "김재환",
-      "position": "지명타자"
+      "name": "최지훈",
+      "position": "중견수"
     },
     {
       "order": 3,
@@ -91,13 +91,13 @@
     },
     {
       "order": 4,
-      "name": "전의산",
-      "position": "1루수"
+      "name": "고명준",
+      "position": "3루수"
     },
     {
       "order": 5,
-      "name": "고명준",
-      "position": "3루수"
+      "name": "김재환",
+      "position": "지명타자"
     },
     {
       "order": 6,
@@ -106,8 +106,8 @@
     },
     {
       "order": 7,
-      "name": "최지훈",
-      "position": "중견수"
+      "name": "전의산",
+      "position": "1루수"
     },
     {
       "order": 8,

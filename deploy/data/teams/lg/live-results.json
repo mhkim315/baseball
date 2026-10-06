@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-06T16:59:13+09:00",
+  "fetchedAt": "2026-10-06T23:46:25+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3334,6 +3334,28 @@
           "homeStarter": "톨허스트",
           "winPitcher": "정해영",
           "losePitcher": "고우석"
+        }
+      ]
+    },
+    "2026-10-06": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "LG",
+          "venue": "잠실",
+          "awayScore": 1,
+          "homeScore": 6,
+          "scoreLine": "1-6",
+          "ourScore": 6,
+          "oppScore": 1,
+          "ourScoreLine": "6-1",
+          "outcome": "W",
+          "cancelled": false,
+          "gameId": "20261006NCLG02026",
+          "awayStarter": "최성영",
+          "homeStarter": "박시원",
+          "winPitcher": "박시원",
+          "losePitcher": "최성영"
         }
       ]
     }
