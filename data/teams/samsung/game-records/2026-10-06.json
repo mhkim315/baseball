@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20261006SSHT02026",
+    "gameDate": "2026-10-06",
+    "lastUpdated": "2026-10-06T17:00:24+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "삼성 라이온즈",
+    "hPCode": "55610",
+    "hCode": "HT",
+    "hName": "KIA",
+    "cancelFlag": "N",
+    "gdate": 20261006,
+    "aPCode": "56460",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "삼성",
+    "gameFlag": "0",
+    "hFullName": "KIA 타이거즈",
+    "stadium": "광주",
+    "aCode": "SS",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 2,
+    "era": "4.30",
+    "hra": "0.271",
+    "w": 75,
+    "wra": "0.551",
+    "name": "KIA",
+    "rank": 3,
+    "hr": 165,
+    "l": 61,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 75,
+      "l": 61
+    }
+  },
+  "awayStandings": {
+    "d": 3,
+    "era": "4.25",
+    "hra": "0.276",
+    "w": 82,
+    "wra": "0.603",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 136,
+    "l": 54,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 82,
+      "l": 54
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "김태형"
+  },
+  "awayStarter": {
+    "name": "장찬희"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

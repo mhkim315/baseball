@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20261006NCLG02026",
+    "gameDate": "2026-10-06",
+    "lastUpdated": "2026-10-06T17:00:27+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "NC 다이노스",
+    "hPCode": "55121",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20261006,
+    "aPCode": "66920",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "NC",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "NC",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.85",
+    "hra": "0.265",
+    "w": 75,
+    "wra": "0.543",
+    "name": "LG",
+    "rank": 4,
+    "hr": 129,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 75,
+      "l": 63
+    }
+  },
+  "awayStandings": {
+    "d": 2,
+    "era": "4.73",
+    "hra": "0.271",
+    "w": 63,
+    "wra": "0.457",
+    "name": "NC",
+    "rank": 7,
+    "hr": 130,
+    "l": 75,
+    "seriesOutcome": {
+      "d": 2,
+      "w": 63,
+      "l": 75
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "박시원"
+  },
+  "awayStarter": {
+    "name": "최성영"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
