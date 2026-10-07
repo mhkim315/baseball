@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "naverGameId": "20261007HHWO02026",
+    "gameDate": "2026-10-07",
+    "lastUpdated": "2026-10-07T18:04:43+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "한화 이글스",
+    "hPCode": "51301",
+    "hCode": "WO",
+    "hName": "키움",
+    "cancelFlag": "N",
+    "gdate": 20261007,
+    "aPCode": "55743",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "한화",
+    "gameFlag": "0",
+    "hFullName": "키움 히어로즈",
+    "stadium": "고척",
+    "aCode": "HH",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "1"
+  },
+  "homeStandings": {
+    "d": 4,
+    "era": "5.31",
+    "hra": "0.243",
+    "w": 49,
+    "wra": "0.353",
+    "name": "키움",
+    "rank": 10,
+    "hr": 111,
+    "l": 90,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 49,
+      "l": 90
+    }
+  },
+  "awayStandings": {
+    "d": 4,
+    "era": "5.27",
+    "hra": "0.273",
+    "w": 57,
+    "wra": "0.413",
+    "name": "한화",
+    "rank": 9,
+    "hr": 173,
+    "l": 81,
+    "seriesOutcome": {
+      "d": 4,
+      "w": 57,
+      "l": 81
+    }
+  },
+  "homeLineup": [
+    {
+      "order": 1,
+      "name": "추재현",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "데이비슨",
+      "position": "1루수"
+    },
+    {
+      "order": 3,
+      "name": "히우라",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "김웅빈",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "김건희",
+      "position": "포수"
+    },
+    {
+      "order": 6,
+      "name": "박찬혁",
+      "position": "우익수"
+    },
+    {
+      "order": 7,
+      "name": "여동욱",
+      "position": "3루수"
+    },
+    {
+      "order": 8,
+      "name": "염승원",
+      "position": "2루수"
+    },
+    {
+      "order": 9,
+      "name": "권혁빈",
+      "position": "유격수"
+    }
+  ],
+  "awayLineup": [
+    {
+      "order": 1,
+      "name": "최인호",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "이도윤",
+      "position": "2루수"
+    },
+    {
+      "order": 3,
+      "name": "문현빈",
+      "position": "좌익수"
+    },
+    {
+      "order": 4,
+      "name": "강백호",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "노시환",
+      "position": "3루수"
+    },
+    {
+      "order": 6,
+      "name": "허인서",
+      "position": "포수"
+    },
+    {
+      "order": 7,
+      "name": "김태연",
+      "position": "1루수"
+    },
+    {
+      "order": 8,
+      "name": "유민",
+      "position": "우익수"
+    },
+    {
+      "order": 9,
+      "name": "박정현",
+      "position": "유격수"
+    }
+  ],
+  "homeStarter": {
+    "name": "김성진"
+  },
+  "awayStarter": {
+    "name": "정우주"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}

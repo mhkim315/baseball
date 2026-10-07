@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "naverGameId": "20261007OBLG02026",
+    "gameDate": "2026-10-07",
+    "lastUpdated": "2026-10-07T18:04:42+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "두산 베어스",
+    "hPCode": "61101",
+    "hCode": "LG",
+    "hName": "LG",
+    "cancelFlag": "N",
+    "gdate": 20261007,
+    "aPCode": "55268",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "두산",
+    "gameFlag": "0",
+    "hFullName": "LG 트윈스",
+    "stadium": "잠실",
+    "aCode": "OB",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "1"
+  },
+  "homeStandings": {
+    "d": 1,
+    "era": "4.83",
+    "hra": "0.265",
+    "w": 76,
+    "wra": "0.547",
+    "name": "LG",
+    "rank": 4,
+    "hr": 132,
+    "l": 63,
+    "seriesOutcome": {
+      "d": 1,
+      "w": 76,
+      "l": 63
+    }
+  },
+  "awayStandings": {
+    "d": 5,
+    "era": "3.82",
+    "hra": "0.268",
+    "w": 73,
+    "wra": "0.533",
+    "name": "두산",
+    "rank": 5,
+    "hr": 114,
+    "l": 64,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 73,
+      "l": 64
+    }
+  },
+  "homeLineup": [
+    {
+      "order": 1,
+      "name": "박해민",
+      "position": "중견수"
+    },
+    {
+      "order": 2,
+      "name": "송찬의",
+      "position": "좌익수"
+    },
+    {
+      "order": 3,
+      "name": "오스틴",
+      "position": "1루수"
+    },
+    {
+      "order": 4,
+      "name": "문정빈",
+      "position": "지명타자"
+    },
+    {
+      "order": 5,
+      "name": "문보경",
+      "position": "3루수"
+    },
+    {
+      "order": 6,
+      "name": "이재원",
+      "position": "우익수"
+    },
+    {
+      "order": 7,
+      "name": "구본혁",
+      "position": "유격수"
+    },
+    {
+      "order": 8,
+      "name": "박동원",
+      "position": "포수"
+    },
+    {
+      "order": 9,
+      "name": "이영빈",
+      "position": "2루수"
+    }
+  ],
+  "awayLineup": [
+    {
+      "order": 1,
+      "name": "박찬호",
+      "position": "유격수"
+    },
+    {
+      "order": 2,
+      "name": "안재석",
+      "position": "3루수"
+    },
+    {
+      "order": 3,
+      "name": "세베리노",
+      "position": "지명타자"
+    },
+    {
+      "order": 4,
+      "name": "양의지",
+      "position": "포수"
+    },
+    {
+      "order": 5,
+      "name": "김민석",
+      "position": "좌익수"
+    },
+    {
+      "order": 6,
+      "name": "강승호",
+      "position": "2루수"
+    },
+    {
+      "order": 7,
+      "name": "양석환",
+      "position": "1루수"
+    },
+    {
+      "order": 8,
+      "name": "조수행",
+      "position": "우익수"
+    },
+    {
+      "order": 9,
+      "name": "정수빈",
+      "position": "중견수"
+    }
+  ],
+  "homeStarter": {
+    "name": "임찬규"
+  },
+  "awayStarter": {
+    "name": "최민석"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
