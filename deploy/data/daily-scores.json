@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T18:04:50.622074+09:00",
+  "generatedAt": "2026-10-08T16:17:35.872742+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9619,6 +9619,30 @@
         "homeStarter": "박준현",
         "winPitcher": "대니엘",
         "losePitcher": "박준현"
+      },
+      {
+        "away": "SSG",
+        "home": "한화",
+        "awayScore": 2,
+        "homeScore": 9,
+        "outcome": "L",
+        "cancelled": false,
+        "awayStarter": "김건우",
+        "homeStarter": "화이트",
+        "winPitcher": "화이트",
+        "losePitcher": "김건우"
+      },
+      {
+        "away": "삼성",
+        "home": "KIA",
+        "awayScore": 5,
+        "homeScore": 4,
+        "outcome": "W",
+        "cancelled": false,
+        "awayStarter": "장찬희",
+        "homeStarter": "김태형",
+        "winPitcher": "이재희",
+        "losePitcher": "성영탁"
       }
     ],
     "2026-10-07": [
@@ -9637,26 +9661,26 @@
       {
         "away": "한화",
         "home": "키움",
-        "awayScore": 0,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 5,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "정우주",
         "homeStarter": "김성진",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김성진",
+        "losePitcher": "주현상"
       },
       {
         "away": "NC",
         "home": "SSG",
-        "awayScore": 0,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 3,
+        "homeScore": 6,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "송명기",
         "homeStarter": "김민준",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "김민준",
+        "losePitcher": "송명기"
       },
       {
         "away": "삼성",
@@ -9673,14 +9697,14 @@
       {
         "away": "KIA",
         "home": "롯데",
-        "awayScore": 0,
-        "homeScore": 0,
-        "outcome": null,
+        "awayScore": 12,
+        "homeScore": 4,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "양현종",
         "homeStarter": "김태균",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "양현종",
+        "losePitcher": "김태균"
       }
     ]
   }
