@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T15:12:58.421295+09:00",
+  "generatedAt": "2026-10-09T22:12:15.729197+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9712,25 +9712,25 @@
         "away": "LG",
         "home": "롯데",
         "awayScore": 1,
-        "homeScore": 3,
-        "outcome": null,
+        "homeScore": 9,
+        "outcome": "L",
         "cancelled": false,
         "awayStarter": "카라스코",
         "homeStarter": "김한결",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "최준용",
+        "losePitcher": "카라스코"
       },
       {
         "away": "KIA",
         "home": "NC",
-        "awayScore": 2,
+        "awayScore": 7,
         "homeScore": 2,
-        "outcome": null,
+        "outcome": "W",
         "cancelled": false,
         "awayStarter": "네일",
         "homeStarter": "구창모",
-        "winPitcher": null,
-        "losePitcher": null
+        "winPitcher": "네일",
+        "losePitcher": "구창모"
       }
     ]
   }

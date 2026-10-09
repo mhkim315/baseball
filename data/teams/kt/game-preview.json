@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20261011KTSS02026",
-    "fetchedAt": "2026-10-09T15:11:19+09:00"
+    "fetchedAt": "2026-10-09T22:10:48+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
@@ -27,17 +27,17 @@
   "homeStandings": {
     "d": 3,
     "era": "4.26",
-    "hra": "0.275",
+    "hra": "0.274",
     "w": 83,
-    "wra": "0.601",
+    "wra": "0.597",
     "name": "삼성",
     "rank": 2,
     "hr": 138,
-    "l": 55,
+    "l": 56,
     "seriesOutcome": {
       "d": 3,
       "w": 83,
-      "l": 55
+      "l": 56
     }
   },
   "awayStandings": {
@@ -67,6 +67,20 @@
     "hw": 9
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20261009SSSK02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "삼성",
+      "aScore": 1,
+      "gyear": 2026,
+      "gmkey": "20261009SSSK0",
+      "gweek": "금",
+      "aCode": "SS",
+      "hCode": "SK",
+      "hName": "SSG",
+      "gdate": 20261009
+    },
     {
       "gameId": "20261007SSKT02026",
       "result": "패",
@@ -122,20 +136,6 @@
       "hCode": "SS",
       "hName": "삼성",
       "gdate": 20261004
-    },
-    {
-      "gameId": "20261003OBSS02026",
-      "result": "승",
-      "hScore": 6,
-      "aName": "두산",
-      "aScore": 4,
-      "gyear": 2026,
-      "gmkey": "20261003OBSS0",
-      "gweek": "토",
-      "aCode": "OB",
-      "hCode": "SS",
-      "hName": "삼성",
-      "gdate": 20261003
     }
   ],
   "awayTeamPreviousGames": [
