@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "hanwha",
     "lineupDate": "2026-10-10",
-    "lastUpdated": "2026-10-08T23:38:06+09:00",
+    "lastUpdated": "2026-10-09T15:12:38+09:00",
     "gameId": "20261010NCHH02026",
     "kboGameId": "20261010NCHH0",
     "opponent": "NC",
@@ -81,7 +81,7 @@
     },
     {
       "order": 2,
-      "name": "고준휘",
+      "name": "천재환",
       "position": "중견수"
     },
     {
@@ -106,17 +106,17 @@
     },
     {
       "order": 7,
-      "name": "천재환",
-      "position": "우익수"
-    },
-    {
-      "order": 8,
       "name": "김형준",
       "position": "포수"
     },
     {
+      "order": 8,
+      "name": "박시원",
+      "position": "우익수"
+    },
+    {
       "order": 9,
-      "name": "오태양",
+      "name": "권희동",
       "position": "좌익수"
     }
   ],

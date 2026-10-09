@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-10-12",
-    "lastUpdated": "2026-10-08T23:37:37+09:00",
+    "lastUpdated": "2026-10-09T15:12:11+09:00",
     "gameId": "20261012LTOB02026",
     "kboGameId": "20261012LTOB0",
     "opponent": "롯데",
@@ -106,12 +106,12 @@
     },
     {
       "order": 7,
-      "name": "전준우",
+      "name": "조세진",
       "position": "좌익수"
     },
     {
       "order": 8,
-      "name": "조세진",
+      "name": "윤동희",
       "position": "우익수"
     },
     {

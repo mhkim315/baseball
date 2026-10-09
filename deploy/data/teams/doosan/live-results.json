@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-10-08T23:35:51+09:00",
+  "fetchedAt": "2026-10-09T15:10:32+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -3398,19 +3398,19 @@
           "away": "두산",
           "home": "LG",
           "venue": "잠실",
-          "awayScore": 0,
-          "homeScore": 0,
-          "scoreLine": "0-0",
-          "ourScore": 0,
-          "oppScore": 0,
-          "ourScoreLine": "0-0",
-          "outcome": null,
+          "awayScore": 5,
+          "homeScore": 7,
+          "scoreLine": "5-7",
+          "ourScore": 5,
+          "oppScore": 7,
+          "ourScoreLine": "5-7",
+          "outcome": "L",
           "cancelled": false,
           "gameId": "20261007OBLG02026",
           "awayStarter": "최민석",
           "homeStarter": "임찬규",
-          "winPitcher": null,
-          "losePitcher": null
+          "winPitcher": "임찬규",
+          "losePitcher": "최민석"
         }
       ]
     }
