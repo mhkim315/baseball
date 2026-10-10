@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20261011KTSS02026",
-    "fetchedAt": "2026-10-10T17:04:33+09:00"
+    "fetchedAt": "2026-10-10T23:26:22+09:00"
   },
   "gameInfo": {
     "aFullName": "kt wiz",
@@ -253,7 +253,7 @@
       "bb": 27,
       "kk": 96,
       "gameCount": 23,
-      "gday": "20261009",
+      "gday": "20261010",
       "inn": "146.0",
       "hp": 4,
       "teamCode": "SS",
@@ -312,7 +312,7 @@
       "bb": 22,
       "kk": 178,
       "gameCount": 28,
-      "gday": "20261009",
+      "gday": "20261010",
       "inn": "167.2",
       "hp": 11,
       "teamCode": "KT",

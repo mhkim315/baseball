@@ -2,7 +2,7 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20261012LTOB02026",
-    "fetchedAt": "2026-10-10T17:04:20+09:00"
+    "fetchedAt": "2026-10-10T23:26:06+09:00"
   },
   "gameInfo": {
     "aFullName": "롯데 자이언츠",
@@ -42,18 +42,18 @@
   },
   "awayStandings": {
     "d": 3,
-    "era": "4.78",
+    "era": "4.77",
     "hra": "0.272",
     "w": 62,
-    "wra": "0.449",
+    "wra": "0.446",
     "name": "롯데",
-    "rank": 7,
+    "rank": 8,
     "hr": 109,
-    "l": 76,
+    "l": 77,
     "seriesOutcome": {
       "d": 3,
       "w": 62,
-      "l": 76
+      "l": 77
     }
   },
   "seasonVsResult": {
@@ -140,6 +140,20 @@
   ],
   "awayTeamPreviousGames": [
     {
+      "gameId": "20261010LGLT02026",
+      "result": "패",
+      "hScore": 3,
+      "aName": "LG",
+      "aScore": 4,
+      "gyear": 2026,
+      "gmkey": "20261010LGLT0",
+      "gweek": "토",
+      "aCode": "LG",
+      "hCode": "LT",
+      "hName": "롯데",
+      "gdate": 20261010
+    },
+    {
       "gameId": "20261009LGLT02026",
       "result": "승",
       "hScore": 9,
@@ -194,20 +208,6 @@
       "hCode": "KT",
       "hName": "KT",
       "gdate": 20261005
-    },
-    {
-      "gameId": "20261004LTKT02026",
-      "result": "무",
-      "hScore": 2,
-      "aName": "롯데",
-      "aScore": 2,
-      "gyear": 2026,
-      "gmkey": "20261004LTKT0",
-      "gweek": "일",
-      "aCode": "LT",
-      "hCode": "KT",
-      "hName": "KT",
-      "gdate": 20261004
     }
   ],
   "homeStarter": {
