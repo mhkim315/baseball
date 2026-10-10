@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "doosan",
     "lineupDate": "2026-10-12",
-    "lastUpdated": "2026-10-09T22:11:38+09:00",
+    "lastUpdated": "2026-10-10T17:05:37+09:00",
     "gameId": "20261012LTOB02026",
     "kboGameId": "20261012LTOB0",
     "opponent": "롯데",
@@ -76,18 +76,18 @@
   "opponentBatters": [
     {
       "order": 1,
+      "name": "황성빈",
+      "position": "좌익수"
+    },
+    {
+      "order": 2,
       "name": "레이예스",
       "position": "지명타자"
     },
     {
-      "order": 2,
+      "order": 3,
       "name": "나승엽",
       "position": "1루수"
-    },
-    {
-      "order": 3,
-      "name": "고승민",
-      "position": "2루수"
     },
     {
       "order": 4,
@@ -96,18 +96,18 @@
     },
     {
       "order": 5,
+      "name": "고승민",
+      "position": "2루수"
+    },
+    {
+      "order": 6,
       "name": "전민재",
       "position": "유격수"
     },
     {
-      "order": 6,
+      "order": 7,
       "name": "손성빈",
       "position": "포수"
-    },
-    {
-      "order": 7,
-      "name": "조세진",
-      "position": "좌익수"
     },
     {
       "order": 8,
@@ -116,7 +116,7 @@
     },
     {
       "order": 9,
-      "name": "황성빈",
+      "name": "장두성",
       "position": "중견수"
     }
   ],

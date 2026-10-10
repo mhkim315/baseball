@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kt",
     "lineupDate": "2026-10-11",
-    "lastUpdated": "2026-10-09T22:11:59+09:00",
+    "lastUpdated": "2026-10-10T17:05:55+09:00",
     "gameId": "20261011KTSS02026",
     "kboGameId": "20261011KTSS0",
     "opponent": "삼성",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "고영표"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "후라도"
   }
 }

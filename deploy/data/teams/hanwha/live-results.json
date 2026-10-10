@@ -1,7 +1,7 @@
 {
   "team": "한화",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-09T22:10:04+09:00",
+  "fetchedAt": "2026-10-10T17:03:33+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3444,6 +3444,28 @@
           "homeStarter": "화이트",
           "winPitcher": "화이트",
           "losePitcher": "김건우"
+        }
+      ]
+    },
+    "2026-10-10": {
+      "games": [
+        {
+          "away": "NC",
+          "home": "한화",
+          "venue": "대전",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "20261010NCHH02026",
+          "awayStarter": "클레빈저",
+          "homeStarter": "황준서",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }
