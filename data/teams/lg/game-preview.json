@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "20261012LGHT02026",
-    "fetchedAt": "2026-10-11T15:27:25+09:00"
+    "fetchedAt": "2026-10-11T22:13:20+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
-    "hPCode": "",
+    "hPCode": "77637",
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "N",
     "gdate": 20261012,
-    "aPCode": "",
+    "aPCode": "61101",
     "round": 16,
     "gtime": "18:30",
     "aName": "LG",
@@ -29,15 +29,15 @@
     "era": "4.29",
     "hra": "0.272",
     "w": 78,
-    "wra": "0.557",
+    "wra": "0.553",
     "name": "KIA",
     "rank": 3,
     "hr": 172,
-    "l": 62,
+    "l": 63,
     "seriesOutcome": {
       "d": 2,
       "w": 78,
-      "l": 62
+      "l": 63
     }
   },
   "awayStandings": {
@@ -67,6 +67,20 @@
     "hw": 8
   },
   "homeTeamPreviousGames": [
+    {
+      "gameId": "20261011LTHT02026",
+      "result": "패",
+      "hScore": 1,
+      "aName": "롯데",
+      "aScore": 4,
+      "gyear": 2026,
+      "gmkey": "20261011LTHT0",
+      "gweek": "일",
+      "aCode": "LT",
+      "hCode": "HT",
+      "hName": "KIA",
+      "gdate": 20261011
+    },
     {
       "gameId": "20261010SKHT02026",
       "result": "승",
@@ -122,20 +136,6 @@
       "hCode": "HT",
       "hName": "KIA",
       "gdate": 20261006
-    },
-    {
-      "gameId": "20261005HTLG02026",
-      "result": "승",
-      "hScore": 4,
-      "aName": "KIA",
-      "aScore": 6,
-      "gyear": 2026,
-      "gmkey": "20261005HTLG0",
-      "gweek": "월",
-      "aCode": "HT",
-      "hCode": "LG",
-      "hName": "LG",
-      "gdate": 20261005
     }
   ],
   "awayTeamPreviousGames": [
@@ -212,58 +212,120 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 14,
+      "kk": 6,
+      "gameCount": 3,
+      "s": 0,
+      "era": "4.61",
+      "w": 1,
+      "inn": "13.2",
+      "l": 2,
+      "er": 7
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "54",
+      "hitType": "좌투좌타",
+      "pCode": "77637",
+      "name": "양현종",
+      "birth": "19880301",
+      "weight": "91.0",
+      "height": "183.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 40.599998474121094,
+        "type": "FAST",
+        "speed": 138
+      },
+      {
+        "pit_rt": 26.899999618530273,
+        "type": "SLID",
+        "speed": 130
+      },
+      {
+        "pit_rt": 26.700000762939453,
+        "type": "CHUP",
+        "speed": 127
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 57,
+      "kk": 82,
+      "gameCount": 25,
+      "gday": "20261011",
+      "inn": "119.2",
+      "hp": 3,
+      "teamCode": "HT",
+      "hr": 14,
+      "l": 6,
+      "er": 57,
+      "whip": "1.47",
+      "hit": 119,
+      "r": 65,
+      "s": 0,
+      "era": "4.29",
+      "w": 12,
+      "inn2": "119 2/3"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 0,
+      "kk": 2,
+      "gameCount": 1,
+      "s": 0,
+      "era": "6.75",
+      "w": 0,
+      "inn": "5.1",
+      "l": 1,
+      "er": 4
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "1",
+      "hitType": "우투우타",
+      "pCode": "61101",
+      "name": "임찬규",
+      "birth": "19921120",
+      "weight": "80.0",
+      "height": "185.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 31.399999618530273,
+        "type": "CHUP",
+        "speed": 123
+      },
+      {
+        "pit_rt": 29.299999237060547,
+        "type": "FAST",
+        "speed": 139
+      },
+      {
+        "pit_rt": 27.799999237060547,
+        "type": "CURV",
+        "speed": 111
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "LG",
+      "bb": 41,
+      "kk": 100,
+      "gameCount": 30,
+      "gday": "20261011",
+      "inn": "166.1",
+      "hp": 10,
+      "teamCode": "LG",
+      "hr": 12,
+      "l": 7,
+      "er": 82,
+      "whip": "1.35",
+      "hit": 183,
+      "r": 84,
+      "s": 0,
+      "era": "4.44",
+      "w": 15,
+      "inn2": "166 1/3"
     }
   }
 }

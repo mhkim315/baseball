@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "lg",
     "lineupDate": "2026-10-12",
-    "lastUpdated": "2026-10-11T15:29:02+09:00",
+    "lastUpdated": "2026-10-11T22:15:45+09:00",
     "gameId": "20261012LGHT02026",
     "kboGameId": "20261012LGHT0",
     "opponent": "KIA",
@@ -121,9 +121,9 @@
     }
   ],
   "startingPitcher": {
-    "name": "??"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "양현종"
   }
 }
