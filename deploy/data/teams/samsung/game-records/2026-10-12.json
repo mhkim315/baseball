@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "naverGameId": "20261012KTSS02026",
+    "gameDate": "2026-10-12",
+    "lastUpdated": "2026-10-12T15:39:59+09:00"
+  },
+  "gameInfo": {
+    "aFullName": "kt wiz",
+    "hPCode": "68415",
+    "hCode": "SS",
+    "hName": "삼성",
+    "cancelFlag": "N",
+    "gdate": 20261012,
+    "aPCode": "50030",
+    "round": 16,
+    "gtime": "18:30",
+    "aName": "KT",
+    "gameFlag": "0",
+    "hFullName": "삼성 라이온즈",
+    "stadium": "대구",
+    "aCode": "KT",
+    "optionFlag": 1,
+    "ptsFlag": "Y",
+    "isPostSeason": false,
+    "statusCode": "0"
+  },
+  "homeStandings": {
+    "d": 3,
+    "era": "4.31",
+    "hra": "0.274",
+    "w": 83,
+    "wra": "0.593",
+    "name": "삼성",
+    "rank": 2,
+    "hr": 138,
+    "l": 57,
+    "seriesOutcome": {
+      "d": 3,
+      "w": 83,
+      "l": 57
+    }
+  },
+  "awayStandings": {
+    "d": 5,
+    "era": "4.15",
+    "hra": "0.285",
+    "w": 89,
+    "wra": "0.645",
+    "name": "KT",
+    "rank": 1,
+    "hr": 120,
+    "l": 49,
+    "seriesOutcome": {
+      "d": 5,
+      "w": 89,
+      "l": 49
+    }
+  },
+  "homeLineup": [],
+  "awayLineup": [],
+  "homeStarter": {
+    "name": "양창섭"
+  },
+  "awayStarter": {
+    "name": "소형준"
+  },
+  "scoreBoard": null,
+  "battersBoxscore": null,
+  "pitchersBoxscore": null,
+  "pitchingResult": [],
+  "etcRecords": []
+}
