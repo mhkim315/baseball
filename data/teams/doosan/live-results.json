@@ -2,7 +2,7 @@
   "team": "두산",
   "source": "Naver API (api-gw.sports.naver.com)",
   "scheduleSource": "data/kbo_schedule_2026.json",
-  "fetchedAt": "2026-10-12T15:33:57+09:00",
+  "fetchedAt": "2026-10-13T12:11:31+09:00",
   "errorDates": [],
   "byDate": {
     "2026-03-28": {
@@ -3411,6 +3411,28 @@
           "homeStarter": "임찬규",
           "winPitcher": "임찬규",
           "losePitcher": "최민석"
+        }
+      ]
+    },
+    "2026-10-12": {
+      "games": [
+        {
+          "away": "롯데",
+          "home": "두산",
+          "venue": "잠실",
+          "awayScore": 7,
+          "homeScore": 4,
+          "scoreLine": "7-4",
+          "ourScore": 4,
+          "oppScore": 7,
+          "ourScoreLine": "4-7",
+          "outcome": "L",
+          "cancelled": false,
+          "gameId": "20261012LTOB02026",
+          "awayStarter": "박세웅",
+          "homeStarter": "이용찬",
+          "winPitcher": "이영재",
+          "losePitcher": "박치국"
         }
       ]
     }
