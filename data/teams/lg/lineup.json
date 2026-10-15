@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-10-14",
-    "lastUpdated": "2026-10-14T19:31:46+09:00",
-    "gameId": "44441014OBLG02026",
+    "lineupDate": "2026-10-17",
+    "lastUpdated": "2026-10-15T14:15:52+09:00",
+    "gameId": "33331017LGHT02026",
     "kboGameId": null,
-    "opponent": "두산",
-    "venue": "잠실",
-    "gameTime": "18:30",
+    "opponent": "KIA",
+    "venue": "광주",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
         "source": "empty",
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "두산",
-    "teamName": "두산"
+    "teamShort": "KIA",
+    "teamName": "KIA"
   },
   "batters": [
     {
@@ -75,9 +75,9 @@
   ],
   "opponentBatters": [],
   "startingPitcher": {
-    "name": "카라스코"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "곽빈"
+    "name": "??"
   }
 }
