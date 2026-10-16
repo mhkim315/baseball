@@ -2,16 +2,16 @@
   "meta": {
     "source": "naver:api-gw",
     "naverGameId": "33331017LGHT02026",
-    "fetchedAt": "2026-10-15T23:29:22+09:00"
+    "fetchedAt": "2026-10-16T15:24:16+09:00"
   },
   "gameInfo": {
     "aFullName": "LG 트윈스",
-    "hPCode": "",
+    "hPCode": "54640",
     "hCode": "HT",
     "hName": "KIA",
     "cancelFlag": "N",
     "gdate": 20261017,
-    "aPCode": "",
+    "aPCode": "55130",
     "round": 1,
     "gtime": "14:00",
     "aName": "LG",
@@ -212,58 +212,120 @@
   ],
   "homeStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 3,
+      "kk": 16,
+      "gameCount": 3,
+      "s": 0,
+      "era": "4.58",
+      "w": 1,
+      "inn": "17.2",
+      "l": 1,
+      "er": 9
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "40",
+      "hitType": "우투우타",
+      "pCode": "54640",
+      "name": "네일",
+      "birth": "19930208",
+      "weight": "83.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 33,
+        "type": "TWOS",
+        "speed": 145
+      },
+      {
+        "pit_rt": 30.799999237060547,
+        "type": "SWEE",
+        "speed": 131
+      },
+      {
+        "pit_rt": 20.299999237060547,
+        "type": "CUTT",
+        "speed": 140
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "KIA",
+      "bb": 38,
+      "kk": 156,
+      "gameCount": 31,
+      "gday": "20261014",
+      "inn": "183.0",
+      "hp": 17,
+      "teamCode": "HT",
+      "hr": 13,
+      "l": 7,
+      "er": 71,
+      "whip": "1.16",
+      "hit": 175,
+      "r": 73,
+      "s": 0,
+      "era": "3.49",
+      "w": 13,
+      "inn2": "183"
     }
   },
   "awayStarter": {
     "currentSeasonStatsOnOpponents": {
-      "bb": "0",
-      "kk": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "l": "0",
-      "er": "0"
+      "bb": 4,
+      "kk": 15,
+      "gameCount": 5,
+      "s": 0,
+      "era": "6.20",
+      "w": 1,
+      "inn": "20.1",
+      "l": 3,
+      "er": 14
     },
-    "playerInfo": {},
-    "currentPitKindStats": [],
+    "playerInfo": {
+      "backnum": "30",
+      "hitType": "우투우타",
+      "pCode": "55130",
+      "name": "톨허스트",
+      "birth": "19990913",
+      "weight": "86.0",
+      "height": "193.0"
+    },
+    "currentPitKindStats": [
+      {
+        "pit_rt": 44.099998474121094,
+        "type": "FAST",
+        "speed": 148
+      },
+      {
+        "pit_rt": 24,
+        "type": "CUTT",
+        "speed": 137
+      },
+      {
+        "pit_rt": 16.100000381469727,
+        "type": "CURV",
+        "speed": 125
+      }
+    ],
     "currentSeasonStats": {
-      "kk": "0",
-      "bb": "0",
-      "gameCount": "0",
-      "s": "0",
-      "era": "0.00",
-      "w": "0",
-      "inn": "0",
-      "inn2": "0",
-      "l": "0",
-      "er": "0",
-      "whip": "0.00"
+      "teamName": "LG",
+      "bb": 36,
+      "kk": 126,
+      "gameCount": 30,
+      "gday": "20261014",
+      "inn": "163.1",
+      "hp": 10,
+      "teamCode": "LG",
+      "hr": 16,
+      "l": 11,
+      "er": 77,
+      "whip": "1.26",
+      "hit": 169,
+      "r": 79,
+      "s": 0,
+      "era": "4.24",
+      "w": 12,
+      "inn2": "163 1/3"
     }
   }
 }

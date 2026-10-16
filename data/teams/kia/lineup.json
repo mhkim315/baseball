@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "kia",
     "lineupDate": "2026-10-17",
-    "lastUpdated": "2026-10-15T23:33:45+09:00",
+    "lastUpdated": "2026-10-16T15:28:39+09:00",
     "gameId": "33331017LGHT02026",
     "kboGameId": null,
     "opponent": "LG",
@@ -75,9 +75,9 @@
   ],
   "opponentBatters": [],
   "startingPitcher": {
-    "name": "??"
+    "name": "네일"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "톨허스트"
   }
 }
