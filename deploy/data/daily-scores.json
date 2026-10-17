@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T20:45:29.464179+09:00",
+  "generatedAt": "2026-10-17T16:08:37.856604+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9859,6 +9859,20 @@
         "homeStarter": "카라스코",
         "winPitcher": "카라스코",
         "losePitcher": "곽빈"
+      }
+    ],
+    "2026-10-17": [
+      {
+        "away": "LG",
+        "home": "KIA",
+        "awayScore": 1,
+        "homeScore": 3,
+        "outcome": null,
+        "cancelled": false,
+        "awayStarter": "톨허스트",
+        "homeStarter": "네일",
+        "winPitcher": null,
+        "losePitcher": null
       }
     ]
   }
