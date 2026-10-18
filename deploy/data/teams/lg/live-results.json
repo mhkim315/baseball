@@ -1,7 +1,7 @@
 {
   "team": "LG",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-17T23:21:37+09:00",
+  "fetchedAt": "2026-10-18T14:51:00+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3488,6 +3488,28 @@
           "homeStarter": "네일",
           "winPitcher": "네일",
           "losePitcher": "톨허스트"
+        }
+      ]
+    },
+    "2026-10-18": {
+      "games": [
+        {
+          "away": "LG",
+          "home": "KIA",
+          "venue": "광주",
+          "awayScore": 0,
+          "homeScore": 5,
+          "scoreLine": "0-5",
+          "ourScore": 0,
+          "oppScore": 5,
+          "ourScoreLine": "0-5",
+          "outcome": null,
+          "cancelled": false,
+          "gameId": "33331018LGHT02026",
+          "awayStarter": "임찬규",
+          "homeStarter": "올러",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

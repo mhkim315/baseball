@@ -1,9 +1,9 @@
 {
   "meta": {
     "teamId": "lg",
-    "lineupDate": "2026-10-17",
-    "lastUpdated": "2026-10-17T23:26:58+09:00",
-    "gameId": "33331017LGHT02026",
+    "lineupDate": "2026-10-18",
+    "lastUpdated": "2026-10-18T14:56:16+09:00",
+    "gameId": "33331018LGHT02026",
     "kboGameId": null,
     "opponent": "KIA",
     "venue": "광주",
@@ -75,9 +75,9 @@
   ],
   "opponentBatters": [],
   "startingPitcher": {
-    "name": "톨허스트"
+    "name": "임찬규"
   },
   "opponentStartingPitcher": {
-    "name": "네일"
+    "name": "올러"
   }
 }
