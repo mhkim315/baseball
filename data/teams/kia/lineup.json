@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "kia",
-    "lineupDate": "2026-10-20",
-    "lastUpdated": "2026-10-20T21:02:48+09:00",
-    "gameId": "33331020HTLG02026",
+    "lineupDate": "2026-10-25",
+    "lastUpdated": "2026-10-21T15:13:35+09:00",
+    "gameId": "55551025HTSS02026",
     "kboGameId": null,
-    "opponent": "LG",
-    "venue": "잠실",
-    "gameTime": "18:30",
+    "opponent": "삼성",
+    "venue": "대구",
+    "gameTime": "14:00",
     "lineupVerification": {
       "ours": {
         "source": "empty",
@@ -23,8 +23,8 @@
     }
   },
   "opponentMeta": {
-    "teamShort": "LG",
-    "teamName": "LG"
+    "teamShort": "삼성",
+    "teamName": "삼성"
   },
   "batters": [
     {
@@ -75,9 +75,9 @@
   ],
   "opponentBatters": [],
   "startingPitcher": {
-    "name": "시라카와"
+    "name": "??"
   },
   "opponentStartingPitcher": {
-    "name": "카라스코"
+    "name": "??"
   }
 }
