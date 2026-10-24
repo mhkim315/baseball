@@ -2,7 +2,7 @@
   "meta": {
     "teamId": "samsung",
     "lineupDate": "2026-10-25",
-    "lastUpdated": "2026-10-23T21:02:07+09:00",
+    "lastUpdated": "2026-10-24T14:54:00+09:00",
     "gameId": "55551025HTSS02026",
     "kboGameId": null,
     "opponent": "KIA",
@@ -75,9 +75,9 @@
   ],
   "opponentBatters": [],
   "startingPitcher": {
-    "name": "??"
+    "name": "페덱"
   },
   "opponentStartingPitcher": {
-    "name": "??"
+    "name": "네일"
   }
 }
