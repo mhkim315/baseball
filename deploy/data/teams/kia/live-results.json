@@ -1,7 +1,7 @@
 {
   "team": "KIA",
   "source": "Naver API (api-gw.sports.naver.com)",
-  "fetchedAt": "2026-10-24T22:38:15+09:00",
+  "fetchedAt": "2026-10-25T15:42:48+09:00",
   "byDate": {
     "2026-04-28": {
       "games": [
@@ -3554,6 +3554,28 @@
           "homeStarter": "카라스코",
           "winPitcher": "시라카와",
           "losePitcher": "카라스코"
+        }
+      ]
+    },
+    "2026-10-25": {
+      "games": [
+        {
+          "away": "KIA",
+          "home": "삼성",
+          "venue": "대구",
+          "awayScore": 0,
+          "homeScore": 0,
+          "scoreLine": "0-0",
+          "ourScore": 0,
+          "oppScore": 0,
+          "ourScoreLine": "0-0",
+          "outcome": null,
+          "cancelled": true,
+          "gameId": "55551025HTSS02026",
+          "awayStarter": "네일",
+          "homeStarter": "페덱",
+          "winPitcher": null,
+          "losePitcher": null
         }
       ]
     }

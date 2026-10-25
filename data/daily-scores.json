@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T22:44:03.582296+09:00",
+  "generatedAt": "2026-10-25T15:49:24.748419+09:00",
   "dates": {
     "2026-03-28": [
       {
@@ -9901,6 +9901,20 @@
         "homeStarter": "카라스코",
         "winPitcher": "시라카와",
         "losePitcher": "카라스코"
+      }
+    ],
+    "2026-10-25": [
+      {
+        "away": "KIA",
+        "home": "삼성",
+        "awayScore": 0,
+        "homeScore": 0,
+        "outcome": null,
+        "cancelled": true,
+        "awayStarter": "네일",
+        "homeStarter": "페덱",
+        "winPitcher": null,
+        "losePitcher": null
       }
     ]
   }
