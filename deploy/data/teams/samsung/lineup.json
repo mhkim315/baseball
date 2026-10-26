@@ -1,13 +1,13 @@
 {
   "meta": {
     "teamId": "samsung",
-    "lineupDate": "2026-10-25",
-    "lastUpdated": "2026-10-25T21:06:46+09:00",
-    "gameId": "55551025HTSS02026",
+    "lineupDate": "2026-10-26",
+    "lastUpdated": "2026-10-26T15:11:19+09:00",
+    "gameId": "55551026HTSS02026",
     "kboGameId": null,
     "opponent": "KIA",
     "venue": "대구",
-    "gameTime": "14:00",
+    "gameTime": "18:30",
     "lineupVerification": {
       "ours": {
         "source": "empty",

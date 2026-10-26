@@ -1,19 +1,19 @@
 {
   "meta": {
     "source": "naver:api-gw",
-    "naverGameId": "55551025HTSS02026",
-    "fetchedAt": "2026-10-25T21:03:02+09:00"
+    "naverGameId": "55551026HTSS02026",
+    "fetchedAt": "2026-10-26T15:07:31+09:00"
   },
   "gameInfo": {
     "aFullName": "KIA 타이거즈",
     "hPCode": "56459",
     "hCode": "SS",
     "hName": "삼성",
-    "cancelFlag": "Y",
-    "gdate": 20261025,
+    "cancelFlag": "N",
+    "gdate": 20261026,
     "aPCode": "54640",
-    "round": 0,
-    "gtime": "14:00",
+    "round": 1,
+    "gtime": "18:30",
     "aName": "KIA",
     "gameFlag": "5",
     "hFullName": "삼성 라이온즈",
